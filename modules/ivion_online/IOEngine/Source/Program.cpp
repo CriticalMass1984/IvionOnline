@@ -1,6 +1,5 @@
 #include <IOEngine/Program.hpp>
 
-#include <IOEngine/GameInstance.hpp>
 #include <IOEngine/AST/AST.hpp>
 
 namespace IO

@@ -1,5 +1,4 @@
 #include <IOEngine/AST/TargetPlayer.hpp>
-#include <IOEngine/GameInstance.hpp>
 
 namespace IO
 {

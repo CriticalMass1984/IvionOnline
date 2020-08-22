@@ -1,5 +1,4 @@
 #include <IOEngine/AST/DamagePlayer.hpp>
-#include <IOEngine/GameInstance.hpp>
 
 namespace IO
 {
