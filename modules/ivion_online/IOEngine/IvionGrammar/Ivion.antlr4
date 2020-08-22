@@ -1,0 +1,147 @@
+grammar Ivion;
+
+//////////////////////////////////////////////////////////////////////
+
+targetPlayer
+    : 'target' 'player'
+    ;
+
+selectPlayer
+    : 'a' 'player'
+    ;
+
+cardController
+    : 'you'
+    | 'yourself'
+    ;
+
+previousPlayer
+    : 'them'
+    | 'they'
+    ;
+
+player
+    : cardController
+    | selectPlayer
+    | previousPlayer
+    | targetPlayer
+    ;
+
+damagePlayer
+    : 'deal' integer 'damage' 'to' player
+    | player Take integer 'damage'
+    ;
+
+control
+    : Slow | Silence | Disarm
+    ;
+
+controlPlayer
+    : control integer player
+    | player Is control integer
+    ;
+
+movePlayer
+    : player Shift integer Tile
+    | player Shift 'to' tile
+    ;
+
+effectPlayer
+    : damagePlayer
+    | controlPlayer
+    | movePlayer
+    ;
+
+Disarm : 'disarm' | 'disarmed';
+Silence : 'silence' | 'silenced';
+Slow : 'slow' | 'slowed';
+Discard: 'discard' | 'discards';
+
+fragment
+Move: 'move' | 'moves';
+fragment
+Travel: 'travel' | 'travels';
+Shift: Move | Travel;
+
+//////////////////////////////////////////////////////////////////////
+
+targetTile
+    : 'target' Tile;
+
+selectTile
+    : targetTile
+    | 'a' Tile
+    ;
+
+tile
+    : selectTile
+    | targetTile
+    ;
+
+Tile: 'tile' | 'tiles';
+
+//////////////////////////////////////////////////////////////////////
+
+targetCard
+    : 'target' 'card';
+
+card
+    : targetCard
+    ;
+
+
+//////////////////////////////////////////////////////////////////////
+
+line
+    : (
+        effectPlayer
+    ) '.' ('\n' | EOF)?
+    ;
+
+paragraph
+    : line+ '\n'*
+    ;
+
+text
+    : paragraph+ | EOF;
+
+/* built in data types */
+
+integer
+    : integerLiteral;
+    
+integerLiteral: Integer;
+
+
+// lexer
+
+
+// articles
+Is: 'is' | 'are';
+Take: 'take' | 'takes';
+
+/* built in data types */
+
+Integer
+    :    [0-9]+
+    ;
+
+Newline
+    :  '\n'
+    ;
+
+// Skips
+Whitespace
+    :   [ \t]+
+        -> skip
+    ;
+
+BlockComment
+    :   '/*' .*? '*/'
+        -> skip
+    ;
+
+LineComment
+    :   '//' ~[\r\n]*
+        -> skip
+    ;

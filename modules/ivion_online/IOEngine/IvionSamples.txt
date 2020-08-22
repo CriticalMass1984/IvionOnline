@@ -1,0 +1,9 @@
+deal 5 damage to target player.
+they take 4 damage. deal 3 damage to them.
+you take 1 damage. deal 2 damage to yourself. deal 3 damage to yourself.
+
+deal 5 damage to target player.
+
+
+
+you take 3 damage.
