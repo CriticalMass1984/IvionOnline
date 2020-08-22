@@ -1,5 +1,7 @@
 #include <IOEngine/Branch.hpp>
 
+#include <cstdio>
+
 namespace IO
 {
 	namespace Engine
@@ -7,8 +9,8 @@ namespace IO
 
 		bool Branch::SetLevel(int targetLevel) noexcept
 		{
-			assert(targetLevel >= -1);
-			assert(targetLevel <= deltaOffsets_.size());
+			assert(targetLevel >= 0);
+			assert(targetLevel <= (int)deltaOffsets_.size());
 
 			if (targetLevel == level_)
 			{
@@ -16,11 +18,13 @@ namespace IO
 			}
 			else if (targetLevel < level_)
 			{
-				for (; level_ > targetLevel; level_--)
+				level_--;
+				for (; level_ >= targetLevel; level_--)
 				{
 					Var::Delta *delta = reinterpret_cast<Var::Delta *>(memory_.data() + deltaOffsets_[level_]);
 					delta->Revert();
 				}
+				level_++;
 				return true;
 			}
 			else
@@ -48,6 +52,11 @@ namespace IO
 		{
 			branches_.emplace_back(std::forward<Branch &&>(branch));
 			return branches_.back();
+		}
+
+		void Branch::Print()
+		{
+
 		}
 
 	} // namespace Engine

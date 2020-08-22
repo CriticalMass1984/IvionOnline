@@ -53,15 +53,13 @@ namespace IO
 
 			bool SetLevel(int level) noexcept;
 			inline bool Apply() noexcept { return SetLevel((int)deltaOffsets_.size()); }
-			inline void Revert() noexcept { SetLevel(-1); }
+			inline void Revert() noexcept { SetLevel(0); }
 
 			Branch &AddBranch() noexcept;
 			Branch &AddBranch(Branch &&branch) noexcept;
 			inline std::vector<Branch> &Branches() noexcept { return branches_; }
 
-			void Print()
-			{
-						}
+			void Print();
 		};
 
 	} // namespace Engine
