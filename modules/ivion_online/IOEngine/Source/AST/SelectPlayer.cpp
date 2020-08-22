@@ -8,9 +8,16 @@ namespace IO
 		namespace AST
 		{
 			//applies change
-			bool SelectPlayer(const SelectPlayerArgs *args) noexcept
+			bool SelectPlayer(Branch* activeBranch, const SelectPlayerArgs *args) noexcept
 			{
-				// (*args->player_)->Health.Set(GameInstance::Active->ActiveBranch, *(*args->player_)->Health - *args->value_);
+				activeBranch->Branches().reserve(GameInstance::Active->Players.size());
+				for(Player& player : GameInstance::Active->Players)
+				{
+					Branch& newBranch = activeBranch->AddBranch();
+					args->player_->Set(&newBranch, &player);
+					newBranch.Revert();
+				}
+				return true;
 			}
 
 		} // namespace AST

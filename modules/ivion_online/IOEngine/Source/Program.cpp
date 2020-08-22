@@ -8,13 +8,13 @@ namespace IO
     namespace Engine
     {
 
-        void Program::ExecuteRecursive(std::vector<AST::Method *>::iterator &it, const std::vector<AST::Method *>::iterator &end)
+        void Program::ExecuteRecursive(Branch* activeBranch, std::vector<AST::Method *>::iterator &it, const std::vector<AST::Method *>::iterator &end)
         {
             for (;;)
             {
                 AST::Method *methodArgs = *it;
                 AST::Method method = **it;
-                method(methodArgs);
+                method(activeBranch, methodArgs);
 
                 ++it;
                 if (it == end)
@@ -22,31 +22,26 @@ namespace IO
                     return;
                 }
 
-                if (!GameInstance::Active->ActiveBranch->Branches().empty())
+                if (!activeBranch->Branches().empty())
                 {
-                    //save the current active branch so we can restore it later
-                    Branch *currentBranch = GameInstance::Active->ActiveBranch;
-
                     //for each branch, execute the remining methods
-                    for (Branch &branch : GameInstance::Active->ActiveBranch->Branches())
+                    for (Branch &branch : activeBranch->Branches())
                     {
                         branch.Apply();
-                        GameInstance::Active->ActiveBranch = &branch;
-                        ExecuteRecursive(it, end);
+                        ExecuteRecursive(&branch, it, end);
                         branch.Revert();
                     }
-
-                    //restore original branch
-                    GameInstance::Active->ActiveBranch = currentBranch;
                     return;
                 }
             }
         }
 
-        void Program::Execute()
+        Branch Program::Execute()
         {
+            Branch branch;
             auto it = methods_.begin();
-            ExecuteRecursive(it, methods_.end());
+            ExecuteRecursive(&branch, it, methods_.end());
+            return branch;
         }
 
         void Program::Print()

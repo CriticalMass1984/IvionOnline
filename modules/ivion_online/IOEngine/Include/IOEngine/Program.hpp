@@ -19,7 +19,7 @@ namespace IO
             MemoryPool<kPoolSize> memory_buffer_;
             std::vector<AST::Method *> methods_;
 
-            void ExecuteRecursive(std::vector<AST::Method *>::iterator &it, const std::vector<AST::Method *>::iterator &end);
+            void ExecuteRecursive(Branch* activeBranch, std::vector<AST::Method *>::iterator &it, const std::vector<AST::Method *>::iterator &end);
 
         public:
             Program() = default;
@@ -43,7 +43,8 @@ namespace IO
                 return methodArgs;
             }
 
-            void Execute();
+            // computes a (possibly nested) branch of changes to the game state
+            Branch Execute();
 
             void Print();
         };

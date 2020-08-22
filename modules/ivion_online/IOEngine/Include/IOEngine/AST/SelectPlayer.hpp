@@ -15,7 +15,7 @@ namespace IO
 		{
 			struct SelectPlayerArgs;
 
-			static bool SelectPlayer(const SelectPlayerArgs *self) noexcept;
+			bool SelectPlayer(Branch* activeBranch, const SelectPlayerArgs *self) noexcept;
 
 			struct SelectPlayerArgs
 			{

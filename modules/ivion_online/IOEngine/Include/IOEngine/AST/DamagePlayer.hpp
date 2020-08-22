@@ -13,7 +13,7 @@ namespace IO
 
 			struct DamagePlayerArgs;
 			
-			static bool DamagePlayer(const DamagePlayerArgs *args) noexcept;
+			bool DamagePlayer(Branch* activeBranch, const DamagePlayerArgs *args) noexcept;
 
 			struct DamagePlayerArgs
 			{

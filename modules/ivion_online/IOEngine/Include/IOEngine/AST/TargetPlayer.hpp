@@ -13,7 +13,7 @@ namespace IO
 		{
 			struct TargetPlayerArgs;
 
-			static bool TargetPlayer(const TargetPlayerArgs *self) noexcept;
+			bool TargetPlayer(Branch* activeBranch, const TargetPlayerArgs *self) noexcept;
 
 			struct TargetPlayerArgs
 			{

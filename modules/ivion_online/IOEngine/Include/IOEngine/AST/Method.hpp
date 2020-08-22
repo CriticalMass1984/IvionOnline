@@ -1,4 +1,6 @@
 #pragma once
+#include <IOEngine/Branch.hpp>
+
 
 namespace IO
 {
@@ -6,7 +8,7 @@ namespace IO
 	{
 		namespace AST
 		{
-			typedef bool (*Method)(const void *self);
+			typedef bool (*Method)(Branch* activeBranch, const void *self);
 		} // namespace AST
 	}	  // namespace Engine
 } // namespace IO

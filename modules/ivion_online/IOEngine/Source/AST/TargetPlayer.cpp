@@ -8,10 +8,10 @@ namespace IO
 		namespace AST
 		{
 			//applies change
-			bool TargetPlayer(const TargetPlayerArgs *args) noexcept
+			bool TargetPlayer(Branch* activeBranch, const TargetPlayerArgs *args) noexcept
 			{
 				SelectPlayerArgs selectArgs(args->player_);
-				return SelectPlayer(&selectArgs);
+				return SelectPlayer(activeBranch, &selectArgs);
 			}
 		} // namespace AST
 	}	  // namespace Engine

@@ -17,10 +17,6 @@ namespace IO
 	{
 		class GameInstance
 		{
-
-		private:
-			Branch root_;
-
 		public:
 			GameInstance(std::vector<Player> &&players, std::vector<Team> &&teams)
 				: Players(std::forward<std::vector<Player> &&>(players)),
@@ -38,7 +34,6 @@ namespace IO
 			Var::Var<Player *> ActivePlayer;
 			Var::Var<Card *> ActiveCard;
 
-			Branch *ActiveBranch{&root_};
 			static GameInstance *Active;
 		};
 

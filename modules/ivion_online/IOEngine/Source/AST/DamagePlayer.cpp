@@ -8,9 +8,9 @@ namespace IO
 		namespace AST
 		{
 			//applies change
-			bool DamagePlayer(const DamagePlayerArgs *args) noexcept
+			bool DamagePlayer(Branch* activeBranch, const DamagePlayerArgs *args) noexcept
 			{
-				(*args->player_)->Health.Set(GameInstance::Active->ActiveBranch, *(*args->player_)->Health - *args->value_);
+				(*args->player_)->Health.Set(activeBranch, *(*args->player_)->Health - *args->value_);
 				return true;
 			}
 
