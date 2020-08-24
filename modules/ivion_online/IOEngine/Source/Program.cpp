@@ -7,7 +7,7 @@ namespace IO
     namespace Engine
     {
 
-        void Program::ExecuteRecursive(Branch* activeBranch, std::vector<AST::Method *>::iterator &it, const std::vector<AST::Method *>::iterator &end)
+        void Program::ExecuteRecursive(Branch* activeBranch, std::vector<AST::Method *>::iterator it, const std::vector<AST::Method *>::iterator &end)
         {
             for (;;)
             {
@@ -16,6 +16,7 @@ namespace IO
                 method(activeBranch, methodArgs);
 
                 ++it;
+
                 if (it == end)
                 {
                     return;
@@ -38,6 +39,10 @@ namespace IO
         Branch Program::Execute()
         {
             Branch branch;
+            if(methods_.empty())
+            {
+                return branch;
+            }
             auto it = methods_.begin();
             ExecuteRecursive(&branch, it, methods_.end());
             return branch;

@@ -4,38 +4,56 @@
 #include <cassert>
 
 #include <IOEngine/Branch.hpp>
-#include <IOEngine/Player.hpp>
-#include <IOEngine/Card.hpp>
-#include <IOEngine/Team.hpp>
-#include <IOEngine/Player.hpp>
-#include <IOEngine/Program.hpp>
+#include <IOEngine/MemoryPool.hpp>
+#include <IOEngine/ObjectPool.hpp>
 #include <IOEngine/Vars/Var.hpp>
 
-namespace IO
-{
-	namespace Engine
-	{
-		class GameInstance
-		{
-		public:
-			GameInstance(std::vector<Player> &&players, std::vector<Team> &&teams)
-				: Players(std::forward<std::vector<Player> &&>(players)),
-				  Teams(std::forward<std::vector<Team> &&>(teams)),
-				  ActiveTeam{&Teams[0]},
-				  ActivePlayer{&Players[0]},
-				  ActiveCard{&Players[0].Deck[0]}
-			{
-			}
+namespace IO {
+namespace Engine {
+class Player;
+class Team;
+class Card;
+class GameInstance {
+public:
+	struct CardDef {
+		unsigned int playerIndex_;
+		std::string name_;
+		std::string playText_;
+	};
+	struct PlayerDef {
+		std::string name_;
+	};
 
-			std::vector<Player> Players;
-			std::vector<Team> Teams;
+	struct TeamDef {
+	};
+	GameInstance(const std::vector<PlayerDef> &players, const std::vector<TeamDef> &teams, const std::vector<CardDef> &cards) :
+			Memory(), //this needs to be constructed first!
+			Players(MakePlayers(players)),
+			Teams(MakeTeams(teams)),
+			Decks(MakeDecks(cards)),
+			ActiveTeam{ Teams[0] },
+			ActivePlayer{ Players[0] },
+			ActiveCard{ Decks[0][0] } {
+	}
 
-			Var::Var<Team *> ActiveTeam;
-			Var::Var<Player *> ActivePlayer;
-			Var::Var<Card *> ActiveCard;
+	MemoryPool Memory;
+	ObjectPool CardEffects;
 
-			static GameInstance *Active;
-		};
+	std::vector<Player *> Players;
+	std::vector<Team *> Teams;
+	std::vector<std::vector<Card *>> Decks;
 
-	} // namespace Engine
+	Var::Var<Team *> ActiveTeam;
+	Var::Var<Player *> ActivePlayer;
+	Var::Var<Card *> ActiveCard;
+
+	static GameInstance *Active;
+
+private:
+	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
+	std::vector<Team *> MakeTeams(const std::vector<TeamDef> &teams);
+	std::vector<std::vector<Card *>> MakeDecks(const std::vector<CardDef> &cards);
+};
+
+} // namespace Engine
 } // namespace IO

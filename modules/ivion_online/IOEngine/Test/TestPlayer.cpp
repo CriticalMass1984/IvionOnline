@@ -4,7 +4,7 @@ namespace ivion = IO::Engine;
 
 int main(int argc, char **argv)
 {
-    ivion::MemoryPool<1024> pool;
+    ivion::MemoryPool pool;
     int *value = pool.EmplaceObject<int>(0);
     int **valuePtr = pool.EmplaceObject<int *>(value);
 }

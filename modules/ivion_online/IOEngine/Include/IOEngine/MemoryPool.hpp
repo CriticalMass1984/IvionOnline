@@ -14,19 +14,19 @@ namespace IO
 		/*
 			Allows you to append semi-arbitrary objects to contiguous memory
 		*/
-		template <int kPoolSize>
 		class MemoryPool
 		{
+			static constexpr int kPoolSize = 1024 * 4;
 			typedef std::array<unsigned char, kPoolSize> Pool;
-			std::vector<Pool> pools_;
+			std::vector<std::unique_ptr<Pool>> pools_;
 
 			Pool *current_pool_{nullptr};
 			int current_pool_size_{0};
 
 			Pool *NewPool()
 			{
-				pools_.emplace_back();
-				return &pools_.back();
+				pools_.emplace_back(std::make_unique<Pool>());
+				return pools_.back().get();
 				// if (!it.second)
 				// {
 				// 	fprintf(stderr, "Failed to emplace pool #%lu\n", pools_.size());
@@ -47,6 +47,7 @@ namespace IO
 			T *EmplaceObject(args_t... args)
 			{
 				static_assert(std::is_trivially_destructible<T>::value, "can only emplace trivially destructible objects");
+				static_assert(sizeof(T) < kPoolSize, "The pool needs to be bigger");
 
 				void *objPtr = current_pool_->data() + current_pool_size_;
 				current_pool_size_ += sizeof(T);

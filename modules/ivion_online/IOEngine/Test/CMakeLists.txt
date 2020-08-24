@@ -42,10 +42,8 @@ target_include_directories(TestPlayer PUBLIC
 
 add_executable(TestBranch
     TestBranch.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Source/Branch.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Source/Player.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Source/Card.cpp
 )
 target_include_directories(TestBranch PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../Include
 )
+target_link_libraries(TestBranch ivion)

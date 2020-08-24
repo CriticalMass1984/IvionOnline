@@ -4,7 +4,7 @@ namespace IO
 {
     namespace Engine
     {
-        Card::Card(Player *player) noexcept : Controller(player)
+        Card::Card(Program* effect, Player *player) noexcept : Effect(effect), Controller(player)
         {
         }
 

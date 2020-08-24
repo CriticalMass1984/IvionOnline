@@ -3,18 +3,20 @@
 #include <cassert>
 #include <IOEngine/Vars/Var.hpp>
 #include <IOEngine/Program.hpp>
+#include <IOEngine/MemoryPool.hpp>
 
 namespace IO
 {
 	namespace Engine
 	{
 		class Player;
+		class Program;
 
 		class Card
 		{
 		private:
 		public:
-			Program Effect;
+			Program* Effect;
 
 			enum class Zone
 			{
@@ -31,7 +33,7 @@ namespace IO
 			Var::Var<bool> IsRevealed{false};
 			Var::Var<Player *> Controller{nullptr};
 
-			Card(Player *owner) noexcept;
+			Card(Program* effect, Player *owner) noexcept;
 
 			Card(const Card &) noexcept = delete;
 			Card(Card &&) noexcept = default;

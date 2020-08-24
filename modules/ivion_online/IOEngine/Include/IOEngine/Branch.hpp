@@ -4,6 +4,7 @@
 #include <type_traits>
 #include <vector>
 #include <cassert>
+#include <string>
 #include <IOEngine/Vars/Delta.hpp>
 
 namespace IO
@@ -23,6 +24,9 @@ namespace IO
 		public:
 			Branch() noexcept = default;
 			Branch(Branch &&) noexcept = default;
+			Branch& operator=(Branch &&) noexcept = default;
+			Branch(const Branch &) noexcept = delete;
+			Branch& operator=(const Branch &) noexcept = delete;
 			~Branch() noexcept = default;
 
 			template <typename T, typename... args_t>
@@ -57,9 +61,10 @@ namespace IO
 
 			Branch &AddBranch() noexcept;
 			Branch &AddBranch(Branch &&branch) noexcept;
+			inline const std::vector<Branch> &Branches() const noexcept { return branches_; }
 			inline std::vector<Branch> &Branches() noexcept { return branches_; }
 
-			void Print();
+			void Print(const std::string& prefix = "");
 		};
 
 	} // namespace Engine

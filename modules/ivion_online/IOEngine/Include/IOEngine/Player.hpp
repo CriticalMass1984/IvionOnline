@@ -13,12 +13,12 @@ namespace IO
 		{
 		public:
 			const int Index;
-			Var::Var<int> Health;
-			Var::Var<int> MaxHealth;
+			Var::Var<int> Health{40};
+			Var::Var<int> MaxHealth{40};
 			Var::Var<Vec2> Position;
-			std::vector<Card> Deck;
 
 			Player(int idx);
+			~Player() = default;
 		};
 		typedef Var::Var<Player *> PlayerVar;
 

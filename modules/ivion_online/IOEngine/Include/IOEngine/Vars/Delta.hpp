@@ -17,9 +17,8 @@ namespace IO
 
 				constexpr Delta(ApplyFunc apply, RevertFunc revert) noexcept : apply_(apply), revert_(revert) {}
 
-			private:
-				ApplyFunc apply_;
-				RevertFunc revert_;
+				ApplyFunc const apply_;
+				RevertFunc const revert_;
 			};
 		} // namespace Var
 	}	  // namespace Engine

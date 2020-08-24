@@ -11,10 +11,10 @@ namespace IO
 			bool SelectPlayer(Branch* activeBranch, const SelectPlayerArgs *args) noexcept
 			{
 				activeBranch->Branches().reserve(GameInstance::Active->Players.size());
-				for(Player& player : GameInstance::Active->Players)
+				for(Player* player : GameInstance::Active->Players)
 				{
 					Branch& newBranch = activeBranch->AddBranch();
-					args->player_->Set(&newBranch, &player);
+					args->player_->Set(&newBranch, player);
 					newBranch.Revert();
 				}
 				return true;

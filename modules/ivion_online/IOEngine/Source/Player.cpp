@@ -7,10 +7,7 @@ namespace IO
 
         Player::Player(int idx) : Index(idx)
         {
-            for (int i = 0; i < 45; ++i)
-            {
-                Deck.emplace_back(this);
-            }
+            
         }
     } // namespace Engine
 } // namespace IO
