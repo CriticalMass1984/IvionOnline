@@ -12,14 +12,20 @@ public:
 
 	//godot api
 	void _input_event(Node *p_camera, const Ref<InputEvent> &p_input_event, const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) override;
-	virtual void _mouse_enter() override {};
-	virtual void _mouse_exit() override {};
+	virtual void _mouse_enter() override{};
+	virtual void _mouse_exit() override{};
 
 	// engine api
-	void MarkAsChoice(int index);
-	void UnmarkAsChoice();
+	//returns true if the marking was successful (it wasn't marked before)
+	virtual bool MarkAsOption(int index);
 
-	// engine callbacks
+	//returns true if the marking was successful (it was marked before)
+	virtual bool UnmarkAsOption();
+
+	//returns true if successful (branch index was valid, is marked as a choice). Also unmarks
+	virtual bool SelectAsChoice();
+
+	// godot callbacks
 	virtual void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
 	virtual void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
 	virtual void MouseEnter() {}

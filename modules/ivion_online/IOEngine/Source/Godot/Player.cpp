@@ -36,16 +36,14 @@ void Player::LoadPawn(BattleInstance *root, Pawn::Model m, Vector2i start) {
 	assert(scene->instance());
 	pawn_ = Object::cast_to<Pawn>(scene->instance());
 	fprintf(stderr, "class: %s\n", String(scene->instance()->get_class_name()).utf8().get_data());
-	if (pawn_) {
-		assert(pawn_);
-		pawn_->SetModel(m);
+	assert(pawn_);
+	pawn_->SetModel(m);
 
-		Node *const pawnNode = root->get_node_or_null(NodePath("Pawns"));
-		assert(pawnNode);
-		pawnNode->add_child(pawn_);
+	Node *const pawnNode = root->get_node_or_null(NodePath("Pawns"));
+	assert(pawnNode);
+	pawnNode->add_child(pawn_);
 
-		pawn_->set_transform(root->tiles_[start.y][start.x]->get_transform());
-	}
+	pawn_->set_transform(root->tiles_[start.y][start.x]->get_transform());
 }
 void Player::InitEngine(BattleInstance *root, IO::Engine::GameInstance *instance, int index) {
 	this->enginePlayer_ = instance->Players[index];
@@ -104,4 +102,5 @@ void Player::LoadDeck(BattleInstance *root, IO::Engine::GameInstance *instance, 
 		}
 	}
 }
+
 } // namespace godot

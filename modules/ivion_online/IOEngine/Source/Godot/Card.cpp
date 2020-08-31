@@ -5,28 +5,34 @@
 #include <IOEngine/GameInstance.hpp>
 
 namespace godot {
+//engine api
+bool Card::MarkAsOption(int index) {
+	return this->IvionEntity::MarkAsOption(index);
+}
+bool Card::UnmarkAsOption() {
+	return this->IvionEntity::UnmarkAsOption();
+}
+bool Card::SelectAsChoice() {
+	return this->IvionEntity::SelectAsChoice();
+}
 
-void Card::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
-}
-void Card::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
-}
-void Card::Init() {
-	
-}
-void Card::Update(float deltaTime) {
-}
-void Card::Delete() {
-}
+//godot callbacks
+void Card::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
+void Card::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
+void Card::MouseEnter() {}
+void Card::MouseLeave() {}
+void Card::Init() {}
+void Card::Update(float deltaTime) {}
+void Card::Delete() {}
 
 void Card::_bind_methods() {
 	// ClassDB::bind_method(D_METHOD("static_get_card_material", "path"), &Card::StaticGetCardMaterial);
 }
 
 //engine
-void Card::LoadCard(IO::Engine::GameInstance* instance, const std::string& archetype, const std::string& name)
-{
-    const IO::Engine::CardLibrary& library = instance->Library();
-	const IO::Engine::CardDef * cardDef = library.GetCard(archetype, name);
+void Card::LoadCard(IO::Engine::GameInstance *instance, const std::string &archetype, const std::string &name) {
+	const IO::Engine::CardLibrary &library = instance->Library();
+	const IO::Engine::CardDef *cardDef = library.GetCard(archetype, name);
 	assert(cardDef);
 
 	Node *child = get_node_or_null(NodePath("Plane"));
@@ -43,7 +49,6 @@ void Card::LoadCard(IO::Engine::GameInstance* instance, const std::string& arche
 	mesh->set_material_override(material);
 }
 
-
 Map<String, Ref<Material>> Card::cardMaterialCache_;
 
 Ref<Material> Card::GetCardMaterial(const String &imageName) {
@@ -58,8 +63,7 @@ Ref<Material> Card::GetCardMaterial(const String &imageName) {
 	//load a new image
 	Ref<Image> image = memnew(Image);
 	Error error = image->load(imageName);
-	if (error)
-	{
+	if (error) {
 		fprintf(stderr, "Could not load image\n");
 		return nullptr;
 	}

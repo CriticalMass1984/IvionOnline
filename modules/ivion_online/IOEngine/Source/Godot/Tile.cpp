@@ -5,7 +5,18 @@
 #include <IOEngine/GameInstance.hpp>
 
 namespace godot {
+//engine api
+bool Tile::MarkAsOption(int index) {
+	return this->IvionEntity::MarkAsOption(index);
+}
+bool Tile::UnmarkAsOption() {
+	return this->IvionEntity::UnmarkAsOption();
+}
+bool Tile::SelectAsChoice() {
+	return this->IvionEntity::SelectAsChoice();
+}
 
+//godot callbacks
 void Tile::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
 }
 void Tile::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
@@ -17,16 +28,13 @@ void Tile::Init() {
 	ERR_FAIL_NULL(child);
 
 	MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
-	if(mesh == nullptr)
-	{
-		this->print_tree_pretty();
-		return;
-	}
 	assert(mesh);
 
 	Ref<Material> material = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
 	mesh->set_material_override(material);
 }
+void Tile::MouseEnter() {}
+void Tile::MouseLeave() {}
 void Tile::Update(float deltaTime) {
 }
 void Tile::Delete() {
@@ -37,11 +45,9 @@ void Tile::_bind_methods() {
 }
 
 //engine
-void Tile::InitEngine(IO::Engine::GameInstance *instance, Vector2i pos)
-{
+void Tile::InitEngine(IO::Engine::GameInstance *instance, Vector2i pos) {
 	engineTile_ = &instance->Map[pos.y][pos.x];
 }
-
 
 Map<String, Ref<Material>> Tile::TileMaterialCache_;
 
@@ -60,8 +66,7 @@ Ref<Material> Tile::GetTileMaterial(const String &imageName) {
 	fprintf(stderr, "Loading %s\n", imageName.utf8().get_data());
 	Ref<Image> image = memnew(Image);
 	Error error = image->load(imageName);
-	if (error)
-	{
+	if (error) {
 		fprintf(stderr, "Could not load image\n");
 		return nullptr;
 	}

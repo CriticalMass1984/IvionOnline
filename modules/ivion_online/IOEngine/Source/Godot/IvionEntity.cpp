@@ -23,11 +23,26 @@ void IvionEntity::_notification(int p_what) {
 }
 
 //engine api
-void IvionEntity::MarkAsChoice(int index) {
-	choiceIndex_ = index;
+bool IvionEntity::MarkAsOption(int index) {
+	if (choiceIndex_ == -1) {
+		choiceIndex_ = index;
+		return true;
+	}
+	return false;
 }
-void IvionEntity::UnmarkAsChoice() {
+bool IvionEntity::UnmarkAsOption() {
+	if (choiceIndex_ == -1) {
+		return false;
+	}
 	choiceIndex_ = -1;
+	return true;
+}
+bool IvionEntity::SelectAsChoice() {
+	if (choiceIndex_ == -1) {
+		return false;
+	}
+	choiceIndex_ = -1;
+	return true;
 }
 
 //godot api

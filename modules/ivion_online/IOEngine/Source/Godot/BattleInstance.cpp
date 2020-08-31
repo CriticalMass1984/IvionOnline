@@ -68,6 +68,7 @@ void BattleInstance::_notification(int p_what) {
 			// load players
 			fprintf(stderr, "Loading Players");
 			Vector2i Starts[] = { Vector2i(0, 0), Vector2i(3, 3) };
+			Pawn::Model Models[] = { Pawn::Model::ARCHMAGE, Pawn::Model::ERRANT };
 
 			for (unsigned int i = 0; i < playerDefs.size(); ++i) {
 				fprintf(stderr, "Loading Player[%d] %s\n", i, playerDefs[i].displayName_.c_str());
@@ -75,7 +76,7 @@ void BattleInstance::_notification(int p_what) {
 				fprintf(stderr, "Loading Deck\n");
 				player->LoadDeck(this, gameInstance_.get(), playerDefs[i].deckName_);
 				fprintf(stderr, "Loading Pawn\n");
-				player->LoadPawn(this, Pawn::Model::ARCHMAGE, Starts[i]);
+				player->LoadPawn(this, Models[i], Starts[i]);
 			}
 			fprintf(stderr, "Done");
 		} break;
