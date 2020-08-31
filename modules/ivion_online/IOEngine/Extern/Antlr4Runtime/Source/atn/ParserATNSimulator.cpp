@@ -1348,7 +1348,7 @@ Parser* ParserATNSimulator::getParser() {
   return parser;
 }
 
-#pragma warning (disable:4996) // 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. 
+// #pragma warning (disable:4996) // 'getenv': This function or variable may be unsafe. Consider using _dupenv_s instead. 
 
 bool ParserATNSimulator::getLrLoopSetting() {
   char *var = std::getenv("TURN_OFF_LR_LOOP_ENTRY_BRANCH_OPT");
@@ -1358,7 +1358,7 @@ bool ParserATNSimulator::getLrLoopSetting() {
   return value == "true" || value == "1";
 }
 
-#pragma warning (default:4996)
+// #pragma warning (default:4996)
 
 void ParserATNSimulator::InitializeInstanceFields() {
   _mode = PredictionMode::LL;

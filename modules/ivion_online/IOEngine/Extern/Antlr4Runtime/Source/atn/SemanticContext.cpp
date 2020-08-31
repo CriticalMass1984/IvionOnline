@@ -126,8 +126,8 @@ SemanticContext::AND::AND(Ref<SemanticContext> const& a, Ref<SemanticContext> co
 
   if (!precedencePredicates.empty()) {
     // interested in the transition with the lowest precedence
-    auto predicate = [](Ref<PrecedencePredicate> const& a, Ref<PrecedencePredicate> const& b) {
-      return a->precedence < b->precedence;
+    auto predicate = [](Ref<PrecedencePredicate> const& aa, Ref<PrecedencePredicate> const& bb) {
+      return aa->precedence < bb->precedence;
     };
 
     auto reduced = std::min_element(precedencePredicates.begin(), precedencePredicates.end(), predicate);
@@ -229,8 +229,8 @@ SemanticContext::OR::OR(Ref<SemanticContext> const& a, Ref<SemanticContext> cons
   std::vector<Ref<PrecedencePredicate>> precedencePredicates = filterPrecedencePredicates(operands);
   if (!precedencePredicates.empty()) {
     // interested in the transition with the highest precedence
-    auto predicate = [](Ref<PrecedencePredicate> const& a, Ref<PrecedencePredicate> const& b) {
-      return a->precedence < b->precedence;
+    auto predicate = [](Ref<PrecedencePredicate> const& aa, Ref<PrecedencePredicate> const& bb) {
+      return aa->precedence < bb->precedence;
     };
     auto reduced = std::max_element(precedencePredicates.begin(), precedencePredicates.end(), predicate);
     operands.insert(*reduced);

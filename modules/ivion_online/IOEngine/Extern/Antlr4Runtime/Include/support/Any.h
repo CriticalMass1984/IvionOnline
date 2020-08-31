@@ -10,8 +10,8 @@
 #include "antlr4-common.h"
 
 #ifdef _MSC_VER
-  #pragma warning(push)
-  #pragma warning(disable: 4521) // 'antlrcpp::Any': multiple copy constructors specified
+  // #pragma warning(push)
+  // #pragma warning(disable: 4521) // 'antlrcpp::Any': multiple copy constructors specified
 #endif
 
 namespace antlrcpp {
@@ -166,5 +166,5 @@ private:
 } // namespace antlrcpp
 
 #ifdef _MSC_VER
-#pragma warning(pop)
+// #pragma warning(pop)
 #endif
