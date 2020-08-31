@@ -4,15 +4,13 @@
 #include <IOEngine/Player.hpp>
 #include <cassert>
 
-static IO::Engine::Player *p{ nullptr };
-
 namespace IO {
 namespace Engine {
 
 namespace AST {
 struct SelectPlayerArgs;
 
-bool SelectPlayer(Branch *activeBranch, const SelectPlayerArgs *self) noexcept;
+bool SelectPlayer(GameInstance* instance, Branch *activeBranch, const SelectPlayerArgs *self) noexcept;
 
 struct SelectPlayerArgs {
 	Method const method_{ (Method)SelectPlayer };

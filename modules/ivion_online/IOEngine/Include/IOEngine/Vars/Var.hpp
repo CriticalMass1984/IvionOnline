@@ -1,12 +1,12 @@
 #pragma once
 
-#include <IOEngine/Branch.hpp>
 #include <IOEngine/Vars/Delta.hpp>
 #include <limits>
 #include <type_traits>
 
 namespace IO {
 namespace Engine {
+
 namespace Var {
 template <typename T>
 class Var {
@@ -66,9 +66,8 @@ public:
 		return value_;
 	}
 
-	void Set(Branch *branch, T value) noexcept {
-		branch->Append<SetDelta>(this, value, this->value_);
-		assert(this->value_ == value);
+	SetDelta Set(T value) noexcept {
+		return SetDelta(this, value, this->value_);
 	}
 
 	~Var() noexcept = default;

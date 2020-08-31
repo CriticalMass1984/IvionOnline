@@ -1,0 +1,40 @@
+
+import os, fnmatch
+def GetSources(directory):
+    matches = list()
+    for root, dirnames, filenames in os.walk(directory):
+        for filename in fnmatch.filter(filenames, '*.cpp'):
+            matches.append(os.path.join(root, filename))
+    print("Ivion Online Source: '{}'".format("\n".join(matches)))
+    return matches
+
+
+Import('env')
+
+
+#
+env.Append(CXXFLAGS=['-std=c++17'])
+env.Append(CCFLAGS=['-O2'])
+
+#
+sources = ["register_types.cpp"]
+sources.extend(GetSources("IOEngine/Source"))
+sources.extend(GetSources("IOEngine/Extern/Antlr4Runtime/Source"))
+
+#
+includeDirs = ["IOEngine/Include", "IOEngine/Extern/Antlr4Runtime/Include"]
+env.Append(CPPPATH=includeDirs)
+
+
+if ARGUMENTS.get('summator_shared', 'no') == 'yes':
+    # Shared lib compilation
+    #  env.Append(CCFLAGS=['-fPIC'])
+    env['LIBS'] = []
+    shared_lib = env.SharedLibrary(target='#bin/ivion_online', source=sources)
+    shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
+
+    env.Append(LIBS=[shared_lib_shim])
+    env.Append(LIBPATH=['#bin'])
+else:
+    # Static compilation
+    env.add_source_files(env.modules_sources, sources)

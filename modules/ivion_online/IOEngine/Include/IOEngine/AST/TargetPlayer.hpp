@@ -10,7 +10,7 @@ namespace Engine {
 namespace AST {
 struct TargetPlayerArgs;
 
-bool TargetPlayer(Branch *activeBranch, const TargetPlayerArgs *self) noexcept;
+bool TargetPlayer(GameInstance* instance, Branch *activeBranch, const TargetPlayerArgs *self) noexcept;
 
 struct TargetPlayerArgs {
 	Method const method_{ (Method)TargetPlayer };

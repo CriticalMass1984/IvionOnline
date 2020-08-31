@@ -47,8 +47,8 @@ Branch &Branch::AddBranch(Branch &&branch) noexcept {
 	return branches_.back();
 }
 
-void PrintIntVar(const std::string &prefix, const IntVar::SetDelta *setDelta) {
-	for (const Player *player : GameInstance::Active->Players) {
+void PrintIntVar(GameInstance* instance, const std::string &prefix, const IntVar::SetDelta *setDelta) {
+	for (const Player *player : instance->Players) {
 		if (&player->Health == setDelta->Target()) {
 			fprintf(stderr, "%splayer[%d].Health[%p](%d) = %d\n", prefix.c_str(), player->Index, setDelta->Target(), setDelta->Old(), setDelta->New());
 			return;
@@ -61,8 +61,8 @@ void PrintIntVar(const std::string &prefix, const IntVar::SetDelta *setDelta) {
 	fprintf(stderr, "%sint[%p](%d) = %d\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
 
-void PrintPlayerVar(const std::string &prefix, const PlayerVar::SetDelta *setDelta) {
-	for (const Player *player : GameInstance::Active->Players) {
+void PrintPlayerVar(GameInstance* instance, const std::string &prefix, const PlayerVar::SetDelta *setDelta) {
+	for (const Player *player : instance->Players) {
 		if (setDelta->New() == player) {
 			fprintf(stderr, "%sPlayerVar[%p] = Player %d\n", prefix.c_str(), setDelta, setDelta->New()->Index);
 			return;
@@ -71,13 +71,13 @@ void PrintPlayerVar(const std::string &prefix, const PlayerVar::SetDelta *setDel
 	fprintf(stderr, "%sPlayerVar[%p](%p) = %p\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
 
-void Branch::Print(const std::string &prefix) {
+void Branch::Print(GameInstance* instance, const std::string &prefix) {
 	for (int deltaOffset : deltaOffsets_) {
 		const Var::Delta *delta = reinterpret_cast<Var::Delta *>(memory_.data() + deltaOffset);
 		if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)IntVar::SetDelta::Apply) {
-			PrintIntVar(prefix, reinterpret_cast<const IntVar::SetDelta *>(delta));
+			PrintIntVar(instance, prefix, reinterpret_cast<const IntVar::SetDelta *>(delta));
 		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)PlayerVar::SetDelta::Apply) {
-			PrintPlayerVar(prefix, reinterpret_cast<const PlayerVar::SetDelta *>(delta));
+			PrintPlayerVar(instance, prefix, reinterpret_cast<const PlayerVar::SetDelta *>(delta));
 		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::DamagePlayerDelta::Apply) {
 			const AST::DamagePlayerDelta *funcDelta = reinterpret_cast<const AST::DamagePlayerDelta *>(delta);
 			fprintf(stderr, "%sDeal %d damage to player[%d]\n", prefix.c_str(), funcDelta->value_, funcDelta->player_->Index);
@@ -94,7 +94,7 @@ void Branch::Print(const std::string &prefix) {
 	int branchIdx = 0;
 	for (Branch &branch : branches_) {
 		printf("%sBranch[%d]\n", nestedPrefix.c_str(), branchIdx++);
-		branch.Print(nestedPrefix);
+		branch.Print(instance, nestedPrefix);
 	}
 }
 

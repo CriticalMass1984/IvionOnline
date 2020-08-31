@@ -47,3 +47,13 @@ target_include_directories(TestBranch PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../Include
 )
 target_link_libraries(TestBranch ivion)
+
+#################################
+
+add_executable(TestCardLibrary
+    TestCardLibrary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Source/CardLibrary.cpp
+)
+target_include_directories(TestCardLibrary PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Include
+)

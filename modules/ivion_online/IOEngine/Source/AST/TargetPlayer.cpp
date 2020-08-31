@@ -1,15 +1,16 @@
 #include <IOEngine/AST/TargetPlayer.hpp>
+#include <IOEngine/GameInstance.hpp>
 
 namespace IO {
 namespace Engine {
 namespace AST {
 //applies change
-bool TargetPlayer(Branch *activeBranch, const TargetPlayerArgs *args) noexcept {
-	activeBranch->Branches().reserve(GameInstance::Active->Players.size());
-	for (Player *player : GameInstance::Active->Players) {
+bool TargetPlayer(GameInstance* instance, Branch *activeBranch, const TargetPlayerArgs *args) noexcept {
+	activeBranch->Branches().reserve(instance->Players.size());
+	for (Player *player : instance->Players) {
 		Branch &newBranch = activeBranch->AddBranch();
 		newBranch.Append<TargetPlayerDelta>(player);
-		args->player_->Set(&newBranch, player);
+		newBranch.Append<PlayerVar::SetDelta>(args->player_->Set(player));
 		newBranch.Revert();
 	}
 	return true;

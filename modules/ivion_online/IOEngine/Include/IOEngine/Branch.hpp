@@ -6,11 +6,14 @@
 #include <cassert>
 #include <string>
 #include <IOEngine/Vars/Delta.hpp>
+#include <IOEngine/GameInstance.hpp>
 
 namespace IO
 {
 	namespace Engine
 	{
+		class GameInstance;
+
 		class Branch
 		{
 			std::vector<unsigned char> memory_;
@@ -36,7 +39,7 @@ namespace IO
 				static_assert(std::is_trivially_destructible<T>::value, "type must be trivially destructible!");
 				static_assert(std::is_base_of<Var::Delta, T>::value, "type must inherit from Delta!");
 				assert(isGood_);
-				assert(deltaOffsets_.size() == level_);
+				assert(deltaOffsets_.size() == (unsigned int)level_);
 				assert(memory_.size() + sizeof(T) < std::numeric_limits<int>::max());
 
 				const std::size_t offset = memory_.size();
@@ -64,7 +67,7 @@ namespace IO
 			inline const std::vector<Branch> &Branches() const noexcept { return branches_; }
 			inline std::vector<Branch> &Branches() noexcept { return branches_; }
 
-			void Print(const std::string& prefix = "");
+			void Print(GameInstance* instance, const std::string& prefix = "");
 		};
 
 	} // namespace Engine

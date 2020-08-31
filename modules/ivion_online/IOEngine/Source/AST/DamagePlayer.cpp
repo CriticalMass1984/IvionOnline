@@ -4,9 +4,10 @@ namespace IO {
 namespace Engine {
 namespace AST {
 //applies change
-bool DamagePlayer(Branch *activeBranch, const DamagePlayerArgs *args) noexcept {
+bool DamagePlayer(GameInstance* instance, Branch *activeBranch, const DamagePlayerArgs *args) noexcept {
 	activeBranch->Append<DamagePlayerDelta>(*args->player_, *args->value_);
-	(*args->player_)->Health.Set(activeBranch, (*args->player_)->Health.Get() - *args->value_);
+	activeBranch->Append<IntVar::SetDelta>((*args->player_)->Health.Set((*args->player_)->Health.Get() - *args->value_));
+	
 	return true;
 }
 

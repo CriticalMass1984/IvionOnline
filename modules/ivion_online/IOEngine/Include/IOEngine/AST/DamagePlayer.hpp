@@ -11,7 +11,7 @@ namespace AST {
 
 struct DamagePlayerArgs;
 
-bool DamagePlayer(Branch *activeBranch, const DamagePlayerArgs *args) noexcept;
+bool DamagePlayer(GameInstance* instance, Branch *activeBranch, const DamagePlayerArgs *args) noexcept;
 
 struct DamagePlayerArgs {
 	Method const method_{ (Method)DamagePlayer };

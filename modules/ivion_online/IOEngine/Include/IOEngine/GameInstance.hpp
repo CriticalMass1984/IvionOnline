@@ -4,55 +4,59 @@
 #include <cassert>
 
 #include <IOEngine/Branch.hpp>
-#include <IOEngine/MemoryPool.hpp>
+#include <IOEngine/CardLibrary.hpp>
+#include <IOEngine/Tile.hpp>
 #include <IOEngine/ObjectPool.hpp>
+#include <IOEngine/MemoryPool.hpp>
 #include <IOEngine/Vars/Var.hpp>
+
+namespace godot {
+class Player;
+}
 
 namespace IO {
 namespace Engine {
 class Player;
 class Team;
 class Card;
+
 class GameInstance {
 public:
-	struct CardDef {
-		unsigned int playerIndex_;
-		std::string name_;
-		std::string playText_;
-	};
 	struct PlayerDef {
-		std::string name_;
+		std::string displayName_;
+		std::string deckName_;
+		int index_;
+		int teamIndex_;
 	};
 
-	struct TeamDef {
-	};
-	GameInstance(const std::vector<PlayerDef> &players, const std::vector<TeamDef> &teams, const std::vector<CardDef> &cards) :
-			Memory(), //this needs to be constructed first!
+	GameInstance(const std::vector<PlayerDef> &players) :
 			Players(MakePlayers(players)),
-			Teams(MakeTeams(teams)),
-			Decks(MakeDecks(cards)),
-			ActiveTeam{ Teams[0] },
-			ActivePlayer{ Players[0] },
-			ActiveCard{ Decks[0][0] } {
+			ActivePlayer{ nullptr },
+			ActiveCard{ nullptr }
+
+	{
+		cardLibrary_.LoadCards("WinterstormCardList.txt");
 	}
 
-	MemoryPool Memory;
-	ObjectPool CardEffects;
+	void Update();
+	void MakeChoice(int branchIndex);
 
+	// void ResolveBranch(Branch& branch);
+	inline const CardLibrary &Library() const { return cardLibrary_; }
+
+	ObjectPool CardEffects;
+	MemoryPool Memory;
+
+	Tile Map[4][4];
+	
 	std::vector<Player *> Players;
-	std::vector<Team *> Teams;
 	std::vector<std::vector<Card *>> Decks;
 
-	Var::Var<Team *> ActiveTeam;
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
-
-	static GameInstance *Active;
-
 private:
 	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
-	std::vector<Team *> MakeTeams(const std::vector<TeamDef> &teams);
-	std::vector<std::vector<Card *>> MakeDecks(const std::vector<CardDef> &cards);
+	CardLibrary cardLibrary_;
 };
 
 } // namespace Engine
