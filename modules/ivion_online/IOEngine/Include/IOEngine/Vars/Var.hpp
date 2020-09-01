@@ -66,6 +66,10 @@ public:
 		return value_;
 	}
 
+	const typename std::add_lvalue_reference<T>::type Get() const noexcept {
+		return value_;
+	}
+
 	SetDelta Set(T value) noexcept {
 		return SetDelta(this, value, this->value_);
 	}
