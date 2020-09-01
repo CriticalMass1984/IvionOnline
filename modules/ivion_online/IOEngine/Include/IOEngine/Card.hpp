@@ -1,44 +1,52 @@
 #pragma once
 
-#include <cassert>
-#include <IOEngine/Vars/Var.hpp>
-#include <IOEngine/Program.hpp>
+#include <IOEngine/Entity.hpp>
 #include <IOEngine/MemoryPool.hpp>
+#include <IOEngine/Posable.hpp>
+#include <IOEngine/Program.hpp>
+#include <IOEngine/Vars/Var.hpp>
+#include <cassert>
 
-namespace IO
-{
-	namespace Engine
-	{
-		class Player;
-		class Program;
+namespace IO {
+namespace Engine {
+class Player;
+class Program;
 
-		class Card
-		{
-		private:
-		public:
-			Program* Effect;
+class Card : public Entity, public Posable {
+private:
+public:
+	Program *Effect;
 
-			enum class Zone
-			{
-				NONE,
-				FEAT,
-				DECK,
-				HAND,
-				STACK,
-				FIELD,
-				DISCARD,
-			};
+	enum class Zone {
+		NONE,
+		FEAT,
+		DECK,
+		HAND,
+		STACK,
+		FIELD,
+		DISCARD,
+	};
 
-			Var::Var<Zone> Zone;
-			Var::Var<bool> IsRevealed{false};
-			Var::Var<Player *> Controller{nullptr};
+	IntVar Range{ -1 };
+	Var::Var<Zone> Zone;
+	Var::Var<bool> IsRevealed{ false };
+	Var::Var<Player *> Controller{ nullptr };
+	Var::Var<Posable *> AttachedTarget{ nullptr };
 
-			Card(Program* effect, Player *owner) noexcept;
+	Vec2 GetPosition() const override {
+		if (AttachedTarget.Get()) {
+			return AttachedTarget.Get()->GetPosition();
+		}
+		return Controller.Get()->GetPosition();
+	}
 
-			Card(const Card &) noexcept = delete;
-			Card(Card &&) noexcept = default;
-		};
-		typedef Var::Var<Card *> CardVar;
+	Card(Program *effect, Player *owner) noexcept;
 
-	} // namespace Engine
+	Card(const Card &) noexcept = delete;
+	Card(Card &&) noexcept = default;
+};
+typedef Var::Var<Card *> CardVar;
+typedef Card *StackCard;
+
+} // namespace Engine
 } // namespace IO
