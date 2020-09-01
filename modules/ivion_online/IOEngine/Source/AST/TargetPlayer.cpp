@@ -5,10 +5,10 @@ namespace IO {
 namespace Engine {
 namespace AST {
 //applies change
-bool TargetPlayer(GameInstance* instance, Branch *activeBranch, const TargetPlayerArgs *args) noexcept {
+bool TargetPlayer(GameInstance *instance, Branch *activeBranch, const TargetPlayerArgs *args) noexcept {
 	activeBranch->Branches().reserve(instance->Players.size());
 	for (Player *player : instance->Players) {
-		Branch &newBranch = activeBranch->AddBranch();
+		Branch &newBranch = activeBranch->AddBranch(player);
 		newBranch.Append<TargetPlayerDelta>(player);
 		newBranch.Append<PlayerVar::SetDelta>(args->player_->Set(player));
 		newBranch.Revert();
