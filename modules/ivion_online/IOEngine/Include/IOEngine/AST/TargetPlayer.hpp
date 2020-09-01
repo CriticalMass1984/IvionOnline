@@ -1,7 +1,6 @@
 #pragma once
 
 #include <IOEngine/AST/Method.hpp>
-#include <IOEngine/Player.hpp>
 #include <IOEngine/Vars/Delta.hpp>
 #include <cassert>
 
@@ -10,28 +9,32 @@ namespace Engine {
 namespace AST {
 struct TargetPlayerArgs;
 
-bool TargetPlayer(GameInstance* instance, Branch *activeBranch, const TargetPlayerArgs *self) noexcept;
+bool TargetPlayerMethod(GameInstance *instance, Branch *activeBranch, TargetPlayerArgs *self) noexcept;
 
 struct TargetPlayerArgs {
-	Method const method_{ (Method)TargetPlayer };
-	PlayerVar *const player_;
+	Method const method_{ (Method)TargetPlayerMethod };
+	StackPlayer *const player_;
 
-	TargetPlayerArgs(PlayerVar *player) :
+	TargetPlayerArgs(StackPlayer *player) :
 			player_(player) {
 	}
 };
 
-// doesn't actually do anything, but makes life easier for triggers
+void TargetPlayer(GameInstance *instance, Program *program,
+		StackPlayer *player);
+
 struct TargetPlayerDelta : public Var::Delta {
+	TargetPlayerArgs *const args_;
 	Player *const player_;
 
 	static bool Apply(TargetPlayerDelta *self);
 
 	static void Revert(TargetPlayerDelta *self);
 
-	inline TargetPlayerDelta(Player *player) noexcept
-			:
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), player_(player) {
+	inline TargetPlayerDelta(TargetPlayerArgs *args, Player *player) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args),
+			player_(player) {
 	}
 
 	~TargetPlayerDelta() noexcept = default;

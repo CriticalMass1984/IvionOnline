@@ -1,19 +1,25 @@
 #include <IOEngine/AST/SelectCardController.hpp>
 #include <IOEngine/Branch.hpp>
+#include <IOEngine/Card.hpp>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Player.hpp>
+#include <IOEngine/Program.hpp>
 
 namespace IO {
 namespace Engine {
 namespace AST {
+void SelectCardController(GameInstance *instance, Program *program,
+		StackPlayer *player, StackCard *card) {
+	program->EmplaceMethodCallArgs<SelectCardControllerArgs>(&instance->Memory, player, card);
+}
 //applies change
-bool SelectCardController(GameInstance *instance, Branch *activeBranch, const SelectCardControllerArgs *args) noexcept {
-	Player *player = (*args->card_)->Controller.Get();
-	activeBranch->Append<SelectCardControllerDelta>(player, *args->card_);
-	activeBranch->Append<PlayerVar::SetDelta>(args->player_->Set(player));
+bool SelectCardController(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *args) noexcept {
+	activeBranch->Append<SelectCardControllerDelta>(args, (*args->card_)->Controller.Get());
 	return true;
 }
 
 bool SelectCardControllerDelta::Apply(SelectCardControllerDelta *self) {
+	*self->args_->player_ = self->player_;
 	return true;
 }
 

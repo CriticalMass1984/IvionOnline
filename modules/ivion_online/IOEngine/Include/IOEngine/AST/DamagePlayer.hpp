@@ -4,36 +4,41 @@
 #include <IOEngine/Player.hpp>
 #include <cassert>
 
-
 namespace IO {
 namespace Engine {
 namespace AST {
 
 struct DamagePlayerArgs;
 
-bool DamagePlayer(GameInstance* instance, Branch *activeBranch, const DamagePlayerArgs *args) noexcept;
+bool DamagePlayerMethod(GameInstance *instance, Branch *activeBranch, const DamagePlayerArgs *args) noexcept;
 
 struct DamagePlayerArgs {
-	Method const method_{ (Method)DamagePlayer };
-	Player **const player_;
-	int *const value_;
+	Method const method_{ (Method)DamagePlayerMethod };
+	StackPlayer const *const player_;
+	const int *const value_;
 
-	DamagePlayerArgs(Player **player, int *value) :
+	DamagePlayerArgs(StackPlayer *player, int *value) :
 			player_(player), value_(value) {
 	}
 };
 
+void DamagePlayer(GameInstance *instance, Program *program,
+		StackPlayer *player, int *value);
+
 // doesn't actually do anything, but makes life easier for triggers
 struct DamagePlayerDelta : public Var::Delta {
+	const DamagePlayerArgs *const args_;
 	Player *const player_;
 	int const value_;
 
 	static bool Apply(DamagePlayerDelta *self);
 
 	static void Revert(DamagePlayerDelta *self);
-	inline DamagePlayerDelta(Player *player, int value) noexcept
-			:
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), player_(player), value_(value) {
+	inline DamagePlayerDelta(DamagePlayerArgs *args, Player *player, int damage) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args),
+			player_(player),
+			value_(damage) {
 	}
 
 	~DamagePlayerDelta() noexcept = default;

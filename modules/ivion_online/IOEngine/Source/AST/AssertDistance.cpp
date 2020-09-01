@@ -1,6 +1,7 @@
 #include <IOEngine/AST/AssertDistance.hpp>
 #include <IOEngine/Branch.hpp>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Program.hpp>
 
 namespace IO {
 namespace Engine {
@@ -27,15 +28,19 @@ bool assertDistance(const Posable *l, const Posable *r, int distance, AssertDist
 			assert(false);
 	}
 }
+void AssertDistance(GameInstance *instance, Program *program,
+		StackPosable *left, StackPosable *right, int *distance, AssertDistanceArgs::ComparisonType *comparisonType) {
+	program->EmplaceMethodCallArgs<AssertDistanceArgs>(&instance->Memory, left, right, distance, comparisonType);
+}
 //applies change
-bool AssertDistance(GameInstance *instance, Branch *activeBranch, const AssertDistanceArgs *args) noexcept {
+bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, const AssertDistanceArgs *args) noexcept {
 	bool result = assertDistance(*args->left_, *args->right_, *args->distance_, *args->comparisonType_);
-	activeBranch->Append<AssertDistanceDelta>(result, *args->left_, *args->right_, *args->distance_, *args->comparisonType_);
+	activeBranch->Append<AssertDistanceDelta>(args, result);
 	return result;
 }
 
 bool AssertDistanceDelta::Apply(AssertDistanceDelta *self) {
-	return assertDistance(self->left_, self->right_, self->distance_, self->comparisonType_);
+	return self->result_;
 }
 
 void AssertDistanceDelta::Revert(AssertDistanceDelta *self) {

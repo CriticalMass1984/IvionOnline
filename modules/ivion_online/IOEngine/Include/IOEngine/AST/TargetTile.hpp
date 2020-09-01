@@ -10,27 +10,33 @@ namespace Engine {
 namespace AST {
 struct TargetTileArgs;
 
-bool TargetTile(GameInstance *instance, Branch *activeBranch, const TargetTileArgs *self) noexcept;
+bool TargetTileMethod(GameInstance *instance, Branch *activeBranch, TargetTileArgs *self) noexcept;
 
 struct TargetTileArgs {
-	Method const method_{ (Method)TargetTile };
-	Engine::TileVar *const tile_;
+	Method const method_{ (Method)TargetTileMethod };
+	StackTile *const tile_;
 
-	TargetTileArgs(TileVar *tile) :
+	TargetTileArgs(StackTile *tile) :
 			tile_(tile) {
 	}
 };
 
+void TargetTile(GameInstance *instance, Program *program,
+		StackTile *tile);
+
 // doesn't actually do anything, but makes life easier for triggers
 struct TargetTileDelta : public Var::Delta {
+	TargetTileArgs *const args_;
 	Tile *const tile_;
 
 	static bool Apply(TargetTileDelta *self);
 
 	static void Revert(TargetTileDelta *self);
 
-	inline TargetTileDelta(Tile *tile) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), tile_(tile) {
+	inline TargetTileDelta(TargetTileArgs *args, Tile *tile) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args),
+			tile_(tile_) {
 	}
 
 	~TargetTileDelta() noexcept = default;

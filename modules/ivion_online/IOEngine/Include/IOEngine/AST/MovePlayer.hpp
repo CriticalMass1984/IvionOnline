@@ -10,28 +10,31 @@ namespace AST {
 
 struct MovePlayerArgs;
 
-bool MovePlayer(GameInstance *instance, Branch *activeBranch, const MovePlayerArgs *args) noexcept;
+bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, const MovePlayerArgs *args) noexcept;
 
 struct MovePlayerArgs {
-	Method const method_{ (Method)MovePlayer };
-	Player **const player_;
-	Tile **const dest_;
+	Method const method_{ (Method)MovePlayerMethod };
+	StackPlayer *const player_;
+	StackTile *const dest_;
 
-	MovePlayerArgs(Player **player, Tile **dest) :
+	MovePlayerArgs(StackPlayer *player, StackTile *dest) :
 			player_(player), dest_(dest) {
 	}
 };
 
+void MovePlayer(GameInstance *instance, Program *program,
+		StackPlayer *player, StackTile *dest);
+
 // doesn't actually do anything, but makes life easier for triggers
 struct MovePlayerDelta : public Var::Delta {
-	Player *const player_;
-	Tile *const dest_;
+	MovePlayerArgs *const args_;
 
 	static bool Apply(MovePlayerDelta *self);
 
 	static void Revert(MovePlayerDelta *self);
-	inline MovePlayerDelta(Player *player, Tile *dest) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), player_(player), dest_(dest) {
+	inline MovePlayerDelta(PMovePlayerArgs *args) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args) {
 	}
 
 	~MovePlayerDelta() noexcept = default;

@@ -1,19 +1,23 @@
 #include <IOEngine/AST/TargetTile.hpp>
 #include <IOEngine/Branch.hpp>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Program.hpp>
 
 namespace IO {
 namespace Engine {
 namespace AST {
+void TargetTile(GameInstance *instance, Program *program, StackTile *tile) {
+	program->EmplaceMethodCallArgs<TargetTileArgs>(&instance->Memory, tile);
+}
+
 //applies change
-bool TargetTile(GameInstance *instance, Branch *activeBranch, const TargetTileArgs *args) noexcept {
+bool TargetTileMethod(GameInstance *instance, Branch *activeBranch, TargetTileArgs *args) noexcept {
 	activeBranch->Branches().reserve(sizeof(instance->Map) / sizeof(Tile));
 	for (int y = 0; y < GameInstance::kMapSize; ++y) {
 		for (int x = 0; x < GameInstance::kMapSize; ++x) {
 			Tile *tile = instance->GetTile(x, y);
 			Branch &newBranch = activeBranch->AddBranch(tile);
-			newBranch.Append<TargetTileDelta>(tile);
-			newBranch.Append<TileVar::SetDelta>(args->tile_->Set(tile));
+			newBranch.Append<TargetTileDelta>(args, tile);
 			newBranch.Revert();
 		}
 	}
@@ -21,6 +25,7 @@ bool TargetTile(GameInstance *instance, Branch *activeBranch, const TargetTileAr
 }
 
 bool TargetTileDelta::Apply(TargetTileDelta *self) {
+	*self->args_->tile_ = self->tile_;
 	return true;
 }
 

@@ -10,29 +10,34 @@ namespace Engine {
 namespace AST {
 struct SelectCardControllerArgs;
 
-bool SelectCardController(GameInstance *instance, Branch *activeBranch, const SelectCardControllerArgs *self) noexcept;
+bool SelectCardControllerMethod(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *self) noexcept;
 
 struct SelectCardControllerArgs {
-	Method const method_{ (Method)SelectCardController };
-	PlayerVar *const player_; //the selected player
-	Card **const card_; //the card whose controller will be selected
+	Method const method_{ (Method)SelectCardControllerMethod };
+	StackPlayer *const player_; //the selected player
+	StackCard *const card_; //the card whose controller will be selected
 
-	SelectCardControllerArgs(PlayerVar *player, Card **card) :
+	SelectCardControllerArgs(StackPlayer *player, StackCard *card) :
 			player_(player), card_(card) {
 	}
 };
 
+void SelectCardController(GameInstance *instance, Program *program,
+		StackPlayer *player, StackCard *card);
+
 // doesn't actually do anything, but makes life easier for triggers
 struct SelectCardControllerDelta : public Var::Delta {
+	SelectCardControllerArgs *const args_;
 	Player *const player_;
-	Card *const card_;
 
 	static bool Apply(SelectCardControllerDelta *self);
 
 	static void Revert(SelectCardControllerDelta *self);
 
-	inline SelectCardControllerDelta(Player *player, Card *card) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), player_(player), card_(card) {
+	inline SelectCardControllerDelta(SelectCardControllerArgs *args, Player *player) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args),
+			player_(player) {
 	}
 
 	~SelectCardControllerDelta() noexcept = default;

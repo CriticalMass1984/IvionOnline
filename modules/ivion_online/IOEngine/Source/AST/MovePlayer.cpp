@@ -5,10 +5,14 @@
 namespace IO {
 namespace Engine {
 namespace AST {
+
+void MovePlayer(GameInstance *instance, Program *program,
+		StackPlayer *player, StackTile *dest) {
+}
 //applies change
 bool MovePlayer(GameInstance *instance, Branch *activeBranch, const MovePlayerArgs *args) noexcept {
-	activeBranch->Append<MovePlayerDelta>(*args->player_, *args->dest_);
-	activeBranch->Append<PlayerVar::SetDelta>((*args->player_)->Position.Set(*args->dest_));
+	activeBranch->Append<MovePlayerDelta>(args);
+	activeBranch->Append<TileVar::SetDelta>((*args->player_)->Position.Set(*args->dest_));
 	return true;
 }
 

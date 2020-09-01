@@ -10,27 +10,32 @@ namespace Engine {
 namespace AST {
 struct SelectTileArgs;
 
-bool SelectTile(GameInstance *instance, Branch *activeBranch, const SelectTileArgs *self) noexcept;
+bool SelectTileMethod(GameInstance *instance, Branch *activeBranch, const SelectTileArgs *self) noexcept;
 
 struct SelectTileArgs {
-	Method const method_{ (Method)SelectTile };
-	Engine::TileVar *const tile_;
+	Method const method_{ (Method)SelectTileMethod };
+	StackTile *const tile_;
 
-	SelectTileArgs(TileVar *tile) :
+	SelectTileArgs(StackTile *tile) :
 			tile_(tile) {
 	}
 };
 
-// doesn't actually do anything, but makes life easier for triggers
+void SelectTile(GameInstance *instance, Program *program,
+		StackTile *tile);
+
 struct SelectTileDelta : public Var::Delta {
+	SelectTileArgs *const args_;
 	Tile *const tile_;
 
 	static bool Apply(SelectTileDelta *self);
 
 	static void Revert(SelectTileDelta *self);
 
-	inline SelectTileDelta(Tile *tile) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), tile_(tile) {
+	inline SelectTileDelta(SelectTileArgs *args, Tile *tile) noexcept :
+			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			args_(args),
+			tile_(tile) {
 	}
 
 	~SelectTileDelta() noexcept = default;

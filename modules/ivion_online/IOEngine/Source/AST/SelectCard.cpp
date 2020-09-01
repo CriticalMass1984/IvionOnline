@@ -5,8 +5,13 @@
 namespace IO {
 namespace Engine {
 namespace AST {
+void SelectCard(GameInstance *instance, Program *program,
+		StackCard *card) {
+	program->EmplaceMethodCallArgs<SelectCardArgs>(&instance->Memory, card);
+}
+
 //applies change
-bool SelectCard(GameInstance *instance, Branch *activeBranch, const SelectCardArgs *args) noexcept {
+bool SelectCardMethod(GameInstance *instance, Branch *activeBranch, SelectCardArgs *args) noexcept {
 	// activeBranch->Branches().reserve(instance->ca);
 	// for (Card *player : instance->Cards) {
 	// 	Branch &newBranch = activeBranch->AddBranch(player);
@@ -18,6 +23,7 @@ bool SelectCard(GameInstance *instance, Branch *activeBranch, const SelectCardAr
 }
 
 bool SelectCardDelta::Apply(SelectCardDelta *self) {
+	*self->args_->card_ = self->card_;
 	return true;
 }
 
