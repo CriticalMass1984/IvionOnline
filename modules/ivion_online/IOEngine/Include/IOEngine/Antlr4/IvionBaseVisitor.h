@@ -51,6 +51,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -68,6 +72,10 @@ public:
   }
 
   virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -92,6 +100,10 @@ public:
   }
 
   virtual antlrcpp::Any visitIntegerLiteral(IvionParser::IntegerLiteralContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *ctx) override {
     return visitChildren(ctx);
   }
 

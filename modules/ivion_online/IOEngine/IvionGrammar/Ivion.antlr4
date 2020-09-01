@@ -28,7 +28,7 @@ player
     ;
 
 damagePlayer
-    : 'deal' integer 'damage' 'to' player
+    : 'deal' integer 'damage' To player
     | player Take integer 'damage'
     ;
 
@@ -42,14 +42,20 @@ controlPlayer
     ;
 
 movePlayer
-    : player Shift integer Tile
-    | player Shift 'to' tile
+    : Move player? 'to'? tile
+    | Move player? integer Tile
+    ;
+
+travelPlayer
+    : Travel player? 'to'? tile
+    | Travel player? integer Tile
     ;
 
 effectPlayer
     : damagePlayer
     | controlPlayer
     | movePlayer
+    | travelPlayer
     ;
 
 Disarm : 'disarm' | 'disarmed';
@@ -57,11 +63,8 @@ Silence : 'silence' | 'silenced';
 Slow : 'slow' | 'slowed';
 Discard: 'discard' | 'discards';
 
-fragment
 Move: 'move' | 'moves';
-fragment
 Travel: 'travel' | 'travels';
-Shift: Move | Travel;
 
 //////////////////////////////////////////////////////////////////////
 
@@ -69,8 +72,7 @@ targetTile
     : 'target' Tile;
 
 selectTile
-    : targetTile
-    | 'a' Tile
+    : 'a' Tile
     ;
 
 tile
@@ -85,8 +87,12 @@ Tile: 'tile' | 'tiles';
 targetCard
     : 'target' 'card';
 
+selectCard
+    : 'a' 'card';
+
 card
     : targetCard
+    | selectCard
     ;
 
 
@@ -108,16 +114,25 @@ text
 /* built in data types */
 
 integer
-    : integerLiteral;
+    : integerLiteral
+    | integerWord
+    ;
     
 integerLiteral: Integer;
+integerWord: One | Two | Three | Four | Five | Six;
 
 
 // lexer
-
+One: 'a' | 'A' | 'one' | 'One';
+Two: 'two' | 'Two';
+Three: 'three' | 'Three';
+Four: 'four' | 'Four';
+Five: 'five' | 'Five';
+Six: 'six' | 'Six';
 
 // articles
 Is: 'is' | 'are';
+To: 'to' | 'To';
 Take: 'take' | 'takes';
 
 /* built in data types */

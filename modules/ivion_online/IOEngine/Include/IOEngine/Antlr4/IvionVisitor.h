@@ -37,6 +37,8 @@ public:
 
     virtual antlrcpp::Any visitMovePlayer(IvionParser::MovePlayerContext *context) = 0;
 
+    virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *context) = 0;
+
     virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *context) = 0;
@@ -46,6 +48,8 @@ public:
     virtual antlrcpp::Any visitTile(IvionParser::TileContext *context) = 0;
 
     virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *context) = 0;
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
 
@@ -58,6 +62,8 @@ public:
     virtual antlrcpp::Any visitInteger(IvionParser::IntegerContext *context) = 0;
 
     virtual antlrcpp::Any visitIntegerLiteral(IvionParser::IntegerLiteralContext *context) = 0;
+
+    virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *context) = 0;
 
 
 };
