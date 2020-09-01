@@ -13,16 +13,12 @@ void SelectTile(GameInstance *instance, Program *program,
 }
 
 //applies change
-bool SelectTile(GameInstance *instance, Branch *activeBranch, const SelectTileArgs *args) noexcept {
+bool SelectTileMethod(GameInstance *instance, Branch *activeBranch, SelectTileArgs *args) noexcept {
 	activeBranch->Branches().reserve(sizeof(instance->Map) / sizeof(Tile));
-	for (int y = 0; y < GameInstance::kMapSize; ++y) {
-		for (int x = 0; x < GameInstance::kMapSize; ++x) {
-			Tile *tile = instance->GetTile(x, y);
-			assert(tile);
-			Branch &newBranch = activeBranch->AddBranch(tile);
-			newBranch.Append<SelectTileDelta>(args, tile);
-			newBranch.Revert();
-		}
+	for (Tile &tile : instance->Map) {
+		Branch &newBranch = activeBranch->AddBranch(&tile);
+		newBranch.Append<SelectTileDelta>(args, &tile);
+		newBranch.Revert();
 	}
 	return true;
 }

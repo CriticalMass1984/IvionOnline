@@ -1,6 +1,7 @@
 #pragma once
 
 #include <IOEngine/AST/Method.hpp>
+#include <IOEngine/Vars/Var.hpp>
 #include <cassert>
 
 namespace IO {
@@ -9,7 +10,7 @@ namespace AST {
 
 struct AssertDistanceArgs;
 
-bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, const AssertDistanceArgs *args) noexcept;
+bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, AssertDistanceArgs *args) noexcept;
 
 struct AssertDistanceArgs {
 	enum class ComparisonType {

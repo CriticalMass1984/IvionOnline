@@ -5,11 +5,11 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectActiveCard(Program *program, GameInstance *instance, Engine::StackCard *card) {
-	program->EmplaceMethodCallArgs<AST::SelectActiveCardArgs>(&instance->Memory, outCard);
+void SelectActiveCard(GameInstance *instance, Program *program, Engine::StackCard *card) {
+	program->EmplaceMethodCallArgs<AST::SelectActiveCardArgs>(&instance->Memory, card);
 }
 //applies change
-bool SelectActiveCardMethod(GameInstance *instance, Branch *activeBranch, const SelectActiveCardArgs *args) noexcept {
+bool SelectActiveCardMethod(GameInstance *instance, Branch *activeBranch, SelectActiveCardArgs *args) noexcept {
 	activeBranch->Append<SelectActiveCardDelta>(args, instance->ActiveCard.Get());
 	return true;
 }

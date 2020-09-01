@@ -10,7 +10,7 @@ namespace AST {
 
 struct MovePlayerArgs;
 
-bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, const MovePlayerArgs *args) noexcept;
+bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, MovePlayerArgs *args) noexcept;
 
 struct MovePlayerArgs {
 	Method const method_{ (Method)MovePlayerMethod };
@@ -32,7 +32,7 @@ struct MovePlayerDelta : public Var::Delta {
 	static bool Apply(MovePlayerDelta *self);
 
 	static void Revert(MovePlayerDelta *self);
-	inline MovePlayerDelta(PMovePlayerArgs *args) noexcept :
+	inline MovePlayerDelta(MovePlayerArgs *args) noexcept :
 			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
 			args_(args) {
 	}

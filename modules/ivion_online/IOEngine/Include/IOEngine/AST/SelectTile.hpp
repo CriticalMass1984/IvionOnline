@@ -10,7 +10,7 @@ namespace Engine {
 namespace AST {
 struct SelectTileArgs;
 
-bool SelectTileMethod(GameInstance *instance, Branch *activeBranch, const SelectTileArgs *self) noexcept;
+bool SelectTileMethod(GameInstance *instance, Branch *activeBranch, SelectTileArgs *self) noexcept;
 
 struct SelectTileArgs {
 	Method const method_{ (Method)SelectTileMethod };

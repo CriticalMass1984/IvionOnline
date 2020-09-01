@@ -1,6 +1,7 @@
 #pragma once
 
 #include <IOEngine/AST/AssertDistance.hpp>
+#include <IOEngine/AST/AssertInRange.hpp>
 #include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
 #include <IOEngine/AST/SelectActiveCard.hpp>

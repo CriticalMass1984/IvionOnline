@@ -8,8 +8,7 @@ namespace Engine {
 namespace AST {
 
 void TargetPlayer(GameInstance *instance, Program *program,
-		StackPlayer *player);
-{
+		StackPlayer *player) {
 	program->EmplaceMethodCallArgs<TargetPlayerArgs>(&instance->Memory, player);
 }
 //applies change

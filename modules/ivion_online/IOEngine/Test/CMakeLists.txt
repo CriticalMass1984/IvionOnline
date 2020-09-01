@@ -53,6 +53,7 @@ target_link_libraries(TestBranch ivion)
 add_executable(TestCardLibrary
     TestCardLibrary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../Source/CardLibrary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Source/Util.cpp
 )
 target_include_directories(TestCardLibrary PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/../Include

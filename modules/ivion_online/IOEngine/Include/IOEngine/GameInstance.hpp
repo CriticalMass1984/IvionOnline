@@ -5,20 +5,19 @@
 
 #include <IOEngine/Branch.hpp>
 #include <IOEngine/CardLibrary.hpp>
-#include <IOEngine/Tile.hpp>
-#include <IOEngine/ObjectPool.hpp>
+#include <IOEngine/Map.hpp>
 #include <IOEngine/MemoryPool.hpp>
+#include <IOEngine/ObjectPool.hpp>
+#include <IOEngine/Tile.hpp>
+#include <IOEngine/Vars/Dictionary.hpp>
 #include <IOEngine/Vars/Var.hpp>
-
-namespace godot {
-class Player;
-}
 
 namespace IO {
 namespace Engine {
 class Player;
 class Team;
 class Card;
+class Program;
 
 class GameInstance {
 public:
@@ -29,31 +28,36 @@ public:
 		int teamIndex_;
 	};
 
-	GameInstance(const std::vector<PlayerDef> &players) :
-			Players(MakePlayers(players)),
-			ActivePlayer{ nullptr },
-			ActiveCard{ nullptr }
+	GameInstance(const std::vector<PlayerDef> &players);
 
-	{
-		cardLibrary_.LoadCards("WinterstormCardList.txt");
-	}
+	//starts the game
+	void Start();
 
-	void Update();
-	void MakeChoice(int branchIndex);
+	//how the game state evolves
+	Branch RootBranch;
+	std::vector<int> Choices;
+	std::vector<Branch *> BranchStack;
+
+	bool MakeChoice(int branchIndex);
+	void RevertChoice();
+	void CancelChoices();
+	bool AcceptChoices();
 
 	// void ResolveBranch(Branch& branch);
 	inline const CardLibrary &Library() const { return cardLibrary_; }
 
-	ObjectPool CardEffects;
+	ObjectPool Objects;
 	MemoryPool Memory;
 
-	Tile Map[4][4];
-	
+	Map Map;
+
 	std::vector<Player *> Players;
 	std::vector<std::vector<Card *>> Decks;
 
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
+	Var::Dictionary<Program *> Actionables; // start of turn, end of turn, etc
+
 private:
 	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
 	CardLibrary cardLibrary_;

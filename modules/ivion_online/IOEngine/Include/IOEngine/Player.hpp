@@ -20,10 +20,7 @@ public:
 	Var::Var<int> Health{ 40 };
 	Var::Var<int> MaxHealth{ 40 };
 	TileVar Position;
-	Vec2 GetPosition() const override {
-		assert(Position.Get());
-		return Position.Get()->GetPosition();
-	}
+	Vec2 GetPosition() const override;
 
 	Var::Dictionary<Program *> Actionables;
 

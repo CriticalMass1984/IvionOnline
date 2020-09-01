@@ -13,7 +13,7 @@ void SelectCardController(GameInstance *instance, Program *program,
 	program->EmplaceMethodCallArgs<SelectCardControllerArgs>(&instance->Memory, player, card);
 }
 //applies change
-bool SelectCardController(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *args) noexcept {
+bool SelectCardControllerMethod(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *args) noexcept {
 	activeBranch->Append<SelectCardControllerDelta>(args, (*args->card_)->Controller.Get());
 	return true;
 }

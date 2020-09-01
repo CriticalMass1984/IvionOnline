@@ -10,13 +10,13 @@ namespace Engine {
 namespace AST {
 struct SelectPlayerArgs;
 
-bool SelectPlayermethod(GameInstance *instance, Branch *activeBranch, SelectPlayerArgs *self) noexcept;
+bool SelectPlayerMethod(GameInstance *instance, Branch *activeBranch, SelectPlayerArgs *self) noexcept;
 
 struct SelectPlayerArgs {
-	Method const method_{ (Method)SelectPlayermethod };
-	Engine::StackVar *const player_;
+	Method const method_{ (Method)SelectPlayerMethod };
+	StackPlayer *const player_;
 
-	SelectPlayerArgs(StackVar *player) :
+	SelectPlayerArgs(StackPlayer *player) :
 			player_(player) {
 	}
 };

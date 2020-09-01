@@ -1,6 +1,7 @@
 #pragma once
 
 #include <IOEngine/AST/Method.hpp>
+#include <IOEngine/Vars/Var.hpp>
 #include <cassert>
 
 namespace IO {
@@ -9,7 +10,7 @@ namespace AST {
 
 struct AssertInRangeArgs;
 
-bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, const AssertInRangeArgs *args) noexcept;
+bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, AssertInRangeArgs *args) noexcept;
 
 struct AssertInRangeArgs {
 	Method const method_{ (Method)AssertInRangeMethod };

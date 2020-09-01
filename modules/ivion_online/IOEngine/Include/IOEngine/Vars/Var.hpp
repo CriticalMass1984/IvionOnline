@@ -62,11 +62,11 @@ public:
 		return value_;
 	}
 
-	typename std::add_lvalue_reference<T>::type Get() noexcept {
+	typename std::add_lvalue_reference<const T>::type Get() const noexcept {
 		return value_;
 	}
 
-	const typename std::add_lvalue_reference<T>::type Get() const noexcept {
+	typename std::add_lvalue_reference<T>::type Get() noexcept {
 		return value_;
 	}
 

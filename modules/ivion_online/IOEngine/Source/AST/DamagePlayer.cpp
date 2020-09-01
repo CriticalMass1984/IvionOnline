@@ -10,7 +10,7 @@ void DamagePlayer(GameInstance *instance, Program *program,
 }
 
 //applies change
-bool DamagePlayer(GameInstance *instance, Branch *activeBranch, const DamagePlayerArgs *args) noexcept {
+bool DamagePlayerMethod(GameInstance *instance, Branch *activeBranch, DamagePlayerArgs *args) noexcept {
 	Player *player = *args->player_;
 	int damage = *args->value_;
 	activeBranch->Append<DamagePlayerDelta>(args, player, damage);

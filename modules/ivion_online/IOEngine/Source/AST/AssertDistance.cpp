@@ -33,7 +33,7 @@ void AssertDistance(GameInstance *instance, Program *program,
 	program->EmplaceMethodCallArgs<AssertDistanceArgs>(&instance->Memory, left, right, distance, comparisonType);
 }
 //applies change
-bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, const AssertDistanceArgs *args) noexcept {
+bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, AssertDistanceArgs *args) noexcept {
 	bool result = assertDistance(*args->left_, *args->right_, *args->distance_, *args->comparisonType_);
 	activeBranch->Append<AssertDistanceDelta>(args, result);
 	return result;

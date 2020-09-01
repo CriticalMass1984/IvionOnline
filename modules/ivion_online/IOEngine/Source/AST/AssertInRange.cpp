@@ -2,6 +2,7 @@
 #include <IOEngine/Branch.hpp>
 #include <IOEngine/Card.hpp>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Player.hpp>
 
 namespace IO {
 namespace Engine {
@@ -12,7 +13,7 @@ void AssertInRange(GameInstance *instance, Program *program,
 	program->EmplaceMethodCallArgs<AssertInRangeArgs>(&instance->Memory, card, target);
 }
 //applies change
-bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, const AssertInRangeArgs *args) noexcept {
+bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, AssertInRangeArgs *args) noexcept {
 	bool result = (*args->card_)->Range.Get() <= (*args->card_)->GetDistance(*args->target_);
 	activeBranch->Append<AssertInRangeDelta>(args, result);
 	return result;

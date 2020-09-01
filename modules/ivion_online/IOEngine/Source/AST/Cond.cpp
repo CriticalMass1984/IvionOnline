@@ -6,12 +6,12 @@ namespace IO {
 namespace Engine {
 namespace AST {
 //applies change
-bool Cond(GameInstance *instance, Branch *activeBranch, const CondArgs *args) noexcept {
+bool CondMethod(GameInstance *instance, Branch *activeBranch, CondArgs *args) noexcept {
 	activeBranch->Append<CondDelta>(*args->condition_, args->ifTrue_, args->ifFalse_);
 	if (*args->condition_) {
-		args->ifTrue_->Execute(instance);
+		args->ifTrue_->Execute(instance, activeBranch);
 	} else {
-		args->ifFalse_->Execute(instance);
+		args->ifFalse_->Execute(instance, activeBranch);
 	}
 	return true;
 }

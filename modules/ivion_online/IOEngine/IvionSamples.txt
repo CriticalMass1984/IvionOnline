@@ -6,4 +6,10 @@ deal 5 damage to target player.
 
 
 
-you take 3 damage.
+a player takes 3 damage.
+
+you move 1 tile;
+you move one tile;
+move one tile;
+move yourself one;
+move yourself one tile;

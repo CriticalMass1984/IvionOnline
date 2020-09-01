@@ -36,7 +36,7 @@ struct TargetTileDelta : public Var::Delta {
 	inline TargetTileDelta(TargetTileArgs *args, Tile *tile) noexcept :
 			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
 			args_(args),
-			tile_(tile_) {
+			tile_(tile) {
 	}
 
 	~TargetTileDelta() noexcept = default;

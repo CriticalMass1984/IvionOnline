@@ -33,12 +33,7 @@ public:
 	Var::Var<Player *> Controller{ nullptr };
 	Var::Var<Posable *> AttachedTarget{ nullptr };
 
-	Vec2 GetPosition() const override {
-		if (AttachedTarget.Get()) {
-			return AttachedTarget.Get()->GetPosition();
-		}
-		return Controller.Get()->GetPosition();
-	}
+	Vec2 GetPosition() const override;
 
 	Card(Program *effect, Player *owner) noexcept;
 

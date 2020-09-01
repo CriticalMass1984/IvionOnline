@@ -10,10 +10,10 @@ namespace Engine {
 namespace AST {
 struct CondArgs;
 
-bool Cond(GameInstance *instance, Branch *activeBranch, const CondArgs *self) noexcept;
+bool CondMethod(GameInstance *instance, Branch *activeBranch, CondArgs *self) noexcept;
 
 struct CondArgs {
-	Method const method_{ (Method)Cond };
+	Method const method_{ (Method)CondMethod };
 	bool *const condition_;
 	Program *const ifTrue_;
 	Program *const ifFalse_;

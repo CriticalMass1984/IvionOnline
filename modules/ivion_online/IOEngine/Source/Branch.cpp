@@ -37,17 +37,21 @@ bool Branch::SetLevel(int targetLevel) noexcept {
 	}
 }
 
-Branch &Branch::AddBranch() noexcept {
-	branches_.emplace_back();
+Branch &Branch::AddBranch(Entity *choice) noexcept {
+	assert(branches_.size() < std::numeric_limits<int>::max());
+	choice->choiceIndex_ = (int)branches_.size();
+	branches_.emplace_back(choice);
 	return branches_.back();
 }
 
 Branch &Branch::AddBranch(Branch &&branch) noexcept {
 	branches_.emplace_back(std::forward<Branch &&>(branch));
+	assert(branches_.back().choice_);
+	branches_.back().choice_->choiceIndex_ = branches_.size() - 1;
 	return branches_.back();
 }
 
-void PrintIntVar(GameInstance* instance, const std::string &prefix, const IntVar::SetDelta *setDelta) {
+void PrintIntVar(GameInstance *instance, const std::string &prefix, const IntVar::SetDelta *setDelta) {
 	for (const Player *player : instance->Players) {
 		if (&player->Health == setDelta->Target()) {
 			fprintf(stderr, "%splayer[%d].Health[%p](%d) = %d\n", prefix.c_str(), player->Index, setDelta->Target(), setDelta->Old(), setDelta->New());
@@ -61,7 +65,7 @@ void PrintIntVar(GameInstance* instance, const std::string &prefix, const IntVar
 	fprintf(stderr, "%sint[%p](%d) = %d\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
 
-void PrintPlayerVar(GameInstance* instance, const std::string &prefix, const PlayerVar::SetDelta *setDelta) {
+void PrintPlayerVar(GameInstance *instance, const std::string &prefix, const PlayerVar::SetDelta *setDelta) {
 	for (const Player *player : instance->Players) {
 		if (setDelta->New() == player) {
 			fprintf(stderr, "%sPlayerVar[%p] = Player %d\n", prefix.c_str(), setDelta, setDelta->New()->Index);
@@ -71,7 +75,7 @@ void PrintPlayerVar(GameInstance* instance, const std::string &prefix, const Pla
 	fprintf(stderr, "%sPlayerVar[%p](%p) = %p\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
 
-void Branch::Print(GameInstance* instance, const std::string &prefix) {
+void Branch::Print(GameInstance *instance, const std::string &prefix) {
 	for (int deltaOffset : deltaOffsets_) {
 		const Var::Delta *delta = reinterpret_cast<Var::Delta *>(memory_.data() + deltaOffset);
 		if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)IntVar::SetDelta::Apply) {

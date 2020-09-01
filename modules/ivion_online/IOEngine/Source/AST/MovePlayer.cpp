@@ -10,7 +10,7 @@ void MovePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *dest) {
 }
 //applies change
-bool MovePlayer(GameInstance *instance, Branch *activeBranch, const MovePlayerArgs *args) noexcept {
+bool MovePlayer(GameInstance *instance, Branch *activeBranch, MovePlayerArgs *args) noexcept {
 	activeBranch->Append<MovePlayerDelta>(args);
 	activeBranch->Append<TileVar::SetDelta>((*args->player_)->Position.Set(*args->dest_));
 	return true;

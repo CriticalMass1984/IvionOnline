@@ -19,9 +19,7 @@ public:
 	Tile(int x, int y) :
 			Position(x, y) {}
 
-	Vec2 GetPosition() const override {
-		return Position;
-	}
+	Vec2 GetPosition() const override;
 };
 typedef Var::Var<Tile *> TileVar;
 typedef Tile *StackTile;

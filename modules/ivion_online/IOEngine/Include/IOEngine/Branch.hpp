@@ -1,74 +1,76 @@
 #pragma once
 
+#include <IOEngine/Entity.hpp>
+#include <IOEngine/Vars/Delta.hpp>
+#include <cassert>
 #include <limits>
+#include <string>
 #include <type_traits>
 #include <vector>
-#include <cassert>
-#include <string>
-#include <IOEngine/Vars/Delta.hpp>
-#include <IOEngine/GameInstance.hpp>
 
-namespace IO
-{
-	namespace Engine
-	{
-		class GameInstance;
+namespace IO {
+namespace Engine {
+class GameInstance;
 
-		class Branch
-		{
-			std::vector<unsigned char> memory_;
-			std::vector<int> deltaOffsets_;
-			int level_{0};
-			bool isGood_{true};
+class Branch {
+	std::vector<unsigned char> memory_;
+	std::vector<int> deltaOffsets_;
+	int level_{ 0 };
+	bool isGood_{ true };
+	Entity *choice_{ nullptr };
 
-			// branching futures
-			std::vector<Branch> branches_;
+	// branching futures
+	std::vector<Branch> branches_;
 
-		public:
-			Branch() noexcept = default;
-			Branch(Branch &&) noexcept = default;
-			Branch& operator=(Branch &&) noexcept = default;
-			Branch(const Branch &) noexcept = delete;
-			Branch& operator=(const Branch &) noexcept = delete;
-			~Branch() noexcept = default;
+public:
+	Branch() noexcept = default;
+	Branch(Entity *choice) noexcept :
+			choice_(choice) {}
+	Branch(Branch &&) noexcept = default;
+	Branch &operator=(Branch &&) noexcept = default;
+	Branch(const Branch &) noexcept = delete;
+	Branch &operator=(const Branch &) noexcept = delete;
+	~Branch() noexcept = default;
 
-			template <typename T, typename... args_t>
-			bool Append(args_t... args) noexcept
-			{
-				static_assert(std::is_trivially_copyable<T>::value, "type must be trivially copyable!");
-				static_assert(std::is_trivially_destructible<T>::value, "type must be trivially destructible!");
-				static_assert(std::is_base_of<Var::Delta, T>::value, "type must inherit from Delta!");
-				assert(isGood_);
-				assert(deltaOffsets_.size() == (unsigned int)level_);
-				assert(memory_.size() + sizeof(T) < std::numeric_limits<int>::max());
+	inline void MarkBad() {
+		isGood_ = false;
+	}
 
-				const std::size_t offset = memory_.size();
-				memory_.resize(offset + sizeof(T));
-				Var::Delta *delta = reinterpret_cast<Var::Delta *>(new (memory_.data() + offset) T(std::forward<args_t>(args)...));
-				deltaOffsets_.push_back((int)offset);
+	template <typename T, typename... args_t>
+	bool Append(args_t... args) noexcept {
+		static_assert(std::is_trivially_copyable<T>::value, "type must be trivially copyable!");
+		static_assert(std::is_trivially_destructible<T>::value, "type must be trivially destructible!");
+		static_assert(std::is_base_of<Var::Delta, T>::value, "type must inherit from Delta!");
+		assert(isGood_);
+		assert(deltaOffsets_.size() == (unsigned int)level_);
+		assert(memory_.size() + sizeof(T) < std::numeric_limits<int>::max());
 
-				if (!delta->Apply())
-				{
-					isGood_ = false;
-					return false;
-				}
-				level_++;
-				return true;
-			}
+		const std::size_t offset = memory_.size();
+		memory_.resize(offset + sizeof(T));
+		Var::Delta *delta = reinterpret_cast<Var::Delta *>(new (memory_.data() + offset) T(std::forward<args_t>(args)...));
+		deltaOffsets_.push_back((int)offset);
 
-			inline bool IsGood() const noexcept { return isGood_; }
+		if (!delta->Apply()) {
+			isGood_ = false;
+			return false;
+		}
+		level_++;
+		return true;
+	}
 
-			bool SetLevel(int level) noexcept;
-			inline bool Apply() noexcept { return SetLevel((int)deltaOffsets_.size()); }
-			inline void Revert() noexcept { SetLevel(0); }
+	inline bool IsGood() const noexcept { return isGood_; }
 
-			Branch &AddBranch() noexcept;
-			Branch &AddBranch(Branch &&branch) noexcept;
-			inline const std::vector<Branch> &Branches() const noexcept { return branches_; }
-			inline std::vector<Branch> &Branches() noexcept { return branches_; }
+	bool SetLevel(int level) noexcept;
+	inline bool Apply() noexcept { return SetLevel((int)deltaOffsets_.size()); }
+	inline void Revert() noexcept { SetLevel(0); }
 
-			void Print(GameInstance* instance, const std::string& prefix = "");
-		};
+	Branch &AddBranch(Entity *choice) noexcept;
+	Branch &AddBranch(Branch &&branch) noexcept;
+	inline const std::vector<Branch> &Branches() const noexcept { return branches_; }
+	inline std::vector<Branch> &Branches() noexcept { return branches_; }
 
-	} // namespace Engine
+	void Print(GameInstance *instance, const std::string &prefix = "");
+};
+
+} // namespace Engine
 } // namespace IO
