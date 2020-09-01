@@ -18,11 +18,12 @@ env.Append(CCFLAGS=['-O2'])
 
 #
 sources = ["register_types.cpp"]
+sources.extend(GetSources("GodotWrapper/Source"))
 sources.extend(GetSources("IOEngine/Source"))
 sources.extend(GetSources("IOEngine/Extern/Antlr4Runtime/Source"))
 
 #
-includeDirs = ["IOEngine/Include", "IOEngine/Extern/Antlr4Runtime/Include"]
+includeDirs = ["GodotWrapper/Include", "IOEngine/Include", "IOEngine/Extern/Antlr4Runtime/Include"]
 env.Append(CPPPATH=includeDirs)
 
 
