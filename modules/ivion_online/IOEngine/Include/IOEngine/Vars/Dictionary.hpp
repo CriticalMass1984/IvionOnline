@@ -94,18 +94,21 @@ public:
 		~RemoveDelta() noexcept = default;
 	};
 
-	Dictionary() noexcept = default;
-	Dictionary(const std::unordered_map<std::string, T> &value) noexcept :
-			value_(value) {
+	Dictionary() = default;
+	Dictionary(const std::unordered_map<std::string, T> &value) :
+			elements_(value) {
 	}
 
-	Dictionary(Var &&) noexcept = default;
-	Dictionary(const Var &) noexcept = default;
+	Dictionary(Dictionary &&) noexcept = default;
+	Dictionary(const Dictionary &) = default;
+
+	inline auto begin() -> decltype(elements_.begin()) { return elements_.begin(); }
+	inline auto end() -> decltype(elements_.end()) { return elements_.end(); }
 
 	InsertDelta Insert(const std::string &key, T value) {
 		return InsertDelta(this, key, value);
 	}
-	SetDelta Set(const std::string &key, T vaue) {
+	SetDelta Set(const std::string &key, T value) {
 		return SetDelta(this, key, value, elements_.at(key));
 	}
 	RemoveDelta Remove(const std::string &key) {
