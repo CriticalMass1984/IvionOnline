@@ -47,6 +47,7 @@ struct CardDef {
 	bool canBeSlowed_;
 	bool canBeSilenced_;
 	bool canBeDisarmed_;
+	bool isInstant_;
 	std::string active_mechanics_;
 	std::string passive_mechanics_;
 	std::string image_;

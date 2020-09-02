@@ -119,6 +119,7 @@ CardDef CardLibrary::ParseLine(const std::string &line) {
 			.canBeSlowed_ = !entries[11].empty(),
 			.canBeSilenced_ = !entries[12].empty(),
 			.canBeDisarmed_ = !entries[13].empty(),
+			.isInstant_ = entries[14].find("Instant") != std::string::npos,
 			.active_mechanics_ = entries[19],
 			.passive_mechanics_ = entries[20],
 			.image_ = FixFilePath(entries[23]),
