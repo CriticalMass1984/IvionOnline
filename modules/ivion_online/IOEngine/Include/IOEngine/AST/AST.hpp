@@ -5,6 +5,7 @@
 #include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
 #include <IOEngine/AST/SelectActiveCard.hpp>
+#include <IOEngine/AST/SelectActivePlayer.hpp>
 #include <IOEngine/AST/SelectCard.hpp>
 #include <IOEngine/AST/SelectCardController.hpp>
 #include <IOEngine/AST/SelectPlayer.hpp>

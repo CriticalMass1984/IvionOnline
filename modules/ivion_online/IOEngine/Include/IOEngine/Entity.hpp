@@ -9,6 +9,8 @@ class Entity {
 public:
 	Entity() noexcept = default;
 	virtual ~Entity() = default;
+
+	int ChoiceIndex() const noexcept { return choiceIndex_; }
 };
 
 } // namespace Engine

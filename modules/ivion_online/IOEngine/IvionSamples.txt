@@ -1,15 +1,5 @@
-deal 5 damage to target player.
-they take 4 damage. deal 3 damage to them.
-you take 1 damage. deal 2 damage to yourself. deal 3 damage to yourself.
+deal 5 damage to yourself.
 
-deal 5 damage to target player.
-
-
-
-a player takes 3 damage.
-
-you move 1 tile;
-you move one tile;
-move one tile;
-move yourself one;
-move yourself one tile;
+move 1 tile.
+move yourself to target tile.
+target player takes 3 damage.

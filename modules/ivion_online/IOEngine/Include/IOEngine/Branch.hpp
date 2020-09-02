@@ -35,6 +35,7 @@ public:
 	inline void MarkBad() {
 		isGood_ = false;
 	}
+	inline Entity *GetChoice() const { return choice_; }
 
 	template <typename T, typename... args_t>
 	bool Append(args_t... args) noexcept {
@@ -69,7 +70,7 @@ public:
 	inline const std::vector<Branch> &Branches() const noexcept { return branches_; }
 	inline std::vector<Branch> &Branches() noexcept { return branches_; }
 
-	void Print(GameInstance *instance, const std::string &prefix = "");
+	void Print(GameInstance *instance, bool recursive = true, const std::string &prefix = "") const;
 };
 
 } // namespace Engine

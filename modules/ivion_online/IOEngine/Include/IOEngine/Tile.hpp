@@ -8,7 +8,7 @@
 
 namespace IO {
 namespace Engine {
-class Tile : public Entity, public Posable {
+class Tile : public Posable {
 private:
 	const Vec2 Position;
 

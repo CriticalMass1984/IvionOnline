@@ -12,7 +12,7 @@ namespace Engine {
 class Player;
 class Program;
 
-class Card : public Entity, public Posable {
+class Card : public Posable {
 private:
 public:
 	Program *Effect;
@@ -39,6 +39,8 @@ public:
 
 	Card(const Card &) noexcept = delete;
 	Card(Card &&) noexcept = default;
+
+	const std::string &Name() const noexcept { return Effect->Name(); }
 };
 typedef Var::Var<Card *> CardVar;
 typedef Card *StackCard;

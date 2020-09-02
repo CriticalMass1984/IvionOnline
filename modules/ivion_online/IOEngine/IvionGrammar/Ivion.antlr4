@@ -42,12 +42,12 @@ controlPlayer
     ;
 
 movePlayer
-    : Move player? 'to'? tile
+    : Move player? To? tile
     | Move player? integer Tile
     ;
 
 travelPlayer
-    : Travel player? 'to'? tile
+    : Travel player? To? tile
     | Travel player? integer Tile
     ;
 

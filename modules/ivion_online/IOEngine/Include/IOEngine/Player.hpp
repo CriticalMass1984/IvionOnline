@@ -12,7 +12,10 @@
 namespace IO {
 namespace Engine {
 class Program;
-class Player : public Entity, public Posable {
+class GameInstance;
+class Player : public Posable {
+	std::string name_;
+
 public:
 	const int Index;
 	const int TeamIndex;
@@ -22,10 +25,12 @@ public:
 	TileVar Position;
 	Vec2 GetPosition() const override;
 
-	Var::Dictionary<Program *> Actionables;
+	Var::Var<Program *> MoveAction{ nullptr };
 
-	Player(int idx, int teamIdx);
+	Player(GameInstance *instance, const std::string &name, int idx, int teamIdx, Tile *start);
 	~Player() = default;
+
+	const std::string &Name() const noexcept { return name_; }
 };
 typedef Var::Var<Player *> PlayerVar;
 typedef Player *StackPlayer;

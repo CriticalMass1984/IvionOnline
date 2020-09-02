@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <string>
 
 namespace IO {
 namespace Engine {
@@ -20,32 +21,26 @@ public:
 
 	~Vec2() noexcept = default;
 
-	inline Vec2 operator+(Vec2 &B) const noexcept {
-		return Vec2(this->X + B.X, this->Y + B.Y);
-	}
-
-	inline Vec2 operator-(Vec2 &B) const noexcept {
-		return Vec2(this->X - B.X, this->Y - B.Y);
-	}
-
 	template <typename T>
 	inline Vec2 operator*(T s) const noexcept {
 		return Vec2(this->X * s, this->Y * s);
 	}
 
-	inline double SqrLen() const noexcept {
-		return std::pow(this->X, 2) + std::pow(this->Y, 2);
-	}
-
+	//non-euclidean space
 	inline double Len() const noexcept {
-		return std::sqrt(SqrLen());
+		return std::abs(X) + std::abs(Y);
+	}
+	inline std::string Str() const noexcept {
+		char buffer[64];
+		snprintf(buffer, 64, "Vec2(x: %d, y: %d)", X, Y);
+		return std::string(buffer);
 	}
 };
 static inline Vec2 operator-(const Vec2 &l, const Vec2 &r) {
-	return l - r;
+	return Vec2(l.X - r.X, l.Y - r.Y);
 }
 static inline Vec2 operator+(const Vec2 &l, const Vec2 &r) {
-	return l + r;
+	return Vec2(l.X + r.X, l.Y + r.Y);
 }
 } // namespace Engine
 } // namespace IO

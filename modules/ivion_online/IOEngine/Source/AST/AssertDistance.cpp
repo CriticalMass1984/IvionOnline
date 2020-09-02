@@ -11,19 +11,20 @@ bool assertDistance(const Posable *l, const Posable *r, int distance, AssertDist
 	if (distance < 0) {
 		return true;
 	}
+	int dist = l->GetDistance(r);
 	switch (comp) {
 		case AssertDistanceArgs::ComparisonType::LESS_THAN:
-			return l->GetDistance(r) < distance;
+			return dist < distance;
 		case AssertDistanceArgs::ComparisonType::LESS_THAN_EQUAL:
-			return l->GetDistance(r) <= distance;
+			return dist <= distance;
 		case AssertDistanceArgs::ComparisonType::GREATER_THAN:
-			return l->GetDistance(r) > distance;
+			return dist > distance;
 		case AssertDistanceArgs::ComparisonType::GREATER_THAN_EQUAL:
-			return l->GetDistance(r) >= distance;
+			return dist >= distance;
 		case AssertDistanceArgs::ComparisonType::EQUAL:
-			return l->GetDistance(r) == distance;
+			return dist == distance;
 		case AssertDistanceArgs::ComparisonType::NOT_EQUAL:
-			return l->GetDistance(r) != distance;
+			return dist != distance;
 		default:
 			assert(false);
 	}

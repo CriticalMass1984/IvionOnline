@@ -65,6 +65,21 @@ void PrintIntVar(GameInstance *instance, const std::string &prefix, const IntVar
 	fprintf(stderr, "%sint[%p](%d) = %d\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
 
+void PrintTileVar(GameInstance *instance, const std::string &prefix, const TileVar::SetDelta *setDelta) {
+	for (const Player *player : instance->Players) {
+		if (&player->Position == setDelta->Target()) {
+			fprintf(stderr, "%splayer[%d].Position[%p](%s) = %s\n", prefix.c_str(), player->Index,
+					setDelta->Target(),
+					setDelta->Old()->GetPosition().Str().c_str(),
+					setDelta->New()->GetPosition().Str().c_str());
+			return;
+		}
+	}
+	fprintf(stderr, "%sTile[%p](%s) = %s\n", prefix.c_str(), setDelta->Target(),
+			setDelta->Old()->GetPosition().Str().c_str(),
+			setDelta->New()->GetPosition().Str().c_str());
+}
+
 void PrintPlayerVar(GameInstance *instance, const std::string &prefix, const PlayerVar::SetDelta *setDelta) {
 	for (const Player *player : instance->Players) {
 		if (setDelta->New() == player) {
@@ -74,12 +89,32 @@ void PrintPlayerVar(GameInstance *instance, const std::string &prefix, const Pla
 	}
 	fprintf(stderr, "%sPlayerVar[%p](%p) = %p\n", prefix.c_str(), setDelta->Target(), setDelta->Old(), setDelta->New());
 }
+void PrintEntity(const Entity *entity, const std::string &prefix) {
+	if (entity == nullptr) {
+		printf("%sEntity(nullptr)\n", prefix.c_str());
+		return;
+	}
+	if (const Player *player = dynamic_cast<const Player *>(entity); player) {
+		printf("%sPlayer(%s)\n", prefix.c_str(), player->Name().c_str());
+	} else if (const Card *card = dynamic_cast<const Card *>(entity); card) {
+		printf("%sCard(%s)\n", prefix.c_str(), card->Name().c_str());
+	} else if (const Program *program = dynamic_cast<const Program *>(entity); program) {
+		printf("%sProgram(%s)\n", prefix.c_str(), program->Name().c_str());
+	} else if (const Tile *tile = dynamic_cast<const Tile *>(entity); tile) {
+		printf("%sTile(%s)\n", prefix.c_str(), tile->GetPosition().Str().c_str());
+	}
+	printf("%sEntity(Unknown)\n", prefix.c_str());
+}
 
-void Branch::Print(GameInstance *instance, const std::string &prefix) {
+void Branch::Print(GameInstance *instance, bool recursive, const std::string &prefix) const {
+	printf("%sBranch[%d](%s)\n", prefix.c_str(), choice_ ? choice_->choiceIndex_ : -1, isGood_ ? "good" : "bad");
+	PrintEntity(choice_, prefix);
 	for (int deltaOffset : deltaOffsets_) {
-		const Var::Delta *delta = reinterpret_cast<Var::Delta *>(memory_.data() + deltaOffset);
+		const Var::Delta *delta = reinterpret_cast<const Var::Delta *>(memory_.data() + deltaOffset);
 		if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)IntVar::SetDelta::Apply) {
 			PrintIntVar(instance, prefix, reinterpret_cast<const IntVar::SetDelta *>(delta));
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)TileVar::SetDelta::Apply) {
+			PrintTileVar(instance, prefix, reinterpret_cast<const TileVar::SetDelta *>(delta));
 		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)PlayerVar::SetDelta::Apply) {
 			PrintPlayerVar(instance, prefix, reinterpret_cast<const PlayerVar::SetDelta *>(delta));
 		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::DamagePlayerDelta::Apply) {
@@ -91,14 +126,23 @@ void Branch::Print(GameInstance *instance, const std::string &prefix) {
 		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetPlayerDelta::Apply) {
 			const AST::TargetPlayerDelta *funcDelta = reinterpret_cast<const AST::TargetPlayerDelta *>(delta);
 			fprintf(stderr, "%sTargetting player[%d]\n", prefix.c_str(), funcDelta->player_->Index);
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::SelectTileDelta::Apply) {
+			const AST::SelectTileDelta *funcDelta = reinterpret_cast<const AST::SelectTileDelta *>(delta);
+			fprintf(stderr, "%sSelecting Tile[%s]\n", prefix.c_str(), funcDelta->tile_->GetPosition().Str().c_str());
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetTileDelta::Apply) {
+			const AST::TargetTileDelta *funcDelta = reinterpret_cast<const AST::TargetTileDelta *>(delta);
+			fprintf(stderr, "%sTargetting Tile[%s]\n", prefix.c_str(), funcDelta->tile_->GetPosition().Str().c_str());
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::AssertDistanceDelta::Apply) {
+			const AST::AssertDistanceDelta *funcDelta = reinterpret_cast<const AST::AssertDistanceDelta *>(delta);
+			fprintf(stderr, "%sAssertDistance(%s)\n", prefix.c_str(), funcDelta->result_ ? "true" : "false");
 		}
 	}
 
-	std::string nestedPrefix = prefix + "\t";
-	int branchIdx = 0;
-	for (Branch &branch : branches_) {
-		printf("%sBranch[%d]\n", nestedPrefix.c_str(), branchIdx++);
-		branch.Print(instance, nestedPrefix);
+	if (recursive) {
+		std::string nestedPrefix = prefix + "\t";
+		for (const Branch &branch : branches_) {
+			branch.Print(instance, true, nestedPrefix);
+		}
 	}
 }
 

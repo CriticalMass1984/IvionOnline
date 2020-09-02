@@ -1,11 +1,12 @@
 #pragma once
 
+#include <IOEngine/Entity.hpp>
 #include <IOEngine/Vars/Var.hpp>
 #include <IOEngine/Vec2.hpp>
 
 namespace IO {
 namespace Engine {
-class Posable {
+class Posable : public Entity {
 public:
 	virtual Vec2 GetPosition() const = 0;
 	int GetDistance(const Posable *p) const {

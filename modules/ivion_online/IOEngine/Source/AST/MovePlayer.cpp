@@ -8,9 +8,10 @@ namespace AST {
 
 void MovePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *dest) {
+	program->EmplaceMethodCallArgs<AST::MovePlayerArgs>(&instance->Memory, player, dest);
 }
 //applies change
-bool MovePlayer(GameInstance *instance, Branch *activeBranch, MovePlayerArgs *args) noexcept {
+bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, MovePlayerArgs *args) noexcept {
 	activeBranch->Append<MovePlayerDelta>(args);
 	activeBranch->Append<TileVar::SetDelta>((*args->player_)->Position.Set(*args->dest_));
 	return true;

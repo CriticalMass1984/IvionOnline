@@ -4,6 +4,14 @@ add_executable(TestAntlr4
 
 target_link_libraries(TestAntlr4 ivion)
 
+#################################
+
+
+add_executable(TestGame
+    TestGame.cpp
+)
+
+target_link_libraries(TestGame ivion)
 
 
 #################################

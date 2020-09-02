@@ -9,23 +9,36 @@
 namespace IO {
 namespace Engine {
 std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &players) {
+	//be careful of construction order
+	assert(Map.Height() > 0);
+	assert(Map.Width() > 0);
 	std::vector<Player *> newPlayers;
 	newPlayers.reserve(players.size());
 	for (unsigned int i = 0; i < players.size(); ++i) {
 		assert(players[i].index_ == (int)i);
-		newPlayers.emplace_back(this->Objects.EmplaceObject<Player>(i, players[i].teamIndex_));
+		newPlayers.emplace_back(this->Objects.EmplaceObject<Player>(
+				this,
+				players[i].displayName_,
+				i, players[i].teamIndex_,
+				Map.GetTile(players[i].start_)));
 	}
 	return newPlayers;
 }
 
 GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
+		Objects(),
+		Memory(),
+		Map(4, 4),
+		MoveAction(Objects.EmplaceObject<Program>("Move Action")),
 		Players(MakePlayers(players)),
-		ActivePlayer{ nullptr },
-		ActiveCard{ nullptr },
-		Map(4, 4)
+		ActivePlayer{ Players[0] },
+		ActiveCard{ nullptr }
 
 {
 	cardLibrary_.LoadCards("WinterstormCardList.txt");
+	Program::Compile(this, MoveAction, false, "move 1 tile.");
+
+	BranchStack.push_back(&RootBranch);
 }
 
 bool GameInstance::MakeChoice(int branchIndex) {
@@ -41,6 +54,7 @@ bool GameInstance::MakeChoice(int branchIndex) {
 	}
 	if (!nextBranch.Apply()) {
 		nextBranch.Revert();
+		nextBranch.MarkBad();
 		return false;
 	}
 	Choices.push_back(branchIndex);
@@ -63,16 +77,21 @@ void GameInstance::CancelChoices() {
 }
 bool GameInstance::AcceptChoices() {
 	if (BranchStack.empty() || BranchStack.back()->Branches().empty()) {
-		//reset this branch
-		BranchStack.clear();
+		//make sure branch is applied
+		BranchStack.back()->Apply();
+
+		//reset
 		this->RootBranch = std::move(Branch());
+		BranchStack.clear();
+		BranchStack.emplace_back(&RootBranch);
 
 		//take everything the current player can do, and append it to the root branch
-		assert(this->ActivePlayer.Get());
+		Player *player = this->ActivePlayer.Get();
+		assert(player);
 		bool anyGood = false;
-		for (std::pair<const std::string, Program *> &program : this->ActivePlayer->Actionables) {
-			Branch &branch = this->RootBranch.AddBranch(program.second);
-			anyGood |= program.second->Execute(this, &branch);
+		for (Program *program : { player->MoveAction.Get() }) {
+			Branch &branch = this->RootBranch.AddBranch(program);
+			anyGood |= program->Execute(this, &branch);
 		}
 		if (!anyGood) {
 			this->RootBranch.MarkBad();

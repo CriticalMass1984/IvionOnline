@@ -26,6 +26,7 @@ public:
 		std::string deckName_;
 		int index_;
 		int teamIndex_;
+		Vec2 start_;
 	};
 
 	GameInstance(const std::vector<PlayerDef> &players);
@@ -50,13 +51,12 @@ public:
 	MemoryPool Memory;
 
 	Map Map;
-
+	Program *const MoveAction{ nullptr };
 	std::vector<Player *> Players;
-	std::vector<std::vector<Card *>> Decks;
+	// std::vector<std::vector<Card *>> Decks;
 
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
-	Var::Dictionary<Program *> Actionables; // start of turn, end of turn, etc
 
 private:
 	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
