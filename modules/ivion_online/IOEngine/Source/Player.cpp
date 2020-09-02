@@ -11,7 +11,10 @@ Player::Player(GameInstance *instance, const std::string &name, int idx, int tea
 		Index(idx),
 		TeamIndex(teamIdx),
 		Position(start),
-		MoveAction(instance->MoveAction) {
+		MoveAction(instance->MoveAction),
+		BasicAttack(instance->BasicAttack)
+
+{
 }
 
 Vec2 Player::GetPosition() const {

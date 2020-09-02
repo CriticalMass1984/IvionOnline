@@ -26,6 +26,7 @@ public:
 	Vec2 GetPosition() const override;
 
 	Var::Var<Program *> MoveAction{ nullptr };
+	Var::Var<Program *> BasicAttack{ nullptr };
 
 	Player(GameInstance *instance, const std::string &name, int idx, int teamIdx, Tile *start);
 	~Player() = default;

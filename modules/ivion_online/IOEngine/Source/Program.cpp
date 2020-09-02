@@ -373,6 +373,9 @@ public:
 };
 
 void Program::Compile(IO::Engine::GameInstance *instance, IO::Engine::Program *program, bool isCard, const std::string &text) {
+	assert(instance);
+	assert(program);
+	assert(!text.empty());
 	std::stringstream textStream(text);
 	antlr4::ANTLRInputStream antlrStream(textStream);
 	IvionLexer lexer(&antlrStream);

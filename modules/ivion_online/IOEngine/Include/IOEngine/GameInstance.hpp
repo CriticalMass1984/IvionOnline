@@ -52,6 +52,7 @@ public:
 
 	Map Map;
 	Program *const MoveAction{ nullptr };
+	Program *const BasicAttack{ nullptr };
 	std::vector<Player *> Players;
 	// std::vector<std::vector<Card *>> Decks;
 

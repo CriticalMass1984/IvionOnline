@@ -13,6 +13,14 @@ add_executable(TestGame
 
 target_link_libraries(TestGame ivion)
 
+#################################
+
+add_executable(TestRandomGame
+    TestRandomGame.cpp
+)
+
+target_link_libraries(TestRandomGame ivion)
+
 
 #################################
 

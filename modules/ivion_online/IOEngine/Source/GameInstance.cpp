@@ -30,6 +30,7 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 		Memory(),
 		Map(4, 4),
 		MoveAction(Objects.EmplaceObject<Program>("Move Action")),
+		BasicAttack(Objects.EmplaceObject<Program>("Basic Attack")),
 		Players(MakePlayers(players)),
 		ActivePlayer{ Players[0] },
 		ActiveCard{ nullptr }
@@ -37,6 +38,7 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 {
 	cardLibrary_.LoadCards("WinterstormCardList.txt");
 	Program::Compile(this, MoveAction, false, "move 1 tile.");
+	Program::Compile(this, BasicAttack, false, "deal 5 damage to target player.");
 
 	BranchStack.push_back(&RootBranch);
 }
@@ -89,7 +91,8 @@ bool GameInstance::AcceptChoices() {
 		Player *player = this->ActivePlayer.Get();
 		assert(player);
 		bool anyGood = false;
-		for (Program *program : { player->MoveAction.Get() }) {
+		for (Program *program : { player->MoveAction.Get(), player->BasicAttack.Get() }) {
+			assert(program);
 			Branch &branch = this->RootBranch.AddBranch(program);
 			anyGood |= program->Execute(this, &branch);
 		}
