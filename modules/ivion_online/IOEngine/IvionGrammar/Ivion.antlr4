@@ -2,12 +2,15 @@ grammar Ivion;
 
 //////////////////////////////////////////////////////////////////////
 
+filterPlayer
+    : (Player | Enemy)+;
+
 targetPlayer
-    : 'target' 'player'
+    : Target filterPlayer
     ;
 
 selectPlayer
-    : A 'player'
+    : A filterPlayer
     ;
 
 cardController
@@ -28,7 +31,7 @@ player
     ;
 
 damagePlayer
-    : 'deal' integer 'damage' To player
+    : Deal integer 'damage' To player
     | player Take integer 'damage'
     ;
 
@@ -79,10 +82,16 @@ Draw: 'draw' | 'draws';
 Move: 'move' | 'moves';
 Travel: 'travel' | 'travels';
 
+
+Target : 'Target' | 'target';
+Player : 'player' | 'Player';
+Enemy : 'enemy' | 'Enemy';
+Deal: 'deal' | 'Deal';
+
 //////////////////////////////////////////////////////////////////////
 
 targetTile
-    : 'target' Tile;
+    : Target Tile;
 
 selectTile
     : A Tile
@@ -98,7 +107,7 @@ Tile: 'tile' | 'tiles';
 //////////////////////////////////////////////////////////////////////
 
 targetCard
-    : 'target' Card;
+    : Target Card;
 
 selectCard
     : A Card;
