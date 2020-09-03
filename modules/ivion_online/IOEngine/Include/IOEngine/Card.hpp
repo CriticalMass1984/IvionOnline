@@ -11,11 +11,16 @@ namespace IO {
 namespace Engine {
 class Player;
 class Program;
+struct CardDef;
 
 class Card : public Posable {
 private:
+	const CardDef *const def_;
+
 public:
-	Program *Effect;
+	Program *PlayEffect;
+	Program *ResolveEffect;
+	Program *PassiveEffect;
 
 	enum class Zone {
 		NONE,
@@ -27,20 +32,23 @@ public:
 		DISCARD,
 	};
 
+	Var::Var<Zone> Zone{ Zone::NONE };
+	IntVar Actions{ 0 };
+	IntVar Power{ 0 };
 	IntVar Range{ -1 };
-	Var::Var<Zone> Zone;
 	Var::Var<bool> IsRevealed{ false };
+	Var::Var<bool> Instant{ false };
 	Var::Var<Player *> Controller{ nullptr };
 	Var::Var<Posable *> AttachedTarget{ nullptr };
 
 	Vec2 GetPosition() const override;
 
-	Card(Program *effect, Player *owner) noexcept;
+	Card(GameInstance *instance, Player *owner, const std::string &archetype, const std::string &name) noexcept;
 
 	Card(const Card &) noexcept = delete;
 	Card(Card &&) noexcept = default;
 
-	const std::string &Name() const noexcept { return Effect->Name(); }
+	const std::string &Name() const noexcept { return def_->name_; }
 };
 typedef Var::Var<Card *> CardVar;
 typedef Card *StackCard;

@@ -2,8 +2,12 @@
 
 #include <IOEngine/AST/AssertDistance.hpp>
 #include <IOEngine/AST/AssertInRange.hpp>
+#include <IOEngine/AST/AssertInstantCheck.hpp>
 #include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
+#include <IOEngine/AST/PlayerDrawCard.hpp>
+#include <IOEngine/AST/ResourceCost.hpp>
+#include <IOEngine/AST/ResourceGain.hpp>
 #include <IOEngine/AST/SelectActiveCard.hpp>
 #include <IOEngine/AST/SelectActivePlayer.hpp>
 #include <IOEngine/AST/SelectCard.hpp>

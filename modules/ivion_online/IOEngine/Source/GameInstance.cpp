@@ -8,6 +8,7 @@
 
 namespace IO {
 namespace Engine {
+
 std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &players) {
 	//be careful of construction order
 	assert(Map.Height() > 0);
@@ -16,6 +17,7 @@ std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &pl
 	newPlayers.reserve(players.size());
 	for (unsigned int i = 0; i < players.size(); ++i) {
 		assert(players[i].index_ == (int)i);
+
 		newPlayers.emplace_back(this->Objects.EmplaceObject<Player>(
 				this,
 				players[i].displayName_,
@@ -37,8 +39,8 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 
 {
 	cardLibrary_.LoadCards("WinterstormCardList.txt");
-	Program::Compile(this, MoveAction, false, "move 1 tile.");
-	Program::Compile(this, BasicAttack, false, "deal 5 damage to target player.");
+	Program::CompileAction(this, MoveAction, "move 1 tile.");
+	Program::CompileAction(this, BasicAttack, "deal 5 damage to target player.");
 
 	BranchStack.push_back(&RootBranch);
 }
@@ -95,6 +97,13 @@ bool GameInstance::AcceptChoices() {
 			assert(program);
 			Branch &branch = this->RootBranch.AddBranch(program);
 			anyGood |= program->Execute(this, &branch);
+		}
+		for (Card *card : player->Hand) {
+			assert(card);
+			assert(card->PlayEffect);
+			assert(card->ResolveEffect);
+			Branch &branch = this->RootBranch.AddBranch(card);
+			anyGood |= card->PlayEffect->Execute(this, &branch);
 		}
 		if (!anyGood) {
 			this->RootBranch.MarkBad();

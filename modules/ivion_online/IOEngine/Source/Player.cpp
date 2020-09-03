@@ -1,16 +1,58 @@
+#include <IOEngine/Player.hpp>
+
 #include <IOEngine/Card.hpp>
 #include <IOEngine/GameInstance.hpp>
-#include <IOEngine/Player.hpp>
 #include <IOEngine/Tile.hpp>
+#include <Util.hpp>
+#include <fstream>
 
 namespace IO {
 namespace Engine {
 
-Player::Player(GameInstance *instance, const std::string &name, int idx, int teamIdx, Tile *start) :
-		name_(name),
-		Index(idx),
-		TeamIndex(teamIdx),
-		Position(start),
+std::unordered_set<Card *> LoadDeck(GameInstance *instance, Player *owner, const std::string &deckName) {
+	std::unordered_set<Card *> deck;
+	deck.reserve(50);
+
+	std::ifstream file(deckName);
+	if (!file.is_open()) {
+		fprintf(stderr, "Can't open deck file: '%s'\n", deckName.c_str());
+		return deck;
+	}
+	const IO::Engine::CardLibrary &library = instance->Library();
+
+	std::string line;
+	while (std::getline(file, line)) {
+		auto start = line.find_first_of(',');
+		if (start == std::string::npos) {
+			continue;
+		}
+		auto end = line.find_last_of(',');
+		if (start >= end) {
+			continue;
+		}
+		std::string arch = FixName(line.substr(0, start));
+		std::string name = FixName(line.substr(start + 1, end - (start + 1)));
+		const int count = std::stoi(ltrim_copy(line.substr(end + 1)));
+		printf("Loading '%s' '%s' '%d'\n", arch.c_str(), name.c_str(), count);
+
+		const IO::Engine::CardDef *cardDef = library.GetCard(arch, name);
+		if (cardDef == nullptr) {
+			fprintf(stderr, "Card not found!\n");
+			continue;
+		}
+		for (int i = 0; i < count; ++i) {
+			Card *card = instance->Objects.EmplaceObject<IO::Engine::Card>(instance, owner, cardDef);
+			deck.emplace(card);
+		}
+	}
+}
+
+Player::Player(GameInstance *instance, const GameInstance::PlayerDef &def) :
+		name_(def.displayName_),
+		Index(def.index_),
+		TeamIndex(def.teamIndex_),
+		Position(instance->Map.GetTile(def.start_)),
+		Deck(LoadDeck(instance, this, def.deckName_)),
 		MoveAction(instance->MoveAction),
 		BasicAttack(instance->BasicAttack)
 

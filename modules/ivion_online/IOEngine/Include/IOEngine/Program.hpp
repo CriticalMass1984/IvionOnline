@@ -2,6 +2,7 @@
 
 #include <IOEngine/AST/Method.hpp>
 #include <IOEngine/Branch.hpp>
+#include <IOEngine/CardLibrary.hpp>
 #include <IOEngine/Entity.hpp>
 #include <IOEngine/MemoryPool.hpp>
 #include <type_traits>
@@ -44,7 +45,8 @@ public:
 		return methodArgs;
 	}
 
-	static void Compile(IO::Engine::GameInstance *instance, IO::Engine::Program *program, bool isCard, const std::string &text);
+	static void CompileAction(GameInstance *instance, Program *action, const std::string &text);
+	static void CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef);
 
 	// computes a (possibly nested) branch of changes to the game state
 	bool Execute(GameInstance *instance, Branch *activeBranch);

@@ -9,8 +9,8 @@
 #include <IOEngine/MemoryPool.hpp>
 #include <IOEngine/ObjectPool.hpp>
 #include <IOEngine/Tile.hpp>
-#include <IOEngine/Vars/Dictionary.hpp>
 #include <IOEngine/Vars/Var.hpp>
+#include <IOEngine/Vars/Vector.hpp>
 
 namespace IO {
 namespace Engine {
@@ -27,6 +27,7 @@ public:
 		int index_;
 		int teamIndex_;
 		Vec2 start_;
+		std::vector<CardDef> deck_;
 	};
 
 	GameInstance(const std::vector<PlayerDef> &players);
@@ -47,17 +48,26 @@ public:
 	// void ResolveBranch(Branch& branch);
 	inline const CardLibrary &Library() const { return cardLibrary_; }
 
+	//
 	ObjectPool Objects;
 	MemoryPool Memory;
 
-	Map Map;
+	//
 	Program *const MoveAction{ nullptr };
 	Program *const BasicAttack{ nullptr };
-	std::vector<Player *> Players;
-	// std::vector<std::vector<Card *>> Decks;
 
+	//all ivion entities
+	Map Map;
+	std::vector<Player *> Players;
+	// std::vector<Card *> Cards;
+
+	//
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
+
+	//zones
+	Var::Set<Card *> Stack;
+	Var::Set<Card *> Field;
 
 private:
 	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);

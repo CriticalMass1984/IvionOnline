@@ -67,17 +67,31 @@ void Program::Print() {
 }
 
 class IvionCompiler : public IvionVisitor {
+public:
+	enum class EffectType {
+		NONE,
+		ACTIVE,
+		PASSIVE
+	};
+
+private:
 	std::vector<StackPlayer *> referencedOtherPlayers_;
 	std::vector<StackPosable *> referencedPosables_;
 	GameInstance *const instance_;
-	Program *const program_;
-	const bool isCard_;
+	Program *const play_;
+	Program *const resolve_;
+	bool isCard_;
+	EffectType effectType_;
 
 	void addRangeCheckIfCard(StackPosable *target) {
 		if (isCard_) {
-			StackCard *card = program_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
-			AST::SelectActiveCard(instance_, program_, card);
-			AST::AssertInRange(instance_, program_, card, target);
+			StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+			AST::SelectActiveCard(instance_, play_, card);
+			AST::AssertInRange(instance_, play_, card, target);
+
+			if (resolve_ != play_) {
+				AST::AssertInRange(instance_, resolve_, card, target);
+			}
 		}
 	}
 	void addRangeCheckIfCard(StackPlayer *target) { addRangeCheckIfCard((StackPosable *)(target)); }
@@ -85,32 +99,33 @@ class IvionCompiler : public IvionVisitor {
 	void addRangeCheckIfCard(StackTile *target) { addRangeCheckIfCard((StackPosable *)target); }
 
 	StackPlayer *activePlayerCache_{ nullptr };
+	StackCard *activeCardCache_{ nullptr };
+
+public:
 	StackPlayer *GetActivePlayer() {
 		if (activePlayerCache_) {
 			return activePlayerCache_;
 		}
-		StackPlayer *player = program_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
-		AST::SelectActivePlayer(instance_, program_, player);
+		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
+		AST::SelectActivePlayer(instance_, play_, player);
 		activePlayerCache_ = player;
 
 		return activePlayerCache_;
 	}
 
-	StackCard *activeCardCache_{ nullptr };
 	StackCard *GetActiveCard() {
-		assert(isCard_);
+		assert(cardDef_);
 		if (activeCardCache_) {
 			return activeCardCache_;
 		}
-		StackCard *card = program_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
-		AST::SelectActiveCard(instance_, program_, card);
+		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+		AST::SelectActiveCard(instance_, play_, card);
 
 		return activeCardCache_;
 	}
 
-public:
-	IvionCompiler(GameInstance *instance, Program *program, bool isCard) :
-			instance_(instance), program_(program), isCard_(isCard) {
+	IvionCompiler(GameInstance *instance, Program *play, Program *resolve, bool isCard) :
+			instance_(instance), play_(play), resolve_(resolve), isCard_(isCard) {
 	}
 
 	/////////////////////////////////////////////////////////
@@ -119,11 +134,11 @@ public:
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 
 		//allocate the player reference stack variable
-		StackPlayer *player = program_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
+		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
 		referencedOtherPlayers_.push_back(player);
 
 		//insert the method call
-		AST::TargetPlayer(instance_, program_, player);
+		AST::TargetPlayer(instance_, play_, player);
 
 		addRangeCheckIfCard(player);
 
@@ -134,11 +149,11 @@ public:
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 
 		//allocate the player reference stack variable
-		StackPlayer *player = program_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
+		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
 		referencedOtherPlayers_.push_back(player);
 
 		//insert the method call
-		AST::SelectPlayer(instance_, program_, player);
+		AST::SelectPlayer(instance_, play_, player);
 
 		// return players;
 		return player;
@@ -173,12 +188,8 @@ public:
 		StackPlayer *player = visitPlayer(playerValue);
 
 		//insert the method call
-		AST::DamagePlayer(instance_, program_, player, damage);
+		AST::DamagePlayer(instance_, resolve_, player, damage);
 
-		// for (antlr4::tree::ParseTree *child : ctx->children)
-		// {
-		//     fprintf(stderr, "Child: %s\n", child->getText().c_str());
-		// }
 		return 0;
 	}
 
@@ -198,7 +209,7 @@ public:
 		if (playerContext) {
 			player = visitPlayer(playerContext);
 		} else {
-			player = visitCardController(nullptr);
+			player = GetActivePlayer();
 		}
 
 		StackTile *tile{ nullptr };
@@ -206,17 +217,17 @@ public:
 			tile = visitTile(tileContext);
 		} else {
 			// select a tile
-			tile = program_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
-			AST::SelectTile(instance_, program_, tile);
+			tile = resolve_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
+			AST::SelectTile(instance_, resolve_, tile);
 
 			// assert tile is within range of starting point
 			int *distance = visitInteger(intCtx);
 			AST::AssertDistanceArgs::ComparisonType *comp =
-					program_->EmplaceStackVar<AST::AssertDistanceArgs::ComparisonType>(
+					resolve_->EmplaceStackVar<AST::AssertDistanceArgs::ComparisonType>(
 							&instance_->Memory,
 							AST::AssertDistanceArgs::ComparisonType::LESS_THAN_EQUAL);
 
-			AST::AssertDistance(instance_, program_, (Posable **)player, (Posable **)tile, distance, comp);
+			AST::AssertDistance(instance_, resolve_, (Posable **)player, (Posable **)tile, distance, comp);
 		}
 		return std::make_tuple(tile, player);
 	}
@@ -229,7 +240,11 @@ public:
 				ctx->getRuleContext<IvionParser::IntegerContext>(0));
 
 		//insert the method call
-		AST::MovePlayer(instance_, program_, player, tile);
+		AST::AssertInstantCheck(instance_, play_, nullptr);
+		int *actions = play_->EmplaceStackVar<int>(&instance_->Memory, -1);
+		int *power = play_->EmplaceStackVar<int>(&instance_->Memory, 0);
+		AST::ResourceCost(instance_, play_, player, actions, power);
+		AST::MovePlayer(instance_, resolve_, player, tile);
 		return 0;
 	}
 
@@ -241,7 +256,51 @@ public:
 				ctx->getRuleContext<IvionParser::IntegerContext>(0));
 
 		//insert the method call
-		AST::TravelPlayer(instance_, program_, player, tile);
+		AST::TravelPlayer(instance_, resolve_, player, tile);
+		return 0;
+	}
+
+	virtual antlrcpp::Any visitGainActions(IvionParser::GainActionsContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
+		StackPlayer *player{ nullptr };
+		if (playerContext) {
+			player = visitPlayer(playerContext);
+		} else {
+			player = GetActivePlayer();
+		}
+		int *actions = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+
+		AST::ResourceGain(instance_, resolve_, player, actions, nullptr);
+		return 0;
+	}
+
+	virtual antlrcpp::Any visitGainPower(IvionParser::GainPowerContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
+		StackPlayer *player{ nullptr };
+		if (playerContext) {
+			player = visitPlayer(playerContext);
+		} else {
+			player = GetActivePlayer();
+		}
+		int *power = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+
+		AST::ResourceGain(instance_, resolve_, player, nullptr, power);
+		return 0;
+	}
+
+	virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
+		StackPlayer *player{ nullptr };
+		if (playerContext) {
+			player = visitPlayer(playerContext);
+		} else {
+			player = GetActivePlayer();
+		}
+		int *number = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+		AST::PlayerDrawCard(instance_, resolve_, player, number);
 		return 0;
 	}
 
@@ -254,10 +313,10 @@ public:
 	virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the tile reference stack variable
-		StackTile *tile = program_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
+		StackTile *tile = play_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
 
 		//insert the method call
-		AST::TargetTile(instance_, program_, tile);
+		AST::TargetTile(instance_, play_, tile);
 		addRangeCheckIfCard(tile);
 
 		// return tiles;
@@ -267,10 +326,10 @@ public:
 	virtual antlrcpp::Any visitSelectTile(IvionParser::SelectTileContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the tile reference stack variable
-		StackTile *tile = program_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
+		StackTile *tile = play_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
 
 		//insert the method call
-		AST::SelectTile(instance_, program_, tile);
+		AST::SelectTile(instance_, play_, tile);
 
 		// return tiles;
 		return tile;
@@ -286,10 +345,10 @@ public:
 	virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the card reference stack variable
-		StackCard *card = program_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
 
 		//insert the method call
-		AST::SelectCard(instance_, program_, card);
+		AST::SelectCard(instance_, play_, card);
 		addRangeCheckIfCard(card);
 
 		// return cards;
@@ -299,10 +358,10 @@ public:
 	virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the card reference stack variable
-		StackCard *card = program_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
 
 		//insert the method call
-		AST::SelectCard(instance_, program_, card);
+		AST::SelectCard(instance_, play_, card);
 
 		// return cards;
 		return card;
@@ -331,11 +390,12 @@ public:
 	// integer parsing
 	virtual antlrcpp::Any visitIntegerLiteral(IvionParser::IntegerLiteralContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		assert(ctx);
 		assert(ctx->children.size() == 1);
 
 		int value = std::atoi(ctx->children[0]->getText().c_str());
 
-		return program_->EmplaceStackVar<int>(&instance_->Memory, value);
+		return play_->EmplaceStackVar<int>(&instance_->Memory, value);
 	}
 
 	virtual antlrcpp::Any visitInteger(IvionParser::IntegerContext *ctx) override {
@@ -345,6 +405,7 @@ public:
 
 	virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		assert(ctx);
 		std::stringstream stream;
 
 		for (char c : ctx->getText()) {
@@ -354,35 +415,64 @@ public:
 
 		std::string result = stream.str();
 
-		if (result == "one") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 1);
+		if (result == "one" || result == "a") {
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 1);
 		} else if (result == "two") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 2);
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 2);
 		} else if (result == "three") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 3);
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 3);
 		} else if (result == "four") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 4);
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 4);
 		} else if (result == "five") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 5);
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 5);
 		} else if (result == "six") {
-			return program_->EmplaceStackVar<int>(&instance_->Memory, 6);
+			return play_->EmplaceStackVar<int>(&instance_->Memory, 6);
 		}
 		fprintf(stderr, "Unknown word: '%s'\n", result.c_str());
 		assert(false);
 	}
 };
 
-void Program::Compile(IO::Engine::GameInstance *instance, IO::Engine::Program *program, bool isCard, const std::string &text) {
+void CompileAction(GameInstance *instance, Program *action, const std::string &text) {
 	assert(instance);
-	assert(program);
+	assert(action);
 	assert(!text.empty());
 	std::stringstream textStream(text);
 	antlr4::ANTLRInputStream antlrStream(textStream);
 	IvionLexer lexer(&antlrStream);
 	antlr4::CommonTokenStream tokens(&lexer);
 	IvionParser parser(&tokens);
-	IvionCompiler compiler(instance, program, isCard);
+	IvionCompiler compiler(instance, action, action, false);
 	antlrcpp::Any result = compiler.visitText(parser.text());
 }
+void CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef) {
+	assert(instance);
+	assert(card);
+	assert(cardDef);
+	std::stringstream textStream(cardDef->active_mechanics_);
+	antlr4::ANTLRInputStream antlrStream(textStream);
+	IvionLexer lexer(&antlrStream);
+	antlr4::CommonTokenStream tokens(&lexer);
+	IvionParser parser(&tokens);
+	IvionCompiler compiler(instance, card->PlayEffect, card->ResolveEffect, true);
+
+	int *actions = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->actions_);
+	int *power = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->power_);
+	StackPlayer *player = compiler.GetActivePlayer();
+
+	AST::ResourceCost(instance, card->PlayEffect, player,
+			actions,
+			power);
+
+	AST::ResourceGain(instance, card->ResolveEffect, player,
+			actions,
+			power);
+
+	// all cards need to check instant speed
+	AST::AssertInstantCheck(instance, card->PlayEffect, card);
+
+	antlrcpp::Any result = compiler.visitText(parser.text());
+}
+
 } // namespace Engine
 } // namespace IO

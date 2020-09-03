@@ -1,4 +1,7 @@
 #pragma once
+#include <IOEngine/Vars/Delta.hpp>
+#include <IOEngine/Vars/Var.hpp>
+#include <cassert>
 
 namespace IO {
 namespace Engine {
