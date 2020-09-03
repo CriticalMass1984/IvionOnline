@@ -4,6 +4,7 @@
 #include <IOEngine/AST/AssertInRange.hpp>
 #include <IOEngine/AST/AssertInstantCheck.hpp>
 #include <IOEngine/AST/DamagePlayer.hpp>
+#include <IOEngine/AST/EndTheTurn.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
 #include <IOEngine/AST/PlayerDrawCard.hpp>
 #include <IOEngine/AST/ResourceCost.hpp>
@@ -14,6 +15,7 @@
 #include <IOEngine/AST/SelectCardController.hpp>
 #include <IOEngine/AST/SelectPlayer.hpp>
 #include <IOEngine/AST/SelectTile.hpp>
+#include <IOEngine/AST/StartTheTurn.hpp>
 #include <IOEngine/AST/TargetPlayer.hpp>
 #include <IOEngine/AST/TargetTile.hpp>
 #include <IOEngine/AST/TravelPlayer.hpp>

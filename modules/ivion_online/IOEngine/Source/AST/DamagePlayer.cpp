@@ -11,9 +11,9 @@ void DamagePlayer(GameInstance *instance, Program *program,
 
 //applies change
 bool DamagePlayerMethod(GameInstance *instance, Branch *activeBranch, DamagePlayerArgs *args) noexcept {
+	activeBranch->Append<DamagePlayerDelta>(args);
 	Player *player = *args->player_;
 	int damage = *args->value_;
-	activeBranch->Append<DamagePlayerDelta>(args, player, damage);
 	activeBranch->Append<IntVar::SetDelta>(player->Health.Set(player->Health.Get() - damage));
 	return true;
 }

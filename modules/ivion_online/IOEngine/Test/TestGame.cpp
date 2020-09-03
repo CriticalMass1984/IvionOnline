@@ -14,15 +14,15 @@ namespace ivion = IO::Engine;
 namespace Var = IO::Engine::Var;
 
 int main(int argc, char **argv) {
-	std::vector<ivion::GameInstance::PlayerDef> players;
-	players.emplace_back(ivion::GameInstance::PlayerDef{
+	std::vector<ivion::PlayerDef> players;
+	players.emplace_back(ivion::PlayerDef{
 			.displayName_ = "Player1",
 			.deckName_ = "DeskList.txt",
 			.index_ = 0,
 			.teamIndex_ = 0,
 			.start_ = ivion::Vec2(0, 0),
 	});
-	players.emplace_back(ivion::GameInstance::PlayerDef{
+	players.emplace_back(ivion::PlayerDef{
 			.displayName_ = "Player2",
 			.deckName_ = "DeskList.txt",
 			.index_ = 1,

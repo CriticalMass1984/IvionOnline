@@ -26,7 +26,6 @@ struct TravelPlayerArgs {
 void TravelPlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *tile);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct TravelPlayerDelta : public Var::Delta {
 	TravelPlayerArgs *const args_;
 

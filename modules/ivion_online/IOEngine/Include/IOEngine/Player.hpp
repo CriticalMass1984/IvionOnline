@@ -13,7 +13,7 @@ namespace IO {
 namespace Engine {
 class Program;
 class GameInstance;
-class GameInstance::PlayerDef;
+struct PlayerDef;
 
 class Player : public Posable {
 	std::string name_;
@@ -37,7 +37,7 @@ public:
 	Var::Var<Program *> MoveAction{ nullptr };
 	Var::Var<Program *> BasicAttack{ nullptr };
 
-	Player(GameInstance *instance, const GameInstance::PlayerDef &def);
+	Player(GameInstance *instance, const PlayerDef &def);
 	~Player() = default;
 
 	const std::string &Name() const noexcept { return name_; }

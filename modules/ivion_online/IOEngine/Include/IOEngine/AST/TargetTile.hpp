@@ -24,7 +24,6 @@ struct TargetTileArgs {
 void TargetTile(GameInstance *instance, Program *program,
 		StackTile *tile);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct TargetTileDelta : public Var::Delta {
 	TargetTileArgs *const args_;
 	Tile *const tile_;

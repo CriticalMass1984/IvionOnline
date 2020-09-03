@@ -24,7 +24,6 @@ struct SelectCardArgs {
 void SelectCard(GameInstance *instance, Program *program,
 		StackCard *card);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct SelectCardDelta : public Var::Delta {
 	SelectCardArgs *const args_;
 	Card *const card_;

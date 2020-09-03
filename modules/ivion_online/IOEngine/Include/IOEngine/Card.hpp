@@ -43,7 +43,7 @@ public:
 
 	Vec2 GetPosition() const override;
 
-	Card(GameInstance *instance, Player *owner, const std::string &archetype, const std::string &name) noexcept;
+	Card(GameInstance *instance, Player *owner, const CardDef *def) noexcept;
 
 	Card(const Card &) noexcept = delete;
 	Card(Card &&) noexcept = default;

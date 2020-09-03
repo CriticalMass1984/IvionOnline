@@ -23,7 +23,6 @@ struct CondArgs {
 	}
 };
 
-// doesn't actually do anything, but makes life easier for triggers
 struct CondDelta : public Var::Delta {
 	bool const condition_;
 	Program *const ifTrue_;

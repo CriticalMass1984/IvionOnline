@@ -25,7 +25,6 @@ struct MovePlayerArgs {
 void MovePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *dest);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct MovePlayerDelta : public Var::Delta {
 	MovePlayerArgs *const args_;
 

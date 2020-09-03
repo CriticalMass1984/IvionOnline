@@ -21,7 +21,7 @@ struct SelectActivePlayerArgs {
 };
 
 void SelectActivePlayer(GameInstance *instance, Program *program, Engine::StackPlayer *player);
-// doesn't actually do anything, but makes life easier for triggers
+
 struct SelectActivePlayerDelta : public Var::Delta {
 	SelectActivePlayerArgs *const args_;
 	Player *const player_;

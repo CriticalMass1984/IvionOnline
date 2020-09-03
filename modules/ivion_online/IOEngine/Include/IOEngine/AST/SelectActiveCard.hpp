@@ -21,7 +21,7 @@ struct SelectActiveCardArgs {
 };
 
 void SelectActiveCard(GameInstance *instance, Program *program, Engine::StackCard *card);
-// doesn't actually do anything, but makes life easier for triggers
+
 struct SelectActiveCardDelta : public Var::Delta {
 	SelectActiveCardArgs *const args_;
 	Card *const card_;

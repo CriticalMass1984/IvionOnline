@@ -22,8 +22,7 @@ public:
 
 	public:
 		static bool Apply(InsertDelta *self) {
-			self->set_->elements_.emplace(self->new_);
-			return true;
+			return self->set_->elements_.emplace(self->new_).second;
 		}
 
 		static void Revert(InsertDelta *self) {
@@ -36,7 +35,6 @@ public:
 
 		inline const Set<T> *Target() const noexcept { return set_; }
 		inline const T New() const noexcept { return new_; }
-		inline const T Old() const noexcept { return old_; }
 
 		~InsertDelta() noexcept = default;
 	};
@@ -48,12 +46,12 @@ public:
 
 	public:
 		static bool Apply(RemoveDelta *self) {
-			self->set_->elements_.erase(self->pos_);
+			self->set_->elements_.erase(self->old_);
 			return true;
 		}
 
 		static void Revert(RemoveDelta *self) {
-			self->set_->elements_.emplace(self->pos_);
+			self->set_->elements_.emplace(self->old_);
 		}
 
 		constexpr RemoveDelta(Set<T> *set, T _old) noexcept :
@@ -80,35 +78,14 @@ public:
 	InsertDelta Insert(T value) {
 		return InsertDelta(this, value);
 	}
-	RemoveDelta Remove(T value {
+	RemoveDelta Remove(T value) {
 		return RemoveDelta(this, value);
 	}
 	inline bool Empty() const noexcept {
 		return elements_.empty();
 	}
 
-	T GetRandomElement(GameInstance* instance)
-	{
-		assert(!elements_.empty());
-		// https://stackoverflow.com/questions/12761315/random-element-from-unordered-set-in-o1/31522686#31522686
-		//get a fake card to insert into the unordered map
-		//do not access any members
-		Card *fakeCard = (Card *)instance->Objects.GetRandomPointer();
-		auto [it, success] = elements_.insert(fakeCard);
-		if (success) {
-			//remove it
-			it = elements_.erase(it);
-
-			// if we somehow inserted the final element, return the first one
-			if (it == elements_.end()) {
-				return *elements_.begin();
-			}
-			return *it;
-		} else {
-			//managed to hit an actual card by random chance
-			return *it;
-		}
-	}
+	std::unordered_set<T> &GetElements() noexcept { return elements_; }
 };
 } // namespace Var
 } // namespace Engine

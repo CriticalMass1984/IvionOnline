@@ -95,6 +95,18 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitLine(IvionParser::LineContext *ctx) override {
     return visitChildren(ctx);
   }

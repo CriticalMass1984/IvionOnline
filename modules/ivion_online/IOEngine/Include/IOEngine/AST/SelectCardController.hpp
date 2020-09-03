@@ -25,7 +25,6 @@ struct SelectCardControllerArgs {
 void SelectCardController(GameInstance *instance, Program *program,
 		StackPlayer *player, StackCard *card);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct SelectCardControllerDelta : public Var::Delta {
 	SelectCardControllerArgs *const args_;
 	Player *const player_;

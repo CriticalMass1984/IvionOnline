@@ -25,7 +25,6 @@ struct DamagePlayerArgs {
 void DamagePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct DamagePlayerDelta : public Var::Delta {
 	const DamagePlayerArgs *const args_;
 	Player *const player_;
@@ -34,11 +33,11 @@ struct DamagePlayerDelta : public Var::Delta {
 	static bool Apply(DamagePlayerDelta *self);
 
 	static void Revert(DamagePlayerDelta *self);
-	inline DamagePlayerDelta(DamagePlayerArgs *args, Player *player, int damage) noexcept :
+	inline DamagePlayerDelta(DamagePlayerArgs *args) noexcept :
 			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
 			args_(args),
-			player_(player),
-			value_(damage) {
+			player_(*args->player_),
+			value_(*args->value_) {
 	}
 
 	~DamagePlayerDelta() noexcept = default;

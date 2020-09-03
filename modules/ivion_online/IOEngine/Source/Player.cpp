@@ -45,9 +45,10 @@ std::unordered_set<Card *> LoadDeck(GameInstance *instance, Player *owner, const
 			deck.emplace(card);
 		}
 	}
+	return deck;
 }
 
-Player::Player(GameInstance *instance, const GameInstance::PlayerDef &def) :
+Player::Player(GameInstance *instance, const PlayerDef &def) :
 		name_(def.displayName_),
 		Index(def.index_),
 		TeamIndex(def.teamIndex_),

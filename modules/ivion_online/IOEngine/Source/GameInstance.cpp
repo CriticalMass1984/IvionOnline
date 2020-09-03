@@ -18,11 +18,10 @@ std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &pl
 	for (unsigned int i = 0; i < players.size(); ++i) {
 		assert(players[i].index_ == (int)i);
 
-		newPlayers.emplace_back(this->Objects.EmplaceObject<Player>(
-				this,
-				players[i].displayName_,
-				i, players[i].teamIndex_,
-				Map.GetTile(players[i].start_)));
+		newPlayers.emplace_back(
+				this->Objects.EmplaceObject<Player>(
+						this,
+						players[i]));
 	}
 	return newPlayers;
 }
@@ -33,6 +32,7 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 		Map(4, 4),
 		MoveAction(Objects.EmplaceObject<Program>("Move Action")),
 		BasicAttack(Objects.EmplaceObject<Program>("Basic Attack")),
+		EndOfTurn(Objects.EmplaceObject<Program>("End Of Turn")),
 		Players(MakePlayers(players)),
 		ActivePlayer{ Players[0] },
 		ActiveCard{ nullptr }
@@ -41,6 +41,7 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 	cardLibrary_.LoadCards("WinterstormCardList.txt");
 	Program::CompileAction(this, MoveAction, "move 1 tile.");
 	Program::CompileAction(this, BasicAttack, "deal 5 damage to target player.");
+	Program::CompileAction(this, EndOfTurn, "end the turn. start the turn. gain 3 actions. draw a card.");
 
 	BranchStack.push_back(&RootBranch);
 }
@@ -93,7 +94,7 @@ bool GameInstance::AcceptChoices() {
 		Player *player = this->ActivePlayer.Get();
 		assert(player);
 		bool anyGood = false;
-		for (Program *program : { player->MoveAction.Get(), player->BasicAttack.Get() }) {
+		for (Program *program : { player->MoveAction.Get(), player->BasicAttack.Get(), EndOfTurn }) {
 			assert(program);
 			Branch &branch = this->RootBranch.AddBranch(program);
 			anyGood |= program->Execute(this, &branch);

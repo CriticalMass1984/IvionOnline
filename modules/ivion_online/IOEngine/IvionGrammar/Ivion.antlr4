@@ -112,9 +112,19 @@ Card : 'card' | 'cards';
 
 //////////////////////////////////////////////////////////////////////
 
+endTheTurn: 'end' 'the' 'turn';
+startTheTurn: 'start' 'the' 'turn';
+
+miscEffect
+    : startTheTurn
+    | endTheTurn;
+
+//////////////////////////////////////////////////////////////////////
+
 line
     : (
         effectPlayer
+        | miscEffect
     ) '.' ('\n' | EOF)?
     ;
 

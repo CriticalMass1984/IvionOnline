@@ -22,7 +22,6 @@ struct AssertInstantCheckArgs {
 void AssertInstantCheck(GameInstance *instance, Program *program,
 		Card *card);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct AssertInstantCheckDelta : public Var::Delta {
 	AssertInstantCheckArgs *const args_;
 	const bool result_;

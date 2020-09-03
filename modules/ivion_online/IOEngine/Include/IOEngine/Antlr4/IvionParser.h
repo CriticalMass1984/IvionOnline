@@ -14,10 +14,11 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    Disarm = 15, Silence = 16, Slow = 17, Discard = 18, Draw = 19, Move = 20, 
-    Travel = 21, Tile = 22, Card = 23, One = 24, Two = 25, Three = 26, Four = 27, 
-    Five = 28, Six = 29, Is = 30, To = 31, Take = 32, Integer = 33, Newline = 34, 
-    Whitespace = 35, BlockComment = 36, LineComment = 37
+    T__14 = 15, T__15 = 16, T__16 = 17, T__17 = 18, Disarm = 19, Silence = 20, 
+    Slow = 21, Discard = 22, Draw = 23, Move = 24, Travel = 25, Tile = 26, 
+    Card = 27, One = 28, Two = 29, Three = 30, Four = 31, Five = 32, Six = 33, 
+    Is = 34, To = 35, Take = 36, Integer = 37, Newline = 38, Whitespace = 39, 
+    BlockComment = 40, LineComment = 41
   };
 
   enum {
@@ -26,8 +27,9 @@ public:
     RuleControlPlayer = 7, RuleMovePlayer = 8, RuleTravelPlayer = 9, RuleGainActions = 10, 
     RuleGainPower = 11, RuleDrawCards = 12, RuleEffectPlayer = 13, RuleTargetTile = 14, 
     RuleSelectTile = 15, RuleTile = 16, RuleTargetCard = 17, RuleSelectCard = 18, 
-    RuleCard = 19, RuleLine = 20, RuleParagraph = 21, RuleText = 22, RuleInteger = 23, 
-    RuleIntegerLiteral = 24, RuleIntegerWord = 25
+    RuleCard = 19, RuleEndTheTurn = 20, RuleStartTheTurn = 21, RuleMiscEffect = 22, 
+    RuleLine = 23, RuleParagraph = 24, RuleText = 25, RuleInteger = 26, 
+    RuleIntegerLiteral = 27, RuleIntegerWord = 28
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -60,6 +62,9 @@ public:
   class TargetCardContext;
   class SelectCardContext;
   class CardContext;
+  class EndTheTurnContext;
+  class StartTheTurnContext;
+  class MiscEffectContext;
   class LineContext;
   class ParagraphContext;
   class TextContext;
@@ -355,11 +360,50 @@ public:
 
   CardContext* card();
 
+  class  EndTheTurnContext : public antlr4::ParserRuleContext {
+  public:
+    EndTheTurnContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  EndTheTurnContext* endTheTurn();
+
+  class  StartTheTurnContext : public antlr4::ParserRuleContext {
+  public:
+    StartTheTurnContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  StartTheTurnContext* startTheTurn();
+
+  class  MiscEffectContext : public antlr4::ParserRuleContext {
+  public:
+    MiscEffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    StartTheTurnContext *startTheTurn();
+    EndTheTurnContext *endTheTurn();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  MiscEffectContext* miscEffect();
+
   class  LineContext : public antlr4::ParserRuleContext {
   public:
     LineContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     EffectPlayerContext *effectPlayer();
+    MiscEffectContext *miscEffect();
     antlr4::tree::TerminalNode *Newline();
     antlr4::tree::TerminalNode *EOF();
 

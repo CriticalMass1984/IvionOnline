@@ -9,8 +9,8 @@
 #include <IOEngine/MemoryPool.hpp>
 #include <IOEngine/ObjectPool.hpp>
 #include <IOEngine/Tile.hpp>
+#include <IOEngine/Vars/Set.hpp>
 #include <IOEngine/Vars/Var.hpp>
-#include <IOEngine/Vars/Vector.hpp>
 
 namespace IO {
 namespace Engine {
@@ -19,17 +19,17 @@ class Team;
 class Card;
 class Program;
 
+struct PlayerDef {
+	std::string displayName_;
+	std::string deckName_;
+	int index_;
+	int teamIndex_;
+	Vec2 start_;
+	std::vector<CardDef> deck_;
+};
+
 class GameInstance {
 public:
-	struct PlayerDef {
-		std::string displayName_;
-		std::string deckName_;
-		int index_;
-		int teamIndex_;
-		Vec2 start_;
-		std::vector<CardDef> deck_;
-	};
-
 	GameInstance(const std::vector<PlayerDef> &players);
 
 	//starts the game
@@ -55,6 +55,7 @@ public:
 	//
 	Program *const MoveAction{ nullptr };
 	Program *const BasicAttack{ nullptr };
+	Program *const EndOfTurn{ nullptr };
 
 	//all ivion entities
 	Map Map;
@@ -62,6 +63,7 @@ public:
 	// std::vector<Card *> Cards;
 
 	//
+	IntVar TurnNumber{ 0 };
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
 

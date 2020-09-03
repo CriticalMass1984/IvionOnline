@@ -25,7 +25,6 @@ struct PlayerDrawCardArgs {
 void PlayerDrawCard(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct PlayerDrawCardDelta : public Var::Delta {
 	const PlayerDrawCardArgs *const args_;
 	Player *const player_;

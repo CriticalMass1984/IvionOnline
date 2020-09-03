@@ -59,6 +59,12 @@ public:
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
 
+    virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *context) = 0;
+
+    virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *context) = 0;
+
+    virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *context) = 0;
+
     virtual antlrcpp::Any visitLine(IvionParser::LineContext *context) = 0;
 
     virtual antlrcpp::Any visitParagraph(IvionParser::ParagraphContext *context) = 0;

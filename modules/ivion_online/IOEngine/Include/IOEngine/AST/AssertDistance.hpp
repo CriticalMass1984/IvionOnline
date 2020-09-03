@@ -35,7 +35,6 @@ struct AssertDistanceArgs {
 void AssertDistance(GameInstance *instance, Program *program,
 		StackPosable *left, StackPosable *right, int *distance, AssertDistanceArgs::ComparisonType *comparisonType);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct AssertDistanceDelta : public Var::Delta {
 	AssertDistanceArgs *const args_;
 	const bool result_;

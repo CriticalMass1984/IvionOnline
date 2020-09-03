@@ -114,7 +114,6 @@ public:
 	}
 
 	StackCard *GetActiveCard() {
-		assert(cardDef_);
 		if (activeCardCache_) {
 			return activeCardCache_;
 		}
@@ -374,6 +373,25 @@ public:
 		return card;
 	}
 
+	// miscellaneous effects
+	virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		AST::EndTheTurn(instance_, resolve_, GetActivePlayer());
+		return visitChildren(ctx);
+	}
+
+	// miscellaneous effects
+	virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		AST::StartTheTurn(instance_, resolve_);
+		return visitChildren(ctx);
+	}
+
+	virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *ctx) override {
+		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		return visitChildren(ctx);
+	}
+
 	// text parsing
 	virtual antlrcpp::Any visitLine(IvionParser::LineContext *ctx) override {
 		return visitChildren(ctx);
@@ -433,7 +451,7 @@ public:
 	}
 };
 
-void CompileAction(GameInstance *instance, Program *action, const std::string &text) {
+void Program::CompileAction(GameInstance *instance, Program *action, const std::string &text) {
 	assert(instance);
 	assert(action);
 	assert(!text.empty());
@@ -445,7 +463,7 @@ void CompileAction(GameInstance *instance, Program *action, const std::string &t
 	IvionCompiler compiler(instance, action, action, false);
 	antlrcpp::Any result = compiler.visitText(parser.text());
 }
-void CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef) {
+void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef) {
 	assert(instance);
 	assert(card);
 	assert(cardDef);

@@ -25,7 +25,6 @@ struct AssertInRangeArgs {
 void AssertInRange(GameInstance *instance, Program *program,
 		StackCard *card, StackPosable *target);
 
-// doesn't actually do anything, but makes life easier for triggers
 struct AssertInRangeDelta : public Var::Delta {
 	AssertInRangeArgs *const args_;
 	const bool result_;
