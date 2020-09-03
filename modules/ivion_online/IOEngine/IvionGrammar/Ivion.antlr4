@@ -85,7 +85,7 @@ Travel: 'travel' | 'travels';
 
 Target : 'Target' | 'target';
 Player : 'player' | 'Player';
-Enemy : 'enemy' | 'Enemy';
+Enemy : 'enemy' | 'Enemy' | 'opponent' | 'Opponent' ;
 Deal: 'deal' | 'Deal';
 
 //////////////////////////////////////////////////////////////////////
@@ -151,11 +151,11 @@ integer
     ;
     
 integerLiteral: Integer;
-integerWord: A | One | Two | Three | Four | Five | Six;
+integerWord: One | Two | Three | Four | Five | Six;
 
 
 // lexer
-One: 'one' | 'One';
+One: A | 'one' | 'One';
 Two: 'two' | 'Two';
 Three: 'three' | 'Three';
 Four: 'four' | 'Four';
