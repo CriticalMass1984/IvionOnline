@@ -504,7 +504,6 @@ public:
   public:
     IntegerWordContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *A();
     antlr4::tree::TerminalNode *One();
     antlr4::tree::TerminalNode *Two();
     antlr4::tree::TerminalNode *Three();
