@@ -10,7 +10,10 @@ class Posable : public Entity {
 public:
 	virtual Vec2 GetPosition() const = 0;
 	int GetDistance(const Posable *p) const {
-		return (this->GetPosition() - p->GetPosition()).Len();
+		Vec2 l = this->GetPosition();
+		Vec2 r = p->GetPosition();
+		Vec2 diff = l - r;
+		return (l - r).Len();
 	}
 
 	Posable() noexcept = default;

@@ -29,7 +29,7 @@ class ObjectPool {
 	int current_pool_size_{ 0 };
 
 	Pool *NewPool() {
-		pools_.emplace_back();
+		pools_.emplace_back(std::make_shared<Pool>());
 		return pools_.back().get();
 	}
 

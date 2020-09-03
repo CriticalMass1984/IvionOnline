@@ -14,11 +14,11 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, T__15 = 16, T__16 = 17, T__17 = 18, Disarm = 19, Silence = 20, 
-    Slow = 21, Discard = 22, Draw = 23, Move = 24, Travel = 25, Tile = 26, 
-    Card = 27, One = 28, Two = 29, Three = 30, Four = 31, Five = 32, Six = 33, 
-    Is = 34, To = 35, Take = 36, Integer = 37, Newline = 38, Whitespace = 39, 
-    BlockComment = 40, LineComment = 41
+    T__14 = 15, T__15 = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
+    Draw = 21, Move = 22, Travel = 23, Tile = 24, One = 25, Two = 26, Three = 27, 
+    Four = 28, Five = 29, Six = 30, Card = 31, A = 32, Is = 33, To = 34, 
+    Take = 35, Integer = 36, Newline = 37, Whitespace = 38, BlockComment = 39, 
+    LineComment = 40
   };
 
   IvionLexer(antlr4::CharStream *input);

@@ -13,11 +13,12 @@ bool StartTheTurnMethod(GameInstance *instance, Branch *activeBranch, StartTheTu
 
 struct StartTheTurnArgs {
 	Method const method_{ (Method)StartTheTurnMethod };
-
-	StartTheTurnArgs() = default;
+	StackPlayer *player_;
+	StartTheTurnArgs(StackPlayer *player) :
+			player_(player) {}
 };
 
-void StartTheTurn(GameInstance *instance, Program *program);
+void StartTheTurn(GameInstance *instance, Program *program, StackPlayer *player);
 
 struct StartTheTurnDelta : public Var::Delta {
 	const StartTheTurnArgs *const args_;

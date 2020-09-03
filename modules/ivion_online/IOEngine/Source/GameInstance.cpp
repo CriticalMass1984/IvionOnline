@@ -34,7 +34,7 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 		BasicAttack(Objects.EmplaceObject<Program>("Basic Attack")),
 		EndOfTurn(Objects.EmplaceObject<Program>("End Of Turn")),
 		Players(MakePlayers(players)),
-		ActivePlayer{ Players[0] },
+		ActivePlayer{ nullptr },
 		ActiveCard{ nullptr }
 
 {
@@ -44,6 +44,8 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 	Program::CompileAction(this, EndOfTurn, "end the turn. start the turn. gain 3 actions. draw a card.");
 
 	BranchStack.push_back(&RootBranch);
+	EndOfTurn->Execute(this, BranchStack.back());
+	this->AcceptChoices();
 }
 
 bool GameInstance::MakeChoice(int branchIndex) {

@@ -49,7 +49,10 @@ bool Program::Execute(GameInstance *instance, Branch *activeBranch) {
 	if (methods_.empty()) {
 		return true;
 	}
-	return ExecuteRecursive(instance, activeBranch, methods_.begin(), methods_.end());
+	activeBranch->Apply();
+	bool result = ExecuteRecursive(instance, activeBranch, methods_.begin(), methods_.end());
+	activeBranch->Revert();
+	return result;
 }
 
 void Program::Print() {
@@ -268,7 +271,9 @@ public:
 		} else {
 			player = GetActivePlayer();
 		}
-		int *actions = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+		IvionParser::IntegerContext *intCtx = ctx->getRuleContext<IvionParser::IntegerContext>(0);
+		assert(intCtx);
+		int *actions = visitInteger(intCtx);
 
 		AST::ResourceGain(instance_, resolve_, player, actions, nullptr);
 		return 0;
@@ -283,7 +288,9 @@ public:
 		} else {
 			player = GetActivePlayer();
 		}
-		int *power = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+		IvionParser::IntegerContext *intCtx = ctx->getRuleContext<IvionParser::IntegerContext>(0);
+		assert(intCtx);
+		int *power = visitInteger(intCtx);
 
 		AST::ResourceGain(instance_, resolve_, player, nullptr, power);
 		return 0;
@@ -298,7 +305,9 @@ public:
 		} else {
 			player = GetActivePlayer();
 		}
-		int *number = visitInteger(ctx->getRuleContext<IvionParser::IntegerContext>(0));
+		IvionParser::IntegerContext *intCtx = ctx->getRuleContext<IvionParser::IntegerContext>(0);
+		assert(intCtx);
+		int *number = visitInteger(intCtx);
 		AST::PlayerDrawCard(instance_, resolve_, player, number);
 		return 0;
 	}
@@ -383,7 +392,7 @@ public:
 	// miscellaneous effects
 	virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
 		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
-		AST::StartTheTurn(instance_, resolve_);
+		AST::StartTheTurn(instance_, resolve_, GetActivePlayer());
 		return visitChildren(ctx);
 	}
 

@@ -7,7 +7,7 @@ targetPlayer
     ;
 
 selectPlayer
-    : 'a' 'player'
+    : A 'player'
     ;
 
 cardController
@@ -85,7 +85,7 @@ targetTile
     : 'target' Tile;
 
 selectTile
-    : 'a' Tile
+    : A Tile
     ;
 
 tile
@@ -98,17 +98,16 @@ Tile: 'tile' | 'tiles';
 //////////////////////////////////////////////////////////////////////
 
 targetCard
-    : 'target' 'card';
+    : 'target' Card;
 
 selectCard
-    : 'a' 'card';
+    : A Card;
 
 card
     : targetCard
     | selectCard
     ;
 
-Card : 'card' | 'cards';
 
 //////////////////////////////////////////////////////////////////////
 
@@ -143,18 +142,21 @@ integer
     ;
     
 integerLiteral: Integer;
-integerWord: One | Two | Three | Four | Five | Six;
+integerWord: A | One | Two | Three | Four | Five | Six;
 
 
 // lexer
-One: 'a' | 'A' | 'one' | 'One';
+One: 'one' | 'One';
 Two: 'two' | 'Two';
 Three: 'three' | 'Three';
 Four: 'four' | 'Four';
 Five: 'five' | 'Five';
 Six: 'six' | 'Six';
 
+Card : 'card' | 'cards';
+
 // articles
+A: 'a' | 'A';
 Is: 'is' | 'are';
 To: 'to' | 'To';
 Take: 'take' | 'takes';

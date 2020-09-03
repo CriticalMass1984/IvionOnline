@@ -8,6 +8,7 @@
 #include <IOEngine/GameInstance.hpp>
 #include <IOEngine/Player.hpp>
 #include <IOEngine/Program.hpp>
+#include <Util.hpp>
 #include <iostream>
 
 namespace ivion = IO::Engine;
@@ -57,19 +58,24 @@ int main(int argc, char **argv) {
 				continue;
 			}
 			std::getline(std::cin, line);
+			while (line.empty()) {
+				std::getline(std::cin, line);
+			}
 			try {
 				choice = std::stoi(line);
 				if (!game_instance.MakeChoice(choice)) {
 					printf("Bad choice\n");
 					if (choice >= 0 && choice < branches.size()) {
-						branches[choice].Print(&game_instance, false, "\t");
+						printf("\n\n\n");
+						branches[choice].Print(&game_instance, true, "\t");
+						printf("\n\n\n");
 					} else {
 						printf("Choice(%d) out of range!\n", choice);
 					}
 					continue;
 				}
+				printf("##############################################################################################\n");
 			} catch (...) {
-				printf("Choice could not be parsed, trying again\n");
 			}
 		}
 	}

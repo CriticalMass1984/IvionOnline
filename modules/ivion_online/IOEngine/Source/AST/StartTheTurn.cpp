@@ -5,8 +5,8 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void StartTheTurn(GameInstance *instance, Program *program) {
-	program->EmplaceMethodCallArgs<StartTheTurnArgs>(&instance->Memory);
+void StartTheTurn(GameInstance *instance, Program *program, StackPlayer *player) {
+	program->EmplaceMethodCallArgs<StartTheTurnArgs>(&instance->Memory, player);
 }
 
 //applies change
@@ -20,6 +20,7 @@ bool StartTheTurnMethod(GameInstance *instance, Branch *activeBranch, StartTheTu
 }
 
 bool StartTheTurnDelta::Apply(StartTheTurnDelta *self) {
+	*self->args_->player_ = self->player_;
 	return true;
 }
 

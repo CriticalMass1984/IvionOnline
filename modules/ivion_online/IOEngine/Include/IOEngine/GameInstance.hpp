@@ -63,7 +63,7 @@ public:
 	// std::vector<Card *> Cards;
 
 	//
-	IntVar TurnNumber{ 0 };
+	IntVar TurnNumber{ -1 };
 	Var::Var<Player *> ActivePlayer;
 	Var::Var<Card *> ActiveCard;
 
