@@ -20,16 +20,23 @@ class ObjectPool {
 		struct Object {
 			Destructor destructor_;
 			int offset_;
+
+			Object(const Object &) noexcept = delete;
+			Object(Object &&) = default;
 		};
 		std::vector<Object> objects_;
+
+		Pool() noexcept = default;
+		Pool(const Pool &) noexcept = delete;
+		Pool(Pool &&) = default;
 	};
-	std::vector<std::shared_ptr<Pool>> pools_;
+	std::vector<std::unique_ptr<Pool>> pools_;
 
 	Pool *current_pool_{ nullptr };
 	int current_pool_size_{ 0 };
 
 	Pool *NewPool() {
-		pools_.emplace_back(std::make_shared<Pool>());
+		pools_.emplace_back(new Pool());
 		return pools_.back().get();
 	}
 
@@ -40,7 +47,7 @@ public:
 	ObjectPool(ObjectPool &&) noexcept = default;
 	ObjectPool(const ObjectPool &) = delete;
 	~ObjectPool() {
-		for (std::shared_ptr<Pool> &pool : pools_) {
+		for (std::unique_ptr<Pool> &pool : pools_) {
 			for (Pool::Object &object : pool->objects_) {
 				object.destructor_(pool->data_.data() + object.offset_);
 			}
@@ -60,7 +67,7 @@ public:
 		// check if we ran out of space and need a new pool
 		if (current_pool_size_ > kPoolSize) {
 			current_pool_ = NewPool();
-			current_pool_size_ = 0;
+			current_pool_size_ = sizeof(T);
 			objPtr = current_pool_->data_.data();
 		}
 
@@ -77,7 +84,7 @@ public:
 	void *GetRandomPointer() {
 		// get random pool
 		const size_t poolIdx = rand() % pools_.size();
-		std::shared_ptr<Pool> &pool = pools_[poolIdx];
+		std::unique_ptr<Pool> &pool = pools_[poolIdx];
 
 		// get a random pointer within the pool
 		const int randOffset = rand() % kPoolSize;
