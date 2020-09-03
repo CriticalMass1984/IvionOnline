@@ -14,7 +14,9 @@ void AssertInRange(GameInstance *instance, Program *program,
 }
 //applies change
 bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, AssertInRangeArgs *args) noexcept {
-	bool result = (*args->card_)->Range.Get() <= (*args->card_)->GetDistance(*args->target_);
+	int range = (*args->card_)->Range.Get();
+	int distance = (*args->card_)->GetDistance(*args->target_);
+	bool result = distance <= range;
 	activeBranch->Append<AssertInRangeDelta>(args, result);
 	return result;
 }

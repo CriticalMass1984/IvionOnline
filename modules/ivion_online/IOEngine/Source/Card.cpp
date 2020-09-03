@@ -14,7 +14,8 @@ Card::Card(GameInstance *instance, Player *owner, const CardDef *def) noexcept :
 		PassiveEffect(def_->passive_mechanics_.empty() ? nullptr : instance->Objects.EmplaceObject<Program>(def_->name_)),
 		Controller(owner),
 		Actions(def_->actions_),
-		Power(def_->power_)
+		Power(def_->power_),
+		Range(def->range_)
 
 {
 	Program::CompileCard(instance, this, def_);

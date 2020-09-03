@@ -25,7 +25,7 @@ public:
 	IntVar Health{ 40 };
 	IntVar MaxHealth{ 40 };
 	IntVar Actions{ 0 };
-	IntVar Power{ 0 };
+	IntVar Power{ 5 };
 	TileVar Position;
 	Vec2 GetPosition() const override;
 

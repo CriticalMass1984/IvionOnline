@@ -135,6 +135,7 @@ CardDef CardLibrary::ParseLine(const std::string &line) {
 void CardLibrary::LoadCards(const std::string &CsvFilename) {
 	std::ifstream file(CsvFilename);
 	if (!file.is_open()) {
+		fprintf(stderr, "Can't open card list '%s'!\n", CsvFilename.c_str());
 		return;
 	}
 

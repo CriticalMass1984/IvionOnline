@@ -13,14 +13,14 @@ bool SelectActivePlayerMethod(GameInstance *instance, Branch *activeBranch, Sele
 
 struct SelectActivePlayerArgs {
 	Method const method_{ (Method)SelectActivePlayerMethod };
-	Engine::StackPlayer *const player_;
+	StackPlayer *const player_;
 
 	SelectActivePlayerArgs(StackPlayer *player) :
 			player_(player) {
 	}
 };
 
-void SelectActivePlayer(GameInstance *instance, Program *program, Engine::StackPlayer *player);
+void SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player);
 
 struct SelectActivePlayerDelta : public Var::Delta {
 	SelectActivePlayerArgs *const args_;

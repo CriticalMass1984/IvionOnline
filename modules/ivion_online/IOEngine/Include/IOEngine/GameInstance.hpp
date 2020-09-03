@@ -29,6 +29,10 @@ struct PlayerDef {
 };
 
 class GameInstance {
+private:
+	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
+	CardLibrary cardLibrary_;
+
 public:
 	GameInstance(const std::vector<PlayerDef> &players);
 
@@ -70,10 +74,6 @@ public:
 	//zones
 	Var::Set<Card *> Stack;
 	Var::Set<Card *> Field;
-
-private:
-	std::vector<Player *> MakePlayers(const std::vector<PlayerDef> &players);
-	CardLibrary cardLibrary_;
 };
 
 } // namespace Engine

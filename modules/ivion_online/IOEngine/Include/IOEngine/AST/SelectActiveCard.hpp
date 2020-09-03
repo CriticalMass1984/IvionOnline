@@ -13,14 +13,15 @@ bool SelectActiveCardMethod(GameInstance *instance, Branch *activeBranch, Select
 
 struct SelectActiveCardArgs {
 	Method const method_{ (Method)SelectActiveCardMethod };
-	Engine::StackCard *const card_;
+	StackCard *const card_;
+	Card *const actualCard_;
 
-	SelectActiveCardArgs(StackCard *card) :
-			card_(card) {
+	SelectActiveCardArgs(StackCard *card, Card *actualCard) :
+			card_(card), actualCard_(actualCard) {
 	}
 };
 
-void SelectActiveCard(GameInstance *instance, Program *program, Engine::StackCard *card);
+void SelectActiveCard(GameInstance *instance, Program *program, StackCard *card, Card *actualCard);
 
 struct SelectActiveCardDelta : public Var::Delta {
 	SelectActiveCardArgs *const args_;
@@ -30,10 +31,10 @@ struct SelectActiveCardDelta : public Var::Delta {
 
 	static void Revert(SelectActiveCardDelta *self);
 
-	inline SelectActiveCardDelta(SelectActiveCardArgs *args, Card *card) noexcept :
+	inline SelectActiveCardDelta(SelectActiveCardArgs *args) noexcept :
 			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
 			args_(args),
-			card_(card) {
+			card_(args->actualCard_) {
 	}
 	~SelectActiveCardDelta() noexcept = default;
 };

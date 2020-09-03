@@ -83,17 +83,15 @@ private:
 	GameInstance *const instance_;
 	Program *const play_;
 	Program *const resolve_;
-	bool isCard_;
+	Card *const card_{ nullptr };
 	EffectType effectType_;
 
 	void addRangeCheckIfCard(StackPosable *target) {
-		if (isCard_) {
-			StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
-			AST::SelectActiveCard(instance_, play_, card);
-			AST::AssertInRange(instance_, play_, card, target);
+		if (card_) {
+			AST::AssertInRange(instance_, play_, GetActiveCard(), target);
 
 			if (resolve_ != play_) {
-				AST::AssertInRange(instance_, resolve_, card, target);
+				AST::AssertInRange(instance_, resolve_, GetActiveCard(), target);
 			}
 		}
 	}
@@ -105,35 +103,47 @@ private:
 	StackCard *activeCardCache_{ nullptr };
 
 public:
+	IvionCompiler(GameInstance *instance, Program *play, Program *resolve, Card *card) :
+			instance_(instance), play_(play), resolve_(resolve), card_(card) {
+	}
+
 	StackPlayer *GetActivePlayer() {
 		if (activePlayerCache_) {
 			return activePlayerCache_;
 		}
-		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
-		AST::SelectActivePlayer(instance_, play_, player);
-		activePlayerCache_ = player;
+		activePlayerCache_ = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
+		AST::SelectActivePlayer(instance_, play_, activePlayerCache_);
 
 		return activePlayerCache_;
 	}
 
 	StackCard *GetActiveCard() {
+		assert(card_);
 		if (activeCardCache_) {
 			return activeCardCache_;
 		}
-		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
-		AST::SelectActiveCard(instance_, play_, card);
+		activeCardCache_ = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+		AST::SelectActiveCard(instance_, play_, activeCardCache_, card_);
 
 		return activeCardCache_;
 	}
 
-	IvionCompiler(GameInstance *instance, Program *play, Program *resolve, bool isCard) :
-			instance_(instance), play_(play), resolve_(resolve), isCard_(isCard) {
-	}
-
 	/////////////////////////////////////////////////////////
 	//player resoltuion
+	virtual antlrcpp::Any visitFilterPlayer(IvionParser::FilterPlayerContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+
+		if (ctx->getToken(IvionLexer::Player, 0)) {
+			return AST::AssertPlayerFilterArgs::Filter::PLAYER;
+		} else if (ctx->getToken(IvionLexer::Enemy, 0)) {
+			return AST::AssertPlayerFilterArgs::Filter::ENEMY;
+		}
+
+		return AST::AssertPlayerFilterArgs::Filter::NONE;
+	}
+
 	virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 
 		//allocate the player reference stack variable
 		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
@@ -142,13 +152,23 @@ public:
 		//insert the method call
 		AST::TargetPlayer(instance_, play_, player);
 
+		for (int i = 0;; ++i) {
+			IvionParser::FilterPlayerContext *filterCtx = ctx->getRuleContext<IvionParser::FilterPlayerContext>(i);
+			if (filterCtx == nullptr) {
+				break;
+			}
+			AST::AssertPlayerFilterArgs::Filter filter = visitFilterPlayer(filterCtx);
+			AST::AssertPlayerFilterArgs::Filter *filterPtr = play_->EmplaceStackVar<AST::AssertPlayerFilterArgs::Filter>(&instance_->Memory, filter);
+			AST::AssertPlayerFilter(instance_, play_, GetActivePlayer(), player, filterPtr);
+		}
+
 		addRangeCheckIfCard(player);
 
 		return player;
 	}
 
 	virtual antlrcpp::Any visitSelectPlayer(IvionParser::SelectPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 
 		//allocate the player reference stack variable
 		StackPlayer *player = play_->EmplaceStackVar<StackPlayer>(&instance_->Memory, nullptr);
@@ -162,18 +182,18 @@ public:
 	}
 
 	virtual antlrcpp::Any visitCardController(IvionParser::CardControllerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return GetActivePlayer();
 	}
 
 	virtual antlrcpp::Any visitPreviousPlayer(IvionParser::PreviousPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		assert(referencedOtherPlayers_.size() > 0);
 		return referencedOtherPlayers_.back();
 	}
 
 	virtual antlrcpp::Any visitPlayer(IvionParser::PlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		StackPlayer *player = visitChildren(ctx);
 		referencedPosables_.push_back(reinterpret_cast<Posable **>(player));
 		return player;
@@ -181,7 +201,7 @@ public:
 
 	// resolve player effects
 	virtual antlrcpp::Any visitDamagePlayer(IvionParser::DamagePlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 
 		IvionParser::IntegerContext *intCtx = ctx->getRuleContext<IvionParser::IntegerContext>(0);
 		int *damage = visitInteger(intCtx);
@@ -196,12 +216,12 @@ public:
 	}
 
 	virtual antlrcpp::Any visitControl(IvionParser::ControlContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return visitChildren(ctx);
 	}
 
 	virtual antlrcpp::Any visitControlPlayer(IvionParser::ControlPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return visitChildren(ctx);
 	}
 
@@ -235,7 +255,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitMovePlayer(IvionParser::MovePlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		auto [tile, player] = findTile(
 				ctx->getRuleContext<IvionParser::PlayerContext>(0),
 				ctx->getRuleContext<IvionParser::TileContext>(0),
@@ -251,7 +271,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		auto [tile, player] = findTile(
 				ctx->getRuleContext<IvionParser::PlayerContext>(0),
 				ctx->getRuleContext<IvionParser::TileContext>(0),
@@ -263,7 +283,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitGainActions(IvionParser::GainActionsContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
 		StackPlayer *player{ nullptr };
 		if (playerContext) {
@@ -280,7 +300,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitGainPower(IvionParser::GainPowerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
 		StackPlayer *player{ nullptr };
 		if (playerContext) {
@@ -297,7 +317,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		IvionParser::PlayerContext *playerContext = ctx->getRuleContext<IvionParser::PlayerContext>(0);
 		StackPlayer *player{ nullptr };
 		if (playerContext) {
@@ -313,13 +333,13 @@ public:
 	}
 
 	virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return visitChildren(ctx);
 	}
 
 	// tile resolution
 	virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the tile reference stack variable
 		StackTile *tile = play_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
 
@@ -332,7 +352,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitSelectTile(IvionParser::SelectTileContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the tile reference stack variable
 		StackTile *tile = play_->EmplaceStackVar<StackTile>(&instance_->Memory, nullptr);
 
@@ -344,14 +364,14 @@ public:
 	}
 
 	virtual antlrcpp::Any visitTile(IvionParser::TileContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		StackTile *tile = visitChildren(ctx);
 		referencedPosables_.push_back(reinterpret_cast<Posable **>(tile));
 		return tile;
 	}
 
 	virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the card reference stack variable
 		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
 
@@ -364,7 +384,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		//allocate the card reference stack variable
 		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
 
@@ -376,7 +396,7 @@ public:
 	}
 
 	virtual antlrcpp::Any visitCard(IvionParser::CardContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		StackCard *card = visitChildren(ctx);
 		referencedPosables_.push_back(reinterpret_cast<Posable **>(card));
 		return card;
@@ -384,20 +404,20 @@ public:
 
 	// miscellaneous effects
 	virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		AST::EndTheTurn(instance_, resolve_, GetActivePlayer());
 		return visitChildren(ctx);
 	}
 
 	// miscellaneous effects
 	virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		AST::StartTheTurn(instance_, resolve_, GetActivePlayer());
 		return visitChildren(ctx);
 	}
 
 	virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return visitChildren(ctx);
 	}
 
@@ -416,7 +436,7 @@ public:
 
 	// integer parsing
 	virtual antlrcpp::Any visitIntegerLiteral(IvionParser::IntegerLiteralContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		assert(ctx);
 		assert(ctx->children.size() == 1);
 
@@ -426,12 +446,12 @@ public:
 	}
 
 	virtual antlrcpp::Any visitInteger(IvionParser::IntegerContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		return visitChildren(ctx);
 	}
 
 	virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *ctx) override {
-		fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		assert(ctx);
 		std::stringstream stream;
 
@@ -469,7 +489,7 @@ void Program::CompileAction(GameInstance *instance, Program *action, const std::
 	IvionLexer lexer(&antlrStream);
 	antlr4::CommonTokenStream tokens(&lexer);
 	IvionParser parser(&tokens);
-	IvionCompiler compiler(instance, action, action, false);
+	IvionCompiler compiler(instance, action, action, nullptr);
 	antlrcpp::Any result = compiler.visitText(parser.text());
 }
 void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef) {
@@ -481,7 +501,7 @@ void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *car
 	IvionLexer lexer(&antlrStream);
 	antlr4::CommonTokenStream tokens(&lexer);
 	IvionParser parser(&tokens);
-	IvionCompiler compiler(instance, card->PlayEffect, card->ResolveEffect, true);
+	IvionCompiler compiler(instance, card->PlayEffect, card->ResolveEffect, card);
 
 	int *actions = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->actions_);
 	int *power = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->power_);

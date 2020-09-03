@@ -11,8 +11,10 @@ namespace Engine {
 
 std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &players) {
 	//be careful of construction order
+	cardLibrary_.LoadCards("WinterstormCardList.txt");
 	assert(Map.Height() > 0);
 	assert(Map.Width() > 0);
+
 	std::vector<Player *> newPlayers;
 	newPlayers.reserve(players.size());
 	for (unsigned int i = 0; i < players.size(); ++i) {
@@ -27,6 +29,7 @@ std::vector<Player *> GameInstance::MakePlayers(const std::vector<PlayerDef> &pl
 }
 
 GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
+		cardLibrary_(),
 		Objects(),
 		Memory(),
 		Map(4, 4),
@@ -38,7 +41,6 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 		ActiveCard{ nullptr }
 
 {
-	cardLibrary_.LoadCards("WinterstormCardList.txt");
 	Program::CompileAction(this, MoveAction, "move 1 tile.");
 	Program::CompileAction(this, BasicAttack, "deal 5 damage to target player.");
 	Program::CompileAction(this, EndOfTurn, "end the turn. start the turn. gain 3 actions. draw a card.");

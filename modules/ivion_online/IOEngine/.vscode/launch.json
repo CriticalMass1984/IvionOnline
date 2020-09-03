@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "TestAntlr4",
+            "name": "Godot",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Test/TestAntlr4",
-            "args": ["IvionSamples.txt"],
+            "program": "/home/zack/Documents/IvionOnline/Godot/bin/godot.linuxbsd.tools.64",
+            "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

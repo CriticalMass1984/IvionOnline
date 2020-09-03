@@ -5,7 +5,7 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectActivePlayer(GameInstance *instance, Program *program, Engine::StackPlayer *player) {
+void SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player) {
 	program->EmplaceMethodCallArgs<AST::SelectActivePlayerArgs>(&instance->Memory, player);
 }
 //applies change

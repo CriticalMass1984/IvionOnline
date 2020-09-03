@@ -18,14 +18,14 @@ int main(int argc, char **argv) {
 	std::vector<ivion::PlayerDef> players;
 	players.emplace_back(ivion::PlayerDef{
 			.displayName_ = "Player1",
-			.deckName_ = "DeskList.txt",
+			.deckName_ = argv[1],
 			.index_ = 0,
 			.teamIndex_ = 0,
 			.start_ = ivion::Vec2(0, 0),
 	});
 	players.emplace_back(ivion::PlayerDef{
 			.displayName_ = "Player2",
-			.deckName_ = "DeskList.txt",
+			.deckName_ = argv[1],
 			.index_ = 1,
 			.teamIndex_ = 1,
 			.start_ = ivion::Vec2(3, 3),

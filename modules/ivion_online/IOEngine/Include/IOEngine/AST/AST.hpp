@@ -3,6 +3,7 @@
 #include <IOEngine/AST/AssertDistance.hpp>
 #include <IOEngine/AST/AssertInRange.hpp>
 #include <IOEngine/AST/AssertInstantCheck.hpp>
+#include <IOEngine/AST/AssertPlayerFilter.hpp>
 #include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/EndTheTurn.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
