@@ -132,11 +132,18 @@ public:
 	//player resoltuion
 	virtual antlrcpp::Any visitFilterPlayer(IvionParser::FilterPlayerContext *ctx) override {
 		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
-
-		if (ctx->getToken(IvionLexer::Player, 0)) {
-			return AST::AssertPlayerFilterArgs::Filter::PLAYER;
-		} else if (ctx->getToken(IvionLexer::Enemy, 0)) {
-			return AST::AssertPlayerFilterArgs::Filter::ENEMY;
+		for (auto &o : ctx->children) {
+			if (antlrcpp::is<antlr4::tree::TerminalNode *>(o)) {
+				antlr4::tree::TerminalNode *tnode = dynamic_cast<antlr4::tree::TerminalNode *>(o);
+				switch (tnode->getSymbol()->getType()) {
+					case IvionLexer::Player:
+						return AST::AssertPlayerFilterArgs::Filter::PLAYER;
+					case IvionLexer::Enemy:
+						return AST::AssertPlayerFilterArgs::Filter::ENEMY;
+					default:
+						break;
+				}
+			}
 		}
 
 		return AST::AssertPlayerFilterArgs::Filter::NONE;
@@ -453,29 +460,29 @@ public:
 	virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *ctx) override {
 		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		assert(ctx);
-		std::stringstream stream;
 
-		for (char c : ctx->getText()) {
-			c = tolower(c);
-			stream << c;
+		for (auto &o : ctx->children) {
+			if (antlrcpp::is<antlr4::tree::TerminalNode *>(o)) {
+				antlr4::tree::TerminalNode *tnode = dynamic_cast<antlr4::tree::TerminalNode *>(o);
+				switch (tnode->getSymbol()->getType()) {
+					case IvionLexer::One:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 1);
+					case IvionLexer::Two:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 2);
+					case IvionLexer::Three:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 3);
+					case IvionLexer::Four:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 4);
+					case IvionLexer::Five:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 5);
+					case IvionLexer::Six:
+						return play_->EmplaceStackVar<int>(&instance_->Memory, 6);
+					default:
+						break;
+				}
+			}
 		}
-
-		std::string result = stream.str();
-
-		if (result == "one" || result == "a") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 1);
-		} else if (result == "two") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 2);
-		} else if (result == "three") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 3);
-		} else if (result == "four") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 4);
-		} else if (result == "five") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 5);
-		} else if (result == "six") {
-			return play_->EmplaceStackVar<int>(&instance_->Memory, 6);
-		}
-		fprintf(stderr, "Unknown word: '%s'\n", result.c_str());
+		fprintf(stderr, "Unknown word: '%s'\n", ctx->getText().c_str());
 		assert(false);
 	}
 };
