@@ -13,20 +13,21 @@ class  IvionParser : public antlr4::Parser {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, Disarm = 12, Silence = 13, 
-    Slow = 14, Discard = 15, Move = 16, Travel = 17, Tile = 18, One = 19, 
-    Two = 20, Three = 21, Four = 22, Five = 23, Six = 24, Is = 25, To = 26, 
-    Take = 27, Integer = 28, Newline = 29, Whitespace = 30, BlockComment = 31, 
-    LineComment = 32
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
+    Disarm = 15, Silence = 16, Slow = 17, Discard = 18, Draw = 19, Move = 20, 
+    Travel = 21, Tile = 22, Card = 23, One = 24, Two = 25, Three = 26, Four = 27, 
+    Five = 28, Six = 29, Is = 30, To = 31, Take = 32, Integer = 33, Newline = 34, 
+    Whitespace = 35, BlockComment = 36, LineComment = 37
   };
 
   enum {
     RuleTargetPlayer = 0, RuleSelectPlayer = 1, RuleCardController = 2, 
     RulePreviousPlayer = 3, RulePlayer = 4, RuleDamagePlayer = 5, RuleControl = 6, 
-    RuleControlPlayer = 7, RuleMovePlayer = 8, RuleTravelPlayer = 9, RuleEffectPlayer = 10, 
-    RuleTargetTile = 11, RuleSelectTile = 12, RuleTile = 13, RuleTargetCard = 14, 
-    RuleSelectCard = 15, RuleCard = 16, RuleLine = 17, RuleParagraph = 18, 
-    RuleText = 19, RuleInteger = 20, RuleIntegerLiteral = 21, RuleIntegerWord = 22
+    RuleControlPlayer = 7, RuleMovePlayer = 8, RuleTravelPlayer = 9, RuleGainActions = 10, 
+    RuleGainPower = 11, RuleDrawCards = 12, RuleEffectPlayer = 13, RuleTargetTile = 14, 
+    RuleSelectTile = 15, RuleTile = 16, RuleTargetCard = 17, RuleSelectCard = 18, 
+    RuleCard = 19, RuleLine = 20, RuleParagraph = 21, RuleText = 22, RuleInteger = 23, 
+    RuleIntegerLiteral = 24, RuleIntegerWord = 25
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -49,6 +50,9 @@ public:
   class ControlPlayerContext;
   class MovePlayerContext;
   class TravelPlayerContext;
+  class GainActionsContext;
+  class GainPowerContext;
+  class DrawCardsContext;
   class EffectPlayerContext;
   class TargetTileContext;
   class SelectTileContext;
@@ -210,6 +214,50 @@ public:
 
   TravelPlayerContext* travelPlayer();
 
+  class  GainActionsContext : public antlr4::ParserRuleContext {
+  public:
+    GainActionsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    IntegerContext *integer();
+    PlayerContext *player();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  GainActionsContext* gainActions();
+
+  class  GainPowerContext : public antlr4::ParserRuleContext {
+  public:
+    GainPowerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    IntegerContext *integer();
+    PlayerContext *player();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  GainPowerContext* gainPower();
+
+  class  DrawCardsContext : public antlr4::ParserRuleContext {
+  public:
+    DrawCardsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Draw();
+    IntegerContext *integer();
+    antlr4::tree::TerminalNode *Card();
+    PlayerContext *player();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  DrawCardsContext* drawCards();
+
   class  EffectPlayerContext : public antlr4::ParserRuleContext {
   public:
     EffectPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -218,6 +266,9 @@ public:
     ControlPlayerContext *controlPlayer();
     MovePlayerContext *movePlayer();
     TravelPlayerContext *travelPlayer();
+    GainActionsContext *gainActions();
+    GainPowerContext *gainPower();
+    DrawCardsContext *drawCards();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

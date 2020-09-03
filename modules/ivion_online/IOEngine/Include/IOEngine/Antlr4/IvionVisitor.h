@@ -39,6 +39,12 @@ public:
 
     virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *context) = 0;
 
+    virtual antlrcpp::Any visitGainActions(IvionParser::GainActionsContext *context) = 0;
+
+    virtual antlrcpp::Any visitGainPower(IvionParser::GainPowerContext *context) = 0;
+
+    virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *context) = 0;
+
     virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *context) = 0;

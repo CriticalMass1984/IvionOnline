@@ -55,6 +55,18 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitGainActions(IvionParser::GainActionsContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitGainPower(IvionParser::GainPowerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *ctx) override {
     return visitChildren(ctx);
   }

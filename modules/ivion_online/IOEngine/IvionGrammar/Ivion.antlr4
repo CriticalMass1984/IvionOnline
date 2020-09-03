@@ -51,17 +51,30 @@ travelPlayer
     | Travel player? integer Tile
     ;
 
+gainActions
+    : player? 'gain' integer 'actions';
+
+gainPower
+    : player? 'gain' integer 'power';
+
+drawCards
+    : player? Draw integer Card;
+
 effectPlayer
     : damagePlayer
     | controlPlayer
     | movePlayer
     | travelPlayer
+    | gainActions
+    | gainPower
+    | drawCards
     ;
 
 Disarm : 'disarm' | 'disarmed';
 Silence : 'silence' | 'silenced';
 Slow : 'slow' | 'slowed';
 Discard: 'discard' | 'discards';
+Draw: 'draw' | 'draws';
 
 Move: 'move' | 'moves';
 Travel: 'travel' | 'travels';
@@ -95,6 +108,7 @@ card
     | selectCard
     ;
 
+Card : 'card' | 'cards';
 
 //////////////////////////////////////////////////////////////////////
 
