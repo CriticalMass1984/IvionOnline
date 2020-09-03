@@ -15,6 +15,10 @@
 class  IvionBaseVisitor : public IvionVisitor {
 public:
 
+  virtual antlrcpp::Any visitFilterPlayer(IvionParser::FilterPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *ctx) override {
     return visitChildren(ctx);
   }

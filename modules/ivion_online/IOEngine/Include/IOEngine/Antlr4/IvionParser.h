@@ -13,23 +13,23 @@ class  IvionParser : public antlr4::Parser {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, T__15 = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
-    Draw = 21, Move = 22, Travel = 23, Tile = 24, One = 25, Two = 26, Three = 27, 
-    Four = 28, Five = 29, Six = 30, Card = 31, A = 32, Is = 33, To = 34, 
-    Take = 35, Integer = 36, Newline = 37, Whitespace = 38, BlockComment = 39, 
-    LineComment = 40
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, Disarm = 14, 
+    Silence = 15, Slow = 16, Discard = 17, Draw = 18, Move = 19, Travel = 20, 
+    Target = 21, Player = 22, Enemy = 23, Deal = 24, Tile = 25, One = 26, 
+    Two = 27, Three = 28, Four = 29, Five = 30, Six = 31, Card = 32, A = 33, 
+    Is = 34, To = 35, Take = 36, Integer = 37, Newline = 38, Whitespace = 39, 
+    BlockComment = 40, LineComment = 41, TextSymbolComment = 42, BracketComment = 43
   };
 
   enum {
-    RuleTargetPlayer = 0, RuleSelectPlayer = 1, RuleCardController = 2, 
-    RulePreviousPlayer = 3, RulePlayer = 4, RuleDamagePlayer = 5, RuleControl = 6, 
-    RuleControlPlayer = 7, RuleMovePlayer = 8, RuleTravelPlayer = 9, RuleGainActions = 10, 
-    RuleGainPower = 11, RuleDrawCards = 12, RuleEffectPlayer = 13, RuleTargetTile = 14, 
-    RuleSelectTile = 15, RuleTile = 16, RuleTargetCard = 17, RuleSelectCard = 18, 
-    RuleCard = 19, RuleEndTheTurn = 20, RuleStartTheTurn = 21, RuleMiscEffect = 22, 
-    RuleLine = 23, RuleParagraph = 24, RuleText = 25, RuleInteger = 26, 
-    RuleIntegerLiteral = 27, RuleIntegerWord = 28
+    RuleFilterPlayer = 0, RuleTargetPlayer = 1, RuleSelectPlayer = 2, RuleCardController = 3, 
+    RulePreviousPlayer = 4, RulePlayer = 5, RuleDamagePlayer = 6, RuleControl = 7, 
+    RuleControlPlayer = 8, RuleMovePlayer = 9, RuleTravelPlayer = 10, RuleGainActions = 11, 
+    RuleGainPower = 12, RuleDrawCards = 13, RuleEffectPlayer = 14, RuleTargetTile = 15, 
+    RuleSelectTile = 16, RuleTile = 17, RuleTargetCard = 18, RuleSelectCard = 19, 
+    RuleCard = 20, RuleEndTheTurn = 21, RuleStartTheTurn = 22, RuleMiscEffect = 23, 
+    RuleLine = 24, RuleParagraph = 25, RuleText = 26, RuleInteger = 27, 
+    RuleIntegerLiteral = 28, RuleIntegerWord = 29
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -42,6 +42,7 @@ public:
   virtual antlr4::dfa::Vocabulary& getVocabulary() const override;
 
 
+  class FilterPlayerContext;
   class TargetPlayerContext;
   class SelectPlayerContext;
   class CardControllerContext;
@@ -72,10 +73,28 @@ public:
   class IntegerLiteralContext;
   class IntegerWordContext; 
 
+  class  FilterPlayerContext : public antlr4::ParserRuleContext {
+  public:
+    FilterPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<antlr4::tree::TerminalNode *> Player();
+    antlr4::tree::TerminalNode* Player(size_t i);
+    std::vector<antlr4::tree::TerminalNode *> Enemy();
+    antlr4::tree::TerminalNode* Enemy(size_t i);
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  FilterPlayerContext* filterPlayer();
+
   class  TargetPlayerContext : public antlr4::ParserRuleContext {
   public:
     TargetPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Target();
+    FilterPlayerContext *filterPlayer();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -89,6 +108,7 @@ public:
     SelectPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *A();
+    FilterPlayerContext *filterPlayer();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -141,6 +161,7 @@ public:
   public:
     DamagePlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Deal();
     IntegerContext *integer();
     antlr4::tree::TerminalNode *To();
     PlayerContext *player();
@@ -287,6 +308,7 @@ public:
   public:
     TargetTileContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Target();
     antlr4::tree::TerminalNode *Tile();
 
 
@@ -328,6 +350,7 @@ public:
   public:
     TargetCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Target();
     antlr4::tree::TerminalNode *Card();
 
 

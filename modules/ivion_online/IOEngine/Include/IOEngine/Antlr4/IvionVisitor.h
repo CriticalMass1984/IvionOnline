@@ -19,6 +19,8 @@ public:
   /**
    * Visit parse trees produced by IvionParser.
    */
+    virtual antlrcpp::Any visitFilterPlayer(IvionParser::FilterPlayerContext *context) = 0;
+
     virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitSelectPlayer(IvionParser::SelectPlayerContext *context) = 0;

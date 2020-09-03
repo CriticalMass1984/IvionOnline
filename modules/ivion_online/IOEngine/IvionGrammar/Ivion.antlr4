@@ -73,11 +73,11 @@ effectPlayer
     | drawCards
     ;
 
-Disarm : 'disarm' | 'disarmed';
-Silence : 'silence' | 'silenced';
-Slow : 'slow' | 'slowed';
-Discard: 'discard' | 'discards';
-Draw: 'draw' | 'draws';
+Disarm : 'Disarm' | 'disarm' | 'disarmed';
+Silence : 'Silence' | 'silence' | 'silenced';
+Slow : 'Slow' | 'slow' | 'slowed';
+Discard: 'Discard' | 'discard' | 'discards';
+Draw: 'Draw' | 'draw' | 'draws';
 
 Move: 'move' | 'moves';
 Travel: 'travel' | 'travels';
@@ -193,5 +193,16 @@ BlockComment
 
 LineComment
     :   '//' ~[\r\n]*
+        -> skip
+    ;
+
+
+TextSymbolComment
+    :   '['.*?']' 
+        -> skip
+    ;
+
+BracketComment
+    :   ('{' | '}')
         -> skip
     ;
