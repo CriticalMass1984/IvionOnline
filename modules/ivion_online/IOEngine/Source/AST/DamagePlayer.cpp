@@ -4,9 +4,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void DamagePlayer(GameInstance *instance, Program *program,
+DamagePlayerArgs* DamagePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value) {
-	program->EmplaceMethodCallArgs<DamagePlayerArgs>(&instance->Memory, player, value);
+	return program->EmplaceMethodCallArgs<DamagePlayerArgs>(&instance->Memory, player, value);
 }
 
 //applies change
@@ -18,11 +18,11 @@ bool DamagePlayerMethod(GameInstance *instance, Branch *activeBranch, DamagePlay
 	return true;
 }
 
-bool DamagePlayerDelta::Apply(DamagePlayerDelta *self) {
+bool DamagePlayerDelta::ApplyDelta(DamagePlayerDelta *self) {
 	return true;
 }
 
-void DamagePlayerDelta::Revert(DamagePlayerDelta *self) {
+void DamagePlayerDelta::RevertDelta(DamagePlayerDelta *self) {
 }
 
 } // namespace AST

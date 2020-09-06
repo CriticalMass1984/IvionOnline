@@ -13,12 +13,13 @@ class  IvionLexer : public antlr4::Lexer {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, Disarm = 14, 
-    Silence = 15, Slow = 16, Discard = 17, Draw = 18, Move = 19, Travel = 20, 
-    Target = 21, Player = 22, Enemy = 23, Deal = 24, Tile = 25, One = 26, 
-    Two = 27, Three = 28, Four = 29, Five = 30, Six = 31, Card = 32, A = 33, 
-    Is = 34, To = 35, Take = 36, Integer = 37, Newline = 38, Whitespace = 39, 
-    BlockComment = 40, LineComment = 41, TextSymbolComment = 42, BracketComment = 43
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
+    T__14 = 15, T__15 = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
+    Draw = 21, Move = 22, Travel = 23, Target = 24, Player = 25, Enemy = 26, 
+    Deal = 27, Tile = 28, Meta = 29, Counter = 30, One = 31, Two = 32, Three = 33, 
+    Four = 34, Five = 35, Six = 36, Card = 37, A = 38, Is = 39, To = 40, 
+    Take = 41, Of = 42, The = 43, Integer = 44, Newline = 45, Whitespace = 46, 
+    BlockComment = 47, LineComment = 48, TextSymbolComment = 49, BracketComment = 50
   };
 
   IvionLexer(antlr4::CharStream *input);

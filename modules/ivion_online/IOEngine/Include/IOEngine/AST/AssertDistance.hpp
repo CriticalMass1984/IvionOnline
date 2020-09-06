@@ -32,7 +32,7 @@ struct AssertDistanceArgs {
 	}
 };
 
-void AssertDistance(GameInstance *instance, Program *program,
+AssertDistanceArgs* AssertDistance(GameInstance *instance, Program *program,
 		StackPosable *left, StackPosable *right, int *distance, AssertDistanceArgs::ComparisonType *comparisonType);
 
 struct AssertDistanceDelta : public Var::Delta {
@@ -43,11 +43,11 @@ struct AssertDistanceDelta : public Var::Delta {
 	int const distance_;
 	AssertDistanceArgs::ComparisonType const comparisonType_;
 
-	static bool Apply(AssertDistanceDelta *self);
+	static bool ApplyDelta(AssertDistanceDelta *self);
 
-	static void Revert(AssertDistanceDelta *self);
+	static void RevertDelta(AssertDistanceDelta *self);
 	inline AssertDistanceDelta(AssertDistanceArgs *args, bool result) :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			result_(result),
 			left_(*args->left_),

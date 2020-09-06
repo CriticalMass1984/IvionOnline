@@ -9,14 +9,23 @@
 namespace IO {
 namespace Engine {
 
-std::unordered_set<Card *> LoadDeck(GameInstance *instance, Player *owner, const std::string &deckName) {
-	std::unordered_set<Card *> deck;
-	deck.reserve(50);
+Player::Player(GameInstance *instance, const PlayerDef &def) :
+		name_(def.displayName_),
+		Index(def.index_),
+		TeamIndex(def.teamIndex_),
+		Position(instance->Map.GetTile(def.start_)),
+		Feats(),
+		Hand(),
+		Discard(),
+		Deck(),
+		MoveAction(instance->MoveAction),
+		BasicAttack(instance->BasicAttack)
 
-	std::ifstream file(deckName);
+{
+	std::ifstream file(def.deckName_);
 	if (!file.is_open()) {
-		fprintf(stderr, "Can't open deck file: '%s'\n", deckName.c_str());
-		return deck;
+		fprintf(stderr, "Can't open deck file: '%s'\n", def.deckName_.c_str());
+		return;
 	}
 	const IO::Engine::CardLibrary &library = instance->Library();
 
@@ -41,23 +50,17 @@ std::unordered_set<Card *> LoadDeck(GameInstance *instance, Player *owner, const
 			continue;
 		}
 		for (int i = 0; i < count; ++i) {
-			Card *card = instance->Objects.EmplaceObject<IO::Engine::Card>(instance, owner, cardDef);
-			deck.emplace(card);
+			Card *card = instance->Objects.EmplaceObject<IO::Engine::Card>(instance, this, cardDef);
+			if (card->IsFeat()) {
+				if (card->Definition()->maxHP_ > 0) {
+					this->MaxHealth.Set(card->Definition()->maxHP_).Apply();
+				}
+				Feats.Insert(card).Apply();
+			} else {
+				Deck.Insert(card).Apply();
+			}
 		}
 	}
-	return deck;
-}
-
-Player::Player(GameInstance *instance, const PlayerDef &def) :
-		name_(def.displayName_),
-		Index(def.index_),
-		TeamIndex(def.teamIndex_),
-		Position(instance->Map.GetTile(def.start_)),
-		Deck(LoadDeck(instance, this, def.deckName_)),
-		MoveAction(instance->MoveAction),
-		BasicAttack(instance->BasicAttack)
-
-{
 }
 
 Vec2 Player::GetPosition() const {

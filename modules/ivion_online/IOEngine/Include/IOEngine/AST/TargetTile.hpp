@@ -21,19 +21,19 @@ struct TargetTileArgs {
 	}
 };
 
-void TargetTile(GameInstance *instance, Program *program,
+TargetTileArgs* TargetTile(GameInstance *instance, Program *program,
 		StackTile *tile);
 
 struct TargetTileDelta : public Var::Delta {
 	TargetTileArgs *const args_;
 	Tile *const tile_;
 
-	static bool Apply(TargetTileDelta *self);
+	static bool ApplyDelta(TargetTileDelta *self);
 
-	static void Revert(TargetTileDelta *self);
+	static void RevertDelta(TargetTileDelta *self);
 
 	inline TargetTileDelta(TargetTileArgs *args, Tile *tile) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			tile_(tile) {
 	}

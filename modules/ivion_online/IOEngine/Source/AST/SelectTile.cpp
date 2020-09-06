@@ -7,9 +7,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectTile(GameInstance *instance, Program *program,
+SelectTileArgs* SelectTile(GameInstance *instance, Program *program,
 		StackTile *tile) {
-	program->EmplaceMethodCallArgs<SelectTileArgs>(&instance->Memory, tile);
+	return program->EmplaceMethodCallArgs<SelectTileArgs>(&instance->Memory, tile);
 }
 
 //applies change
@@ -23,12 +23,12 @@ bool SelectTileMethod(GameInstance *instance, Branch *activeBranch, SelectTileAr
 	return true;
 }
 
-bool SelectTileDelta::Apply(SelectTileDelta *self) {
+bool SelectTileDelta::ApplyDelta(SelectTileDelta *self) {
 	*self->args_->tile_ = self->tile_;
 	return true;
 }
 
-void SelectTileDelta::Revert(SelectTileDelta *self) {
+void SelectTileDelta::RevertDelta(SelectTileDelta *self) {
 }
 
 } // namespace AST

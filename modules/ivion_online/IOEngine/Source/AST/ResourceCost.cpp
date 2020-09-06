@@ -6,9 +6,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void ResourceCost(GameInstance *instance, Program *program,
+ResourceCostArgs* ResourceCost(GameInstance *instance, Program *program,
 		StackPlayer *player, int *actions, int *power) {
-	program->EmplaceMethodCallArgs<ResourceCostArgs>(&instance->Memory, player, actions, power);
+	return program->EmplaceMethodCallArgs<ResourceCostArgs>(&instance->Memory, player, actions, power);
 }
 
 //applies change
@@ -31,11 +31,11 @@ bool ResourceCostMethod(GameInstance *instance, Branch *activeBranch, ResourceCo
 	return true;
 }
 
-bool ResourceCostDelta::Apply(ResourceCostDelta *self) {
+bool ResourceCostDelta::ApplyDelta(ResourceCostDelta *self) {
 	return true;
 }
 
-void ResourceCostDelta::Revert(ResourceCostDelta *self) {
+void ResourceCostDelta::RevertDelta(ResourceCostDelta *self) {
 }
 
 } // namespace AST

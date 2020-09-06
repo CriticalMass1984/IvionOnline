@@ -21,16 +21,16 @@ public:
 		T new_;
 
 	public:
-		static bool Apply(InsertDelta *self) {
+		static bool ApplyDelta(InsertDelta *self) {
 			return self->set_->elements_.emplace(self->new_).second;
 		}
 
-		static void Revert(InsertDelta *self) {
+		static void RevertDelta(InsertDelta *self) {
 			self->set_->elements_.erase(self->new_);
 		}
 
 		constexpr InsertDelta(Set<T> *set, T _new) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), set_(set), new_(_new) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), set_(set), new_(_new) {
 		}
 
 		inline const Set<T> *Target() const noexcept { return set_; }
@@ -45,17 +45,17 @@ public:
 		T old_;
 
 	public:
-		static bool Apply(RemoveDelta *self) {
+		static bool ApplyDelta(RemoveDelta *self) {
 			self->set_->elements_.erase(self->old_);
 			return true;
 		}
 
-		static void Revert(RemoveDelta *self) {
+		static void RevertDelta(RemoveDelta *self) {
 			self->set_->elements_.emplace(self->old_);
 		}
 
 		constexpr RemoveDelta(Set<T> *set, T _old) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), set_(set), old_(_old) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), set_(set), old_(_old) {
 		}
 
 		inline const Set<T> *Target() const noexcept { return set_; }

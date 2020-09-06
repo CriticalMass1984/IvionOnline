@@ -22,17 +22,17 @@ public:
 		T old_;
 
 	public:
-		static bool Apply(SetDelta *self) {
+		static bool ApplyDelta(SetDelta *self) {
 			self->var_->value_ = self->new_;
 			return true;
 		}
 
-		static void Revert(SetDelta *self) {
+		static void RevertDelta(SetDelta *self) {
 			self->var_->value_ = self->old_;
 		}
 
 		constexpr SetDelta(Var<T> *var, T _new, T _old) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), var_(var), new_(_new), old_(_old) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), var_(var), new_(_new), old_(_old) {
 		}
 
 		inline const Var<T> *Target() const noexcept { return var_; }

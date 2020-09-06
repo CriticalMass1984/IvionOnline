@@ -8,22 +8,23 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectCardController(GameInstance *instance, Program *program,
+SelectCardControllerArgs* SelectCardController(GameInstance *instance, Program *program,
 		StackPlayer *player, StackCard *card) {
-	program->EmplaceMethodCallArgs<SelectCardControllerArgs>(&instance->Memory, player, card);
+	return program->EmplaceMethodCallArgs<SelectCardControllerArgs>(&instance->Memory, player, card);
 }
 //applies change
-bool SelectCardControllerMethod(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *args) noexcept {
-	activeBranch->Append<SelectCardControllerDelta>(args, (*args->card_)->Controller.Get());
+bool SelectCardControllerMethod(GameInstance *instance, Branch *activeBranch, SelectCardControllerArgs *args) noexcept {\
+	*args->player_ = (*args->card_)->Controller.Get();
+	activeBranch->Append<SelectCardControllerDelta>(args);
 	return true;
 }
 
-bool SelectCardControllerDelta::Apply(SelectCardControllerDelta *self) {
+bool SelectCardControllerDelta::ApplyDelta(SelectCardControllerDelta *self) {
 	*self->args_->player_ = self->player_;
 	return true;
 }
 
-void SelectCardControllerDelta::Revert(SelectCardControllerDelta *self) {
+void SelectCardControllerDelta::RevertDelta(SelectCardControllerDelta *self) {
 }
 
 } // namespace AST

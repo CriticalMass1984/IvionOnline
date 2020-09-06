@@ -5,9 +5,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void EndTheTurn(GameInstance *instance, Program *program,
+EndTheTurnArgs* EndTheTurn(GameInstance *instance, Program *program,
 		StackPlayer *player) {
-	program->EmplaceMethodCallArgs<EndTheTurnArgs>(&instance->Memory, player);
+	return program->EmplaceMethodCallArgs<EndTheTurnArgs>(&instance->Memory, player);
 }
 
 //applies change
@@ -17,11 +17,11 @@ bool EndTheTurnMethod(GameInstance *instance, Branch *activeBranch, EndTheTurnAr
 	return true;
 }
 
-bool EndTheTurnDelta::Apply(EndTheTurnDelta *self) {
+bool EndTheTurnDelta::ApplyDelta(EndTheTurnDelta *self) {
 	return true;
 }
 
-void EndTheTurnDelta::Revert(EndTheTurnDelta *self) {
+void EndTheTurnDelta::RevertDelta(EndTheTurnDelta *self) {
 }
 
 } // namespace AST

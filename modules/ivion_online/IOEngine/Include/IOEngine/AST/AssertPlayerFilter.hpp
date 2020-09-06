@@ -28,7 +28,7 @@ struct AssertPlayerFilterArgs {
 	}
 };
 
-void AssertPlayerFilter(GameInstance *instance, Program *program,
+AssertPlayerFilterArgs* AssertPlayerFilter(GameInstance *instance, Program *program,
 		StackPlayer *activePlayer, StackPlayer *const targetPlayer, AssertPlayerFilterArgs::Filter *filter);
 
 struct AssertPlayerFilterDelta : public Var::Delta {
@@ -38,11 +38,11 @@ struct AssertPlayerFilterDelta : public Var::Delta {
 	Player *const targetPlayer_;
 	AssertPlayerFilterArgs::Filter const filter_;
 
-	static bool Apply(AssertPlayerFilterDelta *self);
+	static bool ApplyDelta(AssertPlayerFilterDelta *self);
 
-	static void Revert(AssertPlayerFilterDelta *self);
+	static void RevertDelta(AssertPlayerFilterDelta *self);
 	inline AssertPlayerFilterDelta(AssertPlayerFilterArgs *args, bool result) :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			result_(result),
 			activePlayer_(*args->activePlayer_),

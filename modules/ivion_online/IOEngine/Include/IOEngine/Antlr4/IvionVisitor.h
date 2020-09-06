@@ -59,11 +59,21 @@ public:
 
     virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *context) = 0;
 
+    virtual antlrcpp::Any visitTopStackCard(IvionParser::TopStackCardContext *context) = 0;
+
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
+
+    virtual antlrcpp::Any visitMetaCounterCard(IvionParser::MetaCounterCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardEffect(IvionParser::CardEffectContext *context) = 0;
 
     virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *context) = 0;
 
     virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *context) = 0;
+
+    virtual antlrcpp::Any visitPassPriority(IvionParser::PassPriorityContext *context) = 0;
 
     virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *context) = 0;
 

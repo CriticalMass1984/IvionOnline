@@ -9,6 +9,7 @@ namespace IO {
 namespace Engine {
 Card::Card(GameInstance *instance, Player *owner, const CardDef *def) noexcept :
 		def_(def),
+		Zone(def->format_ == CardDef::Format::FEAT ? CardZone::FEAT : CardZone::DECK),
 		PlayEffect(def_->active_mechanics_.empty() ? nullptr : instance->Objects.EmplaceObject<Program>(def_->name_)),
 		ResolveEffect(def_->active_mechanics_.empty() ? nullptr : instance->Objects.EmplaceObject<Program>(def_->name_)),
 		PassiveEffect(def_->passive_mechanics_.empty() ? nullptr : instance->Objects.EmplaceObject<Program>(def_->name_)),

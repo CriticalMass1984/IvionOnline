@@ -6,8 +6,8 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void TargetTile(GameInstance *instance, Program *program, StackTile *tile) {
-	program->EmplaceMethodCallArgs<TargetTileArgs>(&instance->Memory, tile);
+TargetTileArgs* TargetTile(GameInstance *instance, Program *program, StackTile *tile) {
+	return program->EmplaceMethodCallArgs<TargetTileArgs>(&instance->Memory, tile);
 }
 
 //applies change
@@ -21,12 +21,12 @@ bool TargetTileMethod(GameInstance *instance, Branch *activeBranch, TargetTileAr
 	return true;
 }
 
-bool TargetTileDelta::Apply(TargetTileDelta *self) {
+bool TargetTileDelta::ApplyDelta(TargetTileDelta *self) {
 	*self->args_->tile_ = self->tile_;
 	return true;
 }
 
-void TargetTileDelta::Revert(TargetTileDelta *self) {
+void TargetTileDelta::RevertDelta(TargetTileDelta *self) {
 }
 
 } // namespace AST

@@ -29,9 +29,9 @@ bool assertDistance(const Posable *l, const Posable *r, int distance, AssertDist
 			assert(false);
 	}
 }
-void AssertDistance(GameInstance *instance, Program *program,
+AssertDistanceArgs* AssertDistance(GameInstance *instance, Program *program,
 		StackPosable *left, StackPosable *right, int *distance, AssertDistanceArgs::ComparisonType *comparisonType) {
-	program->EmplaceMethodCallArgs<AssertDistanceArgs>(&instance->Memory, left, right, distance, comparisonType);
+	return program->EmplaceMethodCallArgs<AssertDistanceArgs>(&instance->Memory, left, right, distance, comparisonType);
 }
 //applies change
 bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, AssertDistanceArgs *args) noexcept {
@@ -40,11 +40,11 @@ bool AssertDistanceMethod(GameInstance *instance, Branch *activeBranch, AssertDi
 	return result;
 }
 
-bool AssertDistanceDelta::Apply(AssertDistanceDelta *self) {
+bool AssertDistanceDelta::ApplyDelta(AssertDistanceDelta *self) {
 	return self->result_;
 }
 
-void AssertDistanceDelta::Revert(AssertDistanceDelta *self) {
+void AssertDistanceDelta::RevertDelta(AssertDistanceDelta *self) {
 }
 
 } // namespace AST

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <IOEngine/AST/Method.hpp>
-#include <IOEngine/Player.hpp>
 #include <cassert>
 
 namespace IO {
@@ -17,25 +16,23 @@ struct PlayerDrawCardArgs {
 	StackPlayer const *const player_;
 	const int *const value_;
 
-	PlayerDrawCardArgs(StackPlayer *player, int *value) :
+	PlayerDrawCardArgs(StackPlayer *player, int *value, MoveCardArgs * const moveCardArgs) :
 			player_(player), value_(value) {
 	}
 };
 
-void PlayerDrawCard(GameInstance *instance, Program *program,
+PlayerDrawCardArgs* PlayerDrawCard(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value);
 
 struct PlayerDrawCardDelta : public Var::Delta {
-	const PlayerDrawCardArgs *const args_;
 	Player *const player_;
 	int const value_;
 
-	static bool Apply(PlayerDrawCardDelta *self);
+	static bool ApplyDelta(PlayerDrawCardDelta *self);
 
-	static void Revert(PlayerDrawCardDelta *self);
+	static void RevertDelta(PlayerDrawCardDelta *self);
 	inline PlayerDrawCardDelta(PlayerDrawCardArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
-			args_(args),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			player_(*args->player_),
 			value_(*args->value_) {}
 

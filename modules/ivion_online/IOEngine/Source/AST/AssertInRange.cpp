@@ -8,9 +8,9 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void AssertInRange(GameInstance *instance, Program *program,
+AssertInRangeArgs* AssertInRange(GameInstance *instance, Program *program,
 		StackCard *card, StackPosable *target) {
-	program->EmplaceMethodCallArgs<AssertInRangeArgs>(&instance->Memory, card, target);
+	return program->EmplaceMethodCallArgs<AssertInRangeArgs>(&instance->Memory, card, target);
 }
 //applies change
 bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, AssertInRangeArgs *args) noexcept {
@@ -21,11 +21,11 @@ bool AssertInRangeMethod(GameInstance *instance, Branch *activeBranch, AssertInR
 	return result;
 }
 
-bool AssertInRangeDelta::Apply(AssertInRangeDelta *self) {
+bool AssertInRangeDelta::ApplyDelta(AssertInRangeDelta *self) {
 	return self->result_;
 }
 
-void AssertInRangeDelta::Revert(AssertInRangeDelta *self) {
+void AssertInRangeDelta::RevertDelta(AssertInRangeDelta *self) {
 }
 
 } // namespace AST

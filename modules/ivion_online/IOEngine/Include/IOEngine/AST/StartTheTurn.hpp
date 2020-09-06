@@ -18,18 +18,18 @@ struct StartTheTurnArgs {
 			player_(player) {}
 };
 
-void StartTheTurn(GameInstance *instance, Program *program, StackPlayer *player);
+StartTheTurnArgs* StartTheTurn(GameInstance *instance, Program *program, StackPlayer *player);
 
 struct StartTheTurnDelta : public Var::Delta {
 	const StartTheTurnArgs *const args_;
 	Player *const player_;
 	int turnNumber_;
 
-	static bool Apply(StartTheTurnDelta *self);
+	static bool ApplyDelta(StartTheTurnDelta *self);
 
-	static void Revert(StartTheTurnDelta *self);
+	static void RevertDelta(StartTheTurnDelta *self);
 	inline StartTheTurnDelta(StartTheTurnArgs *args, Player *player, int turnNumber) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			player_(player),
 			turnNumber_(turnNumber) {

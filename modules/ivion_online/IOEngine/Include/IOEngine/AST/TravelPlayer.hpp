@@ -23,18 +23,18 @@ struct TravelPlayerArgs {
 	}
 };
 
-void TravelPlayer(GameInstance *instance, Program *program,
+TravelPlayerArgs* TravelPlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *tile);
 
 struct TravelPlayerDelta : public Var::Delta {
 	TravelPlayerArgs *const args_;
 
-	static bool Apply(TravelPlayerDelta *self);
+	static bool ApplyDelta(TravelPlayerDelta *self);
 
-	static void Revert(TravelPlayerDelta *self);
+	static void RevertDelta(TravelPlayerDelta *self);
 
 	inline TravelPlayerDelta(TravelPlayerArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args) {
 	}
 

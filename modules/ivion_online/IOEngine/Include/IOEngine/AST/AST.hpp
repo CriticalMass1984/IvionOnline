@@ -6,7 +6,10 @@
 #include <IOEngine/AST/AssertPlayerFilter.hpp>
 #include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/EndTheTurn.hpp>
+#include <IOEngine/AST/MetaCounter.hpp>
+#include <IOEngine/AST/MoveCard.hpp>
 #include <IOEngine/AST/MovePlayer.hpp>
+#include <IOEngine/AST/PassPriority.hpp>
 #include <IOEngine/AST/PlayerDrawCard.hpp>
 #include <IOEngine/AST/ResourceCost.hpp>
 #include <IOEngine/AST/ResourceGain.hpp>
@@ -16,6 +19,7 @@
 #include <IOEngine/AST/SelectCardController.hpp>
 #include <IOEngine/AST/SelectPlayer.hpp>
 #include <IOEngine/AST/SelectTile.hpp>
+#include <IOEngine/AST/SelectTopOfStack.hpp>
 #include <IOEngine/AST/StartTheTurn.hpp>
 #include <IOEngine/AST/TargetPlayer.hpp>
 #include <IOEngine/AST/TargetTile.hpp>

@@ -112,26 +112,47 @@ targetCard
 selectCard
     : A Card;
 
+topStackCard
+    : 'top' Of The 'stack';
+
 card
     : targetCard
     | selectCard
+    | topStackCard
     ;
 
+metaCounterCard
+    : Meta Counter card;
+
+counterCard
+    : Counter card;
+
+cardEffect
+    : metaCounterCard
+    | counterCard
+    ;
+
+Meta: 'Meta' | 'meta';
+Counter: 'Counter' | 'counter';
 
 //////////////////////////////////////////////////////////////////////
 
-endTheTurn: 'end' 'the' 'turn';
-startTheTurn: 'start' 'the' 'turn';
+endTheTurn: 'end' The 'turn';
+startTheTurn: 'start' The 'turn';
+passPriority: 'pass' 'priority';
 
 miscEffect
     : startTheTurn
-    | endTheTurn;
+    | endTheTurn
+    | passPriority
+    ;
 
 //////////////////////////////////////////////////////////////////////
 
 line
     : (
         effectPlayer
+        | cardEffect
         | miscEffect
     ) '.' ('\n' | EOF)?
     ;
@@ -169,6 +190,8 @@ A: 'a' | 'A';
 Is: 'is' | 'are';
 To: 'to' | 'To';
 Take: 'take' | 'takes';
+Of: 'Of' | 'of';
+The: 'The' | 'the';
 
 /* built in data types */
 

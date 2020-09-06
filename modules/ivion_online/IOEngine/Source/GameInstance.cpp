@@ -36,6 +36,8 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 		MoveAction(Objects.EmplaceObject<Program>("Move Action")),
 		BasicAttack(Objects.EmplaceObject<Program>("Basic Attack")),
 		EndOfTurn(Objects.EmplaceObject<Program>("End Of Turn")),
+		PassPriority(Objects.EmplaceObject<Program>("Pass Priority")),
+		MetaCounter(Objects.EmplaceObject<Program>("Meta Counter")),
 		Players(MakePlayers(players)),
 		ActivePlayer{ nullptr },
 		ActiveCard{ nullptr }
@@ -44,6 +46,8 @@ GameInstance::GameInstance(const std::vector<PlayerDef> &players) :
 	Program::CompileAction(this, MoveAction, "move 1 tile.");
 	Program::CompileAction(this, BasicAttack, "deal 5 damage to target player.");
 	Program::CompileAction(this, EndOfTurn, "end the turn. start the turn. gain 3 actions. draw a card.");
+	Program::CompileAction(this, PassPriority, "pass priority.", true);
+	Program::CompileAction(this, MetaCounter, "meta counter top of the stack.", true);
 
 	BranchStack.push_back(&RootBranch);
 	EndOfTurn->Execute(this, BranchStack.back());
@@ -97,6 +101,28 @@ bool GameInstance::AcceptChoices() {
 		//take everything the current player can do, and append it to the root branch
 		Player *player = this->ActivePlayer.Get();
 		assert(player);
+
+		if(!this->Stack.Empty())
+		{
+			if(this->Stack.Top()->Controller.Get() == player)
+			{
+				//resolve the card
+				Card* card = this->Stack.Top();
+				Branch &branch = this->RootBranch.AddBranch(card->ResolveEffect);
+				if(!card->ResolveEffect->Execute(this, &branch))
+				{
+					// meta counter
+					bool success = MetaCounter->Execute(this, &branch);
+					assert(success);
+				}
+				return true;
+			}else{
+				// pass priority, or see what other actions can be taken
+				Branch &branch = this->RootBranch.AddBranch(PassPriority);
+				PassPriority->Execute(this, &branch);
+			}
+		}
+
 		bool anyGood = false;
 		for (Program *program : { player->MoveAction.Get(), player->BasicAttack.Get(), EndOfTurn }) {
 			assert(program);

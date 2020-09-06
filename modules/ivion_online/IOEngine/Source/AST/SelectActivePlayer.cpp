@@ -5,8 +5,8 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player) {
-	program->EmplaceMethodCallArgs<AST::SelectActivePlayerArgs>(&instance->Memory, player);
+SelectActivePlayerArgs* SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player) {
+	return program->EmplaceMethodCallArgs<AST::SelectActivePlayerArgs>(&instance->Memory, player);
 }
 //applies change
 bool SelectActivePlayerMethod(GameInstance *instance, Branch *activeBranch, SelectActivePlayerArgs *args) noexcept {
@@ -14,12 +14,12 @@ bool SelectActivePlayerMethod(GameInstance *instance, Branch *activeBranch, Sele
 	return true;
 }
 
-bool SelectActivePlayerDelta::Apply(SelectActivePlayerDelta *self) {
+bool SelectActivePlayerDelta::ApplyDelta(SelectActivePlayerDelta *self) {
 	*self->args_->player_ = self->player_;
 	return true;
 }
 
-void SelectActivePlayerDelta::Revert(SelectActivePlayerDelta *self) {
+void SelectActivePlayerDelta::RevertDelta(SelectActivePlayerDelta *self) {
 }
 
 } // namespace AST

@@ -8,9 +8,9 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void AssertInstantCheck(GameInstance *instance, Program *program,
+AssertInstantCheckArgs* AssertInstantCheck(GameInstance *instance, Program *program,
 		Card *card) {
-	program->EmplaceMethodCallArgs<AssertInstantCheckArgs>(&instance->Memory, card);
+	return program->EmplaceMethodCallArgs<AssertInstantCheckArgs>(&instance->Memory, card);
 }
 //applies change
 bool AssertInstantCheckMethod(GameInstance *instance, Branch *activeBranch, AssertInstantCheckArgs *args) noexcept {
@@ -27,11 +27,11 @@ bool AssertInstantCheckMethod(GameInstance *instance, Branch *activeBranch, Asse
 	return result;
 }
 
-bool AssertInstantCheckDelta::Apply(AssertInstantCheckDelta *self) {
+bool AssertInstantCheckDelta::ApplyDelta(AssertInstantCheckDelta *self) {
 	return self->result_;
 }
 
-void AssertInstantCheckDelta::Revert(AssertInstantCheckDelta *self) {
+void AssertInstantCheckDelta::RevertDelta(AssertInstantCheckDelta *self) {
 }
 
 } // namespace AST

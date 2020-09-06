@@ -20,18 +20,18 @@ struct SelectActivePlayerArgs {
 	}
 };
 
-void SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player);
+SelectActivePlayerArgs* SelectActivePlayer(GameInstance *instance, Program *program, StackPlayer *player);
 
 struct SelectActivePlayerDelta : public Var::Delta {
 	SelectActivePlayerArgs *const args_;
 	Player *const player_;
 
-	static bool Apply(SelectActivePlayerDelta *self);
+	static bool ApplyDelta(SelectActivePlayerDelta *self);
 
-	static void Revert(SelectActivePlayerDelta *self);
+	static void RevertDelta(SelectActivePlayerDelta *self);
 
 	inline SelectActivePlayerDelta(SelectActivePlayerArgs *args, Player *player) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			player_(player) {
 	}

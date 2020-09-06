@@ -22,21 +22,21 @@ struct SelectCardControllerArgs {
 	}
 };
 
-void SelectCardController(GameInstance *instance, Program *program,
+SelectCardControllerArgs* SelectCardController(GameInstance *instance, Program *program,
 		StackPlayer *player, StackCard *card);
 
 struct SelectCardControllerDelta : public Var::Delta {
 	SelectCardControllerArgs *const args_;
 	Player *const player_;
 
-	static bool Apply(SelectCardControllerDelta *self);
+	static bool ApplyDelta(SelectCardControllerDelta *self);
 
-	static void Revert(SelectCardControllerDelta *self);
+	static void RevertDelta(SelectCardControllerDelta *self);
 
-	inline SelectCardControllerDelta(SelectCardControllerArgs *args, Player *player) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+	inline SelectCardControllerDelta(SelectCardControllerArgs *args) noexcept :
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
-			player_(player) {
+			player_(*args->player_) {
 	}
 
 	~SelectCardControllerDelta() noexcept = default;

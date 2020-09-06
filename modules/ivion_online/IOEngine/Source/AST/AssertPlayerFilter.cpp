@@ -19,9 +19,9 @@ bool assertDistance(const Player *active, const Player *target, AssertPlayerFilt
 			assert(false);
 	}
 }
-void AssertPlayerFilter(GameInstance *instance, Program *program,
+AssertPlayerFilterArgs* AssertPlayerFilter(GameInstance *instance, Program *program,
 		StackPlayer *activePlayer, StackPlayer *const targetPlayer, AssertPlayerFilterArgs::Filter *filter) {
-	program->EmplaceMethodCallArgs<AssertPlayerFilterArgs>(&instance->Memory, activePlayer, targetPlayer, filter);
+	return program->EmplaceMethodCallArgs<AssertPlayerFilterArgs>(&instance->Memory, activePlayer, targetPlayer, filter);
 }
 //applies change
 bool AssertPlayerFilterMethod(GameInstance *instance, Branch *activeBranch, AssertPlayerFilterArgs *args) noexcept {
@@ -30,11 +30,11 @@ bool AssertPlayerFilterMethod(GameInstance *instance, Branch *activeBranch, Asse
 	return result;
 }
 
-bool AssertPlayerFilterDelta::Apply(AssertPlayerFilterDelta *self) {
+bool AssertPlayerFilterDelta::ApplyDelta(AssertPlayerFilterDelta *self) {
 	return self->result_;
 }
 
-void AssertPlayerFilterDelta::Revert(AssertPlayerFilterDelta *self) {
+void AssertPlayerFilterDelta::RevertDelta(AssertPlayerFilterDelta *self) {
 }
 
 } // namespace AST

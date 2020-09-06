@@ -14,15 +14,15 @@ bool ResourceGainMethod(GameInstance *instance, Branch *activeBranch, ResourceGa
 struct ResourceGainArgs {
 	Method const method_{ (Method)ResourceGainMethod };
 	StackPlayer const *const player_;
-	const int *const actions_;
-	const int *const power_;
+	int *const actions_;
+	int *const power_;
 
 	ResourceGainArgs(StackPlayer *player, int *actions, int *power) :
 			player_(player), actions_(actions), power_(power) {
 	}
 };
 
-void ResourceGain(GameInstance *instance, Program *program,
+ResourceGainArgs* ResourceGain(GameInstance *instance, Program *program,
 		StackPlayer *player, int *actions, int *power);
 
 struct ResourceGainDelta : public Var::Delta {
@@ -31,11 +31,11 @@ struct ResourceGainDelta : public Var::Delta {
 	int const actions_;
 	int const power_;
 
-	static bool Apply(ResourceGainDelta *self);
+	static bool ApplyDelta(ResourceGainDelta *self);
 
-	static void Revert(ResourceGainDelta *self);
+	static void RevertDelta(ResourceGainDelta *self);
 	inline ResourceGainDelta(ResourceGainArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			player_(*args->player_),
 			actions_(args->actions_ ? *args->actions_ : 0),

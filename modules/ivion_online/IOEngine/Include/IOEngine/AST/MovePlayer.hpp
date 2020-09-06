@@ -22,17 +22,17 @@ struct MovePlayerArgs {
 	}
 };
 
-void MovePlayer(GameInstance *instance, Program *program,
+MovePlayerArgs* MovePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *dest);
 
 struct MovePlayerDelta : public Var::Delta {
 	MovePlayerArgs *const args_;
 
-	static bool Apply(MovePlayerDelta *self);
+	static bool ApplyDelta(MovePlayerDelta *self);
 
-	static void Revert(MovePlayerDelta *self);
+	static void RevertDelta(MovePlayerDelta *self);
 	inline MovePlayerDelta(MovePlayerArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args) {
 	}
 

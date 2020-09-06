@@ -29,10 +29,10 @@ public:
 	TileVar Position;
 	Vec2 GetPosition() const override;
 
-	Var::Set<Card *> Deck;
 	Var::Set<Card *> Feats;
 	Var::Set<Card *> Hand;
 	Var::Set<Card *> Discard;
+	Var::Set<Card *> Deck;
 
 	Var::Var<Program *> MoveAction{ nullptr };
 	Var::Var<Program *> BasicAttack{ nullptr };

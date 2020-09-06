@@ -22,7 +22,7 @@ struct ResourceCostArgs {
 	}
 };
 
-void ResourceCost(GameInstance *instance, Program *program,
+ResourceCostArgs* ResourceCost(GameInstance *instance, Program *program,
 		StackPlayer *player, int *actions, int *power);
 
 struct ResourceCostDelta : public Var::Delta {
@@ -31,11 +31,11 @@ struct ResourceCostDelta : public Var::Delta {
 	int const actions_;
 	int const power_;
 
-	static bool Apply(ResourceCostDelta *self);
+	static bool ApplyDelta(ResourceCostDelta *self);
 
-	static void Revert(ResourceCostDelta *self);
+	static void RevertDelta(ResourceCostDelta *self);
 	inline ResourceCostDelta(ResourceCostArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			player_(*args->player_),
 			actions_(args->actions_ ? *args->actions_ : 0),

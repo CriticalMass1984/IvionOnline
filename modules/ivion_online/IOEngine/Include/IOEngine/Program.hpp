@@ -29,6 +29,7 @@ public:
 	~Program() = default;
 
 	const std::string &Name() const noexcept { return name_; }
+	const std::vector<AST::Method *> &Methods() const noexcept { return methods_; }
 
 	template <typename T, typename... args_t>
 	T *EmplaceStackVar(MemoryPool *memory, args_t... args) {
@@ -45,7 +46,7 @@ public:
 		return methodArgs;
 	}
 
-	static void CompileAction(GameInstance *instance, Program *action, const std::string &text);
+	static void CompileAction(GameInstance *instance, Program *action, const std::string &text, bool instant = false);
 	static void CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef);
 
 	// computes a (possibly nested) branch of changes to the game state

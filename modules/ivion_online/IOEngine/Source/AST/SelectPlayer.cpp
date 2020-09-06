@@ -7,9 +7,9 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void SelectPlayer(GameInstance *instance, Program *program,
+SelectPlayerArgs* SelectPlayer(GameInstance *instance, Program *program,
 		StackPlayer *player) {
-	program->EmplaceMethodCallArgs<SelectPlayerArgs>(&instance->Memory, player);
+	return program->EmplaceMethodCallArgs<SelectPlayerArgs>(&instance->Memory, player);
 }
 //applies change
 bool SelectPlayerMethod(GameInstance *instance, Branch *activeBranch, SelectPlayerArgs *args) noexcept {
@@ -22,12 +22,12 @@ bool SelectPlayerMethod(GameInstance *instance, Branch *activeBranch, SelectPlay
 	return true;
 }
 
-bool SelectPlayerDelta::Apply(SelectPlayerDelta *self) {
+bool SelectPlayerDelta::ApplyDelta(SelectPlayerDelta *self) {
 	*self->args_->player_ = self->player_;
 	return true;
 }
 
-void SelectPlayerDelta::Revert(SelectPlayerDelta *self) {
+void SelectPlayerDelta::RevertDelta(SelectPlayerDelta *self) {
 }
 
 } // namespace AST

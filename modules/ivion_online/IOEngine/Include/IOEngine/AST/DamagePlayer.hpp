@@ -22,7 +22,7 @@ struct DamagePlayerArgs {
 	}
 };
 
-void DamagePlayer(GameInstance *instance, Program *program,
+DamagePlayerArgs* DamagePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value);
 
 struct DamagePlayerDelta : public Var::Delta {
@@ -30,11 +30,11 @@ struct DamagePlayerDelta : public Var::Delta {
 	Player *const player_;
 	int const value_;
 
-	static bool Apply(DamagePlayerDelta *self);
+	static bool ApplyDelta(DamagePlayerDelta *self);
 
-	static void Revert(DamagePlayerDelta *self);
+	static void RevertDelta(DamagePlayerDelta *self);
 	inline DamagePlayerDelta(DamagePlayerArgs *args) noexcept :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			player_(*args->player_),
 			value_(*args->value_) {

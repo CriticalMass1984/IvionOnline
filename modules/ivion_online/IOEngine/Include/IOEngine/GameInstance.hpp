@@ -10,6 +10,7 @@
 #include <IOEngine/ObjectPool.hpp>
 #include <IOEngine/Tile.hpp>
 #include <IOEngine/Vars/Set.hpp>
+#include <IOEngine/Vars/Stack.hpp>
 #include <IOEngine/Vars/Var.hpp>
 
 namespace IO {
@@ -60,6 +61,8 @@ public:
 	Program *const MoveAction{ nullptr };
 	Program *const BasicAttack{ nullptr };
 	Program *const EndOfTurn{ nullptr };
+	Program *const PassPriority{ nullptr };
+	Program *const MetaCounter{ nullptr };
 
 	//all ivion entities
 	Map Map;
@@ -72,7 +75,7 @@ public:
 	Var::Var<Card *> ActiveCard;
 
 	//zones
-	Var::Set<Card *> Stack;
+	Var::Stack<Card *> Stack;
 	Var::Set<Card *> Field;
 };
 

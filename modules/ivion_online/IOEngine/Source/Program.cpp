@@ -402,11 +402,41 @@ public:
 		return card;
 	}
 
+	virtual antlrcpp::Any visitTopStackCard(IvionParser::TopStackCardContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		StackCard *card = play_->EmplaceStackVar<StackCard>(&instance_->Memory, nullptr);
+		AST::SelectTopOfStack(instance_, play_, card);
+
+		return card;
+	}
+
 	virtual antlrcpp::Any visitCard(IvionParser::CardContext *ctx) override {
 		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		StackCard *card = visitChildren(ctx);
 		referencedPosables_.push_back(reinterpret_cast<Posable **>(card));
 		return card;
+	}
+
+	virtual antlrcpp::Any visitMetaCounterCard(IvionParser::MetaCounterCardContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		IvionParser::CardContext *cardCtx = ctx->getRuleContext<IvionParser::CardContext>(0);
+		assert(cardCtx);
+		StackCard *card = visitCard(cardCtx);
+
+		AST::MetaCounter(instance_, resolve_, card);
+
+		return visitChildren(ctx);
+	}
+
+	virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		assert(false);
+		return visitChildren(ctx);
+	}
+
+	virtual antlrcpp::Any visitCardEffect(IvionParser::CardEffectContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		return visitChildren(ctx);
 	}
 
 	// miscellaneous effects
@@ -416,10 +446,15 @@ public:
 		return visitChildren(ctx);
 	}
 
-	// miscellaneous effects
 	virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
 		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
 		AST::StartTheTurn(instance_, resolve_, GetActivePlayer());
+		return visitChildren(ctx);
+	}
+
+	virtual antlrcpp::Any visitPassPriority(IvionParser::PassPriorityContext *ctx) override {
+		// fprintf(stdout, "%s '%s'\n", __FUNCTION__, ctx ? ctx->getText().c_str() : "nullptr");
+		AST::PassPriority(instance_, resolve_);
 		return visitChildren(ctx);
 	}
 
@@ -487,7 +522,8 @@ public:
 	}
 };
 
-void Program::CompileAction(GameInstance *instance, Program *action, const std::string &text) {
+void Program::CompileAction(GameInstance *instance, Program *action, const std::string &text, bool instant) {
+	printf("Compiling action '%s'\n", action->name_.c_str());
 	assert(instance);
 	assert(action);
 	assert(!text.empty());
@@ -497,9 +533,16 @@ void Program::CompileAction(GameInstance *instance, Program *action, const std::
 	antlr4::CommonTokenStream tokens(&lexer);
 	IvionParser parser(&tokens);
 	IvionCompiler compiler(instance, action, action, nullptr);
+
+	if (!instant) {
+		// all cards need to check instant speed
+		AST::AssertInstantCheck(instance, action, nullptr);
+	}
+
 	antlrcpp::Any result = compiler.visitText(parser.text());
 }
 void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *cardDef) {
+	printf("Compiling card '%s'\n", card->Name().c_str());
 	assert(instance);
 	assert(card);
 	assert(cardDef);
@@ -510,6 +553,10 @@ void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *car
 	IvionParser parser(&tokens);
 	IvionCompiler compiler(instance, card->PlayEffect, card->ResolveEffect, card);
 
+	// all cards need to check instant speed
+	AST::AssertInstantCheck(instance, card->PlayEffect, card);
+
+	// charge actions
 	int *actions = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->actions_);
 	int *power = card->PlayEffect->EmplaceStackVar<int>(&instance->Memory, cardDef->power_);
 	StackPlayer *player = compiler.GetActivePlayer();
@@ -522,10 +569,19 @@ void Program::CompileCard(GameInstance *instance, Card *card, const CardDef *car
 			actions,
 			power);
 
-	// all cards need to check instant speed
-	AST::AssertInstantCheck(instance, card->PlayEffect, card);
+	// Move the card to the stack
+	Card::CardZone *toZone = card->PlayEffect->EmplaceStackVar<Card::CardZone>(&instance->Memory, Card::CardZone::STACK);
+	AST::MoveCard(instance, card->PlayEffect, compiler.GetActiveCard(), toZone);
 
 	antlrcpp::Any result = compiler.visitText(parser.text());
+
+	AST::PassPriority(instance, card->PlayEffect);
+	if (card->IsFeat()) {
+		toZone = card->PlayEffect->EmplaceStackVar<Card::CardZone>(&instance->Memory, Card::CardZone::FEAT);
+	} else {
+		toZone = card->PlayEffect->EmplaceStackVar<Card::CardZone>(&instance->Memory, Card::CardZone::DISCARD);
+	}
+	AST::MoveCard(instance, card->ResolveEffect, compiler.GetActiveCard(), toZone);
 }
 
 } // namespace Engine

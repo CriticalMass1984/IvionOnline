@@ -7,9 +7,9 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void TargetPlayer(GameInstance *instance, Program *program,
+TargetPlayerArgs* TargetPlayer(GameInstance *instance, Program *program,
 		StackPlayer *player) {
-	program->EmplaceMethodCallArgs<TargetPlayerArgs>(&instance->Memory, player);
+	return program->EmplaceMethodCallArgs<TargetPlayerArgs>(&instance->Memory, player);
 }
 //applies change
 bool TargetPlayerMethod(GameInstance *instance, Branch *activeBranch, TargetPlayerArgs *args) noexcept {
@@ -22,12 +22,12 @@ bool TargetPlayerMethod(GameInstance *instance, Branch *activeBranch, TargetPlay
 	return true;
 }
 
-bool TargetPlayerDelta::Apply(TargetPlayerDelta *self) {
+bool TargetPlayerDelta::ApplyDelta(TargetPlayerDelta *self) {
 	*self->args_->player_ = self->player_;
 	return true;
 }
 
-void TargetPlayerDelta::Revert(TargetPlayerDelta *self) {
+void TargetPlayerDelta::RevertDelta(TargetPlayerDelta *self) {
 }
 
 } // namespace AST

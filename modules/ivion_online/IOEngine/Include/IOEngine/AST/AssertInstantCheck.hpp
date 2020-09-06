@@ -19,18 +19,18 @@ struct AssertInstantCheckArgs {
 	}
 };
 
-void AssertInstantCheck(GameInstance *instance, Program *program,
+AssertInstantCheckArgs* AssertInstantCheck(GameInstance *instance, Program *program,
 		Card *card);
 
 struct AssertInstantCheckDelta : public Var::Delta {
 	AssertInstantCheckArgs *const args_;
 	const bool result_;
 
-	static bool Apply(AssertInstantCheckDelta *self);
+	static bool ApplyDelta(AssertInstantCheckDelta *self);
 
-	static void Revert(AssertInstantCheckDelta *self);
+	static void RevertDelta(AssertInstantCheckDelta *self);
 	inline AssertInstantCheckDelta(AssertInstantCheckArgs *args, bool result) :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			result_(result) {}
 

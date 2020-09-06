@@ -111,28 +111,28 @@ void Branch::Print(GameInstance *instance, bool recursive, const std::string &pr
 	PrintEntity(choice_, prefix);
 	for (int deltaOffset : deltaOffsets_) {
 		const Var::Delta *delta = reinterpret_cast<const Var::Delta *>(memory_.data() + deltaOffset);
-		if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)IntVar::SetDelta::Apply) {
+		if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)IntVar::SetDelta::ApplyDelta) {
 			PrintIntVar(instance, prefix, reinterpret_cast<const IntVar::SetDelta *>(delta));
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)TileVar::SetDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)TileVar::SetDelta::ApplyDelta) {
 			PrintTileVar(instance, prefix, reinterpret_cast<const TileVar::SetDelta *>(delta));
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)PlayerVar::SetDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)PlayerVar::SetDelta::ApplyDelta) {
 			PrintPlayerVar(instance, prefix, reinterpret_cast<const PlayerVar::SetDelta *>(delta));
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::DamagePlayerDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::DamagePlayerDelta::ApplyDelta) {
 			const AST::DamagePlayerDelta *funcDelta = reinterpret_cast<const AST::DamagePlayerDelta *>(delta);
 			fprintf(stderr, "%sDeal %d damage to player[%d]\n", prefix.c_str(), funcDelta->value_, funcDelta->player_->Index);
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::SelectPlayerDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::SelectPlayerDelta::ApplyDelta) {
 			const AST::SelectPlayerDelta *funcDelta = reinterpret_cast<const AST::SelectPlayerDelta *>(delta);
 			fprintf(stderr, "%sSelecting player[%d]\n", prefix.c_str(), funcDelta->player_->Index);
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetPlayerDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetPlayerDelta::ApplyDelta) {
 			const AST::TargetPlayerDelta *funcDelta = reinterpret_cast<const AST::TargetPlayerDelta *>(delta);
 			fprintf(stderr, "%sTargetting player[%d]\n", prefix.c_str(), funcDelta->player_->Index);
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::SelectTileDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::SelectTileDelta::ApplyDelta) {
 			const AST::SelectTileDelta *funcDelta = reinterpret_cast<const AST::SelectTileDelta *>(delta);
 			fprintf(stderr, "%sSelecting Tile[%s]\n", prefix.c_str(), funcDelta->tile_->GetPosition().Str().c_str());
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetTileDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::TargetTileDelta::ApplyDelta) {
 			const AST::TargetTileDelta *funcDelta = reinterpret_cast<const AST::TargetTileDelta *>(delta);
 			fprintf(stderr, "%sTargetting Tile[%s]\n", prefix.c_str(), funcDelta->tile_->GetPosition().Str().c_str());
-		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::AssertDistanceDelta::Apply) {
+		} else if (delta->apply_ == (IO::Engine::Var::Delta::ApplyFunc)AST::AssertDistanceDelta::ApplyDelta) {
 			const AST::AssertDistanceDelta *funcDelta = reinterpret_cast<const AST::AssertDistanceDelta *>(delta);
 			fprintf(stderr, "%sAssertDistance(%s)\n", prefix.c_str(), funcDelta->result_ ? "true" : "false");
 		}

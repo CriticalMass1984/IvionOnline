@@ -95,7 +95,23 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitTopStackCard(IvionParser::TopStackCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitCard(IvionParser::CardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitMetaCounterCard(IvionParser::MetaCounterCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardEffect(IvionParser::CardEffectContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -104,6 +120,10 @@ public:
   }
 
   virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPassPriority(IvionParser::PassPriorityContext *ctx) override {
     return visitChildren(ctx);
   }
 

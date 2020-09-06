@@ -22,7 +22,7 @@ public:
 	Program *ResolveEffect;
 	Program *PassiveEffect;
 
-	enum class Zone {
+	enum class CardZone {
 		NONE,
 		FEAT,
 		DECK,
@@ -32,7 +32,7 @@ public:
 		DISCARD,
 	};
 
-	Var::Var<Zone> Zone{ Zone::NONE };
+	Var::Var<CardZone> Zone{ CardZone::NONE };
 	IntVar Actions{ 0 };
 	IntVar Power{ 0 };
 	IntVar Range{ -1 };
@@ -49,6 +49,8 @@ public:
 	Card(Card &&) noexcept = default;
 
 	const std::string &Name() const noexcept { return def_->name_; }
+	const bool IsFeat() const noexcept { return def_->format_ == CardDef::Format::FEAT; }
+	const CardDef * Definition() const noexcept { return def_; }
 };
 typedef Var::Var<Card *> CardVar;
 typedef Card *StackCard;

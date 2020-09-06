@@ -6,9 +6,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void ResourceGain(GameInstance *instance, Program *program,
+ResourceGainArgs* ResourceGain(GameInstance *instance, Program *program,
 		StackPlayer *player, int *actions, int *power) {
-	program->EmplaceMethodCallArgs<ResourceGainArgs>(&instance->Memory, player, actions, power);
+	return program->EmplaceMethodCallArgs<ResourceGainArgs>(&instance->Memory, player, actions, power);
 }
 
 //applies change
@@ -24,11 +24,11 @@ bool ResourceGainMethod(GameInstance *instance, Branch *activeBranch, ResourceGa
 	return true;
 }
 
-bool ResourceGainDelta::Apply(ResourceGainDelta *self) {
+bool ResourceGainDelta::ApplyDelta(ResourceGainDelta *self) {
 	return true;
 }
 
-void ResourceGainDelta::Revert(ResourceGainDelta *self) {
+void ResourceGainDelta::RevertDelta(ResourceGainDelta *self) {
 }
 
 } // namespace AST

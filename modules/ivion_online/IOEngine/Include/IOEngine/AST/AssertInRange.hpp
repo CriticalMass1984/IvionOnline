@@ -22,18 +22,18 @@ struct AssertInRangeArgs {
 	}
 };
 
-void AssertInRange(GameInstance *instance, Program *program,
+AssertInRangeArgs* AssertInRange(GameInstance *instance, Program *program,
 		StackCard *card, StackPosable *target);
 
 struct AssertInRangeDelta : public Var::Delta {
 	AssertInRangeArgs *const args_;
 	const bool result_;
 
-	static bool Apply(AssertInRangeDelta *self);
+	static bool ApplyDelta(AssertInRangeDelta *self);
 
-	static void Revert(AssertInRangeDelta *self);
+	static void RevertDelta(AssertInRangeDelta *self);
 	inline AssertInRangeDelta(AssertInRangeArgs *args, bool result) :
-			Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert),
+			Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta),
 			args_(args),
 			result_(result) {}
 

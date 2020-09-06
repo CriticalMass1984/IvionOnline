@@ -149,7 +149,7 @@ void CardLibrary::LoadCards(const std::string &CsvFilename) {
 		if (def.number_ < 0) {
 			continue;
 		}
-		printf("Loaded Card: %s_%s\n", def.archetype_.c_str(), def.name_.c_str());
+		// printf("Loaded Card: %s_%s\n", def.archetype_.c_str(), def.name_.c_str());
 		auto cardIndexByName = cardIndexByArchetypeName_.find(def.archetype_);
 		if (cardIndexByName == cardIndexByArchetypeName_.end()) {
 			bool success;

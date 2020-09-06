@@ -6,8 +6,8 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void TravelPlayer(GameInstance *instance, Program *program, StackPlayer *player, StackTile *tile) {
-	program->EmplaceMethodCallArgs<TravelPlayerArgs>(&instance->Memory, player, tile);
+TravelPlayerArgs* TravelPlayer(GameInstance *instance, Program *program, StackPlayer *player, StackTile *tile) {
+	return program->EmplaceMethodCallArgs<TravelPlayerArgs>(&instance->Memory, player, tile);
 }
 
 //applies change
@@ -17,11 +17,11 @@ bool TravelPlayerMethod(GameInstance *instance, Branch *activeBranch, TravelPlay
 	return true;
 }
 
-bool TravelPlayerDelta::Apply(TravelPlayerDelta *self) {
+bool TravelPlayerDelta::ApplyDelta(TravelPlayerDelta *self) {
 	return true;
 }
 
-void TravelPlayerDelta::Revert(TravelPlayerDelta *self) {
+void TravelPlayerDelta::RevertDelta(TravelPlayerDelta *self) {
 }
 
 } // namespace AST

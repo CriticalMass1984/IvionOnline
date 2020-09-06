@@ -22,17 +22,17 @@ public:
 		T new_;
 
 	public:
-		static bool Apply(InsertDelta *self) {
+		static bool ApplyDelta(InsertDelta *self) {
 			self->dict_->elements_.emplace(std::make_pair(self->key_, self->new_));
 			return true;
 		}
 
-		static void Revert(InsertDelta *self) {
+		static void RevertDelta(InsertDelta *self) {
 			self->dict_->elements_.erase(self->key_);
 		}
 
 		constexpr InsertDelta(Dictionary<T> *dict, T _new) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), dict_(dict), new_(_new) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), dict_(dict), new_(_new) {
 		}
 
 		inline const Dictionary<T> *Target() const noexcept { return dict_; }
@@ -49,17 +49,17 @@ public:
 		T old_;
 
 	public:
-		static bool Apply(SetDelta *self) {
+		static bool ApplyDelta(SetDelta *self) {
 			self->dict_->elements_[self->key_] = self->new_;
 			return true;
 		}
 
-		static void Revert(SetDelta *self) {
+		static void RevertDelta(SetDelta *self) {
 			self->dict_->elements_[self->key_] = self->old_;
 		}
 
 		constexpr SetDelta(Dictionary<T> *dict, T _new, T _old) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), dict_(dict), new_(_new), old_(_old) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), dict_(dict), new_(_new), old_(_old) {
 		}
 
 		inline const Dictionary<T> *Target() const noexcept { return dict_; }
@@ -75,17 +75,17 @@ public:
 		T old_;
 
 	public:
-		static bool Apply(RemoveDelta *self) {
+		static bool ApplyDelta(RemoveDelta *self) {
 			self->dict_->elements_.erase(self->key_);
 			return true;
 		}
 
-		static void Revert(RemoveDelta *self) {
+		static void RevertDelta(RemoveDelta *self) {
 			self->dict_->elements_.emplace(std::make_pair(self->key_, self->old_));
 		}
 
 		constexpr RemoveDelta(Dictionary<T> *dict, T _old) noexcept :
-				Delta((Delta::ApplyFunc)Apply, (Delta::RevertFunc)Revert), dict_(dict), old_(_old) {
+				Delta((Delta::ApplyFunc)ApplyDelta, (Delta::RevertFunc)RevertDelta), dict_(dict), old_(_old) {
 		}
 
 		inline const Dictionary<T> *Target() const noexcept { return dict_; }

@@ -6,9 +6,9 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void MovePlayer(GameInstance *instance, Program *program,
+MovePlayerArgs* MovePlayer(GameInstance *instance, Program *program,
 		StackPlayer *player, StackTile *dest) {
-	program->EmplaceMethodCallArgs<AST::MovePlayerArgs>(&instance->Memory, player, dest);
+	return program->EmplaceMethodCallArgs<AST::MovePlayerArgs>(&instance->Memory, player, dest);
 }
 //applies change
 bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, MovePlayerArgs *args) noexcept {
@@ -17,11 +17,11 @@ bool MovePlayerMethod(GameInstance *instance, Branch *activeBranch, MovePlayerAr
 	return true;
 }
 
-bool MovePlayerDelta::Apply(MovePlayerDelta *self) {
+bool MovePlayerDelta::ApplyDelta(MovePlayerDelta *self) {
 	return true;
 }
 
-void MovePlayerDelta::Revert(MovePlayerDelta *self) {
+void MovePlayerDelta::RevertDelta(MovePlayerDelta *self) {
 }
 
 } // namespace AST

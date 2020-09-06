@@ -5,9 +5,9 @@
 namespace IO {
 namespace Engine {
 namespace AST {
-void SelectCard(GameInstance *instance, Program *program,
+SelectCardArgs* SelectCard(GameInstance *instance, Program *program,
 		StackCard *card) {
-	program->EmplaceMethodCallArgs<SelectCardArgs>(&instance->Memory, card);
+	return program->EmplaceMethodCallArgs<SelectCardArgs>(&instance->Memory, card);
 }
 
 //applies change
@@ -22,12 +22,12 @@ bool SelectCardMethod(GameInstance *instance, Branch *activeBranch, SelectCardAr
 	return true;
 }
 
-bool SelectCardDelta::Apply(SelectCardDelta *self) {
+bool SelectCardDelta::ApplyDelta(SelectCardDelta *self) {
 	*self->args_->card_ = self->card_;
 	return true;
 }
 
-void SelectCardDelta::Revert(SelectCardDelta *self) {
+void SelectCardDelta::RevertDelta(SelectCardDelta *self) {
 }
 
 } // namespace AST

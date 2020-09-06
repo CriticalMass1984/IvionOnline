@@ -1,5 +1,7 @@
-#include <IOEngine/AST/DamagePlayer.hpp>
 #include <IOEngine/AST/PlayerDrawCard.hpp>
+
+#include <IOEngine/AST/DamagePlayer.hpp>
+#include <IOEngine/AST/MoveCard.hpp>
 #include <IOEngine/GameInstance.hpp>
 
 IO::Engine::Card *GetRandomElement(std::unordered_set<IO::Engine::Card *> &cards, IO::Engine::GameInstance *instance) {
@@ -29,32 +31,41 @@ namespace IO {
 namespace Engine {
 namespace AST {
 
-void PlayerDrawCard(GameInstance *instance, Program *program,
+PlayerDrawCardArgs *PlayerDrawCard(GameInstance *instance, Program *program,
 		StackPlayer *player, int *value) {
-	program->EmplaceMethodCallArgs<PlayerDrawCardArgs>(&instance->Memory, player, value);
+	Card::CardZone *zone = program->EmplaceStackVar<Card::CardZone>(&instance->Memory, Card::CardZone::HAND);
+	StackCard *card = program->EmplaceStackVar<StackCard>(&instance->Memory, nullptr);
+
+	PlayerDrawCardArgs* args = program->EmplaceMethodCallArgs<PlayerDrawCardArgs>(&instance->Memory,
+			player, value);
 }
 
 //applies change
 bool PlayerDrawCardMethod(GameInstance *instance, Branch *activeBranch, PlayerDrawCardArgs *args) noexcept {
 	activeBranch->Append<PlayerDrawCardDelta>(args);
+
 	Player *player = *args->player_;
 	for (int i = 0; i < *args->value_; ++i) {
 		if (player->Deck.Empty()) {
 			activeBranch->Append<IntVar::SetDelta>(player->Health.Set(player->Health.Get() - 5));
 		} else {
 			Card *card = GetRandomElement(player->Deck.GetElements(), instance);
-			activeBranch->Append<Var::Set<Card *>::RemoveDelta>(player->Deck.Remove(card));
-			activeBranch->Append<Var::Set<Card *>::InsertDelta>(player->Hand.Insert(card));
+			assert(card->Zone.Get() == Card::CardZone::DECK);
+			MoveCardArgs mca(,);
+			*mca->card_ = card;
+			MoveCardMethod(instance, activeBranch, mca);
+
+			assert(card->Zone.Get() == Card::CardZone::HAND);
 		}
 	}
 	return true;
 }
 
-bool PlayerDrawCardDelta::Apply(PlayerDrawCardDelta *self) {
+bool PlayerDrawCardDelta::ApplyDelta(PlayerDrawCardDelta *self) {
 	return true;
 }
 
-void PlayerDrawCardDelta::Revert(PlayerDrawCardDelta *self) {
+void PlayerDrawCardDelta::RevertDelta(PlayerDrawCardDelta *self) {
 }
 
 } // namespace AST
