@@ -28,7 +28,7 @@ public:
     RuleControlPlayer = 8, RuleMovePlayer = 9, RuleTravelPlayer = 10, RuleGainActions = 11, 
     RuleGainPower = 12, RuleDrawCards = 13, RuleEffectPlayer = 14, RuleTargetTile = 15, 
     RuleSelectTile = 16, RuleTile = 17, RuleTargetCard = 18, RuleSelectCard = 19, 
-    RuleTopStackCard = 20, RuleCard = 21, RuleMetaCounterCard = 22, RuleCounterCard = 23, 
+    RuleTopCardPtr = 20, RuleCard = 21, RuleMetaCounterCard = 22, RuleCounterCard = 23, 
     RuleCardEffect = 24, RuleEndTheTurn = 25, RuleStartTheTurn = 26, RulePassPriority = 27, 
     RuleMiscEffect = 28, RuleLine = 29, RuleParagraph = 30, RuleText = 31, 
     RuleInteger = 32, RuleIntegerLiteral = 33, RuleIntegerWord = 34
@@ -64,7 +64,7 @@ public:
   class TileContext;
   class TargetCardContext;
   class SelectCardContext;
-  class TopStackCardContext;
+  class TopCardPtrContext;
   class CardContext;
   class MetaCounterCardContext;
   class CounterCardContext;
@@ -381,9 +381,9 @@ public:
 
   SelectCardContext* selectCard();
 
-  class  TopStackCardContext : public antlr4::ParserRuleContext {
+  class  TopCardPtrContext : public antlr4::ParserRuleContext {
   public:
-    TopStackCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    TopCardPtrContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Of();
     antlr4::tree::TerminalNode *The();
@@ -393,7 +393,7 @@ public:
    
   };
 
-  TopStackCardContext* topStackCard();
+  TopCardPtrContext* topCardPtr();
 
   class  CardContext : public antlr4::ParserRuleContext {
   public:
@@ -401,7 +401,7 @@ public:
     virtual size_t getRuleIndex() const override;
     TargetCardContext *targetCard();
     SelectCardContext *selectCard();
-    TopStackCardContext *topStackCard();
+    TopCardPtrContext *topCardPtr();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

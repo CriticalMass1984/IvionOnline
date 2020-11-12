@@ -59,7 +59,7 @@ public:
 
     virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *context) = 0;
 
-    virtual antlrcpp::Any visitTopStackCard(IvionParser::TopStackCardContext *context) = 0;
+    virtual antlrcpp::Any visitTopCardPtr(IvionParser::TopCardPtrContext *context) = 0;
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
 
