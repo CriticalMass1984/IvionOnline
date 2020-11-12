@@ -1495,36 +1495,36 @@ IvionParser::SelectCardContext* IvionParser::selectCard() {
   return _localctx;
 }
 
-//----------------- TopStackCardContext ------------------------------------------------------------------
+//----------------- TopCardPtrContext ------------------------------------------------------------------
 
-IvionParser::TopStackCardContext::TopStackCardContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::TopCardPtrContext::TopCardPtrContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* IvionParser::TopStackCardContext::Of() {
+tree::TerminalNode* IvionParser::TopCardPtrContext::Of() {
   return getToken(IvionParser::Of, 0);
 }
 
-tree::TerminalNode* IvionParser::TopStackCardContext::The() {
+tree::TerminalNode* IvionParser::TopCardPtrContext::The() {
   return getToken(IvionParser::The, 0);
 }
 
 
-size_t IvionParser::TopStackCardContext::getRuleIndex() const {
-  return IvionParser::RuleTopStackCard;
+size_t IvionParser::TopCardPtrContext::getRuleIndex() const {
+  return IvionParser::RuleTopCardPtr;
 }
 
 
-antlrcpp::Any IvionParser::TopStackCardContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any IvionParser::TopCardPtrContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitTopStackCard(this);
+    return parserVisitor->visitTopCardPtr(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::TopStackCardContext* IvionParser::topStackCard() {
-  TopStackCardContext *_localctx = _tracker.createInstance<TopStackCardContext>(_ctx, getState());
-  enterRule(_localctx, 40, IvionParser::RuleTopStackCard);
+IvionParser::TopCardPtrContext* IvionParser::topCardPtr() {
+  TopCardPtrContext *_localctx = _tracker.createInstance<TopCardPtrContext>(_ctx, getState());
+  enterRule(_localctx, 40, IvionParser::RuleTopCardPtr);
 
   auto onExit = finally([=] {
     exitRule();
@@ -1564,8 +1564,8 @@ IvionParser::SelectCardContext* IvionParser::CardContext::selectCard() {
   return getRuleContext<IvionParser::SelectCardContext>(0);
 }
 
-IvionParser::TopStackCardContext* IvionParser::CardContext::topStackCard() {
-  return getRuleContext<IvionParser::TopStackCardContext>(0);
+IvionParser::TopCardPtrContext* IvionParser::CardContext::topCardPtr() {
+  return getRuleContext<IvionParser::TopCardPtrContext>(0);
 }
 
 
@@ -1609,7 +1609,7 @@ IvionParser::CardContext* IvionParser::card() {
       case IvionParser::T__8: {
         enterOuterAlt(_localctx, 3);
         setState(204);
-        topStackCard();
+        topCardPtr();
         break;
       }
 
@@ -2549,7 +2549,7 @@ std::vector<std::string> IvionParser::_ruleNames = {
   "filterPlayer", "targetPlayer", "selectPlayer", "cardController", "previousPlayer", 
   "player", "damagePlayer", "control", "controlPlayer", "movePlayer", "travelPlayer", 
   "gainActions", "gainPower", "drawCards", "effectPlayer", "targetTile", 
-  "selectTile", "tile", "targetCard", "selectCard", "topStackCard", "card", 
+  "selectTile", "tile", "targetCard", "selectCard", "topCardPtr", "card", 
   "metaCounterCard", "counterCard", "cardEffect", "endTheTurn", "startTheTurn", 
   "passPriority", "miscEffect", "line", "paragraph", "text", "integer", 
   "integerLiteral", "integerWord"

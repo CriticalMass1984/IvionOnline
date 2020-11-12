@@ -125,7 +125,7 @@ selectTile
 tile
 targetCard
 selectCard
-topStackCard
+topCardPtr
 card
 metaCounterCard
 counterCard
