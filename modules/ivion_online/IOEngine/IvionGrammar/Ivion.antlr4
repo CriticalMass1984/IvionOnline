@@ -2,26 +2,36 @@ grammar Ivion;
 
 //////////////////////////////////////////////////////////////////////
 
+// articles
+A: 'a' | 'A' | 'an' | 'An';
+Is: 'is' | 'are';
+To: 'to' | 'To';
+Take: 'take' | 'takes';
+Of: 'Of' | 'of';
+The: 'The' | 'the';
+
+
+//////////////////////////////////////////////////////////////////////
+
 filterPlayer
     : (Player | Enemy)+;
 
 targetPlayer
     : Target filterPlayer
+    | Another Target filterPlayer
+    | Target Another filterPlayer
+    | UpTo integer Target filterPlayer
     ;
 
 selectPlayer
     : A filterPlayer
+    | Another filterPlayer
+    | Its Controller
     ;
 
-cardController
-    : 'you'
-    | 'yourself'
-    ;
+cardController : CardController;
 
-previousPlayer
-    : 'them'
-    | 'they'
-    ;
+previousPlayer : PreviousPlayer;
 
 player
     : cardController
@@ -31,8 +41,9 @@ player
     ;
 
 damagePlayer
-    : Deal integer 'damage' To player
-    | player Take integer 'damage'
+    : Deal integer Damage To player
+    | player Take integer Damage
+    | Deal Damage To player 'equal' To integer
     ;
 
 control
@@ -45,53 +56,100 @@ controlPlayer
     ;
 
 movePlayer
-    : Move player? To? tile
-    | Move player? integer Tile
+    : Move To tile
     ;
 
 travelPlayer
-    : Travel player? To? tile
-    | Travel player? integer Tile
+    : Travel To tile
+    | Travel integer Tile
+    | Travel player To tile
+    | Travel player UpTo? integer Tile
+    | Travel player Away integer Tile
     ;
 
-gainActions
-    : player? 'gain' integer 'actions';
-
-gainPower
-    : player? 'gain' integer 'power';
+gainResource
+    : player? Gain integer 'more'? (Power | Action | Initiative);
 
 drawCards
     : player? Draw integer Card;
+
+useSecondWind
+    : Use (CardController | PreviousPlayer) SecondWind;
+
+playACard
+    : player May? Play integer Card
+    | player May? Play integer Card For integer Less Resource
+    ;
+
+heal
+    : Heal player integer Health;
+
+rangeSource
+    : 'All' Of CardController Card ',' 'except' Travel Card That Target A Tile ',' 'also' 'draw' Range From .*?;
+
+revealFromHand
+    : player Reveal integer Card From PreviousPlayer Hand;
 
 effectPlayer
     : damagePlayer
     | controlPlayer
     | movePlayer
     | travelPlayer
-    | gainActions
-    | gainPower
+    | gainResource
     | drawCards
+    | useSecondWind
+    | playACard
+    | heal
+    | rangeSource
+    | revealFromHand
     ;
 
+Heal : 'Heal' | 'heal' | 'healed';
 Disarm : 'Disarm' | 'disarm' | 'disarmed';
 Silence : 'Silence' | 'silence' | 'silenced';
 Slow : 'Slow' | 'slow' | 'slowed';
 Discard: 'Discard' | 'discard' | 'discards';
 Draw: 'Draw' | 'draw' | 'draws';
-
-Move: 'move' | 'moves';
-Travel: 'travel' | 'travels';
-
-
-Target : 'Target' | 'target';
-Player : 'player' | 'Player';
-Enemy : 'enemy' | 'Enemy' | 'opponent' | 'Opponent' ;
 Deal: 'deal' | 'Deal';
+Move: 'move' | 'moves';
+Travel: 'travel' | 'travels' | 'Travel';
+Target : 'Target' | 'target';
+Gain: 'gain' | 'gains';
+Action: 'Action' | 'Actions' | 'action' | 'actions' | '[a]';
+Power: 'Power' | 'power' | '[p]';
+Initiative: 'Initiative' | 'initiative' | '[n]';
+SecondWind: 'Second Wind';
+May: 'may';
+Play: 'play';
+Reveal: 'Reveal' | 'Reveals' | 'Revealed';
+Damage: 'damage' | 'Damage';
+
+Player : ('player' | 'Player' | 'Character' | 'character') '\'s'? Have?;
+Enemy : ('enemy' | 'Enemy' | 'opponent' | 'Opponent') '\'s'? Have?;
+Another: 'another';
+CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
+PreviousPlayer: 'They' | 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
+
+Range: 'range';
+Away: 'away from you';
+Controller: 'controller';
+Its: 'its';
+Use: 'Use' | 'Uses' | 'use' | 'uses';
+UpTo: 'up to';
+Have: 'have' | 'has';
+Health: 'health' | 'HP';
+For: 'for';
+Less: 'less';
 
 //////////////////////////////////////////////////////////////////////
 
 targetTile
-    : Target Tile;
+    : Target Tile
+    | Target Another Tile
+    | Another Target Tile
+    | UpTo integer Target Tile
+    | Target Empty Tile
+    ;
 
 selectTile
     : A Tile
@@ -103,80 +161,197 @@ tile
     ;
 
 Tile: 'tile' | 'tiles';
-
+Empty: 'empty';
 //////////////////////////////////////////////////////////////////////
 
 targetCard
-    : Target Card;
+    : Target Card
+    | Another Target Card
+    | Target Another Card
+    | UpTo integer Target Card;
 
 selectCard
-    : A Card;
+    : A Card
+    ;
 
-topStackCard
-    : 'top' Of The 'stack';
+previousCard
+    : That Card
+    ;
+
+topOfStack
+    : Top Of The 'stack';
+
+bottomOfDeck
+    : The Card On The Bottom Of player Deck
+    | The Bottom Card Of player Deck
+    ;
+
+topOfDeck
+    : The Card On The Top Of player Deck
+    | The Top Card Of player Deck
+    ;
+
+hand
+    : player Hand;
 
 card
     : targetCard
     | selectCard
-    | topStackCard
+    | topOfStack
+    | bottomOfDeck
+    | topOfDeck
+    | From hand
+    | previousCard
+    ;
+
+
+///////////////
+
+attachCard
+    : Attach To player
+    | Attach To tile
+    | Attach To tile Until End Of Turn
     ;
 
 metaCounterCard
     : Meta Counter card;
 
 counterCard
-    : Counter card;
+    : Counter card Unless player Pays integer Resource;
+
+destroyCard
+    : Destroy card;
+
+cardGainsTrait
+    : card Gain (Heroic)
+    ;
+
+putCard
+    : Put card (On bottomOfDeck | topOfDeck | 'into' hand);
 
 cardEffect
     : metaCounterCard
     | counterCard
+    | destroyCard
+    | attachCard
+    | putCard
+    | cardGainsTrait
     ;
 
+Heroic: 'Heroic';
+
+That: 'That' | 'that';
+Put: 'Put' | 'put';
 Meta: 'Meta' | 'meta';
 Counter: 'Counter' | 'counter';
+Destroy: 'Destroy' | 'destroy';
+Resource: 'resource' | 'resources' | 'Resources' | 'Resource';
+Unless: 'unless';
+Pays: 'pays' | 'spends';
+Attach: 'Attach';
+Top: 'top';
+Bottom: 'bottom';
+Deck: 'deck';
+On: 'On' | 'on';
+Hand: 'Hand' | 'hand';
+From: 'From' | 'from';
+Until: 'until';
+Number: 'number';
+In: 'in';
 
 //////////////////////////////////////////////////////////////////////
 
-endTheTurn: 'end' The 'turn';
-startTheTurn: 'start' The 'turn';
-passPriority: 'pass' 'priority';
-
-miscEffect
-    : startTheTurn
-    | endTheTurn
-    | passPriority
+turnTrigger
+    : At The (Start | End) Of player Turn
     ;
 
+triggerConditions
+    : turnTrigger
+    ;
+
+triggerEffect
+    : triggerConditions ',' effect '.'
+    ;
+
+Turn: 'turn';
+Start: 'start';
+End: 'end';
+At: 'at' | 'At';
+This: 'this';
+Then: 'then' | 'Then';
+
 //////////////////////////////////////////////////////////////////////
 
-line
-    : (
+breach: 'Breach';
+advantage: 'Advantage';
+resolved: If player Resolved (A | Another) Non? (Ability | Attack) Card This Turn;
+usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
+ifMadeChoice: If (CardController | PreviousPlayer) Do;
+
+replacementCondition
+    : resolved
+    | breach
+    | advantage
+    | usedSecondWind
+    | ifMadeChoice
+    ;
+
+replacementEffect
+    : replacementCondition ',' Instead? effect '.'
+    ;
+
+If: 'If';
+Do: 'do';
+Resolved: 'resolved';
+Used: 'used';
+Non: 'non-';
+Ability: 'Ability';
+Attack: 'Attack';
+Already: 'already';
+Instead: 'instead';
+
+//////////////////////////////////////////////////////////////////////
+
+effect
+    : (Then ',')? (
         effectPlayer
         | cardEffect
-        | miscEffect
-    ) '.' ('\n' | EOF)?
+    )
     ;
 
-paragraph
-    : line+ '\n'*
-    ;
+choose
+    : 'Choose' integer ':' ('-' effect '.')+;
+
+//////////////////////////////////////////////////////////////////////
+
 
 text
-    : paragraph+ | EOF;
+    : (
+        choose
+        | replacementEffect
+        | triggerEffect 
+        | effect '.')+ 
+        EOF;
+
+//////////////////////////////////////////////////////////////////////
 
 /* built in data types */
+
+theNumberOfCardsInHand
+    : The Number Of Card In player Hand
+    | The Number Of Reveal Card In player Hand
+    ;
+integerLiteral: Integer;
+integerWord: A | One | Two | Three | Four | Five | Six;
 
 integer
     : integerLiteral
     | integerWord
+    | theNumberOfCardsInHand
     ;
-    
-integerLiteral: Integer;
-integerWord: One | Two | Three | Four | Five | Six;
-
 
 // lexer
-One: A | 'one' | 'One';
+One: 'one' | 'One';
 Two: 'two' | 'Two';
 Three: 'three' | 'Three';
 Four: 'four' | 'Four';
@@ -185,13 +360,7 @@ Six: 'six' | 'Six';
 
 Card : 'card' | 'cards';
 
-// articles
-A: 'a' | 'A';
-Is: 'is' | 'are';
-To: 'to' | 'To';
-Take: 'take' | 'takes';
-Of: 'Of' | 'of';
-The: 'The' | 'the';
+
 
 /* built in data types */
 
@@ -211,6 +380,11 @@ Whitespace
 
 BlockComment
     :   '/*' .*? '*/'
+        -> skip
+    ;
+
+RulesComment
+    : '<(' .*? ')>'
         -> skip
     ;
 

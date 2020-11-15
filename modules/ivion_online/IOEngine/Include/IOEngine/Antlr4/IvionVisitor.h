@@ -41,11 +41,19 @@ public:
 
     virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *context) = 0;
 
-    virtual antlrcpp::Any visitGainActions(IvionParser::GainActionsContext *context) = 0;
-
-    virtual antlrcpp::Any visitGainPower(IvionParser::GainPowerContext *context) = 0;
+    virtual antlrcpp::Any visitGainResource(IvionParser::GainResourceContext *context) = 0;
 
     virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *context) = 0;
+
+    virtual antlrcpp::Any visitUseSecondWind(IvionParser::UseSecondWindContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayACard(IvionParser::PlayACardContext *context) = 0;
+
+    virtual antlrcpp::Any visitHeal(IvionParser::HealContext *context) = 0;
+
+    virtual antlrcpp::Any visitRangeSource(IvionParser::RangeSourceContext *context) = 0;
+
+    virtual antlrcpp::Any visitRevealFromHand(IvionParser::RevealFromHandContext *context) = 0;
 
     virtual antlrcpp::Any visitEffectPlayer(IvionParser::EffectPlayerContext *context) = 0;
 
@@ -59,35 +67,65 @@ public:
 
     virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *context) = 0;
 
-    virtual antlrcpp::Any visitTopCardPtr(IvionParser::TopCardPtrContext *context) = 0;
+    virtual antlrcpp::Any visitPreviousCard(IvionParser::PreviousCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitTopOfStack(IvionParser::TopOfStackContext *context) = 0;
+
+    virtual antlrcpp::Any visitBottomOfDeck(IvionParser::BottomOfDeckContext *context) = 0;
+
+    virtual antlrcpp::Any visitTopOfDeck(IvionParser::TopOfDeckContext *context) = 0;
+
+    virtual antlrcpp::Any visitHand(IvionParser::HandContext *context) = 0;
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
+
+    virtual antlrcpp::Any visitAttachCard(IvionParser::AttachCardContext *context) = 0;
 
     virtual antlrcpp::Any visitMetaCounterCard(IvionParser::MetaCounterCardContext *context) = 0;
 
     virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *context) = 0;
 
+    virtual antlrcpp::Any visitDestroyCard(IvionParser::DestroyCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardGainsTrait(IvionParser::CardGainsTraitContext *context) = 0;
+
+    virtual antlrcpp::Any visitPutCard(IvionParser::PutCardContext *context) = 0;
+
     virtual antlrcpp::Any visitCardEffect(IvionParser::CardEffectContext *context) = 0;
 
-    virtual antlrcpp::Any visitEndTheTurn(IvionParser::EndTheTurnContext *context) = 0;
+    virtual antlrcpp::Any visitTurnTrigger(IvionParser::TurnTriggerContext *context) = 0;
 
-    virtual antlrcpp::Any visitStartTheTurn(IvionParser::StartTheTurnContext *context) = 0;
+    virtual antlrcpp::Any visitTriggerConditions(IvionParser::TriggerConditionsContext *context) = 0;
 
-    virtual antlrcpp::Any visitPassPriority(IvionParser::PassPriorityContext *context) = 0;
+    virtual antlrcpp::Any visitTriggerEffect(IvionParser::TriggerEffectContext *context) = 0;
 
-    virtual antlrcpp::Any visitMiscEffect(IvionParser::MiscEffectContext *context) = 0;
+    virtual antlrcpp::Any visitBreach(IvionParser::BreachContext *context) = 0;
 
-    virtual antlrcpp::Any visitLine(IvionParser::LineContext *context) = 0;
+    virtual antlrcpp::Any visitAdvantage(IvionParser::AdvantageContext *context) = 0;
 
-    virtual antlrcpp::Any visitParagraph(IvionParser::ParagraphContext *context) = 0;
+    virtual antlrcpp::Any visitResolved(IvionParser::ResolvedContext *context) = 0;
+
+    virtual antlrcpp::Any visitUsedSecondWind(IvionParser::UsedSecondWindContext *context) = 0;
+
+    virtual antlrcpp::Any visitIfMadeChoice(IvionParser::IfMadeChoiceContext *context) = 0;
+
+    virtual antlrcpp::Any visitReplacementCondition(IvionParser::ReplacementConditionContext *context) = 0;
+
+    virtual antlrcpp::Any visitReplacementEffect(IvionParser::ReplacementEffectContext *context) = 0;
+
+    virtual antlrcpp::Any visitEffect(IvionParser::EffectContext *context) = 0;
+
+    virtual antlrcpp::Any visitChoose(IvionParser::ChooseContext *context) = 0;
 
     virtual antlrcpp::Any visitText(IvionParser::TextContext *context) = 0;
 
-    virtual antlrcpp::Any visitInteger(IvionParser::IntegerContext *context) = 0;
+    virtual antlrcpp::Any visitTheNumberOfCardsInHand(IvionParser::TheNumberOfCardsInHandContext *context) = 0;
 
     virtual antlrcpp::Any visitIntegerLiteral(IvionParser::IntegerLiteralContext *context) = 0;
 
     virtual antlrcpp::Any visitIntegerWord(IvionParser::IntegerWordContext *context) = 0;
+
+    virtual antlrcpp::Any visitInteger(IvionParser::IntegerContext *context) = 0;
 
 
 };

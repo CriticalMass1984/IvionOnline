@@ -76,11 +76,11 @@ IvionParser::FilterPlayerContext* IvionParser::filterPlayer() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(71); 
+    setState(109); 
     _errHandler->sync(this);
     _la = _input->LA(1);
     do {
-      setState(70);
+      setState(108);
       _la = _input->LA(1);
       if (!(_la == IvionParser::Player
 
@@ -91,7 +91,7 @@ IvionParser::FilterPlayerContext* IvionParser::filterPlayer() {
         _errHandler->reportMatch(this);
         consume();
       }
-      setState(73); 
+      setState(111); 
       _errHandler->sync(this);
       _la = _input->LA(1);
     } while (_la == IvionParser::Player
@@ -122,6 +122,18 @@ IvionParser::FilterPlayerContext* IvionParser::TargetPlayerContext::filterPlayer
   return getRuleContext<IvionParser::FilterPlayerContext>(0);
 }
 
+tree::TerminalNode* IvionParser::TargetPlayerContext::Another() {
+  return getToken(IvionParser::Another, 0);
+}
+
+tree::TerminalNode* IvionParser::TargetPlayerContext::UpTo() {
+  return getToken(IvionParser::UpTo, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::TargetPlayerContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
 
 size_t IvionParser::TargetPlayerContext::getRuleIndex() const {
   return IvionParser::RuleTargetPlayer;
@@ -143,11 +155,54 @@ IvionParser::TargetPlayerContext* IvionParser::targetPlayer() {
     exitRule();
   });
   try {
-    enterOuterAlt(_localctx, 1);
-    setState(75);
-    match(IvionParser::Target);
-    setState(76);
-    filterPlayer();
+    setState(126);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 1, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(113);
+      match(IvionParser::Target);
+      setState(114);
+      filterPlayer();
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(115);
+      match(IvionParser::Another);
+      setState(116);
+      match(IvionParser::Target);
+      setState(117);
+      filterPlayer();
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(118);
+      match(IvionParser::Target);
+      setState(119);
+      match(IvionParser::Another);
+      setState(120);
+      filterPlayer();
+      break;
+    }
+
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(121);
+      match(IvionParser::UpTo);
+      setState(122);
+      integer();
+      setState(123);
+      match(IvionParser::Target);
+      setState(124);
+      filterPlayer();
+      break;
+    }
+
+    }
    
   }
   catch (RecognitionException &e) {
@@ -173,6 +228,18 @@ IvionParser::FilterPlayerContext* IvionParser::SelectPlayerContext::filterPlayer
   return getRuleContext<IvionParser::FilterPlayerContext>(0);
 }
 
+tree::TerminalNode* IvionParser::SelectPlayerContext::Another() {
+  return getToken(IvionParser::Another, 0);
+}
+
+tree::TerminalNode* IvionParser::SelectPlayerContext::Its() {
+  return getToken(IvionParser::Its, 0);
+}
+
+tree::TerminalNode* IvionParser::SelectPlayerContext::Controller() {
+  return getToken(IvionParser::Controller, 0);
+}
+
 
 size_t IvionParser::SelectPlayerContext::getRuleIndex() const {
   return IvionParser::RuleSelectPlayer;
@@ -194,11 +261,39 @@ IvionParser::SelectPlayerContext* IvionParser::selectPlayer() {
     exitRule();
   });
   try {
-    enterOuterAlt(_localctx, 1);
-    setState(78);
-    match(IvionParser::A);
-    setState(79);
-    filterPlayer();
+    setState(134);
+    _errHandler->sync(this);
+    switch (_input->LA(1)) {
+      case IvionParser::A: {
+        enterOuterAlt(_localctx, 1);
+        setState(128);
+        match(IvionParser::A);
+        setState(129);
+        filterPlayer();
+        break;
+      }
+
+      case IvionParser::Another: {
+        enterOuterAlt(_localctx, 2);
+        setState(130);
+        match(IvionParser::Another);
+        setState(131);
+        filterPlayer();
+        break;
+      }
+
+      case IvionParser::Its: {
+        enterOuterAlt(_localctx, 3);
+        setState(132);
+        match(IvionParser::Its);
+        setState(133);
+        match(IvionParser::Controller);
+        break;
+      }
+
+    default:
+      throw NoViableAltException(this);
+    }
    
   }
   catch (RecognitionException &e) {
@@ -214,6 +309,10 @@ IvionParser::SelectPlayerContext* IvionParser::selectPlayer() {
 
 IvionParser::CardControllerContext::CardControllerContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::CardControllerContext::CardController() {
+  return getToken(IvionParser::CardController, 0);
 }
 
 
@@ -232,24 +331,14 @@ antlrcpp::Any IvionParser::CardControllerContext::accept(tree::ParseTreeVisitor 
 IvionParser::CardControllerContext* IvionParser::cardController() {
   CardControllerContext *_localctx = _tracker.createInstance<CardControllerContext>(_ctx, getState());
   enterRule(_localctx, 6, IvionParser::RuleCardController);
-  size_t _la = 0;
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(81);
-    _la = _input->LA(1);
-    if (!(_la == IvionParser::T__0
-
-    || _la == IvionParser::T__1)) {
-    _errHandler->recoverInline(this);
-    }
-    else {
-      _errHandler->reportMatch(this);
-      consume();
-    }
+    setState(136);
+    match(IvionParser::CardController);
    
   }
   catch (RecognitionException &e) {
@@ -265,6 +354,10 @@ IvionParser::CardControllerContext* IvionParser::cardController() {
 
 IvionParser::PreviousPlayerContext::PreviousPlayerContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::PreviousPlayerContext::PreviousPlayer() {
+  return getToken(IvionParser::PreviousPlayer, 0);
 }
 
 
@@ -283,24 +376,14 @@ antlrcpp::Any IvionParser::PreviousPlayerContext::accept(tree::ParseTreeVisitor 
 IvionParser::PreviousPlayerContext* IvionParser::previousPlayer() {
   PreviousPlayerContext *_localctx = _tracker.createInstance<PreviousPlayerContext>(_ctx, getState());
   enterRule(_localctx, 8, IvionParser::RulePreviousPlayer);
-  size_t _la = 0;
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(83);
-    _la = _input->LA(1);
-    if (!(_la == IvionParser::T__2
-
-    || _la == IvionParser::T__3)) {
-    _errHandler->recoverInline(this);
-    }
-    else {
-      _errHandler->reportMatch(this);
-      consume();
-    }
+    setState(138);
+    match(IvionParser::PreviousPlayer);
    
   }
   catch (RecognitionException &e) {
@@ -355,41 +438,37 @@ IvionParser::PlayerContext* IvionParser::player() {
     exitRule();
   });
   try {
-    setState(89);
+    setState(144);
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::T__0:
-      case IvionParser::T__1: {
-        enterOuterAlt(_localctx, 1);
-        setState(85);
-        cardController();
-        break;
-      }
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 3, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(140);
+      cardController();
+      break;
+    }
 
-      case IvionParser::A: {
-        enterOuterAlt(_localctx, 2);
-        setState(86);
-        selectPlayer();
-        break;
-      }
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(141);
+      selectPlayer();
+      break;
+    }
 
-      case IvionParser::T__2:
-      case IvionParser::T__3: {
-        enterOuterAlt(_localctx, 3);
-        setState(87);
-        previousPlayer();
-        break;
-      }
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(142);
+      previousPlayer();
+      break;
+    }
 
-      case IvionParser::Target: {
-        enterOuterAlt(_localctx, 4);
-        setState(88);
-        targetPlayer();
-        break;
-      }
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(143);
+      targetPlayer();
+      break;
+    }
 
-    default:
-      throw NoViableAltException(this);
     }
    
   }
@@ -416,8 +495,16 @@ IvionParser::IntegerContext* IvionParser::DamagePlayerContext::integer() {
   return getRuleContext<IvionParser::IntegerContext>(0);
 }
 
-tree::TerminalNode* IvionParser::DamagePlayerContext::To() {
-  return getToken(IvionParser::To, 0);
+tree::TerminalNode* IvionParser::DamagePlayerContext::Damage() {
+  return getToken(IvionParser::Damage, 0);
+}
+
+std::vector<tree::TerminalNode *> IvionParser::DamagePlayerContext::To() {
+  return getTokens(IvionParser::To);
+}
+
+tree::TerminalNode* IvionParser::DamagePlayerContext::To(size_t i) {
+  return getToken(IvionParser::To, i);
 }
 
 IvionParser::PlayerContext* IvionParser::DamagePlayerContext::player() {
@@ -449,44 +536,56 @@ IvionParser::DamagePlayerContext* IvionParser::damagePlayer() {
     exitRule();
   });
   try {
-    setState(102);
+    setState(165);
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::Deal: {
-        enterOuterAlt(_localctx, 1);
-        setState(91);
-        match(IvionParser::Deal);
-        setState(92);
-        integer();
-        setState(93);
-        match(IvionParser::T__4);
-        setState(94);
-        match(IvionParser::To);
-        setState(95);
-        player();
-        break;
-      }
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(146);
+      match(IvionParser::Deal);
+      setState(147);
+      integer();
+      setState(148);
+      match(IvionParser::Damage);
+      setState(149);
+      match(IvionParser::To);
+      setState(150);
+      player();
+      break;
+    }
 
-      case IvionParser::T__0:
-      case IvionParser::T__1:
-      case IvionParser::T__2:
-      case IvionParser::T__3:
-      case IvionParser::Target:
-      case IvionParser::A: {
-        enterOuterAlt(_localctx, 2);
-        setState(97);
-        player();
-        setState(98);
-        match(IvionParser::Take);
-        setState(99);
-        integer();
-        setState(100);
-        match(IvionParser::T__4);
-        break;
-      }
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(152);
+      player();
+      setState(153);
+      match(IvionParser::Take);
+      setState(154);
+      integer();
+      setState(155);
+      match(IvionParser::Damage);
+      break;
+    }
 
-    default:
-      throw NoViableAltException(this);
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(157);
+      match(IvionParser::Deal);
+      setState(158);
+      match(IvionParser::Damage);
+      setState(159);
+      match(IvionParser::To);
+      setState(160);
+      player();
+      setState(161);
+      match(IvionParser::T__0);
+      setState(162);
+      match(IvionParser::To);
+      setState(163);
+      integer();
+      break;
+    }
+
     }
    
   }
@@ -540,7 +639,7 @@ IvionParser::ControlContext* IvionParser::control() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(104);
+    setState(167);
     _la = _input->LA(1);
     if (!((((_la & ~ 0x3fULL) == 0) &&
       ((1ULL << _la) & ((1ULL << IvionParser::Disarm)
@@ -606,36 +705,37 @@ IvionParser::ControlPlayerContext* IvionParser::controlPlayer() {
     exitRule();
   });
   try {
-    setState(115);
+    setState(178);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case IvionParser::Disarm:
       case IvionParser::Silence:
       case IvionParser::Slow: {
         enterOuterAlt(_localctx, 1);
-        setState(106);
+        setState(169);
         control();
-        setState(107);
+        setState(170);
         integer();
-        setState(108);
+        setState(171);
         player();
         break;
       }
 
-      case IvionParser::T__0:
-      case IvionParser::T__1:
-      case IvionParser::T__2:
-      case IvionParser::T__3:
+      case IvionParser::A:
       case IvionParser::Target:
-      case IvionParser::A: {
+      case IvionParser::Another:
+      case IvionParser::CardController:
+      case IvionParser::PreviousPlayer:
+      case IvionParser::Its:
+      case IvionParser::UpTo: {
         enterOuterAlt(_localctx, 2);
-        setState(110);
+        setState(173);
         player();
-        setState(111);
+        setState(174);
         match(IvionParser::Is);
-        setState(112);
+        setState(175);
         control();
-        setState(113);
+        setState(176);
         integer();
         break;
       }
@@ -664,24 +764,12 @@ tree::TerminalNode* IvionParser::MovePlayerContext::Move() {
   return getToken(IvionParser::Move, 0);
 }
 
-IvionParser::TileContext* IvionParser::MovePlayerContext::tile() {
-  return getRuleContext<IvionParser::TileContext>(0);
-}
-
-IvionParser::PlayerContext* IvionParser::MovePlayerContext::player() {
-  return getRuleContext<IvionParser::PlayerContext>(0);
-}
-
 tree::TerminalNode* IvionParser::MovePlayerContext::To() {
   return getToken(IvionParser::To, 0);
 }
 
-IvionParser::IntegerContext* IvionParser::MovePlayerContext::integer() {
-  return getRuleContext<IvionParser::IntegerContext>(0);
-}
-
-tree::TerminalNode* IvionParser::MovePlayerContext::Tile() {
-  return getToken(IvionParser::Tile, 0);
+IvionParser::TileContext* IvionParser::MovePlayerContext::tile() {
+  return getRuleContext<IvionParser::TileContext>(0);
 }
 
 
@@ -700,69 +788,18 @@ antlrcpp::Any IvionParser::MovePlayerContext::accept(tree::ParseTreeVisitor *vis
 IvionParser::MovePlayerContext* IvionParser::movePlayer() {
   MovePlayerContext *_localctx = _tracker.createInstance<MovePlayerContext>(_ctx, getState());
   enterRule(_localctx, 18, IvionParser::RuleMovePlayer);
-  size_t _la = 0;
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(132);
-    _errHandler->sync(this);
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
-    case 1: {
-      enterOuterAlt(_localctx, 1);
-      setState(117);
-      match(IvionParser::Move);
-      setState(119);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 4, _ctx)) {
-      case 1: {
-        setState(118);
-        player();
-        break;
-      }
-
-      }
-      setState(122);
-      _errHandler->sync(this);
-
-      _la = _input->LA(1);
-      if (_la == IvionParser::To) {
-        setState(121);
-        match(IvionParser::To);
-      }
-      setState(124);
-      tile();
-      break;
-    }
-
-    case 2: {
-      enterOuterAlt(_localctx, 2);
-      setState(125);
-      match(IvionParser::Move);
-      setState(127);
-      _errHandler->sync(this);
-
-      _la = _input->LA(1);
-      if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-        | (1ULL << IvionParser::T__1)
-        | (1ULL << IvionParser::T__2)
-        | (1ULL << IvionParser::T__3)
-        | (1ULL << IvionParser::Target)
-        | (1ULL << IvionParser::A))) != 0)) {
-        setState(126);
-        player();
-      }
-      setState(129);
-      integer();
-      setState(130);
-      match(IvionParser::Tile);
-      break;
-    }
-
-    }
+    enterOuterAlt(_localctx, 1);
+    setState(180);
+    match(IvionParser::Move);
+    setState(181);
+    match(IvionParser::To);
+    setState(182);
+    tile();
    
   }
   catch (RecognitionException &e) {
@@ -784,16 +821,12 @@ tree::TerminalNode* IvionParser::TravelPlayerContext::Travel() {
   return getToken(IvionParser::Travel, 0);
 }
 
-IvionParser::TileContext* IvionParser::TravelPlayerContext::tile() {
-  return getRuleContext<IvionParser::TileContext>(0);
-}
-
-IvionParser::PlayerContext* IvionParser::TravelPlayerContext::player() {
-  return getRuleContext<IvionParser::PlayerContext>(0);
-}
-
 tree::TerminalNode* IvionParser::TravelPlayerContext::To() {
   return getToken(IvionParser::To, 0);
+}
+
+IvionParser::TileContext* IvionParser::TravelPlayerContext::tile() {
+  return getRuleContext<IvionParser::TileContext>(0);
 }
 
 IvionParser::IntegerContext* IvionParser::TravelPlayerContext::integer() {
@@ -802,6 +835,18 @@ IvionParser::IntegerContext* IvionParser::TravelPlayerContext::integer() {
 
 tree::TerminalNode* IvionParser::TravelPlayerContext::Tile() {
   return getToken(IvionParser::Tile, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::TravelPlayerContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::TravelPlayerContext::UpTo() {
+  return getToken(IvionParser::UpTo, 0);
+}
+
+tree::TerminalNode* IvionParser::TravelPlayerContext::Away() {
+  return getToken(IvionParser::Away, 0);
 }
 
 
@@ -826,58 +871,76 @@ IvionParser::TravelPlayerContext* IvionParser::travelPlayer() {
     exitRule();
   });
   try {
-    setState(149);
+    setState(210);
     _errHandler->sync(this);
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 11, _ctx)) {
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 7, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(134);
+      setState(184);
       match(IvionParser::Travel);
-      setState(136);
-      _errHandler->sync(this);
-
-      switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 8, _ctx)) {
-      case 1: {
-        setState(135);
-        player();
-        break;
-      }
-
-      }
-      setState(139);
-      _errHandler->sync(this);
-
-      _la = _input->LA(1);
-      if (_la == IvionParser::To) {
-        setState(138);
-        match(IvionParser::To);
-      }
-      setState(141);
+      setState(185);
+      match(IvionParser::To);
+      setState(186);
       tile();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(142);
+      setState(187);
       match(IvionParser::Travel);
-      setState(144);
+      setState(188);
+      integer();
+      setState(189);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(191);
+      match(IvionParser::Travel);
+      setState(192);
+      player();
+      setState(193);
+      match(IvionParser::To);
+      setState(194);
+      tile();
+      break;
+    }
+
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(196);
+      match(IvionParser::Travel);
+      setState(197);
+      player();
+      setState(199);
       _errHandler->sync(this);
 
       _la = _input->LA(1);
-      if ((((_la & ~ 0x3fULL) == 0) &&
-        ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-        | (1ULL << IvionParser::T__1)
-        | (1ULL << IvionParser::T__2)
-        | (1ULL << IvionParser::T__3)
-        | (1ULL << IvionParser::Target)
-        | (1ULL << IvionParser::A))) != 0)) {
-        setState(143);
-        player();
+      if (_la == IvionParser::UpTo) {
+        setState(198);
+        match(IvionParser::UpTo);
       }
-      setState(146);
+      setState(201);
       integer();
-      setState(147);
+      setState(202);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 5: {
+      enterOuterAlt(_localctx, 5);
+      setState(204);
+      match(IvionParser::Travel);
+      setState(205);
+      player();
+      setState(206);
+      match(IvionParser::Away);
+      setState(207);
+      integer();
+      setState(208);
       match(IvionParser::Tile);
       break;
     }
@@ -894,36 +957,52 @@ IvionParser::TravelPlayerContext* IvionParser::travelPlayer() {
   return _localctx;
 }
 
-//----------------- GainActionsContext ------------------------------------------------------------------
+//----------------- GainResourceContext ------------------------------------------------------------------
 
-IvionParser::GainActionsContext::GainActionsContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::GainResourceContext::GainResourceContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-IvionParser::IntegerContext* IvionParser::GainActionsContext::integer() {
+tree::TerminalNode* IvionParser::GainResourceContext::Gain() {
+  return getToken(IvionParser::Gain, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::GainResourceContext::integer() {
   return getRuleContext<IvionParser::IntegerContext>(0);
 }
 
-IvionParser::PlayerContext* IvionParser::GainActionsContext::player() {
+tree::TerminalNode* IvionParser::GainResourceContext::Power() {
+  return getToken(IvionParser::Power, 0);
+}
+
+tree::TerminalNode* IvionParser::GainResourceContext::Action() {
+  return getToken(IvionParser::Action, 0);
+}
+
+tree::TerminalNode* IvionParser::GainResourceContext::Initiative() {
+  return getToken(IvionParser::Initiative, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::GainResourceContext::player() {
   return getRuleContext<IvionParser::PlayerContext>(0);
 }
 
 
-size_t IvionParser::GainActionsContext::getRuleIndex() const {
-  return IvionParser::RuleGainActions;
+size_t IvionParser::GainResourceContext::getRuleIndex() const {
+  return IvionParser::RuleGainResource;
 }
 
 
-antlrcpp::Any IvionParser::GainActionsContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any IvionParser::GainResourceContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitGainActions(this);
+    return parserVisitor->visitGainResource(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::GainActionsContext* IvionParser::gainActions() {
-  GainActionsContext *_localctx = _tracker.createInstance<GainActionsContext>(_ctx, getState());
-  enterRule(_localctx, 22, IvionParser::RuleGainActions);
+IvionParser::GainResourceContext* IvionParser::gainResource() {
+  GainResourceContext *_localctx = _tracker.createInstance<GainResourceContext>(_ctx, getState());
+  enterRule(_localctx, 22, IvionParser::RuleGainResource);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -931,94 +1010,45 @@ IvionParser::GainActionsContext* IvionParser::gainActions() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(152);
+    setState(213);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-      | (1ULL << IvionParser::T__1)
-      | (1ULL << IvionParser::T__2)
-      | (1ULL << IvionParser::T__3)
+      ((1ULL << _la) & ((1ULL << IvionParser::A)
       | (1ULL << IvionParser::Target)
-      | (1ULL << IvionParser::A))) != 0)) {
-      setState(151);
+      | (1ULL << IvionParser::Another)
+      | (1ULL << IvionParser::CardController)
+      | (1ULL << IvionParser::PreviousPlayer)
+      | (1ULL << IvionParser::Its)
+      | (1ULL << IvionParser::UpTo))) != 0)) {
+      setState(212);
       player();
     }
-    setState(154);
-    match(IvionParser::T__5);
-    setState(155);
+    setState(215);
+    match(IvionParser::Gain);
+    setState(216);
     integer();
-    setState(156);
-    match(IvionParser::T__6);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- GainPowerContext ------------------------------------------------------------------
-
-IvionParser::GainPowerContext::GainPowerContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-IvionParser::IntegerContext* IvionParser::GainPowerContext::integer() {
-  return getRuleContext<IvionParser::IntegerContext>(0);
-}
-
-IvionParser::PlayerContext* IvionParser::GainPowerContext::player() {
-  return getRuleContext<IvionParser::PlayerContext>(0);
-}
-
-
-size_t IvionParser::GainPowerContext::getRuleIndex() const {
-  return IvionParser::RuleGainPower;
-}
-
-
-antlrcpp::Any IvionParser::GainPowerContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitGainPower(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-IvionParser::GainPowerContext* IvionParser::gainPower() {
-  GainPowerContext *_localctx = _tracker.createInstance<GainPowerContext>(_ctx, getState());
-  enterRule(_localctx, 24, IvionParser::RuleGainPower);
-  size_t _la = 0;
-
-  auto onExit = finally([=] {
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(159);
+    setState(218);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
-    if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-      | (1ULL << IvionParser::T__1)
-      | (1ULL << IvionParser::T__2)
-      | (1ULL << IvionParser::T__3)
-      | (1ULL << IvionParser::Target)
-      | (1ULL << IvionParser::A))) != 0)) {
-      setState(158);
-      player();
+    if (_la == IvionParser::T__1) {
+      setState(217);
+      match(IvionParser::T__1);
     }
-    setState(161);
-    match(IvionParser::T__5);
-    setState(162);
-    integer();
-    setState(163);
-    match(IvionParser::T__7);
+    setState(220);
+    _la = _input->LA(1);
+    if (!((((_la & ~ 0x3fULL) == 0) &&
+      ((1ULL << _la) & ((1ULL << IvionParser::Action)
+      | (1ULL << IvionParser::Power)
+      | (1ULL << IvionParser::Initiative))) != 0))) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
    
   }
   catch (RecognitionException &e) {
@@ -1067,7 +1097,7 @@ antlrcpp::Any IvionParser::DrawCardsContext::accept(tree::ParseTreeVisitor *visi
 
 IvionParser::DrawCardsContext* IvionParser::drawCards() {
   DrawCardsContext *_localctx = _tracker.createInstance<DrawCardsContext>(_ctx, getState());
-  enterRule(_localctx, 26, IvionParser::RuleDrawCards);
+  enterRule(_localctx, 24, IvionParser::RuleDrawCards);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -1075,26 +1105,501 @@ IvionParser::DrawCardsContext* IvionParser::drawCards() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(166);
+    setState(223);
     _errHandler->sync(this);
 
     _la = _input->LA(1);
     if ((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-      | (1ULL << IvionParser::T__1)
-      | (1ULL << IvionParser::T__2)
-      | (1ULL << IvionParser::T__3)
+      ((1ULL << _la) & ((1ULL << IvionParser::A)
       | (1ULL << IvionParser::Target)
-      | (1ULL << IvionParser::A))) != 0)) {
-      setState(165);
+      | (1ULL << IvionParser::Another)
+      | (1ULL << IvionParser::CardController)
+      | (1ULL << IvionParser::PreviousPlayer)
+      | (1ULL << IvionParser::Its)
+      | (1ULL << IvionParser::UpTo))) != 0)) {
+      setState(222);
       player();
     }
-    setState(168);
+    setState(225);
     match(IvionParser::Draw);
-    setState(169);
+    setState(226);
     integer();
-    setState(170);
+    setState(227);
     match(IvionParser::Card);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- UseSecondWindContext ------------------------------------------------------------------
+
+IvionParser::UseSecondWindContext::UseSecondWindContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::UseSecondWindContext::Use() {
+  return getToken(IvionParser::Use, 0);
+}
+
+tree::TerminalNode* IvionParser::UseSecondWindContext::SecondWind() {
+  return getToken(IvionParser::SecondWind, 0);
+}
+
+tree::TerminalNode* IvionParser::UseSecondWindContext::CardController() {
+  return getToken(IvionParser::CardController, 0);
+}
+
+tree::TerminalNode* IvionParser::UseSecondWindContext::PreviousPlayer() {
+  return getToken(IvionParser::PreviousPlayer, 0);
+}
+
+
+size_t IvionParser::UseSecondWindContext::getRuleIndex() const {
+  return IvionParser::RuleUseSecondWind;
+}
+
+
+antlrcpp::Any IvionParser::UseSecondWindContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitUseSecondWind(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::UseSecondWindContext* IvionParser::useSecondWind() {
+  UseSecondWindContext *_localctx = _tracker.createInstance<UseSecondWindContext>(_ctx, getState());
+  enterRule(_localctx, 26, IvionParser::RuleUseSecondWind);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(229);
+    match(IvionParser::Use);
+    setState(230);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::CardController
+
+    || _la == IvionParser::PreviousPlayer)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(231);
+    match(IvionParser::SecondWind);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- PlayACardContext ------------------------------------------------------------------
+
+IvionParser::PlayACardContext::PlayACardContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::PlayerContext* IvionParser::PlayACardContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::Play() {
+  return getToken(IvionParser::Play, 0);
+}
+
+std::vector<IvionParser::IntegerContext *> IvionParser::PlayACardContext::integer() {
+  return getRuleContexts<IvionParser::IntegerContext>();
+}
+
+IvionParser::IntegerContext* IvionParser::PlayACardContext::integer(size_t i) {
+  return getRuleContext<IvionParser::IntegerContext>(i);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::May() {
+  return getToken(IvionParser::May, 0);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::For() {
+  return getToken(IvionParser::For, 0);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::Less() {
+  return getToken(IvionParser::Less, 0);
+}
+
+tree::TerminalNode* IvionParser::PlayACardContext::Resource() {
+  return getToken(IvionParser::Resource, 0);
+}
+
+
+size_t IvionParser::PlayACardContext::getRuleIndex() const {
+  return IvionParser::RulePlayACard;
+}
+
+
+antlrcpp::Any IvionParser::PlayACardContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitPlayACard(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::PlayACardContext* IvionParser::playACard() {
+  PlayACardContext *_localctx = _tracker.createInstance<PlayACardContext>(_ctx, getState());
+  enterRule(_localctx, 28, IvionParser::RulePlayACard);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(253);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 13, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(233);
+      player();
+      setState(235);
+      _errHandler->sync(this);
+
+      _la = _input->LA(1);
+      if (_la == IvionParser::May) {
+        setState(234);
+        match(IvionParser::May);
+      }
+      setState(237);
+      match(IvionParser::Play);
+      setState(238);
+      integer();
+      setState(239);
+      match(IvionParser::Card);
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(241);
+      player();
+      setState(243);
+      _errHandler->sync(this);
+
+      _la = _input->LA(1);
+      if (_la == IvionParser::May) {
+        setState(242);
+        match(IvionParser::May);
+      }
+      setState(245);
+      match(IvionParser::Play);
+      setState(246);
+      integer();
+      setState(247);
+      match(IvionParser::Card);
+      setState(248);
+      match(IvionParser::For);
+      setState(249);
+      integer();
+      setState(250);
+      match(IvionParser::Less);
+      setState(251);
+      match(IvionParser::Resource);
+      break;
+    }
+
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- HealContext ------------------------------------------------------------------
+
+IvionParser::HealContext::HealContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::HealContext::Heal() {
+  return getToken(IvionParser::Heal, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::HealContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+IvionParser::IntegerContext* IvionParser::HealContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::HealContext::Health() {
+  return getToken(IvionParser::Health, 0);
+}
+
+
+size_t IvionParser::HealContext::getRuleIndex() const {
+  return IvionParser::RuleHeal;
+}
+
+
+antlrcpp::Any IvionParser::HealContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitHeal(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::HealContext* IvionParser::heal() {
+  HealContext *_localctx = _tracker.createInstance<HealContext>(_ctx, getState());
+  enterRule(_localctx, 30, IvionParser::RuleHeal);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(255);
+    match(IvionParser::Heal);
+    setState(256);
+    player();
+    setState(257);
+    integer();
+    setState(258);
+    match(IvionParser::Health);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- RangeSourceContext ------------------------------------------------------------------
+
+IvionParser::RangeSourceContext::RangeSourceContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::CardController() {
+  return getToken(IvionParser::CardController, 0);
+}
+
+std::vector<tree::TerminalNode *> IvionParser::RangeSourceContext::Card() {
+  return getTokens(IvionParser::Card);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Card(size_t i) {
+  return getToken(IvionParser::Card, i);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Travel() {
+  return getToken(IvionParser::Travel, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::That() {
+  return getToken(IvionParser::That, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Target() {
+  return getToken(IvionParser::Target, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::A() {
+  return getToken(IvionParser::A, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Tile() {
+  return getToken(IvionParser::Tile, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::Range() {
+  return getToken(IvionParser::Range, 0);
+}
+
+tree::TerminalNode* IvionParser::RangeSourceContext::From() {
+  return getToken(IvionParser::From, 0);
+}
+
+
+size_t IvionParser::RangeSourceContext::getRuleIndex() const {
+  return IvionParser::RuleRangeSource;
+}
+
+
+antlrcpp::Any IvionParser::RangeSourceContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitRangeSource(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::RangeSourceContext* IvionParser::rangeSource() {
+  RangeSourceContext *_localctx = _tracker.createInstance<RangeSourceContext>(_ctx, getState());
+  enterRule(_localctx, 32, IvionParser::RuleRangeSource);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    size_t alt;
+    enterOuterAlt(_localctx, 1);
+    setState(260);
+    match(IvionParser::T__2);
+    setState(261);
+    match(IvionParser::Of);
+    setState(262);
+    match(IvionParser::CardController);
+    setState(263);
+    match(IvionParser::Card);
+    setState(264);
+    match(IvionParser::T__3);
+    setState(265);
+    match(IvionParser::T__4);
+    setState(266);
+    match(IvionParser::Travel);
+    setState(267);
+    match(IvionParser::Card);
+    setState(268);
+    match(IvionParser::That);
+    setState(269);
+    match(IvionParser::Target);
+    setState(270);
+    match(IvionParser::A);
+    setState(271);
+    match(IvionParser::Tile);
+    setState(272);
+    match(IvionParser::T__3);
+    setState(273);
+    match(IvionParser::T__5);
+    setState(274);
+    match(IvionParser::T__6);
+    setState(275);
+    match(IvionParser::Range);
+    setState(276);
+    match(IvionParser::From);
+    setState(280);
+    _errHandler->sync(this);
+    alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
+    while (alt != 1 && alt != atn::ATN::INVALID_ALT_NUMBER) {
+      if (alt == 1 + 1) {
+        setState(277);
+        matchWildcard(); 
+      }
+      setState(282);
+      _errHandler->sync(this);
+      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 14, _ctx);
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- RevealFromHandContext ------------------------------------------------------------------
+
+IvionParser::RevealFromHandContext::RevealFromHandContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::PlayerContext* IvionParser::RevealFromHandContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::RevealFromHandContext::Reveal() {
+  return getToken(IvionParser::Reveal, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::RevealFromHandContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::RevealFromHandContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::RevealFromHandContext::From() {
+  return getToken(IvionParser::From, 0);
+}
+
+tree::TerminalNode* IvionParser::RevealFromHandContext::PreviousPlayer() {
+  return getToken(IvionParser::PreviousPlayer, 0);
+}
+
+tree::TerminalNode* IvionParser::RevealFromHandContext::Hand() {
+  return getToken(IvionParser::Hand, 0);
+}
+
+
+size_t IvionParser::RevealFromHandContext::getRuleIndex() const {
+  return IvionParser::RuleRevealFromHand;
+}
+
+
+antlrcpp::Any IvionParser::RevealFromHandContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitRevealFromHand(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::RevealFromHandContext* IvionParser::revealFromHand() {
+  RevealFromHandContext *_localctx = _tracker.createInstance<RevealFromHandContext>(_ctx, getState());
+  enterRule(_localctx, 34, IvionParser::RuleRevealFromHand);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(283);
+    player();
+    setState(284);
+    match(IvionParser::Reveal);
+    setState(285);
+    integer();
+    setState(286);
+    match(IvionParser::Card);
+    setState(287);
+    match(IvionParser::From);
+    setState(288);
+    match(IvionParser::PreviousPlayer);
+    setState(289);
+    match(IvionParser::Hand);
    
   }
   catch (RecognitionException &e) {
@@ -1128,16 +1633,32 @@ IvionParser::TravelPlayerContext* IvionParser::EffectPlayerContext::travelPlayer
   return getRuleContext<IvionParser::TravelPlayerContext>(0);
 }
 
-IvionParser::GainActionsContext* IvionParser::EffectPlayerContext::gainActions() {
-  return getRuleContext<IvionParser::GainActionsContext>(0);
-}
-
-IvionParser::GainPowerContext* IvionParser::EffectPlayerContext::gainPower() {
-  return getRuleContext<IvionParser::GainPowerContext>(0);
+IvionParser::GainResourceContext* IvionParser::EffectPlayerContext::gainResource() {
+  return getRuleContext<IvionParser::GainResourceContext>(0);
 }
 
 IvionParser::DrawCardsContext* IvionParser::EffectPlayerContext::drawCards() {
   return getRuleContext<IvionParser::DrawCardsContext>(0);
+}
+
+IvionParser::UseSecondWindContext* IvionParser::EffectPlayerContext::useSecondWind() {
+  return getRuleContext<IvionParser::UseSecondWindContext>(0);
+}
+
+IvionParser::PlayACardContext* IvionParser::EffectPlayerContext::playACard() {
+  return getRuleContext<IvionParser::PlayACardContext>(0);
+}
+
+IvionParser::HealContext* IvionParser::EffectPlayerContext::heal() {
+  return getRuleContext<IvionParser::HealContext>(0);
+}
+
+IvionParser::RangeSourceContext* IvionParser::EffectPlayerContext::rangeSource() {
+  return getRuleContext<IvionParser::RangeSourceContext>(0);
+}
+
+IvionParser::RevealFromHandContext* IvionParser::EffectPlayerContext::revealFromHand() {
+  return getRuleContext<IvionParser::RevealFromHandContext>(0);
 }
 
 
@@ -1155,61 +1676,89 @@ antlrcpp::Any IvionParser::EffectPlayerContext::accept(tree::ParseTreeVisitor *v
 
 IvionParser::EffectPlayerContext* IvionParser::effectPlayer() {
   EffectPlayerContext *_localctx = _tracker.createInstance<EffectPlayerContext>(_ctx, getState());
-  enterRule(_localctx, 28, IvionParser::RuleEffectPlayer);
+  enterRule(_localctx, 36, IvionParser::RuleEffectPlayer);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(179);
+    setState(302);
     _errHandler->sync(this);
     switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 15, _ctx)) {
     case 1: {
       enterOuterAlt(_localctx, 1);
-      setState(172);
+      setState(291);
       damagePlayer();
       break;
     }
 
     case 2: {
       enterOuterAlt(_localctx, 2);
-      setState(173);
+      setState(292);
       controlPlayer();
       break;
     }
 
     case 3: {
       enterOuterAlt(_localctx, 3);
-      setState(174);
+      setState(293);
       movePlayer();
       break;
     }
 
     case 4: {
       enterOuterAlt(_localctx, 4);
-      setState(175);
+      setState(294);
       travelPlayer();
       break;
     }
 
     case 5: {
       enterOuterAlt(_localctx, 5);
-      setState(176);
-      gainActions();
+      setState(295);
+      gainResource();
       break;
     }
 
     case 6: {
       enterOuterAlt(_localctx, 6);
-      setState(177);
-      gainPower();
+      setState(296);
+      drawCards();
       break;
     }
 
     case 7: {
       enterOuterAlt(_localctx, 7);
-      setState(178);
-      drawCards();
+      setState(297);
+      useSecondWind();
+      break;
+    }
+
+    case 8: {
+      enterOuterAlt(_localctx, 8);
+      setState(298);
+      playACard();
+      break;
+    }
+
+    case 9: {
+      enterOuterAlt(_localctx, 9);
+      setState(299);
+      heal();
+      break;
+    }
+
+    case 10: {
+      enterOuterAlt(_localctx, 10);
+      setState(300);
+      rangeSource();
+      break;
+    }
+
+    case 11: {
+      enterOuterAlt(_localctx, 11);
+      setState(301);
+      revealFromHand();
       break;
     }
 
@@ -1239,6 +1788,22 @@ tree::TerminalNode* IvionParser::TargetTileContext::Tile() {
   return getToken(IvionParser::Tile, 0);
 }
 
+tree::TerminalNode* IvionParser::TargetTileContext::Another() {
+  return getToken(IvionParser::Another, 0);
+}
+
+tree::TerminalNode* IvionParser::TargetTileContext::UpTo() {
+  return getToken(IvionParser::UpTo, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::TargetTileContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::TargetTileContext::Empty() {
+  return getToken(IvionParser::Empty, 0);
+}
+
 
 size_t IvionParser::TargetTileContext::getRuleIndex() const {
   return IvionParser::RuleTargetTile;
@@ -1254,17 +1819,71 @@ antlrcpp::Any IvionParser::TargetTileContext::accept(tree::ParseTreeVisitor *vis
 
 IvionParser::TargetTileContext* IvionParser::targetTile() {
   TargetTileContext *_localctx = _tracker.createInstance<TargetTileContext>(_ctx, getState());
-  enterRule(_localctx, 30, IvionParser::RuleTargetTile);
+  enterRule(_localctx, 38, IvionParser::RuleTargetTile);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    enterOuterAlt(_localctx, 1);
-    setState(181);
-    match(IvionParser::Target);
-    setState(182);
-    match(IvionParser::Tile);
+    setState(320);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 16, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(304);
+      match(IvionParser::Target);
+      setState(305);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(306);
+      match(IvionParser::Target);
+      setState(307);
+      match(IvionParser::Another);
+      setState(308);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(309);
+      match(IvionParser::Another);
+      setState(310);
+      match(IvionParser::Target);
+      setState(311);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(312);
+      match(IvionParser::UpTo);
+      setState(313);
+      integer();
+      setState(314);
+      match(IvionParser::Target);
+      setState(315);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    case 5: {
+      enterOuterAlt(_localctx, 5);
+      setState(317);
+      match(IvionParser::Target);
+      setState(318);
+      match(IvionParser::Empty);
+      setState(319);
+      match(IvionParser::Tile);
+      break;
+    }
+
+    }
    
   }
   catch (RecognitionException &e) {
@@ -1305,16 +1924,16 @@ antlrcpp::Any IvionParser::SelectTileContext::accept(tree::ParseTreeVisitor *vis
 
 IvionParser::SelectTileContext* IvionParser::selectTile() {
   SelectTileContext *_localctx = _tracker.createInstance<SelectTileContext>(_ctx, getState());
-  enterRule(_localctx, 32, IvionParser::RuleSelectTile);
+  enterRule(_localctx, 40, IvionParser::RuleSelectTile);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(184);
+    setState(322);
     match(IvionParser::A);
-    setState(185);
+    setState(323);
     match(IvionParser::Tile);
    
   }
@@ -1356,25 +1975,27 @@ antlrcpp::Any IvionParser::TileContext::accept(tree::ParseTreeVisitor *visitor) 
 
 IvionParser::TileContext* IvionParser::tile() {
   TileContext *_localctx = _tracker.createInstance<TileContext>(_ctx, getState());
-  enterRule(_localctx, 34, IvionParser::RuleTile);
+  enterRule(_localctx, 42, IvionParser::RuleTile);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(189);
+    setState(327);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case IvionParser::A: {
         enterOuterAlt(_localctx, 1);
-        setState(187);
+        setState(325);
         selectTile();
         break;
       }
 
-      case IvionParser::Target: {
+      case IvionParser::Target:
+      case IvionParser::Another:
+      case IvionParser::UpTo: {
         enterOuterAlt(_localctx, 2);
-        setState(188);
+        setState(326);
         targetTile();
         break;
       }
@@ -1407,6 +2028,18 @@ tree::TerminalNode* IvionParser::TargetCardContext::Card() {
   return getToken(IvionParser::Card, 0);
 }
 
+tree::TerminalNode* IvionParser::TargetCardContext::Another() {
+  return getToken(IvionParser::Another, 0);
+}
+
+tree::TerminalNode* IvionParser::TargetCardContext::UpTo() {
+  return getToken(IvionParser::UpTo, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::TargetCardContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
 
 size_t IvionParser::TargetCardContext::getRuleIndex() const {
   return IvionParser::RuleTargetCard;
@@ -1422,17 +2055,60 @@ antlrcpp::Any IvionParser::TargetCardContext::accept(tree::ParseTreeVisitor *vis
 
 IvionParser::TargetCardContext* IvionParser::targetCard() {
   TargetCardContext *_localctx = _tracker.createInstance<TargetCardContext>(_ctx, getState());
-  enterRule(_localctx, 36, IvionParser::RuleTargetCard);
+  enterRule(_localctx, 44, IvionParser::RuleTargetCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    enterOuterAlt(_localctx, 1);
-    setState(191);
-    match(IvionParser::Target);
-    setState(192);
-    match(IvionParser::Card);
+    setState(342);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 18, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(329);
+      match(IvionParser::Target);
+      setState(330);
+      match(IvionParser::Card);
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(331);
+      match(IvionParser::Another);
+      setState(332);
+      match(IvionParser::Target);
+      setState(333);
+      match(IvionParser::Card);
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(334);
+      match(IvionParser::Target);
+      setState(335);
+      match(IvionParser::Another);
+      setState(336);
+      match(IvionParser::Card);
+      break;
+    }
+
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(337);
+      match(IvionParser::UpTo);
+      setState(338);
+      integer();
+      setState(339);
+      match(IvionParser::Target);
+      setState(340);
+      match(IvionParser::Card);
+      break;
+    }
+
+    }
    
   }
   catch (RecognitionException &e) {
@@ -1473,16 +2149,16 @@ antlrcpp::Any IvionParser::SelectCardContext::accept(tree::ParseTreeVisitor *vis
 
 IvionParser::SelectCardContext* IvionParser::selectCard() {
   SelectCardContext *_localctx = _tracker.createInstance<SelectCardContext>(_ctx, getState());
-  enterRule(_localctx, 38, IvionParser::RuleSelectCard);
+  enterRule(_localctx, 46, IvionParser::RuleSelectCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(194);
+    setState(344);
     match(IvionParser::A);
-    setState(195);
+    setState(345);
     match(IvionParser::Card);
    
   }
@@ -1495,50 +2171,380 @@ IvionParser::SelectCardContext* IvionParser::selectCard() {
   return _localctx;
 }
 
-//----------------- TopCardPtrContext ------------------------------------------------------------------
+//----------------- PreviousCardContext ------------------------------------------------------------------
 
-IvionParser::TopCardPtrContext::TopCardPtrContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::PreviousCardContext::PreviousCardContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-tree::TerminalNode* IvionParser::TopCardPtrContext::Of() {
-  return getToken(IvionParser::Of, 0);
+tree::TerminalNode* IvionParser::PreviousCardContext::That() {
+  return getToken(IvionParser::That, 0);
 }
 
-tree::TerminalNode* IvionParser::TopCardPtrContext::The() {
-  return getToken(IvionParser::The, 0);
-}
-
-
-size_t IvionParser::TopCardPtrContext::getRuleIndex() const {
-  return IvionParser::RuleTopCardPtr;
+tree::TerminalNode* IvionParser::PreviousCardContext::Card() {
+  return getToken(IvionParser::Card, 0);
 }
 
 
-antlrcpp::Any IvionParser::TopCardPtrContext::accept(tree::ParseTreeVisitor *visitor) {
+size_t IvionParser::PreviousCardContext::getRuleIndex() const {
+  return IvionParser::RulePreviousCard;
+}
+
+
+antlrcpp::Any IvionParser::PreviousCardContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitTopCardPtr(this);
+    return parserVisitor->visitPreviousCard(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::TopCardPtrContext* IvionParser::topCardPtr() {
-  TopCardPtrContext *_localctx = _tracker.createInstance<TopCardPtrContext>(_ctx, getState());
-  enterRule(_localctx, 40, IvionParser::RuleTopCardPtr);
+IvionParser::PreviousCardContext* IvionParser::previousCard() {
+  PreviousCardContext *_localctx = _tracker.createInstance<PreviousCardContext>(_ctx, getState());
+  enterRule(_localctx, 48, IvionParser::RulePreviousCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(197);
-    match(IvionParser::T__8);
-    setState(198);
+    setState(347);
+    match(IvionParser::That);
+    setState(348);
+    match(IvionParser::Card);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- TopOfStackContext ------------------------------------------------------------------
+
+IvionParser::TopOfStackContext::TopOfStackContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::TopOfStackContext::Top() {
+  return getToken(IvionParser::Top, 0);
+}
+
+tree::TerminalNode* IvionParser::TopOfStackContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+tree::TerminalNode* IvionParser::TopOfStackContext::The() {
+  return getToken(IvionParser::The, 0);
+}
+
+
+size_t IvionParser::TopOfStackContext::getRuleIndex() const {
+  return IvionParser::RuleTopOfStack;
+}
+
+
+antlrcpp::Any IvionParser::TopOfStackContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitTopOfStack(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::TopOfStackContext* IvionParser::topOfStack() {
+  TopOfStackContext *_localctx = _tracker.createInstance<TopOfStackContext>(_ctx, getState());
+  enterRule(_localctx, 50, IvionParser::RuleTopOfStack);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(350);
+    match(IvionParser::Top);
+    setState(351);
     match(IvionParser::Of);
-    setState(199);
+    setState(352);
     match(IvionParser::The);
-    setState(200);
-    match(IvionParser::T__9);
+    setState(353);
+    match(IvionParser::T__7);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- BottomOfDeckContext ------------------------------------------------------------------
+
+IvionParser::BottomOfDeckContext::BottomOfDeckContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+std::vector<tree::TerminalNode *> IvionParser::BottomOfDeckContext::The() {
+  return getTokens(IvionParser::The);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::The(size_t i) {
+  return getToken(IvionParser::The, i);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::On() {
+  return getToken(IvionParser::On, 0);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::Bottom() {
+  return getToken(IvionParser::Bottom, 0);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::BottomOfDeckContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::BottomOfDeckContext::Deck() {
+  return getToken(IvionParser::Deck, 0);
+}
+
+
+size_t IvionParser::BottomOfDeckContext::getRuleIndex() const {
+  return IvionParser::RuleBottomOfDeck;
+}
+
+
+antlrcpp::Any IvionParser::BottomOfDeckContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitBottomOfDeck(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::BottomOfDeckContext* IvionParser::bottomOfDeck() {
+  BottomOfDeckContext *_localctx = _tracker.createInstance<BottomOfDeckContext>(_ctx, getState());
+  enterRule(_localctx, 52, IvionParser::RuleBottomOfDeck);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(371);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 19, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(355);
+      match(IvionParser::The);
+      setState(356);
+      match(IvionParser::Card);
+      setState(357);
+      match(IvionParser::On);
+      setState(358);
+      match(IvionParser::The);
+      setState(359);
+      match(IvionParser::Bottom);
+      setState(360);
+      match(IvionParser::Of);
+      setState(361);
+      player();
+      setState(362);
+      match(IvionParser::Deck);
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(364);
+      match(IvionParser::The);
+      setState(365);
+      match(IvionParser::Bottom);
+      setState(366);
+      match(IvionParser::Card);
+      setState(367);
+      match(IvionParser::Of);
+      setState(368);
+      player();
+      setState(369);
+      match(IvionParser::Deck);
+      break;
+    }
+
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- TopOfDeckContext ------------------------------------------------------------------
+
+IvionParser::TopOfDeckContext::TopOfDeckContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+std::vector<tree::TerminalNode *> IvionParser::TopOfDeckContext::The() {
+  return getTokens(IvionParser::The);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::The(size_t i) {
+  return getToken(IvionParser::The, i);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::On() {
+  return getToken(IvionParser::On, 0);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::Top() {
+  return getToken(IvionParser::Top, 0);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::TopOfDeckContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::TopOfDeckContext::Deck() {
+  return getToken(IvionParser::Deck, 0);
+}
+
+
+size_t IvionParser::TopOfDeckContext::getRuleIndex() const {
+  return IvionParser::RuleTopOfDeck;
+}
+
+
+antlrcpp::Any IvionParser::TopOfDeckContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitTopOfDeck(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::TopOfDeckContext* IvionParser::topOfDeck() {
+  TopOfDeckContext *_localctx = _tracker.createInstance<TopOfDeckContext>(_ctx, getState());
+  enterRule(_localctx, 54, IvionParser::RuleTopOfDeck);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(389);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 20, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(373);
+      match(IvionParser::The);
+      setState(374);
+      match(IvionParser::Card);
+      setState(375);
+      match(IvionParser::On);
+      setState(376);
+      match(IvionParser::The);
+      setState(377);
+      match(IvionParser::Top);
+      setState(378);
+      match(IvionParser::Of);
+      setState(379);
+      player();
+      setState(380);
+      match(IvionParser::Deck);
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(382);
+      match(IvionParser::The);
+      setState(383);
+      match(IvionParser::Top);
+      setState(384);
+      match(IvionParser::Card);
+      setState(385);
+      match(IvionParser::Of);
+      setState(386);
+      player();
+      setState(387);
+      match(IvionParser::Deck);
+      break;
+    }
+
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- HandContext ------------------------------------------------------------------
+
+IvionParser::HandContext::HandContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::PlayerContext* IvionParser::HandContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::HandContext::Hand() {
+  return getToken(IvionParser::Hand, 0);
+}
+
+
+size_t IvionParser::HandContext::getRuleIndex() const {
+  return IvionParser::RuleHand;
+}
+
+
+antlrcpp::Any IvionParser::HandContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitHand(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::HandContext* IvionParser::hand() {
+  HandContext *_localctx = _tracker.createInstance<HandContext>(_ctx, getState());
+  enterRule(_localctx, 56, IvionParser::RuleHand);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(391);
+    player();
+    setState(392);
+    match(IvionParser::Hand);
    
   }
   catch (RecognitionException &e) {
@@ -1564,8 +2570,28 @@ IvionParser::SelectCardContext* IvionParser::CardContext::selectCard() {
   return getRuleContext<IvionParser::SelectCardContext>(0);
 }
 
-IvionParser::TopCardPtrContext* IvionParser::CardContext::topCardPtr() {
-  return getRuleContext<IvionParser::TopCardPtrContext>(0);
+IvionParser::TopOfStackContext* IvionParser::CardContext::topOfStack() {
+  return getRuleContext<IvionParser::TopOfStackContext>(0);
+}
+
+IvionParser::BottomOfDeckContext* IvionParser::CardContext::bottomOfDeck() {
+  return getRuleContext<IvionParser::BottomOfDeckContext>(0);
+}
+
+IvionParser::TopOfDeckContext* IvionParser::CardContext::topOfDeck() {
+  return getRuleContext<IvionParser::TopOfDeckContext>(0);
+}
+
+tree::TerminalNode* IvionParser::CardContext::From() {
+  return getToken(IvionParser::From, 0);
+}
+
+IvionParser::HandContext* IvionParser::CardContext::hand() {
+  return getRuleContext<IvionParser::HandContext>(0);
+}
+
+IvionParser::PreviousCardContext* IvionParser::CardContext::previousCard() {
+  return getRuleContext<IvionParser::PreviousCardContext>(0);
 }
 
 
@@ -1583,38 +2609,181 @@ antlrcpp::Any IvionParser::CardContext::accept(tree::ParseTreeVisitor *visitor) 
 
 IvionParser::CardContext* IvionParser::card() {
   CardContext *_localctx = _tracker.createInstance<CardContext>(_ctx, getState());
-  enterRule(_localctx, 42, IvionParser::RuleCard);
+  enterRule(_localctx, 58, IvionParser::RuleCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(205);
+    setState(402);
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::Target: {
-        enterOuterAlt(_localctx, 1);
-        setState(202);
-        targetCard();
-        break;
-      }
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 21, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(394);
+      targetCard();
+      break;
+    }
 
-      case IvionParser::A: {
-        enterOuterAlt(_localctx, 2);
-        setState(203);
-        selectCard();
-        break;
-      }
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(395);
+      selectCard();
+      break;
+    }
 
-      case IvionParser::T__8: {
-        enterOuterAlt(_localctx, 3);
-        setState(204);
-        topCardPtr();
-        break;
-      }
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(396);
+      topOfStack();
+      break;
+    }
 
-    default:
-      throw NoViableAltException(this);
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(397);
+      bottomOfDeck();
+      break;
+    }
+
+    case 5: {
+      enterOuterAlt(_localctx, 5);
+      setState(398);
+      topOfDeck();
+      break;
+    }
+
+    case 6: {
+      enterOuterAlt(_localctx, 6);
+      setState(399);
+      match(IvionParser::From);
+      setState(400);
+      hand();
+      break;
+    }
+
+    case 7: {
+      enterOuterAlt(_localctx, 7);
+      setState(401);
+      previousCard();
+      break;
+    }
+
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- AttachCardContext ------------------------------------------------------------------
+
+IvionParser::AttachCardContext::AttachCardContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::Attach() {
+  return getToken(IvionParser::Attach, 0);
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::To() {
+  return getToken(IvionParser::To, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::AttachCardContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+IvionParser::TileContext* IvionParser::AttachCardContext::tile() {
+  return getRuleContext<IvionParser::TileContext>(0);
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::Until() {
+  return getToken(IvionParser::Until, 0);
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::End() {
+  return getToken(IvionParser::End, 0);
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+tree::TerminalNode* IvionParser::AttachCardContext::Turn() {
+  return getToken(IvionParser::Turn, 0);
+}
+
+
+size_t IvionParser::AttachCardContext::getRuleIndex() const {
+  return IvionParser::RuleAttachCard;
+}
+
+
+antlrcpp::Any IvionParser::AttachCardContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitAttachCard(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::AttachCardContext* IvionParser::attachCard() {
+  AttachCardContext *_localctx = _tracker.createInstance<AttachCardContext>(_ctx, getState());
+  enterRule(_localctx, 60, IvionParser::RuleAttachCard);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(418);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 22, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(404);
+      match(IvionParser::Attach);
+      setState(405);
+      match(IvionParser::To);
+      setState(406);
+      player();
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(407);
+      match(IvionParser::Attach);
+      setState(408);
+      match(IvionParser::To);
+      setState(409);
+      tile();
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(410);
+      match(IvionParser::Attach);
+      setState(411);
+      match(IvionParser::To);
+      setState(412);
+      tile();
+      setState(413);
+      match(IvionParser::Until);
+      setState(414);
+      match(IvionParser::End);
+      setState(415);
+      match(IvionParser::Of);
+      setState(416);
+      match(IvionParser::Turn);
+      break;
+    }
+
     }
    
   }
@@ -1660,18 +2829,18 @@ antlrcpp::Any IvionParser::MetaCounterCardContext::accept(tree::ParseTreeVisitor
 
 IvionParser::MetaCounterCardContext* IvionParser::metaCounterCard() {
   MetaCounterCardContext *_localctx = _tracker.createInstance<MetaCounterCardContext>(_ctx, getState());
-  enterRule(_localctx, 44, IvionParser::RuleMetaCounterCard);
+  enterRule(_localctx, 62, IvionParser::RuleMetaCounterCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(207);
+    setState(420);
     match(IvionParser::Meta);
-    setState(208);
+    setState(421);
     match(IvionParser::Counter);
-    setState(209);
+    setState(422);
     card();
    
   }
@@ -1698,6 +2867,26 @@ IvionParser::CardContext* IvionParser::CounterCardContext::card() {
   return getRuleContext<IvionParser::CardContext>(0);
 }
 
+tree::TerminalNode* IvionParser::CounterCardContext::Unless() {
+  return getToken(IvionParser::Unless, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::CounterCardContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::CounterCardContext::Pays() {
+  return getToken(IvionParser::Pays, 0);
+}
+
+IvionParser::IntegerContext* IvionParser::CounterCardContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::CounterCardContext::Resource() {
+  return getToken(IvionParser::Resource, 0);
+}
+
 
 size_t IvionParser::CounterCardContext::getRuleIndex() const {
   return IvionParser::RuleCounterCard;
@@ -1713,17 +2902,231 @@ antlrcpp::Any IvionParser::CounterCardContext::accept(tree::ParseTreeVisitor *vi
 
 IvionParser::CounterCardContext* IvionParser::counterCard() {
   CounterCardContext *_localctx = _tracker.createInstance<CounterCardContext>(_ctx, getState());
-  enterRule(_localctx, 46, IvionParser::RuleCounterCard);
+  enterRule(_localctx, 64, IvionParser::RuleCounterCard);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(211);
+    setState(424);
     match(IvionParser::Counter);
-    setState(212);
+    setState(425);
     card();
+    setState(426);
+    match(IvionParser::Unless);
+    setState(427);
+    player();
+    setState(428);
+    match(IvionParser::Pays);
+    setState(429);
+    integer();
+    setState(430);
+    match(IvionParser::Resource);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- DestroyCardContext ------------------------------------------------------------------
+
+IvionParser::DestroyCardContext::DestroyCardContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::DestroyCardContext::Destroy() {
+  return getToken(IvionParser::Destroy, 0);
+}
+
+IvionParser::CardContext* IvionParser::DestroyCardContext::card() {
+  return getRuleContext<IvionParser::CardContext>(0);
+}
+
+
+size_t IvionParser::DestroyCardContext::getRuleIndex() const {
+  return IvionParser::RuleDestroyCard;
+}
+
+
+antlrcpp::Any IvionParser::DestroyCardContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitDestroyCard(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::DestroyCardContext* IvionParser::destroyCard() {
+  DestroyCardContext *_localctx = _tracker.createInstance<DestroyCardContext>(_ctx, getState());
+  enterRule(_localctx, 66, IvionParser::RuleDestroyCard);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(432);
+    match(IvionParser::Destroy);
+    setState(433);
+    card();
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- CardGainsTraitContext ------------------------------------------------------------------
+
+IvionParser::CardGainsTraitContext::CardGainsTraitContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::CardContext* IvionParser::CardGainsTraitContext::card() {
+  return getRuleContext<IvionParser::CardContext>(0);
+}
+
+tree::TerminalNode* IvionParser::CardGainsTraitContext::Gain() {
+  return getToken(IvionParser::Gain, 0);
+}
+
+tree::TerminalNode* IvionParser::CardGainsTraitContext::Heroic() {
+  return getToken(IvionParser::Heroic, 0);
+}
+
+
+size_t IvionParser::CardGainsTraitContext::getRuleIndex() const {
+  return IvionParser::RuleCardGainsTrait;
+}
+
+
+antlrcpp::Any IvionParser::CardGainsTraitContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitCardGainsTrait(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::CardGainsTraitContext* IvionParser::cardGainsTrait() {
+  CardGainsTraitContext *_localctx = _tracker.createInstance<CardGainsTraitContext>(_ctx, getState());
+  enterRule(_localctx, 68, IvionParser::RuleCardGainsTrait);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(435);
+    card();
+    setState(436);
+    match(IvionParser::Gain);
+
+    setState(437);
+    match(IvionParser::Heroic);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- PutCardContext ------------------------------------------------------------------
+
+IvionParser::PutCardContext::PutCardContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::PutCardContext::Put() {
+  return getToken(IvionParser::Put, 0);
+}
+
+IvionParser::CardContext* IvionParser::PutCardContext::card() {
+  return getRuleContext<IvionParser::CardContext>(0);
+}
+
+tree::TerminalNode* IvionParser::PutCardContext::On() {
+  return getToken(IvionParser::On, 0);
+}
+
+IvionParser::BottomOfDeckContext* IvionParser::PutCardContext::bottomOfDeck() {
+  return getRuleContext<IvionParser::BottomOfDeckContext>(0);
+}
+
+IvionParser::TopOfDeckContext* IvionParser::PutCardContext::topOfDeck() {
+  return getRuleContext<IvionParser::TopOfDeckContext>(0);
+}
+
+IvionParser::HandContext* IvionParser::PutCardContext::hand() {
+  return getRuleContext<IvionParser::HandContext>(0);
+}
+
+
+size_t IvionParser::PutCardContext::getRuleIndex() const {
+  return IvionParser::RulePutCard;
+}
+
+
+antlrcpp::Any IvionParser::PutCardContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitPutCard(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::PutCardContext* IvionParser::putCard() {
+  PutCardContext *_localctx = _tracker.createInstance<PutCardContext>(_ctx, getState());
+  enterRule(_localctx, 70, IvionParser::RulePutCard);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(439);
+    match(IvionParser::Put);
+    setState(440);
+    card();
+    setState(446);
+    _errHandler->sync(this);
+    switch (_input->LA(1)) {
+      case IvionParser::On: {
+        setState(441);
+        match(IvionParser::On);
+        setState(442);
+        bottomOfDeck();
+        break;
+      }
+
+      case IvionParser::The: {
+        setState(443);
+        topOfDeck();
+        break;
+      }
+
+      case IvionParser::T__8: {
+        setState(444);
+        match(IvionParser::T__8);
+        setState(445);
+        hand();
+        break;
+      }
+
+    default:
+      throw NoViableAltException(this);
+    }
    
   }
   catch (RecognitionException &e) {
@@ -1749,6 +3152,22 @@ IvionParser::CounterCardContext* IvionParser::CardEffectContext::counterCard() {
   return getRuleContext<IvionParser::CounterCardContext>(0);
 }
 
+IvionParser::DestroyCardContext* IvionParser::CardEffectContext::destroyCard() {
+  return getRuleContext<IvionParser::DestroyCardContext>(0);
+}
+
+IvionParser::AttachCardContext* IvionParser::CardEffectContext::attachCard() {
+  return getRuleContext<IvionParser::AttachCardContext>(0);
+}
+
+IvionParser::PutCardContext* IvionParser::CardEffectContext::putCard() {
+  return getRuleContext<IvionParser::PutCardContext>(0);
+}
+
+IvionParser::CardGainsTraitContext* IvionParser::CardEffectContext::cardGainsTrait() {
+  return getRuleContext<IvionParser::CardGainsTraitContext>(0);
+}
+
 
 size_t IvionParser::CardEffectContext::getRuleIndex() const {
   return IvionParser::RuleCardEffect;
@@ -1764,244 +3183,61 @@ antlrcpp::Any IvionParser::CardEffectContext::accept(tree::ParseTreeVisitor *vis
 
 IvionParser::CardEffectContext* IvionParser::cardEffect() {
   CardEffectContext *_localctx = _tracker.createInstance<CardEffectContext>(_ctx, getState());
-  enterRule(_localctx, 48, IvionParser::RuleCardEffect);
+  enterRule(_localctx, 72, IvionParser::RuleCardEffect);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(216);
+    setState(454);
     _errHandler->sync(this);
     switch (_input->LA(1)) {
       case IvionParser::Meta: {
         enterOuterAlt(_localctx, 1);
-        setState(214);
+        setState(448);
         metaCounterCard();
         break;
       }
 
       case IvionParser::Counter: {
         enterOuterAlt(_localctx, 2);
-        setState(215);
+        setState(449);
         counterCard();
         break;
       }
 
-    default:
-      throw NoViableAltException(this);
-    }
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- EndTheTurnContext ------------------------------------------------------------------
-
-IvionParser::EndTheTurnContext::EndTheTurnContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* IvionParser::EndTheTurnContext::The() {
-  return getToken(IvionParser::The, 0);
-}
-
-
-size_t IvionParser::EndTheTurnContext::getRuleIndex() const {
-  return IvionParser::RuleEndTheTurn;
-}
-
-
-antlrcpp::Any IvionParser::EndTheTurnContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitEndTheTurn(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-IvionParser::EndTheTurnContext* IvionParser::endTheTurn() {
-  EndTheTurnContext *_localctx = _tracker.createInstance<EndTheTurnContext>(_ctx, getState());
-  enterRule(_localctx, 50, IvionParser::RuleEndTheTurn);
-
-  auto onExit = finally([=] {
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(218);
-    match(IvionParser::T__10);
-    setState(219);
-    match(IvionParser::The);
-    setState(220);
-    match(IvionParser::T__11);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- StartTheTurnContext ------------------------------------------------------------------
-
-IvionParser::StartTheTurnContext::StartTheTurnContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-tree::TerminalNode* IvionParser::StartTheTurnContext::The() {
-  return getToken(IvionParser::The, 0);
-}
-
-
-size_t IvionParser::StartTheTurnContext::getRuleIndex() const {
-  return IvionParser::RuleStartTheTurn;
-}
-
-
-antlrcpp::Any IvionParser::StartTheTurnContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitStartTheTurn(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-IvionParser::StartTheTurnContext* IvionParser::startTheTurn() {
-  StartTheTurnContext *_localctx = _tracker.createInstance<StartTheTurnContext>(_ctx, getState());
-  enterRule(_localctx, 52, IvionParser::RuleStartTheTurn);
-
-  auto onExit = finally([=] {
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(222);
-    match(IvionParser::T__12);
-    setState(223);
-    match(IvionParser::The);
-    setState(224);
-    match(IvionParser::T__11);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- PassPriorityContext ------------------------------------------------------------------
-
-IvionParser::PassPriorityContext::PassPriorityContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-
-size_t IvionParser::PassPriorityContext::getRuleIndex() const {
-  return IvionParser::RulePassPriority;
-}
-
-
-antlrcpp::Any IvionParser::PassPriorityContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitPassPriority(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-IvionParser::PassPriorityContext* IvionParser::passPriority() {
-  PassPriorityContext *_localctx = _tracker.createInstance<PassPriorityContext>(_ctx, getState());
-  enterRule(_localctx, 54, IvionParser::RulePassPriority);
-
-  auto onExit = finally([=] {
-    exitRule();
-  });
-  try {
-    enterOuterAlt(_localctx, 1);
-    setState(226);
-    match(IvionParser::T__13);
-    setState(227);
-    match(IvionParser::T__14);
-   
-  }
-  catch (RecognitionException &e) {
-    _errHandler->reportError(this, e);
-    _localctx->exception = std::current_exception();
-    _errHandler->recover(this, _localctx->exception);
-  }
-
-  return _localctx;
-}
-
-//----------------- MiscEffectContext ------------------------------------------------------------------
-
-IvionParser::MiscEffectContext::MiscEffectContext(ParserRuleContext *parent, size_t invokingState)
-  : ParserRuleContext(parent, invokingState) {
-}
-
-IvionParser::StartTheTurnContext* IvionParser::MiscEffectContext::startTheTurn() {
-  return getRuleContext<IvionParser::StartTheTurnContext>(0);
-}
-
-IvionParser::EndTheTurnContext* IvionParser::MiscEffectContext::endTheTurn() {
-  return getRuleContext<IvionParser::EndTheTurnContext>(0);
-}
-
-IvionParser::PassPriorityContext* IvionParser::MiscEffectContext::passPriority() {
-  return getRuleContext<IvionParser::PassPriorityContext>(0);
-}
-
-
-size_t IvionParser::MiscEffectContext::getRuleIndex() const {
-  return IvionParser::RuleMiscEffect;
-}
-
-
-antlrcpp::Any IvionParser::MiscEffectContext::accept(tree::ParseTreeVisitor *visitor) {
-  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitMiscEffect(this);
-  else
-    return visitor->visitChildren(this);
-}
-
-IvionParser::MiscEffectContext* IvionParser::miscEffect() {
-  MiscEffectContext *_localctx = _tracker.createInstance<MiscEffectContext>(_ctx, getState());
-  enterRule(_localctx, 56, IvionParser::RuleMiscEffect);
-
-  auto onExit = finally([=] {
-    exitRule();
-  });
-  try {
-    setState(232);
-    _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::T__12: {
-        enterOuterAlt(_localctx, 1);
-        setState(229);
-        startTheTurn();
-        break;
-      }
-
-      case IvionParser::T__10: {
-        enterOuterAlt(_localctx, 2);
-        setState(230);
-        endTheTurn();
-        break;
-      }
-
-      case IvionParser::T__13: {
+      case IvionParser::Destroy: {
         enterOuterAlt(_localctx, 3);
-        setState(231);
-        passPriority();
+        setState(450);
+        destroyCard();
+        break;
+      }
+
+      case IvionParser::Attach: {
+        enterOuterAlt(_localctx, 4);
+        setState(451);
+        attachCard();
+        break;
+      }
+
+      case IvionParser::Put: {
+        enterOuterAlt(_localctx, 5);
+        setState(452);
+        putCard();
+        break;
+      }
+
+      case IvionParser::A:
+      case IvionParser::The:
+      case IvionParser::Target:
+      case IvionParser::Another:
+      case IvionParser::UpTo:
+      case IvionParser::That:
+      case IvionParser::Top:
+      case IvionParser::From: {
+        enterOuterAlt(_localctx, 6);
+        setState(453);
+        cardGainsTrait();
         break;
       }
 
@@ -2019,48 +3255,56 @@ IvionParser::MiscEffectContext* IvionParser::miscEffect() {
   return _localctx;
 }
 
-//----------------- LineContext ------------------------------------------------------------------
+//----------------- TurnTriggerContext ------------------------------------------------------------------
 
-IvionParser::LineContext::LineContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::TurnTriggerContext::TurnTriggerContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-IvionParser::EffectPlayerContext* IvionParser::LineContext::effectPlayer() {
-  return getRuleContext<IvionParser::EffectPlayerContext>(0);
+tree::TerminalNode* IvionParser::TurnTriggerContext::At() {
+  return getToken(IvionParser::At, 0);
 }
 
-IvionParser::CardEffectContext* IvionParser::LineContext::cardEffect() {
-  return getRuleContext<IvionParser::CardEffectContext>(0);
+tree::TerminalNode* IvionParser::TurnTriggerContext::The() {
+  return getToken(IvionParser::The, 0);
 }
 
-IvionParser::MiscEffectContext* IvionParser::LineContext::miscEffect() {
-  return getRuleContext<IvionParser::MiscEffectContext>(0);
+tree::TerminalNode* IvionParser::TurnTriggerContext::Of() {
+  return getToken(IvionParser::Of, 0);
 }
 
-tree::TerminalNode* IvionParser::LineContext::Newline() {
-  return getToken(IvionParser::Newline, 0);
+IvionParser::PlayerContext* IvionParser::TurnTriggerContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
 }
 
-tree::TerminalNode* IvionParser::LineContext::EOF() {
-  return getToken(IvionParser::EOF, 0);
+tree::TerminalNode* IvionParser::TurnTriggerContext::Turn() {
+  return getToken(IvionParser::Turn, 0);
+}
+
+tree::TerminalNode* IvionParser::TurnTriggerContext::Start() {
+  return getToken(IvionParser::Start, 0);
+}
+
+tree::TerminalNode* IvionParser::TurnTriggerContext::End() {
+  return getToken(IvionParser::End, 0);
 }
 
 
-size_t IvionParser::LineContext::getRuleIndex() const {
-  return IvionParser::RuleLine;
+size_t IvionParser::TurnTriggerContext::getRuleIndex() const {
+  return IvionParser::RuleTurnTrigger;
 }
 
 
-antlrcpp::Any IvionParser::LineContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any IvionParser::TurnTriggerContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitLine(this);
+    return parserVisitor->visitTurnTrigger(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::LineContext* IvionParser::line() {
-  LineContext *_localctx = _tracker.createInstance<LineContext>(_ctx, getState());
-  enterRule(_localctx, 58, IvionParser::RuleLine);
+IvionParser::TurnTriggerContext* IvionParser::turnTrigger() {
+  TurnTriggerContext *_localctx = _tracker.createInstance<TurnTriggerContext>(_ctx, getState());
+  enterRule(_localctx, 74, IvionParser::RuleTurnTrigger);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2068,64 +3312,588 @@ IvionParser::LineContext* IvionParser::line() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(237);
-    _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::T__0:
-      case IvionParser::T__1:
-      case IvionParser::T__2:
-      case IvionParser::T__3:
-      case IvionParser::T__5:
-      case IvionParser::Disarm:
-      case IvionParser::Silence:
-      case IvionParser::Slow:
-      case IvionParser::Draw:
-      case IvionParser::Move:
-      case IvionParser::Travel:
-      case IvionParser::Target:
-      case IvionParser::Deal:
-      case IvionParser::A: {
-        setState(234);
-        effectPlayer();
-        break;
-      }
+    setState(456);
+    match(IvionParser::At);
+    setState(457);
+    match(IvionParser::The);
+    setState(458);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::Start
 
-      case IvionParser::Meta:
-      case IvionParser::Counter: {
-        setState(235);
-        cardEffect();
-        break;
-      }
-
-      case IvionParser::T__10:
-      case IvionParser::T__12:
-      case IvionParser::T__13: {
-        setState(236);
-        miscEffect();
-        break;
-      }
-
-    default:
-      throw NoViableAltException(this);
+    || _la == IvionParser::End)) {
+    _errHandler->recoverInline(this);
     }
-    setState(239);
-    match(IvionParser::T__15);
-    setState(241);
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(459);
+    match(IvionParser::Of);
+    setState(460);
+    player();
+    setState(461);
+    match(IvionParser::Turn);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- TriggerConditionsContext ------------------------------------------------------------------
+
+IvionParser::TriggerConditionsContext::TriggerConditionsContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::TurnTriggerContext* IvionParser::TriggerConditionsContext::turnTrigger() {
+  return getRuleContext<IvionParser::TurnTriggerContext>(0);
+}
+
+
+size_t IvionParser::TriggerConditionsContext::getRuleIndex() const {
+  return IvionParser::RuleTriggerConditions;
+}
+
+
+antlrcpp::Any IvionParser::TriggerConditionsContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitTriggerConditions(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::TriggerConditionsContext* IvionParser::triggerConditions() {
+  TriggerConditionsContext *_localctx = _tracker.createInstance<TriggerConditionsContext>(_ctx, getState());
+  enterRule(_localctx, 76, IvionParser::RuleTriggerConditions);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(463);
+    turnTrigger();
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- TriggerEffectContext ------------------------------------------------------------------
+
+IvionParser::TriggerEffectContext::TriggerEffectContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::TriggerConditionsContext* IvionParser::TriggerEffectContext::triggerConditions() {
+  return getRuleContext<IvionParser::TriggerConditionsContext>(0);
+}
+
+IvionParser::EffectContext* IvionParser::TriggerEffectContext::effect() {
+  return getRuleContext<IvionParser::EffectContext>(0);
+}
+
+
+size_t IvionParser::TriggerEffectContext::getRuleIndex() const {
+  return IvionParser::RuleTriggerEffect;
+}
+
+
+antlrcpp::Any IvionParser::TriggerEffectContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitTriggerEffect(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::TriggerEffectContext* IvionParser::triggerEffect() {
+  TriggerEffectContext *_localctx = _tracker.createInstance<TriggerEffectContext>(_ctx, getState());
+  enterRule(_localctx, 78, IvionParser::RuleTriggerEffect);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(465);
+    triggerConditions();
+    setState(466);
+    match(IvionParser::T__3);
+    setState(467);
+    effect();
+    setState(468);
+    match(IvionParser::T__9);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- BreachContext ------------------------------------------------------------------
+
+IvionParser::BreachContext::BreachContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+
+size_t IvionParser::BreachContext::getRuleIndex() const {
+  return IvionParser::RuleBreach;
+}
+
+
+antlrcpp::Any IvionParser::BreachContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitBreach(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::BreachContext* IvionParser::breach() {
+  BreachContext *_localctx = _tracker.createInstance<BreachContext>(_ctx, getState());
+  enterRule(_localctx, 80, IvionParser::RuleBreach);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(470);
+    match(IvionParser::T__10);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- AdvantageContext ------------------------------------------------------------------
+
+IvionParser::AdvantageContext::AdvantageContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+
+size_t IvionParser::AdvantageContext::getRuleIndex() const {
+  return IvionParser::RuleAdvantage;
+}
+
+
+antlrcpp::Any IvionParser::AdvantageContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitAdvantage(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::AdvantageContext* IvionParser::advantage() {
+  AdvantageContext *_localctx = _tracker.createInstance<AdvantageContext>(_ctx, getState());
+  enterRule(_localctx, 82, IvionParser::RuleAdvantage);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(472);
+    match(IvionParser::T__11);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- ResolvedContext ------------------------------------------------------------------
+
+IvionParser::ResolvedContext::ResolvedContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::If() {
+  return getToken(IvionParser::If, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::ResolvedContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Resolved() {
+  return getToken(IvionParser::Resolved, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::This() {
+  return getToken(IvionParser::This, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Turn() {
+  return getToken(IvionParser::Turn, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::A() {
+  return getToken(IvionParser::A, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Another() {
+  return getToken(IvionParser::Another, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Ability() {
+  return getToken(IvionParser::Ability, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Attack() {
+  return getToken(IvionParser::Attack, 0);
+}
+
+tree::TerminalNode* IvionParser::ResolvedContext::Non() {
+  return getToken(IvionParser::Non, 0);
+}
+
+
+size_t IvionParser::ResolvedContext::getRuleIndex() const {
+  return IvionParser::RuleResolved;
+}
+
+
+antlrcpp::Any IvionParser::ResolvedContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitResolved(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::ResolvedContext* IvionParser::resolved() {
+  ResolvedContext *_localctx = _tracker.createInstance<ResolvedContext>(_ctx, getState());
+  enterRule(_localctx, 84, IvionParser::RuleResolved);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(474);
+    match(IvionParser::If);
+    setState(475);
+    player();
+    setState(476);
+    match(IvionParser::Resolved);
+    setState(477);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::A
+
+    || _la == IvionParser::Another)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(479);
     _errHandler->sync(this);
 
-    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 21, _ctx)) {
-    case 1: {
-      setState(240);
-      _la = _input->LA(1);
-      if (!(_la == IvionParser::EOF
+    _la = _input->LA(1);
+    if (_la == IvionParser::Non) {
+      setState(478);
+      match(IvionParser::Non);
+    }
+    setState(481);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::Ability
 
-      || _la == IvionParser::Newline)) {
-      _errHandler->recoverInline(this);
-      }
-      else {
-        _errHandler->reportMatch(this);
-        consume();
-      }
+    || _la == IvionParser::Attack)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(482);
+    match(IvionParser::Card);
+    setState(483);
+    match(IvionParser::This);
+    setState(484);
+    match(IvionParser::Turn);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- UsedSecondWindContext ------------------------------------------------------------------
+
+IvionParser::UsedSecondWindContext::UsedSecondWindContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::If() {
+  return getToken(IvionParser::If, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::UsedSecondWindContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::Already() {
+  return getToken(IvionParser::Already, 0);
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::Used() {
+  return getToken(IvionParser::Used, 0);
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::SecondWind() {
+  return getToken(IvionParser::SecondWind, 0);
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::CardController() {
+  return getToken(IvionParser::CardController, 0);
+}
+
+tree::TerminalNode* IvionParser::UsedSecondWindContext::PreviousPlayer() {
+  return getToken(IvionParser::PreviousPlayer, 0);
+}
+
+
+size_t IvionParser::UsedSecondWindContext::getRuleIndex() const {
+  return IvionParser::RuleUsedSecondWind;
+}
+
+
+antlrcpp::Any IvionParser::UsedSecondWindContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitUsedSecondWind(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::UsedSecondWindContext* IvionParser::usedSecondWind() {
+  UsedSecondWindContext *_localctx = _tracker.createInstance<UsedSecondWindContext>(_ctx, getState());
+  enterRule(_localctx, 86, IvionParser::RuleUsedSecondWind);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(486);
+    match(IvionParser::If);
+    setState(487);
+    player();
+    setState(488);
+    match(IvionParser::Already);
+    setState(489);
+    match(IvionParser::Used);
+    setState(490);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::CardController
+
+    || _la == IvionParser::PreviousPlayer)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(491);
+    match(IvionParser::SecondWind);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- IfMadeChoiceContext ------------------------------------------------------------------
+
+IvionParser::IfMadeChoiceContext::IfMadeChoiceContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::IfMadeChoiceContext::If() {
+  return getToken(IvionParser::If, 0);
+}
+
+tree::TerminalNode* IvionParser::IfMadeChoiceContext::Do() {
+  return getToken(IvionParser::Do, 0);
+}
+
+tree::TerminalNode* IvionParser::IfMadeChoiceContext::CardController() {
+  return getToken(IvionParser::CardController, 0);
+}
+
+tree::TerminalNode* IvionParser::IfMadeChoiceContext::PreviousPlayer() {
+  return getToken(IvionParser::PreviousPlayer, 0);
+}
+
+
+size_t IvionParser::IfMadeChoiceContext::getRuleIndex() const {
+  return IvionParser::RuleIfMadeChoice;
+}
+
+
+antlrcpp::Any IvionParser::IfMadeChoiceContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitIfMadeChoice(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::IfMadeChoiceContext* IvionParser::ifMadeChoice() {
+  IfMadeChoiceContext *_localctx = _tracker.createInstance<IfMadeChoiceContext>(_ctx, getState());
+  enterRule(_localctx, 88, IvionParser::RuleIfMadeChoice);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(493);
+    match(IvionParser::If);
+    setState(494);
+    _la = _input->LA(1);
+    if (!(_la == IvionParser::CardController
+
+    || _la == IvionParser::PreviousPlayer)) {
+    _errHandler->recoverInline(this);
+    }
+    else {
+      _errHandler->reportMatch(this);
+      consume();
+    }
+    setState(495);
+    match(IvionParser::Do);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- ReplacementConditionContext ------------------------------------------------------------------
+
+IvionParser::ReplacementConditionContext::ReplacementConditionContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::ResolvedContext* IvionParser::ReplacementConditionContext::resolved() {
+  return getRuleContext<IvionParser::ResolvedContext>(0);
+}
+
+IvionParser::BreachContext* IvionParser::ReplacementConditionContext::breach() {
+  return getRuleContext<IvionParser::BreachContext>(0);
+}
+
+IvionParser::AdvantageContext* IvionParser::ReplacementConditionContext::advantage() {
+  return getRuleContext<IvionParser::AdvantageContext>(0);
+}
+
+IvionParser::UsedSecondWindContext* IvionParser::ReplacementConditionContext::usedSecondWind() {
+  return getRuleContext<IvionParser::UsedSecondWindContext>(0);
+}
+
+IvionParser::IfMadeChoiceContext* IvionParser::ReplacementConditionContext::ifMadeChoice() {
+  return getRuleContext<IvionParser::IfMadeChoiceContext>(0);
+}
+
+
+size_t IvionParser::ReplacementConditionContext::getRuleIndex() const {
+  return IvionParser::RuleReplacementCondition;
+}
+
+
+antlrcpp::Any IvionParser::ReplacementConditionContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitReplacementCondition(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::ReplacementConditionContext* IvionParser::replacementCondition() {
+  ReplacementConditionContext *_localctx = _tracker.createInstance<ReplacementConditionContext>(_ctx, getState());
+  enterRule(_localctx, 90, IvionParser::RuleReplacementCondition);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(502);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 26, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(497);
+      resolved();
+      break;
+    }
+
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(498);
+      breach();
+      break;
+    }
+
+    case 3: {
+      enterOuterAlt(_localctx, 3);
+      setState(499);
+      advantage();
+      break;
+    }
+
+    case 4: {
+      enterOuterAlt(_localctx, 4);
+      setState(500);
+      usedSecondWind();
+      break;
+    }
+
+    case 5: {
+      enterOuterAlt(_localctx, 5);
+      setState(501);
+      ifMadeChoice();
       break;
     }
 
@@ -2141,80 +3909,213 @@ IvionParser::LineContext* IvionParser::line() {
   return _localctx;
 }
 
-//----------------- ParagraphContext ------------------------------------------------------------------
+//----------------- ReplacementEffectContext ------------------------------------------------------------------
 
-IvionParser::ParagraphContext::ParagraphContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::ReplacementEffectContext::ReplacementEffectContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<IvionParser::LineContext *> IvionParser::ParagraphContext::line() {
-  return getRuleContexts<IvionParser::LineContext>();
+IvionParser::ReplacementConditionContext* IvionParser::ReplacementEffectContext::replacementCondition() {
+  return getRuleContext<IvionParser::ReplacementConditionContext>(0);
 }
 
-IvionParser::LineContext* IvionParser::ParagraphContext::line(size_t i) {
-  return getRuleContext<IvionParser::LineContext>(i);
+IvionParser::EffectContext* IvionParser::ReplacementEffectContext::effect() {
+  return getRuleContext<IvionParser::EffectContext>(0);
 }
 
-std::vector<tree::TerminalNode *> IvionParser::ParagraphContext::Newline() {
-  return getTokens(IvionParser::Newline);
-}
-
-tree::TerminalNode* IvionParser::ParagraphContext::Newline(size_t i) {
-  return getToken(IvionParser::Newline, i);
+tree::TerminalNode* IvionParser::ReplacementEffectContext::Instead() {
+  return getToken(IvionParser::Instead, 0);
 }
 
 
-size_t IvionParser::ParagraphContext::getRuleIndex() const {
-  return IvionParser::RuleParagraph;
+size_t IvionParser::ReplacementEffectContext::getRuleIndex() const {
+  return IvionParser::RuleReplacementEffect;
 }
 
 
-antlrcpp::Any IvionParser::ParagraphContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any IvionParser::ReplacementEffectContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitParagraph(this);
+    return parserVisitor->visitReplacementEffect(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::ParagraphContext* IvionParser::paragraph() {
-  ParagraphContext *_localctx = _tracker.createInstance<ParagraphContext>(_ctx, getState());
-  enterRule(_localctx, 60, IvionParser::RuleParagraph);
+IvionParser::ReplacementEffectContext* IvionParser::replacementEffect() {
+  ReplacementEffectContext *_localctx = _tracker.createInstance<ReplacementEffectContext>(_ctx, getState());
+  enterRule(_localctx, 92, IvionParser::RuleReplacementEffect);
   size_t _la = 0;
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    size_t alt;
     enterOuterAlt(_localctx, 1);
-    setState(244); 
+    setState(504);
+    replacementCondition();
+    setState(505);
+    match(IvionParser::T__3);
+    setState(507);
     _errHandler->sync(this);
-    alt = 1;
-    do {
-      switch (alt) {
-        case 1: {
-              setState(243);
-              line();
-              break;
-            }
 
-      default:
-        throw NoViableAltException(this);
-      }
-      setState(246); 
-      _errHandler->sync(this);
-      alt = getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 22, _ctx);
-    } while (alt != 2 && alt != atn::ATN::INVALID_ALT_NUMBER);
-    setState(251);
+    _la = _input->LA(1);
+    if (_la == IvionParser::Instead) {
+      setState(506);
+      match(IvionParser::Instead);
+    }
+    setState(509);
+    effect();
+    setState(510);
+    match(IvionParser::T__9);
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- EffectContext ------------------------------------------------------------------
+
+IvionParser::EffectContext::EffectContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::EffectPlayerContext* IvionParser::EffectContext::effectPlayer() {
+  return getRuleContext<IvionParser::EffectPlayerContext>(0);
+}
+
+IvionParser::CardEffectContext* IvionParser::EffectContext::cardEffect() {
+  return getRuleContext<IvionParser::CardEffectContext>(0);
+}
+
+tree::TerminalNode* IvionParser::EffectContext::Then() {
+  return getToken(IvionParser::Then, 0);
+}
+
+
+size_t IvionParser::EffectContext::getRuleIndex() const {
+  return IvionParser::RuleEffect;
+}
+
+
+antlrcpp::Any IvionParser::EffectContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitEffect(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::EffectContext* IvionParser::effect() {
+  EffectContext *_localctx = _tracker.createInstance<EffectContext>(_ctx, getState());
+  enterRule(_localctx, 94, IvionParser::RuleEffect);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(514);
+    _errHandler->sync(this);
+
+    _la = _input->LA(1);
+    if (_la == IvionParser::Then) {
+      setState(512);
+      match(IvionParser::Then);
+      setState(513);
+      match(IvionParser::T__3);
+    }
+    setState(518);
+    _errHandler->sync(this);
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 29, _ctx)) {
+    case 1: {
+      setState(516);
+      effectPlayer();
+      break;
+    }
+
+    case 2: {
+      setState(517);
+      cardEffect();
+      break;
+    }
+
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- ChooseContext ------------------------------------------------------------------
+
+IvionParser::ChooseContext::ChooseContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::IntegerContext* IvionParser::ChooseContext::integer() {
+  return getRuleContext<IvionParser::IntegerContext>(0);
+}
+
+std::vector<IvionParser::EffectContext *> IvionParser::ChooseContext::effect() {
+  return getRuleContexts<IvionParser::EffectContext>();
+}
+
+IvionParser::EffectContext* IvionParser::ChooseContext::effect(size_t i) {
+  return getRuleContext<IvionParser::EffectContext>(i);
+}
+
+
+size_t IvionParser::ChooseContext::getRuleIndex() const {
+  return IvionParser::RuleChoose;
+}
+
+
+antlrcpp::Any IvionParser::ChooseContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitChoose(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::ChooseContext* IvionParser::choose() {
+  ChooseContext *_localctx = _tracker.createInstance<ChooseContext>(_ctx, getState());
+  enterRule(_localctx, 96, IvionParser::RuleChoose);
+  size_t _la = 0;
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    enterOuterAlt(_localctx, 1);
+    setState(520);
+    match(IvionParser::T__12);
+    setState(521);
+    integer();
+    setState(522);
+    match(IvionParser::T__13);
+    setState(527); 
     _errHandler->sync(this);
     _la = _input->LA(1);
-    while (_la == IvionParser::Newline) {
-      setState(248);
-      match(IvionParser::Newline);
-      setState(253);
+    do {
+      setState(523);
+      match(IvionParser::T__14);
+      setState(524);
+      effect();
+      setState(525);
+      match(IvionParser::T__9);
+      setState(529); 
       _errHandler->sync(this);
       _la = _input->LA(1);
-    }
+    } while (_la == IvionParser::T__14);
    
   }
   catch (RecognitionException &e) {
@@ -2232,16 +4133,40 @@ IvionParser::TextContext::TextContext(ParserRuleContext *parent, size_t invoking
   : ParserRuleContext(parent, invokingState) {
 }
 
-std::vector<IvionParser::ParagraphContext *> IvionParser::TextContext::paragraph() {
-  return getRuleContexts<IvionParser::ParagraphContext>();
-}
-
-IvionParser::ParagraphContext* IvionParser::TextContext::paragraph(size_t i) {
-  return getRuleContext<IvionParser::ParagraphContext>(i);
-}
-
 tree::TerminalNode* IvionParser::TextContext::EOF() {
   return getToken(IvionParser::EOF, 0);
+}
+
+std::vector<IvionParser::ChooseContext *> IvionParser::TextContext::choose() {
+  return getRuleContexts<IvionParser::ChooseContext>();
+}
+
+IvionParser::ChooseContext* IvionParser::TextContext::choose(size_t i) {
+  return getRuleContext<IvionParser::ChooseContext>(i);
+}
+
+std::vector<IvionParser::ReplacementEffectContext *> IvionParser::TextContext::replacementEffect() {
+  return getRuleContexts<IvionParser::ReplacementEffectContext>();
+}
+
+IvionParser::ReplacementEffectContext* IvionParser::TextContext::replacementEffect(size_t i) {
+  return getRuleContext<IvionParser::ReplacementEffectContext>(i);
+}
+
+std::vector<IvionParser::TriggerEffectContext *> IvionParser::TextContext::triggerEffect() {
+  return getRuleContexts<IvionParser::TriggerEffectContext>();
+}
+
+IvionParser::TriggerEffectContext* IvionParser::TextContext::triggerEffect(size_t i) {
+  return getRuleContext<IvionParser::TriggerEffectContext>(i);
+}
+
+std::vector<IvionParser::EffectContext *> IvionParser::TextContext::effect() {
+  return getRuleContexts<IvionParser::EffectContext>();
+}
+
+IvionParser::EffectContext* IvionParser::TextContext::effect(size_t i) {
+  return getRuleContext<IvionParser::EffectContext>(i);
 }
 
 
@@ -2259,78 +4184,118 @@ antlrcpp::Any IvionParser::TextContext::accept(tree::ParseTreeVisitor *visitor) 
 
 IvionParser::TextContext* IvionParser::text() {
   TextContext *_localctx = _tracker.createInstance<TextContext>(_ctx, getState());
-  enterRule(_localctx, 62, IvionParser::RuleText);
+  enterRule(_localctx, 98, IvionParser::RuleText);
   size_t _la = 0;
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(260);
+    enterOuterAlt(_localctx, 1);
+    setState(537); 
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::T__0:
-      case IvionParser::T__1:
-      case IvionParser::T__2:
-      case IvionParser::T__3:
-      case IvionParser::T__5:
-      case IvionParser::T__10:
-      case IvionParser::T__12:
-      case IvionParser::T__13:
-      case IvionParser::Disarm:
-      case IvionParser::Silence:
-      case IvionParser::Slow:
-      case IvionParser::Draw:
-      case IvionParser::Move:
-      case IvionParser::Travel:
-      case IvionParser::Target:
-      case IvionParser::Deal:
-      case IvionParser::Meta:
-      case IvionParser::Counter:
-      case IvionParser::A: {
-        enterOuterAlt(_localctx, 1);
-        setState(255); 
-        _errHandler->sync(this);
-        _la = _input->LA(1);
-        do {
-          setState(254);
-          paragraph();
-          setState(257); 
-          _errHandler->sync(this);
-          _la = _input->LA(1);
-        } while ((((_la & ~ 0x3fULL) == 0) &&
-          ((1ULL << _la) & ((1ULL << IvionParser::T__0)
-          | (1ULL << IvionParser::T__1)
-          | (1ULL << IvionParser::T__2)
-          | (1ULL << IvionParser::T__3)
-          | (1ULL << IvionParser::T__5)
-          | (1ULL << IvionParser::T__10)
-          | (1ULL << IvionParser::T__12)
-          | (1ULL << IvionParser::T__13)
-          | (1ULL << IvionParser::Disarm)
-          | (1ULL << IvionParser::Silence)
-          | (1ULL << IvionParser::Slow)
-          | (1ULL << IvionParser::Draw)
-          | (1ULL << IvionParser::Move)
-          | (1ULL << IvionParser::Travel)
-          | (1ULL << IvionParser::Target)
-          | (1ULL << IvionParser::Deal)
-          | (1ULL << IvionParser::Meta)
-          | (1ULL << IvionParser::Counter)
-          | (1ULL << IvionParser::A))) != 0));
-        break;
-      }
+    _la = _input->LA(1);
+    do {
+      setState(537);
+      _errHandler->sync(this);
+      switch (_input->LA(1)) {
+        case IvionParser::T__12: {
+          setState(531);
+          choose();
+          break;
+        }
 
-      case IvionParser::EOF: {
-        enterOuterAlt(_localctx, 2);
-        setState(259);
-        match(IvionParser::EOF);
-        break;
-      }
+        case IvionParser::T__10:
+        case IvionParser::T__11:
+        case IvionParser::If: {
+          setState(532);
+          replacementEffect();
+          break;
+        }
 
-    default:
-      throw NoViableAltException(this);
-    }
+        case IvionParser::At: {
+          setState(533);
+          triggerEffect();
+          break;
+        }
+
+        case IvionParser::T__2:
+        case IvionParser::A:
+        case IvionParser::The:
+        case IvionParser::Heal:
+        case IvionParser::Disarm:
+        case IvionParser::Silence:
+        case IvionParser::Slow:
+        case IvionParser::Draw:
+        case IvionParser::Deal:
+        case IvionParser::Move:
+        case IvionParser::Travel:
+        case IvionParser::Target:
+        case IvionParser::Gain:
+        case IvionParser::Another:
+        case IvionParser::CardController:
+        case IvionParser::PreviousPlayer:
+        case IvionParser::Its:
+        case IvionParser::Use:
+        case IvionParser::UpTo:
+        case IvionParser::That:
+        case IvionParser::Put:
+        case IvionParser::Meta:
+        case IvionParser::Counter:
+        case IvionParser::Destroy:
+        case IvionParser::Attach:
+        case IvionParser::Top:
+        case IvionParser::From:
+        case IvionParser::Then: {
+          setState(534);
+          effect();
+          setState(535);
+          match(IvionParser::T__9);
+          break;
+        }
+
+      default:
+        throw NoViableAltException(this);
+      }
+      setState(539); 
+      _errHandler->sync(this);
+      _la = _input->LA(1);
+    } while ((((_la & ~ 0x3fULL) == 0) &&
+      ((1ULL << _la) & ((1ULL << IvionParser::T__2)
+      | (1ULL << IvionParser::T__10)
+      | (1ULL << IvionParser::T__11)
+      | (1ULL << IvionParser::T__12)
+      | (1ULL << IvionParser::A)
+      | (1ULL << IvionParser::The)
+      | (1ULL << IvionParser::Heal)
+      | (1ULL << IvionParser::Disarm)
+      | (1ULL << IvionParser::Silence)
+      | (1ULL << IvionParser::Slow)
+      | (1ULL << IvionParser::Draw)
+      | (1ULL << IvionParser::Deal)
+      | (1ULL << IvionParser::Move)
+      | (1ULL << IvionParser::Travel)
+      | (1ULL << IvionParser::Target)
+      | (1ULL << IvionParser::Gain)
+      | (1ULL << IvionParser::Another)
+      | (1ULL << IvionParser::CardController)
+      | (1ULL << IvionParser::PreviousPlayer)
+      | (1ULL << IvionParser::Its)
+      | (1ULL << IvionParser::Use)
+      | (1ULL << IvionParser::UpTo)
+      | (1ULL << IvionParser::That)
+      | (1ULL << IvionParser::Put)
+      | (1ULL << IvionParser::Meta)
+      | (1ULL << IvionParser::Counter)
+      | (1ULL << IvionParser::Destroy))) != 0) || ((((_la - 67) & ~ 0x3fULL) == 0) &&
+      ((1ULL << (_la - 67)) & ((1ULL << (IvionParser::Attach - 67))
+      | (1ULL << (IvionParser::Top - 67))
+      | (1ULL << (IvionParser::From - 67))
+      | (1ULL << (IvionParser::At - 67))
+      | (1ULL << (IvionParser::Then - 67))
+      | (1ULL << (IvionParser::If - 67)))) != 0));
+    setState(541);
+    match(IvionParser::EOF);
    
   }
   catch (RecognitionException &e) {
@@ -2342,65 +4307,108 @@ IvionParser::TextContext* IvionParser::text() {
   return _localctx;
 }
 
-//----------------- IntegerContext ------------------------------------------------------------------
+//----------------- TheNumberOfCardsInHandContext ------------------------------------------------------------------
 
-IvionParser::IntegerContext::IntegerContext(ParserRuleContext *parent, size_t invokingState)
+IvionParser::TheNumberOfCardsInHandContext::TheNumberOfCardsInHandContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
 }
 
-IvionParser::IntegerLiteralContext* IvionParser::IntegerContext::integerLiteral() {
-  return getRuleContext<IvionParser::IntegerLiteralContext>(0);
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::The() {
+  return getToken(IvionParser::The, 0);
 }
 
-IvionParser::IntegerWordContext* IvionParser::IntegerContext::integerWord() {
-  return getRuleContext<IvionParser::IntegerWordContext>(0);
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::Number() {
+  return getToken(IvionParser::Number, 0);
+}
+
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::Of() {
+  return getToken(IvionParser::Of, 0);
+}
+
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::Card() {
+  return getToken(IvionParser::Card, 0);
+}
+
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::In() {
+  return getToken(IvionParser::In, 0);
+}
+
+IvionParser::PlayerContext* IvionParser::TheNumberOfCardsInHandContext::player() {
+  return getRuleContext<IvionParser::PlayerContext>(0);
+}
+
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::Hand() {
+  return getToken(IvionParser::Hand, 0);
+}
+
+tree::TerminalNode* IvionParser::TheNumberOfCardsInHandContext::Reveal() {
+  return getToken(IvionParser::Reveal, 0);
 }
 
 
-size_t IvionParser::IntegerContext::getRuleIndex() const {
-  return IvionParser::RuleInteger;
+size_t IvionParser::TheNumberOfCardsInHandContext::getRuleIndex() const {
+  return IvionParser::RuleTheNumberOfCardsInHand;
 }
 
 
-antlrcpp::Any IvionParser::IntegerContext::accept(tree::ParseTreeVisitor *visitor) {
+antlrcpp::Any IvionParser::TheNumberOfCardsInHandContext::accept(tree::ParseTreeVisitor *visitor) {
   if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
-    return parserVisitor->visitInteger(this);
+    return parserVisitor->visitTheNumberOfCardsInHand(this);
   else
     return visitor->visitChildren(this);
 }
 
-IvionParser::IntegerContext* IvionParser::integer() {
-  IntegerContext *_localctx = _tracker.createInstance<IntegerContext>(_ctx, getState());
-  enterRule(_localctx, 64, IvionParser::RuleInteger);
+IvionParser::TheNumberOfCardsInHandContext* IvionParser::theNumberOfCardsInHand() {
+  TheNumberOfCardsInHandContext *_localctx = _tracker.createInstance<TheNumberOfCardsInHandContext>(_ctx, getState());
+  enterRule(_localctx, 100, IvionParser::RuleTheNumberOfCardsInHand);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
-    setState(264);
+    setState(560);
     _errHandler->sync(this);
-    switch (_input->LA(1)) {
-      case IvionParser::Integer: {
-        enterOuterAlt(_localctx, 1);
-        setState(262);
-        integerLiteral();
-        break;
-      }
+    switch (getInterpreter<atn::ParserATNSimulator>()->adaptivePredict(_input, 33, _ctx)) {
+    case 1: {
+      enterOuterAlt(_localctx, 1);
+      setState(543);
+      match(IvionParser::The);
+      setState(544);
+      match(IvionParser::Number);
+      setState(545);
+      match(IvionParser::Of);
+      setState(546);
+      match(IvionParser::Card);
+      setState(547);
+      match(IvionParser::In);
+      setState(548);
+      player();
+      setState(549);
+      match(IvionParser::Hand);
+      break;
+    }
 
-      case IvionParser::One:
-      case IvionParser::Two:
-      case IvionParser::Three:
-      case IvionParser::Four:
-      case IvionParser::Five:
-      case IvionParser::Six: {
-        enterOuterAlt(_localctx, 2);
-        setState(263);
-        integerWord();
-        break;
-      }
+    case 2: {
+      enterOuterAlt(_localctx, 2);
+      setState(551);
+      match(IvionParser::The);
+      setState(552);
+      match(IvionParser::Number);
+      setState(553);
+      match(IvionParser::Of);
+      setState(554);
+      match(IvionParser::Reveal);
+      setState(555);
+      match(IvionParser::Card);
+      setState(556);
+      match(IvionParser::In);
+      setState(557);
+      player();
+      setState(558);
+      match(IvionParser::Hand);
+      break;
+    }
 
-    default:
-      throw NoViableAltException(this);
     }
    
   }
@@ -2438,14 +4446,14 @@ antlrcpp::Any IvionParser::IntegerLiteralContext::accept(tree::ParseTreeVisitor 
 
 IvionParser::IntegerLiteralContext* IvionParser::integerLiteral() {
   IntegerLiteralContext *_localctx = _tracker.createInstance<IntegerLiteralContext>(_ctx, getState());
-  enterRule(_localctx, 66, IvionParser::RuleIntegerLiteral);
+  enterRule(_localctx, 102, IvionParser::RuleIntegerLiteral);
 
   auto onExit = finally([=] {
     exitRule();
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(266);
+    setState(562);
     match(IvionParser::Integer);
    
   }
@@ -2462,6 +4470,10 @@ IvionParser::IntegerLiteralContext* IvionParser::integerLiteral() {
 
 IvionParser::IntegerWordContext::IntegerWordContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* IvionParser::IntegerWordContext::A() {
+  return getToken(IvionParser::A, 0);
 }
 
 tree::TerminalNode* IvionParser::IntegerWordContext::One() {
@@ -2503,7 +4515,7 @@ antlrcpp::Any IvionParser::IntegerWordContext::accept(tree::ParseTreeVisitor *vi
 
 IvionParser::IntegerWordContext* IvionParser::integerWord() {
   IntegerWordContext *_localctx = _tracker.createInstance<IntegerWordContext>(_ctx, getState());
-  enterRule(_localctx, 68, IvionParser::RuleIntegerWord);
+  enterRule(_localctx, 104, IvionParser::RuleIntegerWord);
   size_t _la = 0;
 
   auto onExit = finally([=] {
@@ -2511,20 +4523,103 @@ IvionParser::IntegerWordContext* IvionParser::integerWord() {
   });
   try {
     enterOuterAlt(_localctx, 1);
-    setState(268);
+    setState(564);
     _la = _input->LA(1);
-    if (!((((_la & ~ 0x3fULL) == 0) &&
-      ((1ULL << _la) & ((1ULL << IvionParser::One)
-      | (1ULL << IvionParser::Two)
-      | (1ULL << IvionParser::Three)
-      | (1ULL << IvionParser::Four)
-      | (1ULL << IvionParser::Five)
-      | (1ULL << IvionParser::Six))) != 0))) {
+    if (!(_la == IvionParser::A || ((((_la - 92) & ~ 0x3fULL) == 0) &&
+      ((1ULL << (_la - 92)) & ((1ULL << (IvionParser::One - 92))
+      | (1ULL << (IvionParser::Two - 92))
+      | (1ULL << (IvionParser::Three - 92))
+      | (1ULL << (IvionParser::Four - 92))
+      | (1ULL << (IvionParser::Five - 92))
+      | (1ULL << (IvionParser::Six - 92)))) != 0))) {
     _errHandler->recoverInline(this);
     }
     else {
       _errHandler->reportMatch(this);
       consume();
+    }
+   
+  }
+  catch (RecognitionException &e) {
+    _errHandler->reportError(this, e);
+    _localctx->exception = std::current_exception();
+    _errHandler->recover(this, _localctx->exception);
+  }
+
+  return _localctx;
+}
+
+//----------------- IntegerContext ------------------------------------------------------------------
+
+IvionParser::IntegerContext::IntegerContext(ParserRuleContext *parent, size_t invokingState)
+  : ParserRuleContext(parent, invokingState) {
+}
+
+IvionParser::IntegerLiteralContext* IvionParser::IntegerContext::integerLiteral() {
+  return getRuleContext<IvionParser::IntegerLiteralContext>(0);
+}
+
+IvionParser::IntegerWordContext* IvionParser::IntegerContext::integerWord() {
+  return getRuleContext<IvionParser::IntegerWordContext>(0);
+}
+
+IvionParser::TheNumberOfCardsInHandContext* IvionParser::IntegerContext::theNumberOfCardsInHand() {
+  return getRuleContext<IvionParser::TheNumberOfCardsInHandContext>(0);
+}
+
+
+size_t IvionParser::IntegerContext::getRuleIndex() const {
+  return IvionParser::RuleInteger;
+}
+
+
+antlrcpp::Any IvionParser::IntegerContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<IvionVisitor*>(visitor))
+    return parserVisitor->visitInteger(this);
+  else
+    return visitor->visitChildren(this);
+}
+
+IvionParser::IntegerContext* IvionParser::integer() {
+  IntegerContext *_localctx = _tracker.createInstance<IntegerContext>(_ctx, getState());
+  enterRule(_localctx, 106, IvionParser::RuleInteger);
+
+  auto onExit = finally([=] {
+    exitRule();
+  });
+  try {
+    setState(569);
+    _errHandler->sync(this);
+    switch (_input->LA(1)) {
+      case IvionParser::Integer: {
+        enterOuterAlt(_localctx, 1);
+        setState(566);
+        integerLiteral();
+        break;
+      }
+
+      case IvionParser::A:
+      case IvionParser::One:
+      case IvionParser::Two:
+      case IvionParser::Three:
+      case IvionParser::Four:
+      case IvionParser::Five:
+      case IvionParser::Six: {
+        enterOuterAlt(_localctx, 2);
+        setState(567);
+        integerWord();
+        break;
+      }
+
+      case IvionParser::The: {
+        enterOuterAlt(_localctx, 3);
+        setState(568);
+        theNumberOfCardsInHand();
+        break;
+      }
+
+    default:
+      throw NoViableAltException(this);
     }
    
   }
@@ -2548,27 +4643,45 @@ std::vector<uint16_t> IvionParser::_serializedATN;
 std::vector<std::string> IvionParser::_ruleNames = {
   "filterPlayer", "targetPlayer", "selectPlayer", "cardController", "previousPlayer", 
   "player", "damagePlayer", "control", "controlPlayer", "movePlayer", "travelPlayer", 
-  "gainActions", "gainPower", "drawCards", "effectPlayer", "targetTile", 
-  "selectTile", "tile", "targetCard", "selectCard", "topCardPtr", "card", 
-  "metaCounterCard", "counterCard", "cardEffect", "endTheTurn", "startTheTurn", 
-  "passPriority", "miscEffect", "line", "paragraph", "text", "integer", 
-  "integerLiteral", "integerWord"
+  "gainResource", "drawCards", "useSecondWind", "playACard", "heal", "rangeSource", 
+  "revealFromHand", "effectPlayer", "targetTile", "selectTile", "tile", 
+  "targetCard", "selectCard", "previousCard", "topOfStack", "bottomOfDeck", 
+  "topOfDeck", "hand", "card", "attachCard", "metaCounterCard", "counterCard", 
+  "destroyCard", "cardGainsTrait", "putCard", "cardEffect", "turnTrigger", 
+  "triggerConditions", "triggerEffect", "breach", "advantage", "resolved", 
+  "usedSecondWind", "ifMadeChoice", "replacementCondition", "replacementEffect", 
+  "effect", "choose", "text", "theNumberOfCardsInHand", "integerLiteral", 
+  "integerWord", "integer"
 };
 
 std::vector<std::string> IvionParser::_literalNames = {
-  "", "'you'", "'yourself'", "'them'", "'they'", "'damage'", "'gain'", "'actions'", 
-  "'power'", "'top'", "'stack'", "'end'", "'turn'", "'start'", "'pass'", 
-  "'priority'", "'.'", "", "", "", "", "", "", "", "", "", "", "", "", "", 
-  "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "'\n'"
+  "", "'equal'", "'more'", "'All'", "','", "'except'", "'also'", "'draw'", 
+  "'stack'", "'into'", "'.'", "'Breach'", "'Advantage'", "'Choose'", "':'", 
+  "'-'", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 
+  "", "", "", "", "'Second Wind'", "'may'", "'play'", "", "", "", "", "'another'", 
+  "", "", "'range'", "'away from you'", "'controller'", "'its'", "", "'up to'", 
+  "", "", "'for'", "'less'", "", "'empty'", "'Heroic'", "", "", "", "", 
+  "", "", "'unless'", "", "'Attach'", "'top'", "'bottom'", "'deck'", "", 
+  "", "", "'until'", "'number'", "'in'", "'turn'", "'start'", "'end'", "", 
+  "'this'", "", "'If'", "'do'", "'resolved'", "'used'", "'non-'", "'Ability'", 
+  "'Attack'", "'already'", "'instead'", "", "", "", "", "", "", "", "", 
+  "'\n'"
 };
 
 std::vector<std::string> IvionParser::_symbolicNames = {
-  "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Disarm", 
-  "Silence", "Slow", "Discard", "Draw", "Move", "Travel", "Target", "Player", 
-  "Enemy", "Deal", "Tile", "Meta", "Counter", "One", "Two", "Three", "Four", 
-  "Five", "Six", "Card", "A", "Is", "To", "Take", "Of", "The", "Integer", 
-  "Newline", "Whitespace", "BlockComment", "LineComment", "TextSymbolComment", 
-  "BracketComment"
+  "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "A", "Is", 
+  "To", "Take", "Of", "The", "Heal", "Disarm", "Silence", "Slow", "Discard", 
+  "Draw", "Deal", "Move", "Travel", "Target", "Gain", "Action", "Power", 
+  "Initiative", "SecondWind", "May", "Play", "Reveal", "Damage", "Player", 
+  "Enemy", "Another", "CardController", "PreviousPlayer", "Range", "Away", 
+  "Controller", "Its", "Use", "UpTo", "Have", "Health", "For", "Less", "Tile", 
+  "Empty", "Heroic", "That", "Put", "Meta", "Counter", "Destroy", "Resource", 
+  "Unless", "Pays", "Attach", "Top", "Bottom", "Deck", "On", "Hand", "From", 
+  "Until", "Number", "In", "Turn", "Start", "End", "At", "This", "Then", 
+  "If", "Do", "Resolved", "Used", "Non", "Ability", "Attack", "Already", 
+  "Instead", "One", "Two", "Three", "Four", "Five", "Six", "Card", "Integer", 
+  "Newline", "Whitespace", "BlockComment", "RulesComment", "LineComment", 
+  "TextSymbolComment", "BracketComment"
 };
 
 dfa::Vocabulary IvionParser::_vocabulary(_literalNames, _symbolicNames);
@@ -2591,7 +4704,7 @@ IvionParser::Initializer::Initializer() {
 
   _serializedATN = {
     0x3, 0x608b, 0xa72a, 0x8133, 0xb9ed, 0x417c, 0x3be7, 0x7786, 0x5964, 
-    0x3, 0x34, 0x111, 0x4, 0x2, 0x9, 0x2, 0x4, 0x3, 0x9, 0x3, 0x4, 0x4, 
+    0x3, 0x6c, 0x23e, 0x4, 0x2, 0x9, 0x2, 0x4, 0x3, 0x9, 0x3, 0x4, 0x4, 
     0x9, 0x4, 0x4, 0x5, 0x9, 0x5, 0x4, 0x6, 0x9, 0x6, 0x4, 0x7, 0x9, 0x7, 
     0x4, 0x8, 0x9, 0x8, 0x4, 0x9, 0x9, 0x9, 0x4, 0xa, 0x9, 0xa, 0x4, 0xb, 
     0x9, 0xb, 0x4, 0xc, 0x9, 0xc, 0x4, 0xd, 0x9, 0xd, 0x4, 0xe, 0x9, 0xe, 
@@ -2601,173 +4714,384 @@ IvionParser::Initializer::Initializer() {
     0x18, 0x4, 0x19, 0x9, 0x19, 0x4, 0x1a, 0x9, 0x1a, 0x4, 0x1b, 0x9, 0x1b, 
     0x4, 0x1c, 0x9, 0x1c, 0x4, 0x1d, 0x9, 0x1d, 0x4, 0x1e, 0x9, 0x1e, 0x4, 
     0x1f, 0x9, 0x1f, 0x4, 0x20, 0x9, 0x20, 0x4, 0x21, 0x9, 0x21, 0x4, 0x22, 
-    0x9, 0x22, 0x4, 0x23, 0x9, 0x23, 0x4, 0x24, 0x9, 0x24, 0x3, 0x2, 0x6, 
-    0x2, 0x4a, 0xa, 0x2, 0xd, 0x2, 0xe, 0x2, 0x4b, 0x3, 0x3, 0x3, 0x3, 0x3, 
-    0x3, 0x3, 0x4, 0x3, 0x4, 0x3, 0x4, 0x3, 0x5, 0x3, 0x5, 0x3, 0x6, 0x3, 
-    0x6, 0x3, 0x7, 0x3, 0x7, 0x3, 0x7, 0x3, 0x7, 0x5, 0x7, 0x5c, 0xa, 0x7, 
+    0x9, 0x22, 0x4, 0x23, 0x9, 0x23, 0x4, 0x24, 0x9, 0x24, 0x4, 0x25, 0x9, 
+    0x25, 0x4, 0x26, 0x9, 0x26, 0x4, 0x27, 0x9, 0x27, 0x4, 0x28, 0x9, 0x28, 
+    0x4, 0x29, 0x9, 0x29, 0x4, 0x2a, 0x9, 0x2a, 0x4, 0x2b, 0x9, 0x2b, 0x4, 
+    0x2c, 0x9, 0x2c, 0x4, 0x2d, 0x9, 0x2d, 0x4, 0x2e, 0x9, 0x2e, 0x4, 0x2f, 
+    0x9, 0x2f, 0x4, 0x30, 0x9, 0x30, 0x4, 0x31, 0x9, 0x31, 0x4, 0x32, 0x9, 
+    0x32, 0x4, 0x33, 0x9, 0x33, 0x4, 0x34, 0x9, 0x34, 0x4, 0x35, 0x9, 0x35, 
+    0x4, 0x36, 0x9, 0x36, 0x4, 0x37, 0x9, 0x37, 0x3, 0x2, 0x6, 0x2, 0x70, 
+    0xa, 0x2, 0xd, 0x2, 0xe, 0x2, 0x71, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 
+    0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 
+    0x3, 0x3, 0x3, 0x3, 0x3, 0x5, 0x3, 0x81, 0xa, 0x3, 0x3, 0x4, 0x3, 0x4, 
+    0x3, 0x4, 0x3, 0x4, 0x3, 0x4, 0x3, 0x4, 0x5, 0x4, 0x89, 0xa, 0x4, 0x3, 
+    0x5, 0x3, 0x5, 0x3, 0x6, 0x3, 0x6, 0x3, 0x7, 0x3, 0x7, 0x3, 0x7, 0x3, 
+    0x7, 0x5, 0x7, 0x93, 0xa, 0x7, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 
     0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 
-    0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x5, 0x8, 0x69, 0xa, 0x8, 0x3, 
-    0x9, 0x3, 0x9, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 
-    0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x5, 0xa, 0x76, 0xa, 0xa, 0x3, 0xb, 
-    0x3, 0xb, 0x5, 0xb, 0x7a, 0xa, 0xb, 0x3, 0xb, 0x5, 0xb, 0x7d, 0xa, 0xb, 
-    0x3, 0xb, 0x3, 0xb, 0x3, 0xb, 0x5, 0xb, 0x82, 0xa, 0xb, 0x3, 0xb, 0x3, 
-    0xb, 0x3, 0xb, 0x5, 0xb, 0x87, 0xa, 0xb, 0x3, 0xc, 0x3, 0xc, 0x5, 0xc, 
-    0x8b, 0xa, 0xc, 0x3, 0xc, 0x5, 0xc, 0x8e, 0xa, 0xc, 0x3, 0xc, 0x3, 0xc, 
-    0x3, 0xc, 0x5, 0xc, 0x93, 0xa, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x5, 
-    0xc, 0x98, 0xa, 0xc, 0x3, 0xd, 0x5, 0xd, 0x9b, 0xa, 0xd, 0x3, 0xd, 0x3, 
-    0xd, 0x3, 0xd, 0x3, 0xd, 0x3, 0xe, 0x5, 0xe, 0xa2, 0xa, 0xe, 0x3, 0xe, 
-    0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xf, 0x5, 0xf, 0xa9, 0xa, 0xf, 0x3, 
-    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 
-    0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x5, 0x10, 0xb6, 0xa, 0x10, 
-    0x3, 0x11, 0x3, 0x11, 0x3, 0x11, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 
-    0x13, 0x3, 0x13, 0x5, 0x13, 0xc0, 0xa, 0x13, 0x3, 0x14, 0x3, 0x14, 0x3, 
-    0x14, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x16, 0x3, 0x16, 0x3, 0x16, 
-    0x3, 0x16, 0x3, 0x16, 0x3, 0x17, 0x3, 0x17, 0x3, 0x17, 0x5, 0x17, 0xd0, 
-    0xa, 0x17, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x19, 0x3, 
-    0x19, 0x3, 0x19, 0x3, 0x1a, 0x3, 0x1a, 0x5, 0x1a, 0xdb, 0xa, 0x1a, 0x3, 
-    0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 
-    0x3, 0x1c, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1e, 0x3, 0x1e, 0x3, 
-    0x1e, 0x5, 0x1e, 0xeb, 0xa, 0x1e, 0x3, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x5, 
-    0x1f, 0xf0, 0xa, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x5, 0x1f, 0xf4, 0xa, 0x1f, 
-    0x3, 0x20, 0x6, 0x20, 0xf7, 0xa, 0x20, 0xd, 0x20, 0xe, 0x20, 0xf8, 0x3, 
-    0x20, 0x7, 0x20, 0xfc, 0xa, 0x20, 0xc, 0x20, 0xe, 0x20, 0xff, 0xb, 0x20, 
-    0x3, 0x21, 0x6, 0x21, 0x102, 0xa, 0x21, 0xd, 0x21, 0xe, 0x21, 0x103, 
-    0x3, 0x21, 0x5, 0x21, 0x107, 0xa, 0x21, 0x3, 0x22, 0x3, 0x22, 0x5, 0x22, 
-    0x10b, 0xa, 0x22, 0x3, 0x23, 0x3, 0x23, 0x3, 0x24, 0x3, 0x24, 0x3, 0x24, 
-    0x2, 0x2, 0x25, 0x2, 0x4, 0x6, 0x8, 0xa, 0xc, 0xe, 0x10, 0x12, 0x14, 
-    0x16, 0x18, 0x1a, 0x1c, 0x1e, 0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 0x2c, 
-    0x2e, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3a, 0x3c, 0x3e, 0x40, 0x42, 0x44, 
-    0x46, 0x2, 0x8, 0x3, 0x2, 0x1b, 0x1c, 0x3, 0x2, 0x3, 0x4, 0x3, 0x2, 
-    0x5, 0x6, 0x3, 0x2, 0x13, 0x15, 0x3, 0x3, 0x2f, 0x2f, 0x3, 0x2, 0x21, 
-    0x26, 0x2, 0x112, 0x2, 0x49, 0x3, 0x2, 0x2, 0x2, 0x4, 0x4d, 0x3, 0x2, 
-    0x2, 0x2, 0x6, 0x50, 0x3, 0x2, 0x2, 0x2, 0x8, 0x53, 0x3, 0x2, 0x2, 0x2, 
-    0xa, 0x55, 0x3, 0x2, 0x2, 0x2, 0xc, 0x5b, 0x3, 0x2, 0x2, 0x2, 0xe, 0x68, 
-    0x3, 0x2, 0x2, 0x2, 0x10, 0x6a, 0x3, 0x2, 0x2, 0x2, 0x12, 0x75, 0x3, 
-    0x2, 0x2, 0x2, 0x14, 0x86, 0x3, 0x2, 0x2, 0x2, 0x16, 0x97, 0x3, 0x2, 
-    0x2, 0x2, 0x18, 0x9a, 0x3, 0x2, 0x2, 0x2, 0x1a, 0xa1, 0x3, 0x2, 0x2, 
-    0x2, 0x1c, 0xa8, 0x3, 0x2, 0x2, 0x2, 0x1e, 0xb5, 0x3, 0x2, 0x2, 0x2, 
-    0x20, 0xb7, 0x3, 0x2, 0x2, 0x2, 0x22, 0xba, 0x3, 0x2, 0x2, 0x2, 0x24, 
-    0xbf, 0x3, 0x2, 0x2, 0x2, 0x26, 0xc1, 0x3, 0x2, 0x2, 0x2, 0x28, 0xc4, 
-    0x3, 0x2, 0x2, 0x2, 0x2a, 0xc7, 0x3, 0x2, 0x2, 0x2, 0x2c, 0xcf, 0x3, 
-    0x2, 0x2, 0x2, 0x2e, 0xd1, 0x3, 0x2, 0x2, 0x2, 0x30, 0xd5, 0x3, 0x2, 
-    0x2, 0x2, 0x32, 0xda, 0x3, 0x2, 0x2, 0x2, 0x34, 0xdc, 0x3, 0x2, 0x2, 
-    0x2, 0x36, 0xe0, 0x3, 0x2, 0x2, 0x2, 0x38, 0xe4, 0x3, 0x2, 0x2, 0x2, 
-    0x3a, 0xea, 0x3, 0x2, 0x2, 0x2, 0x3c, 0xef, 0x3, 0x2, 0x2, 0x2, 0x3e, 
-    0xf6, 0x3, 0x2, 0x2, 0x2, 0x40, 0x106, 0x3, 0x2, 0x2, 0x2, 0x42, 0x10a, 
-    0x3, 0x2, 0x2, 0x2, 0x44, 0x10c, 0x3, 0x2, 0x2, 0x2, 0x46, 0x10e, 0x3, 
-    0x2, 0x2, 0x2, 0x48, 0x4a, 0x9, 0x2, 0x2, 0x2, 0x49, 0x48, 0x3, 0x2, 
-    0x2, 0x2, 0x4a, 0x4b, 0x3, 0x2, 0x2, 0x2, 0x4b, 0x49, 0x3, 0x2, 0x2, 
-    0x2, 0x4b, 0x4c, 0x3, 0x2, 0x2, 0x2, 0x4c, 0x3, 0x3, 0x2, 0x2, 0x2, 
-    0x4d, 0x4e, 0x7, 0x1a, 0x2, 0x2, 0x4e, 0x4f, 0x5, 0x2, 0x2, 0x2, 0x4f, 
-    0x5, 0x3, 0x2, 0x2, 0x2, 0x50, 0x51, 0x7, 0x28, 0x2, 0x2, 0x51, 0x52, 
-    0x5, 0x2, 0x2, 0x2, 0x52, 0x7, 0x3, 0x2, 0x2, 0x2, 0x53, 0x54, 0x9, 
-    0x3, 0x2, 0x2, 0x54, 0x9, 0x3, 0x2, 0x2, 0x2, 0x55, 0x56, 0x9, 0x4, 
-    0x2, 0x2, 0x56, 0xb, 0x3, 0x2, 0x2, 0x2, 0x57, 0x5c, 0x5, 0x8, 0x5, 
-    0x2, 0x58, 0x5c, 0x5, 0x6, 0x4, 0x2, 0x59, 0x5c, 0x5, 0xa, 0x6, 0x2, 
-    0x5a, 0x5c, 0x5, 0x4, 0x3, 0x2, 0x5b, 0x57, 0x3, 0x2, 0x2, 0x2, 0x5b, 
-    0x58, 0x3, 0x2, 0x2, 0x2, 0x5b, 0x59, 0x3, 0x2, 0x2, 0x2, 0x5b, 0x5a, 
-    0x3, 0x2, 0x2, 0x2, 0x5c, 0xd, 0x3, 0x2, 0x2, 0x2, 0x5d, 0x5e, 0x7, 
-    0x1d, 0x2, 0x2, 0x5e, 0x5f, 0x5, 0x42, 0x22, 0x2, 0x5f, 0x60, 0x7, 0x7, 
-    0x2, 0x2, 0x60, 0x61, 0x7, 0x2a, 0x2, 0x2, 0x61, 0x62, 0x5, 0xc, 0x7, 
-    0x2, 0x62, 0x69, 0x3, 0x2, 0x2, 0x2, 0x63, 0x64, 0x5, 0xc, 0x7, 0x2, 
-    0x64, 0x65, 0x7, 0x2b, 0x2, 0x2, 0x65, 0x66, 0x5, 0x42, 0x22, 0x2, 0x66, 
-    0x67, 0x7, 0x7, 0x2, 0x2, 0x67, 0x69, 0x3, 0x2, 0x2, 0x2, 0x68, 0x5d, 
-    0x3, 0x2, 0x2, 0x2, 0x68, 0x63, 0x3, 0x2, 0x2, 0x2, 0x69, 0xf, 0x3, 
-    0x2, 0x2, 0x2, 0x6a, 0x6b, 0x9, 0x5, 0x2, 0x2, 0x6b, 0x11, 0x3, 0x2, 
-    0x2, 0x2, 0x6c, 0x6d, 0x5, 0x10, 0x9, 0x2, 0x6d, 0x6e, 0x5, 0x42, 0x22, 
-    0x2, 0x6e, 0x6f, 0x5, 0xc, 0x7, 0x2, 0x6f, 0x76, 0x3, 0x2, 0x2, 0x2, 
-    0x70, 0x71, 0x5, 0xc, 0x7, 0x2, 0x71, 0x72, 0x7, 0x29, 0x2, 0x2, 0x72, 
-    0x73, 0x5, 0x10, 0x9, 0x2, 0x73, 0x74, 0x5, 0x42, 0x22, 0x2, 0x74, 0x76, 
-    0x3, 0x2, 0x2, 0x2, 0x75, 0x6c, 0x3, 0x2, 0x2, 0x2, 0x75, 0x70, 0x3, 
-    0x2, 0x2, 0x2, 0x76, 0x13, 0x3, 0x2, 0x2, 0x2, 0x77, 0x79, 0x7, 0x18, 
-    0x2, 0x2, 0x78, 0x7a, 0x5, 0xc, 0x7, 0x2, 0x79, 0x78, 0x3, 0x2, 0x2, 
-    0x2, 0x79, 0x7a, 0x3, 0x2, 0x2, 0x2, 0x7a, 0x7c, 0x3, 0x2, 0x2, 0x2, 
-    0x7b, 0x7d, 0x7, 0x2a, 0x2, 0x2, 0x7c, 0x7b, 0x3, 0x2, 0x2, 0x2, 0x7c, 
-    0x7d, 0x3, 0x2, 0x2, 0x2, 0x7d, 0x7e, 0x3, 0x2, 0x2, 0x2, 0x7e, 0x87, 
-    0x5, 0x24, 0x13, 0x2, 0x7f, 0x81, 0x7, 0x18, 0x2, 0x2, 0x80, 0x82, 0x5, 
-    0xc, 0x7, 0x2, 0x81, 0x80, 0x3, 0x2, 0x2, 0x2, 0x81, 0x82, 0x3, 0x2, 
-    0x2, 0x2, 0x82, 0x83, 0x3, 0x2, 0x2, 0x2, 0x83, 0x84, 0x5, 0x42, 0x22, 
-    0x2, 0x84, 0x85, 0x7, 0x1e, 0x2, 0x2, 0x85, 0x87, 0x3, 0x2, 0x2, 0x2, 
-    0x86, 0x77, 0x3, 0x2, 0x2, 0x2, 0x86, 0x7f, 0x3, 0x2, 0x2, 0x2, 0x87, 
-    0x15, 0x3, 0x2, 0x2, 0x2, 0x88, 0x8a, 0x7, 0x19, 0x2, 0x2, 0x89, 0x8b, 
-    0x5, 0xc, 0x7, 0x2, 0x8a, 0x89, 0x3, 0x2, 0x2, 0x2, 0x8a, 0x8b, 0x3, 
-    0x2, 0x2, 0x2, 0x8b, 0x8d, 0x3, 0x2, 0x2, 0x2, 0x8c, 0x8e, 0x7, 0x2a, 
-    0x2, 0x2, 0x8d, 0x8c, 0x3, 0x2, 0x2, 0x2, 0x8d, 0x8e, 0x3, 0x2, 0x2, 
-    0x2, 0x8e, 0x8f, 0x3, 0x2, 0x2, 0x2, 0x8f, 0x98, 0x5, 0x24, 0x13, 0x2, 
-    0x90, 0x92, 0x7, 0x19, 0x2, 0x2, 0x91, 0x93, 0x5, 0xc, 0x7, 0x2, 0x92, 
-    0x91, 0x3, 0x2, 0x2, 0x2, 0x92, 0x93, 0x3, 0x2, 0x2, 0x2, 0x93, 0x94, 
-    0x3, 0x2, 0x2, 0x2, 0x94, 0x95, 0x5, 0x42, 0x22, 0x2, 0x95, 0x96, 0x7, 
-    0x1e, 0x2, 0x2, 0x96, 0x98, 0x3, 0x2, 0x2, 0x2, 0x97, 0x88, 0x3, 0x2, 
-    0x2, 0x2, 0x97, 0x90, 0x3, 0x2, 0x2, 0x2, 0x98, 0x17, 0x3, 0x2, 0x2, 
-    0x2, 0x99, 0x9b, 0x5, 0xc, 0x7, 0x2, 0x9a, 0x99, 0x3, 0x2, 0x2, 0x2, 
-    0x9a, 0x9b, 0x3, 0x2, 0x2, 0x2, 0x9b, 0x9c, 0x3, 0x2, 0x2, 0x2, 0x9c, 
-    0x9d, 0x7, 0x8, 0x2, 0x2, 0x9d, 0x9e, 0x5, 0x42, 0x22, 0x2, 0x9e, 0x9f, 
-    0x7, 0x9, 0x2, 0x2, 0x9f, 0x19, 0x3, 0x2, 0x2, 0x2, 0xa0, 0xa2, 0x5, 
-    0xc, 0x7, 0x2, 0xa1, 0xa0, 0x3, 0x2, 0x2, 0x2, 0xa1, 0xa2, 0x3, 0x2, 
-    0x2, 0x2, 0xa2, 0xa3, 0x3, 0x2, 0x2, 0x2, 0xa3, 0xa4, 0x7, 0x8, 0x2, 
-    0x2, 0xa4, 0xa5, 0x5, 0x42, 0x22, 0x2, 0xa5, 0xa6, 0x7, 0xa, 0x2, 0x2, 
-    0xa6, 0x1b, 0x3, 0x2, 0x2, 0x2, 0xa7, 0xa9, 0x5, 0xc, 0x7, 0x2, 0xa8, 
-    0xa7, 0x3, 0x2, 0x2, 0x2, 0xa8, 0xa9, 0x3, 0x2, 0x2, 0x2, 0xa9, 0xaa, 
-    0x3, 0x2, 0x2, 0x2, 0xaa, 0xab, 0x7, 0x17, 0x2, 0x2, 0xab, 0xac, 0x5, 
-    0x42, 0x22, 0x2, 0xac, 0xad, 0x7, 0x27, 0x2, 0x2, 0xad, 0x1d, 0x3, 0x2, 
-    0x2, 0x2, 0xae, 0xb6, 0x5, 0xe, 0x8, 0x2, 0xaf, 0xb6, 0x5, 0x12, 0xa, 
-    0x2, 0xb0, 0xb6, 0x5, 0x14, 0xb, 0x2, 0xb1, 0xb6, 0x5, 0x16, 0xc, 0x2, 
-    0xb2, 0xb6, 0x5, 0x18, 0xd, 0x2, 0xb3, 0xb6, 0x5, 0x1a, 0xe, 0x2, 0xb4, 
-    0xb6, 0x5, 0x1c, 0xf, 0x2, 0xb5, 0xae, 0x3, 0x2, 0x2, 0x2, 0xb5, 0xaf, 
-    0x3, 0x2, 0x2, 0x2, 0xb5, 0xb0, 0x3, 0x2, 0x2, 0x2, 0xb5, 0xb1, 0x3, 
-    0x2, 0x2, 0x2, 0xb5, 0xb2, 0x3, 0x2, 0x2, 0x2, 0xb5, 0xb3, 0x3, 0x2, 
-    0x2, 0x2, 0xb5, 0xb4, 0x3, 0x2, 0x2, 0x2, 0xb6, 0x1f, 0x3, 0x2, 0x2, 
-    0x2, 0xb7, 0xb8, 0x7, 0x1a, 0x2, 0x2, 0xb8, 0xb9, 0x7, 0x1e, 0x2, 0x2, 
-    0xb9, 0x21, 0x3, 0x2, 0x2, 0x2, 0xba, 0xbb, 0x7, 0x28, 0x2, 0x2, 0xbb, 
-    0xbc, 0x7, 0x1e, 0x2, 0x2, 0xbc, 0x23, 0x3, 0x2, 0x2, 0x2, 0xbd, 0xc0, 
-    0x5, 0x22, 0x12, 0x2, 0xbe, 0xc0, 0x5, 0x20, 0x11, 0x2, 0xbf, 0xbd, 
-    0x3, 0x2, 0x2, 0x2, 0xbf, 0xbe, 0x3, 0x2, 0x2, 0x2, 0xc0, 0x25, 0x3, 
-    0x2, 0x2, 0x2, 0xc1, 0xc2, 0x7, 0x1a, 0x2, 0x2, 0xc2, 0xc3, 0x7, 0x27, 
-    0x2, 0x2, 0xc3, 0x27, 0x3, 0x2, 0x2, 0x2, 0xc4, 0xc5, 0x7, 0x28, 0x2, 
-    0x2, 0xc5, 0xc6, 0x7, 0x27, 0x2, 0x2, 0xc6, 0x29, 0x3, 0x2, 0x2, 0x2, 
-    0xc7, 0xc8, 0x7, 0xb, 0x2, 0x2, 0xc8, 0xc9, 0x7, 0x2c, 0x2, 0x2, 0xc9, 
-    0xca, 0x7, 0x2d, 0x2, 0x2, 0xca, 0xcb, 0x7, 0xc, 0x2, 0x2, 0xcb, 0x2b, 
-    0x3, 0x2, 0x2, 0x2, 0xcc, 0xd0, 0x5, 0x26, 0x14, 0x2, 0xcd, 0xd0, 0x5, 
-    0x28, 0x15, 0x2, 0xce, 0xd0, 0x5, 0x2a, 0x16, 0x2, 0xcf, 0xcc, 0x3, 
-    0x2, 0x2, 0x2, 0xcf, 0xcd, 0x3, 0x2, 0x2, 0x2, 0xcf, 0xce, 0x3, 0x2, 
-    0x2, 0x2, 0xd0, 0x2d, 0x3, 0x2, 0x2, 0x2, 0xd1, 0xd2, 0x7, 0x1f, 0x2, 
-    0x2, 0xd2, 0xd3, 0x7, 0x20, 0x2, 0x2, 0xd3, 0xd4, 0x5, 0x2c, 0x17, 0x2, 
-    0xd4, 0x2f, 0x3, 0x2, 0x2, 0x2, 0xd5, 0xd6, 0x7, 0x20, 0x2, 0x2, 0xd6, 
-    0xd7, 0x5, 0x2c, 0x17, 0x2, 0xd7, 0x31, 0x3, 0x2, 0x2, 0x2, 0xd8, 0xdb, 
-    0x5, 0x2e, 0x18, 0x2, 0xd9, 0xdb, 0x5, 0x30, 0x19, 0x2, 0xda, 0xd8, 
-    0x3, 0x2, 0x2, 0x2, 0xda, 0xd9, 0x3, 0x2, 0x2, 0x2, 0xdb, 0x33, 0x3, 
-    0x2, 0x2, 0x2, 0xdc, 0xdd, 0x7, 0xd, 0x2, 0x2, 0xdd, 0xde, 0x7, 0x2d, 
-    0x2, 0x2, 0xde, 0xdf, 0x7, 0xe, 0x2, 0x2, 0xdf, 0x35, 0x3, 0x2, 0x2, 
-    0x2, 0xe0, 0xe1, 0x7, 0xf, 0x2, 0x2, 0xe1, 0xe2, 0x7, 0x2d, 0x2, 0x2, 
-    0xe2, 0xe3, 0x7, 0xe, 0x2, 0x2, 0xe3, 0x37, 0x3, 0x2, 0x2, 0x2, 0xe4, 
-    0xe5, 0x7, 0x10, 0x2, 0x2, 0xe5, 0xe6, 0x7, 0x11, 0x2, 0x2, 0xe6, 0x39, 
-    0x3, 0x2, 0x2, 0x2, 0xe7, 0xeb, 0x5, 0x36, 0x1c, 0x2, 0xe8, 0xeb, 0x5, 
-    0x34, 0x1b, 0x2, 0xe9, 0xeb, 0x5, 0x38, 0x1d, 0x2, 0xea, 0xe7, 0x3, 
-    0x2, 0x2, 0x2, 0xea, 0xe8, 0x3, 0x2, 0x2, 0x2, 0xea, 0xe9, 0x3, 0x2, 
-    0x2, 0x2, 0xeb, 0x3b, 0x3, 0x2, 0x2, 0x2, 0xec, 0xf0, 0x5, 0x1e, 0x10, 
-    0x2, 0xed, 0xf0, 0x5, 0x32, 0x1a, 0x2, 0xee, 0xf0, 0x5, 0x3a, 0x1e, 
-    0x2, 0xef, 0xec, 0x3, 0x2, 0x2, 0x2, 0xef, 0xed, 0x3, 0x2, 0x2, 0x2, 
-    0xef, 0xee, 0x3, 0x2, 0x2, 0x2, 0xf0, 0xf1, 0x3, 0x2, 0x2, 0x2, 0xf1, 
-    0xf3, 0x7, 0x12, 0x2, 0x2, 0xf2, 0xf4, 0x9, 0x6, 0x2, 0x2, 0xf3, 0xf2, 
-    0x3, 0x2, 0x2, 0x2, 0xf3, 0xf4, 0x3, 0x2, 0x2, 0x2, 0xf4, 0x3d, 0x3, 
-    0x2, 0x2, 0x2, 0xf5, 0xf7, 0x5, 0x3c, 0x1f, 0x2, 0xf6, 0xf5, 0x3, 0x2, 
-    0x2, 0x2, 0xf7, 0xf8, 0x3, 0x2, 0x2, 0x2, 0xf8, 0xf6, 0x3, 0x2, 0x2, 
-    0x2, 0xf8, 0xf9, 0x3, 0x2, 0x2, 0x2, 0xf9, 0xfd, 0x3, 0x2, 0x2, 0x2, 
-    0xfa, 0xfc, 0x7, 0x2f, 0x2, 0x2, 0xfb, 0xfa, 0x3, 0x2, 0x2, 0x2, 0xfc, 
-    0xff, 0x3, 0x2, 0x2, 0x2, 0xfd, 0xfb, 0x3, 0x2, 0x2, 0x2, 0xfd, 0xfe, 
-    0x3, 0x2, 0x2, 0x2, 0xfe, 0x3f, 0x3, 0x2, 0x2, 0x2, 0xff, 0xfd, 0x3, 
-    0x2, 0x2, 0x2, 0x100, 0x102, 0x5, 0x3e, 0x20, 0x2, 0x101, 0x100, 0x3, 
-    0x2, 0x2, 0x2, 0x102, 0x103, 0x3, 0x2, 0x2, 0x2, 0x103, 0x101, 0x3, 
-    0x2, 0x2, 0x2, 0x103, 0x104, 0x3, 0x2, 0x2, 0x2, 0x104, 0x107, 0x3, 
-    0x2, 0x2, 0x2, 0x105, 0x107, 0x7, 0x2, 0x2, 0x3, 0x106, 0x101, 0x3, 
-    0x2, 0x2, 0x2, 0x106, 0x105, 0x3, 0x2, 0x2, 0x2, 0x107, 0x41, 0x3, 0x2, 
-    0x2, 0x2, 0x108, 0x10b, 0x5, 0x44, 0x23, 0x2, 0x109, 0x10b, 0x5, 0x46, 
-    0x24, 0x2, 0x10a, 0x108, 0x3, 0x2, 0x2, 0x2, 0x10a, 0x109, 0x3, 0x2, 
-    0x2, 0x2, 0x10b, 0x43, 0x3, 0x2, 0x2, 0x2, 0x10c, 0x10d, 0x7, 0x2e, 
-    0x2, 0x2, 0x10d, 0x45, 0x3, 0x2, 0x2, 0x2, 0x10e, 0x10f, 0x9, 0x7, 0x2, 
-    0x2, 0x10f, 0x47, 0x3, 0x2, 0x2, 0x2, 0x1d, 0x4b, 0x5b, 0x68, 0x75, 
-    0x79, 0x7c, 0x81, 0x86, 0x8a, 0x8d, 0x92, 0x97, 0x9a, 0xa1, 0xa8, 0xb5, 
-    0xbf, 0xcf, 0xda, 0xea, 0xef, 0xf3, 0xf8, 0xfd, 0x103, 0x106, 0x10a, 
+    0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 
+    0x3, 0x8, 0x5, 0x8, 0xa8, 0xa, 0x8, 0x3, 0x9, 0x3, 0x9, 0x3, 0xa, 0x3, 
+    0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 
+    0xa, 0x5, 0xa, 0xb5, 0xa, 0xa, 0x3, 0xb, 0x3, 0xb, 0x3, 0xb, 0x3, 0xb, 
+    0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 
+    0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 
+    0x3, 0xc, 0x5, 0xc, 0xca, 0xa, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 
+    0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x3, 0xc, 0x5, 0xc, 0xd5, 
+    0xa, 0xc, 0x3, 0xd, 0x5, 0xd, 0xd8, 0xa, 0xd, 0x3, 0xd, 0x3, 0xd, 0x3, 
+    0xd, 0x5, 0xd, 0xdd, 0xa, 0xd, 0x3, 0xd, 0x3, 0xd, 0x3, 0xe, 0x5, 0xe, 
+    0xe2, 0xa, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xe, 0x3, 0xf, 0x3, 
+    0xf, 0x3, 0xf, 0x3, 0xf, 0x3, 0x10, 0x3, 0x10, 0x5, 0x10, 0xee, 0xa, 
+    0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 
+    0x5, 0x10, 0xf6, 0xa, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 
+    0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x3, 0x10, 0x5, 0x10, 0x100, 0xa, 0x10, 
+    0x3, 0x11, 0x3, 0x11, 0x3, 0x11, 0x3, 0x11, 0x3, 0x11, 0x3, 0x12, 0x3, 
+    0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 
+    0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 
+    0x12, 0x3, 0x12, 0x3, 0x12, 0x3, 0x12, 0x7, 0x12, 0x119, 0xa, 0x12, 
+    0xc, 0x12, 0xe, 0x12, 0x11c, 0xb, 0x12, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 
+    0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 0x13, 0x3, 0x14, 0x3, 
+    0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 
+    0x3, 0x14, 0x3, 0x14, 0x3, 0x14, 0x5, 0x14, 0x131, 0xa, 0x14, 0x3, 0x15, 
+    0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 
+    0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 0x3, 0x15, 
+    0x3, 0x15, 0x3, 0x15, 0x5, 0x15, 0x143, 0xa, 0x15, 0x3, 0x16, 0x3, 0x16, 
+    0x3, 0x16, 0x3, 0x17, 0x3, 0x17, 0x5, 0x17, 0x14a, 0xa, 0x17, 0x3, 0x18, 
+    0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 
+    0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x3, 0x18, 0x5, 0x18, 
+    0x159, 0xa, 0x18, 0x3, 0x19, 0x3, 0x19, 0x3, 0x19, 0x3, 0x1a, 0x3, 0x1a, 
+    0x3, 0x1a, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 0x1b, 0x3, 
+    0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 
+    0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x3, 
+    0x1c, 0x3, 0x1c, 0x3, 0x1c, 0x5, 0x1c, 0x176, 0xa, 0x1c, 0x3, 0x1d, 
+    0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 
+    0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 0x3, 0x1d, 
+    0x3, 0x1d, 0x3, 0x1d, 0x5, 0x1d, 0x188, 0xa, 0x1d, 0x3, 0x1e, 0x3, 0x1e, 
+    0x3, 0x1e, 0x3, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x3, 
+    0x1f, 0x3, 0x1f, 0x3, 0x1f, 0x5, 0x1f, 0x195, 0xa, 0x1f, 0x3, 0x20, 
+    0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 
+    0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 0x3, 0x20, 
+    0x5, 0x20, 0x1a5, 0xa, 0x20, 0x3, 0x21, 0x3, 0x21, 0x3, 0x21, 0x3, 0x21, 
+    0x3, 0x22, 0x3, 0x22, 0x3, 0x22, 0x3, 0x22, 0x3, 0x22, 0x3, 0x22, 0x3, 
+    0x22, 0x3, 0x22, 0x3, 0x23, 0x3, 0x23, 0x3, 0x23, 0x3, 0x24, 0x3, 0x24, 
+    0x3, 0x24, 0x3, 0x24, 0x3, 0x25, 0x3, 0x25, 0x3, 0x25, 0x3, 0x25, 0x3, 
+    0x25, 0x3, 0x25, 0x3, 0x25, 0x5, 0x25, 0x1c1, 0xa, 0x25, 0x3, 0x26, 
+    0x3, 0x26, 0x3, 0x26, 0x3, 0x26, 0x3, 0x26, 0x3, 0x26, 0x5, 0x26, 0x1c9, 
+    0xa, 0x26, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 0x27, 0x3, 
+    0x27, 0x3, 0x27, 0x3, 0x28, 0x3, 0x28, 0x3, 0x29, 0x3, 0x29, 0x3, 0x29, 
+    0x3, 0x29, 0x3, 0x29, 0x3, 0x2a, 0x3, 0x2a, 0x3, 0x2b, 0x3, 0x2b, 0x3, 
+    0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x5, 0x2c, 0x1e2, 
+    0xa, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 0x2c, 0x3, 
+    0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 0x3, 0x2d, 
+    0x3, 0x2e, 0x3, 0x2e, 0x3, 0x2e, 0x3, 0x2e, 0x3, 0x2f, 0x3, 0x2f, 0x3, 
+    0x2f, 0x3, 0x2f, 0x3, 0x2f, 0x5, 0x2f, 0x1f9, 0xa, 0x2f, 0x3, 0x30, 
+    0x3, 0x30, 0x3, 0x30, 0x5, 0x30, 0x1fe, 0xa, 0x30, 0x3, 0x30, 0x3, 0x30, 
+    0x3, 0x30, 0x3, 0x31, 0x3, 0x31, 0x5, 0x31, 0x205, 0xa, 0x31, 0x3, 0x31, 
+    0x3, 0x31, 0x5, 0x31, 0x209, 0xa, 0x31, 0x3, 0x32, 0x3, 0x32, 0x3, 0x32, 
+    0x3, 0x32, 0x3, 0x32, 0x3, 0x32, 0x3, 0x32, 0x6, 0x32, 0x212, 0xa, 0x32, 
+    0xd, 0x32, 0xe, 0x32, 0x213, 0x3, 0x33, 0x3, 0x33, 0x3, 0x33, 0x3, 0x33, 
+    0x3, 0x33, 0x3, 0x33, 0x6, 0x33, 0x21c, 0xa, 0x33, 0xd, 0x33, 0xe, 0x33, 
+    0x21d, 0x3, 0x33, 0x3, 0x33, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 
+    0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 
+    0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 0x3, 0x34, 
+    0x5, 0x34, 0x233, 0xa, 0x34, 0x3, 0x35, 0x3, 0x35, 0x3, 0x36, 0x3, 0x36, 
+    0x3, 0x37, 0x3, 0x37, 0x3, 0x37, 0x5, 0x37, 0x23c, 0xa, 0x37, 0x3, 0x37, 
+    0x3, 0x11a, 0x2, 0x38, 0x2, 0x4, 0x6, 0x8, 0xa, 0xc, 0xe, 0x10, 0x12, 
+    0x14, 0x16, 0x18, 0x1a, 0x1c, 0x1e, 0x20, 0x22, 0x24, 0x26, 0x28, 0x2a, 
+    0x2c, 0x2e, 0x30, 0x32, 0x34, 0x36, 0x38, 0x3a, 0x3c, 0x3e, 0x40, 0x42, 
+    0x44, 0x46, 0x48, 0x4a, 0x4c, 0x4e, 0x50, 0x52, 0x54, 0x56, 0x58, 0x5a, 
+    0x5c, 0x5e, 0x60, 0x62, 0x64, 0x66, 0x68, 0x6a, 0x6c, 0x2, 0xa, 0x3, 
+    0x2, 0x2b, 0x2c, 0x3, 0x2, 0x19, 0x1b, 0x3, 0x2, 0x23, 0x25, 0x3, 0x2, 
+    0x2e, 0x2f, 0x3, 0x2, 0x50, 0x51, 0x4, 0x2, 0x12, 0x12, 0x2d, 0x2d, 
+    0x3, 0x2, 0x5a, 0x5b, 0x4, 0x2, 0x12, 0x12, 0x5e, 0x63, 0x2, 0x252, 
+    0x2, 0x6f, 0x3, 0x2, 0x2, 0x2, 0x4, 0x80, 0x3, 0x2, 0x2, 0x2, 0x6, 0x88, 
+    0x3, 0x2, 0x2, 0x2, 0x8, 0x8a, 0x3, 0x2, 0x2, 0x2, 0xa, 0x8c, 0x3, 0x2, 
+    0x2, 0x2, 0xc, 0x92, 0x3, 0x2, 0x2, 0x2, 0xe, 0xa7, 0x3, 0x2, 0x2, 0x2, 
+    0x10, 0xa9, 0x3, 0x2, 0x2, 0x2, 0x12, 0xb4, 0x3, 0x2, 0x2, 0x2, 0x14, 
+    0xb6, 0x3, 0x2, 0x2, 0x2, 0x16, 0xd4, 0x3, 0x2, 0x2, 0x2, 0x18, 0xd7, 
+    0x3, 0x2, 0x2, 0x2, 0x1a, 0xe1, 0x3, 0x2, 0x2, 0x2, 0x1c, 0xe7, 0x3, 
+    0x2, 0x2, 0x2, 0x1e, 0xff, 0x3, 0x2, 0x2, 0x2, 0x20, 0x101, 0x3, 0x2, 
+    0x2, 0x2, 0x22, 0x106, 0x3, 0x2, 0x2, 0x2, 0x24, 0x11d, 0x3, 0x2, 0x2, 
+    0x2, 0x26, 0x130, 0x3, 0x2, 0x2, 0x2, 0x28, 0x142, 0x3, 0x2, 0x2, 0x2, 
+    0x2a, 0x144, 0x3, 0x2, 0x2, 0x2, 0x2c, 0x149, 0x3, 0x2, 0x2, 0x2, 0x2e, 
+    0x158, 0x3, 0x2, 0x2, 0x2, 0x30, 0x15a, 0x3, 0x2, 0x2, 0x2, 0x32, 0x15d, 
+    0x3, 0x2, 0x2, 0x2, 0x34, 0x160, 0x3, 0x2, 0x2, 0x2, 0x36, 0x175, 0x3, 
+    0x2, 0x2, 0x2, 0x38, 0x187, 0x3, 0x2, 0x2, 0x2, 0x3a, 0x189, 0x3, 0x2, 
+    0x2, 0x2, 0x3c, 0x194, 0x3, 0x2, 0x2, 0x2, 0x3e, 0x1a4, 0x3, 0x2, 0x2, 
+    0x2, 0x40, 0x1a6, 0x3, 0x2, 0x2, 0x2, 0x42, 0x1aa, 0x3, 0x2, 0x2, 0x2, 
+    0x44, 0x1b2, 0x3, 0x2, 0x2, 0x2, 0x46, 0x1b5, 0x3, 0x2, 0x2, 0x2, 0x48, 
+    0x1b9, 0x3, 0x2, 0x2, 0x2, 0x4a, 0x1c8, 0x3, 0x2, 0x2, 0x2, 0x4c, 0x1ca, 
+    0x3, 0x2, 0x2, 0x2, 0x4e, 0x1d1, 0x3, 0x2, 0x2, 0x2, 0x50, 0x1d3, 0x3, 
+    0x2, 0x2, 0x2, 0x52, 0x1d8, 0x3, 0x2, 0x2, 0x2, 0x54, 0x1da, 0x3, 0x2, 
+    0x2, 0x2, 0x56, 0x1dc, 0x3, 0x2, 0x2, 0x2, 0x58, 0x1e8, 0x3, 0x2, 0x2, 
+    0x2, 0x5a, 0x1ef, 0x3, 0x2, 0x2, 0x2, 0x5c, 0x1f8, 0x3, 0x2, 0x2, 0x2, 
+    0x5e, 0x1fa, 0x3, 0x2, 0x2, 0x2, 0x60, 0x204, 0x3, 0x2, 0x2, 0x2, 0x62, 
+    0x20a, 0x3, 0x2, 0x2, 0x2, 0x64, 0x21b, 0x3, 0x2, 0x2, 0x2, 0x66, 0x232, 
+    0x3, 0x2, 0x2, 0x2, 0x68, 0x234, 0x3, 0x2, 0x2, 0x2, 0x6a, 0x236, 0x3, 
+    0x2, 0x2, 0x2, 0x6c, 0x23b, 0x3, 0x2, 0x2, 0x2, 0x6e, 0x70, 0x9, 0x2, 
+    0x2, 0x2, 0x6f, 0x6e, 0x3, 0x2, 0x2, 0x2, 0x70, 0x71, 0x3, 0x2, 0x2, 
+    0x2, 0x71, 0x6f, 0x3, 0x2, 0x2, 0x2, 0x71, 0x72, 0x3, 0x2, 0x2, 0x2, 
+    0x72, 0x3, 0x3, 0x2, 0x2, 0x2, 0x73, 0x74, 0x7, 0x21, 0x2, 0x2, 0x74, 
+    0x81, 0x5, 0x2, 0x2, 0x2, 0x75, 0x76, 0x7, 0x2d, 0x2, 0x2, 0x76, 0x77, 
+    0x7, 0x21, 0x2, 0x2, 0x77, 0x81, 0x5, 0x2, 0x2, 0x2, 0x78, 0x79, 0x7, 
+    0x21, 0x2, 0x2, 0x79, 0x7a, 0x7, 0x2d, 0x2, 0x2, 0x7a, 0x81, 0x5, 0x2, 
+    0x2, 0x2, 0x7b, 0x7c, 0x7, 0x35, 0x2, 0x2, 0x7c, 0x7d, 0x5, 0x6c, 0x37, 
+    0x2, 0x7d, 0x7e, 0x7, 0x21, 0x2, 0x2, 0x7e, 0x7f, 0x5, 0x2, 0x2, 0x2, 
+    0x7f, 0x81, 0x3, 0x2, 0x2, 0x2, 0x80, 0x73, 0x3, 0x2, 0x2, 0x2, 0x80, 
+    0x75, 0x3, 0x2, 0x2, 0x2, 0x80, 0x78, 0x3, 0x2, 0x2, 0x2, 0x80, 0x7b, 
+    0x3, 0x2, 0x2, 0x2, 0x81, 0x5, 0x3, 0x2, 0x2, 0x2, 0x82, 0x83, 0x7, 
+    0x12, 0x2, 0x2, 0x83, 0x89, 0x5, 0x2, 0x2, 0x2, 0x84, 0x85, 0x7, 0x2d, 
+    0x2, 0x2, 0x85, 0x89, 0x5, 0x2, 0x2, 0x2, 0x86, 0x87, 0x7, 0x33, 0x2, 
+    0x2, 0x87, 0x89, 0x7, 0x32, 0x2, 0x2, 0x88, 0x82, 0x3, 0x2, 0x2, 0x2, 
+    0x88, 0x84, 0x3, 0x2, 0x2, 0x2, 0x88, 0x86, 0x3, 0x2, 0x2, 0x2, 0x89, 
+    0x7, 0x3, 0x2, 0x2, 0x2, 0x8a, 0x8b, 0x7, 0x2e, 0x2, 0x2, 0x8b, 0x9, 
+    0x3, 0x2, 0x2, 0x2, 0x8c, 0x8d, 0x7, 0x2f, 0x2, 0x2, 0x8d, 0xb, 0x3, 
+    0x2, 0x2, 0x2, 0x8e, 0x93, 0x5, 0x8, 0x5, 0x2, 0x8f, 0x93, 0x5, 0x6, 
+    0x4, 0x2, 0x90, 0x93, 0x5, 0xa, 0x6, 0x2, 0x91, 0x93, 0x5, 0x4, 0x3, 
+    0x2, 0x92, 0x8e, 0x3, 0x2, 0x2, 0x2, 0x92, 0x8f, 0x3, 0x2, 0x2, 0x2, 
+    0x92, 0x90, 0x3, 0x2, 0x2, 0x2, 0x92, 0x91, 0x3, 0x2, 0x2, 0x2, 0x93, 
+    0xd, 0x3, 0x2, 0x2, 0x2, 0x94, 0x95, 0x7, 0x1e, 0x2, 0x2, 0x95, 0x96, 
+    0x5, 0x6c, 0x37, 0x2, 0x96, 0x97, 0x7, 0x2a, 0x2, 0x2, 0x97, 0x98, 0x7, 
+    0x14, 0x2, 0x2, 0x98, 0x99, 0x5, 0xc, 0x7, 0x2, 0x99, 0xa8, 0x3, 0x2, 
+    0x2, 0x2, 0x9a, 0x9b, 0x5, 0xc, 0x7, 0x2, 0x9b, 0x9c, 0x7, 0x15, 0x2, 
+    0x2, 0x9c, 0x9d, 0x5, 0x6c, 0x37, 0x2, 0x9d, 0x9e, 0x7, 0x2a, 0x2, 0x2, 
+    0x9e, 0xa8, 0x3, 0x2, 0x2, 0x2, 0x9f, 0xa0, 0x7, 0x1e, 0x2, 0x2, 0xa0, 
+    0xa1, 0x7, 0x2a, 0x2, 0x2, 0xa1, 0xa2, 0x7, 0x14, 0x2, 0x2, 0xa2, 0xa3, 
+    0x5, 0xc, 0x7, 0x2, 0xa3, 0xa4, 0x7, 0x3, 0x2, 0x2, 0xa4, 0xa5, 0x7, 
+    0x14, 0x2, 0x2, 0xa5, 0xa6, 0x5, 0x6c, 0x37, 0x2, 0xa6, 0xa8, 0x3, 0x2, 
+    0x2, 0x2, 0xa7, 0x94, 0x3, 0x2, 0x2, 0x2, 0xa7, 0x9a, 0x3, 0x2, 0x2, 
+    0x2, 0xa7, 0x9f, 0x3, 0x2, 0x2, 0x2, 0xa8, 0xf, 0x3, 0x2, 0x2, 0x2, 
+    0xa9, 0xaa, 0x9, 0x3, 0x2, 0x2, 0xaa, 0x11, 0x3, 0x2, 0x2, 0x2, 0xab, 
+    0xac, 0x5, 0x10, 0x9, 0x2, 0xac, 0xad, 0x5, 0x6c, 0x37, 0x2, 0xad, 0xae, 
+    0x5, 0xc, 0x7, 0x2, 0xae, 0xb5, 0x3, 0x2, 0x2, 0x2, 0xaf, 0xb0, 0x5, 
+    0xc, 0x7, 0x2, 0xb0, 0xb1, 0x7, 0x13, 0x2, 0x2, 0xb1, 0xb2, 0x5, 0x10, 
+    0x9, 0x2, 0xb2, 0xb3, 0x5, 0x6c, 0x37, 0x2, 0xb3, 0xb5, 0x3, 0x2, 0x2, 
+    0x2, 0xb4, 0xab, 0x3, 0x2, 0x2, 0x2, 0xb4, 0xaf, 0x3, 0x2, 0x2, 0x2, 
+    0xb5, 0x13, 0x3, 0x2, 0x2, 0x2, 0xb6, 0xb7, 0x7, 0x1f, 0x2, 0x2, 0xb7, 
+    0xb8, 0x7, 0x14, 0x2, 0x2, 0xb8, 0xb9, 0x5, 0x2c, 0x17, 0x2, 0xb9, 0x15, 
+    0x3, 0x2, 0x2, 0x2, 0xba, 0xbb, 0x7, 0x20, 0x2, 0x2, 0xbb, 0xbc, 0x7, 
+    0x14, 0x2, 0x2, 0xbc, 0xd5, 0x5, 0x2c, 0x17, 0x2, 0xbd, 0xbe, 0x7, 0x20, 
+    0x2, 0x2, 0xbe, 0xbf, 0x5, 0x6c, 0x37, 0x2, 0xbf, 0xc0, 0x7, 0x3a, 0x2, 
+    0x2, 0xc0, 0xd5, 0x3, 0x2, 0x2, 0x2, 0xc1, 0xc2, 0x7, 0x20, 0x2, 0x2, 
+    0xc2, 0xc3, 0x5, 0xc, 0x7, 0x2, 0xc3, 0xc4, 0x7, 0x14, 0x2, 0x2, 0xc4, 
+    0xc5, 0x5, 0x2c, 0x17, 0x2, 0xc5, 0xd5, 0x3, 0x2, 0x2, 0x2, 0xc6, 0xc7, 
+    0x7, 0x20, 0x2, 0x2, 0xc7, 0xc9, 0x5, 0xc, 0x7, 0x2, 0xc8, 0xca, 0x7, 
+    0x35, 0x2, 0x2, 0xc9, 0xc8, 0x3, 0x2, 0x2, 0x2, 0xc9, 0xca, 0x3, 0x2, 
+    0x2, 0x2, 0xca, 0xcb, 0x3, 0x2, 0x2, 0x2, 0xcb, 0xcc, 0x5, 0x6c, 0x37, 
+    0x2, 0xcc, 0xcd, 0x7, 0x3a, 0x2, 0x2, 0xcd, 0xd5, 0x3, 0x2, 0x2, 0x2, 
+    0xce, 0xcf, 0x7, 0x20, 0x2, 0x2, 0xcf, 0xd0, 0x5, 0xc, 0x7, 0x2, 0xd0, 
+    0xd1, 0x7, 0x31, 0x2, 0x2, 0xd1, 0xd2, 0x5, 0x6c, 0x37, 0x2, 0xd2, 0xd3, 
+    0x7, 0x3a, 0x2, 0x2, 0xd3, 0xd5, 0x3, 0x2, 0x2, 0x2, 0xd4, 0xba, 0x3, 
+    0x2, 0x2, 0x2, 0xd4, 0xbd, 0x3, 0x2, 0x2, 0x2, 0xd4, 0xc1, 0x3, 0x2, 
+    0x2, 0x2, 0xd4, 0xc6, 0x3, 0x2, 0x2, 0x2, 0xd4, 0xce, 0x3, 0x2, 0x2, 
+    0x2, 0xd5, 0x17, 0x3, 0x2, 0x2, 0x2, 0xd6, 0xd8, 0x5, 0xc, 0x7, 0x2, 
+    0xd7, 0xd6, 0x3, 0x2, 0x2, 0x2, 0xd7, 0xd8, 0x3, 0x2, 0x2, 0x2, 0xd8, 
+    0xd9, 0x3, 0x2, 0x2, 0x2, 0xd9, 0xda, 0x7, 0x22, 0x2, 0x2, 0xda, 0xdc, 
+    0x5, 0x6c, 0x37, 0x2, 0xdb, 0xdd, 0x7, 0x4, 0x2, 0x2, 0xdc, 0xdb, 0x3, 
+    0x2, 0x2, 0x2, 0xdc, 0xdd, 0x3, 0x2, 0x2, 0x2, 0xdd, 0xde, 0x3, 0x2, 
+    0x2, 0x2, 0xde, 0xdf, 0x9, 0x4, 0x2, 0x2, 0xdf, 0x19, 0x3, 0x2, 0x2, 
+    0x2, 0xe0, 0xe2, 0x5, 0xc, 0x7, 0x2, 0xe1, 0xe0, 0x3, 0x2, 0x2, 0x2, 
+    0xe1, 0xe2, 0x3, 0x2, 0x2, 0x2, 0xe2, 0xe3, 0x3, 0x2, 0x2, 0x2, 0xe3, 
+    0xe4, 0x7, 0x1d, 0x2, 0x2, 0xe4, 0xe5, 0x5, 0x6c, 0x37, 0x2, 0xe5, 0xe6, 
+    0x7, 0x64, 0x2, 0x2, 0xe6, 0x1b, 0x3, 0x2, 0x2, 0x2, 0xe7, 0xe8, 0x7, 
+    0x34, 0x2, 0x2, 0xe8, 0xe9, 0x9, 0x5, 0x2, 0x2, 0xe9, 0xea, 0x7, 0x26, 
+    0x2, 0x2, 0xea, 0x1d, 0x3, 0x2, 0x2, 0x2, 0xeb, 0xed, 0x5, 0xc, 0x7, 
+    0x2, 0xec, 0xee, 0x7, 0x27, 0x2, 0x2, 0xed, 0xec, 0x3, 0x2, 0x2, 0x2, 
+    0xed, 0xee, 0x3, 0x2, 0x2, 0x2, 0xee, 0xef, 0x3, 0x2, 0x2, 0x2, 0xef, 
+    0xf0, 0x7, 0x28, 0x2, 0x2, 0xf0, 0xf1, 0x5, 0x6c, 0x37, 0x2, 0xf1, 0xf2, 
+    0x7, 0x64, 0x2, 0x2, 0xf2, 0x100, 0x3, 0x2, 0x2, 0x2, 0xf3, 0xf5, 0x5, 
+    0xc, 0x7, 0x2, 0xf4, 0xf6, 0x7, 0x27, 0x2, 0x2, 0xf5, 0xf4, 0x3, 0x2, 
+    0x2, 0x2, 0xf5, 0xf6, 0x3, 0x2, 0x2, 0x2, 0xf6, 0xf7, 0x3, 0x2, 0x2, 
+    0x2, 0xf7, 0xf8, 0x7, 0x28, 0x2, 0x2, 0xf8, 0xf9, 0x5, 0x6c, 0x37, 0x2, 
+    0xf9, 0xfa, 0x7, 0x64, 0x2, 0x2, 0xfa, 0xfb, 0x7, 0x38, 0x2, 0x2, 0xfb, 
+    0xfc, 0x5, 0x6c, 0x37, 0x2, 0xfc, 0xfd, 0x7, 0x39, 0x2, 0x2, 0xfd, 0xfe, 
+    0x7, 0x42, 0x2, 0x2, 0xfe, 0x100, 0x3, 0x2, 0x2, 0x2, 0xff, 0xeb, 0x3, 
+    0x2, 0x2, 0x2, 0xff, 0xf3, 0x3, 0x2, 0x2, 0x2, 0x100, 0x1f, 0x3, 0x2, 
+    0x2, 0x2, 0x101, 0x102, 0x7, 0x18, 0x2, 0x2, 0x102, 0x103, 0x5, 0xc, 
+    0x7, 0x2, 0x103, 0x104, 0x5, 0x6c, 0x37, 0x2, 0x104, 0x105, 0x7, 0x37, 
+    0x2, 0x2, 0x105, 0x21, 0x3, 0x2, 0x2, 0x2, 0x106, 0x107, 0x7, 0x5, 0x2, 
+    0x2, 0x107, 0x108, 0x7, 0x16, 0x2, 0x2, 0x108, 0x109, 0x7, 0x2e, 0x2, 
+    0x2, 0x109, 0x10a, 0x7, 0x64, 0x2, 0x2, 0x10a, 0x10b, 0x7, 0x6, 0x2, 
+    0x2, 0x10b, 0x10c, 0x7, 0x7, 0x2, 0x2, 0x10c, 0x10d, 0x7, 0x20, 0x2, 
+    0x2, 0x10d, 0x10e, 0x7, 0x64, 0x2, 0x2, 0x10e, 0x10f, 0x7, 0x3d, 0x2, 
+    0x2, 0x10f, 0x110, 0x7, 0x21, 0x2, 0x2, 0x110, 0x111, 0x7, 0x12, 0x2, 
+    0x2, 0x111, 0x112, 0x7, 0x3a, 0x2, 0x2, 0x112, 0x113, 0x7, 0x6, 0x2, 
+    0x2, 0x113, 0x114, 0x7, 0x8, 0x2, 0x2, 0x114, 0x115, 0x7, 0x9, 0x2, 
+    0x2, 0x115, 0x116, 0x7, 0x30, 0x2, 0x2, 0x116, 0x11a, 0x7, 0x4b, 0x2, 
+    0x2, 0x117, 0x119, 0xb, 0x2, 0x2, 0x2, 0x118, 0x117, 0x3, 0x2, 0x2, 
+    0x2, 0x119, 0x11c, 0x3, 0x2, 0x2, 0x2, 0x11a, 0x11b, 0x3, 0x2, 0x2, 
+    0x2, 0x11a, 0x118, 0x3, 0x2, 0x2, 0x2, 0x11b, 0x23, 0x3, 0x2, 0x2, 0x2, 
+    0x11c, 0x11a, 0x3, 0x2, 0x2, 0x2, 0x11d, 0x11e, 0x5, 0xc, 0x7, 0x2, 
+    0x11e, 0x11f, 0x7, 0x29, 0x2, 0x2, 0x11f, 0x120, 0x5, 0x6c, 0x37, 0x2, 
+    0x120, 0x121, 0x7, 0x64, 0x2, 0x2, 0x121, 0x122, 0x7, 0x4b, 0x2, 0x2, 
+    0x122, 0x123, 0x7, 0x2f, 0x2, 0x2, 0x123, 0x124, 0x7, 0x4a, 0x2, 0x2, 
+    0x124, 0x25, 0x3, 0x2, 0x2, 0x2, 0x125, 0x131, 0x5, 0xe, 0x8, 0x2, 0x126, 
+    0x131, 0x5, 0x12, 0xa, 0x2, 0x127, 0x131, 0x5, 0x14, 0xb, 0x2, 0x128, 
+    0x131, 0x5, 0x16, 0xc, 0x2, 0x129, 0x131, 0x5, 0x18, 0xd, 0x2, 0x12a, 
+    0x131, 0x5, 0x1a, 0xe, 0x2, 0x12b, 0x131, 0x5, 0x1c, 0xf, 0x2, 0x12c, 
+    0x131, 0x5, 0x1e, 0x10, 0x2, 0x12d, 0x131, 0x5, 0x20, 0x11, 0x2, 0x12e, 
+    0x131, 0x5, 0x22, 0x12, 0x2, 0x12f, 0x131, 0x5, 0x24, 0x13, 0x2, 0x130, 
+    0x125, 0x3, 0x2, 0x2, 0x2, 0x130, 0x126, 0x3, 0x2, 0x2, 0x2, 0x130, 
+    0x127, 0x3, 0x2, 0x2, 0x2, 0x130, 0x128, 0x3, 0x2, 0x2, 0x2, 0x130, 
+    0x129, 0x3, 0x2, 0x2, 0x2, 0x130, 0x12a, 0x3, 0x2, 0x2, 0x2, 0x130, 
+    0x12b, 0x3, 0x2, 0x2, 0x2, 0x130, 0x12c, 0x3, 0x2, 0x2, 0x2, 0x130, 
+    0x12d, 0x3, 0x2, 0x2, 0x2, 0x130, 0x12e, 0x3, 0x2, 0x2, 0x2, 0x130, 
+    0x12f, 0x3, 0x2, 0x2, 0x2, 0x131, 0x27, 0x3, 0x2, 0x2, 0x2, 0x132, 0x133, 
+    0x7, 0x21, 0x2, 0x2, 0x133, 0x143, 0x7, 0x3a, 0x2, 0x2, 0x134, 0x135, 
+    0x7, 0x21, 0x2, 0x2, 0x135, 0x136, 0x7, 0x2d, 0x2, 0x2, 0x136, 0x143, 
+    0x7, 0x3a, 0x2, 0x2, 0x137, 0x138, 0x7, 0x2d, 0x2, 0x2, 0x138, 0x139, 
+    0x7, 0x21, 0x2, 0x2, 0x139, 0x143, 0x7, 0x3a, 0x2, 0x2, 0x13a, 0x13b, 
+    0x7, 0x35, 0x2, 0x2, 0x13b, 0x13c, 0x5, 0x6c, 0x37, 0x2, 0x13c, 0x13d, 
+    0x7, 0x21, 0x2, 0x2, 0x13d, 0x13e, 0x7, 0x3a, 0x2, 0x2, 0x13e, 0x143, 
+    0x3, 0x2, 0x2, 0x2, 0x13f, 0x140, 0x7, 0x21, 0x2, 0x2, 0x140, 0x141, 
+    0x7, 0x3b, 0x2, 0x2, 0x141, 0x143, 0x7, 0x3a, 0x2, 0x2, 0x142, 0x132, 
+    0x3, 0x2, 0x2, 0x2, 0x142, 0x134, 0x3, 0x2, 0x2, 0x2, 0x142, 0x137, 
+    0x3, 0x2, 0x2, 0x2, 0x142, 0x13a, 0x3, 0x2, 0x2, 0x2, 0x142, 0x13f, 
+    0x3, 0x2, 0x2, 0x2, 0x143, 0x29, 0x3, 0x2, 0x2, 0x2, 0x144, 0x145, 0x7, 
+    0x12, 0x2, 0x2, 0x145, 0x146, 0x7, 0x3a, 0x2, 0x2, 0x146, 0x2b, 0x3, 
+    0x2, 0x2, 0x2, 0x147, 0x14a, 0x5, 0x2a, 0x16, 0x2, 0x148, 0x14a, 0x5, 
+    0x28, 0x15, 0x2, 0x149, 0x147, 0x3, 0x2, 0x2, 0x2, 0x149, 0x148, 0x3, 
+    0x2, 0x2, 0x2, 0x14a, 0x2d, 0x3, 0x2, 0x2, 0x2, 0x14b, 0x14c, 0x7, 0x21, 
+    0x2, 0x2, 0x14c, 0x159, 0x7, 0x64, 0x2, 0x2, 0x14d, 0x14e, 0x7, 0x2d, 
+    0x2, 0x2, 0x14e, 0x14f, 0x7, 0x21, 0x2, 0x2, 0x14f, 0x159, 0x7, 0x64, 
+    0x2, 0x2, 0x150, 0x151, 0x7, 0x21, 0x2, 0x2, 0x151, 0x152, 0x7, 0x2d, 
+    0x2, 0x2, 0x152, 0x159, 0x7, 0x64, 0x2, 0x2, 0x153, 0x154, 0x7, 0x35, 
+    0x2, 0x2, 0x154, 0x155, 0x5, 0x6c, 0x37, 0x2, 0x155, 0x156, 0x7, 0x21, 
+    0x2, 0x2, 0x156, 0x157, 0x7, 0x64, 0x2, 0x2, 0x157, 0x159, 0x3, 0x2, 
+    0x2, 0x2, 0x158, 0x14b, 0x3, 0x2, 0x2, 0x2, 0x158, 0x14d, 0x3, 0x2, 
+    0x2, 0x2, 0x158, 0x150, 0x3, 0x2, 0x2, 0x2, 0x158, 0x153, 0x3, 0x2, 
+    0x2, 0x2, 0x159, 0x2f, 0x3, 0x2, 0x2, 0x2, 0x15a, 0x15b, 0x7, 0x12, 
+    0x2, 0x2, 0x15b, 0x15c, 0x7, 0x64, 0x2, 0x2, 0x15c, 0x31, 0x3, 0x2, 
+    0x2, 0x2, 0x15d, 0x15e, 0x7, 0x3d, 0x2, 0x2, 0x15e, 0x15f, 0x7, 0x64, 
+    0x2, 0x2, 0x15f, 0x33, 0x3, 0x2, 0x2, 0x2, 0x160, 0x161, 0x7, 0x46, 
+    0x2, 0x2, 0x161, 0x162, 0x7, 0x16, 0x2, 0x2, 0x162, 0x163, 0x7, 0x17, 
+    0x2, 0x2, 0x163, 0x164, 0x7, 0xa, 0x2, 0x2, 0x164, 0x35, 0x3, 0x2, 0x2, 
+    0x2, 0x165, 0x166, 0x7, 0x17, 0x2, 0x2, 0x166, 0x167, 0x7, 0x64, 0x2, 
+    0x2, 0x167, 0x168, 0x7, 0x49, 0x2, 0x2, 0x168, 0x169, 0x7, 0x17, 0x2, 
+    0x2, 0x169, 0x16a, 0x7, 0x47, 0x2, 0x2, 0x16a, 0x16b, 0x7, 0x16, 0x2, 
+    0x2, 0x16b, 0x16c, 0x5, 0xc, 0x7, 0x2, 0x16c, 0x16d, 0x7, 0x48, 0x2, 
+    0x2, 0x16d, 0x176, 0x3, 0x2, 0x2, 0x2, 0x16e, 0x16f, 0x7, 0x17, 0x2, 
+    0x2, 0x16f, 0x170, 0x7, 0x47, 0x2, 0x2, 0x170, 0x171, 0x7, 0x64, 0x2, 
+    0x2, 0x171, 0x172, 0x7, 0x16, 0x2, 0x2, 0x172, 0x173, 0x5, 0xc, 0x7, 
+    0x2, 0x173, 0x174, 0x7, 0x48, 0x2, 0x2, 0x174, 0x176, 0x3, 0x2, 0x2, 
+    0x2, 0x175, 0x165, 0x3, 0x2, 0x2, 0x2, 0x175, 0x16e, 0x3, 0x2, 0x2, 
+    0x2, 0x176, 0x37, 0x3, 0x2, 0x2, 0x2, 0x177, 0x178, 0x7, 0x17, 0x2, 
+    0x2, 0x178, 0x179, 0x7, 0x64, 0x2, 0x2, 0x179, 0x17a, 0x7, 0x49, 0x2, 
+    0x2, 0x17a, 0x17b, 0x7, 0x17, 0x2, 0x2, 0x17b, 0x17c, 0x7, 0x46, 0x2, 
+    0x2, 0x17c, 0x17d, 0x7, 0x16, 0x2, 0x2, 0x17d, 0x17e, 0x5, 0xc, 0x7, 
+    0x2, 0x17e, 0x17f, 0x7, 0x48, 0x2, 0x2, 0x17f, 0x188, 0x3, 0x2, 0x2, 
+    0x2, 0x180, 0x181, 0x7, 0x17, 0x2, 0x2, 0x181, 0x182, 0x7, 0x46, 0x2, 
+    0x2, 0x182, 0x183, 0x7, 0x64, 0x2, 0x2, 0x183, 0x184, 0x7, 0x16, 0x2, 
+    0x2, 0x184, 0x185, 0x5, 0xc, 0x7, 0x2, 0x185, 0x186, 0x7, 0x48, 0x2, 
+    0x2, 0x186, 0x188, 0x3, 0x2, 0x2, 0x2, 0x187, 0x177, 0x3, 0x2, 0x2, 
+    0x2, 0x187, 0x180, 0x3, 0x2, 0x2, 0x2, 0x188, 0x39, 0x3, 0x2, 0x2, 0x2, 
+    0x189, 0x18a, 0x5, 0xc, 0x7, 0x2, 0x18a, 0x18b, 0x7, 0x4a, 0x2, 0x2, 
+    0x18b, 0x3b, 0x3, 0x2, 0x2, 0x2, 0x18c, 0x195, 0x5, 0x2e, 0x18, 0x2, 
+    0x18d, 0x195, 0x5, 0x30, 0x19, 0x2, 0x18e, 0x195, 0x5, 0x34, 0x1b, 0x2, 
+    0x18f, 0x195, 0x5, 0x36, 0x1c, 0x2, 0x190, 0x195, 0x5, 0x38, 0x1d, 0x2, 
+    0x191, 0x192, 0x7, 0x4b, 0x2, 0x2, 0x192, 0x195, 0x5, 0x3a, 0x1e, 0x2, 
+    0x193, 0x195, 0x5, 0x32, 0x1a, 0x2, 0x194, 0x18c, 0x3, 0x2, 0x2, 0x2, 
+    0x194, 0x18d, 0x3, 0x2, 0x2, 0x2, 0x194, 0x18e, 0x3, 0x2, 0x2, 0x2, 
+    0x194, 0x18f, 0x3, 0x2, 0x2, 0x2, 0x194, 0x190, 0x3, 0x2, 0x2, 0x2, 
+    0x194, 0x191, 0x3, 0x2, 0x2, 0x2, 0x194, 0x193, 0x3, 0x2, 0x2, 0x2, 
+    0x195, 0x3d, 0x3, 0x2, 0x2, 0x2, 0x196, 0x197, 0x7, 0x45, 0x2, 0x2, 
+    0x197, 0x198, 0x7, 0x14, 0x2, 0x2, 0x198, 0x1a5, 0x5, 0xc, 0x7, 0x2, 
+    0x199, 0x19a, 0x7, 0x45, 0x2, 0x2, 0x19a, 0x19b, 0x7, 0x14, 0x2, 0x2, 
+    0x19b, 0x1a5, 0x5, 0x2c, 0x17, 0x2, 0x19c, 0x19d, 0x7, 0x45, 0x2, 0x2, 
+    0x19d, 0x19e, 0x7, 0x14, 0x2, 0x2, 0x19e, 0x19f, 0x5, 0x2c, 0x17, 0x2, 
+    0x19f, 0x1a0, 0x7, 0x4c, 0x2, 0x2, 0x1a0, 0x1a1, 0x7, 0x51, 0x2, 0x2, 
+    0x1a1, 0x1a2, 0x7, 0x16, 0x2, 0x2, 0x1a2, 0x1a3, 0x7, 0x4f, 0x2, 0x2, 
+    0x1a3, 0x1a5, 0x3, 0x2, 0x2, 0x2, 0x1a4, 0x196, 0x3, 0x2, 0x2, 0x2, 
+    0x1a4, 0x199, 0x3, 0x2, 0x2, 0x2, 0x1a4, 0x19c, 0x3, 0x2, 0x2, 0x2, 
+    0x1a5, 0x3f, 0x3, 0x2, 0x2, 0x2, 0x1a6, 0x1a7, 0x7, 0x3f, 0x2, 0x2, 
+    0x1a7, 0x1a8, 0x7, 0x40, 0x2, 0x2, 0x1a8, 0x1a9, 0x5, 0x3c, 0x1f, 0x2, 
+    0x1a9, 0x41, 0x3, 0x2, 0x2, 0x2, 0x1aa, 0x1ab, 0x7, 0x40, 0x2, 0x2, 
+    0x1ab, 0x1ac, 0x5, 0x3c, 0x1f, 0x2, 0x1ac, 0x1ad, 0x7, 0x43, 0x2, 0x2, 
+    0x1ad, 0x1ae, 0x5, 0xc, 0x7, 0x2, 0x1ae, 0x1af, 0x7, 0x44, 0x2, 0x2, 
+    0x1af, 0x1b0, 0x5, 0x6c, 0x37, 0x2, 0x1b0, 0x1b1, 0x7, 0x42, 0x2, 0x2, 
+    0x1b1, 0x43, 0x3, 0x2, 0x2, 0x2, 0x1b2, 0x1b3, 0x7, 0x41, 0x2, 0x2, 
+    0x1b3, 0x1b4, 0x5, 0x3c, 0x1f, 0x2, 0x1b4, 0x45, 0x3, 0x2, 0x2, 0x2, 
+    0x1b5, 0x1b6, 0x5, 0x3c, 0x1f, 0x2, 0x1b6, 0x1b7, 0x7, 0x22, 0x2, 0x2, 
+    0x1b7, 0x1b8, 0x7, 0x3c, 0x2, 0x2, 0x1b8, 0x47, 0x3, 0x2, 0x2, 0x2, 
+    0x1b9, 0x1ba, 0x7, 0x3e, 0x2, 0x2, 0x1ba, 0x1c0, 0x5, 0x3c, 0x1f, 0x2, 
+    0x1bb, 0x1bc, 0x7, 0x49, 0x2, 0x2, 0x1bc, 0x1c1, 0x5, 0x36, 0x1c, 0x2, 
+    0x1bd, 0x1c1, 0x5, 0x38, 0x1d, 0x2, 0x1be, 0x1bf, 0x7, 0xb, 0x2, 0x2, 
+    0x1bf, 0x1c1, 0x5, 0x3a, 0x1e, 0x2, 0x1c0, 0x1bb, 0x3, 0x2, 0x2, 0x2, 
+    0x1c0, 0x1bd, 0x3, 0x2, 0x2, 0x2, 0x1c0, 0x1be, 0x3, 0x2, 0x2, 0x2, 
+    0x1c1, 0x49, 0x3, 0x2, 0x2, 0x2, 0x1c2, 0x1c9, 0x5, 0x40, 0x21, 0x2, 
+    0x1c3, 0x1c9, 0x5, 0x42, 0x22, 0x2, 0x1c4, 0x1c9, 0x5, 0x44, 0x23, 0x2, 
+    0x1c5, 0x1c9, 0x5, 0x3e, 0x20, 0x2, 0x1c6, 0x1c9, 0x5, 0x48, 0x25, 0x2, 
+    0x1c7, 0x1c9, 0x5, 0x46, 0x24, 0x2, 0x1c8, 0x1c2, 0x3, 0x2, 0x2, 0x2, 
+    0x1c8, 0x1c3, 0x3, 0x2, 0x2, 0x2, 0x1c8, 0x1c4, 0x3, 0x2, 0x2, 0x2, 
+    0x1c8, 0x1c5, 0x3, 0x2, 0x2, 0x2, 0x1c8, 0x1c6, 0x3, 0x2, 0x2, 0x2, 
+    0x1c8, 0x1c7, 0x3, 0x2, 0x2, 0x2, 0x1c9, 0x4b, 0x3, 0x2, 0x2, 0x2, 0x1ca, 
+    0x1cb, 0x7, 0x52, 0x2, 0x2, 0x1cb, 0x1cc, 0x7, 0x17, 0x2, 0x2, 0x1cc, 
+    0x1cd, 0x9, 0x6, 0x2, 0x2, 0x1cd, 0x1ce, 0x7, 0x16, 0x2, 0x2, 0x1ce, 
+    0x1cf, 0x5, 0xc, 0x7, 0x2, 0x1cf, 0x1d0, 0x7, 0x4f, 0x2, 0x2, 0x1d0, 
+    0x4d, 0x3, 0x2, 0x2, 0x2, 0x1d1, 0x1d2, 0x5, 0x4c, 0x27, 0x2, 0x1d2, 
+    0x4f, 0x3, 0x2, 0x2, 0x2, 0x1d3, 0x1d4, 0x5, 0x4e, 0x28, 0x2, 0x1d4, 
+    0x1d5, 0x7, 0x6, 0x2, 0x2, 0x1d5, 0x1d6, 0x5, 0x60, 0x31, 0x2, 0x1d6, 
+    0x1d7, 0x7, 0xc, 0x2, 0x2, 0x1d7, 0x51, 0x3, 0x2, 0x2, 0x2, 0x1d8, 0x1d9, 
+    0x7, 0xd, 0x2, 0x2, 0x1d9, 0x53, 0x3, 0x2, 0x2, 0x2, 0x1da, 0x1db, 0x7, 
+    0xe, 0x2, 0x2, 0x1db, 0x55, 0x3, 0x2, 0x2, 0x2, 0x1dc, 0x1dd, 0x7, 0x55, 
+    0x2, 0x2, 0x1dd, 0x1de, 0x5, 0xc, 0x7, 0x2, 0x1de, 0x1df, 0x7, 0x57, 
+    0x2, 0x2, 0x1df, 0x1e1, 0x9, 0x7, 0x2, 0x2, 0x1e0, 0x1e2, 0x7, 0x59, 
+    0x2, 0x2, 0x1e1, 0x1e0, 0x3, 0x2, 0x2, 0x2, 0x1e1, 0x1e2, 0x3, 0x2, 
+    0x2, 0x2, 0x1e2, 0x1e3, 0x3, 0x2, 0x2, 0x2, 0x1e3, 0x1e4, 0x9, 0x8, 
+    0x2, 0x2, 0x1e4, 0x1e5, 0x7, 0x64, 0x2, 0x2, 0x1e5, 0x1e6, 0x7, 0x53, 
+    0x2, 0x2, 0x1e6, 0x1e7, 0x7, 0x4f, 0x2, 0x2, 0x1e7, 0x57, 0x3, 0x2, 
+    0x2, 0x2, 0x1e8, 0x1e9, 0x7, 0x55, 0x2, 0x2, 0x1e9, 0x1ea, 0x5, 0xc, 
+    0x7, 0x2, 0x1ea, 0x1eb, 0x7, 0x5c, 0x2, 0x2, 0x1eb, 0x1ec, 0x7, 0x58, 
+    0x2, 0x2, 0x1ec, 0x1ed, 0x9, 0x5, 0x2, 0x2, 0x1ed, 0x1ee, 0x7, 0x26, 
+    0x2, 0x2, 0x1ee, 0x59, 0x3, 0x2, 0x2, 0x2, 0x1ef, 0x1f0, 0x7, 0x55, 
+    0x2, 0x2, 0x1f0, 0x1f1, 0x9, 0x5, 0x2, 0x2, 0x1f1, 0x1f2, 0x7, 0x56, 
+    0x2, 0x2, 0x1f2, 0x5b, 0x3, 0x2, 0x2, 0x2, 0x1f3, 0x1f9, 0x5, 0x56, 
+    0x2c, 0x2, 0x1f4, 0x1f9, 0x5, 0x52, 0x2a, 0x2, 0x1f5, 0x1f9, 0x5, 0x54, 
+    0x2b, 0x2, 0x1f6, 0x1f9, 0x5, 0x58, 0x2d, 0x2, 0x1f7, 0x1f9, 0x5, 0x5a, 
+    0x2e, 0x2, 0x1f8, 0x1f3, 0x3, 0x2, 0x2, 0x2, 0x1f8, 0x1f4, 0x3, 0x2, 
+    0x2, 0x2, 0x1f8, 0x1f5, 0x3, 0x2, 0x2, 0x2, 0x1f8, 0x1f6, 0x3, 0x2, 
+    0x2, 0x2, 0x1f8, 0x1f7, 0x3, 0x2, 0x2, 0x2, 0x1f9, 0x5d, 0x3, 0x2, 0x2, 
+    0x2, 0x1fa, 0x1fb, 0x5, 0x5c, 0x2f, 0x2, 0x1fb, 0x1fd, 0x7, 0x6, 0x2, 
+    0x2, 0x1fc, 0x1fe, 0x7, 0x5d, 0x2, 0x2, 0x1fd, 0x1fc, 0x3, 0x2, 0x2, 
+    0x2, 0x1fd, 0x1fe, 0x3, 0x2, 0x2, 0x2, 0x1fe, 0x1ff, 0x3, 0x2, 0x2, 
+    0x2, 0x1ff, 0x200, 0x5, 0x60, 0x31, 0x2, 0x200, 0x201, 0x7, 0xc, 0x2, 
+    0x2, 0x201, 0x5f, 0x3, 0x2, 0x2, 0x2, 0x202, 0x203, 0x7, 0x54, 0x2, 
+    0x2, 0x203, 0x205, 0x7, 0x6, 0x2, 0x2, 0x204, 0x202, 0x3, 0x2, 0x2, 
+    0x2, 0x204, 0x205, 0x3, 0x2, 0x2, 0x2, 0x205, 0x208, 0x3, 0x2, 0x2, 
+    0x2, 0x206, 0x209, 0x5, 0x26, 0x14, 0x2, 0x207, 0x209, 0x5, 0x4a, 0x26, 
+    0x2, 0x208, 0x206, 0x3, 0x2, 0x2, 0x2, 0x208, 0x207, 0x3, 0x2, 0x2, 
+    0x2, 0x209, 0x61, 0x3, 0x2, 0x2, 0x2, 0x20a, 0x20b, 0x7, 0xf, 0x2, 0x2, 
+    0x20b, 0x20c, 0x5, 0x6c, 0x37, 0x2, 0x20c, 0x211, 0x7, 0x10, 0x2, 0x2, 
+    0x20d, 0x20e, 0x7, 0x11, 0x2, 0x2, 0x20e, 0x20f, 0x5, 0x60, 0x31, 0x2, 
+    0x20f, 0x210, 0x7, 0xc, 0x2, 0x2, 0x210, 0x212, 0x3, 0x2, 0x2, 0x2, 
+    0x211, 0x20d, 0x3, 0x2, 0x2, 0x2, 0x212, 0x213, 0x3, 0x2, 0x2, 0x2, 
+    0x213, 0x211, 0x3, 0x2, 0x2, 0x2, 0x213, 0x214, 0x3, 0x2, 0x2, 0x2, 
+    0x214, 0x63, 0x3, 0x2, 0x2, 0x2, 0x215, 0x21c, 0x5, 0x62, 0x32, 0x2, 
+    0x216, 0x21c, 0x5, 0x5e, 0x30, 0x2, 0x217, 0x21c, 0x5, 0x50, 0x29, 0x2, 
+    0x218, 0x219, 0x5, 0x60, 0x31, 0x2, 0x219, 0x21a, 0x7, 0xc, 0x2, 0x2, 
+    0x21a, 0x21c, 0x3, 0x2, 0x2, 0x2, 0x21b, 0x215, 0x3, 0x2, 0x2, 0x2, 
+    0x21b, 0x216, 0x3, 0x2, 0x2, 0x2, 0x21b, 0x217, 0x3, 0x2, 0x2, 0x2, 
+    0x21b, 0x218, 0x3, 0x2, 0x2, 0x2, 0x21c, 0x21d, 0x3, 0x2, 0x2, 0x2, 
+    0x21d, 0x21b, 0x3, 0x2, 0x2, 0x2, 0x21d, 0x21e, 0x3, 0x2, 0x2, 0x2, 
+    0x21e, 0x21f, 0x3, 0x2, 0x2, 0x2, 0x21f, 0x220, 0x7, 0x2, 0x2, 0x3, 
+    0x220, 0x65, 0x3, 0x2, 0x2, 0x2, 0x221, 0x222, 0x7, 0x17, 0x2, 0x2, 
+    0x222, 0x223, 0x7, 0x4d, 0x2, 0x2, 0x223, 0x224, 0x7, 0x16, 0x2, 0x2, 
+    0x224, 0x225, 0x7, 0x64, 0x2, 0x2, 0x225, 0x226, 0x7, 0x4e, 0x2, 0x2, 
+    0x226, 0x227, 0x5, 0xc, 0x7, 0x2, 0x227, 0x228, 0x7, 0x4a, 0x2, 0x2, 
+    0x228, 0x233, 0x3, 0x2, 0x2, 0x2, 0x229, 0x22a, 0x7, 0x17, 0x2, 0x2, 
+    0x22a, 0x22b, 0x7, 0x4d, 0x2, 0x2, 0x22b, 0x22c, 0x7, 0x16, 0x2, 0x2, 
+    0x22c, 0x22d, 0x7, 0x29, 0x2, 0x2, 0x22d, 0x22e, 0x7, 0x64, 0x2, 0x2, 
+    0x22e, 0x22f, 0x7, 0x4e, 0x2, 0x2, 0x22f, 0x230, 0x5, 0xc, 0x7, 0x2, 
+    0x230, 0x231, 0x7, 0x4a, 0x2, 0x2, 0x231, 0x233, 0x3, 0x2, 0x2, 0x2, 
+    0x232, 0x221, 0x3, 0x2, 0x2, 0x2, 0x232, 0x229, 0x3, 0x2, 0x2, 0x2, 
+    0x233, 0x67, 0x3, 0x2, 0x2, 0x2, 0x234, 0x235, 0x7, 0x65, 0x2, 0x2, 
+    0x235, 0x69, 0x3, 0x2, 0x2, 0x2, 0x236, 0x237, 0x9, 0x9, 0x2, 0x2, 0x237, 
+    0x6b, 0x3, 0x2, 0x2, 0x2, 0x238, 0x23c, 0x5, 0x68, 0x35, 0x2, 0x239, 
+    0x23c, 0x5, 0x6a, 0x36, 0x2, 0x23a, 0x23c, 0x5, 0x66, 0x34, 0x2, 0x23b, 
+    0x238, 0x3, 0x2, 0x2, 0x2, 0x23b, 0x239, 0x3, 0x2, 0x2, 0x2, 0x23b, 
+    0x23a, 0x3, 0x2, 0x2, 0x2, 0x23c, 0x6d, 0x3, 0x2, 0x2, 0x2, 0x25, 0x71, 
+    0x80, 0x88, 0x92, 0xa7, 0xb4, 0xc9, 0xd4, 0xd7, 0xdc, 0xe1, 0xed, 0xf5, 
+    0xff, 0x11a, 0x130, 0x142, 0x149, 0x158, 0x175, 0x187, 0x194, 0x1a4, 
+    0x1c0, 0x1c8, 0x1e1, 0x1f8, 0x1fd, 0x204, 0x208, 0x213, 0x21b, 0x21d, 
+    0x232, 0x23b, 
   };
 
   atn::ATNDeserializer deserializer;

@@ -14,12 +14,22 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, T__15 = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
-    Draw = 21, Move = 22, Travel = 23, Target = 24, Player = 25, Enemy = 26, 
-    Deal = 27, Tile = 28, Meta = 29, Counter = 30, One = 31, Two = 32, Three = 33, 
-    Four = 34, Five = 35, Six = 36, Card = 37, A = 38, Is = 39, To = 40, 
-    Take = 41, Of = 42, The = 43, Integer = 44, Newline = 45, Whitespace = 46, 
-    BlockComment = 47, LineComment = 48, TextSymbolComment = 49, BracketComment = 50
+    T__14 = 15, A = 16, Is = 17, To = 18, Take = 19, Of = 20, The = 21, 
+    Heal = 22, Disarm = 23, Silence = 24, Slow = 25, Discard = 26, Draw = 27, 
+    Deal = 28, Move = 29, Travel = 30, Target = 31, Gain = 32, Action = 33, 
+    Power = 34, Initiative = 35, SecondWind = 36, May = 37, Play = 38, Reveal = 39, 
+    Damage = 40, Player = 41, Enemy = 42, Another = 43, CardController = 44, 
+    PreviousPlayer = 45, Range = 46, Away = 47, Controller = 48, Its = 49, 
+    Use = 50, UpTo = 51, Have = 52, Health = 53, For = 54, Less = 55, Tile = 56, 
+    Empty = 57, Heroic = 58, That = 59, Put = 60, Meta = 61, Counter = 62, 
+    Destroy = 63, Resource = 64, Unless = 65, Pays = 66, Attach = 67, Top = 68, 
+    Bottom = 69, Deck = 70, On = 71, Hand = 72, From = 73, Until = 74, Number = 75, 
+    In = 76, Turn = 77, Start = 78, End = 79, At = 80, This = 81, Then = 82, 
+    If = 83, Do = 84, Resolved = 85, Used = 86, Non = 87, Ability = 88, 
+    Attack = 89, Already = 90, Instead = 91, One = 92, Two = 93, Three = 94, 
+    Four = 95, Five = 96, Six = 97, Card = 98, Integer = 99, Newline = 100, 
+    Whitespace = 101, BlockComment = 102, RulesComment = 103, LineComment = 104, 
+    TextSymbolComment = 105, BracketComment = 106
   };
 
   IvionLexer(antlr4::CharStream *input);
