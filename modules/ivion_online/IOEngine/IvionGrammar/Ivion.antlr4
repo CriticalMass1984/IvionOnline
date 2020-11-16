@@ -2,17 +2,6 @@ grammar Ivion;
 
 //////////////////////////////////////////////////////////////////////
 
-// articles
-A: 'a' | 'A' | 'an' | 'An';
-Is: 'is' | 'are';
-To: 'to' | 'To';
-Take: 'take' | 'takes';
-Of: 'Of' | 'of';
-The: 'The' | 'the';
-
-
-//////////////////////////////////////////////////////////////////////
-
 filterPlayer
     : (Player | Enemy)+;
 
@@ -79,6 +68,7 @@ useSecondWind
 playACard
     : player May? Play integer Card
     | player May? Play integer Card For integer Less Resource
+    | player May? Play integer Card For Free
     ;
 
 heal
@@ -88,7 +78,8 @@ rangeSource
     : 'All' Of CardController Card ',' 'except' Travel Card That Target A Tile ',' 'also' 'draw' Range From .*?;
 
 revealFromHand
-    : player Reveal integer Card From PreviousPlayer Hand;
+    : player Reveal integer Card From PreviousPlayer Hand
+    ;
 
 effectPlayer
     : damagePlayer
@@ -103,43 +94,6 @@ effectPlayer
     | rangeSource
     | revealFromHand
     ;
-
-Heal : 'Heal' | 'heal' | 'healed';
-Disarm : 'Disarm' | 'disarm' | 'disarmed';
-Silence : 'Silence' | 'silence' | 'silenced';
-Slow : 'Slow' | 'slow' | 'slowed';
-Discard: 'Discard' | 'discard' | 'discards';
-Draw: 'Draw' | 'draw' | 'draws';
-Deal: 'deal' | 'Deal';
-Move: 'move' | 'moves';
-Travel: 'travel' | 'travels' | 'Travel';
-Target : 'Target' | 'target';
-Gain: 'gain' | 'gains';
-Action: 'Action' | 'Actions' | 'action' | 'actions' | '[a]';
-Power: 'Power' | 'power' | '[p]';
-Initiative: 'Initiative' | 'initiative' | '[n]';
-SecondWind: 'Second Wind';
-May: 'may';
-Play: 'play';
-Reveal: 'Reveal' | 'Reveals' | 'Revealed';
-Damage: 'damage' | 'Damage';
-
-Player : ('player' | 'Player' | 'Character' | 'character') '\'s'? Have?;
-Enemy : ('enemy' | 'Enemy' | 'opponent' | 'Opponent') '\'s'? Have?;
-Another: 'another';
-CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
-PreviousPlayer: 'They' | 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
-
-Range: 'range';
-Away: 'away from you';
-Controller: 'controller';
-Its: 'its';
-Use: 'Use' | 'Uses' | 'use' | 'uses';
-UpTo: 'up to';
-Have: 'have' | 'has';
-Health: 'health' | 'HP';
-For: 'for';
-Less: 'less';
 
 //////////////////////////////////////////////////////////////////////
 
@@ -160,8 +114,6 @@ tile
     | targetTile
     ;
 
-Tile: 'tile' | 'tiles';
-Empty: 'empty';
 //////////////////////////////////////////////////////////////////////
 
 targetCard
@@ -238,26 +190,6 @@ cardEffect
     | cardGainsTrait
     ;
 
-Heroic: 'Heroic';
-
-That: 'That' | 'that';
-Put: 'Put' | 'put';
-Meta: 'Meta' | 'meta';
-Counter: 'Counter' | 'counter';
-Destroy: 'Destroy' | 'destroy';
-Resource: 'resource' | 'resources' | 'Resources' | 'Resource';
-Unless: 'unless';
-Pays: 'pays' | 'spends';
-Attach: 'Attach';
-Top: 'top';
-Bottom: 'bottom';
-Deck: 'deck';
-On: 'On' | 'on';
-Hand: 'Hand' | 'hand';
-From: 'From' | 'from';
-Until: 'until';
-Number: 'number';
-In: 'in';
 
 //////////////////////////////////////////////////////////////////////
 
@@ -273,17 +205,10 @@ triggerEffect
     : triggerConditions ',' effect '.'
     ;
 
-Turn: 'turn';
-Start: 'start';
-End: 'end';
-At: 'at' | 'At';
-This: 'this';
-Then: 'then' | 'Then';
-
 //////////////////////////////////////////////////////////////////////
 
-breach: 'Breach';
-advantage: 'Advantage';
+breach: 'breach';
+advantage: 'advantage';
 resolved: If player Resolved (A | Another) Non? (Ability | Attack) Card This Turn;
 usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
 ifMadeChoice: If (CardController | PreviousPlayer) Do;
@@ -300,15 +225,6 @@ replacementEffect
     : replacementCondition ',' Instead? effect '.'
     ;
 
-If: 'If';
-Do: 'do';
-Resolved: 'resolved';
-Used: 'used';
-Non: 'non-';
-Ability: 'Ability';
-Attack: 'Attack';
-Already: 'already';
-Instead: 'instead';
 
 //////////////////////////////////////////////////////////////////////
 
@@ -320,7 +236,7 @@ effect
     ;
 
 choose
-    : 'Choose' integer ':' ('-' effect '.')+;
+    : 'choose' integer ':' ('-' effect '.')+;
 
 //////////////////////////////////////////////////////////////////////
 
@@ -350,19 +266,115 @@ integer
     | theNumberOfCardsInHand
     ;
 
-// lexer
-One: 'one' | 'One';
-Two: 'two' | 'Two';
-Three: 'three' | 'Three';
-Four: 'four' | 'Four';
-Five: 'five' | 'Five';
-Six: 'six' | 'Six';
 
+////////////////////////////////////////////////////////////////////// Players
+
+Heal : 'Heal' | 'heal' | 'healed';
+Disarm : 'Disarm' | 'disarm' | 'disarmed';
+Silence : 'Silence' | 'silence' | 'silenced';
+Slow : 'Slow' | 'slow' | 'slowed';
+Discard: 'Discard' | 'discard' | 'discards';
+Draw: 'Draw' | 'draw' | 'draws';
+Deal: 'deal' | 'Deal';
+Move: 'move' | 'moves';
+Travel: 'travel' | 'travels' | 'Travel';
+Target : 'Target' | 'target';
+Gain: 'gain' | 'gains';
+Action: 'Action' | 'Actions' | 'action' | 'actions' | '[a]';
+Power: 'Power' | 'power' | '[p]';
+Initiative: 'Initiative' | 'initiative' | '[n]';
+SecondWind: 'Second Wind';
+May: 'may';
+Play: 'play';
+Reveal: 'Reveal' | 'Reveals' | 'Revealed';
+Damage: 'damage' | 'Damage';
+
+Player : ('player' | 'Player' | 'Character' | 'character') '\'s'? Have?;
+Enemy : ('enemy' | 'Enemy' | 'opponent' | 'Opponent') '\'s'? Have?;
+Another: 'another';
+CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
+PreviousPlayer: 'They' | 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
+
+Range: 'range';
+Away: 'away from you';
+Controller: 'controller';
+Its: 'its';
+Use: 'Use' | 'Uses' | 'use' | 'uses';
+UpTo: 'up to';
+Have: 'have' | 'has';
+Health: 'health' | 'HP';
+For: 'for';
+Less: 'less';
+Free: 'Free';
+
+////////////////////////////////////////////////////////////////////// Tiles
+
+Tile: 'tile' | 'tiles';
+Empty: 'empty';
+
+////////////////////////////////////////////////////////////////////// Cards
 Card : 'card' | 'cards';
 
+Heroic: 'heroic';
+Attach: 'attach';
+
+That: 'That' | 'that';
+Put: 'Put' | 'put';
+Meta: 'Meta' | 'meta';
+Counter: 'Counter' | 'counter';
+Destroy: 'Destroy' | 'destroy';
+Resource: 'resource' | 'resources';
+Unless: 'unless';
+Pays: 'pays' | 'spends';
+Top: 'top';
+Bottom: 'bottom';
+Deck: 'deck';
+On: 'On' | 'on';
+Hand: 'Hand' | 'hand';
+From: 'From' | 'from';
+Until: 'until';
+Number: 'number';
+In: 'in';
+
+////////////////////////////////////////////////////////////////////// Triggers
+
+Turn: 'turn';
+Start: 'start';
+End: 'end';
+At: 'at';
+This: 'this';
+Then: 'then' | 'Then';
+
+////////////////////////////////////////////////////////////////////// Replacement
 
 
-/* built in data types */
+If: 'if';
+Do: 'do';
+Resolved: 'resolved';
+Used: 'used';
+Non: 'non-';
+Ability: 'ability';
+Attack: 'attack';
+Already: 'already';
+Instead: 'instead';
+
+
+////////////////////////////////////////////////////////////////////// Misc
+
+// articles
+A: 'a' | 'A' | 'an' | 'An';
+Is: 'is' | 'are';
+To: 'to' | 'To';
+Take: 'take' | 'takes';
+Of: 'Of' | 'of';
+The: 'The' | 'the';
+
+One: 'one';
+Two: 'two';
+Three: 'three';
+Four: 'four';
+Five: 'five';
+Six: 'six';
 
 Integer
     :    [0-9]+

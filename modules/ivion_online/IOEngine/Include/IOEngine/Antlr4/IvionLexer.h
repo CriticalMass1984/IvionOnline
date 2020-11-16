@@ -1,5 +1,5 @@
 
-// Generated from IvionGrammar/Ivion.antlr4 by ANTLR 4.8
+// Generated from Ivion.antlr4 by ANTLR 4.8
 
 #pragma once
 
@@ -14,22 +14,22 @@ public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
     T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, A = 16, Is = 17, To = 18, Take = 19, Of = 20, The = 21, 
-    Heal = 22, Disarm = 23, Silence = 24, Slow = 25, Discard = 26, Draw = 27, 
-    Deal = 28, Move = 29, Travel = 30, Target = 31, Gain = 32, Action = 33, 
-    Power = 34, Initiative = 35, SecondWind = 36, May = 37, Play = 38, Reveal = 39, 
-    Damage = 40, Player = 41, Enemy = 42, Another = 43, CardController = 44, 
-    PreviousPlayer = 45, Range = 46, Away = 47, Controller = 48, Its = 49, 
-    Use = 50, UpTo = 51, Have = 52, Health = 53, For = 54, Less = 55, Tile = 56, 
-    Empty = 57, Heroic = 58, That = 59, Put = 60, Meta = 61, Counter = 62, 
-    Destroy = 63, Resource = 64, Unless = 65, Pays = 66, Attach = 67, Top = 68, 
-    Bottom = 69, Deck = 70, On = 71, Hand = 72, From = 73, Until = 74, Number = 75, 
-    In = 76, Turn = 77, Start = 78, End = 79, At = 80, This = 81, Then = 82, 
-    If = 83, Do = 84, Resolved = 85, Used = 86, Non = 87, Ability = 88, 
-    Attack = 89, Already = 90, Instead = 91, One = 92, Two = 93, Three = 94, 
-    Four = 95, Five = 96, Six = 97, Card = 98, Integer = 99, Newline = 100, 
-    Whitespace = 101, BlockComment = 102, RulesComment = 103, LineComment = 104, 
-    TextSymbolComment = 105, BracketComment = 106
+    T__14 = 15, Heal = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
+    Draw = 21, Deal = 22, Move = 23, Travel = 24, Target = 25, Gain = 26, 
+    Action = 27, Power = 28, Initiative = 29, SecondWind = 30, May = 31, 
+    Play = 32, Reveal = 33, Damage = 34, Player = 35, Enemy = 36, Another = 37, 
+    CardController = 38, PreviousPlayer = 39, Range = 40, Away = 41, Controller = 42, 
+    Its = 43, Use = 44, UpTo = 45, Have = 46, Health = 47, For = 48, Less = 49, 
+    Free = 50, Tile = 51, Empty = 52, Card = 53, Heroic = 54, Attach = 55, 
+    That = 56, Put = 57, Meta = 58, Counter = 59, Destroy = 60, Resource = 61, 
+    Unless = 62, Pays = 63, Top = 64, Bottom = 65, Deck = 66, On = 67, Hand = 68, 
+    From = 69, Until = 70, Number = 71, In = 72, Turn = 73, Start = 74, 
+    End = 75, At = 76, This = 77, Then = 78, If = 79, Do = 80, Resolved = 81, 
+    Used = 82, Non = 83, Ability = 84, Attack = 85, Already = 86, Instead = 87, 
+    A = 88, Is = 89, To = 90, Take = 91, Of = 92, The = 93, One = 94, Two = 95, 
+    Three = 96, Four = 97, Five = 98, Six = 99, Integer = 100, Newline = 101, 
+    Whitespace = 102, BlockComment = 103, RulesComment = 104, LineComment = 105, 
+    TextSymbolComment = 106, BracketComment = 107
   };
 
   IvionLexer(antlr4::CharStream *input);

@@ -7,6 +7,7 @@
 #include <Util.hpp>
 
 #include <iostream>
+#include <regex>
 
 class ErrorListener : public antlr4::BaseErrorListener {
 public:
@@ -50,6 +51,30 @@ std::vector<std::string> CsvParse(const std::string &line) {
 	}
 
 	return cells;
+}
+
+std::string ScrubText(std::string text)
+{	
+	text = trim_copy(text);
+
+	static std::unordered_map<std::string, std::regex> replacements = {
+		{"initiative", std::regex (R"del(\[n\\])del")},
+		{"actions", std::regex (R"del(\[a\])del")},
+		{"power", std::regex (R"del(\[p\])del")},
+	};
+	for(auto rule : replacements)
+	{
+		text = std::regex_replace (text, rule.second, rule.first);
+	}
+
+	// call this one last
+	// static std::regex scrubber (R"del({|})del");
+	// text = std::regex_replace (text, scrubber, "");
+
+	// make everything lower case
+	std::transform(text.begin(), text.end(), text.begin(), [](unsigned char c){ return std::tolower(c); });
+	
+	return text;
 }
 
 bool ParseText(const std::string &text) {
@@ -99,9 +124,9 @@ int main(int argc, char **argv) {
 			continue;
 		}
 		cardNum = std::stoi(cells[0]);
-		std::string name = trim_copy(cells[2]);
-		std::string activeEffect = trim_copy(cells[19]);
-		std::string passiveEffect = trim_copy(cells[20]);
+		std::string name = ScrubText(cells[2]);
+		std::string activeEffect = ScrubText(cells[19]);
+		std::string passiveEffect = ScrubText(cells[20]);
 
 		if (!ParseText(activeEffect)) {
 			fprintf(stderr, "FAILED: %s - %s\n", name.c_str(), activeEffect.c_str());

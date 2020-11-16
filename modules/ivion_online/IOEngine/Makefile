@@ -1,11 +1,13 @@
+export OUT_DIR=$(realpath $(pwd)/Source/Antlr4)
+
 .PHONY: antlr4
 antlr4:
-	java -jar antlr-4.8-complete.jar \
+	mkdir -p Include/IOEngine/Antlr4 Source/Antlr4
+	cd IvionGrammar && java -jar ../antlr-4.8-complete.jar \
 		-Dlanguage=Cpp -no-listener -visitor \
-		-lib . \
-		-o Source/Antlr4 IvionGrammar/Ivion.antlr4 
-	mv Source/Antlr4/IvionGrammar/*.h Include/IOEngine/Antlr4
-	sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/IvionGrammar/*.cpp
+		-o ../Source/Antlr4 Ivion.antlr4
+	mv Source/Antlr4/*.h Include/IOEngine/Antlr4
+	sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/*.cpp
 
 grpc:
 	#git clone https://github.com/grpc/grpc.git Extern/grpc 2>/dev/null
