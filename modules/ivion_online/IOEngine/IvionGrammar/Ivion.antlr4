@@ -1,5 +1,135 @@
 grammar Ivion;
 
+
+////////////////////////////////////////////////////////////////////// Players
+
+Heal : 'heal' | 'healed';
+Disarm : 'disarm' | 'disarmed';
+Silence : 'silence' | 'silenced';
+Slow : 'slow' | 'slowed';
+Control: 'control';
+Discard: 'discard' | 'discards';
+Draw: 'draw' | 'draws';
+Deal: 'deal';
+Move: 'move' | 'moves';
+Travel: 'travel' | 'travels' ;
+Target : 'target' | 'targeting' ;
+Gain: 'gain' | 'gains';
+Action: 'action' | 'actions';
+Power: 'power';
+Initiative: 'initiative';
+SecondWind: 'second wind';
+May: 'may';
+Play: 'play';
+Reveal: 'reveal' | 'reveals' | 'revealed';
+Damage: 'damage' ;
+
+Player : 'player' '\'s'? Have?;
+Enemy : 'enemy' '\'s'? Have?;
+Another: 'another';
+CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
+PreviousPlayer: 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
+
+Range: 'range';
+Away: 'away from you';
+Controller: 'controller';
+Its: 'its';
+Use: 'use' | 'uses';
+UpTo: 'up to';
+Have: 'have' | 'has';
+Health: 'health' | 'hp';
+For: 'for';
+Less: 'less';
+Free: 'free';
+All: 'all';
+
+////////////////////////////////////////////////////////////////////// Tiles
+
+Tile: 'tile' | 'tiles';
+Empty: 'empty';
+
+////////////////////////////////////////////////////////////////////// Cards
+Card : 'card' | 'cards';
+
+Heroic: 'heroic';
+Attach: 'attach';
+
+That: 'that';
+Put: 'put';
+Meta: 'meta';
+Counter: 'counter' | 'counters' | 'countered';
+Destroy: 'destroy';
+Resource: 'resource' | 'resources';
+Unless: 'unless';
+Pays: 'pays' | 'spends';
+Top: 'top';
+Bottom: 'bottom';
+Deck: 'deck';
+On: 'On' | 'on';
+Hand: 'hand';
+From: 'from';
+Until: 'until';
+Number: 'number';
+In: 'in';
+
+////////////////////////////////////////////////////////////////////// Triggers
+
+Turn: 'turn';
+Start: 'start';
+End: 'end';
+At: 'at';
+After: 'after' | At;
+before: 'before';
+This: 'this';
+Then: 'then' | 'Then';
+
+////////////////////////////////////////////////////////////////////// Replacement
+
+
+If: 'if';
+Do: 'do';
+Resolve: 'resolve' | 'resolved';
+Used: 'used';
+Non: 'non-';
+Ability: 'ability';
+Attack: 'attack';
+Already: 'already';
+Instead: 'instead';
+
+
+////////////////////////////////////////////////////////////////////// Misc
+
+EndOfEffect: '.' | 'and';
+
+// articles
+A: 'a' | 'an';
+Is: 'is' | 'are';
+To: 'to';
+Take: 'take' | 'takes';
+Of: 'of';
+The: 'the';
+
+One: 'one';
+Two: 'two';
+Three: 'three';
+Four: 'four';
+Five: 'five';
+Six: 'six';
+
+Integer
+    :    [0-9]+
+    ;
+
+Newline
+    :  '\n'
+    ;
+
+// Skips
+Whitespace
+    :   [ \t]+
+        -> skip
+    ;
+
 //////////////////////////////////////////////////////////////////////
 
 filterPlayer
@@ -35,13 +165,9 @@ damagePlayer
     | Deal Damage To player 'equal' To integer
     ;
 
-control
-    : Slow | Silence | Disarm
-    ;
-
 controlPlayer
-    : control integer player
-    | player Is control integer
+    : (Control | Slow | Silence | Disarm) integer player
+    | player Is (Control | Slow | Silence | Disarm) integer
     ;
 
 movePlayer
@@ -60,7 +186,14 @@ gainResource
     : player? Gain integer 'more'? (Power | Action | Initiative);
 
 drawCards
-    : player? Draw integer Card;
+    : player Draw integer Card
+    | Draw integer Card
+    ;
+
+discardCards
+    : player Discard integer Card
+    | Discard integer Card
+    ;
 
 useSecondWind
     : Use (CardController | PreviousPlayer) SecondWind;
@@ -75,7 +208,7 @@ heal
     : Heal player integer Health;
 
 rangeSource
-    : 'All' Of CardController Card ',' 'except' Travel Card That Target A Tile ',' 'also' 'draw' Range From .*?;
+    : All Of CardController Card ',' 'except' Travel Card That Target A Tile ',' 'also' Draw Range From .*?;
 
 revealFromHand
     : player Reveal integer Card From PreviousPlayer Hand
@@ -93,6 +226,7 @@ effectPlayer
     | heal
     | rangeSource
     | revealFromHand
+    | discardCards
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -147,13 +281,13 @@ hand
     : player Hand;
 
 card
-    : targetCard
+    : previousCard
+    | targetCard
     | selectCard
     | topOfStack
     | bottomOfDeck
     | topOfDeck
     | From hand
-    | previousCard
     ;
 
 
@@ -197,32 +331,44 @@ turnTrigger
     : At The (Start | End) Of player Turn
     ;
 
+resolvedTrigger: After player Resolve A Non? (Ability | Attack) Card Target player;
+cardDrawTrigger: After player drawCards;
+
 triggerConditions
     : turnTrigger
+    | resolvedTrigger
+    | cardDrawTrigger
     ;
 
 triggerEffect
-    : triggerConditions ',' effect '.'
+    : triggerConditions ',' effect 
     ;
 
 //////////////////////////////////////////////////////////////////////
 
-breach: 'breach';
-advantage: 'advantage';
-resolved: If player Resolved (A | Another) Non? (Ability | Attack) Card This Turn;
+breach: 'breach' '-';
+advantage: 'advantage' '-';
+frenzy: 'frenzy' '-';
+
+resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
 usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
-ifMadeChoice: If (CardController | PreviousPlayer) Do;
+
+ifConditional
+    : If (CardController | PreviousPlayer) Do
+    | If card Is Counter
+    ;
 
 replacementCondition
     : resolved
-    | breach
-    | advantage
     | usedSecondWind
-    | ifMadeChoice
+    | ifConditional
     ;
 
 replacementEffect
-    : replacementCondition ',' Instead? effect '.'
+    : replacementCondition ',' Instead? effect
+    | breach effect
+    | advantage effect
+    | frenzy effect
     ;
 
 
@@ -232,11 +378,11 @@ effect
     : (Then ',')? (
         effectPlayer
         | cardEffect
-    )
+    ) EndOfEffect
     ;
 
 choose
-    : 'choose' integer ':' ('-' effect '.')+;
+    : 'choose' integer ':' ('-' effect)+;
 
 //////////////////////////////////////////////////////////////////////
 
@@ -246,7 +392,7 @@ text
         choose
         | replacementEffect
         | triggerEffect 
-        | effect '.')+ 
+        | effect)+ 
         EOF;
 
 //////////////////////////////////////////////////////////////////////
@@ -266,152 +412,3 @@ integer
     | theNumberOfCardsInHand
     ;
 
-
-////////////////////////////////////////////////////////////////////// Players
-
-Heal : 'Heal' | 'heal' | 'healed';
-Disarm : 'Disarm' | 'disarm' | 'disarmed';
-Silence : 'Silence' | 'silence' | 'silenced';
-Slow : 'Slow' | 'slow' | 'slowed';
-Discard: 'Discard' | 'discard' | 'discards';
-Draw: 'Draw' | 'draw' | 'draws';
-Deal: 'deal' | 'Deal';
-Move: 'move' | 'moves';
-Travel: 'travel' | 'travels' | 'Travel';
-Target : 'Target' | 'target';
-Gain: 'gain' | 'gains';
-Action: 'Action' | 'Actions' | 'action' | 'actions' | '[a]';
-Power: 'Power' | 'power' | '[p]';
-Initiative: 'Initiative' | 'initiative' | '[n]';
-SecondWind: 'Second Wind';
-May: 'may';
-Play: 'play';
-Reveal: 'Reveal' | 'Reveals' | 'Revealed';
-Damage: 'damage' | 'Damage';
-
-Player : ('player' | 'Player' | 'Character' | 'character') '\'s'? Have?;
-Enemy : ('enemy' | 'Enemy' | 'opponent' | 'Opponent') '\'s'? Have?;
-Another: 'another';
-CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
-PreviousPlayer: 'They' | 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
-
-Range: 'range';
-Away: 'away from you';
-Controller: 'controller';
-Its: 'its';
-Use: 'Use' | 'Uses' | 'use' | 'uses';
-UpTo: 'up to';
-Have: 'have' | 'has';
-Health: 'health' | 'HP';
-For: 'for';
-Less: 'less';
-Free: 'Free';
-
-////////////////////////////////////////////////////////////////////// Tiles
-
-Tile: 'tile' | 'tiles';
-Empty: 'empty';
-
-////////////////////////////////////////////////////////////////////// Cards
-Card : 'card' | 'cards';
-
-Heroic: 'heroic';
-Attach: 'attach';
-
-That: 'That' | 'that';
-Put: 'Put' | 'put';
-Meta: 'Meta' | 'meta';
-Counter: 'Counter' | 'counter';
-Destroy: 'Destroy' | 'destroy';
-Resource: 'resource' | 'resources';
-Unless: 'unless';
-Pays: 'pays' | 'spends';
-Top: 'top';
-Bottom: 'bottom';
-Deck: 'deck';
-On: 'On' | 'on';
-Hand: 'Hand' | 'hand';
-From: 'From' | 'from';
-Until: 'until';
-Number: 'number';
-In: 'in';
-
-////////////////////////////////////////////////////////////////////// Triggers
-
-Turn: 'turn';
-Start: 'start';
-End: 'end';
-At: 'at';
-This: 'this';
-Then: 'then' | 'Then';
-
-////////////////////////////////////////////////////////////////////// Replacement
-
-
-If: 'if';
-Do: 'do';
-Resolved: 'resolved';
-Used: 'used';
-Non: 'non-';
-Ability: 'ability';
-Attack: 'attack';
-Already: 'already';
-Instead: 'instead';
-
-
-////////////////////////////////////////////////////////////////////// Misc
-
-// articles
-A: 'a' | 'A' | 'an' | 'An';
-Is: 'is' | 'are';
-To: 'to' | 'To';
-Take: 'take' | 'takes';
-Of: 'Of' | 'of';
-The: 'The' | 'the';
-
-One: 'one';
-Two: 'two';
-Three: 'three';
-Four: 'four';
-Five: 'five';
-Six: 'six';
-
-Integer
-    :    [0-9]+
-    ;
-
-Newline
-    :  '\n'
-    ;
-
-// Skips
-Whitespace
-    :   [ \t]+
-        -> skip
-    ;
-
-BlockComment
-    :   '/*' .*? '*/'
-        -> skip
-    ;
-
-RulesComment
-    : '<(' .*? ')>'
-        -> skip
-    ;
-
-LineComment
-    :   '//' ~[\r\n]*
-        -> skip
-    ;
-
-
-TextSymbolComment
-    :   '['.*?']' 
-        -> skip
-    ;
-
-BracketComment
-    :   ('{' | '}')
-        -> skip
-    ;

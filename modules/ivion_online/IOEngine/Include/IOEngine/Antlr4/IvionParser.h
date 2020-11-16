@@ -13,23 +13,22 @@ class  IvionParser : public antlr4::Parser {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, Heal = 16, Disarm = 17, Silence = 18, Slow = 19, Discard = 20, 
-    Draw = 21, Deal = 22, Move = 23, Travel = 24, Target = 25, Gain = 26, 
-    Action = 27, Power = 28, Initiative = 29, SecondWind = 30, May = 31, 
-    Play = 32, Reveal = 33, Damage = 34, Player = 35, Enemy = 36, Another = 37, 
-    CardController = 38, PreviousPlayer = 39, Range = 40, Away = 41, Controller = 42, 
-    Its = 43, Use = 44, UpTo = 45, Have = 46, Health = 47, For = 48, Less = 49, 
-    Free = 50, Tile = 51, Empty = 52, Card = 53, Heroic = 54, Attach = 55, 
-    That = 56, Put = 57, Meta = 58, Counter = 59, Destroy = 60, Resource = 61, 
-    Unless = 62, Pays = 63, Top = 64, Bottom = 65, Deck = 66, On = 67, Hand = 68, 
-    From = 69, Until = 70, Number = 71, In = 72, Turn = 73, Start = 74, 
-    End = 75, At = 76, This = 77, Then = 78, If = 79, Do = 80, Resolved = 81, 
-    Used = 82, Non = 83, Ability = 84, Attack = 85, Already = 86, Instead = 87, 
-    A = 88, Is = 89, To = 90, Take = 91, Of = 92, The = 93, One = 94, Two = 95, 
-    Three = 96, Four = 97, Five = 98, Six = 99, Integer = 100, Newline = 101, 
-    Whitespace = 102, BlockComment = 103, RulesComment = 104, LineComment = 105, 
-    TextSymbolComment = 106, BracketComment = 107
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, Heal = 14, 
+    Disarm = 15, Silence = 16, Slow = 17, Discard = 18, Draw = 19, Deal = 20, 
+    Move = 21, Travel = 22, Target = 23, Gain = 24, Action = 25, Power = 26, 
+    Initiative = 27, SecondWind = 28, May = 29, Play = 30, Reveal = 31, 
+    Damage = 32, Player = 33, Enemy = 34, Another = 35, CardController = 36, 
+    PreviousPlayer = 37, Range = 38, Away = 39, Controller = 40, Its = 41, 
+    Use = 42, UpTo = 43, Have = 44, Health = 45, For = 46, Less = 47, Free = 48, 
+    All = 49, Tile = 50, Empty = 51, Card = 52, Heroic = 53, Attach = 54, 
+    That = 55, Put = 56, Meta = 57, Counter = 58, Destroy = 59, Resource = 60, 
+    Unless = 61, Pays = 62, Top = 63, Bottom = 64, Deck = 65, On = 66, Hand = 67, 
+    From = 68, Until = 69, Number = 70, In = 71, Turn = 72, Start = 73, 
+    End = 74, At = 75, This = 76, Then = 77, If = 78, Do = 79, Resolved = 80, 
+    Used = 81, Non = 82, Ability = 83, Attack = 84, Already = 85, Instead = 86, 
+    A = 87, Is = 88, To = 89, Take = 90, Of = 91, The = 92, One = 93, Two = 94, 
+    Three = 95, Four = 96, Five = 97, Six = 98, Integer = 99, Newline = 100, 
+    Whitespace = 101
   };
 
   enum {
@@ -314,10 +313,10 @@ public:
   public:
     DrawCardsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Draw();
     IntegerContext *integer();
     antlr4::tree::TerminalNode *Card();
-    PlayerContext *player();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -384,6 +383,7 @@ public:
   public:
     RangeSourceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *All();
     antlr4::tree::TerminalNode *Of();
     antlr4::tree::TerminalNode *CardController();
     std::vector<antlr4::tree::TerminalNode *> Card();
@@ -393,6 +393,7 @@ public:
     antlr4::tree::TerminalNode *Target();
     antlr4::tree::TerminalNode *A();
     antlr4::tree::TerminalNode *Tile();
+    antlr4::tree::TerminalNode *Draw();
     antlr4::tree::TerminalNode *Range();
     antlr4::tree::TerminalNode *From();
 

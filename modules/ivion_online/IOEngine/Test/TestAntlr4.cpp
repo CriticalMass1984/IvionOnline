@@ -68,8 +68,16 @@ std::string ScrubText(std::string text)
 	}
 
 	// call this one last
-	// static std::regex scrubber (R"del({|})del");
-	// text = std::regex_replace (text, scrubber, "");
+	static std::regex scrubber (R"del(\[.*?\]|<\(\.*?)>)del");
+	text = std::regex_replace (text, scrubber, "");
+
+	for(char& c : text)
+	{
+		if(c == '{' || c == '}')
+		{
+			c = ' ';
+		}
+	}
 
 	// make everything lower case
 	std::transform(text.begin(), text.end(), text.begin(), [](unsigned char c){ return std::tolower(c); });
@@ -104,8 +112,7 @@ bool ParseText(const std::string &text) {
 }
 
 int main(int argc, char **argv) {
-	// ParseText("Target player may play a card.");
-	// ParseText("that card gains {Heroic} [h] <(That card ignores control)>");
+	// ParseText("draw a card.");
 	// return 0;
 	std::ifstream file(argv[1]);
 	if (!file.is_open()) {
