@@ -23,6 +23,7 @@ May: 'may';
 Play: 'play';
 Reveal: 'reveal' | 'reveals' | 'revealed';
 Damage: 'damage' ;
+Remove: 'remove';
 
 Player : 'player' '\'s'? Have?;
 Enemy : 'enemy' '\'s'? Have?;
@@ -42,6 +43,7 @@ For: 'for';
 Less: 'less';
 Free: 'free';
 All: 'all';
+Instances: 'instances';
 
 ////////////////////////////////////////////////////////////////////// Tiles
 
@@ -99,7 +101,7 @@ Instead: 'instead';
 
 ////////////////////////////////////////////////////////////////////// Misc
 
-EndOfEffect: '.' | 'and';
+And: 'and';
 
 // articles
 A: 'a' | 'an';
@@ -159,6 +161,8 @@ player
     | targetPlayer
     ;
 
+///////////////
+
 damagePlayer
     : Deal integer Damage To player
     | player Take integer Damage
@@ -214,6 +218,10 @@ revealFromHand
     : player Reveal integer Card From PreviousPlayer Hand
     ;
 
+removeControl
+    : Remove UpTo integer Instances Of Control From player
+    ;
+
 effectPlayer
     : damagePlayer
     | controlPlayer
@@ -227,6 +235,7 @@ effectPlayer
     | rangeSource
     | revealFromHand
     | discardCards
+    | removeControl
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -375,10 +384,11 @@ replacementEffect
 //////////////////////////////////////////////////////////////////////
 
 effect
-    : (Then ',')? (
+    : (Then ',' | Then |)
+    (
         effectPlayer
         | cardEffect
-    ) EndOfEffect
+    ) (',' | '.' | And)
     ;
 
 choose
