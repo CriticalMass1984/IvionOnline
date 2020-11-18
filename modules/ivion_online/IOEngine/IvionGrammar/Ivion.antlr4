@@ -24,6 +24,7 @@ Play: 'play';
 Reveal: 'reveal' | 'reveals' | 'revealed';
 Damage: 'damage' ;
 Remove: 'remove';
+Stun: 'stun';
 
 Player : 'player' '\'s'? Have?;
 Enemy : 'enemy' '\'s'? Have?;
@@ -45,11 +46,20 @@ Free: 'free';
 All: 'all';
 Instances: 'instances';
 More: 'more';
+Removed: 'removed';
+Way: 'way';
+First: 'first';
+During: 'during';
 
 ////////////////////////////////////////////////////////////////////// Tiles
 
 Tile: 'tile' | 'tiles';
 Empty: 'empty';
+Enchanted: 'enchanted';
+Difficult: 'difficult';
+Terrain: 'terrain';
+Make: 'make';
+Token: 'token';
 
 ////////////////////////////////////////////////////////////////////// Cards
 Card : 'card' | 'cards';
@@ -205,9 +215,9 @@ useSecondWind
     : Use (CardController | PreviousPlayer) SecondWind;
 
 playACard
-    : player May? Play integer Card
-    | player May? Play integer Card For integer Less Resource
-    | player May? Play integer Card For Free
+    : player May? Play card
+    | player May? Play card For integer Less Resource
+    | player May? Play card For Free
     ;
 
 heal
@@ -224,6 +234,10 @@ removeControl
     : Remove UpTo integer Instances Of Control From player
     ;
 
+stunPlayer
+    : Stun player
+    ;
+
 effectPlayer
     : damagePlayer
     | controlPlayer
@@ -238,6 +252,7 @@ effectPlayer
     | revealFromHand
     | discardCards
     | removeControl
+    | stunPlayer
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -254,21 +269,65 @@ selectTile
     : A Tile
     ;
 
+previousTile
+    : That Tile
+    ;
+
 tile
     : selectTile
     | targetTile
+    | previousTile
     ;
+
 
 //////////////////////////////////////////////////////////////////////
 
+
+targetTerrain
+    : Target Terrain Token
+    ;
+
+terrain
+    : targetTerrain
+    ;
+
+///////////////
+
+makeTerrain
+    : Make tile (Difficult | Enchanted) Terrain
+    | Make (Difficult | Enchanted | ) Terrain In tile
+    ;
+destroyTerrain: Remove terrain;
+
+terrainEffect
+    : makeTerrain
+    | destroyTerrain
+    ;
+
+
+//////////////////////////////////////////////////////////////////////
+
+cardFilterPrefix
+    : Another
+    | Non 
+    | Attack
+    | Ability
+    | player First
+    ;
+
+cardFilterPostfix
+    : Target player
+    | During player Turn
+    | From player Discard
+    ;
+
 targetCard
-    : Target Card
-    | Another Target Card
-    | Target Another Card
-    | UpTo integer Target Card;
+    : (UpTo integer)? cardFilterPrefix* Target cardFilterPrefix* Card cardFilterPostfix*
+    ;
 
 selectCard
-    : A Card
+    :  integer cardFilterPrefix* Card cardFilterPostfix*
+    |  A? cardFilterPrefix* Card cardFilterPostfix*
     ;
 
 previousCard
@@ -329,6 +388,9 @@ putCard
 hardcast
     : Hardcast;
 
+resolveCard
+    : Resolve card;
+
 cardEffect
     : metaCounterCard
     | counterCard
@@ -337,6 +399,7 @@ cardEffect
     | putCard
     | cardGainsTrait
     | hardcast
+    | resolveCard
     ;
 
 
@@ -346,17 +409,13 @@ turnTrigger
     : At The (Start | End) Of player Turn
     ;
 
-resolvedTrigger: After player Resolve A Non? (Ability | Attack) Card Target player;
-cardDrawTrigger: After player drawCards;
-
-triggerConditions
-    : turnTrigger
-    | resolvedTrigger
-    | cardDrawTrigger
+effectTrigger
+    : After player effect
     ;
 
 triggerEffect
-    : triggerConditions ',' effect 
+    : effectTrigger effect 
+    | turnTrigger ',' effect
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -367,6 +426,7 @@ frenzy: 'frenzy' '-';
 
 resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
 usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
+stunSuccess: If A Resource Is Removed This Way;
 
 ifConditional
     : If (CardController | PreviousPlayer) Do
@@ -377,6 +437,7 @@ replacementCondition
     : resolved
     | usedSecondWind
     | ifConditional
+    | stunSuccess
     ;
 
 replacementEffect
@@ -394,6 +455,7 @@ effect
     (
         effectPlayer
         | cardEffect
+        | terrainEffect
     ) (',' | '.' | And)
     ;
 
