@@ -32,7 +32,7 @@ CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
 PreviousPlayer: 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
 
 Range: 'range';
-Away: 'away from you';
+Away: 'away';
 Controller: 'controller';
 Its: 'its';
 Use: 'use' | 'uses';
@@ -44,6 +44,7 @@ Less: 'less';
 Free: 'free';
 All: 'all';
 Instances: 'instances';
+More: 'more';
 
 ////////////////////////////////////////////////////////////////////// Tiles
 
@@ -55,6 +56,7 @@ Card : 'card' | 'cards';
 
 Heroic: 'heroic';
 Attach: 'attach';
+Hardcast: 'hardcast';
 
 That: 'that';
 Put: 'put';
@@ -183,11 +185,11 @@ travelPlayer
     | Travel integer Tile
     | Travel player To tile
     | Travel player UpTo? integer Tile
-    | Travel player Away integer Tile
+    | Travel player UpTo? integer Tile Away From player
     ;
 
 gainResource
-    : player? Gain integer 'more'? (Power | Action | Initiative);
+    : player? Gain integer? More? (Power | Action | Initiative);
 
 drawCards
     : player Draw integer Card
@@ -324,6 +326,9 @@ cardGainsTrait
 putCard
     : Put card (On bottomOfDeck | topOfDeck | 'into' hand);
 
+hardcast
+    : Hardcast;
+
 cardEffect
     : metaCounterCard
     | counterCard
@@ -331,6 +336,7 @@ cardEffect
     | attachCard
     | putCard
     | cardGainsTrait
+    | hardcast
     ;
 
 
