@@ -85,6 +85,7 @@ From: 'from';
 Until: 'until';
 Number: 'number';
 In: 'in';
+It: 'it';
 
 ////////////////////////////////////////////////////////////////////// Triggers
 
@@ -112,8 +113,9 @@ Instead: 'instead';
 
 
 ////////////////////////////////////////////////////////////////////// Misc
-
+Choose: 'choose';
 And: 'and';
+Each: 'each';
 
 // articles
 A: 'a' | 'an';
@@ -159,6 +161,7 @@ targetPlayer
 selectPlayer
     : A filterPlayer
     | Another filterPlayer
+    | filterPlayer
     | Its Controller
     ;
 
@@ -212,7 +215,7 @@ discardCards
     ;
 
 useSecondWind
-    : Use (CardController | PreviousPlayer) SecondWind;
+    : Use (cardController | previousPlayer) SecondWind;
 
 playACard
     : player May? Play card
@@ -271,6 +274,7 @@ selectTile
 
 previousTile
     : That Tile
+    | It
     ;
 
 tile
@@ -450,7 +454,7 @@ replacementEffect
 
 //////////////////////////////////////////////////////////////////////
 
-effect
+simpleEffect
     : (Then ',' | Then |)
     (
         effectPlayer
@@ -459,16 +463,18 @@ effect
     ) (',' | '.' | And)
     ;
 
-choose
-    : 'choose' integer ':' ('-' effect)+;
+effect
+    : simpleEffect
+    | Choose integer ':' ('-' simpleEffect)+
+    | Choose integer For Each player In tile ':' ('-' simpleEffect)+
+    ;
 
 //////////////////////////////////////////////////////////////////////
 
 
 text
     : (
-        choose
-        | replacementEffect
+        replacementEffect
         | triggerEffect 
         | effect)+ 
         EOF;

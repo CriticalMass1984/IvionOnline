@@ -58,9 +58,11 @@ std::string ScrubText(std::string text)
 	text = trim_copy(text);
 
 	static std::unordered_map<std::string, std::regex> replacements = {
-		{"initiative", std::regex (R"del(\[n\\])del")},
+		{"initiative", std::regex (R"del(\[n\])del")},
 		{"actions", std::regex (R"del(\[a\])del")},
 		{"power", std::regex (R"del(\[p\])del")},
+		{"enemy", std::regex ("opponent")},
+		{"player", std::regex ("character")},
 	};
 	for(auto rule : replacements)
 	{
@@ -68,7 +70,7 @@ std::string ScrubText(std::string text)
 	}
 
 	// call this one last
-	static std::regex scrubber (R"del(\[.*?\]|<\(\.*?)>)del");
+	static std::regex scrubber (R"del(\[.*?\])del");
 	text = std::regex_replace (text, scrubber, "");
 
 	for(char& c : text)
@@ -82,6 +84,11 @@ std::string ScrubText(std::string text)
 	// make everything lower case
 	std::transform(text.begin(), text.end(), text.begin(), [](unsigned char c){ return std::tolower(c); });
 	
+
+	// notes
+	// periods at the end of every effect. Lots of times, reminder text replaced the period
+	// cast away: away from you one tile -> one tile away from you
+
 	return text;
 }
 
@@ -112,7 +119,7 @@ bool ParseText(const std::string &text) {
 }
 
 int main(int argc, char **argv) {
-	// ParseText("draw a card.");
+	// ParseText("choose one for each enemy in it: -  silence 1   them. -  disarm 1   them.");
 	// return 0;
 	std::ifstream file(argv[1]);
 	if (!file.is_open()) {
