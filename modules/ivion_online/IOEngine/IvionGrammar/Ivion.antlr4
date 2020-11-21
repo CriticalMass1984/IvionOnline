@@ -26,13 +26,11 @@ Damage: 'damage' ;
 Remove: 'remove';
 Stun: 'stun';
 Pay: 'pay' | 'plays' | 'paid' | 'spend' | 'spends';
-With: 'with';
+Mitigate: 'mitigate' | 'mitigates' | 'mitigated';
 
 Player : 'player' '\'s'? Have?;
 Enemy : 'enemy' '\'s'? Have?;
 Another: 'another';
-CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you\'re' | 'you' Have;
-PreviousPlayer: 'them' | 'they' | 'their' | 'they\'ve' | 'they\'re' | 'they' Have;
 
 Range: 'range';
 Away: 'away';
@@ -54,6 +52,7 @@ Removed: 'removed';
 Way: 'way';
 First: 'first';
 During: 'during';
+With: 'with';
 
 ////////////////////////////////////////////////////////////////////// Tiles
 
@@ -185,6 +184,7 @@ playerPostFilter
     : Near Terrain
     | Controlled
     | UnControlled
+    | Near CARD_NAME
     ;
 
 targetPlayer
@@ -196,9 +196,14 @@ selectPlayer
     | Its Controller
     ;
 
-cardController : CardController;
+cardController 
+    : 'you' | 'yourself' | 'your' | 'you\'ve' | 'you\'re' | 'you' Have
+    ;
 
-previousPlayer : PreviousPlayer;
+previousPlayer
+    : 'them' | 'they' | 'their' | 'they\'ve' | 'they\'re' | 'they' Have
+    | That playerType
+    ;
 
 player
     : cardController
@@ -210,7 +215,7 @@ player
 ///////////////
 
 damagePlayer
-    : Deal integer Damage To player
+    : Deal integer More? Damage To player
     | player Take integer Damage
     | Deal Damage To player 'equal' To integer
     ;
@@ -234,7 +239,8 @@ travelPlayer
     ;
 
 gainResource
-    : player? Gain integer? More? (resource | Initiative);
+    : player? Gain integer? More? (resource | Initiative)
+    ;
 
 payResource
     : player? Pay integer resource;
@@ -262,7 +268,7 @@ heal
     : Heal player integer Health;
 
 revealFromHand
-    : player Reveal integer Card From PreviousPlayer Hand
+    : player Reveal integer Card From previousPlayer Hand
     ;
 
 removeControl
@@ -271,6 +277,10 @@ removeControl
 
 stunPlayer
     : Stun player
+    ;
+
+gainsMitigate
+    : player? Gain Mitigate integer
     ;
 
 playerEffect
@@ -288,6 +298,7 @@ playerEffect
     | removeControl
     | stunPlayer
     | payResource
+    | gainsMitigate
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -301,6 +312,7 @@ tilePreFilter
 tilePostFilter
     : Near player
     | Near Terrain
+    | Near CARD_NAME
     | player Is? In
     ;
 
@@ -368,6 +380,9 @@ cardFilterPostfix
     | From player Discard
     | player Play
     | With A resource Cost Of integer Or Less
+    | Near CARD_NAME
+    | Near player
+    | Near tile
     ;
 
 targetCard
@@ -489,10 +504,10 @@ advantage: 'advantage' '-';
 frenzy: 'frenzy' '-';
 
 resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
-usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
+usedSecondWind: If player Already Used (cardController | previousPlayer) SecondWind;
 stunSuccess: If A resource Is Removed This Way;
 counterSuccess: If card Is Counter;
-ifPlayerMakesChoice : If (CardController | PreviousPlayer) Do;
+ifPlayerMakesChoice : If (cardController | previousPlayer) Do;
 
 condition
     : resolved
@@ -516,17 +531,22 @@ cardModifier
     ;
 
 rangeSource
-    : All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | CARD_NAME)
+    : All Of cardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | CARD_NAME)
     ;
 
 onlyPlayName
     : player May Only Play Card Named CARD_NAME
     ;
 
+rangeSet
+    : The Range Of player card Is integer
+    ;
+
 passiveModifier
     : cardModifier
     | rangeSource
     | onlyPlayName
+    | rangeSet
     ;
 
 ////////////////////////////////////////////////////////////////////// Passive Modifiers At All Times
