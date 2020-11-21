@@ -31,12 +31,14 @@ With: 'with';
 Player : 'player' '\'s'? Have?;
 Enemy : 'enemy' '\'s'? Have?;
 Another: 'another';
-CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you' Have;
-PreviousPlayer: 'them' | 'they' | 'their' | 'they\'ve' | 'they' Have;
+CardController: 'you' | 'yourself' | 'your' | 'you\'ve' | 'you\'re' | 'you' Have;
+PreviousPlayer: 'them' | 'they' | 'their' | 'they\'ve' | 'they\'re' | 'they' Have;
 
 Range: 'range';
 Away: 'away';
 Controller: 'controller';
+Controlled: 'controlled';
+UnControlled: 'uncontrolled';
 Its: 'its';
 Use: 'use' | 'uses';
 UpTo: 'up to';
@@ -128,6 +130,9 @@ Except: 'except';
 Cant: 'can\'t';
 Be: 'be';
 By: 'by';
+While: 'while';
+Only: 'only';
+Named: 'named';
 
 ////////////////////////////////////////////////////////////////////// Misc
 
@@ -166,20 +171,28 @@ Whitespace
 
 //////////////////////////////////////////////////////////////////////
 
-filterPlayer
-    : (Player | Enemy)+;
+playerType
+    : Player 
+    | Enemy
+    ;
+
+playerPreFilter
+    : Another
+    | Each
+    ;
+
+playerPostFilter
+    : Near Terrain
+    | Controlled
+    | UnControlled
+    ;
 
 targetPlayer
-    : Target filterPlayer
-    | Another Target filterPlayer
-    | Target Another filterPlayer
-    | UpTo integer Target filterPlayer
+    : (UpTo integer)? playerPreFilter* Target playerPreFilter* playerType playerPostFilter*
     ;
 
 selectPlayer
-    : A filterPlayer
-    | Another filterPlayer
-    | filterPlayer
+    : A? playerPreFilter* playerType playerPostFilter*
     | Its Controller
     ;
 
@@ -204,6 +217,7 @@ damagePlayer
 
 controlPlayer
     : (Control | Slow | Silence | Disarm) integer player
+    | (Control | Slow | Silence | Disarm) integer
     | player Is (Control | Slow | Silence | Disarm) integer
     ;
 
@@ -278,16 +292,24 @@ playerEffect
 
 //////////////////////////////////////////////////////////////////////
 
+tilePreFilter
+    : Each
+    | Another
+    | Empty
+    ;
+
+tilePostFilter
+    : Near player
+    | Near Terrain
+    | player Is? In
+    ;
+
 targetTile
-    : Target Tile
-    | Target Another Tile
-    | Another Target Tile
-    | UpTo integer Target Tile
-    | Target Empty Tile
+    : (UpTo integer)? tilePreFilter* Target tilePreFilter* Tile tilePostFilter*
     ;
 
 selectTile
-    : A Tile
+    : (The | A|) tilePreFilter* Tile tilePostFilter*
     ;
 
 previousTile
@@ -296,15 +318,10 @@ previousTile
     | This Tile
     ;
 
-allInRadius
-    : Each Tile Near player
-    ;
-
 tile
     : selectTile
     | targetTile
     | previousTile
-    | allInRadius
     ;
 
 
@@ -341,6 +358,7 @@ cardFilterPrefix
     | player First
     | All
     | Enemy
+    | Each
     ;
 
 cardFilterPostfix
@@ -501,17 +519,27 @@ rangeSource
     : All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | CARD_NAME)
     ;
 
+onlyPlayName
+    : player May Only Play Card Named CARD_NAME
+    ;
+
 passiveModifier
     : cardModifier
     | rangeSource
+    | onlyPlayName
     ;
 
 ////////////////////////////////////////////////////////////////////// Passive Modifiers At All Times
 
 
 cantTouchThis: CARD_NAME Cant Be Target By Card;
+whileRevealed: While CARD_NAME Is Reveal In player Hand ',' passiveModifier;
 
-omnipotentEffect: cantTouchThis;
+
+omnipotentEffect
+    : cantTouchThis
+    | whileRevealed
+    ;
 
 
 //////////////////////////////////////////////////////////////////////
