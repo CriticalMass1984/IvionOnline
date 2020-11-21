@@ -62,6 +62,7 @@ Difficult: 'difficult';
 Terrain: 'terrain';
 Make: 'make';
 Token: 'token';
+Near: 'near';
 
 ////////////////////////////////////////////////////////////////////// Cards
 
@@ -90,6 +91,7 @@ Number: 'number';
 In: 'in';
 It: 'it';
 Or: 'or';
+CARD_NAME: 'CARD_NAME';
 
 ////////////////////////////////////////////////////////////////////// Triggers
 
@@ -123,6 +125,9 @@ Cost: 'cost';
 
 Also: 'also';
 Except: 'except';
+Cant: 'can\'t';
+Be: 'be';
+By: 'by';
 
 ////////////////////////////////////////////////////////////////////// Misc
 
@@ -291,10 +296,15 @@ previousTile
     | This Tile
     ;
 
+allInRadius
+    : Each Tile Near player
+    ;
+
 tile
     : selectTile
     | targetTile
     | previousTile
+    | allInRadius
     ;
 
 
@@ -329,6 +339,8 @@ cardFilterPrefix
     : Another
     | Non? (Attack | Ability)
     | player First
+    | All
+    | Enemy
     ;
 
 cardFilterPostfix
@@ -486,14 +498,21 @@ cardModifier
     ;
 
 rangeSource
-    : All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From Terrain
-    | All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From .*?
+    : All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | CARD_NAME)
     ;
 
 passiveModifier
     : cardModifier
     | rangeSource
     ;
+
+////////////////////////////////////////////////////////////////////// Passive Modifiers At All Times
+
+
+cantTouchThis: CARD_NAME Cant Be Target By Card;
+
+omnipotentEffect: cantTouchThis;
+
 
 //////////////////////////////////////////////////////////////////////
 
@@ -504,7 +523,8 @@ simpleEffect
         | cardEffect
         | terrainEffect
         | passiveModifier
-    ) (',' | '.' | And)
+        | omnipotentEffect
+    ) (',' | '.' | And | ',' And)
     ;
 
 effect
