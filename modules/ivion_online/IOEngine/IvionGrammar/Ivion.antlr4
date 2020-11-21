@@ -62,6 +62,7 @@ Make: 'make';
 Token: 'token';
 
 ////////////////////////////////////////////////////////////////////// Cards
+
 Card : 'card' | 'cards';
 
 Heroic: 'heroic';
@@ -97,22 +98,31 @@ After: 'after' | At;
 before: 'before';
 This: 'this';
 Then: 'then' | 'Then';
+Enters: 'enter' | 'enters';
+Time: 'time';
 
 ////////////////////////////////////////////////////////////////////// Replacement
 
 
 If: 'if';
 Do: 'do';
-Resolve: 'resolve' | 'resolved';
+Resolve: 'resolve' | 'resolved' | 'resolves';
 Used: 'used';
 Non: 'non-';
 Ability: 'ability';
 Attack: 'attack';
 Already: 'already';
 Instead: 'instead';
+Cost: 'cost';
 
+
+////////////////////////////////////////////////////////////////////// Passive Modifiers
+
+Also: 'also';
+Except: 'except';
 
 ////////////////////////////////////////////////////////////////////// Misc
+
 Choose: 'choose';
 And: 'and';
 Each: 'each';
@@ -226,9 +236,6 @@ playACard
 heal
     : Heal player integer Health;
 
-rangeSource
-    : All Of CardController Card ',' 'except' Travel Card That Target A Tile ',' 'also' Draw Range From .*?;
-
 revealFromHand
     : player Reveal integer Card From PreviousPlayer Hand
     ;
@@ -251,7 +258,6 @@ effectPlayer
     | useSecondWind
     | playACard
     | heal
-    | rangeSource
     | revealFromHand
     | discardCards
     | removeControl
@@ -275,6 +281,7 @@ selectTile
 previousTile
     : That Tile
     | It
+    | This Tile
     ;
 
 tile
@@ -322,7 +329,9 @@ cardFilterPrefix
 cardFilterPostfix
     : Target player
     | During player Turn
+    | For The First Time During Each Turn
     | From player Discard
+    | player Play
     ;
 
 targetCard
@@ -339,7 +348,8 @@ previousCard
     ;
 
 topOfStack
-    : Top Of The 'stack';
+    : Top Of The 'stack'
+    ;
 
 bottomOfDeck
     : The Card On The Bottom Of player Deck
@@ -369,18 +379,21 @@ card
 
 attachCard
     : Attach To player
+    | Attach To player Until End Of Turn
     | Attach To tile
     | Attach To tile Until End Of Turn
     ;
 
 metaCounterCard
-    : Meta Counter card;
+    : Meta Counter card
+    ;
 
 counterCard
     : Counter card Unless player Pays integer Resource;
 
 destroyCard
-    : Destroy card;
+    : Destroy card
+    ;
 
 cardGainsTrait
     : card Gain (Heroic)
@@ -393,7 +406,9 @@ hardcast
     : Hardcast;
 
 resolveCard
-    : Resolve card;
+    : Resolve card
+    | card Resolve
+    ;
 
 cardEffect
     : metaCounterCard
@@ -414,12 +429,18 @@ turnTrigger
     ;
 
 effectTrigger
-    : After player effect
+    : After player effect cardFilterPostfix*
+    | After cardEffect cardFilterPostfix*
+    ;
+
+tileTrap
+    : After player Enters tile
     ;
 
 triggerEffect
-    : effectTrigger effect 
+    : effectTrigger ','? effect 
     | turnTrigger ',' effect
+    | tileTrap ',' effect
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -431,6 +452,7 @@ frenzy: 'frenzy' '-';
 resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
 usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
 stunSuccess: If A Resource Is Removed This Way;
+
 
 ifConditional
     : If (CardController | PreviousPlayer) Do
@@ -451,6 +473,21 @@ replacementEffect
     | frenzy effect
     ;
 
+////////////////////////////////////////////////////////////////////// Passive Modifiers
+
+cardModifier
+    : card Cost integer Less Resource
+    ;
+
+rangeSource
+    : All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From Terrain
+    | All Of CardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From .*?
+    ;
+
+passiveModifier
+    : cardModifier
+    | rangeSource
+    ;
 
 //////////////////////////////////////////////////////////////////////
 
@@ -460,6 +497,7 @@ simpleEffect
         effectPlayer
         | cardEffect
         | terrainEffect
+        | passiveModifier
     ) (',' | '.' | And)
     ;
 
