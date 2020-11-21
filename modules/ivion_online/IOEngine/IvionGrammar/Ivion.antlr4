@@ -25,6 +25,8 @@ Reveal: 'reveal' | 'reveals' | 'revealed';
 Damage: 'damage' ;
 Remove: 'remove';
 Stun: 'stun';
+Pay: 'pay' | 'plays' | 'paid' | 'spend' | 'spends';
+With: 'with';
 
 Player : 'player' '\'s'? Have?;
 Enemy : 'enemy' '\'s'? Have?;
@@ -75,8 +77,8 @@ Meta: 'meta';
 Counter: 'counter' | 'counters' | 'countered';
 Destroy: 'destroy';
 Resource: 'resource' | 'resources';
+resource: Resource | Action | Power;
 Unless: 'unless';
-Pays: 'pays' | 'spends';
 Top: 'top';
 Bottom: 'bottom';
 Deck: 'deck';
@@ -87,6 +89,7 @@ Until: 'until';
 Number: 'number';
 In: 'in';
 It: 'it';
+Or: 'or';
 
 ////////////////////////////////////////////////////////////////////// Triggers
 
@@ -105,7 +108,7 @@ Time: 'time';
 
 
 If: 'if';
-Do: 'do';
+Do: 'do' | 'does' | 'did';
 Resolve: 'resolve' | 'resolved' | 'resolves';
 Used: 'used';
 Non: 'non-';
@@ -212,7 +215,10 @@ travelPlayer
     ;
 
 gainResource
-    : player? Gain integer? More? (Power | Action | Initiative);
+    : player? Gain integer? More? (resource | Initiative);
+
+payResource
+    : player? Pay integer resource;
 
 drawCards
     : player Draw integer Card
@@ -229,7 +235,7 @@ useSecondWind
 
 playACard
     : player May? Play card
-    | player May? Play card For integer Less Resource
+    | player May? Play card For integer Less resource
     | player May? Play card For Free
     ;
 
@@ -248,7 +254,7 @@ stunPlayer
     : Stun player
     ;
 
-effectPlayer
+playerEffect
     : damagePlayer
     | controlPlayer
     | movePlayer
@@ -262,6 +268,7 @@ effectPlayer
     | discardCards
     | removeControl
     | stunPlayer
+    | payResource
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -320,9 +327,7 @@ terrainEffect
 
 cardFilterPrefix
     : Another
-    | Non 
-    | Attack
-    | Ability
+    | Non? (Attack | Ability)
     | player First
     ;
 
@@ -332,6 +337,7 @@ cardFilterPostfix
     | For The First Time During Each Turn
     | From player Discard
     | player Play
+    | With A resource Cost Of integer Or Less
     ;
 
 targetCard
@@ -345,6 +351,7 @@ selectCard
 
 previousCard
     : That Card
+    | The Card
     ;
 
 topOfStack
@@ -389,7 +396,9 @@ metaCounterCard
     ;
 
 counterCard
-    : Counter card Unless player Pays integer Resource;
+    : Counter card Unless playerEffect
+    | Counter card
+    ;
 
 destroyCard
     : Destroy card
@@ -451,23 +460,20 @@ frenzy: 'frenzy' '-';
 
 resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
 usedSecondWind: If player Already Used (CardController | PreviousPlayer) SecondWind;
-stunSuccess: If A Resource Is Removed This Way;
+stunSuccess: If A resource Is Removed This Way;
+counterSuccess: If card Is Counter;
+ifPlayerMakesChoice : If (CardController | PreviousPlayer) Do;
 
-
-ifConditional
-    : If (CardController | PreviousPlayer) Do
-    | If card Is Counter
-    ;
-
-replacementCondition
+condition
     : resolved
     | usedSecondWind
-    | ifConditional
+    | ifPlayerMakesChoice
     | stunSuccess
+    | counterSuccess
     ;
 
-replacementEffect
-    : replacementCondition ',' Instead? effect
+conditionalEffect
+    : condition ',' Instead? effect
     | breach effect
     | advantage effect
     | frenzy effect
@@ -476,7 +482,7 @@ replacementEffect
 ////////////////////////////////////////////////////////////////////// Passive Modifiers
 
 cardModifier
-    : card Cost integer Less Resource
+    : card Cost integer Less resource
     ;
 
 rangeSource
@@ -494,7 +500,7 @@ passiveModifier
 simpleEffect
     : (Then ',' | Then |)
     (
-        effectPlayer
+        playerEffect
         | cardEffect
         | terrainEffect
         | passiveModifier
@@ -512,7 +518,7 @@ effect
 
 text
     : (
-        replacementEffect
+        conditionalEffect
         | triggerEffect 
         | effect)+ 
         EOF;
