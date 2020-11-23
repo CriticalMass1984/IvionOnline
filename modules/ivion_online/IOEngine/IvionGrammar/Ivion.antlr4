@@ -27,9 +27,10 @@ Remove: 'remove';
 Stun: 'stun';
 Pay: 'pay' | 'plays' | 'paid' | 'spend' | 'spends';
 Mitigate: 'mitigate' | 'mitigates' | 'mitigated';
+Seek: 'seek';
 
-Player : 'player' '\'s'? Have?;
-Enemy : 'enemy' '\'s'? Have?;
+Player : 'player' '\'s'? | 'players';
+Enemy : 'enemy' '\'s'? | 'enemies';
 Another: 'another';
 
 Range: 'range';
@@ -37,7 +38,7 @@ Away: 'away';
 Controller: 'controller';
 Controlled: 'controlled';
 UnControlled: 'uncontrolled';
-Its: 'its';
+Its: 'its' | 'it\'s';
 Use: 'use' | 'uses';
 UpTo: 'up to';
 Have: 'have' | 'has';
@@ -53,6 +54,13 @@ Way: 'way';
 First: 'first';
 During: 'during';
 With: 'with';
+Affecting: 'affecting';
+Effect: 'effect' | 'effects';
+Though: 'though';
+Just: 'just';
+Ended: 'ended';
+As: 'as';
+Had: 'had';
 
 ////////////////////////////////////////////////////////////////////// Tiles
 
@@ -64,15 +72,19 @@ Terrain: 'terrain';
 Make: 'make';
 Token: 'token';
 Near: 'near';
+Nearest: 'nearest';
+Next: 'next';
 
 ////////////////////////////////////////////////////////////////////// Cards
 
-Card : 'card' | 'cards';
+Card : 'card' | 'cards' | 'card\'s';
 
 Heroic: 'heroic';
 Attach: 'attach';
+Attached: 'attached';
 Hardcast: 'hardcast';
 
+Return: 'return';
 That: 'that';
 Put: 'put';
 Meta: 'meta';
@@ -96,6 +108,7 @@ CARD_NAME: 'CARD_NAME';
 
 ////////////////////////////////////////////////////////////////////// Triggers
 
+Trigger: 'trigger';
 Turn: 'turn';
 Start: 'start';
 End: 'end';
@@ -106,12 +119,15 @@ This: 'this';
 Then: 'then' | 'Then';
 Enters: 'enter' | 'enters';
 Time: 'time';
+Duration: 'duration';
+Any: 'any';
 
 ////////////////////////////////////////////////////////////////////// Replacement
 
 
 If: 'if';
 Do: 'do' | 'does' | 'did';
+Dont: 'don\'t' | 'doesn\'t';
 Resolve: 'resolve' | 'resolved' | 'resolves';
 Used: 'used';
 Non: 'non-';
@@ -138,6 +154,7 @@ Named: 'named';
 Choose: 'choose';
 And: 'and';
 Each: 'each';
+Owners: 'owner\'s';
 
 // articles
 A: 'a' | 'an';
@@ -170,39 +187,46 @@ Whitespace
 
 //////////////////////////////////////////////////////////////////////
 
-playerType
-    : Player 
-    | Enemy
-    ;
-
 playerPreFilter
     : Another
     | Each
+    | Any
+    | A
     ;
 
 playerPostFilter
     : Near Terrain
+    | In Terrain
     | Controlled
     | UnControlled
-    | Near CARD_NAME
+    | Near card
+    ;
+
+playerFilter
+    : playerPreFilter* (Player | Enemy) playerPostFilter*
     ;
 
 targetPlayer
-    : (UpTo integer)? playerPreFilter* Target playerPreFilter* playerType playerPostFilter*
+    : (UpTo integer)? playerPreFilter* Target playerFilter
     ;
 
 selectPlayer
-    : A? playerPreFilter* playerType playerPostFilter*
-    | Its Controller
+    : UpTo? integer? playerFilter
+    ;
+
+previousCardsController
+    : Its Controller
+    | That Card Controller
+    | The Card Controller
     ;
 
 cardController 
-    : 'you' | 'yourself' | 'your' | 'you\'ve' | 'you\'re' | 'you' Have
+    : 'you' | 'yourself' | 'your'
     ;
 
 previousPlayer
-    : 'them' | 'they' | 'their' | 'they\'ve' | 'they\'re' | 'they' Have
-    | That playerType
+    : 'them' | 'they' | 'their'
+    | That (Player | Enemy)
     ;
 
 player
@@ -210,6 +234,7 @@ player
     | selectPlayer
     | previousPlayer
     | targetPlayer
+    | previousCardsController
     ;
 
 ///////////////
@@ -232,18 +257,19 @@ movePlayer
 
 travelPlayer
     : Travel To tile
-    | Travel integer Tile
     | Travel player To tile
-    | Travel player UpTo? integer Tile
-    | Travel player UpTo? integer Tile Away From player
+    | Travel player To card
+    | Travel player? UpTo? integer Tile
+    | Travel player? UpTo? integer Tile Away From player
     ;
 
 gainResource
-    : player? Gain integer? More? (resource | Initiative)
+    : player? Gain integer? (More | Another)? (resource | Initiative)
     ;
 
 payResource
-    : player? Pay integer resource;
+    : player? May? Pay integer resource
+    ;
 
 drawCards
     : player Draw integer Card
@@ -273,6 +299,7 @@ revealFromHand
 
 removeControl
     : Remove UpTo integer Instances Of Control From player
+    | Remove All Control Affecting player
     ;
 
 stunPlayer
@@ -282,6 +309,8 @@ stunPlayer
 gainsMitigate
     : player? Gain Mitigate integer
     ;
+
+seek: Seek;
 
 playerEffect
     : damagePlayer
@@ -299,6 +328,7 @@ playerEffect
     | stunPlayer
     | payResource
     | gainsMitigate
+    | seek
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -307,13 +337,16 @@ tilePreFilter
     : Each
     | Another
     | Empty
+    | Nearest
     ;
 
 tilePostFilter
     : Near player
     | Near Terrain
-    | Near CARD_NAME
+    | Near card
     | player Is? In
+    | Next To player
+    | Next To Terrain
     ;
 
 targetTile
@@ -351,8 +384,8 @@ terrain
 ///////////////
 
 makeTerrain
-    : Make tile (Difficult | Enchanted) Terrain
-    | Make (Difficult | Enchanted | ) Terrain In tile
+    : player? Make tile (Difficult | Enchanted) Terrain
+    | player? Make (Difficult | Enchanted | ) Terrain In tile
     ;
 destroyTerrain: Remove terrain;
 
@@ -371,18 +404,19 @@ cardFilterPrefix
     | All
     | Enemy
     | Each
+    | Attached
     ;
 
 cardFilterPostfix
     : Target player
     | During player Turn
-    | For The First Time During Each Turn
     | From player Discard
     | player Play
     | With A resource Cost Of integer Or Less
-    | Near CARD_NAME
+    | Near thisCard
     | Near player
     | Near tile
+    | Controlled By player
     ;
 
 targetCard
@@ -397,6 +431,10 @@ selectCard
 previousCard
     : That Card
     | The Card
+    ;
+
+thisCard
+    : CARD_NAME
     ;
 
 topOfStack
@@ -424,6 +462,7 @@ card
     | bottomOfDeck
     | topOfDeck
     | From hand
+    | thisCard
     ;
 
 
@@ -431,9 +470,9 @@ card
 
 attachCard
     : Attach To player
-    | Attach To player Until End Of Turn
+    | Attach To player Until The? End Of The? Turn
     | Attach To tile
-    | Attach To tile Until End Of Turn
+    | Attach To tile Until The? End Of The? Turn
     ;
 
 metaCounterCard
@@ -441,8 +480,7 @@ metaCounterCard
     ;
 
 counterCard
-    : Counter card Unless playerEffect
-    | Counter card
+    : Counter card
     ;
 
 destroyCard
@@ -460,8 +498,17 @@ hardcast
     : Hardcast;
 
 resolveCard
-    : Resolve card
+    : player Resolve card
     | card Resolve
+    ;
+
+returnCardToHand
+    : (player May)? Return card To Its Owners Hand
+    | (player May)? Return card From player Discard To (cardController | previousPlayer) Hand
+    ;
+
+triggerDuration
+    : Trigger player Duration Effect As Though (cardController | previousPlayer) Turn Had Just Ended
     ;
 
 cardEffect
@@ -473,41 +520,47 @@ cardEffect
     | cardGainsTrait
     | hardcast
     | resolveCard
+    | returnCardToHand
+    | triggerDuration
     ;
 
 
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////// triggers
 
 turnTrigger
     : At The (Start | End) Of player Turn
     ;
 
 effectTrigger
-    : After player effect cardFilterPostfix*
-    | After cardEffect cardFilterPostfix*
+    : After effect
     ;
 
 tileTrap
     : After player Enters tile
+    | After player
     ;
+
+duration
+    : Duration '-'
+    ;
+
+forTheFirstTime: For The First Time During Each Turn;
 
 triggerEffect
-    : effectTrigger ','? effect 
+    : effectTrigger forTheFirstTime? ','? effect 
     | turnTrigger ',' effect
     | tileTrap ',' effect
+    | duration effect
     ;
 
-//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////// conditions
 
-breach: 'breach' '-';
-advantage: 'advantage' '-';
-frenzy: 'frenzy' '-';
-
-resolved: If player Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
-usedSecondWind: If player Already Used (cardController | previousPlayer) SecondWind;
+resolved: If player Have Resolve (A | Another) Non? (Ability | Attack) Card This Turn;
+usedSecondWind: If player Have Already Used (cardController | previousPlayer) SecondWind;
 stunSuccess: If A resource Is Removed This Way;
 counterSuccess: If card Is Counter;
-ifPlayerMakesChoice : If (cardController | previousPlayer) Do;
+ifPlayerMakesChoice : If (cardController | previousPlayer) (Do | Dont);
+ifPlayerIsNear: If player Is Near (tile | card);
 
 condition
     : resolved
@@ -515,7 +568,12 @@ condition
     | ifPlayerMakesChoice
     | stunSuccess
     | counterSuccess
+    | ifPlayerIsNear
     ;
+
+breach: 'breach' '-';
+advantage: 'advantage' '-';
+frenzy: 'frenzy' '-';
 
 conditionalEffect
     : condition ',' Instead? effect
@@ -531,7 +589,7 @@ cardModifier
     ;
 
 rangeSource
-    : All Of cardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | CARD_NAME)
+    : All Of cardController Card ',' Except Travel Card That Target A Tile ',' Also Draw Range From (Terrain | card)
     ;
 
 onlyPlayName
@@ -542,43 +600,51 @@ rangeSet
     : The Range Of player card Is integer
     ;
 
+cantTarget
+    : player Cant Be Target By playerFilter
+    ;
+
 passiveModifier
     : cardModifier
     | rangeSource
     | onlyPlayName
     | rangeSet
+    | cantTarget
     ;
 
 ////////////////////////////////////////////////////////////////////// Passive Modifiers At All Times
 
 
-cantTouchThis: CARD_NAME Cant Be Target By Card;
-whileRevealed: While CARD_NAME Is Reveal In player Hand ',' passiveModifier;
-
+cantTouchThis: card Cant Be Target By Card;
+whileRevealed: While card Is Reveal In player Hand ',' passiveModifier;
+cantPlayCardUnless: Only Play CARD_NAME condition; 
 
 omnipotentEffect
     : cantTouchThis
     | whileRevealed
+    | cantPlayCardUnless
     ;
 
 
 //////////////////////////////////////////////////////////////////////
 
 simpleEffect
-    : (Then ',' | Then |)
+    : (Then ',' | Then |) (condition ',')? 
     (
         playerEffect
         | cardEffect
         | terrainEffect
         | passiveModifier
         | omnipotentEffect
-    ) (',' | '.' | And | ',' And)
+    ) 
+    (Unless playerEffect)?
+    (',' | '.' | And | ',' And)
     ;
 
 effect
     : simpleEffect
     | Choose integer ':' ('-' simpleEffect)+
-    | Choose integer For Each player In tile ':' ('-' simpleEffect)+
+    | Choose integer For Each playerFilter In tile ':' ('-' simpleEffect)+
     ;
 
 //////////////////////////////////////////////////////////////////////
@@ -593,7 +659,6 @@ text
 
 //////////////////////////////////////////////////////////////////////
 
-/* built in data types */
 
 theNumberOfCardsInHand
     : The Number Of Card In player Hand
