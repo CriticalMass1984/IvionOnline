@@ -1,407 +1,431 @@
 parser grammar IvionParser;
 options { tokenVocab = IvionLexer; }
 
+
 disarmPlayer
-    : disarm VALUE target enemy in terrain
-    | disarm VALUE them
-    | disarm VALUE
-    ;
+	: Disarm VALUE Target Enemy In Terrain
+	| Disarm VALUE Them
+	| Disarm VALUE
+	;
 
 silencePlayer
-    : silence VALUE  target enemy in that tile
-    | silence VALUE  yourself
-    | silence VALUE them
-    | silence VALUE
-    ;
+	: Silence VALUE Target Enemy In That Tile
+	| Silence VALUE Yourself
+	| Silence VALUE Them
+	| Silence VALUE
+	;
 
 slowPlayer
-    : slow VALUE  target enemy 
-    | slow VALUE
-    | slow VALUE them
-    | slow VALUE  that enemy
-    | slow VALUE  the card's controller
-    ;
+	: Slow VALUE Target Enemy
+	| Slow VALUE
+	| Slow VALUE Them
+	| Slow VALUE That Enemy
+	| Slow VALUE The Cards Controller
+	;
 
 controlPlayer
-    : apply VALUE more instances of a control type of your choice to them
-    | apply an instance of a control type of your choice to target enemy
-    | apply an instance of a control type of your choice to them
-    | apply an instance of a control type of your choice to each enemy near CARD_NAME
-    | increase the value of a control type already affecting them by VALUE
-    ;
+	: Apply VALUE More Instances Of A Control Type Of Your Choice To Them
+	| Apply An Instance Of A Control Type Of Your Choice To Target Enemy
+	| Apply An Instance Of A Control Type Of Your Choice To Them
+	| Apply An Instance Of A Control Type Of Your Choice To Each Enemy Near CARD_NAME
+	| Increase The Value Of A Control Type Already Affecting Them By VALUE
+	;
 
-travel
-    : travel another target player one tile away from you
-    | travel another target player up to VALUE tiles
-    | travel to target tile
-    | travel another target player up to VALUE tile away from you
-    | travel them up to VALUE tile
-    | travel them VALUE tile
-    | travel another target player up to VALUE tile away from you
-    | travel up to VALUE tiles
-    | travel them to CARD_NAME
-    | travel another target player to the nearest tile next to you unless they pay VALUE resources.
-    | travel to the nearest tile next to another target player
-    | travel to the nearest tile next to target enemy
-    | travel them another VALUE tile
-    | travel VALUE tile
-    | travel to another target tile
-    ;
+travelPlayer
+	: Travel Another Target Player VALUE Tile Away From You
+	| Travel Another Target Player Up To VALUE Tiles
+	| Travel To Target Tile
+	| Travel Another Target Player Up To VALUE Tile Away From You
+	| Travel Them Up To VALUE Tile
+	| Travel Them VALUE Tile
+	| Travel Another Target Player Up To VALUE Tile Away From You
+	| Travel Up To VALUE Tiles
+	| Travel Them To CARD_NAME
+	| Travel Another Target Player To The Nearest Tile Next To You Unless They Pay VALUE Resources
+	| Travel To The Nearest Tile Next To Another Target Player
+	| Travel To The Nearest Tile Next To Target Enemy
+	| Travel Them Another VALUE Tile
+	| Travel VALUE Tile
+	| Travel To Another Target Tile
+	;
 
 destroyCard
-    : destroy target card attached to you
-    | destroy all enemy cards
-    | destroy CARD_NAME
-    | destroy up to VALUE target card
-    ;
+	: Destroy Target Card Attached To You
+	| Destroy All Enemy Cards
+	| Destroy CARD_NAME
+	| Destroy Up To VALUE Target Card
+	;
 
 dealDamage
-    : deal VALUE damage to target enemy in that tile
-    | deal VALUE damage to target enemy near terrain
-    | deal damage to them equal to the number of revealed cards in their hand
-    | deal VALUE damage to them plus damage equal to your mitigate
-    | deal VALUE damage to yourself
-    | deal VALUE damage to
-    | deal VALUE damage to each enemy near CARD_NAME
-    | deal VALUE more damage to them 
-    | deal VALUE damage to them plus VALUE more damage for each revealed card in their hand
-    | deal damage to target enemy equal to your POWER
-    | deal VALUE damage to each enemy in terrain
-    | deal damage to them equal to the total value of control affecting them
-    | deal damage to them equal to the number of cards in their hand
-    ;
+	: Deal VALUE Damage To Target Enemy In That Tile
+	| Deal VALUE Damage To Target Enemy Near Terrain
+	| Deal Damage To Them Equal To The Number Of Revealed Cards In Their Hand
+	| Deal VALUE Damage To Them Plus Damage Equal To Your Mitigate
+	| Deal VALUE Damage To Yourself
+	| Deal VALUE Damage To
+	| Deal VALUE Damage To Each Enemy Near CARD_NAME
+	| Deal VALUE More Damage To Them
+	| Deal VALUE Damage To Them Plus VALUE More Damage For Each Revealed Card In Their Hand
+	| Deal Damage To Target Enemy Equal To Your POWER
+	| Deal VALUE Damage To Each Enemy In Terrain
+	| Deal Damage To Them Equal To The Total Value Of Control Affecting Them
+	| Deal Damage To Them Equal To The Number Of Cards In Their Hand
+	;
 
 counterCard
-    : counter up to VALUE target card unless its controller spends VALUE resource
-    | counter target card unless its controller spends VALUE resources
-    | counter target card targeting you with a resource cost of VALUE or less unless its controller spends VALUE resources
-    | counter target card controlled by a player in terrain unless they pay VALUE resources
-    | counter target card targeting you unless its controller pays VALUE resources
-    | counter target non-attack card unless its controller spends VALUE resources
-    | counter target attack card targeting you unless its controller spends VALUE resource
-    | counter target ability card unless its controller spends VALUE resource
-    ;
+	: Counter Up To VALUE Target Card Unless Its Controller Spends VALUE Resource
+	| Counter Target Card Unless Its Controller Spends VALUE Resources
+	| Counter Target Card Targeting You With A Resource Cost Of VALUE Or Less Unless Its Controller Spends VALUE Resources
+	| Counter Target Card Controlled By A Player In Terrain Unless They Pay VALUE Resources
+	| Counter Target Card Targeting You Unless Its Controller Pays VALUE Resources
+	| Counter Target Non- Attack Card Unless Its Controller Spends VALUE Resources
+	| Counter Target Attack Card Targeting You Unless Its Controller Spends VALUE Resource
+	| Counter Target Ability Card Unless Its Controller Spends VALUE Resource
+	;
 
 counterCardCondition
-    : counterCard
-    | counterCard ',' if that card is countered ',' effect
-    ;
+	: counterCard
+	| counterCard ',' If That Card Is Countered ',' Effect
+	;
 
 attachCard
-    : attach to target player
-    | attach to target empty tile
-    | attach to target empty tile near terrain
-    | attach to target empty tile until end of turn
-    | attach to target enemy until the start of your next turn
-    | attach to yourself until the end of the turn
-    | attach CARD_NAME to them
-    ;
+	: Attach To Target Player
+	| Attach To Target Empty Tile
+	| Attach To Target Empty Tile Near Terrain
+	| Attach To Target Empty Tile Until End Of Turn
+	| Attach To Target Enemy Until The Start Of Your Next Turn
+	| Attach To Yourself Until The End Of The Turn
+	| Attach CARD_NAME To Them
+	;
 
 gainPower
-    : they gain VALUE (POWER | ACTION)
-    | gain VALUE more (POWER | ACTION)
-    | gain VALUE additional (POWER | ACTION)
-    | gain VALUE (POWER | ACTION)
-    | gain VALUE more (POWER | ACTION)
-    ;
+	: They Gain VALUE POWER
+	| ACTION
+	| Gain VALUE More POWER
+	| ACTION
+	| Gain VALUE Additional POWER
+	| ACTION
+	| Gain VALUE POWER
+	| ACTION
+	| Gain VALUE More POWER
+	| ACTION
+	;
 
 gainInitiative
-    : gain INITIATIVE
-    | gain another INITIATIVE
-    ;
+	: Gain INITIATIVE
+	| Gain Another INITIATIVE
+	;
 
 gainMitigate
-    : target player gains mitigate VALUE
-    | gain mitigate VALUE
-    ;
+	: Target Player Gains Mitigate VALUE
+	| Gain Mitigate VALUE
+	;
 
-loseMitigate: lose your mitigate;
+loseMitigate
+	: Lose Your Mitigate
+	;
 
 useSecondWind
-    : use your second wind
-    ;
+	: Use Your Second Wind
+	;
 
 returnCard
-    : return target attached card to its owner's hand
-    | return target card with a resource cost of VALUE or less from your discard to your hand
-    | return target ability card from your discard to your hand
-    | you may return an attack card with a resource cost of VALUE or less from your discard to your hand
-    | return a card from your discard to your hand
-    | return target card from your discard to your hand
-    | return CARD_NAME to your hand
-    | return target card with a resource cost of VALUE or more from your discard to your hand
-    ;
+	: Return Target Attached Card To Its Owners Hand
+	| Return Target Card With A Resource Cost Of VALUE Or Less From Your Discard To Your Hand
+	| Return Target Ability Card From Your Discard To Your Hand
+	| You May Return An Attack Card With A Resource Cost Of VALUE Or Less From Your Discard To Your Hand
+	| Return A Card From Your Discard To Your Hand
+	| Return Target Card From Your Discard To Your Hand
+	| Return CARD_NAME To Your Hand
+	| Return Target Card With A Resource Cost Of VALUE Or More From Your Discard To Your Hand
+	;
 
 putBottomCardOfDeckIntoHand
-    : put the bottom card of your deck into your hand
-    ;
+	: Put The Bottom Card Of Your Deck Into Your Hand
+	;
 
 triggerDurationEffects
-    : trigger your duration effects as though your turn had just ended
-    ;
+	: Trigger Your Duration Effects As Though Your Turn Had Just Ended
+	;
 
 playCard
-    : target player may play a card
-    | target player may play a card for VALUE less resource
-    | play a card for free
-    | play target non-attack card from your discard targeting an enemy for free
-    | play an attack card targeting an enemy
-    | play an ability card from your discard targeting them
-    | play an attack card targeting them for VALUE less resource
-    | play a card with frenzy for VALUE less resource
-    | play a card targeting them
-    | play that card for free
-    | play cursed dagger for free '.' this doesn't count towards your cursed dagger limit per turn
-    | play runic slaughter targeting them for free . this doesn't count towards your runic slaughter limit per turn.
-    | play a card for VALUE less resource
-    | play a non-attack card targeting an enemy
-    | play a ability card targeting them for VALUE less resource
-    ;
+	: Target Player May Play A Card
+	| Target Player May Play A Card For VALUE Less Resource
+	| Play A Card For Free
+	| Play Target Non- Attack Card From Your Discard Targeting An Enemy For Free
+	| Play An Attack Card Targeting An Enemy
+	| Play An Ability Card From Your Discard Targeting Them
+	| Play An Attack Card Targeting Them For VALUE Less Resource
+	| Play A Card With Frenzy For VALUE Less Resource
+	| Play A Card Targeting Them
+	| Play That Card For Free
+	| Play Cursed Dagger For Free '' This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
+	| Play Runic Slaughter Targeting Them For Free '' This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
+	| Play A Card For VALUE Less Resource
+	| Play A Non- Attack Card Targeting An Enemy
+	| Play A Ability Card Targeting Them For VALUE Less Resource
+	;
 
 discardCards
-    : discard VALUE cards
-    | they discard VALUE cards
-    | have them discard a revealed card of your choice
-    | discard a card
-    | they discard a card
-    | target enemy discards target revealed card
-    | target enemy discards VALUE cards
-    | target player discards a revealed card of their choice
-    | discard a revealed card
-    ;
+	: Discard VALUE Cards
+	| They Discard VALUE Cards
+	| Have Them Discard A Revealed Card Of Your Choice
+	| Discard A Card
+	| They Discard A Card
+	| Target Enemy Discards Target Revealed Card
+	| Target Enemy Discards VALUE Cards
+	| Target Player Discards A Revealed Card Of Their Choice
+	| Discard A Revealed Card
+	;
 
 gainsHeroic
-    : that card gains heroic
-    ;
+	: That Card Gains Heroic
+	;
 
 healPlayer
-    : heal target player VALUE hp
-    | heal yourself VALUE hp
-    | heal them VALUE hp
-    | heal yourself hp equal to the number of revealed cards in their hand
-    ;
+	: Heal Target Player VALUE Hp
+	| Heal Yourself VALUE Hp
+	| Heal Them VALUE Hp
+	| Heal Yourself Hp Equal To The Number Of Revealed Cards In Their Hand
+	;
 
 stunPlayer
-    : stun target enemy
-    | stun them
-    ;
+	: Stun Target Enemy
+	| Stun Them
+	;
 
 stunPlayerConditional
-    : stunPlayer 
-    | stunPlayer ',' if a resource is removed this way ',' effect
-    ;
+	: stunPlayer
+	| stunPlayer ',' If A Resource Is Removed This Way ',' Effect
+	;
 
 revealCards
-    : target player reveals VALUE cards from their hand
-    | they reveal VALUE cards from their hand
-    | they reveal a card from their hand
-    | target player reveals a card from their hand
-    | target enemy reveals VALUE cards from their hand
-    | target enemy reveals a card from their hand
-    | you may reveal CARD_NAME
-    | reveal a card from your hand
-    ;
-    
+	: Target Player Reveals VALUE Cards From Their Hand
+	| They Reveal VALUE Cards From Their Hand
+	| They Reveal A Card From Their Hand
+	| Target Player Reveals A Card From Their Hand
+	| Target Enemy Reveals VALUE Cards From Their Hand
+	| Target Enemy Reveals A Card From Their Hand
+	| You May Reveal CARD_NAME
+	| Reveal A Card From Your Hand
+	;
+
 drawCards
-    : draw a card
-    | target player draws VALUE cards
-    | they draw a card
-    | draw VALUE cards
-    | each player draws a card then reveals a card from their hand
-    | target player draws a card
-    ;
+	: Draw A Card
+	| Target Player Draws VALUE Cards
+	| They Draw A Card
+	| Draw VALUE Cards
+	| Each Player Draws A Card Then Reveals A Card From Their Hand
+	| Target Player Draws A Card
+	;
 
 drawRange
-    : all of your cards ',' except travel cards that target a tile ',' also draw range  from CARD_NAME
-    ;
+	: All Of Your Cards ',' Except Travel Cards That Target A Tile ',' Also Draw Range From CARD_NAME
+	;
 
 removeControl
-    : remove up to VALUE instances of control from yourself
-    | remove all control affecting them
-    ;
+	: Remove Up To VALUE Instances Of Control From Yourself
+	| Remove All Control Affecting Them
+	;
 
-hardcastEffect: Hardcast;
-seekEffect: Seek;
+hardcastEffect
+	: Hardcast
+	;
+
+seekEffect
+	: Seek
+	;
 
 makeTerrain
-    : make that tile difficult terrain
-    | make target tile at least VALUE tiles away difficult terrain
-    | make each tile near them difficult terrain
-    | make the tile they are in difficult terrain
-    | make up to VALUE target tiles difficult terrain
-    | make VALUE target tiles difficult terrain
-    ;
+	: Make That Tile Difficult Terrain
+	| Make Target Tile At Least VALUE Tiles Away Difficult Terrain
+	| Make Each Tile Near Them Difficult Terrain
+	| Make The Tile They Are In Difficult Terrain
+	| Make Up To VALUE Target Tiles Difficult Terrain
+	| Make VALUE Target Tiles Difficult Terrain
+	;
 
 removeTerrain
-    : remove target terrain token
-    ;
+	: Remove Target Terrain Token
+	;
 
 payResources
-    : each enemy may pay VALUE resource
-    ;
+	: Each Enemy May Pay VALUE Resource
+	;
 
 scryEffect
-    : look at the top VALUE cards of your deck. put any number on the bottom and the rest on top in any order
-    ;
+	: Look At The Top VALUE Cards Of Your Deck Put Any Number On The Bottom And The Rest On Top In Any Order
+	;
 
-overrideFrenzy: that card has frenzy even if no player has used their second wind;
+overrideFrenzy
+	: That Card Has Frenzy Even If No Player Has Used Their Second Wind
+	;
 
-increaseCardDuration: increase the duration of a card you control by VALUE;
+increaseCardDuration
+	: Increase The Duration Of A Card You Control By VALUE
+	;
 
-resetUseOfCard: reset the use of CARD_NAME;
-
+resetUseOfCard
+	: Reset The Use Of CARD_NAME
+	;
 //////////////////////////////////////////////////////////////////////////// PASSIVE EFFECTS
 
+
 onlyPlayCertainCards
-    : you may only play cards named CARD_NAME
-    | only play CARD_NAME if you've resolve an attack card this turn
-    | only play CARD_NAME if you're controlled
-    | only play CARD_NAME if you have at least VALUE cards in your discard
-    | only play wary if you've taken VALUE or more damage this turn
-    ;
-costReduction: attack cards you play cost VALUE less resource;
-rangeSet: the range  of your attack cards is VALUE;
-cantPlayCards: you can't play cards;
+	: You May Only Play Cards Named CARD_NAME
+	| Only Play CARD_NAME If Youve Resolve An Attack Card This Turn
+	| Only Play CARD_NAME If Youre Controlled
+	| Only Play CARD_NAME If You Have At Least VALUE Cards In Your Discard
+	| Only Play Wary If Youve Taken VALUE Or More Damage This Turn
+	;
+
+costReduction
+	: Attack Cards You Play Cost VALUE Less Resource
+	;
+
+rangeSet
+	: The Range Of Your Attack Cards Is VALUE
+	;
+
+cantPlayCards
+	: You Cant Play Cards
+	;
+
 playerCantBeTargeted
-    : you can't be targeted by enemies
-    | you can't be targeted by cards
-    ;
-
-passiveEffect
-    : 
-    ;
-
+	: You Cant Be Targeted By Enemies
+	| You Cant Be Targeted By Cards
+	;
 
 //////////////////////////////////////////////////////////////////////////// PASSIVE TRIGGERS
 
-duration: duration '-';
+
+durationEffect
+	: Duration '-'
+	;
 
 turnTrigger
-    : at the start of your turn
-    | at the end of your turn
-    | duration
-    | at the start of their turn
-    ;
+	: At The Start Of Your Turn
+	| At The End Of Your Turn
+	| Duration
+	| At The Start Of Their Turn
+	;
 
 afterEffectTrigger
-    : after you resolve an ability card targeting them
-    | after they draw a card
-    | after you resolve your first ability card during your turn
-    | after you make terrain in a tile
-    | after an enemy enters this tile
-    | after an enemy enters CARD_NAME
-    | after an enemy enters terrain
-    | after an enemy enters a tile with terrain
-    | after you or an ally enters CARD_NAME
-    | after that card resolves
-    | after an attack card targeting you resolves for the first time during each turn
-    | after you resolve your first attack card targeting an enemy during your turn
-    | after any player enters this tile
-    | after you play a card
-    | after a resource is removed in this way
-    | after you attach another card to them
-    | after they receive control ',' for each instance of control they receive
-    | after they resolve their first card during their turn
-    | after an attack card targeting you resolves
-    | after CARD_NAME is revealed
-    | after you resolve your first attack card targeting them during your turn
-    | after you stun an enemy
-    | after CARD_NAME is sent to your discard
-    | after you second wind
-    | after you play CARD_NAME
-    ;
+	: After You Resolve An Ability Card Targeting Them
+	| After They Draw A Card
+	| After You Resolve Your First Ability Card During Your Turn
+	| After You Make Terrain In A Tile
+	| After An Enemy Enters This Tile
+	| After An Enemy Enters CARD_NAME
+	| After An Enemy Enters Terrain
+	| After An Enemy Enters A Tile With Terrain
+	| After You Or An Ally Enters CARD_NAME
+	| After That Card Resolves
+	| After An Attack Card Targeting You Resolves For The First Time During Each Turn
+	| After You Resolve Your First Attack Card Targeting An Enemy During Your Turn
+	| After Any Player Enters This Tile
+	| After You Play A Card
+	| After A Resource Is Removed In This Way
+	| After You Attach Another Card To Them
+	| After They Receive Control ',' For Each Instance Of Control They Receive
+	| After They Resolve Their First Card During Their Turn
+	| After An Attack Card Targeting You Resolves
+	| After CARD_NAME Is Revealed
+	| After You Resolve Your First Attack Card Targeting Them During Your Turn
+	| After You Stun An Enemy
+	| After CARD_NAME Is Sent To Your Discard
+	| After You Second Wind
+	| After You Play CARD_NAME
+	;
 
 triggerEffect
-    : turnTrigger ',' effect
-    | afterEffectTrigger ',' effect
-    ;
-
+	: turnTrigger ',' Effect
+	| afterEffectTrigger ',' Effect
+	;
 //////////////////////////////////////////////////////////////////////////// replacement Trigger
 
 
-replacementEffect
-    :   if you would receive control, instead they receive the control.
-    ;
 
+replacementEffect
+	: If You Would Receive Control, Instead They Receive The Control
+	;
 ////////////////////////////////////////////////////////////////////////////
 
-do: Do;
-dont: Dont;
 
 ifPlayerMakesChoice
-    : if they (theydo=do | theydont=dont)
-    ;
-ifPreviousActionInvalid: if they can't;
+	: If They Do
+	| If They Dont
+	;
+
+ifPreviousActionInvalid
+	: If They Cant
+	;
+
 ifResolvedCard
-    : if you've resolved another ability card this turn
-    | if you've resolved an attack card this turn
-    ;
-ifUsedSecondWind: if you've already used your second wind;
+	: If Youve Resolved Another Ability Card This Turn
+	| If Youve Resolved An Attack Card This Turn
+	;
+
+ifUsedSecondWind
+	: If Youve Already Used Your Second Wind
+	;
+
 ifNear
-    : if you are near CARD_NAME
-    | if you're near CARD_NAME
-    ;
-ifControlled: if they are controlled;
-ifPlayed: if you've played an attack card this turn;
-ifTileHadTerrain: if that tile already had terrain;
-ifCardRevealed: if a non-attack card is revealed this way;
-ifPlayerHasMitigate: if you have mitigate;
+	: If You Are Near CARD_NAME
+	| If Youre Near CARD_NAME
+	;
 
-condition:;
+ifControlled
+	: If They Are Controlled
+	;
 
+ifPlayed
+	: If Youve Played An Attack Card This Turn
+	;
+
+ifTileHadTerrain
+	: If That Tile Already Had Terrain
+	;
+
+ifCardRevealed
+	: If A Non- Attack Card Is Revealed This Way
+	;
+
+ifPlayerHasMitigate
+	: If You Have Mitigate
+	;
+
+conditionEffect
+	: ifPlayerMakesChoice
+	| ifPreviousActionInvalid
+	| ifResolvedCard
+	| ifUsedSecondWind
+	| ifNear
+	| ifControlled
+	| ifPlayed
+	| ifTileHadTerrain
+	| ifCardRevealed
+	| ifPlayerHasMitigate
+	;
 //////////////////////////////////////////////////////////////////////////// OMNI PRESENT EFFECTS
 
-cardCantBeTargeted: raze can't be targeted by cards;
-while: while thinking time is revealed in your hand;
-primaryCostReduction: CARD_NAME costs VALUE less POWER for each other revealed card in your hand
-onlyPlayIf: only play CARD_NAME condition
-oncePerGameLimit: CARD_NAME may be played once per game;
 
+cardCantBeTargeted
+	: Raze Cant Be Targeted By Cards
+	;
 
-//////////////////////////////////////////////////////////////////////////// OPTIONAL EFFECTS
+whileEffect
+	: While Thinking Time Is Revealed In Your Hand
+	;
 
+primaryCostReduction
+	: CARD_NAME Costs VALUE Less POWER For Each Other Revealed Card In Your Hand
+	;
 
+onlyPlayIf
+	: Only Play CARD_NAME conditionEffect
+	;
 
-////////////////////////////////////////////////////////////////////////////
-
-singleEffect: ;
-
-optionalEffect
-    : you may singleEffect
-    | You May singleEffect To singleEffect
-    ;
-
-multiEffect
-    : singleEffect
-    | multiEffect then singleEffect
-    | multiEffect ',' then singleEffect
-    | multiEffect and singleEffect
-    ;
-
-conditionalEffect
-    : condition ',' multiEffect
-    ;
-
-alternativeEffect
-    : condition ',' instead multiEffect
-    ;
-
-chooseEffect
-    : choose VALUE: - (multiEffect)+ (you may choose the same mode twice)?
-    | choose VALUE for each enemy in it: - (multiEffect)+ (you may choose the same mode twice)?
-    ;
-
-breach: breach '-' effect;
-advantage: advantage '-' effect;
-frenzy: frenzy '-' effect;
-
-effect
-    : multiEffect
-    | alternativeEffect
-    | conditionalEffect
-    | chooseEffect
-    ;
-
-line: effect | breach | advantage | frenzy;
-
-text: line+ EOF;
+oncePerGameLimit
+	: CARD_NAME May Be Played Once Per Game
+	;
