@@ -5,7 +5,10 @@ antlr4:
 	mkdir -p Include/IOEngine/Antlr4 Source/Antlr4
 	cd IvionGrammar && java -jar ../antlr-4.8-complete.jar \
 		-Dlanguage=Cpp -no-listener -visitor \
-		-o ../Source/Antlr4 Ivion.antlr4
+		-o ../Source/Antlr4 IvionLexer.antlr4
+	cd IvionGrammar && java -jar ../antlr-4.8-complete.jar \
+		-Dlanguage=Cpp -no-listener -visitor \
+		-o ../Source/Antlr4 -lib ../Source/Antlr4 IvionParser.antlr4
 	mv Source/Antlr4/*.h Include/IOEngine/Antlr4
 	sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/*.cpp
 
