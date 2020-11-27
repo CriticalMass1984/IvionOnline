@@ -1,4 +1,4 @@
-#include <IOEngine/Antlr4/IvionBaseVisitor.h>
+#include <IOEngine/Antlr4/IvionParserBaseVisitor.h>
 #include <IOEngine/Antlr4/IvionLexer.h>
 #include <IOEngine/Antlr4/IvionParser.h>
 #include <antlr4-runtime.h>
@@ -53,16 +53,18 @@ std::vector<std::string> CsvParse(const std::string &line) {
 	return cells;
 }
 
-std::string ScrubText(std::string text)
+std::string ScrubText(std::string text, const std::string& cardName )
 {	
-	text = trim_copy(text);
-
 	static std::unordered_map<std::string, std::regex> replacements = {
 		{"initiative", std::regex (R"del(\[n\])del")},
 		{"actions", std::regex (R"del(\[a\])del")},
 		{"power", std::regex (R"del(\[p\])del")},
 		{"enemy", std::regex ("opponent")},
 		{"player", std::regex ("character")},
+		{"you are", std::regex ("you're")},
+		{"they are", std::regex ("they're")},
+		{"they have", std::regex ("they've")},
+		{"you have", std::regex ("you've")},
 	};
 	for(auto rule : replacements)
 	{
@@ -70,27 +72,42 @@ std::string ScrubText(std::string text)
 	}
 
 	// call this one last
-	static std::regex scrubber (R"del(\[.*?\])del");
+	static std::regex scrubber (R"del(\[.*?\]|\{|\})del");
 	text = std::regex_replace (text, scrubber, "");
 
-	for(char& c : text)
-	{
-		if(c == '{' || c == '}')
-		{
-			c = ' ';
-		}
-	}
+
+	// for(char& c : text)
+	// {
+	// 	if(c == '{' || c == '}')
+	// 	{
+	// 		c = ' ';
+	// 	}
+	// }
 
 	// make everything lower case
 	std::transform(text.begin(), text.end(), text.begin(), [](unsigned char c){ return std::tolower(c); });
 	
+	if(cardName != "")
+	{
+		auto nameReplacer = std::regex(cardName);
+		text = std::regex_replace (text, nameReplacer, "CARD_NAME");
+	}
 
 	// notes
 	// periods at the end of every effect. Lots of times, reminder text replaced the period
 	// cast away: away from you one tile -> one tile away from you
+	// "to the target" -> "them"
+	// resolves targeting you -> targeting you resolves
+	// Overlook: the card is countered -> that card is countered
+	// Crystal Blade: that enemy -> them
 
-	return text;
+	return trim_copy(text);
 }
+
+/*
+Can we make 'player may? a prefix to every effect?
+
+*/
 
 bool ParseText(const std::string &text) {
 	if (text.length() < 4) {
@@ -102,7 +119,7 @@ bool ParseText(const std::string &text) {
 	IvionLexer lexer(&antlrStream);
 	antlr4::CommonTokenStream tokens(&lexer);
 	IvionParser parser(&tokens);
-	IvionBaseVisitor executor;
+	IvionParserBaseVisitor executor;
 
 	ErrorListener errorListener(parser);
 
@@ -112,14 +129,14 @@ bool ParseText(const std::string &text) {
 
 	if (errorListener.FoundError) {
 		fprintf(stderr, "%s \n", text.c_str());
+		fprintf(stdout, "\n%s\n", parser.text()->toStringTree(true).c_str());
 		return false;
 	}
 	return true;
-	// fprintf(stdout, "\n%s\n", parser.text()->toStringTree(true).c_str());
 }
 
 int main(int argc, char **argv) {
-	// ParseText("choose one for each enemy in it: -  silence 1   them. -  disarm 1   them.");
+	// ParseText("counter up to one target card unless its controller spends 3 resources.");
 	// return 0;
 	std::ifstream file(argv[1]);
 	if (!file.is_open()) {
@@ -137,10 +154,14 @@ int main(int argc, char **argv) {
 		if (cells.size() < 20) {
 			continue;
 		}
+		if(cells[0] == "")
+		{
+			break;
+		}
 		cardNum = std::stoi(cells[0]);
-		std::string name = ScrubText(cells[2]);
-		std::string activeEffect = ScrubText(cells[19]);
-		std::string passiveEffect = ScrubText(cells[20]);
+		std::string name = ScrubText(cells[2], "");
+		std::string activeEffect = ScrubText(cells[19], name);
+		std::string passiveEffect = ScrubText(cells[20], name);
 
 		if (!ParseText(activeEffect)) {
 			fprintf(stderr, "FAILED: %s - %s\n", name.c_str(), activeEffect.c_str());
@@ -151,6 +172,7 @@ int main(int argc, char **argv) {
 			fprintf(stderr, "FAILED: %s - %s\n", name.c_str(), activeEffect.c_str());
 			break;
 		}
+		// fprintf(stderr, "Card %s\n", name.c_str());
 	}
 	fprintf(stderr, "Last parsed Card #%d\n", cardNum);
 }
