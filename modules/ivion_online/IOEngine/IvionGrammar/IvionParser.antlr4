@@ -7,12 +7,13 @@ playerPostFix: In Terrain | Near Terrain | Near CARD_NAME | In CARD_NAME | In Th
 
 playerFilter: playerPreFix* playerType playerPostFix*;
 
-currentPlayer: Yourself | You;
+currentPlayer: Yourself | You | Your;
 targetPlayer: Another? Target playerFilter;
 previousPlayer
     : Them
     | They
     | That playerType
+    | Their
     ;
 previousCardsController: The Card Controller;
 singlePlayer
@@ -23,8 +24,8 @@ singlePlayer
     ;
 
 allPlayers
-    : (Each | All) Other? playerPreFix* playerType playerPostFix*
-    | All playerPreFix* playerType playerPostFix*
+    : (Each | All) Other? playerFilter
+    | All playerFilter
     ;
 
 
@@ -34,7 +35,7 @@ player
     ;
 
 hypotheticalPlayer
-    : (A | An) playerFilter
+    : (A | An)? playerFilter
     | player
     ;
 
@@ -341,18 +342,18 @@ heroic: Heroic;
 
 
 onlyPlayCertainCards
-	: player May Only Play Card Named CARD_NAME
-	| Only Play CARD_NAME If player (Have | Has) Resolve An Attack Card This Turn
-	| Only Play CARD_NAME If player (Is | Are) Controlled
-	| Only Play CARD_NAME If player (Is | Are) Uncontrolled
-	| Only Play CARD_NAME If player (Is | Are) Near Terrain
-	| Only Play CARD_NAME If player (Have | Has) At Least value Card In Your Discard
-	| Only Play CARD_NAME If player (Have | Has) Taken value Or More Damage This Turn
+	: hypotheticalPlayer May Only Play Card Named CARD_NAME
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Resolve An Attack Card This Turn
+	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Controlled
+	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Uncontrolled
+	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Near Terrain
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) At Least value Card In Your Discard
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Taken value Or More Damage This Turn
 	;
 
 costReduction
-	: Attack Card player Play Cost value Less Resource
-    | The Second Attack Card player Play During Your Turn Cost value Less Resource
+	: Attack Card hypotheticalPlayer Play Cost value Less Resource
+    | The Second Attack Card hypotheticalPlayer Play During Your Turn Cost value Less Resource
 	;
 
 rangeSet
@@ -360,12 +361,12 @@ rangeSet
 	;
 
 cantPlayCards
-	: You Cant Play Card
+	: hypotheticalPlayer Cant Play Card
 	;
 
 playerCantBeTargeted
-	: You Cant Be Targeted By Enemies
-	| You Cant Be Targeted By Card
+	: hypotheticalPlayer Cant Be Targeted By Enemies
+	| hypotheticalPlayer Cant Be Targeted By Card
 	;
 
 increasedHandSize
@@ -381,20 +382,20 @@ replacesSecondWind
     ;
 
 noInitiative
-    : You Dont Gain INITIATIVE At The Start Of Your Turn
+    : hypotheticalPlayer Dont Gain INITIATIVE At The Start Of Your Turn
     ;
     
 drawRange
-	: All Of Your Card C Except Travel Card That Target A Tile C Also Draw Range From CARD_NAME
-	| All Of Your Card C Except Travel Card That Target A Tile C Also Draw Range From Tile With Terrain
+	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From CARD_NAME
+	| All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From Tile With Terrain
 	;
 
 gainRange
-	: All Of Your Card C Except Travel Card That Target A Tile C Gain value Range
+	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Gain value Range
     ;
 
 limitTargets
-    : Only Target Other Player conditionEffect
+    : Only Target Other hypotheticalPlayer conditionEffect
     ;
 
 passiveEffect
@@ -420,9 +421,9 @@ durationEffect
 	;
 
 turnTrigger
-	: At The Start Of Your Turn
-	| At The End Of Your Turn
-	| At The Start Of Their Turn
+	: At The Start Of hypotheticalPlayer Turn
+	| At The End Of hypotheticalPlayer Turn
+	| At The Start Of hypotheticalPlayer Turn
 	;
 
 gameStartTrigger
@@ -440,27 +441,27 @@ afterEffectTrigger
 	| After hypotheticalPlayer Enters CARD_NAME
 	| After hypotheticalPlayer Enters Terrain
 	| After hypotheticalPlayer Enters A Tile With Terrain
-	| After You Or An Ally Enters CARD_NAME
+	| After hypotheticalPlayer Or An Ally Enters CARD_NAME
 	| After That Card Resolves
-	| After An Attack Card Targeting You Resolves For The First Time During Each Turn
-	| After You Resolve Your First Attack Card Targeting hypotheticalPlayer During Your Turn
+	| After An Attack Card Targeting hypotheticalPlayer Resolves For The First Time During Each Turn
+	| After hypotheticalPlayer Resolve Your First Attack Card Targeting hypotheticalPlayer During Your Turn
 	| After Any Player Enters This Tile
-	| After You Play A Card
-	| After You Play Your Second Attack Card During Your Turn
+	| After hypotheticalPlayer Play A Card
+	| After hypotheticalPlayer Play Your Second Attack Card During Your Turn
 	| After A Resource Is Removed In This Way
-	| After You Attach Another Card To player
+	| After hypotheticalPlayer Attach Another Card To player
 	| After They Resolve Their First Card During Their Turn
-	| After An Attack Card Targeting You Resolves
+	| After An Attack Card Targeting hypotheticalPlayer Resolves
 	| After CARD_NAME Is Revealed
-	| After You Resolve Your First Attack Card During Your Turn
-	| After You Resolve Your First Attack Card Targeting player During Your Turn
-	| After You Stun hypotheticalPlayer
+	| After hypotheticalPlayer Resolve Your First Attack Card During Your Turn
+	| After hypotheticalPlayer Resolve Your First Attack Card Targeting player During Your Turn
+	| After hypotheticalPlayer Stun hypotheticalPlayer
 	| After CARD_NAME Is Sent To Your Discard
-	| After You Second Wind
-	| After You Play CARD_NAME
-    | After A Card With Hardcast You Played Fails To Resolve
-    | After You Slow hypotheticalPlayer For The First Time During Your Turn
-    | After You Slow hypotheticalPlayer
+	| After hypotheticalPlayer Second Wind
+	| After hypotheticalPlayer Play CARD_NAME
+    | After A Card With Hardcast hypotheticalPlayer Played Fails To Resolve
+    | After hypotheticalPlayer Slow hypotheticalPlayer For The First Time During Your Turn
+    | After hypotheticalPlayer Slow hypotheticalPlayer
 	;
 
 afterControlled
@@ -479,15 +480,15 @@ triggerEffect
 //////////////////////////////////////////////////////////////////////////// replacement Trigger
 
 ifWouldRecieveControl
-    : If You Would Receive Control C Instead They Receive The Control
+    : If hypotheticalPlayer Would Receive Control C Instead They Receive The Control
     ;
 
 ifWouldTakeDamage
-    : If You Would Take Damage For The First Time During Each Turn C Instead Take value Less Damage P This May Not Reduce Damage Taken Below value
+    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C Instead Take value Less Damage P This May Not Reduce Damage Taken Below value
     ;
 
 ifWouldHeal
-    : If You Would Heal player Or Another Player HP C Instead Deal That Much Damage To player
+    : If hypotheticalPlayer Would Heal player Or Another Player HP C Instead Deal That Much Damage To player
     ;
 
 
@@ -646,10 +647,10 @@ effectList
     ;
 
 chooseEffect
-    : Choose value For Each Enemy In It O effectList P chooseSameMultipleTimes
+    : Choose value For Each playerFilter In It O effectList P chooseSameMultipleTimes
     | Choose value O effectList P chooseSameMultipleTimes
     | Choose value O effectList
-    | Choose value For Each Enemy In It O effectList
+    | Choose value For Each playerFilter In It O effectList
     ;
 
 singleEffect
