@@ -72,6 +72,7 @@ Cost: 'cost' | 'costs';
 Or: 'or';
 Less: 'less';
 Controlled: 'controlled';
+Uncontrolled: 'uncontrolled';
 Non: 'non-';
 Attack: 'attack';
 Ability: 'ability';

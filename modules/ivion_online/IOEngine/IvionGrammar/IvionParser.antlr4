@@ -1,60 +1,80 @@
 parser grammar IvionParser;
 options { tokenVocab = IvionLexer; }
 
+playerType: Player | Enemy;
+playerPreFix: Controlled | Uncontrolled;
+playerPostFix: In Terrain | Near Terrain | Near CARD_NAME | In CARD_NAME;
+
+currentPlayer: Yourself | You;
+targetPlayer: Another? Target playerPreFix* playerType playerPostFix*;
+previousPlayer
+    : Them
+    | That playerType
+    ;
+previousCardsController: The Card Controller;
+singlePlayer
+    : targetPlayer
+    | previousPlayer
+    | currentPlayer
+    | previousCardsController
+    ;
+
+allPlayers
+    : (Each | All) Other? playerPreFix* playerType playerPostFix*
+    | All playerPreFix* playerType playerPostFix*
+    ;
+
+player
+    : singlePlayer
+    | allPlayers
+    ;
+
+//////////////////////////////////////////////////////////////////////////// EFFECTS
+
 
 disarmPlayer
-	: Disarm value Target Enemy In Terrain
-    | Disarm value Target Enemy
-    | Disarm value Target Enemy Near Terrain
-	| Disarm value Them
+	: Disarm value player
 	| Disarm value
 	;
 
 silencePlayer
-	: Silence value Target Enemy In That Tile
-	| Silence value Yourself
-	| Silence value Target Enemy
-	| Silence value Them
+	: Silence value player
 	| Silence value
 	;
 
 slowPlayer
-	: Slow value Target Enemy
+	: Slow value player
 	| Slow value
-	| Slow value Them
-	| Slow value That Enemy
-	| Slow value Target Enemy In Terrain
-	| Slow value The Card Controller
 	;
 
 controlPlayer
-	: Apply value More Instances Of A Control Type Of Your Choice To Them
-	| Apply An Instance Of A Control Type Of Your Choice To Target Enemy
-	| Apply An Instance Of A Control Type Of Your Choice To Them
-	| Apply An Instance Of A Control Type Of Your Choice To Each Enemy Near CARD_NAME
-	| Increase The Value Of A Control Type Already Affecting Them By value
+	: Apply value More Instances Of A Control Type Of Your Choice To player
+	| Apply An Instance Of A Control Type Of Your Choice To player
+	| Apply An Instance Of A Control Type Of Your Choice To player
+	| Apply An Instance Of A Control Type Of Your Choice To player
+	| Increase The Value Of A Control Type Already Affecting player By value
 	;
 
 travelPlayer
-	: Travel Another Target Player value Tile Away From You
-	| Travel Another Target Player Up To value Tile
-	| Travel Another Target Player Up To value Tile Away From You
+	: Travel player value Tile Away From You
+	| Travel player Up To value Tile
+	| Travel player Up To value Tile Away From You
 	| Travel To Target Tile
-	| Travel Another Target Player Up To value Tile Away From You
-	| Travel Them Up To value Tile
-	| Travel Them Up To value Tile Away From You
-	| Travel Them value Tile
-	| Travel Them value Tile Away From You
-	| Travel Another Target Player Up To value Tile Away From You
+	| Travel player Up To value Tile Away From You
+	| Travel player Up To value Tile
+	| Travel player Up To value Tile Away From You
+	| Travel player value Tile
+	| Travel player value Tile Away From You
+	| Travel player Up To value Tile Away From You
 	| Travel Up To value Tile
-	| Travel Them To CARD_NAME
-	| Travel Another Target Player To The Nearest Tile Next To You Unless They Spend value Resource
-	| Travel To The Nearest Tile Next To Another Target Player
-	| Travel To The Nearest Tile Next To Target Enemy
-	| Travel Them Another value Tile
+	| Travel player To CARD_NAME
+	| Travel player To The Nearest Tile Next To You Unless They Spend value Resource
+	| Travel To The Nearest Tile Next To player
+	| Travel To The Nearest Tile Next To player
+	| Travel player Another value Tile
 	| Travel value Tile
 	| Travel To Another Target Tile
-	| Travel All Other Player Up To value Tile Away From You
+	| Travel player Up To value Tile Away From You
 	;
 
 destroyCard
@@ -71,20 +91,20 @@ dealDamage
 	: Deal value Damage To Target Enemy In That Tile
 	| Deal value Damage To Target Enemy Near Terrain
 	| Deal value Damage To Target Enemy
-	| Deal Damage To Them Equal To The Number Of Revealed Card In Their Hand
+	| Deal Damage To player Equal To The Number Of Revealed Card In Their Hand
 	| Deal value Damage To Target Enemy Plus Damage Equal To Your Mitigate
-	| Deal value Damage To Them
-	| Deal value Damage To Yourself
+	| Deal value Damage To player
+	| Deal value Damage To player
 	| Deal value Damage To
-	| Deal Damage To Them
+	| Deal Damage To player
 	| Deal value Damage To Each Enemy Near CARD_NAME
-	| Deal value More Damage To Them
-	| Deal value Damage To Them Plus value More Damage For Each Revealed Card In Their Hand
+	| Deal value More Damage To player
+	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
 	| Deal value Damage To Target Enemy Plus value More Damage For Each Revealed Card In Their Hand
 	| Deal Damage To Target Enemy Equal To Your POWER
 	| Deal value Damage To Each Enemy In Terrain
-	| Deal Damage To Them Equal To The Total Value Of Control Affecting Them
-	| Deal Damage To Them Equal To The Number Of Card In Their Hand
+	| Deal Damage To player Equal To The Total Value Of Control Affecting player
+	| Deal Damage To player Equal To The Number Of Card In Their Hand
 	;
 
 counterCard
@@ -108,18 +128,18 @@ spendResources: Spend value Resource;
 attachCard
 	: Attach To Target Player
 	| Attach To Target Enemy
-	| Attach To Yourself
+	| Attach To player
 	| Attach To Target Empty Tile
 	| Attach To Target Empty Tile At Least value Tile Away From You
 	| Attach To Target Empty Tile Near Terrain
 	| Attach To Target Empty Tile Until End Of Turn
 	| Attach To Target Enemy Until The Start Of Your Next Turn
-	| Attach To Yourself Until The End Of The Turn
-	| Attach To Yourself Until The End Of Turn
-	| Attach To Yourself Until End Of Turn
-	| Attach To Yourself Until The Start Of Your Next Turn
-	| Attach CARD_NAME To Them
-	| Attach CARD_NAME To Yourself
+	| Attach To player Until The End Of The Turn
+	| Attach To player Until The End Of Turn
+	| Attach To player Until End Of Turn
+	| Attach To player Until The Start Of Your Next Turn
+	| Attach CARD_NAME To player
+	| Attach CARD_NAME To player
 	;
 
 gainPower
@@ -184,21 +204,21 @@ playCard
 	| Play That Card For Free
 	| Play Target Non Attack Card From Your Discard Targeting An Enemy For Free
 	| Play An Attack Card Targeting An Enemy
-	| Play An Ability Card From Your Discard Targeting Them
-	| Play An Attack Card Targeting Them For value Less Resource
+	| Play An Ability Card From Your Discard Targeting player
+	| Play An Attack Card Targeting player For value Less Resource
 	| Play A Card With Frenzy For value Less Resource
-	| Play A Card Targeting Them
+	| Play A Card Targeting player
 	| Play Cursed Dagger For Free P This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
-	| Play Runic Slaughter Targeting Them For Free P This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
+	| Play Runic Slaughter Targeting player For Free P This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
 	| Play A Card For value Less Resource
 	| Play A Non Attack Card Targeting An Enemy
-	| Play A Ability Card Targeting Them For value Less Resource
+	| Play A Ability Card Targeting player For value Less Resource
 	;
 
 discardCards
 	: Discard value Card
 	| They Discard value Card
-	| Have Them Discard A Revealed Card Of Your Choice
+	| Have player Discard A Revealed Card Of Your Choice
 	| Discard A Card
 	| They Discard A Card
 	| Target Enemy Discards Target Revealed Card
@@ -213,15 +233,15 @@ gainsHeroic
 
 healPlayer
 	: Heal Target Player value HP
-	| Heal Yourself value HP
-	| Heal Them value HP
-	| Heal Yourself HP Equal To The Number Of Revealed Card In Their Hand
+	| Heal player value HP
+	| Heal player value HP
+	| Heal player HP Equal To The Number Of Revealed Card In Their Hand
 	;
 
 stunPlayer
 	: Stun Target Enemy
-	| Stun Them
-	| Stun Yourself
+	| Stun player
+	| Stun player
 	;
 
 stunPlayerCondition
@@ -258,9 +278,9 @@ drawCards
 	;
 
 removeControl
-	: Remove Up To value Instances Of Control From Yourself
-	| Remove All Control Affecting Them
-    | Remove An Instance Of Control From Yourself
+	: Remove Up To value Instances Of Control From player
+	| Remove All Control Affecting player
+    | Remove An Instance Of Control From player
 	;
 
 hardcastEffect
@@ -275,7 +295,7 @@ makeTerrain
 	: Make That Tile Difficult Terrain
 	| Make Target Tile At Least value Tile Away Difficult Terrain
 	| Make Target Tile Difficult Terrain
-	| Make Each Tile Near Them Difficult Terrain
+	| Make Each Tile Near player Difficult Terrain
 	| Make The Tile They Are In Difficult Terrain
 	| Make Up To value Target Tile Difficult Terrain
 	| Make value Target Tile Difficult Terrain
@@ -400,7 +420,7 @@ gameStartTrigger
 
 
 afterEffectTrigger
-	: After You Resolve An Ability Card Targeting Them
+	: After You Resolve An Ability Card Targeting player
 	| After They Draw A Card
 	| After You Resolve Your First Ability Card During Your Turn
 	| After You Make Terrain In A Tile
@@ -417,12 +437,12 @@ afterEffectTrigger
 	| After You Play A Card
 	| After You Play Your Second Attack Card During Your Turn
 	| After A Resource Is Removed In This Way
-	| After You Attach Another Card To Them
+	| After You Attach Another Card To player
 	| After They Resolve Their First Card During Their Turn
 	| After An Attack Card Targeting You Resolves
 	| After CARD_NAME Is Revealed
 	| After You Resolve Your First Attack Card During Your Turn
-	| After You Resolve Your First Attack Card Targeting Them During Your Turn
+	| After You Resolve Your First Attack Card Targeting player During Your Turn
 	| After You Stun An Enemy
 	| After CARD_NAME Is Sent To Your Discard
 	| After You Second Wind
@@ -456,7 +476,7 @@ ifWouldTakeDamage
     ;
 
 ifWouldHeal
-    : If You Would Heal Yourself Or Another Player HP C Instead Deal That Much Damage To Target Enemy
+    : If You Would Heal player Or Another Player HP C Instead Deal That Much Damage To Target Enemy
     ;
 
 
