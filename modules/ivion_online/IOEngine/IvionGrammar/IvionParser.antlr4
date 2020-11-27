@@ -3,12 +3,15 @@ options { tokenVocab = IvionLexer; }
 
 playerType: Player | Enemy;
 playerPreFix: Controlled | Uncontrolled;
-playerPostFix: In Terrain | Near Terrain | Near CARD_NAME | In CARD_NAME;
+playerPostFix: In Terrain | Near Terrain | Near CARD_NAME | In CARD_NAME | In That Tile;
+
+playerFilter: playerPreFix* playerType playerPostFix*;
 
 currentPlayer: Yourself | You;
-targetPlayer: Another? Target playerPreFix* playerType playerPostFix*;
+targetPlayer: Another? Target playerFilter;
 previousPlayer
     : Them
+    | They
     | That playerType
     ;
 previousCardsController: The Card Controller;
@@ -24,10 +27,17 @@ allPlayers
     | All playerPreFix* playerType playerPostFix*
     ;
 
+
 player
     : singlePlayer
     | allPlayers
     ;
+
+hypotheticalPlayer
+    : (A | An) playerFilter
+    | player
+    ;
+
 
 //////////////////////////////////////////////////////////////////////////// EFFECTS
 
@@ -88,11 +98,11 @@ destroyCard
 	;
 
 dealDamage
-	: Deal value Damage To Target Enemy In That Tile
-	| Deal value Damage To Target Enemy Near Terrain
-	| Deal value Damage To Target Enemy
+	: Deal value Damage To player
+	| Deal value Damage To player
+	| Deal value Damage To player
 	| Deal Damage To player Equal To The Number Of Revealed Card In Their Hand
-	| Deal value Damage To Target Enemy Plus Damage Equal To Your Mitigate
+	| Deal value Damage To player Plus Damage Equal To Your Mitigate
 	| Deal value Damage To player
 	| Deal value Damage To player
 	| Deal value Damage To
@@ -100,8 +110,8 @@ dealDamage
 	| Deal value Damage To Each Enemy Near CARD_NAME
 	| Deal value More Damage To player
 	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
-	| Deal value Damage To Target Enemy Plus value More Damage For Each Revealed Card In Their Hand
-	| Deal Damage To Target Enemy Equal To Your POWER
+	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
+	| Deal Damage To player Equal To Your POWER
 	| Deal value Damage To Each Enemy In Terrain
 	| Deal Damage To player Equal To The Total Value Of Control Affecting player
 	| Deal Damage To player Equal To The Number Of Card In Their Hand
@@ -127,13 +137,13 @@ spendResources: Spend value Resource;
 
 attachCard
 	: Attach To Target Player
-	| Attach To Target Enemy
+	| Attach To player
 	| Attach To player
 	| Attach To Target Empty Tile
 	| Attach To Target Empty Tile At Least value Tile Away From You
 	| Attach To Target Empty Tile Near Terrain
 	| Attach To Target Empty Tile Until End Of Turn
-	| Attach To Target Enemy Until The Start Of Your Next Turn
+	| Attach To player Until The Start Of Your Next Turn
 	| Attach To player Until The End Of The Turn
 	| Attach To player Until The End Of Turn
 	| Attach To player Until End Of Turn
@@ -202,8 +212,8 @@ playCard
 	| Target Player May Play A Card For value Less Resource
 	| Play A Card For Free
 	| Play That Card For Free
-	| Play Target Non Attack Card From Your Discard Targeting An Enemy For Free
-	| Play An Attack Card Targeting An Enemy
+	| Play Target Non Attack Card From Your Discard Targeting hypotheticalPlayer For Free
+	| Play An Attack Card Targeting hypotheticalPlayer
 	| Play An Ability Card From Your Discard Targeting player
 	| Play An Attack Card Targeting player For value Less Resource
 	| Play A Card With Frenzy For value Less Resource
@@ -211,7 +221,7 @@ playCard
 	| Play Cursed Dagger For Free P This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
 	| Play Runic Slaughter Targeting player For Free P This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
 	| Play A Card For value Less Resource
-	| Play A Non Attack Card Targeting An Enemy
+	| Play A Non Attack Card Targeting hypotheticalPlayer
 	| Play A Ability Card Targeting player For value Less Resource
 	;
 
@@ -221,8 +231,8 @@ discardCards
 	| Have player Discard A Revealed Card Of Your Choice
 	| Discard A Card
 	| They Discard A Card
-	| Target Enemy Discards Target Revealed Card
-	| Target Enemy Discards value Card
+	| player Discards Target Revealed Card
+	| player Discards value Card
 	| Target Player Discards A Revealed Card Of Their Choice
 	| Discard A Revealed Card
 	;
@@ -239,7 +249,7 @@ healPlayer
 	;
 
 stunPlayer
-	: Stun Target Enemy
+	: Stun player
 	| Stun player
 	| Stun player
 	;
@@ -254,8 +264,8 @@ revealCards
 	| They Reveal value Card From Their Hand
 	| They Reveal A Card From Their Hand
 	| Target Player Reveals A Card From Their Hand
-	| Target Enemy Reveals value Card From Their Hand
-	| Target Enemy Reveals A Card From Their Hand
+	| player Reveals value Card From Their Hand
+	| player Reveals A Card From Their Hand
 	| Reveal CARD_NAME
 	| Reveal A Card From Your Hand
     | Reveals A Card From Their Hand
@@ -331,17 +341,18 @@ heroic: Heroic;
 
 
 onlyPlayCertainCards
-	: You May Only Play Card Named CARD_NAME
-	| Only Play CARD_NAME If (Youve | You Have) Resolve An Attack Card This Turn
-	| Only Play CARD_NAME If (Youre | You Are) Controlled
-	| Only Play CARD_NAME If (Youre | You Are) Near Terrain
-	| Only Play CARD_NAME If (Youve | You Have) At Least value Card In Your Discard
-	| Only Play CARD_NAME If (Youve | You Have) Taken value Or More Damage This Turn
+	: player May Only Play Card Named CARD_NAME
+	| Only Play CARD_NAME If player (Have | Has) Resolve An Attack Card This Turn
+	| Only Play CARD_NAME If player (Is | Are) Controlled
+	| Only Play CARD_NAME If player (Is | Are) Uncontrolled
+	| Only Play CARD_NAME If player (Is | Are) Near Terrain
+	| Only Play CARD_NAME If player (Have | Has) At Least value Card In Your Discard
+	| Only Play CARD_NAME If player (Have | Has) Taken value Or More Damage This Turn
 	;
 
 costReduction
-	: Attack Card You Play Cost value Less Resource
-    | The Second Attack Card You Play During Your Turn Cost value Less Resource
+	: Attack Card player Play Cost value Less Resource
+    | The Second Attack Card player Play During Your Turn Cost value Less Resource
 	;
 
 rangeSet
@@ -420,19 +431,19 @@ gameStartTrigger
 
 
 afterEffectTrigger
-	: After You Resolve An Ability Card Targeting player
-	| After They Draw A Card
-	| After You Resolve Your First Ability Card During Your Turn
-	| After You Make Terrain In A Tile
-	| After You Make Terrain In A Tile  That Already Had Terrain
-	| After An Enemy Enters This Tile
-	| After An Enemy Enters CARD_NAME
-	| After An Enemy Enters Terrain
-	| After An Enemy Enters A Tile With Terrain
+	: After hypotheticalPlayer Resolve An Ability Card Targeting player
+	| After hypotheticalPlayer Draw A Card
+	| After hypotheticalPlayer Resolve Your First Ability Card During Your Turn
+	| After hypotheticalPlayer Make Terrain In A Tile
+	| After hypotheticalPlayer Make Terrain In A Tile  That Already Had Terrain
+	| After hypotheticalPlayer Enters This Tile
+	| After hypotheticalPlayer Enters CARD_NAME
+	| After hypotheticalPlayer Enters Terrain
+	| After hypotheticalPlayer Enters A Tile With Terrain
 	| After You Or An Ally Enters CARD_NAME
 	| After That Card Resolves
 	| After An Attack Card Targeting You Resolves For The First Time During Each Turn
-	| After You Resolve Your First Attack Card Targeting An Enemy During Your Turn
+	| After You Resolve Your First Attack Card Targeting hypotheticalPlayer During Your Turn
 	| After Any Player Enters This Tile
 	| After You Play A Card
 	| After You Play Your Second Attack Card During Your Turn
@@ -443,13 +454,13 @@ afterEffectTrigger
 	| After CARD_NAME Is Revealed
 	| After You Resolve Your First Attack Card During Your Turn
 	| After You Resolve Your First Attack Card Targeting player During Your Turn
-	| After You Stun An Enemy
+	| After You Stun hypotheticalPlayer
 	| After CARD_NAME Is Sent To Your Discard
 	| After You Second Wind
 	| After You Play CARD_NAME
     | After A Card With Hardcast You Played Fails To Resolve
-    | After You Slow An Enemy For The First Time During Your Turn
-    | After You Slow An Enemy
+    | After You Slow hypotheticalPlayer For The First Time During Your Turn
+    | After You Slow hypotheticalPlayer
 	;
 
 afterControlled
@@ -476,7 +487,7 @@ ifWouldTakeDamage
     ;
 
 ifWouldHeal
-    : If You Would Heal player Or Another Player HP C Instead Deal That Much Damage To Target Enemy
+    : If You Would Heal player Or Another Player HP C Instead Deal That Much Damage To player
     ;
 
 
@@ -502,25 +513,25 @@ ifPreviousActionInvalid
 	;
 
 ifResolvedCard
-	: If (Youve | You Have) Resolved Another Ability Card This Turn
-	| If (Youve | You Have) Resolved An Attack Card This Turn
+	: If player (Have | Has)? Resolved Another Ability Card This Turn
+	| If player (Have | Has)? Resolved An Attack Card This Turn
 	;
 
 ifUsedSecondWind
-	: If (Youve | You Have) Already Used Your Second Wind
+	: If player (Have | Has)? Already Used Your Second Wind
 	;
 
 ifNear
-	: If You Are Near CARD_NAME
-	| If (Youre | You Are) Near CARD_NAME
+	: If player Are Near CARD_NAME
+	| If player Are Near Terrain
 	;
 
 ifControlled
-	: If They Are Controlled
+	: If player Are Controlled
 	;
 
 ifPlayed
-	: If (Youve | You Have) Played An Attack Card This Turn
+	: If player (Have | Has)? Played An Attack Card This Turn
 	;
 
 ifTileHadTerrain
@@ -528,15 +539,15 @@ ifTileHadTerrain
 	;
 
 ifCardRevealed
-	: If You Have At Least value Revealed Card In Your Hand
+	: If player Have At Least value Revealed Card In Your Hand
 	;
 
 ifPlayerHasMitigate
-	: If You Have Mitigate
+	: If player Have Mitigate
 	;
 
 ifPlayerDidntLeaveTile
-	: If You Didnt Leave A Tile This Turn
+	: If player Didnt Leave A Tile This Turn
 	;
 
 ifCardCostReduced
@@ -544,15 +555,15 @@ ifCardCostReduced
     ;
 
 ifPlayerHasMoreHP
-    : If You Have More HP Than Each Enemy
+    : If player Have More HP Than player
     ;
 
 ifPlayerHasNoActions
-    : If You Have No Resource
+    : If player (Have | Has) No Resource
     ;
 
 ifPlayerInTerrain
-    : If They Are In Terrain
+    : If player Are In Terrain
     ;
 
 conditionEffect
