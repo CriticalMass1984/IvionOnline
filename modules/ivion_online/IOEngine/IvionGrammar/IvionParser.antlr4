@@ -157,29 +157,20 @@ destroyCard
 	| Destroy Target Card
 	| Destroy Target Card In That Tile
 	| Destroy Target Card In Terrain
-	| Destroy All Enemy Card
+	| Destroy All hypotheticalPlayer Card
 	| Destroy CARD_NAME
 	| Destroy Up To value Target Card
 	;
 
 dealDamage
 	: Deal value Damage To player
-	| Deal value Damage To player
-	| Deal value Damage To player
 	| Deal Damage To player Equal To The Number Of Revealed Card In Their Hand
 	| Deal value Damage To player Plus Damage Equal To Your Mitigate
-	| Deal value Damage To player
-	| Deal value Damage To player
 	| Deal value Damage To
 	| Deal Damage To player
-	| Deal value Damage To Each Enemy Near CARD_NAME
 	| Deal value More Damage To player
 	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
-	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
-	| Deal Damage To player Equal To Your POWER
-	| Deal value Damage To Each Enemy In Terrain
-	| Deal Damage To player Equal To The Total Value Of Control Affecting player
-	| Deal Damage To player Equal To The Number Of Card In Their Hand
+	| Deal Damage To player Equal To value
 	;
 
 counterCard
@@ -680,7 +671,18 @@ one: A | Once | One;
 two: Two | Twice;
 three: Three;
 number: Integer;
-value: one | two | three | number;
+playerPowerValue: player POWER;
+playerControlAmountValue: The Total Value Of Control Affecting player;
+playerHandSize: The Number Of Card In Their Hand;
+value
+    : one 
+    | two 
+    | three 
+    | number 
+    | playerPowerValue
+    | playerControlAmountValue
+    | playerHandSize
+    ;
 
 
 
