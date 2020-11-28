@@ -1,9 +1,19 @@
 parser grammar IvionParser;
 options { tokenVocab = IvionLexer; }
 
+//////////////////////////////////////////////////////////////////////////// PLAYER
+
+
 playerType: Player | Enemy;
-playerPreFix: Controlled | Uncontrolled;
-playerPostFix: In Terrain | Near Terrain | Near CARD_NAME | In CARD_NAME | In That Tile;
+playerPreFix: Another | Controlled | Uncontrolled;
+playerPostFix
+    : In Terrain 
+    | Near Terrain 
+    | Near CARD_NAME 
+    | In CARD_NAME 
+    | In tile
+    | At Least value Tile Away
+    ;
 
 playerFilter: playerPreFix* playerType playerPostFix*;
 
@@ -25,20 +35,80 @@ singlePlayer
 
 allPlayers
     : (Each | All) Other? playerFilter
-    | All playerFilter
     ;
 
-
+////
 player
     : singlePlayer
     | allPlayers
     ;
 
 hypotheticalPlayer
-    : (A | An)? playerFilter
+    : A? playerFilter
     | player
     ;
 
+//////////////////////////////////////////////////////////////////////////// TILE
+
+
+tilePreFix
+    : Empty
+    ;
+tilePostFix
+    : With Terrain 
+    | Near Terrain 
+    | Near hypotheticalPlayer
+    | Near CARD_NAME
+    | At Least value Tile Away
+    | At Least value Tile Away From hypotheticalPlayer
+    | That Already Had Terrain
+    ;
+
+tileFilter
+    : tilePreFix* Tile tilePostFix*
+    ;
+
+targetTile: Another? value? Target tileFilter;
+
+previousTile
+    : That Tile
+    | The Tile
+    ;
+theNearestTile
+    : The Nearest tileFilter Next To (player | CARD_NAME)
+    ;
+playersTile
+    : The Tile player (Are | Is) In
+    ;
+cardsTile
+    : This Tile
+    ;
+singleTile
+    : targetTile
+    | previousTile
+    | theNearestTile
+    | playersTile
+    | cardsTile
+    ;
+
+multiTile
+    : Up To value targetTile
+    ;
+
+allTiles
+    : (Each | All) tileFilter
+    ;
+
+////
+
+tile
+    : singleTile
+    | allTiles
+    | multiTile
+    ;
+hypotheticalTile
+    : A? tileFilter
+    ;
 
 //////////////////////////////////////////////////////////////////////////// EFFECTS
 
@@ -60,31 +130,25 @@ slowPlayer
 
 controlPlayer
 	: Apply value More Instances Of A Control Type Of Your Choice To player
-	| Apply An Instance Of A Control Type Of Your Choice To player
-	| Apply An Instance Of A Control Type Of Your Choice To player
-	| Apply An Instance Of A Control Type Of Your Choice To player
+	| Apply A Instance Of A Control Type Of Your Choice To player
+	| Apply A Instance Of A Control Type Of Your Choice To player
+	| Apply A Instance Of A Control Type Of Your Choice To player
 	| Increase The Value Of A Control Type Already Affecting player By value
 	;
 
 travelPlayer
 	: Travel player value Tile Away From You
 	| Travel player Up To value Tile
-	| Travel player Up To value Tile Away From You
-	| Travel To Target Tile
-	| Travel player Up To value Tile Away From You
+	| Travel To tile 
+	| Travel player To tile
 	| Travel player Up To value Tile
-	| Travel player Up To value Tile Away From You
 	| Travel player value Tile
 	| Travel player value Tile Away From You
-	| Travel player Up To value Tile Away From You
 	| Travel Up To value Tile
 	| Travel player To CARD_NAME
-	| Travel player To The Nearest Tile Next To You Unless They Spend value Resource
-	| Travel To The Nearest Tile Next To player
-	| Travel To The Nearest Tile Next To player
+	| Travel player To  Unless They Spend value Resource
 	| Travel player Another value Tile
 	| Travel value Tile
-	| Travel To Another Target Tile
 	| Travel player Up To value Tile Away From You
 	;
 
@@ -137,19 +201,13 @@ counterCardCondition
 spendResources: Spend value Resource;
 
 attachCard
-	: Attach To Target Player
-	| Attach To player
-	| Attach To player
-	| Attach To Target Empty Tile
-	| Attach To Target Empty Tile At Least value Tile Away From You
-	| Attach To Target Empty Tile Near Terrain
-	| Attach To Target Empty Tile Until End Of Turn
+	: Attach To player
+	| Attach To tile 
+	| Attach To tile Until End Of Turn
 	| Attach To player Until The Start Of Your Next Turn
 	| Attach To player Until The End Of The Turn
 	| Attach To player Until The End Of Turn
 	| Attach To player Until End Of Turn
-	| Attach To player Until The Start Of Your Next Turn
-	| Attach CARD_NAME To player
 	| Attach CARD_NAME To player
 	;
 
@@ -176,7 +234,7 @@ gainInitiative
 	;
 
 gainMitigate
-	: Target Player Gains Mitigate value
+	: player Gains Mitigate value
 	| Gain Mitigate value
 	;
 
@@ -192,7 +250,7 @@ returnCard
 	: Return Target Attached Card To Its Owners Hand
 	| Return Target Card With A Resource Cost Of value Or Less From Your Discard To Your Hand
 	| Return Target Ability Card From Your Discard To Your Hand
-	| You May Return An Attack Card With A Resource Cost Of value Or Less From Your Discard To Your Hand
+	| You May Return A Attack Card With A Resource Cost Of value Or Less From Your Discard To Your Hand
 	| Return A Card From Your Discard To Your Hand
 	| Return Target Card From Your Discard To Your Hand
 	| Return CARD_NAME To Your Hand
@@ -209,14 +267,14 @@ triggerDurationEffects
 	;
 
 playCard
-	: Target Player May Play A Card
-	| Target Player May Play A Card For value Less Resource
+	: player May Play A Card
+	| player May Play A Card For value Less Resource
 	| Play A Card For Free
 	| Play That Card For Free
 	| Play Target Non Attack Card From Your Discard Targeting hypotheticalPlayer For Free
-	| Play An Attack Card Targeting hypotheticalPlayer
-	| Play An Ability Card From Your Discard Targeting player
-	| Play An Attack Card Targeting player For value Less Resource
+	| Play A Attack Card Targeting hypotheticalPlayer
+	| Play A Ability Card From Your Discard Targeting player
+	| Play A Attack Card Targeting player For value Less Resource
 	| Play A Card With Frenzy For value Less Resource
 	| Play A Card Targeting player
 	| Play Cursed Dagger For Free P This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
@@ -228,13 +286,13 @@ playCard
 
 discardCards
 	: Discard value Card
-	| They Discard value Card
-	| Have player Discard A Revealed Card Of Your Choice
 	| Discard A Card
-	| They Discard A Card
+	| Discard A Revealed Card Of player Choice
+	| player Discard value Card
+	| player Discard A Card
 	| player Discards Target Revealed Card
 	| player Discards value Card
-	| Target Player Discards A Revealed Card Of Their Choice
+	| player Discards A Revealed Card Of player Choice
 	| Discard A Revealed Card
 	;
 
@@ -243,7 +301,7 @@ gainsHeroic
 	;
 
 healPlayer
-	: Heal Target Player value HP
+	: Heal player value HP
 	| Heal player value HP
 	| Heal player value HP
 	| Heal player HP Equal To The Number Of Revealed Card In Their Hand
@@ -261,10 +319,10 @@ stunPlayerCondition
 	;
 
 revealCards
-	: Target Player Reveals value Card From Their Hand
+	: player Reveals value Card From Their Hand
 	| They Reveal value Card From Their Hand
 	| They Reveal A Card From Their Hand
-	| Target Player Reveals A Card From Their Hand
+	| player Reveals A Card From Their Hand
 	| player Reveals value Card From Their Hand
 	| player Reveals A Card From Their Hand
 	| Reveal CARD_NAME
@@ -278,20 +336,17 @@ revealCardsCondition
 
 drawCards
 	: Draw A Card
-	| Target Player Draws value Card
-	| They Draw A Card
-	| You Draw A Card
-	| Draw An Additional Card
-	| They Draw value Card
 	| Draw value Card
-	| Each Player Draws A Card
-	| Target Player Draws A Card
+	| Draw A Additional Card
+	| player Draw value Card
+	| player Draw value Card
+	| player Draw A Card
 	;
 
 removeControl
 	: Remove Up To value Instances Of Control From player
 	| Remove All Control Affecting player
-    | Remove An Instance Of Control From player
+    | Remove A Instance Of Control From player
 	;
 
 hardcastEffect
@@ -303,13 +358,7 @@ seekEffect
 	;
 
 makeTerrain
-	: Make That Tile Difficult Terrain
-	| Make Target Tile At Least value Tile Away Difficult Terrain
-	| Make Target Tile Difficult Terrain
-	| Make Each Tile Near player Difficult Terrain
-	| Make The Tile They Are In Difficult Terrain
-	| Make Up To value Target Tile Difficult Terrain
-	| Make value Target Tile Difficult Terrain
+	: Make tile Difficult Terrain
 	;
 
 removeTerrain
@@ -317,7 +366,7 @@ removeTerrain
 	;
 
 payResources
-	: Each Enemy May Spend value Resource
+	: Spend value Resource
 	;
 
 scryEffect
@@ -343,7 +392,7 @@ heroic: Heroic;
 
 onlyPlayCertainCards
 	: hypotheticalPlayer May Only Play Card Named CARD_NAME
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Resolve An Attack Card This Turn
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Resolve A Attack Card This Turn
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Controlled
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Uncontrolled
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Near Terrain
@@ -387,7 +436,7 @@ noInitiative
     
 drawRange
 	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From CARD_NAME
-	| All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From Tile With Terrain
+	| All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalTile
 	;
 
 gainRange
@@ -432,18 +481,16 @@ gameStartTrigger
 
 
 afterEffectTrigger
-	: After hypotheticalPlayer Resolve An Ability Card Targeting player
+	: After hypotheticalPlayer Resolve A Ability Card Targeting player
 	| After hypotheticalPlayer Draw A Card
 	| After hypotheticalPlayer Resolve Your First Ability Card During Your Turn
-	| After hypotheticalPlayer Make Terrain In A Tile
-	| After hypotheticalPlayer Make Terrain In A Tile  That Already Had Terrain
-	| After hypotheticalPlayer Enters This Tile
+	| After hypotheticalPlayer Make Terrain In hypotheticalTile
+	| After hypotheticalPlayer Enters hypotheticalTile
 	| After hypotheticalPlayer Enters CARD_NAME
-	| After hypotheticalPlayer Enters Terrain
-	| After hypotheticalPlayer Enters A Tile With Terrain
-	| After hypotheticalPlayer Or An Ally Enters CARD_NAME
+	| After hypotheticalPlayer Enters tile
+	| After hypotheticalPlayer Or A Ally Enters CARD_NAME
 	| After That Card Resolves
-	| After An Attack Card Targeting hypotheticalPlayer Resolves For The First Time During Each Turn
+	| After A Attack Card Targeting hypotheticalPlayer Resolves For The First Time During Each Turn
 	| After hypotheticalPlayer Resolve Your First Attack Card Targeting hypotheticalPlayer During Your Turn
 	| After Any Player Enters This Tile
 	| After hypotheticalPlayer Play A Card
@@ -451,7 +498,7 @@ afterEffectTrigger
 	| After A Resource Is Removed In This Way
 	| After hypotheticalPlayer Attach Another Card To player
 	| After They Resolve Their First Card During Their Turn
-	| After An Attack Card Targeting hypotheticalPlayer Resolves
+	| After A Attack Card Targeting hypotheticalPlayer Resolves
 	| After CARD_NAME Is Revealed
 	| After hypotheticalPlayer Resolve Your First Attack Card During Your Turn
 	| After hypotheticalPlayer Resolve Your First Attack Card Targeting player During Your Turn
@@ -515,7 +562,7 @@ ifPreviousActionInvalid
 
 ifResolvedCard
 	: If player (Have | Has)? Resolved Another Ability Card This Turn
-	| If player (Have | Has)? Resolved An Attack Card This Turn
+	| If player (Have | Has)? Resolved A Attack Card This Turn
 	;
 
 ifUsedSecondWind
@@ -532,7 +579,7 @@ ifControlled
 	;
 
 ifPlayed
-	: If player (Have | Has)? Played An Attack Card This Turn
+	: If player (Have | Has)? Played A Attack Card This Turn
 	;
 
 ifTileHadTerrain
@@ -540,11 +587,11 @@ ifTileHadTerrain
 	;
 
 ifCardRevealed
-	: If player Have At Least value Revealed Card In Your Hand
+	: If player (Have | Has) At Least value Revealed Card In Your Hand
 	;
 
 ifPlayerHasMitigate
-	: If player Have Mitigate
+	: If player (Have | Has) Mitigate
 	;
 
 ifPlayerDidntLeaveTile
@@ -556,7 +603,7 @@ ifCardCostReduced
     ;
 
 ifPlayerHasMoreHP
-    : If player Have More HP Than player
+    : If player (Have | Has) More HP Than player
     ;
 
 ifPlayerHasNoActions
@@ -695,18 +742,20 @@ singleEffect
     ;
 
 conditionalEffect
-    : conditionEffect C effect
+    : conditionEffect C singleEffect
     | singleEffect
     ;
 
 alternativeEffect
-    : conditionEffect C Instead effect
+    : conditionEffect C Instead conditionalEffect
     | conditionalEffect
     ;
 
 optionalEffect
-    : You May alternativeEffect
-    | optionalEffect To alternativeEffect
+    : hypotheticalPlayer May Have hypotheticalPlayer alternativeEffect
+    | hypotheticalPlayer May alternativeEffect To alternativeEffect
+    | hypotheticalPlayer May alternativeEffect
+    | alternativeEffect Unless hypotheticalPlayer alternativeEffect
     | alternativeEffect
     ;
 
@@ -716,14 +765,12 @@ multiEffect
     | multiEffect C optionalEffect
     | multiEffect C And optionalEffect
     | multiEffect And optionalEffect
+    | Then C optionalEffect
     | optionalEffect
     ;
 
 effect
-    : Then C multiEffect
-    | Then multiEffect
-    | multiEffect
-    | 
+    : multiEffect
     ;
 
 anyEffect: effect | passiveEffect | replacementTriggerEffect | triggerEffect;
