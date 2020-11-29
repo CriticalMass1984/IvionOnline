@@ -163,7 +163,6 @@ Reset: 'reset';
 Only: 'only';
 Named: 'named';
 Resolve: 'resolve';
-Wary: 'wary';
 Taken: 'taken';
 Cant: 'can\'t';
 Be: 'be';

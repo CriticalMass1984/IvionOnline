@@ -48,6 +48,37 @@ hypotheticalPlayer
     | player
     ;
 
+//////////////////////////////////////////////////////////////////////////// CARD
+
+cardPrefix
+    : Enemy
+    ;
+cardPostfix
+    : In Terrain
+    ;
+cardFilter
+    : cardPrefix* Card cardPostfix*
+    ;
+cardName: CARD_NAME;
+
+singleCard
+    : cardName
+    ;
+allCards
+    :
+    ;
+
+////
+card
+    : singleCard
+    | allCards
+    ;
+
+hypotheticalCard
+    : A? cardFilter
+    | card
+    ;
+
 //////////////////////////////////////////////////////////////////////////// TILE
 
 
@@ -131,25 +162,19 @@ slowPlayer
 controlPlayer
 	: Apply value More Instances Of A Control Type Of Your Choice To player
 	| Apply A Instance Of A Control Type Of Your Choice To player
-	| Apply A Instance Of A Control Type Of Your Choice To player
-	| Apply A Instance Of A Control Type Of Your Choice To player
 	| Increase The Value Of A Control Type Already Affecting player By value
 	;
 
+awayFlag
+    : Away From player
+    ;
+upToFlag: Up To;
+travelDistance
+    : Travel TargetPlayer=player? UpToFlag=upToFlag? Another? value Tile Awayflag=awayFlag?
+    ;
+
 travelPlayer
-	: Travel player value Tile Away From You
-	| Travel player Up To value Tile
-	| Travel To tile 
-	| Travel player To tile
-	| Travel player Up To value Tile
-	| Travel player value Tile
-	| Travel player value Tile Away From You
-	| Travel Up To value Tile
-	| Travel player To CARD_NAME
-	| Travel player To  Unless They Spend value Resource
-	| Travel player Another value Tile
-	| Travel value Tile
-	| Travel player Up To value Tile Away From You
+	: Travel TargetPlayer=player? To (TargetTile=tile | TargetCard=card)
 	;
 
 destroyCard
@@ -195,10 +220,7 @@ attachCard
 	: Attach To player
 	| Attach To tile 
 	| Attach To tile Until End Of Turn
-	| Attach To player Until The Start Of Your Next Turn
-	| Attach To player Until The End Of The Turn
-	| Attach To player Until The End Of Turn
-	| Attach To player Until End Of Turn
+	| Attach To player Until turnTrigger
 	| Attach CARD_NAME To player
 	;
 
@@ -461,9 +483,13 @@ durationEffect
 	;
 
 turnTrigger
-	: At The Start Of hypotheticalPlayer Turn
-	| At The End Of hypotheticalPlayer Turn
-	| At The Start Of hypotheticalPlayer Turn
+	: The Start Of hypotheticalPlayer Turn
+	| The End Of hypotheticalPlayer Turn
+	| The Start Of hypotheticalPlayer Turn
+    | End Of Turn
+	| The Start Of hypotheticalPlayer Next Turn
+	| The End Of The Turn
+	| The End Of Turn
 	;
 
 gameStartTrigger
@@ -508,7 +534,7 @@ afterControlled
 
 
 triggerEffect
-    : turnTrigger C effect
+    : At turnTrigger C effect
 	| afterEffectTrigger C effect
     | durationEffect D effect
     | afterControlled
@@ -709,6 +735,7 @@ singleEffect
     | slowPlayer
     | controlPlayer
     | travelPlayer
+    | travelDistance
     | destroyCard
     | dealDamage
     | counterCardCondition
