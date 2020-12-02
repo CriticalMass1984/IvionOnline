@@ -799,7 +799,7 @@ alternativeEffect
     | conditionalEffect
     ;
 
-optionalEffect
+effect
     : hypotheticalPlayer May Have hypotheticalPlayer alternativeEffect
     | hypotheticalPlayer May alternativeEffect To alternativeEffect
     | hypotheticalPlayer May alternativeEffect
@@ -807,32 +807,28 @@ optionalEffect
     | alternativeEffect
     ;
 
-multiEffect
-    : multiEffect Then optionalEffect
-    | multiEffect C Then optionalEffect
-    | multiEffect C optionalEffect
-    | multiEffect C And optionalEffect
-    | multiEffect And optionalEffect
-    | Then C optionalEffect
-    | optionalEffect
-    ;
-
-effect
-    : multiEffect
+effectEnd
+    : P Then C
+    | P
+    | And
+    | C And
+    | C Then
+    | C
+    | Then
     ;
 
 anyEffect: effect | passiveEffect | replacementTriggerEffect | triggerEffect;
 
-breachEffect: Breach D (anyEffect P)+;
-advantageEffect: Advantage D (anyEffect P)+;
-frenzyEffect: Frenzy D (anyEffect P)+;
+breachEffect: Breach D (anyEffect effectEnd)+;
+advantageEffect: Advantage D (anyEffect effectEnd)+;
+frenzyEffect: Frenzy D (anyEffect effectEnd)+;
 
 line
     : omniPresentEffect P
     | breachEffect 
     | advantageEffect 
     | frenzyEffect
-    | anyEffect P
+    | anyEffect effectEnd
     ;
 
 text: line+ EOF;
