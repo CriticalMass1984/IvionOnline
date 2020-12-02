@@ -12,7 +12,7 @@ playerPostFix
     | Near CARD_NAME 
     | In CARD_NAME 
     | In tile
-    | At Least value Tile Away
+    | At Least literalValue Tile Away
     ;
 
 playerFilter: playerPreFix* playerType playerPostFix*;
@@ -25,14 +25,19 @@ previousPlayer
     | That playerType
     | Their
     ;
-previousCardsController: The Card Controller;
+previousCardsController
+    : previousCard Controller
+    | Its Controller
+    ;
 singlePlayer
     : targetPlayer
     | previousPlayer
     | currentPlayer
     | previousCardsController
     ;
-
+multiPlayer
+    : UpToFlag=upToFlag? literalValue targetPlayer
+    ;
 allPlayers
     : (Each | All) Other? playerFilter
     ;
@@ -40,6 +45,7 @@ allPlayers
 ////
 player
     : singlePlayer
+    | multiPlayer
     | allPlayers
     ;
 
@@ -52,26 +58,50 @@ hypotheticalPlayer
 
 cardPrefix
     : Enemy
+    | Attached
+    | Non? Ability
+    | Non? Attack
+    | Revealed
     ;
 cardPostfix
     : In Terrain
+    | Near Terrain
+    | Near hypotheticalPlayer
+    | Near hypotheticalTile
+    | In hypotheticalTile
+    | Targeting hypotheticalPlayer
+    | With A Resource Cost Of literalValue Or Less
+    | Attached To hypotheticalPlayer
+    | Attached To hypotheticalTile
+    | Controlled By hypotheticalPlayer
     ;
 cardFilter
     : cardPrefix* Card cardPostfix*
     ;
 cardName: CARD_NAME;
-
+bottomCard: The Bottom Card Of hypotheticalPlayer Deck;
+previousCard
+    : That Card
+    | The Card
+    ;
+targetCard: Target cardFilter;
 singleCard
     : cardName
+    | targetCard
+    | bottomCard
+    | previousCard
     ;
 allCards
-    :
+    : All cardFilter
     ;
-
+multiCard
+    : UpToFlag=upToFlag? literalValue targetCard
+    ;
 ////
 card
     : singleCard
     | allCards
+    | multiCard
     ;
 
 hypotheticalCard
@@ -81,17 +111,16 @@ hypotheticalCard
 
 //////////////////////////////////////////////////////////////////////////// TILE
 
-
 tilePreFix
-    : Empty
+    : Non? Empty
     ;
 tilePostFix
     : With Terrain 
     | Near Terrain 
     | Near hypotheticalPlayer
-    | Near CARD_NAME
-    | At Least value Tile Away
-    | At Least value Tile Away From hypotheticalPlayer
+    | Near card
+    | At Least literalValue Tile Away
+    | At Least literalValue Tile Away From hypotheticalPlayer
     | That Already Had Terrain
     ;
 
@@ -99,14 +128,14 @@ tileFilter
     : tilePreFix* Tile tilePostFix*
     ;
 
-targetTile: Another? value? Target tileFilter;
+targetTile: Another? literalValue? Target tileFilter;
 
 previousTile
     : That Tile
     | The Tile
     ;
 theNearestTile
-    : The Nearest tileFilter Next To (player | CARD_NAME)
+    : The Nearest tileFilter Next To (hypotheticalPlayer | hypotheticalCard)
     ;
 playersTile
     : The Tile player (Are | Is) In
@@ -123,7 +152,7 @@ singleTile
     ;
 
 multiTile
-    : Up To value targetTile
+    : UpToFlag=upToFlag? literalValue targetTile
     ;
 
 allTiles
@@ -139,30 +168,31 @@ tile
     ;
 hypotheticalTile
     : A? tileFilter
+    | tile
     ;
 
 //////////////////////////////////////////////////////////////////////////// EFFECTS
 
 
 disarmPlayer
-	: Disarm value player
-	| Disarm value
+	: Disarm literalValue player
+	| Disarm literalValue
 	;
 
 silencePlayer
-	: Silence value player
-	| Silence value
+	: Silence literalValue player
+	| Silence literalValue
 	;
 
 slowPlayer
-	: Slow value player
-	| Slow value
+	: Slow literalValue player
+	| Slow literalValue
 	;
 
 controlPlayer
-	: Apply value More Instances Of A Control Type Of Your Choice To player
+	: Apply literalValue More Instances Of A Control Type Of Your Choice To player
 	| Apply A Instance Of A Control Type Of Your Choice To player
-	| Increase The Value Of A Control Type Already Affecting player By value
+	| Increase The Value Of A Control Type Already Affecting player By literalValue
 	;
 
 awayFlag
@@ -170,7 +200,7 @@ awayFlag
     ;
 upToFlag: Up To;
 travelDistance
-    : Travel TargetPlayer=player? UpToFlag=upToFlag? Another? value Tile Awayflag=awayFlag?
+    : Travel TargetPlayer=player? UpToFlag=upToFlag? Another? literalValue Tile Awayflag=awayFlag?
     ;
 
 travelPlayer
@@ -178,43 +208,23 @@ travelPlayer
 	;
 
 destroyCard
-	: Destroy Target Card Attached To You
-	| Destroy Target Card
-	| Destroy Target Card In That Tile
-	| Destroy Target Card In Terrain
-	| Destroy All hypotheticalPlayer Card
-	| Destroy CARD_NAME
-	| Destroy Up To value Target Card
+	: Destroy card
 	;
 
 dealDamage
-	: Deal value Damage To player
-	| Deal Damage To player Equal To The Number Of Revealed Card In Their Hand
-	| Deal value Damage To player Plus Damage Equal To Your Mitigate
-	| Deal value Damage To
+	: Deal literalValue Damage To player
+	| Deal Damage To player Equal To gameStateValue
+	| Deal literalValue Damage To player Plus Damage Equal To gameStateValue
+	| Deal literalValue Damage To
 	| Deal Damage To player
-	| Deal value More Damage To player
-	| Deal value Damage To player Plus value More Damage For Each Revealed Card In Their Hand
-	| Deal Damage To player Equal To value
+	| Deal literalValue More Damage To player
+	| Deal literalValue Damage To player Plus literalValue More Damage For Each Revealed Card In Their Hand
+	| Deal Damage To player Equal To literalValue
 	;
 
 counterCard
-	: Counter Up To value Target Card Unless Its Controller Spends value Resource
-	| Counter Target Card Unless Its Controller Spends value Resource
-	| Counter Target Card Targeting You With A Resource Cost Of value Or Less Unless Its Controller Spends value Resource
-	| Counter Target Card Controlled By A Player In Terrain Unless They Spend value Resource
-	| Counter Target Card Targeting You Unless Its Controller Spends value Resource
-	| Counter Target Non Attack Card Unless Its Controller Spends value Resource
-	| Counter Target Attack Card Targeting You Unless Its Controller Spends value Resource
-	| Counter Target Ability Card Unless Its Controller Spends value Resource
+	: Counter card
 	;
-
-counterCardCondition
-	: counterCard P If That Card Is Countered C effect
-    | counterCard
-	;
-
-spendResources: Spend value Resource;
 
 attachCard
 	: Attach To player
@@ -225,19 +235,19 @@ attachCard
 	;
 
 gainPower
-	: They Gain value POWER
-	| Gain value More POWER
-	| Gain value Additional POWER
-	| Gain value POWER
-	| Gain value More POWER
+	: They Gain literalValue POWER
+	| Gain literalValue More POWER
+	| Gain literalValue Additional POWER
+	| Gain literalValue POWER
+	| Gain literalValue More POWER
 	;
 
 gainAction
-	: They Gain value ACTION
-	| Gain value More ACTION
-	| Gain value Additional ACTION
-	| Gain value ACTION
-	| Gain value More ACTION
+	: They Gain literalValue ACTION
+	| Gain literalValue More ACTION
+	| Gain literalValue Additional ACTION
+	| Gain literalValue ACTION
+	| Gain literalValue More ACTION
 	;
 
 gainInitiative
@@ -247,8 +257,8 @@ gainInitiative
 	;
 
 gainMitigate
-	: player Gains Mitigate value
-	| Gain Mitigate value
+	: player Gains Mitigate literalValue
+	| Gain Mitigate literalValue
 	;
 
 loseMitigate
@@ -261,18 +271,18 @@ useSecondWind
 
 returnCard
 	: Return Target Attached Card To Its Owners Hand
-	| Return Target Card With A Resource Cost Of value Or Less From Your Discard To Your Hand
+	| Return Target Card With A Resource Cost Of literalValue Or Less From Your Discard To Your Hand
 	| Return Target Ability Card From Your Discard To Your Hand
-	| You May Return A Attack Card With A Resource Cost Of value Or Less From Your Discard To Your Hand
+	| Return A Attack Card With A Resource Cost Of literalValue Or Less From Your Discard To Your Hand
 	| Return A Card From Your Discard To Your Hand
 	| Return Target Card From Your Discard To Your Hand
 	| Return CARD_NAME To Your Hand
 	| Return It From Your Discard To Your Hand
-	| Return Target Card With A Resource Cost Of value Or More From Your Discard To Your Hand
+	| Return Target Card With A Resource Cost Of literalValue Or More From Your Discard To Your Hand
 	;
 
 putBottomCardOfDeckIntoHand
-	: Put The Bottom Card Of Your Deck Into Your Hand
+	: Put hypotheticalCard Into Your Hand
 	;
 
 triggerDurationEffects
@@ -280,31 +290,31 @@ triggerDurationEffects
 	;
 
 playCard
-	: player May Play A Card
-	| player May Play A Card For value Less Resource
+	: Play A Card
+	| Play A Card For literalValue Less Resource
 	| Play A Card For Free
 	| Play That Card For Free
 	| Play Target Non Attack Card From Your Discard Targeting hypotheticalPlayer For Free
 	| Play A Attack Card Targeting hypotheticalPlayer
 	| Play A Ability Card From Your Discard Targeting player
-	| Play A Attack Card Targeting player For value Less Resource
-	| Play A Card With Frenzy For value Less Resource
+	| Play A Attack Card Targeting player For literalValue Less Resource
+	| Play A Card With Frenzy For literalValue Less Resource
 	| Play A Card Targeting player
 	| Play Cursed Dagger For Free P This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
 	| Play Runic Slaughter Targeting player For Free P This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
-	| Play A Card For value Less Resource
+	| Play A Card For literalValue Less Resource
 	| Play A Non Attack Card Targeting hypotheticalPlayer
-	| Play A Ability Card Targeting player For value Less Resource
+	| Play A Ability Card Targeting player For literalValue Less Resource
 	;
 
 discardCards
-	: Discard value Card
+	: Discard literalValue Card
 	| Discard A Card
 	| Discard A Revealed Card Of player Choice
-	| player Discard value Card
+	| player Discard literalValue Card
 	| player Discard A Card
 	| player Discards Target Revealed Card
-	| player Discards value Card
+	| player Discards literalValue Card
 	| player Discards A Revealed Card Of player Choice
 	| Discard A Revealed Card
 	;
@@ -314,50 +324,41 @@ gainsHeroic
 	;
 
 healPlayer
-	: Heal player value HP
-	| Heal player value HP
-	| Heal player value HP
-	| Heal player HP Equal To The Number Of Revealed Card In Their Hand
+	: Heal player literalValue HP
+	| Heal player literalValue HP
+	| Heal player literalValue HP
+	| Heal player HP Equal To The Number Of hypotheticalCard In Their Hand
 	;
 
 stunPlayer
 	: Stun player
-	| Stun player
-	| Stun player
-	;
-
-stunPlayerCondition
-	: stunPlayer P If A Resource Is Removed This Way C effect
-    | stunPlayer
 	;
 
 revealCards
-	: player Reveals value Card From Their Hand
-	| They Reveal value Card From Their Hand
+	: player Reveals literalValue Card From Their Hand
+	| They Reveal literalValue Card From Their Hand
 	| They Reveal A Card From Their Hand
 	| player Reveals A Card From Their Hand
-	| player Reveals value Card From Their Hand
+	| player Reveals literalValue Card From Their Hand
 	| player Reveals A Card From Their Hand
 	| Reveal CARD_NAME
 	| Reveal A Card From Your Hand
     | Reveals A Card From Their Hand
 	;
 
-revealCardsCondition
-    : revealCards
-    | revealCards P If A Non Attack Card Is Revealed This Way;
+
 
 drawCards
 	: Draw A Card
-	| Draw value Card
+	| Draw literalValue Card
 	| Draw A Additional Card
-	| player Draw value Card
-	| player Draw value Card
+	| player Draw literalValue Card
+	| player Draw literalValue Card
 	| player Draw A Card
 	;
 
 removeControl
-	: Remove Up To value Instances Of Control From player
+	: Remove Up To literalValue Instances Of Control From player
 	| Remove All Control Affecting player
     | Remove A Instance Of Control From player
 	;
@@ -378,12 +379,12 @@ removeTerrain
 	: Remove Target Terrain Token
 	;
 
-payResources
-	: Spend value Resource
+spendResources
+	: Spend literalValue Resource
 	;
 
 scryEffect
-	: Look At The Top value Card Of Your Deck P Put Any Number On The Bottom And The Rest On Top In Any Order
+	: Look At The Top literalValue Card Of Your Deck P Put Any Number On The Bottom And The Rest On Top In Any Order
 	;
 
 overrideFrenzy
@@ -391,7 +392,7 @@ overrideFrenzy
 	;
 
 increaseCardDuration
-	: Increase The Duration Of A Card You Control By value
+	: Increase The Duration Of A Card You Control By literalValue
 	;
 
 resetUseOfCard
@@ -409,17 +410,17 @@ onlyPlayCertainCards
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Controlled
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Uncontrolled
 	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Near Terrain
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) At Least value Card In Your Discard
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Taken value Or More Damage This Turn
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) At Least literalValue Card In Your Discard
+	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Taken literalValue Or More Damage This Turn
 	;
 
 costReduction
-	: Attack Card hypotheticalPlayer Play Cost value Less Resource
-    | The Second Attack Card hypotheticalPlayer Play During Your Turn Cost value Less Resource
+	: Attack Card hypotheticalPlayer Play Cost literalValue Less Resource
+    | The Second Attack Card hypotheticalPlayer Play During Your Turn Cost literalValue Less Resource
 	;
 
 rangeSet
-	: The Range Of Your Attack Card Is value
+	: The Range Of Your Attack Card Is literalValue
 	;
 
 cantPlayCards
@@ -432,11 +433,11 @@ playerCantBeTargeted
 	;
 
 increasedHandSize
-    : Your Maximum Hand Size Is Increased By value
+    : Your Maximum Hand Size Is Increased By literalValue
     ;
 
 increasedMaxHP
-    : Your Maximum HP Is Increased By value
+    : Your Maximum HP Is Increased By literalValue
     ;
 
 replacesSecondWind
@@ -453,11 +454,11 @@ drawRange
 	;
 
 gainRange
-	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Gain value Range
+	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Gain literalValue Range
     ;
 
 limitTargets
-    : Only Target Other hypotheticalPlayer conditionEffect
+    : Only Target Other hypotheticalPlayer condition
     ;
 
 passiveEffect
@@ -548,7 +549,7 @@ ifWouldRecieveControl
     ;
 
 ifWouldTakeDamage
-    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C Instead Take value Less Damage P This May Not Reduce Damage Taken Below value
+    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C Instead Take literalValue Less Damage P This May Not Reduce Damage Taken Below literalValue
     ;
 
 ifWouldHeal
@@ -604,7 +605,7 @@ ifTileHadTerrain
 	;
 
 ifCardRevealed
-	: If player (Have | Has) At Least value Revealed Card In Your Hand
+	: If player (Have | Has) At Least literalValue Revealed Card In Your Hand
 	;
 
 ifPlayerHasMitigate
@@ -616,7 +617,7 @@ ifPlayerDidntLeaveTile
 	;
 
 ifCardCostReduced
-    : If Its Cost Was Reduced
+    : If Its Cost Is Reduced
     ;
 
 ifPlayerHasMoreHP
@@ -631,7 +632,18 @@ ifPlayerInTerrain
     : If player Are In Terrain
     ;
 
-conditionEffect
+counterCardCondition
+	: If hypotheticalCard Is Countered
+	;
+
+stunPlayerCondition
+	: If A Resource Is Removed This Way
+	;
+revealCardsCondition
+    : If hypotheticalCard Is Revealed This Way
+    ;
+
+condition
 	: ifPlayerMakesChoice
 	| ifPreviousActionInvalid
 	| ifResolvedCard
@@ -647,6 +659,9 @@ conditionEffect
     | ifPlayerHasMoreHP
     | ifPlayerHasNoActions
     | ifPlayerInTerrain
+    | revealCardsCondition
+    | stunPlayerCondition
+    | counterCardCondition
 	;
 
 //////////////////////////////////////////////////////////////////////////// OMNI PRESENT EFFECTS
@@ -661,11 +676,11 @@ whileEffect
 	;
 
 primaryCostReduction
-	: CARD_NAME Cost value Less POWER For Each Other Revealed Card In Your Hand
+	: CARD_NAME Cost literalValue Less POWER For Each Other Revealed Card In Your Hand
 	;
 
 onlyPlayIf
-	: Only Play CARD_NAME conditionEffect
+	: Only Play CARD_NAME condition
 	;
 
 oncePerGameLimit
@@ -673,11 +688,11 @@ oncePerGameLimit
 	;
 
 triggerLimit
-    : CARD_NAME May Only Trigger conditionEffect
+    : CARD_NAME May Only Trigger condition
     ;
 
 triggerTurnLimit
-    : CARD_NAME May Trigger value Per Turn
+    : CARD_NAME May Trigger literalValue Per Turn
     ;
 
 
@@ -699,35 +714,39 @@ three: Three;
 number: Integer;
 playerPowerValue: player POWER;
 playerControlAmountValue: The Total Value Of Control Affecting player;
-playerHandSize: The Number Of Card In Their Hand;
-value
+playerHandSize: The Number Of hypotheticalCard In Their Hand;
+playerMitigate: player Mitigate;
+
+literalValue
     : one 
     | two 
     | three 
     | number 
-    | playerPowerValue
+    ;
+gameStateValue
+    : playerPowerValue
     | playerControlAmountValue
     | playerHandSize
+    | playerMitigate
     ;
 
 
 
 //////////////////////////////////////////////////////////////////////////// effects
 
-chooseSameMultipleTimes: You May Choose The Same Mode value;
+chooseSameMultipleTimes: You May Choose The Same Mode literalValue;
 
 effectList
     : D effect 
     | effectList P D effect
     ;
-
 chooseEffect
-    : Choose value For Each playerFilter In It O effectList P chooseSameMultipleTimes
-    | Choose value O effectList P chooseSameMultipleTimes
-    | Choose value O effectList
-    | Choose value For Each playerFilter In It O effectList
+    : Choose literalValue For Each playerFilter In It O effectList P chooseSameMultipleTimes
+    | Choose literalValue O effectList P chooseSameMultipleTimes
+    | Choose literalValue O effectList
+    | Choose literalValue For Each playerFilter In It O effectList
     ;
-
+  
 singleEffect
     : chooseEffect
     | disarmPlayer
@@ -738,7 +757,7 @@ singleEffect
     | travelDistance
     | destroyCard
     | dealDamage
-    | counterCardCondition
+    | counterCard
     | attachCard
     | gainPower
     | gainAction
@@ -753,15 +772,15 @@ singleEffect
     | discardCards
     | gainsHeroic
     | healPlayer
-    | stunPlayerCondition
-    | revealCardsCondition
+    | stunPlayer
+    | revealCards
     | drawCards
     | removeControl
     | hardcastEffect
     | seekEffect
     | makeTerrain
     | removeTerrain
-    | payResources
+    | spendResources
     | scryEffect
     | overrideFrenzy
     | increaseCardDuration
@@ -771,12 +790,12 @@ singleEffect
     ;
 
 conditionalEffect
-    : conditionEffect C singleEffect
+    : condition C effect
     | singleEffect
     ;
 
 alternativeEffect
-    : conditionEffect C Instead conditionalEffect
+    : condition C Instead effect
     | conditionalEffect
     ;
 
