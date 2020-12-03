@@ -4,7 +4,7 @@ options { tokenVocab = IvionLexer; }
 //////////////////////////////////////////////////////////////////////////// PLAYER
 
 
-playerType: Player | Enemy;
+playerType: Player | Enemy | Ally;
 playerPreFix: Another | Controlled | Uncontrolled;
 playerPostFix
     : In Terrain 
@@ -18,28 +18,29 @@ playerPostFix
 playerFilter: playerPreFix* playerType playerPostFix*;
 
 currentPlayer: Yourself | You | Your;
-targetPlayer: Another? Target playerFilter;
 previousPlayer
     : Them
     | They
     | That playerType
     | Their
     ;
+playerRef: previousPlayer | currentPlayer;
+targetPlayer: Another? Target playerFilter;
 previousCardsController
     : previousCard Controller
     | Its Controller
     ;
 singlePlayer
     : targetPlayer
-    | previousPlayer
-    | currentPlayer
+    | playerRef
     | previousCardsController
     ;
 multiPlayer
     : UpToFlag=upToFlag? literalValue targetPlayer
     ;
 allPlayers
-    : (Each | All) Other? playerFilter
+    : (Each | All | Any) Other? playerFilter
+    | currentPlayer Or Another Player
     ;
 
 ////
@@ -62,6 +63,7 @@ cardPrefix
     | Non? Ability
     | Non? Attack
     | Revealed
+    | Another
     ;
 cardPostfix
     : In Terrain
@@ -74,6 +76,8 @@ cardPostfix
     | Attached To hypotheticalPlayer
     | Attached To hypotheticalTile
     | Controlled By hypotheticalPlayer
+    | With Hardcast
+    | With Frenzy
     ;
 cardFilter
     : cardPrefix* Card cardPostfix*
@@ -228,8 +232,9 @@ counterCard
 
 attachCard
 	: Attach To player
+	| Attach To player Until turnTrigger
 	| Attach To tile 
-	| Attach To tile Until End Of Turn
+	| Attach To tile Until turnTrigger
 	| Attach To player Until turnTrigger
 	| Attach CARD_NAME To player
 	;
@@ -483,77 +488,84 @@ durationEffect
 	: Duration 
 	;
 
-turnTrigger
+startOfPlayerTurn
 	: The Start Of hypotheticalPlayer Turn
-	| The End Of hypotheticalPlayer Turn
 	| The Start Of hypotheticalPlayer Turn
-    | End Of Turn
-	| The Start Of hypotheticalPlayer Next Turn
-	| The End Of The Turn
-	| The End Of Turn
+    ;
+
+endOfPlayerTurnTrigger
+    : The End Of hypotheticalPlayer Turn
 	;
+    
+startOfPlayerNextTurn
+    : The Start Of hypotheticalPlayer Next Turn
+    ;
+
+endOfTurnTrigger
+    : The End Of The Turn
+	| The End Of Turn
+    | End Of Turn
+	;
+
+turnTrigger
+    : startOfPlayerTurn
+    | endOfPlayerTurnTrigger
+    | startOfPlayerNextTurn
+    | endOfTurnTrigger
+    ;
 
 gameStartTrigger
 	: At The Start Of The Game
 	;
 
-
-afterEffectTrigger
-	: After hypotheticalPlayer Resolve A Ability Card Targeting player
-	| After hypotheticalPlayer Draw A Card
-	| After hypotheticalPlayer Resolve Your First Ability Card During Your Turn
-	| After hypotheticalPlayer Make Terrain In hypotheticalTile
-	| After hypotheticalPlayer Enters hypotheticalTile
-	| After hypotheticalPlayer Enters CARD_NAME
-	| After hypotheticalPlayer Enters tile
-	| After hypotheticalPlayer Or A Ally Enters CARD_NAME
-	| After That Card Resolves
-	| After A Attack Card Targeting hypotheticalPlayer Resolves For The First Time During Each Turn
-	| After hypotheticalPlayer Resolve Your First Attack Card Targeting hypotheticalPlayer During Your Turn
-	| After Any Player Enters This Tile
-	| After hypotheticalPlayer Play A Card
-	| After hypotheticalPlayer Play Your Second Attack Card During Your Turn
-	| After A Resource Is Removed In This Way
-	| After hypotheticalPlayer Attach Another Card To player
-	| After They Resolve Their First Card During Their Turn
-	| After A Attack Card Targeting hypotheticalPlayer Resolves
-	| After CARD_NAME Is Revealed
-	| After hypotheticalPlayer Resolve Your First Attack Card During Your Turn
-	| After hypotheticalPlayer Resolve Your First Attack Card Targeting player During Your Turn
-	| After hypotheticalPlayer Stun hypotheticalPlayer
-	| After CARD_NAME Is Sent To Your Discard
-	| After hypotheticalPlayer Second Wind
-	| After hypotheticalPlayer Play CARD_NAME
-    | After A Card With Hardcast hypotheticalPlayer Played Fails To Resolve
-    | After hypotheticalPlayer Slow hypotheticalPlayer For The First Time During Your Turn
-    | After hypotheticalPlayer Slow hypotheticalPlayer
-	;
-
-afterControlled
-    : After They Receive Control C effect For Each Instance Of Control They Receive
+effectPostfix
+    : For The First Time During playerRef Turn
+    | For The First Time During Each Turn 
+    | During Each Turn
+    | During playerRef Turn
     ;
 
+afterEffectTrigger
+	: hypotheticalPlayer Resolve hypotheticalCard
+	| hypotheticalCard Resolves
+	| hypotheticalPlayer Resolve playerRef First hypotheticalCard
+	| hypotheticalPlayer Draw A Card
+	| hypotheticalPlayer Make Terrain In hypotheticalTile
+	| hypotheticalPlayer (Or hypotheticalPlayer)* Enters (hypotheticalCard | hypotheticalTile)
+	| hypotheticalPlayer Play hypotheticalCard
+	| hypotheticalPlayer Play playerRef First hypotheticalCard
+	| hypotheticalPlayer Play playerRef Second hypotheticalCard
+	| A Resource Is Removed In This Way
+	| hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer
+	| hypotheticalCard Is Revealed
+	| hypotheticalPlayer Stun hypotheticalPlayer
+	| hypotheticalCard Is Sent To Your Discard
+	| hypotheticalPlayer Second Wind
+	| hypotheticalPlayer Play CARD_NAME
+    | hypotheticalCard hypotheticalPlayer Played Fails To Resolve
+    | hypotheticalPlayer Slow hypotheticalPlayer
+    | hypotheticalPlayer Receive Control
+	;
 
 triggerEffect
     : At turnTrigger C effect
-	| afterEffectTrigger C effect
+	| After afterEffectTrigger effectPostfix? C effect
     | durationEffect D effect
-    | afterControlled
     | gameStartTrigger C effect
 	;
 
 //////////////////////////////////////////////////////////////////////////// replacement Trigger
 
 ifWouldRecieveControl
-    : If hypotheticalPlayer Would Receive Control C Instead They Receive The Control
+    : If hypotheticalPlayer Would Receive Control C Instead player Receive The Control
     ;
 
 ifWouldTakeDamage
-    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C Instead Take literalValue Less Damage P This May Not Reduce Damage Taken Below literalValue
+    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C playerRef? Instead Take literalValue Less Damage P This May Not Reduce Damage Taken Below literalValue
     ;
 
 ifWouldHeal
-    : If hypotheticalPlayer Would Heal player Or Another Player HP C Instead Deal That Much Damage To player
+    : If hypotheticalPlayer Would Heal hypotheticalPlayer HP C Instead Deal That Much Damage To player
     ;
 
 
@@ -579,29 +591,29 @@ ifPreviousActionInvalid
 	;
 
 ifResolvedCard
-	: If player (Have | Has)? Resolved Another Ability Card This Turn
-	| If player (Have | Has)? Resolved A Attack Card This Turn
+	: If hypotheticalPlayer (Have | Has)? Resolved Another Ability Card This Turn
+	| If hypotheticalPlayer (Have | Has)? Resolved A Attack Card This Turn
 	;
 
 ifUsedSecondWind
-	: If player (Have | Has)? Already Used Your Second Wind
+	: If hypotheticalPlayer (Have | Has)? Already? Used playerRef Second Wind
 	;
 
 ifNear
-	: If player Are Near CARD_NAME
-	| If player Are Near Terrain
+	: If hypotheticalPlayer Are Near CARD_NAME
+	| If hypotheticalPlayer Are Near Terrain
 	;
 
 ifControlled
-	: If player Are Controlled
+	: If hypotheticalPlayer Are Controlled
 	;
 
 ifPlayed
-	: If player (Have | Has)? Played A Attack Card This Turn
+	: If hypotheticalPlayer (Have | Has)? Played A Attack Card This Turn
 	;
 
 ifTileHadTerrain
-	: If That Tile Already Had Terrain
+	: If previousTile Already Had Terrain
 	;
 
 ifCardRevealed
@@ -621,15 +633,15 @@ ifCardCostReduced
     ;
 
 ifPlayerHasMoreHP
-    : If player (Have | Has) More HP Than player
+    : If hypotheticalPlayer (Have | Has) More HP Than hypotheticalPlayer
     ;
 
 ifPlayerHasNoActions
-    : If player (Have | Has) No Resource
+    : If hypotheticalPlayer (Have | Has) No Resource
     ;
 
 ifPlayerInTerrain
-    : If player Are In Terrain
+    : If hypotheticalPlayer Are In Terrain
     ;
 
 counterCardCondition
@@ -789,9 +801,14 @@ singleEffect
     | spendResources
     ;
 
+repeatedEffect
+    : singleEffect For Each Instance Of Control playerRef Receive
+    | singleEffect
+    ;
+
 conditionalEffect
     : condition C effect
-    | singleEffect
+    | repeatedEffect
     ;
 
 alternativeEffect
