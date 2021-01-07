@@ -15,6 +15,174 @@
 class  IvionParserBaseVisitor : public IvionParserVisitor {
 public:
 
+  virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerPreFix(IvionParser::PlayerPreFixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerPostFix(IvionParser::PlayerPostFixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerFilter(IvionParser::PlayerFilterContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCurrentPlayer(IvionParser::CurrentPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPreviousPlayer(IvionParser::PreviousPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerRef(IvionParser::PlayerRefContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPreviousCardsController(IvionParser::PreviousCardsControllerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitSinglePlayer(IvionParser::SinglePlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitMultiPlayer(IvionParser::MultiPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitAllOtherPlayers(IvionParser::AllOtherPlayersContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitAllPlayers(IvionParser::AllPlayersContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayer(IvionParser::PlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitHypotheticalPlayer(IvionParser::HypotheticalPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardPrefix(IvionParser::CardPrefixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardPostfix(IvionParser::CardPostfixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardFilter(IvionParser::CardFilterContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardName(IvionParser::CardNameContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitBottomCard(IvionParser::BottomCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPreviousCard(IvionParser::PreviousCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitSingleCard(IvionParser::SingleCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitAllCards(IvionParser::AllCardsContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitMultiCard(IvionParser::MultiCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCard(IvionParser::CardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitHypotheticalCard(IvionParser::HypotheticalCardContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTilePreFix(IvionParser::TilePreFixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTilePostFix(IvionParser::TilePostFixContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTileFilter(IvionParser::TileFilterContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPreviousTile(IvionParser::PreviousTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTheNearestTile(IvionParser::TheNearestTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayersTile(IvionParser::PlayersTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardsTile(IvionParser::CardsTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitSingleTile(IvionParser::SingleTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitMultiTile(IvionParser::MultiTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitAllTiles(IvionParser::AllTilesContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTile(IvionParser::TileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitHypotheticalTile(IvionParser::HypotheticalTileContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitEntity(IvionParser::EntityContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitHypotheticalEntity(IvionParser::HypotheticalEntityContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitDisarmPlayer(IvionParser::DisarmPlayerContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -31,6 +199,18 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitAwayFlag(IvionParser::AwayFlagContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTravelDistance(IvionParser::TravelDistanceContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -44,14 +224,6 @@ public:
   }
 
   virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitCounterCardCondition(IvionParser::CounterCardConditionContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitSpendResources(IvionParser::SpendResourcesContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -115,15 +287,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitStunPlayerCondition(IvionParser::StunPlayerConditionContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual antlrcpp::Any visitRevealCards(IvionParser::RevealCardsContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitRevealCardsCondition(IvionParser::RevealCardsConditionContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -151,7 +315,7 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitPayResources(IvionParser::PayResourcesContext *ctx) override {
+  virtual antlrcpp::Any visitSpendResources(IvionParser::SpendResourcesContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -231,6 +395,22 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitStartOfPlayerTurn(IvionParser::StartOfPlayerTurnContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitEndOfPlayerTurnTrigger(IvionParser::EndOfPlayerTurnTriggerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitStartOfPlayerNextTurn(IvionParser::StartOfPlayerNextTurnContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitEndOfTurnTrigger(IvionParser::EndOfTurnTriggerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitTurnTrigger(IvionParser::TurnTriggerContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -239,11 +419,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitAfterEffectTrigger(IvionParser::AfterEffectTriggerContext *ctx) override {
+  virtual antlrcpp::Any visitEffectPostfix(IvionParser::EffectPostfixContext *ctx) override {
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitAfterControlled(IvionParser::AfterControlledContext *ctx) override {
+  virtual antlrcpp::Any visitAfterEffectTrigger(IvionParser::AfterEffectTriggerContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -327,7 +507,19 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitConditionEffect(IvionParser::ConditionEffectContext *ctx) override {
+  virtual antlrcpp::Any visitCounterCardCondition(IvionParser::CounterCardConditionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitStunPlayerCondition(IvionParser::StunPlayerConditionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitRevealCardsCondition(IvionParser::RevealCardsConditionContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCondition(IvionParser::ConditionContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -379,7 +571,27 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitValue(IvionParser::ValueContext *ctx) override {
+  virtual antlrcpp::Any visitPlayerPowerValue(IvionParser::PlayerPowerValueContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerControlAmountValue(IvionParser::PlayerControlAmountValueContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerHandSize(IvionParser::PlayerHandSizeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerMitigate(IvionParser::PlayerMitigateContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitLiteralValue(IvionParser::LiteralValueContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitGameStateValue(IvionParser::GameStateValueContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -399,6 +611,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitRepeatedEffect(IvionParser::RepeatedEffectContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitConditionalEffect(IvionParser::ConditionalEffectContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -407,15 +623,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitOptionalEffect(IvionParser::OptionalEffectContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitMultiEffect(IvionParser::MultiEffectContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual antlrcpp::Any visitEffect(IvionParser::EffectContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitEffectEnd(IvionParser::EffectEndContext *ctx) override {
     return visitChildren(ctx);
   }
 

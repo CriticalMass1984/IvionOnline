@@ -1,5 +1,0 @@
-deal 5 damage to yourself.
-
-move 1 tile.
-move yourself to target tile.
-target player takes 3 damage.

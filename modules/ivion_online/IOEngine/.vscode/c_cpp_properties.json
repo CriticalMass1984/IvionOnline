@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/Include",
-                "${workspaceFolder}/Extern/Antlr4Runtime/Include"
+                "${workspaceFolder}/Extern/Antlr4Runtime/Include",
+                "${workspaceFolder}/Extern/RulesEngine2/Include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",

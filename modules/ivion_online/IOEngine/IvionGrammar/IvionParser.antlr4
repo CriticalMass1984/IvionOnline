@@ -4,8 +4,16 @@ options { tokenVocab = IvionLexer; }
 //////////////////////////////////////////////////////////////////////////// PLAYER
 
 
-playerType: Player | Enemy | Ally;
-playerPreFix: Another | Controlled | Uncontrolled;
+playerType
+    : Player
+    | Enemy
+    | Ally
+    ;
+playerPreFix
+    : Another
+    | Controlled
+    | Uncontrolled
+    ;
 playerPostFix
     : In Terrain 
     | Near Terrain 
@@ -15,17 +23,28 @@ playerPostFix
     | At Least literalValue Tile Away
     ;
 
-playerFilter: playerPreFix* playerType playerPostFix*;
+playerFilter
+    : playerPreFix* playerType playerPostFix*
+    ;
 
-currentPlayer: Yourself | You | Your;
+currentPlayer
+    : Yourself
+    | You
+    | Your
+    ;
 previousPlayer
     : Them
     | They
     | That playerType
     | Their
     ;
-playerRef: previousPlayer | currentPlayer;
-targetPlayer: Another? Target playerFilter;
+playerRef
+    : previousPlayer
+    | currentPlayer
+    ;
+targetPlayer
+    : Another? Target playerFilter
+    ;
 previousCardsController
     : previousCard Controller
     | Its Controller
@@ -38,9 +57,12 @@ singlePlayer
 multiPlayer
     : UpToFlag=upToFlag? literalValue targetPlayer
     ;
+allOtherPlayers
+    : (All | Each) Other playerFilter
+    ;
 allPlayers
-    : (Each | All | Any) Other? playerFilter
-    | currentPlayer Or Another Player
+    : (Each | All | Any) playerFilter
+    | Yourself Or Another Player
     ;
 
 ////
@@ -48,6 +70,7 @@ player
     : singlePlayer
     | multiPlayer
     | allPlayers
+    | allOtherPlayers
     ;
 
 hypotheticalPlayer
@@ -64,6 +87,9 @@ cardPrefix
     | Non? Attack
     | Revealed
     | Another
+    | First
+    | Second
+    | Third
     ;
 cardPostfix
     : In Terrain
@@ -82,13 +108,19 @@ cardPostfix
 cardFilter
     : cardPrefix* Card cardPostfix*
     ;
-cardName: CARD_NAME;
-bottomCard: The Bottom Card Of hypotheticalPlayer Deck;
+cardName
+    : CARD_NAME
+    ;
+bottomCard
+    : The Bottom Card Of hypotheticalPlayer Deck
+    ;
 previousCard
     : That Card
     | The Card
     ;
-targetCard: Target cardFilter;
+targetCard
+    : Target cardFilter
+    ;
 singleCard
     : cardName
     | targetCard
@@ -175,6 +207,19 @@ hypotheticalTile
     | tile
     ;
 
+entity
+    : card
+    | player
+    | tile
+    ;
+
+hypotheticalEntity
+    : hypotheticalCard
+    | hypotheticalPlayer
+    | hypotheticalTile
+    ;
+
+
 //////////////////////////////////////////////////////////////////////////// EFFECTS
 
 
@@ -202,7 +247,9 @@ controlPlayer
 awayFlag
     : Away From player
     ;
-upToFlag: Up To;
+upToFlag
+    : Up To
+    ;
 travelDistance
     : Travel TargetPlayer=player? UpToFlag=upToFlag? Another? literalValue Tile Awayflag=awayFlag?
     ;
@@ -231,16 +278,13 @@ counterCard
 	;
 
 attachCard
-	: Attach To player
-	| Attach To player Until turnTrigger
-	| Attach To tile 
-	| Attach To tile Until turnTrigger
-	| Attach To player Until turnTrigger
-	| Attach CARD_NAME To player
+	: Attach To entity
+	| Attach To entity Until turnTrigger
+	| Attach CARD_NAME To entity
 	;
 
 gainPower
-	: They Gain literalValue POWER
+	: player Gain literalValue POWER
 	| Gain literalValue More POWER
 	| Gain literalValue Additional POWER
 	| Gain literalValue POWER
@@ -248,7 +292,7 @@ gainPower
 	;
 
 gainAction
-	: They Gain literalValue ACTION
+	: player Gain literalValue ACTION
 	| Gain literalValue More ACTION
 	| Gain literalValue Additional ACTION
 	| Gain literalValue ACTION
@@ -257,7 +301,7 @@ gainAction
 
 gainInitiative
 	: Gain INITIATIVE+
-	| They Gain INITIATIVE+
+	| player Gain INITIATIVE+
 	| Gain Another INITIATIVE+
 	;
 
@@ -341,8 +385,8 @@ stunPlayer
 
 revealCards
 	: player Reveals literalValue Card From Their Hand
-	| They Reveal literalValue Card From Their Hand
-	| They Reveal A Card From Their Hand
+	| player Reveal literalValue Card From Their Hand
+	| player Reveal A Card From Their Hand
 	| player Reveals A Card From Their Hand
 	| player Reveals literalValue Card From Their Hand
 	| player Reveals A Card From Their Hand
@@ -420,7 +464,7 @@ onlyPlayCertainCards
 	;
 
 costReduction
-	: Attack Card hypotheticalPlayer Play Cost literalValue Less Resource
+	: hypotheticalCard hypotheticalPlayer Play Cost literalValue Less Resource
     | The Second Attack Card hypotheticalPlayer Play During Your Turn Cost literalValue Less Resource
 	;
 

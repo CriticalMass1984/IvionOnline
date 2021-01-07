@@ -19,6 +19,90 @@ public:
   /**
    * Visit parse trees produced by IvionParser.
    */
+    virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerPreFix(IvionParser::PlayerPreFixContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerPostFix(IvionParser::PlayerPostFixContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerFilter(IvionParser::PlayerFilterContext *context) = 0;
+
+    virtual antlrcpp::Any visitCurrentPlayer(IvionParser::CurrentPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitPreviousPlayer(IvionParser::PreviousPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerRef(IvionParser::PlayerRefContext *context) = 0;
+
+    virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitPreviousCardsController(IvionParser::PreviousCardsControllerContext *context) = 0;
+
+    virtual antlrcpp::Any visitSinglePlayer(IvionParser::SinglePlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitMultiPlayer(IvionParser::MultiPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitAllOtherPlayers(IvionParser::AllOtherPlayersContext *context) = 0;
+
+    virtual antlrcpp::Any visitAllPlayers(IvionParser::AllPlayersContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayer(IvionParser::PlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitHypotheticalPlayer(IvionParser::HypotheticalPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardPrefix(IvionParser::CardPrefixContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardPostfix(IvionParser::CardPostfixContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardFilter(IvionParser::CardFilterContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardName(IvionParser::CardNameContext *context) = 0;
+
+    virtual antlrcpp::Any visitBottomCard(IvionParser::BottomCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitPreviousCard(IvionParser::PreviousCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitSingleCard(IvionParser::SingleCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitAllCards(IvionParser::AllCardsContext *context) = 0;
+
+    virtual antlrcpp::Any visitMultiCard(IvionParser::MultiCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
+
+    virtual antlrcpp::Any visitHypotheticalCard(IvionParser::HypotheticalCardContext *context) = 0;
+
+    virtual antlrcpp::Any visitTilePreFix(IvionParser::TilePreFixContext *context) = 0;
+
+    virtual antlrcpp::Any visitTilePostFix(IvionParser::TilePostFixContext *context) = 0;
+
+    virtual antlrcpp::Any visitTileFilter(IvionParser::TileFilterContext *context) = 0;
+
+    virtual antlrcpp::Any visitTargetTile(IvionParser::TargetTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitPreviousTile(IvionParser::PreviousTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitTheNearestTile(IvionParser::TheNearestTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayersTile(IvionParser::PlayersTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardsTile(IvionParser::CardsTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitSingleTile(IvionParser::SingleTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitMultiTile(IvionParser::MultiTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitAllTiles(IvionParser::AllTilesContext *context) = 0;
+
+    virtual antlrcpp::Any visitTile(IvionParser::TileContext *context) = 0;
+
+    virtual antlrcpp::Any visitHypotheticalTile(IvionParser::HypotheticalTileContext *context) = 0;
+
+    virtual antlrcpp::Any visitEntity(IvionParser::EntityContext *context) = 0;
+
+    virtual antlrcpp::Any visitHypotheticalEntity(IvionParser::HypotheticalEntityContext *context) = 0;
+
     virtual antlrcpp::Any visitDisarmPlayer(IvionParser::DisarmPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitSilencePlayer(IvionParser::SilencePlayerContext *context) = 0;
@@ -27,6 +111,12 @@ public:
 
     virtual antlrcpp::Any visitControlPlayer(IvionParser::ControlPlayerContext *context) = 0;
 
+    virtual antlrcpp::Any visitAwayFlag(IvionParser::AwayFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitTravelDistance(IvionParser::TravelDistanceContext *context) = 0;
+
     virtual antlrcpp::Any visitTravelPlayer(IvionParser::TravelPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitDestroyCard(IvionParser::DestroyCardContext *context) = 0;
@@ -34,10 +124,6 @@ public:
     virtual antlrcpp::Any visitDealDamage(IvionParser::DealDamageContext *context) = 0;
 
     virtual antlrcpp::Any visitCounterCard(IvionParser::CounterCardContext *context) = 0;
-
-    virtual antlrcpp::Any visitCounterCardCondition(IvionParser::CounterCardConditionContext *context) = 0;
-
-    virtual antlrcpp::Any visitSpendResources(IvionParser::SpendResourcesContext *context) = 0;
 
     virtual antlrcpp::Any visitAttachCard(IvionParser::AttachCardContext *context) = 0;
 
@@ -69,11 +155,7 @@ public:
 
     virtual antlrcpp::Any visitStunPlayer(IvionParser::StunPlayerContext *context) = 0;
 
-    virtual antlrcpp::Any visitStunPlayerCondition(IvionParser::StunPlayerConditionContext *context) = 0;
-
     virtual antlrcpp::Any visitRevealCards(IvionParser::RevealCardsContext *context) = 0;
-
-    virtual antlrcpp::Any visitRevealCardsCondition(IvionParser::RevealCardsConditionContext *context) = 0;
 
     virtual antlrcpp::Any visitDrawCards(IvionParser::DrawCardsContext *context) = 0;
 
@@ -87,7 +169,7 @@ public:
 
     virtual antlrcpp::Any visitRemoveTerrain(IvionParser::RemoveTerrainContext *context) = 0;
 
-    virtual antlrcpp::Any visitPayResources(IvionParser::PayResourcesContext *context) = 0;
+    virtual antlrcpp::Any visitSpendResources(IvionParser::SpendResourcesContext *context) = 0;
 
     virtual antlrcpp::Any visitScryEffect(IvionParser::ScryEffectContext *context) = 0;
 
@@ -127,13 +209,21 @@ public:
 
     virtual antlrcpp::Any visitDurationEffect(IvionParser::DurationEffectContext *context) = 0;
 
+    virtual antlrcpp::Any visitStartOfPlayerTurn(IvionParser::StartOfPlayerTurnContext *context) = 0;
+
+    virtual antlrcpp::Any visitEndOfPlayerTurnTrigger(IvionParser::EndOfPlayerTurnTriggerContext *context) = 0;
+
+    virtual antlrcpp::Any visitStartOfPlayerNextTurn(IvionParser::StartOfPlayerNextTurnContext *context) = 0;
+
+    virtual antlrcpp::Any visitEndOfTurnTrigger(IvionParser::EndOfTurnTriggerContext *context) = 0;
+
     virtual antlrcpp::Any visitTurnTrigger(IvionParser::TurnTriggerContext *context) = 0;
 
     virtual antlrcpp::Any visitGameStartTrigger(IvionParser::GameStartTriggerContext *context) = 0;
 
-    virtual antlrcpp::Any visitAfterEffectTrigger(IvionParser::AfterEffectTriggerContext *context) = 0;
+    virtual antlrcpp::Any visitEffectPostfix(IvionParser::EffectPostfixContext *context) = 0;
 
-    virtual antlrcpp::Any visitAfterControlled(IvionParser::AfterControlledContext *context) = 0;
+    virtual antlrcpp::Any visitAfterEffectTrigger(IvionParser::AfterEffectTriggerContext *context) = 0;
 
     virtual antlrcpp::Any visitTriggerEffect(IvionParser::TriggerEffectContext *context) = 0;
 
@@ -175,7 +265,13 @@ public:
 
     virtual antlrcpp::Any visitIfPlayerInTerrain(IvionParser::IfPlayerInTerrainContext *context) = 0;
 
-    virtual antlrcpp::Any visitConditionEffect(IvionParser::ConditionEffectContext *context) = 0;
+    virtual antlrcpp::Any visitCounterCardCondition(IvionParser::CounterCardConditionContext *context) = 0;
+
+    virtual antlrcpp::Any visitStunPlayerCondition(IvionParser::StunPlayerConditionContext *context) = 0;
+
+    virtual antlrcpp::Any visitRevealCardsCondition(IvionParser::RevealCardsConditionContext *context) = 0;
+
+    virtual antlrcpp::Any visitCondition(IvionParser::ConditionContext *context) = 0;
 
     virtual antlrcpp::Any visitCardCantBeTargeted(IvionParser::CardCantBeTargetedContext *context) = 0;
 
@@ -201,7 +297,17 @@ public:
 
     virtual antlrcpp::Any visitNumber(IvionParser::NumberContext *context) = 0;
 
-    virtual antlrcpp::Any visitValue(IvionParser::ValueContext *context) = 0;
+    virtual antlrcpp::Any visitPlayerPowerValue(IvionParser::PlayerPowerValueContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerControlAmountValue(IvionParser::PlayerControlAmountValueContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerHandSize(IvionParser::PlayerHandSizeContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerMitigate(IvionParser::PlayerMitigateContext *context) = 0;
+
+    virtual antlrcpp::Any visitLiteralValue(IvionParser::LiteralValueContext *context) = 0;
+
+    virtual antlrcpp::Any visitGameStateValue(IvionParser::GameStateValueContext *context) = 0;
 
     virtual antlrcpp::Any visitChooseSameMultipleTimes(IvionParser::ChooseSameMultipleTimesContext *context) = 0;
 
@@ -211,15 +317,15 @@ public:
 
     virtual antlrcpp::Any visitSingleEffect(IvionParser::SingleEffectContext *context) = 0;
 
+    virtual antlrcpp::Any visitRepeatedEffect(IvionParser::RepeatedEffectContext *context) = 0;
+
     virtual antlrcpp::Any visitConditionalEffect(IvionParser::ConditionalEffectContext *context) = 0;
 
     virtual antlrcpp::Any visitAlternativeEffect(IvionParser::AlternativeEffectContext *context) = 0;
 
-    virtual antlrcpp::Any visitOptionalEffect(IvionParser::OptionalEffectContext *context) = 0;
-
-    virtual antlrcpp::Any visitMultiEffect(IvionParser::MultiEffectContext *context) = 0;
-
     virtual antlrcpp::Any visitEffect(IvionParser::EffectContext *context) = 0;
+
+    virtual antlrcpp::Any visitEffectEnd(IvionParser::EffectEndContext *context) = 0;
 
     virtual antlrcpp::Any visitAnyEffect(IvionParser::AnyEffectContext *context) = 0;
 
