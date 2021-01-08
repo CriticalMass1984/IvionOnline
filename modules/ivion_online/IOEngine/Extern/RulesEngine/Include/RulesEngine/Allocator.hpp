@@ -4,6 +4,10 @@
 #include <vector>
 
 namespace RE {
+	/*
+		It is required that objects allocated by the allocator are cleaned up automatically.
+		It Is required that objects do not move in memory
+	*/
 class Allocator {
 	typedef void (*DestructorMethod)(void *obj);
 

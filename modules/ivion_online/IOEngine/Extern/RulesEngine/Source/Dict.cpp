@@ -1,9 +1,9 @@
-#include <RulesEngine/Object.hpp>
+#include <RulesEngine/Dict.hpp>
 
 #include <cassert>
 
 namespace RE {
-void Object::Mutation::Apply() const noexcept {
+void Dict::Mutation::Apply() const noexcept {
 	if (newValue_ == nullptr) {
 		// remove
 		object_->elements_.erase(key_);
@@ -16,7 +16,7 @@ void Object::Mutation::Apply() const noexcept {
 	}
 }
 
-void Object::Mutation::Revert() const noexcept {
+void Dict::Mutation::Revert() const noexcept {
 	if (newValue_ == nullptr) {
 		// remove
 		object_->elements_.emplace(key_, newValue_);
@@ -29,7 +29,7 @@ void Object::Mutation::Revert() const noexcept {
 	}
 }
 
-void Object::set(const std::string& key, void *element, Context *context) {
+void Dict::set(const std::string& key, void *element, Context *context) {
 	void* old = get(key);
 
 	context->history_->AddDelta<Mutation>(
@@ -39,7 +39,7 @@ void Object::set(const std::string& key, void *element, Context *context) {
 							 old)
 			->Apply();
 };
-void Object::insert(const std::string& key, void *element, Context *context) {
+void Dict::insert(const std::string& key, void *element, Context *context) {
 	context->history_->AddDelta<Mutation>(
 							 this,
 							 key,

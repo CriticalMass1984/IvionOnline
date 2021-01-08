@@ -46,7 +46,7 @@ public:
 		}
 		static auto destroy = [](void* obj)
 		{
-			static_cast<T*>(src)->~T();
+			static_cast<T*>(obj)->~T();
 		};
 		static auto move = [](void* dst, void* src)
 		{
