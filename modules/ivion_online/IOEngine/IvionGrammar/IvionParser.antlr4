@@ -109,6 +109,7 @@ cardPostfix
     | With Hardcast
     | With Frenzy
     | From Your Discard
+    | Of player Choice
     ;
 cardFilter
     : cardPrefix* Card cardPostfix*
@@ -143,6 +144,7 @@ allCards
     ;
 multiCard
     : UpToFlag=upToFlag? literalValue targetCard
+    | UpToFlag=upToFlag? literalValue cardFilter
     ;
 ////
 card
@@ -295,19 +297,21 @@ attachCard
 	;
 
 gainPower
-	: player Gain literalValue POWER
-	| Gain literalValue More POWER
-	| Gain literalValue Additional POWER
-	| Gain literalValue POWER
-	| Gain literalValue More POWER
+	: player? (
+        Gain literalValue POWER
+        | Gain literalValue More POWER
+        | Gain literalValue Additional POWER
+        | Gain literalValue POWER
+    )
 	;
 
 gainAction
-	: player Gain literalValue ACTION
-	| Gain literalValue More ACTION
-	| Gain literalValue Additional ACTION
-	| Gain literalValue ACTION
-	| Gain literalValue More ACTION
+	: player? (
+        Gain literalValue ACTION
+        | Gain literalValue More ACTION
+        | Gain literalValue Additional ACTION
+        | Gain literalValue ACTION
+    )
 	;
 
 gainInitiative
@@ -341,34 +345,28 @@ triggerDurationEffects
 	: Trigger Your Duration Effects As Though Your Turn Had Just Ended
 	;
 
+forLessResources
+    : For literalValue Less Resource
+    ;
+freeFlag
+    : For Free
+    ;
 playCard
-	: Play A Card
-	| Play A Card For literalValue Less Resource
-	| Play A Card For Free
-	| Play That Card For Free
-	| Play Target Non Attack Card From Your Discard Targeting hypotheticalPlayer For Free
-	| Play A Attack Card Targeting hypotheticalPlayer
-	| Play A Ability Card From Your Discard Targeting player
-	| Play A Attack Card Targeting player For literalValue Less Resource
-	| Play A Card With Frenzy For literalValue Less Resource
-	| Play A Card Targeting player
-	| Play Cursed Dagger For Free P This Doesnt Count Towards Your Cursed Dagger Limit Per Turn
-	| Play Runic Slaughter Targeting player For Free P This Doesnt Count Towards Your Runic Slaughter Limit Per Turn
-	| Play A Card For literalValue Less Resource
-	| Play A Non Attack Card Targeting hypotheticalPlayer
-	| Play A Ability Card Targeting player For literalValue Less Resource
+	: Play card
+	| Play card freeFlag
+	| Play card forLessResources
+    ;
+playUltimate
+	: Play Ultimate cardPostfix* P This Doesnt Count Towards Your Ultimate Limit Per Turn
+	| Play Ultimate cardPostfix* freeFlag P This Doesnt Count Towards Your Ultimate Limit Per Turn
+	| Play Ultimate cardPostfix* forLessResources P This Doesnt Count Towards Your Ultimate Limit Per Turn
 	;
 
 discardCards
-	: Discard literalValue Card
-	| Discard A Card
-	| Discard A Revealed Card Of player Choice
-	| player Discard literalValue Card
-	| player Discard A Card
-	| player Discards Target Revealed Card
-	| player Discards literalValue Card
-	| player Discards A Revealed Card Of player Choice
-	| Discard A Revealed Card
+	: Discard literalValue card
+	| Discard card
+	| player Discard literalValue card
+	| player Discard card
 	;
 
 gainsHeroic
@@ -451,7 +449,9 @@ resetUseOfCard
 	: Reset The Use Of CARD_NAME
 	;
 
-heroic: Heroic;
+heroic
+    : Heroic
+    ;
 
 //////////////////////////////////////////////////////////////////////////// PASSIVE EFFECTS
 
@@ -572,6 +572,9 @@ effectPostfix
     | During playerRef Turn
     ;
 
+previousStunEffect
+    : A Resource Is Removed In This Way
+    ;
 afterEffectTrigger
 	: hypotheticalPlayer Resolve hypotheticalCard
 	| hypotheticalCard Resolves
@@ -582,7 +585,6 @@ afterEffectTrigger
 	| hypotheticalPlayer Play hypotheticalCard
 	| hypotheticalPlayer Play playerRef First hypotheticalCard
 	| hypotheticalPlayer Play playerRef Second hypotheticalCard
-	| A Resource Is Removed In This Way
 	| hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer
 	| hypotheticalCard Is Revealed
 	| hypotheticalPlayer Stun hypotheticalPlayer
@@ -592,6 +594,7 @@ afterEffectTrigger
     | hypotheticalCard hypotheticalPlayer Played Fails To Resolve
     | hypotheticalPlayer Slow hypotheticalPlayer
     | hypotheticalPlayer Receive Control
+    | previousStunEffect
 	;
 
 triggerEffect
@@ -799,6 +802,7 @@ effectList
     : D effect 
     | effectList P D effect
     ;
+
 chooseEffect
     : Choose literalValue For Each playerFilter In It O effectList P chooseSameMultipleTimes
     | Choose literalValue O effectList P chooseSameMultipleTimes
@@ -828,6 +832,7 @@ singleEffect
     | putBottomCardOfDeckIntoHand
     | triggerDurationEffects
     | playCard
+    | playUltimate
     | discardCards
     | gainsHeroic
     | healPlayer
