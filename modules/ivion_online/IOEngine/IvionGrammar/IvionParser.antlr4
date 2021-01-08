@@ -84,33 +84,56 @@ hypotheticalPlayer
 
 //////////////////////////////////////////////////////////////////////////// CARD
 
+cardPreEnemyFilter: Enemy;
+cardPreAttachedFilter: Attached;
+cardPreAbilityFilter: Non? Ability;
+cardPreAttackFilter: Non? Attack;
+cardPreRevealedFilter: Revealed;
+cardPreAnotherFilter: Another;
+cardPreInstanceFilter: First | Second | Third;
+
 cardPrefix
-    : Enemy
-    | Attached
-    | Non? Ability
-    | Non? Attack
-    | Revealed
-    | Another
-    | First
-    | Second
-    | Third
+    : cardPreEnemyFilter
+    | cardPreAttachedFilter
+    | cardPreAbilityFilter
+    | cardPreAttackFilter
+    | cardPreRevealedFilter
+    | cardPreAnotherFilter
+    | cardPreInstanceFilter
     ;
+
+cardPostInTerrainFilter: In Terrain;
+cardPostNearTerrainFilter: Near Terrain;
+cardPostNearPlayerFilter: Near hypotheticalPlayer;
+cardPostNearTileFilter: Near hypotheticalTile;
+cardPostInTileFilter: In hypotheticalTile;
+cardPostTargettingFilter: Targeting hypotheticalPlayer;
+cardPostCostFilter: With A Resource Cost Of literalValue Or (Less | More);
+cardPostAttachedToPlayerFilter: Attached To hypotheticalPlayer;
+cardPostAttachedToTileFilter: Attached To hypotheticalTile;
+cardPostControlledByPlayerFilter: Controlled By hypotheticalPlayer;
+cardPostHardcastFilter: With Hardcast;
+cardPostFrenzyFilter: With Frenzy;
+cardPostInDiscardFilter: From Your Discard;
+cardPostPlayerChoiceFilter: Of player Choice;
+
 cardPostfix
-    : In Terrain
-    | Near Terrain
-    | Near hypotheticalPlayer
-    | Near hypotheticalTile
-    | In hypotheticalTile
-    | Targeting hypotheticalPlayer
-    | With A Resource Cost Of literalValue Or (Less | More)
-    | Attached To hypotheticalPlayer
-    | Attached To hypotheticalTile
-    | Controlled By hypotheticalPlayer
-    | With Hardcast
-    | With Frenzy
-    | From Your Discard
-    | Of player Choice
+    : cardPostInTerrainFilter
+    | cardPostNearTerrainFilter
+    | cardPostNearPlayerFilter
+    | cardPostNearTileFilter
+    | cardPostInTileFilter
+    | cardPostTargettingFilter
+    | cardPostCostFilter
+    | cardPostAttachedToPlayerFilter
+    | cardPostAttachedToTileFilter
+    | cardPostControlledByPlayerFilter
+    | cardPostHardcastFilter
+    | cardPostFrenzyFilter
+    | cardPostInDiscardFilter
+    | cardPostPlayerChoiceFilter
     ;
+
 cardFilter
     : cardPrefix* Card cardPostfix*
     ;
