@@ -95,7 +95,7 @@ Second: 'second';
 Third: 'third';
 Wind: 'wind';
 Return: 'return';
-Owners: 'owner\'s';
+Owner: 'owner' | 'owner\'s';
 Discard: 'discard';
 May: 'may';
 Put: 'put';

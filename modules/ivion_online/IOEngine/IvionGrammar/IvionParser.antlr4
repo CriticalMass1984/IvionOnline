@@ -38,21 +38,25 @@ previousPlayer
     | That playerType
     | Their
     ;
-playerRef
-    : previousPlayer
-    | currentPlayer
-    ;
-targetPlayer
-    : Another? Target playerFilter
+previousCardsOwner
+    : Its Owner
     ;
 previousCardsController
     : previousCard Controller
     | Its Controller
     ;
+playerRef
+    : previousPlayer
+    | currentPlayer
+    | previousCardsOwner
+    | previousCardsController
+    ;
+targetPlayer
+    : Another? Target playerFilter
+    ;
 singlePlayer
     : targetPlayer
     | playerRef
-    | previousCardsController
     ;
 multiPlayer
     : UpToFlag=upToFlag? literalValue targetPlayer
@@ -98,12 +102,13 @@ cardPostfix
     | Near hypotheticalTile
     | In hypotheticalTile
     | Targeting hypotheticalPlayer
-    | With A Resource Cost Of literalValue Or Less
+    | With A Resource Cost Of literalValue Or (Less | More)
     | Attached To hypotheticalPlayer
     | Attached To hypotheticalTile
     | Controlled By hypotheticalPlayer
     | With Hardcast
     | With Frenzy
+    | From Your Discard
     ;
 cardFilter
     : cardPrefix* Card cardPostfix*
@@ -117,15 +122,21 @@ bottomCard
 previousCard
     : That Card
     | The Card
+    | It
+    | It From Your Discard
     ;
 targetCard
     : Target cardFilter
+    ;
+selectCard
+    : A cardFilter
     ;
 singleCard
     : cardName
     | targetCard
     | bottomCard
     | previousCard
+    | selectCard
     ;
 allCards
     : All cardFilter
@@ -319,15 +330,7 @@ useSecondWind
 	;
 
 returnCard
-	: Return Target Attached Card To Its Owners Hand
-	| Return Target Card With A Resource Cost Of literalValue Or Less From Your Discard To Your Hand
-	| Return Target Ability Card From Your Discard To Your Hand
-	| Return A Attack Card With A Resource Cost Of literalValue Or Less From Your Discard To Your Hand
-	| Return A Card From Your Discard To Your Hand
-	| Return Target Card From Your Discard To Your Hand
-	| Return CARD_NAME To Your Hand
-	| Return It From Your Discard To Your Hand
-	| Return Target Card With A Resource Cost Of literalValue Or More From Your Discard To Your Hand
+	: Return card To playerRef Hand
 	;
 
 putBottomCardOfDeckIntoHand
