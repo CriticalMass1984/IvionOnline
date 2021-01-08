@@ -1,26 +1,42 @@
 parser grammar IvionParser;
 options { tokenVocab = IvionLexer; }
 
-//////////////////////////////////////////////////////////////////////////// PLAYER
+generalPostInTerrainFilter: (In | With | That Already Had) Terrain;
+generalPostNearTerrainFilter: Near Terrain;
+generalPostNearPlayerFilter: Near hypotheticalPlayer;
+generalPostNearTileFilter: Near hypotheticalTile;
+generalPostInTileFilter: In hypotheticalTile;
+generalPostNearCardFilter: Near hypotheticalCard;
+generalPostInCardFilter: Near hypotheticalCard;
+generalPostPlayerChoiceFilter: Of player Choice;
+generalPostAtLeastAwayFilter: At Least literalValue Tile Away;
+generalPostAtLeastAwayFromPlayerFilter: At Least literalValue Tile Away From hypotheticalPlayer;
 
+//////////////////////////////////////////////////////////////////////////// PLAYER
 
 playerType
     : Player
     | Enemy
     | Ally
     ;
+
 playerPreFix
     : Another
     | Controlled
     | Uncontrolled
     ;
+
 playerPostFix
-    : In Terrain 
-    | Near Terrain 
-    | Near CARD_NAME 
-    | In CARD_NAME 
-    | In tile
-    | At Least literalValue Tile Away
+    : generalPostInTerrainFilter
+    | generalPostNearTerrainFilter
+    | generalPostNearPlayerFilter
+    | generalPostNearTileFilter
+    | generalPostInTileFilter
+    | generalPostNearCardFilter
+    | generalPostInCardFilter
+    | generalPostPlayerChoiceFilter
+    | generalPostAtLeastAwayFilter
+    | generalPostAtLeastAwayFromPlayerFilter
     ;
 
 playerFilter
@@ -102,11 +118,6 @@ cardPrefix
     | cardPreInstanceFilter
     ;
 
-cardPostInTerrainFilter: In Terrain;
-cardPostNearTerrainFilter: Near Terrain;
-cardPostNearPlayerFilter: Near hypotheticalPlayer;
-cardPostNearTileFilter: Near hypotheticalTile;
-cardPostInTileFilter: In hypotheticalTile;
 cardPostTargettingFilter: Targeting hypotheticalPlayer;
 cardPostCostFilter: With A Resource Cost Of literalValue Or (Less | More);
 cardPostAttachedToPlayerFilter: Attached To hypotheticalPlayer;
@@ -115,15 +126,9 @@ cardPostControlledByPlayerFilter: Controlled By hypotheticalPlayer;
 cardPostHardcastFilter: With Hardcast;
 cardPostFrenzyFilter: With Frenzy;
 cardPostInDiscardFilter: From Your Discard;
-cardPostPlayerChoiceFilter: Of player Choice;
 
 cardPostfix
-    : cardPostInTerrainFilter
-    | cardPostNearTerrainFilter
-    | cardPostNearPlayerFilter
-    | cardPostNearTileFilter
-    | cardPostInTileFilter
-    | cardPostTargettingFilter
+    : cardPostTargettingFilter
     | cardPostCostFilter
     | cardPostAttachedToPlayerFilter
     | cardPostAttachedToTileFilter
@@ -131,7 +136,16 @@ cardPostfix
     | cardPostHardcastFilter
     | cardPostFrenzyFilter
     | cardPostInDiscardFilter
-    | cardPostPlayerChoiceFilter
+    | generalPostInTerrainFilter
+    | generalPostNearTerrainFilter
+    | generalPostNearPlayerFilter
+    | generalPostNearTileFilter
+    | generalPostInTileFilter
+    | generalPostNearCardFilter
+    | generalPostInCardFilter
+    | generalPostPlayerChoiceFilter
+    | generalPostAtLeastAwayFilter
+    | generalPostAtLeastAwayFromPlayerFilter
     ;
 
 cardFilter
@@ -183,17 +197,24 @@ hypotheticalCard
 
 //////////////////////////////////////////////////////////////////////////// TILE
 
-tilePreFix
+tilePreEmptyFilter
     : Non? Empty
     ;
+
+tilePreFix
+    : tilePreEmptyFilter
+    ;
 tilePostFix
-    : With Terrain 
-    | Near Terrain 
-    | Near hypotheticalPlayer
-    | Near card
-    | At Least literalValue Tile Away
-    | At Least literalValue Tile Away From hypotheticalPlayer
-    | That Already Had Terrain
+    : generalPostInTerrainFilter
+    | generalPostNearTerrainFilter
+    | generalPostNearPlayerFilter
+    | generalPostNearTileFilter
+    | generalPostInTileFilter
+    | generalPostNearCardFilter
+    | generalPostInCardFilter
+    | generalPostPlayerChoiceFilter
+    | generalPostAtLeastAwayFilter
+    | generalPostAtLeastAwayFromPlayerFilter
     ;
 
 tileFilter
@@ -524,7 +545,7 @@ noInitiative
     ;
     
 drawRange
-	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From CARD_NAME
+	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalCard
 	| All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalTile
 	;
 
