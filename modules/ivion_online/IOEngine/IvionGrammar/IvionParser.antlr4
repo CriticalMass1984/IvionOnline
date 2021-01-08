@@ -104,7 +104,7 @@ cardPreEnemyFilter: Enemy;
 cardPreAttachedFilter: Attached;
 cardPreAbilityFilter: Non? Ability;
 cardPreAttackFilter: Non? Attack;
-cardPreRevealedFilter: Revealed;
+cardPreRevealedFilter: Reveal;
 cardPreAnotherFilter: Another;
 cardPreInstanceFilter: (| The | playerRef) (First | Second | Third);
 
@@ -323,14 +323,14 @@ destroyCard
 	;
 
 dealDamage
-	: Deal literalValue Damage To player
-	| Deal Damage To player Equal To gameStateValue
-	| Deal literalValue Damage To player Plus Damage Equal To gameStateValue
-	| Deal literalValue Damage To
+	: Deal value Damage To player
+	| Deal Damage To player Equal To value
+	| Deal value Damage To player Plus Damage Equal To value
+	| Deal value Damage To
 	| Deal Damage To player
-	| Deal literalValue More Damage To player
-	| Deal literalValue Damage To player Plus literalValue More Damage For Each Revealed Card In Their Hand
-	| Deal Damage To player Equal To literalValue
+	| Deal value More Damage To player
+	| Deal value Damage To player Plus value
+	| Deal Damage To player Equal To value
 	;
 
 counterCard
@@ -422,9 +422,7 @@ gainsHeroic
 
 healPlayer
 	: Heal player literalValue HP
-	| Heal player literalValue HP
-	| Heal player literalValue HP
-	| Heal player HP Equal To The Number Of hypotheticalCard In Their Hand
+	| Heal player HP Equal To value
 	;
 
 stunPlayer
@@ -432,18 +430,16 @@ stunPlayer
 	;
 
 revealCards
-	: player Reveals literalValue Card From Their Hand
+	: player Reveal literalValue Card From Their Hand
 	| player Reveal literalValue Card From Their Hand
 	| player Reveal A Card From Their Hand
-	| player Reveals A Card From Their Hand
-	| player Reveals literalValue Card From Their Hand
-	| player Reveals A Card From Their Hand
+	| player Reveal A Card From Their Hand
+	| player Reveal literalValue Card From Their Hand
+	| player Reveal A Card From Their Hand
 	| Reveal CARD_NAME
 	| Reveal A Card From Your Hand
-    | Reveals A Card From Their Hand
+    | Reveal A Card From Their Hand
 	;
-
-
 
 drawCards
 	: Draw A Card
@@ -653,7 +649,7 @@ ifTileHadTerrain
 	;
 
 ifCardRevealed
-	: hypotheticalPlayer Have At Least literalValue Revealed Card In playerRef Hand
+	: hypotheticalPlayer Have At Least literalValue Reveal Card In playerRef Hand
 	;
 
 ifPlayerHasMitigate
@@ -689,7 +685,7 @@ stunPlayerCondition
 	;
     
 revealCardsCondition
-    : hypotheticalCard Is Revealed In? This Way
+    : hypotheticalCard Is Reveal In? This Way
     ;
 
 playerControlledCondition: hypotheticalPlayer Is Controlled;
@@ -701,7 +697,7 @@ playerDrewCardCondition: hypotheticalPlayer Draw A Card;
 playerMadeTerrainCondition: hypotheticalPlayer Make Terrain In hypotheticalTile;
 playerEntersSpaceCondition: hypotheticalPlayer (Or hypotheticalPlayer)* Enters (hypotheticalCard | hypotheticalTile);
 playerAttachesCardCondition: hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer;
-cardIsRevealedCondition: hypotheticalCard Is Revealed;
+cardIsRevealedCondition: hypotheticalCard Is Reveal;
 playerStunsPlayerCondition: hypotheticalPlayer Stun hypotheticalPlayer;
 cardSentToDiscardCondition: hypotheticalCard Is Sent To Your Discard;
 cardFailsToResolveCondition: hypotheticalCard hypotheticalPlayer Play Fails To Resolve;
@@ -786,11 +782,11 @@ cardCantBeTargeted
 	;
 
 whileEffect
-	: While CARD_NAME Is Revealed In Your Hand C passiveEffect
+	: While CARD_NAME Is Reveal In Your Hand C passiveEffect
 	;
 
 primaryCostReduction
-	: CARD_NAME Cost literalValue Less POWER For Each Other Revealed Card In Your Hand
+	: CARD_NAME Cost literalValue Less POWER For Each Other Reveal Card In Your Hand
 	;
 
 onlyPlayIf
@@ -830,6 +826,7 @@ playerPowerValue: player POWER;
 playerControlAmountValue: The Total Value Of Control Affecting player;
 playerHandSize: The Number Of hypotheticalCard In Their Hand;
 playerMitigate: player Mitigate;
+playerCardsInHand: literalValue More? (| Damage | Slow | Silence | Disarm) For Each hypotheticalCard In playerRef Hand;
 
 literalValue
     : one 
@@ -842,8 +839,9 @@ gameStateValue
     | playerControlAmountValue
     | playerHandSize
     | playerMitigate
+    | playerCardsInHand
     ;
-
+value: gameStateValue | literalValue;
 
 
 //////////////////////////////////////////////////////////////////////////// effects
