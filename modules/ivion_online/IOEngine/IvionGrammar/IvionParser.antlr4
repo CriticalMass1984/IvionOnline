@@ -106,7 +106,7 @@ cardPreAbilityFilter: Non? Ability;
 cardPreAttackFilter: Non? Attack;
 cardPreRevealedFilter: Revealed;
 cardPreAnotherFilter: Another;
-cardPreInstanceFilter: First | Second | Third;
+cardPreInstanceFilter: (| The | playerRef) (First | Second | Third);
 
 cardPrefix
     : cardPreEnemyFilter
@@ -126,6 +126,7 @@ cardPostControlledByPlayerFilter: Controlled By hypotheticalPlayer;
 cardPostHardcastFilter: With Hardcast;
 cardPostFrenzyFilter: With Frenzy;
 cardPostInDiscardFilter: From Your Discard;
+cardPostTurnRefFilter: This Turn | During playerRef Turn;
 
 cardPostfix
     : cardPostTargettingFilter
@@ -136,6 +137,7 @@ cardPostfix
     | cardPostHardcastFilter
     | cardPostFrenzyFilter
     | cardPostInDiscardFilter
+    | cardPostTurnRefFilter
     | generalPostInTerrainFilter
     | generalPostNearTerrainFilter
     | generalPostNearPlayerFilter
@@ -160,6 +162,7 @@ bottomCard
 previousCard
     : That Card
     | The Card
+    | Its
     | It
     | It From Your Discard
     ;
@@ -231,7 +234,7 @@ theNearestTile
     : The Nearest tileFilter Next To (hypotheticalPlayer | hypotheticalCard)
     ;
 playersTile
-    : The Tile player (Are | Is) In
+    : The Tile player Is In
     ;
 cardsTile
     : This Tile
@@ -482,7 +485,7 @@ scryEffect
 	;
 
 overrideFrenzy
-	: That Card Has Frenzy Even If No Player Has Used Their Second Wind
+	: That Card Have Frenzy Even If No Player Have Used Their Second Wind
 	;
 
 increaseCardDuration
@@ -502,12 +505,7 @@ heroic
 
 onlyPlayCertainCards
 	: hypotheticalPlayer May Only Play Card Named CARD_NAME
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Resolve A Attack Card This Turn
-	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Controlled
-	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Uncontrolled
-	| Only Play CARD_NAME If hypotheticalPlayer (Is | Are) Near Terrain
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) At Least literalValue Card In Your Discard
-	| Only Play CARD_NAME If hypotheticalPlayer (Have | Has) Taken literalValue Or More Damage This Turn
+	| Only Play CARD_NAME If condition
 	;
 
 costReduction
@@ -554,7 +552,7 @@ gainRange
     ;
 
 limitTargets
-    : Only Target Other hypotheticalPlayer condition
+    : Only Target Other hypotheticalPlayer If condition
     ;
 
 passiveEffect
@@ -616,37 +614,149 @@ effectPostfix
     | During playerRef Turn
     ;
 
-previousStunEffect
-    : A Resource Is Removed In This Way
-    ;
-afterEffectTrigger
-	: hypotheticalPlayer Resolve hypotheticalCard
-	| hypotheticalCard Resolves
-	| hypotheticalPlayer Resolve playerRef First hypotheticalCard
-	| hypotheticalPlayer Draw A Card
-	| hypotheticalPlayer Make Terrain In hypotheticalTile
-	| hypotheticalPlayer (Or hypotheticalPlayer)* Enters (hypotheticalCard | hypotheticalTile)
-	| hypotheticalPlayer Play hypotheticalCard
-	| hypotheticalPlayer Play playerRef First hypotheticalCard
-	| hypotheticalPlayer Play playerRef Second hypotheticalCard
-	| hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer
-	| hypotheticalCard Is Revealed
-	| hypotheticalPlayer Stun hypotheticalPlayer
-	| hypotheticalCard Is Sent To Your Discard
+ifPlayerMakesChoice
+	: playerRef Do
+	| playerRef Dont
+	;
+
+ifPreviousActionInvalid
+	: playerRef Cant
+	;
+
+ifResolvedCard
+	: hypotheticalPlayer Have? Resolve hypotheticalCard
+	;
+
+ifPlayedCard
+	: hypotheticalPlayer Have? Play hypotheticalCard
+	;
+
+ifUsedSecondWind
+	: hypotheticalPlayer Have? Already? Used playerRef Second Wind
 	| hypotheticalPlayer Second Wind
-	| hypotheticalPlayer Play CARD_NAME
-    | hypotheticalCard hypotheticalPlayer Played Fails To Resolve
-    | hypotheticalPlayer Slow hypotheticalPlayer
-    | hypotheticalPlayer Receive Control
-    | previousStunEffect
+	;
+
+
+ifNear
+	: hypotheticalEntity Is Near Terrain
+	| hypotheticalEntity Is Near hypotheticalTile
+	| hypotheticalEntity Is Near hypotheticalCard
+	| hypotheticalEntity Is Near hypotheticalPlayer
+	;
+
+ifControlled
+	: hypotheticalPlayer Is Controlled
+	;
+
+ifTileHadTerrain
+	: previousTile Already Had Terrain
+	;
+
+ifCardRevealed
+	: hypotheticalPlayer Have At Least literalValue Revealed Card In playerRef Hand
+	;
+
+ifPlayerHasMitigate
+	: hypotheticalPlayer (Have | Gains) Mitigate
+	;
+
+ifPlayerDidntLeaveTile
+	: hypotheticalPlayer Didnt Leave A Tile This Turn
+	;
+
+ifCardCostReduced
+    : hypotheticalCard Cost Is Reduced
+    ;
+
+ifPlayerHasMoreHP
+    : hypotheticalPlayer Have More HP Than hypotheticalPlayer
+    ;
+
+ifPlayerHasNoActions
+    : hypotheticalPlayer Have No Resource
+    ;
+
+ifInTerrain
+    : hypotheticalEntity Is In Terrain
+    ;
+
+counterCardCondition
+	: hypotheticalCard Is Countered
+	;
+
+stunPlayerCondition
+	: A Resource Is Removed In? This Way
+	;
+    
+revealCardsCondition
+    : hypotheticalCard Is Revealed In? This Way
+    ;
+
+playerControlledCondition: hypotheticalPlayer Is Controlled;
+playerUncontrolledCondition: hypotheticalPlayer Is Uncontrolled;
+playerHasCardsInDiscardCondition: hypotheticalPlayer Have At Least literalValue Card In playerRef Discard;
+playerHasTakenDamageCondition: hypotheticalPlayer Have Taken literalValue Or More Damage This Turn;
+cardResolvedCondition: hypotheticalCard Resolve;
+playerDrewCardCondition: hypotheticalPlayer Draw A Card;
+playerMadeTerrainCondition: hypotheticalPlayer Make Terrain In hypotheticalTile;
+playerEntersSpaceCondition: hypotheticalPlayer (Or hypotheticalPlayer)* Enters (hypotheticalCard | hypotheticalTile);
+playerAttachesCardCondition: hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer;
+cardIsRevealedCondition: hypotheticalCard Is Revealed;
+playerStunsPlayerCondition: hypotheticalPlayer Stun hypotheticalPlayer;
+cardSentToDiscardCondition: hypotheticalCard Is Sent To Your Discard;
+cardFailsToResolveCondition: hypotheticalCard hypotheticalPlayer Play Fails To Resolve;
+playerSlowsPlayerCondition: hypotheticalPlayer Slow hypotheticalPlayer;
+playerRecivesControlCondition: hypotheticalPlayer Receive Control;
+
+condition
+	: playerControlledCondition
+    | playerUncontrolledCondition
+    | playerHasCardsInDiscardCondition
+    | playerHasTakenDamageCondition
+    | cardResolvedCondition
+    | playerDrewCardCondition
+    | playerMadeTerrainCondition
+    | playerEntersSpaceCondition
+    | playerAttachesCardCondition
+    | cardIsRevealedCondition
+    | playerStunsPlayerCondition
+    | cardSentToDiscardCondition
+    | cardFailsToResolveCondition
+    | playerSlowsPlayerCondition
+    | playerRecivesControlCondition
+    | stunPlayerCondition
+    | ifPlayerMakesChoice
+    | ifPreviousActionInvalid
+    | ifResolvedCard
+    | ifUsedSecondWind
+    | ifNear
+    | ifControlled
+    | ifPlayedCard
+    | ifTileHadTerrain
+    | ifCardRevealed
+    | ifPlayerHasMitigate
+    | ifPlayerDidntLeaveTile
+    | ifCardCostReduced
+    | ifPlayerHasMoreHP
+    | ifPlayerHasNoActions
+    | ifInTerrain
+    | counterCardCondition
+    | stunPlayerCondition
+    | revealCardsCondition
 	;
 
 triggerEffect
     : At turnTrigger C effect
-	| After afterEffectTrigger effectPostfix? C effect
+	| After condition effectPostfix? C effect
     | durationEffect D effect
     | gameStartTrigger C effect
 	;
+
+
+////////////////////////////////////////////////////////////////////////////
+
+
+
 
 //////////////////////////////////////////////////////////////////////////// replacement Trigger
 
@@ -662,112 +772,10 @@ ifWouldHeal
     : If hypotheticalPlayer Would Heal hypotheticalPlayer HP C Instead Deal That Much Damage To player
     ;
 
-
 replacementTriggerEffect
 	: ifWouldRecieveControl
     | ifWouldTakeDamage
     | ifWouldHeal
-	;
-
-////////////////////////////////////////////////////////////////////////////
-
-
-ifPlayerMakesChoice
-	: If They Do
-	| If They Dont
-    | If You Do
-    | If You Dont
-	;
-
-ifPreviousActionInvalid
-	: If They Cant
-	| If You Cant
-	;
-
-ifResolvedCard
-	: If hypotheticalPlayer (Have | Has)? Resolved Another Ability Card This Turn
-	| If hypotheticalPlayer (Have | Has)? Resolved A Attack Card This Turn
-	;
-
-ifUsedSecondWind
-	: If hypotheticalPlayer (Have | Has)? Already? Used playerRef Second Wind
-	;
-
-ifNear
-	: If hypotheticalPlayer Are Near CARD_NAME
-	| If hypotheticalPlayer Are Near Terrain
-	;
-
-ifControlled
-	: If hypotheticalPlayer Are Controlled
-	;
-
-ifPlayed
-	: If hypotheticalPlayer (Have | Has)? Played A Attack Card This Turn
-	;
-
-ifTileHadTerrain
-	: If previousTile Already Had Terrain
-	;
-
-ifCardRevealed
-	: If player (Have | Has) At Least literalValue Revealed Card In Your Hand
-	;
-
-ifPlayerHasMitigate
-	: If player (Have | Has) Mitigate
-	;
-
-ifPlayerDidntLeaveTile
-	: If player Didnt Leave A Tile This Turn
-	;
-
-ifCardCostReduced
-    : If Its Cost Is Reduced
-    ;
-
-ifPlayerHasMoreHP
-    : If hypotheticalPlayer (Have | Has) More HP Than hypotheticalPlayer
-    ;
-
-ifPlayerHasNoActions
-    : If hypotheticalPlayer (Have | Has) No Resource
-    ;
-
-ifPlayerInTerrain
-    : If hypotheticalPlayer Are In Terrain
-    ;
-
-counterCardCondition
-	: If hypotheticalCard Is Countered
-	;
-
-stunPlayerCondition
-	: If A Resource Is Removed This Way
-	;
-revealCardsCondition
-    : If hypotheticalCard Is Revealed This Way
-    ;
-
-condition
-	: ifPlayerMakesChoice
-	| ifPreviousActionInvalid
-	| ifResolvedCard
-	| ifUsedSecondWind
-	| ifNear
-	| ifControlled
-	| ifPlayed
-	| ifTileHadTerrain
-	| ifCardRevealed
-	| ifPlayerHasMitigate
-    | ifPlayerDidntLeaveTile
-    | ifCardCostReduced
-    | ifPlayerHasMoreHP
-    | ifPlayerHasNoActions
-    | ifPlayerInTerrain
-    | revealCardsCondition
-    | stunPlayerCondition
-    | counterCardCondition
 	;
 
 //////////////////////////////////////////////////////////////////////////// OMNI PRESENT EFFECTS
@@ -786,15 +794,15 @@ primaryCostReduction
 	;
 
 onlyPlayIf
-	: Only Play CARD_NAME condition
+	: Only Play CARD_NAME If condition
 	;
 
 oncePerGameLimit
-	: CARD_NAME May Be Played Once Per Game
+	: CARD_NAME May Be Play Once Per Game
 	;
 
 triggerLimit
-    : CARD_NAME May Only Trigger condition
+    : CARD_NAME May Only Trigger If condition
     ;
 
 triggerTurnLimit
@@ -903,12 +911,12 @@ repeatedEffect
     ;
 
 conditionalEffect
-    : condition C effect
+    : If condition C effect
     | repeatedEffect
     ;
 
 alternativeEffect
-    : condition C Instead effect
+    : If condition C Instead effect
     | conditionalEffect
     ;
 
