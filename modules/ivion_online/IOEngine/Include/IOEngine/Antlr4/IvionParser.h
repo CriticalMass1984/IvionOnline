@@ -513,6 +513,7 @@ public:
   public:
     PlayerPreFixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    PlayerTypeContext *playerType();
     antlr4::tree::TerminalNode *Another();
     antlr4::tree::TerminalNode *Controlled();
     antlr4::tree::TerminalNode *Uncontrolled();
@@ -528,6 +529,8 @@ public:
   public:
     PlayerPostFixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    PlayerPreFixContext *playerPreFix();
+    PlayerPostFixContext *playerPostFix();
     GeneralPostInTerrainFilterContext *generalPostInTerrainFilter();
     GeneralPostNearTerrainFilterContext *generalPostNearTerrainFilter();
     GeneralPostNearPlayerFilterContext *generalPostNearPlayerFilter();
@@ -545,16 +548,12 @@ public:
   };
 
   PlayerPostFixContext* playerPostFix();
-
+  PlayerPostFixContext* playerPostFix(int precedence);
   class  PlayerFilterContext : public antlr4::ParserRuleContext {
   public:
     PlayerFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    PlayerTypeContext *playerType();
-    std::vector<PlayerPreFixContext *> playerPreFix();
-    PlayerPreFixContext* playerPreFix(size_t i);
-    std::vector<PlayerPostFixContext *> playerPostFix();
-    PlayerPostFixContext* playerPostFix(size_t i);
+    PlayerPostFixContext *playerPostFix();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -4028,6 +4027,7 @@ public:
 
 
   virtual bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
+  bool playerPostFixSempred(PlayerPostFixContext *_localctx, size_t predicateIndex);
   bool effectListSempred(EffectListContext *_localctx, size_t predicateIndex);
 
 private:

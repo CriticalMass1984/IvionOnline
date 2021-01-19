@@ -7,8 +7,8 @@ generalPostNearPlayerFilter: Near hypotheticalPlayer;
 generalPostNearTileFilter: Near hypotheticalTile;
 generalPostInTileFilter: In hypotheticalTile;
 generalPostNearCardFilter: Near hypotheticalCard;
-generalPostInCardFilter: Near hypotheticalCard;
-generalPostPlayerChoiceFilter: Of player Choice;
+generalPostInCardFilter: In hypotheticalCard;
+generalPostPlayerChoiceFilter: Of player Choice; // TODO
 generalPostAtLeastAwayFilter: At Least literalValue Tile Away;
 generalPostAtLeastAwayFromPlayerFilter: At Least literalValue Tile Away From hypotheticalPlayer;
 
@@ -20,27 +20,27 @@ playerType
     | Ally
     ;
 
+// really want to avoid right recursion, it's very slow
 playerPreFix
-    : Another
-    | Controlled
-    | Uncontrolled
+    : Another? Controlled? Uncontrolled? playerType
     ;
 
 playerPostFix
-    : generalPostInTerrainFilter
-    | generalPostNearTerrainFilter
-    | generalPostNearPlayerFilter
-    | generalPostNearTileFilter
-    | generalPostInTileFilter
-    | generalPostNearCardFilter
-    | generalPostInCardFilter
-    | generalPostPlayerChoiceFilter
-    | generalPostAtLeastAwayFilter
-    | generalPostAtLeastAwayFromPlayerFilter
+    : playerPreFix
+    | playerPostFix generalPostInTerrainFilter
+    | playerPostFix generalPostNearTerrainFilter
+    | playerPostFix generalPostNearPlayerFilter
+    | playerPostFix generalPostNearTileFilter
+    | playerPostFix generalPostInTileFilter
+    | playerPostFix generalPostNearCardFilter
+    | playerPostFix generalPostInCardFilter
+    | playerPostFix generalPostPlayerChoiceFilter
+    | playerPostFix generalPostAtLeastAwayFilter
+    | playerPostFix generalPostAtLeastAwayFromPlayerFilter
     ;
 
 playerFilter
-    : playerPreFix* playerType playerPostFix*
+    : playerPostFix
     ;
 
 currentPlayer
