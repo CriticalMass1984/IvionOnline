@@ -17,6 +17,11 @@ public:
 	IntegerIndex Slow;
 	IntegerIndex Silence;
 	IntegerIndex Disarm;
+	
+	IntegerIndex SecondWindUses;
+
+	// does whatever the second wind does
+	void SecondWind();
 
 	inline bool IsControlled() const noexcept {return *Slow > 0 || *Silence > 0 || *Disarm > 0;}
 	inline bool IsUncontrolled() const noexcept {return *Slow == 0 && *Silence == 0 && *Disarm == 0;}
@@ -26,6 +31,7 @@ public:
 
 	inline bool IsAlly(const Player &B) const noexcept { return (selfIndex_ != B.selfIndex_) && ((team_ & B.team_) > 0); }
 	inline bool IsEnemy(const Player &B) const noexcept { return (team_ ^ B.team_) > 0; }
+	inline bool operator==(const Player &B) const noexcept { return selfIndex_ == B.selfIndex_; }
 
 	const Vec2i &GetPosition() const noexcept override;
 };

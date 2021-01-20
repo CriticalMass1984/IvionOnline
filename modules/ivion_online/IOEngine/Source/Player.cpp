@@ -17,4 +17,8 @@ Player::Player(PlayerIndex i, TeamIndex team) noexcept
 {
 }
 
+void Player::SecondWind() {
+	// start stacking on second wind effects
+}
+
 } // namespace IO

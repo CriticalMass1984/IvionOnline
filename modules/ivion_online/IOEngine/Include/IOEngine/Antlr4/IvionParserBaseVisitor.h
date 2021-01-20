@@ -95,14 +95,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitSinglePlayer(IvionParser::SinglePlayerContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitMultiPlayer(IvionParser::MultiPlayerContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual antlrcpp::Any visitAllOtherPlayers(IvionParser::AllOtherPlayersContext *ctx) override {
     return visitChildren(ctx);
   }

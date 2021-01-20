@@ -1,7 +1,7 @@
 #pragma once
 
-#include <cstdint>
 #include <cmath>
+#include <cstdint>
 
 namespace IO {
 // forward declare
@@ -20,8 +20,26 @@ struct Vec2i {
 	Tile &GetTile() const noexcept;
 
 	inline Integer Distance(const Vec2i &B) const noexcept { return std::abs(x - B.x) + std::abs(y - B.y); }
-};
+	inline bool operator==(const Vec2i &B) const noexcept { return x == B.x && y == B.y; }
+	inline bool operator!=(const Vec2i &B) const noexcept { return x != B.x || y != B.y; }
 
+	inline Vec2i &operator+=(const Vec2i &B) noexcept {
+		x += B.x;
+		y += B.y;
+		return *this;
+	}
+	inline Vec2i &operator-=(const Vec2i &B) noexcept {
+		x -= B.x;
+		y -= B.y;
+		return *this;
+	}
+	inline Vec2i operator+(const Vec2i &B) noexcept {
+		return Vec2i(x + B.x, y + B.y);
+	}
+	inline Vec2i operator-(const Vec2i &B) noexcept {
+		return Vec2i(x - B.x, y - B.y);
+	}
+};
 
 struct PlayerIndex {
 	int8_t Index;

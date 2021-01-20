@@ -12,7 +12,6 @@ namespace IO {
 
 // basic types
 
-
 /*
 template<enum EnumType>
 struct Enumeration {
@@ -47,12 +46,12 @@ public:
 
 // type mutations
 struct Vec2iMutation {
-	ValueIndex Index;
+	Vec2iIndex Index;
 	Vec2i Delta;
 };
 
 struct IntegerMutation {
-	ValueIndex Index;
+	IntegerIndex Index;
 	Integer Delta;
 };
 
@@ -76,6 +75,9 @@ enum class TerrainType {
 };
 
 // Misc
+struct Success{};
+struct Failure{};
+
 struct GameStart {};
 struct TurnStart {
 	int16_t TurnNumber;
@@ -95,10 +97,9 @@ struct MoveAction {}; // moving with initiative or resources
 struct DrawAction {}; // drawing a card with initiative
 struct PlayAction {}; // playing a card, followed by Card_Play
 
-// misc
 
 //
-struct Target {}; // next reference was a target effect
+struct Target {}; // next reference is a target effect
 
 struct Player_Reference {
 	PlayerIndex Player;
@@ -112,9 +113,18 @@ struct Tile_Reference {
 	TileIndex Tile;
 };
 
+// how many previous elements are references in the same slice
+struct ReferenceCount {
+	int8_t Count;
+};
+
 // effects
 struct Amount { // next effects are scaled by this amount
 	int8_t Amount;
+};
+
+struct Position { // next effects are scaled by this amount
+	Vec2i Position;
 };
 
 struct Player_SpendResource {};
@@ -123,13 +133,9 @@ struct Player_RefundResource {};
 
 struct Player_Damage {};
 
-struct Player_Move {
-	Vec2i Position;
-};
+struct Player_Move {};
 
-struct Player_Travel {
-	Vec2i Position;
-};
+struct Player_Travel {};
 
 struct Player_Control {
 	ControlType Type;
@@ -139,7 +145,7 @@ struct Player_RemoveControl {
 	ControlType Type;
 };
 
-struct Player_UseSecondWind {};
+struct Player_SecondWind {};
 struct Player_Heal {};
 struct Player_Scry {};
 
@@ -149,22 +155,15 @@ struct Card_Advantage {};
 struct Card_Hardcast {};
 
 struct Card_Destroy {};
-struct Card_AttachToPlayer {};
-struct Card_AttachToTile {};
+struct Card_Attach {};
 struct Card_Counter {};
 struct Card_Play {}; // play a card
 struct Card_Resolve {};
-struct Card_MoveToHand {};
 struct Card_TriggerDurationEffects {};
 struct Card_PlayUltimate {};
 struct Card_Discard {};
 struct Card_Reveal {};
 struct Card_Draw {};
-struct Card_SetInDeck {
-	int8_t Position;
-};
-struct Card_IncreaseDuration {};
-struct Card_ResetUse {};
 
 struct Terrain_Destroy {};
 struct Terrain_Create {
@@ -173,6 +172,10 @@ struct Terrain_Create {
 
 typedef std::variant<
 		std::monostate,
+		Vec2iMutation,
+		IntegerMutation,
+		Success,
+		Failure,
 		GameStart,
 		TurnStart,
 		TurnEnd,
@@ -185,6 +188,7 @@ typedef std::variant<
 		Player_Reference,
 		Card_Reference,
 		Tile_Reference,
+		ReferenceCount,
 		Amount,
 		Player_SpendResource,
 		Player_GainResource,
@@ -194,7 +198,7 @@ typedef std::variant<
 		Player_Travel,
 		Player_Control,
 		Player_RemoveControl,
-		Player_UseSecondWind,
+		Player_SecondWind,
 		Player_Heal,
 		Player_Scry,
 		Card_Heroic,
@@ -202,22 +206,28 @@ typedef std::variant<
 		Card_Advantage,
 		Card_Hardcast,
 		Card_Destroy,
-		Card_AttachToPlayer,
-		Card_AttachToTile,
+		Card_Attach,
 		Card_Counter,
 		Card_Play,
 		Card_Resolve,
-		Card_MoveToHand,
 		Card_TriggerDurationEffects,
 		Card_PlayUltimate,
 		Card_Discard,
 		Card_Reveal,
 		Card_Draw,
-		Card_SetInDeck,
-		Card_IncreaseDuration,
-		Card_ResetUse,
 		Terrain_Destroy,
 		Terrain_Create>
 		Effect;
+
+template <typename VariantType, typename T, std::size_t index = 0>
+constexpr std::size_t variant_index() {
+	if constexpr (index == std::variant_size_v<VariantType>) {
+		return index;
+	} else if constexpr (std::is_same_v<std::variant_alternative_t<index, VariantType>, T>) {
+		return index;
+	} else {
+		return variant_index<VariantType, T, index + 1>();
+	}
+}
 
 } // namespace IO

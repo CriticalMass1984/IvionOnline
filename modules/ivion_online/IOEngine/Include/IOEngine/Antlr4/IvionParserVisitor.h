@@ -59,10 +59,6 @@ public:
 
     virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *context) = 0;
 
-    virtual antlrcpp::Any visitSinglePlayer(IvionParser::SinglePlayerContext *context) = 0;
-
-    virtual antlrcpp::Any visitMultiPlayer(IvionParser::MultiPlayerContext *context) = 0;
-
     virtual antlrcpp::Any visitAllOtherPlayers(IvionParser::AllOtherPlayersContext *context) = 0;
 
     virtual antlrcpp::Any visitAllPlayers(IvionParser::AllPlayersContext *context) = 0;

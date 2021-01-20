@@ -69,13 +69,7 @@ playerRef
     ;
 targetPlayer
     : Another? Target playerFilter
-    ;
-singlePlayer
-    : targetPlayer
-    | playerRef
-    ;
-multiPlayer
-    : UpToFlag=upToFlag? literalValue targetPlayer
+    | upToFlag? literalValue Target playerFilter
     ;
 allOtherPlayers
     : (All | Each) Other playerFilter
@@ -87,8 +81,8 @@ allPlayers
 
 ////
 player
-    : singlePlayer
-    | multiPlayer
+    : targetPlayer
+    | playerRef
     | allPlayers
     | allOtherPlayers
     ;
