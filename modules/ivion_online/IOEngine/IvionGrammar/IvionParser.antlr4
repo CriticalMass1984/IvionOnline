@@ -3,14 +3,14 @@ options { tokenVocab = IvionLexer; }
 
 generalPostInTerrainFilter: (In | With | That Already Had) Terrain;
 generalPostNearTerrainFilter: Near Terrain;
-generalPostNearPlayerFilter: Near players=hypotheticalPlayer;
+generalPostNearPlayerFilter: Near players=player;
 generalPostNearTileFilter: Near tiles=hypotheticalTile;
 generalPostInTileFilter: In tiles=hypotheticalTile;
 generalPostNearCardFilter: Near cards=hypotheticalCard;
 generalPostInCardFilter: In cards=hypotheticalCard;
 generalPostPlayerChoiceFilter: Of players=player Choice; // TODO
 generalPostAtLeastAwayFilter: At Least values=literalValue Tile Away;
-generalPostAtLeastAwayFromPlayerFilter: At Least values=literalValue Tile Away From players=hypotheticalPlayer;
+generalPostAtLeastAwayFromPlayerFilter: At Least values=literalValue Tile Away From players=player;
 
 //////////////////////////////////////////////////////////////////////////// PLAYER
 
@@ -84,11 +84,6 @@ player
     | allOtherPlayers
     ;
 
-hypotheticalPlayer
-    : A? playerFilter
-    | player
-    ;
-
 //////////////////////////////////////////////////////////////////////////// CARD
 
 cardPreEnemyFilter: Enemy;
@@ -109,11 +104,11 @@ cardPrefix
     | cardPreInstanceFilter
     ;
 
-cardPostTargettingFilter: Targeting hypotheticalPlayer;
+cardPostTargettingFilter: Targeting player;
 cardPostCostFilter: With A Resource Cost Of literalValue Or (Less | More);
-cardPostAttachedToPlayerFilter: Attached To hypotheticalPlayer;
+cardPostAttachedToPlayerFilter: Attached To player;
 cardPostAttachedToTileFilter: Attached To hypotheticalTile;
-cardPostControlledByPlayerFilter: Controlled By hypotheticalPlayer;
+cardPostControlledByPlayerFilter: Controlled By player;
 cardPostHardcastFilter: With Hardcast;
 cardPostFrenzyFilter: With Frenzy;
 cardPostInDiscardFilter: From Your Discard;
@@ -148,7 +143,7 @@ cardName
     : CARD_NAME
     ;
 bottomCard
-    : The Bottom Card Of hypotheticalPlayer Deck
+    : The Bottom Card Of player Deck
     ;
 previousCard
     : That Card
@@ -221,7 +216,7 @@ previousTile
     | The Tile
     ;
 theNearestTile
-    : The Nearest tileFilter Next To (hypotheticalPlayer | hypotheticalCard)
+    : The Nearest tileFilter Next To (player | hypotheticalCard)
     ;
 playersTile
     : The Tile player Is In
@@ -265,7 +260,7 @@ entity
 
 hypotheticalEntity
     : hypotheticalCard
-    | hypotheticalPlayer
+    | player
     | hypotheticalTile
     ;
 
@@ -488,13 +483,13 @@ heroic
 
 
 onlyPlayCertainCards
-	: hypotheticalPlayer May Only Play Card Named CARD_NAME
+	: player May Only Play Card Named CARD_NAME
 	| Only Play CARD_NAME If condition
 	;
 
 costReduction
-	: hypotheticalCard hypotheticalPlayer Play Cost literalValue Less Resource
-    | The Second Attack Card hypotheticalPlayer Play During Your Turn Cost literalValue Less Resource
+	: hypotheticalCard player Play Cost literalValue Less Resource
+    | The Second Attack Card player Play During Your Turn Cost literalValue Less Resource
 	;
 
 rangeSet
@@ -502,12 +497,12 @@ rangeSet
 	;
 
 cantPlayCards
-	: hypotheticalPlayer Cant Play Card
+	: player Cant Play Card
 	;
 
 playerCantBeTargeted
-	: hypotheticalPlayer Cant Be Targeted By Enemies
-	| hypotheticalPlayer Cant Be Targeted By Card
+	: player Cant Be Targeted By Enemies
+	| player Cant Be Targeted By Card
 	;
 
 increasedHandSize
@@ -523,20 +518,20 @@ replacesSecondWind
     ;
 
 noInitiative
-    : hypotheticalPlayer Dont Gain INITIATIVE At The Start Of Your Turn
+    : player Dont Gain INITIATIVE At The Start Of Your Turn
     ;
     
 drawRange
-	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalCard
-	| All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalTile
+	: All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalCard
+	| All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalTile
 	;
 
 gainRange
-	: All Of hypotheticalPlayer Card C Except Travel Card That Target A Tile C Gain literalValue Range
+	: All Of player Card C Except Travel Card That Target A Tile C Gain literalValue Range
     ;
 
 limitTargets
-    : Only Target Other hypotheticalPlayer If condition
+    : Only Target Other player If condition
     ;
 
 passiveEffect
@@ -562,16 +557,16 @@ durationEffect
 	;
 
 startOfPlayerTurn
-	: The Start Of hypotheticalPlayer Turn
-	| The Start Of hypotheticalPlayer Turn
+	: The Start Of player Turn
+	| The Start Of player Turn
     ;
 
 endOfPlayerTurnTrigger
-    : The End Of hypotheticalPlayer Turn
+    : The End Of player Turn
 	;
     
 startOfPlayerNextTurn
-    : The Start Of hypotheticalPlayer Next Turn
+    : The Start Of player Next Turn
     ;
 
 endOfTurnTrigger
@@ -608,16 +603,16 @@ ifPreviousActionInvalid
 	;
 
 ifResolvedCard
-	: hypotheticalPlayer Have? Resolve hypotheticalCard
+	: player Have? Resolve hypotheticalCard
 	;
 
 ifPlayedCard
-	: hypotheticalPlayer Have? Play hypotheticalCard
+	: player Have? Play hypotheticalCard
 	;
 
 ifUsedSecondWind
-	: hypotheticalPlayer Have? Already? Used playerRef Second Wind
-	| hypotheticalPlayer Second Wind
+	: player Have? Already? Used playerRef Second Wind
+	| player Second Wind
 	;
 
 
@@ -625,11 +620,11 @@ ifNear
 	: hypotheticalEntity Is Near Terrain
 	| hypotheticalEntity Is Near hypotheticalTile
 	| hypotheticalEntity Is Near hypotheticalCard
-	| hypotheticalEntity Is Near hypotheticalPlayer
+	| hypotheticalEntity Is Near player
 	;
 
 ifControlled
-	: hypotheticalPlayer Is Controlled
+	: player Is Controlled
 	;
 
 ifTileHadTerrain
@@ -637,15 +632,15 @@ ifTileHadTerrain
 	;
 
 ifCardRevealed
-	: hypotheticalPlayer Have At Least literalValue Reveal Card In playerRef Hand
+	: player Have At Least literalValue Reveal Card In playerRef Hand
 	;
 
 ifPlayerHasMitigate
-	: hypotheticalPlayer (Have | Gains) Mitigate
+	: player (Have | Gains) Mitigate
 	;
 
 ifPlayerDidntLeaveTile
-	: hypotheticalPlayer Didnt Leave A Tile This Turn
+	: player Didnt Leave A Tile This Turn
 	;
 
 ifCardCostReduced
@@ -653,11 +648,11 @@ ifCardCostReduced
     ;
 
 ifPlayerHasMoreHP
-    : hypotheticalPlayer Have More HP Than hypotheticalPlayer
+    : player Have More HP Than player
     ;
 
 ifPlayerHasNoActions
-    : hypotheticalPlayer Have No Resource
+    : player Have No Resource
     ;
 
 ifInTerrain
@@ -676,21 +671,21 @@ revealCardsCondition
     : hypotheticalCard Is Reveal In? This Way
     ;
 
-playerControlledCondition: hypotheticalPlayer Is Controlled;
-playerUncontrolledCondition: hypotheticalPlayer Is Uncontrolled;
-playerHasCardsInDiscardCondition: hypotheticalPlayer Have At Least literalValue Card In playerRef Discard;
-playerHasTakenDamageCondition: hypotheticalPlayer Have Taken literalValue Or More Damage This Turn;
+playerControlledCondition: player Is Controlled;
+playerUncontrolledCondition: player Is Uncontrolled;
+playerHasCardsInDiscardCondition: player Have At Least literalValue Card In playerRef Discard;
+playerHasTakenDamageCondition: player Have Taken literalValue Or More Damage This Turn;
 cardResolvedCondition: hypotheticalCard Resolve;
-playerDrewCardCondition: hypotheticalPlayer Draw A Card;
-playerMadeTerrainCondition: hypotheticalPlayer Make Terrain In hypotheticalTile;
-playerEntersSpaceCondition: hypotheticalPlayer (Or hypotheticalPlayer)* Enters (hypotheticalCard | hypotheticalTile);
-playerAttachesCardCondition: hypotheticalPlayer Attach hypotheticalCard To hypotheticalPlayer;
+playerDrewCardCondition: player Draw A Card;
+playerMadeTerrainCondition: player Make Terrain In hypotheticalTile;
+playerEntersSpaceCondition: player (Or player)* Enters (hypotheticalCard | hypotheticalTile);
+playerAttachesCardCondition: player Attach hypotheticalCard To player;
 cardIsRevealedCondition: hypotheticalCard Is Reveal;
-playerStunsPlayerCondition: hypotheticalPlayer Stun hypotheticalPlayer;
+playerStunsPlayerCondition: player Stun player;
 cardSentToDiscardCondition: hypotheticalCard Is Sent To Your Discard;
-cardFailsToResolveCondition: hypotheticalCard hypotheticalPlayer Play Fails To Resolve;
-playerSlowsPlayerCondition: hypotheticalPlayer Slow hypotheticalPlayer;
-playerRecivesControlCondition: hypotheticalPlayer Receive Control;
+cardFailsToResolveCondition: hypotheticalCard player Play Fails To Resolve;
+playerSlowsPlayerCondition: player Slow player;
+playerRecivesControlCondition: player Receive Control;
 
 condition
 	: playerControlledCondition
@@ -745,15 +740,15 @@ triggerEffect
 //////////////////////////////////////////////////////////////////////////// replacement Trigger
 
 ifWouldRecieveControl
-    : If hypotheticalPlayer Would Receive Control C Instead player Receive The Control
+    : If player Would Receive Control C Instead player Receive The Control
     ;
 
 ifWouldTakeDamage
-    : If hypotheticalPlayer Would Take Damage For The First Time During Each Turn C playerRef? Instead Take literalValue Less Damage P This May Not Reduce Damage Taken Below literalValue
+    : If player Would Take Damage For The First Time During Each Turn C playerRef? Instead Take literalValue Less Damage P This May Not Reduce Damage Taken Below literalValue
     ;
 
 ifWouldHeal
-    : If hypotheticalPlayer Would Heal hypotheticalPlayer HP C Instead Deal That Much Damage To player
+    : If player Would Heal player HP C Instead Deal That Much Damage To player
     ;
 
 replacementTriggerEffect
@@ -907,10 +902,10 @@ alternativeEffect
     ;
 
 effect
-    : hypotheticalPlayer May Have hypotheticalPlayer alternativeEffect
-    | hypotheticalPlayer May alternativeEffect To alternativeEffect
-    | hypotheticalPlayer May alternativeEffect
-    | alternativeEffect Unless hypotheticalPlayer alternativeEffect
+    : player May Have player alternativeEffect
+    | player May alternativeEffect To alternativeEffect
+    | player May alternativeEffect
+    | alternativeEffect Unless player alternativeEffect
     | alternativeEffect
     ;
 

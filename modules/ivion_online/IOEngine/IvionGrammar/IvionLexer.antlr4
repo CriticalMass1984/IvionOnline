@@ -38,6 +38,7 @@ Away: 'away';
 From: 'from';
 You: 'you';
 Up: 'up';
+UpTo: Up To;
 Nearest: 'nearest';
 Next: 'next';
 Unless: 'unless';
