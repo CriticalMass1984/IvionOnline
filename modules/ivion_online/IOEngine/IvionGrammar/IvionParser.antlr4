@@ -68,11 +68,8 @@ playerRef
 selectPlayer
     : flag=Another? limit=literalValue? target=Target? playerFilter
     ;
-allOtherPlayers
-    : (All | Each) Other playerFilter
-    ;
 allPlayers
-    : (Each | All | Any) playerFilter
+    : (Each | All | Any) Other? playerFilter
     | Yourself Or Another Player
     ;
 
@@ -81,7 +78,6 @@ player
     : selectPlayer
     | playerRef
     | allPlayers
-    | allOtherPlayers
     ;
 
 //////////////////////////////////////////////////////////////////////////// CARD
