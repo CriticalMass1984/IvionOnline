@@ -3,14 +3,11 @@ options { tokenVocab = IvionLexer; }
 
 generalPostInTerrainFilter: (In | With | That Already Had) Terrain;
 generalPostNearTerrainFilter: Near Terrain;
-generalPostNearPlayerFilter: Near players=player;
-generalPostNearTileFilter: Near tiles=hypotheticalTile;
-generalPostInTileFilter: In tiles=hypotheticalTile;
-generalPostNearCardFilter: Near cards=hypotheticalCard;
-generalPostInCardFilter: In cards=hypotheticalCard;
-generalPostPlayerChoiceFilter: Of players=player Choice; // TODO
-generalPostAtLeastAwayFilter: At Least values=literalValue Tile Away;
-generalPostAtLeastAwayFromPlayerFilter: At Least values=literalValue Tile Away From players=player;
+generalPostNearEntityFilter: Near entity;
+generalPostInEntityFilter: In entity;
+generalPostPlayerChoiceFilter: Of player Choice; // TODO
+generalPostAtLeastAwayFilter: At Least literalValue Tile Away;
+generalPostAtLeastAwayFromFilter: At Least literalValue Tile Away From entity;
 
 //////////////////////////////////////////////////////////////////////////// PLAYER
 
@@ -18,27 +15,29 @@ playerType
     : flag=(Player | Enemy | Ally)
     ;
 
-// really want to avoid right recursion, it's very slow
-playerPreFix
-    : flag=(Another | Controlled| Uncontrolled)? playerType
+anotherFlag: Another;
+upToFlag: Up To;
+uncontrolledFlag: Uncontrolled;
+controlledFlag: Controlled; 
+
+playerPrefix
+    : anotherFlag
+    | uncontrolledFlag
+    | controlledFlag
     ;
 
-playerPostFix
-    : playerPreFix
-    | playerPostFix generalPostInTerrainFilter
-    | playerPostFix generalPostNearTerrainFilter
-    | playerPostFix generalPostNearPlayerFilter
-    | playerPostFix generalPostNearTileFilter
-    | playerPostFix generalPostInTileFilter
-    | playerPostFix generalPostNearCardFilter
-    | playerPostFix generalPostInCardFilter
-    | playerPostFix generalPostPlayerChoiceFilter
-    | playerPostFix generalPostAtLeastAwayFilter
-    | playerPostFix generalPostAtLeastAwayFromPlayerFilter
+playerPostfix
+    : generalPostInTerrainFilter
+    | generalPostNearTerrainFilter
+    | generalPostNearEntityFilter
+    | generalPostInEntityFilter
+    | generalPostPlayerChoiceFilter
+    | generalPostAtLeastAwayFilter
+    | generalPostAtLeastAwayFromFilter
     ;
 
 playerFilter
-    : playerPostFix
+    : playerPrefix* playerType playerPostfix*
     ;
 
 currentPlayer
@@ -66,10 +65,10 @@ playerRef
     | previousCardsController
     ;
 selectPlayer
-    : flag=Another? limit=literalValue? target=Target? playerFilter
+    : upToFlag? literalValue? anotherFlag? Target? playerFilter
     ;
 allPlayers
-    : (Each | All | Any) Other? playerFilter
+    : (Each | All | Any) otherFlag=Other? playerFilter
     | Yourself Or Another Player
     ;
 
@@ -87,7 +86,6 @@ cardPreAttachedFilter: Attached;
 cardPreAbilityFilter: Non? Ability;
 cardPreAttackFilter: Non? Attack;
 cardPreRevealedFilter: Reveal;
-cardPreAnotherFilter: Another;
 cardPreInstanceFilter: (| The | playerRef) (First | Second | Third);
 
 cardPrefix
@@ -96,14 +94,13 @@ cardPrefix
     | cardPreAbilityFilter
     | cardPreAttackFilter
     | cardPreRevealedFilter
-    | cardPreAnotherFilter
+    | anotherFlag
     | cardPreInstanceFilter
     ;
 
-cardPostTargettingFilter: Targeting player;
+cardPostTargettingFilter: Targeting entity;
 cardPostCostFilter: With A Resource Cost Of literalValue Or (Less | More);
-cardPostAttachedToPlayerFilter: Attached To player;
-cardPostAttachedToTileFilter: Attached To hypotheticalTile;
+cardPostAttachedToFilter: Attached To entity;
 cardPostControlledByPlayerFilter: Controlled By player;
 cardPostHardcastFilter: With Hardcast;
 cardPostFrenzyFilter: With Frenzy;
@@ -113,8 +110,7 @@ cardPostTurnRefFilter: This Turn | During playerRef Turn;
 cardPostfix
     : cardPostTargettingFilter
     | cardPostCostFilter
-    | cardPostAttachedToPlayerFilter
-    | cardPostAttachedToTileFilter
+    | cardPostAttachedToFilter
     | cardPostControlledByPlayerFilter
     | cardPostHardcastFilter
     | cardPostFrenzyFilter
@@ -122,14 +118,11 @@ cardPostfix
     | cardPostTurnRefFilter
     | generalPostInTerrainFilter
     | generalPostNearTerrainFilter
-    | generalPostNearPlayerFilter
-    | generalPostNearTileFilter
-    | generalPostInTileFilter
-    | generalPostNearCardFilter
-    | generalPostInCardFilter
+    | generalPostNearEntityFilter
+    | generalPostInEntityFilter
     | generalPostPlayerChoiceFilter
     | generalPostAtLeastAwayFilter
-    | generalPostAtLeastAwayFromPlayerFilter
+    | generalPostAtLeastAwayFromFilter
     ;
 
 cardFilter
@@ -152,7 +145,7 @@ targetCard
     : Target cardFilter
     ;
 selectCard
-    : A cardFilter
+    : A? cardFilter
     ;
 singleCard
     : cardName
@@ -165,18 +158,13 @@ allCards
     : All cardFilter
     ;
 multiCard
-    : upToFlag=UpTo? literalValue targetFlag=Target? cardFilter
+    : upToFlag? literalValue Target? cardFilter
     ;
 ////
 card
     : singleCard
     | allCards
     | multiCard
-    ;
-
-hypotheticalCard
-    : A? cardFilter
-    | card
     ;
 
 //////////////////////////////////////////////////////////////////////////// TILE
@@ -191,28 +179,25 @@ tilePreFix
 tilePostFix
     : generalPostInTerrainFilter
     | generalPostNearTerrainFilter
-    | generalPostNearPlayerFilter
-    | generalPostNearTileFilter
-    | generalPostInTileFilter
-    | generalPostNearCardFilter
-    | generalPostInCardFilter
+    | generalPostNearEntityFilter
+    | generalPostInEntityFilter
     | generalPostPlayerChoiceFilter
     | generalPostAtLeastAwayFilter
-    | generalPostAtLeastAwayFromPlayerFilter
+    | generalPostAtLeastAwayFromFilter
     ;
 
 tileFilter
     : tilePreFix* Tile tilePostFix*
     ;
 
-targetTile: Another? literalValue? Target tileFilter;
+targetTile: Another? literalValue? Target? tileFilter;
 
 previousTile
     : That Tile
     | The Tile
     ;
 theNearestTile
-    : The Nearest tileFilter Next To (player | hypotheticalCard)
+    : The Nearest tileFilter Next To entity
     ;
 playersTile
     : The Tile player Is In
@@ -229,7 +214,7 @@ singleTile
     ;
 
 multiTile
-    : upToFlag=UpTo? literalValue targetTile
+    : upToFlag? literalValue targetTile
     ;
 
 allTiles
@@ -243,10 +228,6 @@ tile
     | allTiles
     | multiTile
     ;
-hypotheticalTile
-    : A? tileFilter
-    | tile
-    ;
 
 entity
     : card
@@ -255,9 +236,9 @@ entity
     ;
 
 hypotheticalEntity
-    : hypotheticalCard
+    : card
     | player
-    | hypotheticalTile
+    | tile
     ;
 
 
@@ -286,15 +267,15 @@ controlPlayer
 	;
 
 awayFlag
-    : Away From player
+    : Away From entity
     ;
 
 travelDistance
-    : Travel TargetPlayer=player? upToFlag=UpTo? Another? literalValue Tile Awayflag=awayFlag?
+    : Travel player? upToFlag? anotherFlag? literalValue Tile awayFlag?
     ;
 
 travelPlayer
-	: Travel TargetPlayer=player? To (TargetTile=tile | TargetCard=card)
+	: Travel player? To entity
 	;
 
 destroyCard
@@ -364,7 +345,7 @@ returnCard
 	;
 
 putBottomCardOfDeckIntoHand
-	: Put hypotheticalCard Into Your Hand
+	: Put card Into Your Hand
 	;
 
 triggerDurationEffects
@@ -484,7 +465,7 @@ onlyPlayCertainCards
 	;
 
 costReduction
-	: hypotheticalCard player Play Cost literalValue Less Resource
+	: card player Play Cost literalValue Less Resource
     | The Second Attack Card player Play During Your Turn Cost literalValue Less Resource
 	;
 
@@ -518,8 +499,8 @@ noInitiative
     ;
     
 drawRange
-	: All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalCard
-	| All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From hypotheticalTile
+	: All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From card
+	| All Of player Card C Except Travel Card That Target A Tile C Also Draw Range From tile
 	;
 
 gainRange
@@ -599,11 +580,11 @@ ifPreviousActionInvalid
 	;
 
 ifResolvedCard
-	: player Have? Resolve hypotheticalCard
+	: player Have? Resolve card
 	;
 
 ifPlayedCard
-	: player Have? Play hypotheticalCard
+	: player Have? Play card
 	;
 
 ifUsedSecondWind
@@ -614,8 +595,8 @@ ifUsedSecondWind
 
 ifNear
 	: hypotheticalEntity Is Near Terrain
-	| hypotheticalEntity Is Near hypotheticalTile
-	| hypotheticalEntity Is Near hypotheticalCard
+	| hypotheticalEntity Is Near tile
+	| hypotheticalEntity Is Near card
 	| hypotheticalEntity Is Near player
 	;
 
@@ -640,7 +621,7 @@ ifPlayerDidntLeaveTile
 	;
 
 ifCardCostReduced
-    : hypotheticalCard Cost Is Reduced
+    : card Cost Is Reduced
     ;
 
 ifPlayerHasMoreHP
@@ -656,7 +637,7 @@ ifInTerrain
     ;
 
 counterCardCondition
-	: hypotheticalCard Is Countered
+	: card Is Countered
 	;
 
 stunPlayerCondition
@@ -664,22 +645,22 @@ stunPlayerCondition
 	;
     
 revealCardsCondition
-    : hypotheticalCard Is Reveal In? This Way
+    : card Is Reveal In? This Way
     ;
 
 playerControlledCondition: player Is Controlled;
 playerUncontrolledCondition: player Is Uncontrolled;
 playerHasCardsInDiscardCondition: player Have At Least literalValue Card In playerRef Discard;
 playerHasTakenDamageCondition: player Have Taken literalValue Or More Damage This Turn;
-cardResolvedCondition: hypotheticalCard Resolve;
+cardResolvedCondition: card Resolve;
 playerDrewCardCondition: player Draw A Card;
-playerMadeTerrainCondition: player Make Terrain In hypotheticalTile;
-playerEntersSpaceCondition: player (Or player)* Enters (hypotheticalCard | hypotheticalTile);
-playerAttachesCardCondition: player Attach hypotheticalCard To player;
-cardIsRevealedCondition: hypotheticalCard Is Reveal;
+playerMadeTerrainCondition: player Make Terrain In tile;
+playerEntersSpaceCondition: player (Or player)* Enters (card | tile);
+playerAttachesCardCondition: player Attach card To player;
+cardIsRevealedCondition: card Is Reveal;
 playerStunsPlayerCondition: player Stun player;
-cardSentToDiscardCondition: hypotheticalCard Is Sent To Your Discard;
-cardFailsToResolveCondition: hypotheticalCard player Play Fails To Resolve;
+cardSentToDiscardCondition: card Is Sent To Your Discard;
+cardFailsToResolveCondition: card player Play Fails To Resolve;
 playerSlowsPlayerCondition: player Slow player;
 playerRecivesControlCondition: player Receive Control;
 
@@ -803,9 +784,9 @@ three: Three;
 number: Integer;
 playerPowerValue: player POWER;
 playerControlAmountValue: The Total Value Of Control Affecting player;
-playerHandSize: The Number Of hypotheticalCard In Their Hand;
+playerHandSize: The Number Of card In Their Hand;
 playerMitigate: player Mitigate;
-playerCardsInHand: literalValue More? (| Damage | Slow | Silence | Disarm) For Each hypotheticalCard In playerRef Hand;
+playerCardsInHand: literalValue More? (| Damage | Slow | Silence | Disarm) For Each card In playerRef Hand;
 
 literalValue
     : one 

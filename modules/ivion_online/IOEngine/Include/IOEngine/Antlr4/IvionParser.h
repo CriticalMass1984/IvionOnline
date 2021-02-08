@@ -52,74 +52,70 @@ public:
 
   enum {
     RuleGeneralPostInTerrainFilter = 0, RuleGeneralPostNearTerrainFilter = 1, 
-    RuleGeneralPostNearPlayerFilter = 2, RuleGeneralPostNearTileFilter = 3, 
-    RuleGeneralPostInTileFilter = 4, RuleGeneralPostNearCardFilter = 5, 
-    RuleGeneralPostInCardFilter = 6, RuleGeneralPostPlayerChoiceFilter = 7, 
-    RuleGeneralPostAtLeastAwayFilter = 8, RuleGeneralPostAtLeastAwayFromPlayerFilter = 9, 
-    RulePlayerType = 10, RulePlayerPreFix = 11, RulePlayerPostFix = 12, 
-    RulePlayerFilter = 13, RuleCurrentPlayer = 14, RulePreviousPlayer = 15, 
-    RulePreviousCardsOwner = 16, RulePreviousCardsController = 17, RulePlayerRef = 18, 
-    RuleTargetPlayer = 19, RuleAllOtherPlayers = 20, RuleAllPlayers = 21, 
-    RulePlayer = 22, RuleHypotheticalPlayer = 23, RuleCardPreEnemyFilter = 24, 
-    RuleCardPreAttachedFilter = 25, RuleCardPreAbilityFilter = 26, RuleCardPreAttackFilter = 27, 
-    RuleCardPreRevealedFilter = 28, RuleCardPreAnotherFilter = 29, RuleCardPreInstanceFilter = 30, 
-    RuleCardPrefix = 31, RuleCardPostTargettingFilter = 32, RuleCardPostCostFilter = 33, 
-    RuleCardPostAttachedToPlayerFilter = 34, RuleCardPostAttachedToTileFilter = 35, 
-    RuleCardPostControlledByPlayerFilter = 36, RuleCardPostHardcastFilter = 37, 
-    RuleCardPostFrenzyFilter = 38, RuleCardPostInDiscardFilter = 39, RuleCardPostTurnRefFilter = 40, 
-    RuleCardPostfix = 41, RuleCardFilter = 42, RuleCardName = 43, RuleBottomCard = 44, 
-    RulePreviousCard = 45, RuleTargetCard = 46, RuleSelectCard = 47, RuleSingleCard = 48, 
-    RuleAllCards = 49, RuleMultiCard = 50, RuleCard = 51, RuleHypotheticalCard = 52, 
-    RuleTilePreEmptyFilter = 53, RuleTilePreFix = 54, RuleTilePostFix = 55, 
-    RuleTileFilter = 56, RuleTargetTile = 57, RulePreviousTile = 58, RuleTheNearestTile = 59, 
-    RulePlayersTile = 60, RuleCardsTile = 61, RuleSingleTile = 62, RuleMultiTile = 63, 
-    RuleAllTiles = 64, RuleTile = 65, RuleHypotheticalTile = 66, RuleEntity = 67, 
-    RuleHypotheticalEntity = 68, RuleDisarmPlayer = 69, RuleSilencePlayer = 70, 
-    RuleSlowPlayer = 71, RuleControlPlayer = 72, RuleAwayFlag = 73, RuleUpToFlag = 74, 
-    RuleTravelDistance = 75, RuleTravelPlayer = 76, RuleDestroyCard = 77, 
-    RuleDealDamage = 78, RuleCounterCard = 79, RuleAttachCard = 80, RuleGainPower = 81, 
-    RuleGainAction = 82, RuleGainInitiative = 83, RuleGainMitigate = 84, 
-    RuleLoseMitigate = 85, RuleUseSecondWind = 86, RuleReturnCard = 87, 
-    RulePutBottomCardOfDeckIntoHand = 88, RuleTriggerDurationEffects = 89, 
-    RuleForLessResources = 90, RuleFreeFlag = 91, RulePlayCard = 92, RulePlayUltimate = 93, 
-    RuleDiscardCards = 94, RuleGainsHeroic = 95, RuleHealPlayer = 96, RuleStunPlayer = 97, 
-    RuleRevealCards = 98, RuleDrawCards = 99, RuleRemoveControl = 100, RuleHardcastEffect = 101, 
-    RuleSeekEffect = 102, RuleMakeTerrain = 103, RuleRemoveTerrain = 104, 
-    RuleSpendResources = 105, RuleScryEffect = 106, RuleOverrideFrenzy = 107, 
-    RuleIncreaseCardDuration = 108, RuleResetUseOfCard = 109, RuleHeroic = 110, 
-    RuleOnlyPlayCertainCards = 111, RuleCostReduction = 112, RuleRangeSet = 113, 
-    RuleCantPlayCards = 114, RulePlayerCantBeTargeted = 115, RuleIncreasedHandSize = 116, 
-    RuleIncreasedMaxHP = 117, RuleReplacesSecondWind = 118, RuleNoInitiative = 119, 
-    RuleDrawRange = 120, RuleGainRange = 121, RuleLimitTargets = 122, RulePassiveEffect = 123, 
-    RuleDurationEffect = 124, RuleStartOfPlayerTurn = 125, RuleEndOfPlayerTurnTrigger = 126, 
-    RuleStartOfPlayerNextTurn = 127, RuleEndOfTurnTrigger = 128, RuleTurnTrigger = 129, 
-    RuleGameStartTrigger = 130, RuleEffectPostfix = 131, RuleIfPlayerMakesChoice = 132, 
-    RuleIfPreviousActionInvalid = 133, RuleIfResolvedCard = 134, RuleIfPlayedCard = 135, 
-    RuleIfUsedSecondWind = 136, RuleIfNear = 137, RuleIfControlled = 138, 
-    RuleIfTileHadTerrain = 139, RuleIfCardRevealed = 140, RuleIfPlayerHasMitigate = 141, 
-    RuleIfPlayerDidntLeaveTile = 142, RuleIfCardCostReduced = 143, RuleIfPlayerHasMoreHP = 144, 
-    RuleIfPlayerHasNoActions = 145, RuleIfInTerrain = 146, RuleCounterCardCondition = 147, 
-    RuleStunPlayerCondition = 148, RuleRevealCardsCondition = 149, RulePlayerControlledCondition = 150, 
-    RulePlayerUncontrolledCondition = 151, RulePlayerHasCardsInDiscardCondition = 152, 
-    RulePlayerHasTakenDamageCondition = 153, RuleCardResolvedCondition = 154, 
-    RulePlayerDrewCardCondition = 155, RulePlayerMadeTerrainCondition = 156, 
-    RulePlayerEntersSpaceCondition = 157, RulePlayerAttachesCardCondition = 158, 
-    RuleCardIsRevealedCondition = 159, RulePlayerStunsPlayerCondition = 160, 
-    RuleCardSentToDiscardCondition = 161, RuleCardFailsToResolveCondition = 162, 
-    RulePlayerSlowsPlayerCondition = 163, RulePlayerRecivesControlCondition = 164, 
-    RuleCondition = 165, RuleTriggerEffect = 166, RuleIfWouldRecieveControl = 167, 
-    RuleIfWouldTakeDamage = 168, RuleIfWouldHeal = 169, RuleReplacementTriggerEffect = 170, 
-    RuleCardCantBeTargeted = 171, RuleWhileEffect = 172, RulePrimaryCostReduction = 173, 
-    RuleOnlyPlayIf = 174, RuleOncePerGameLimit = 175, RuleTriggerLimit = 176, 
-    RuleTriggerTurnLimit = 177, RuleOmniPresentEffect = 178, RuleOne = 179, 
-    RuleTwo = 180, RuleThree = 181, RuleNumber = 182, RulePlayerPowerValue = 183, 
-    RulePlayerControlAmountValue = 184, RulePlayerHandSize = 185, RulePlayerMitigate = 186, 
-    RulePlayerCardsInHand = 187, RuleLiteralValue = 188, RuleGameStateValue = 189, 
-    RuleValue = 190, RuleChooseSameMultipleTimes = 191, RuleEffectList = 192, 
-    RuleChooseEffect = 193, RuleSingleEffect = 194, RuleRepeatedEffect = 195, 
-    RuleConditionalEffect = 196, RuleAlternativeEffect = 197, RuleEffect = 198, 
-    RuleEffectEnd = 199, RuleAnyEffect = 200, RuleBreachEffect = 201, RuleAdvantageEffect = 202, 
-    RuleFrenzyEffect = 203, RuleLine = 204, RuleText = 205
+    RuleGeneralPostNearEntityFilter = 2, RuleGeneralPostInEntityFilter = 3, 
+    RuleGeneralPostPlayerChoiceFilter = 4, RuleGeneralPostAtLeastAwayFilter = 5, 
+    RuleGeneralPostAtLeastAwayFromFilter = 6, RulePlayerType = 7, RuleAnotherFlag = 8, 
+    RuleUpToFlag = 9, RuleUncontrolledFlag = 10, RuleControlledFlag = 11, 
+    RulePlayerPrefix = 12, RulePlayerPostfix = 13, RulePlayerFilter = 14, 
+    RuleCurrentPlayer = 15, RulePreviousPlayer = 16, RulePreviousCardsOwner = 17, 
+    RulePreviousCardsController = 18, RulePlayerRef = 19, RuleSelectPlayer = 20, 
+    RuleAllPlayers = 21, RulePlayer = 22, RuleCardPreEnemyFilter = 23, RuleCardPreAttachedFilter = 24, 
+    RuleCardPreAbilityFilter = 25, RuleCardPreAttackFilter = 26, RuleCardPreRevealedFilter = 27, 
+    RuleCardPreInstanceFilter = 28, RuleCardPrefix = 29, RuleCardPostTargettingFilter = 30, 
+    RuleCardPostCostFilter = 31, RuleCardPostAttachedToFilter = 32, RuleCardPostControlledByPlayerFilter = 33, 
+    RuleCardPostHardcastFilter = 34, RuleCardPostFrenzyFilter = 35, RuleCardPostInDiscardFilter = 36, 
+    RuleCardPostTurnRefFilter = 37, RuleCardPostfix = 38, RuleCardFilter = 39, 
+    RuleCardName = 40, RuleBottomCard = 41, RulePreviousCard = 42, RuleTargetCard = 43, 
+    RuleSelectCard = 44, RuleSingleCard = 45, RuleAllCards = 46, RuleMultiCard = 47, 
+    RuleCard = 48, RuleTilePreEmptyFilter = 49, RuleTilePreFix = 50, RuleTilePostFix = 51, 
+    RuleTileFilter = 52, RuleTargetTile = 53, RulePreviousTile = 54, RuleTheNearestTile = 55, 
+    RulePlayersTile = 56, RuleCardsTile = 57, RuleSingleTile = 58, RuleMultiTile = 59, 
+    RuleAllTiles = 60, RuleTile = 61, RuleEntity = 62, RuleHypotheticalEntity = 63, 
+    RuleDisarmPlayer = 64, RuleSilencePlayer = 65, RuleSlowPlayer = 66, 
+    RuleControlPlayer = 67, RuleAwayFlag = 68, RuleTravelDistance = 69, 
+    RuleTravelPlayer = 70, RuleDestroyCard = 71, RuleDealDamage = 72, RuleCounterCard = 73, 
+    RuleAttachCard = 74, RuleGainPower = 75, RuleGainAction = 76, RuleGainInitiative = 77, 
+    RuleGainMitigate = 78, RuleLoseMitigate = 79, RuleUseSecondWind = 80, 
+    RuleReturnCard = 81, RulePutBottomCardOfDeckIntoHand = 82, RuleTriggerDurationEffects = 83, 
+    RuleForLessResources = 84, RuleFreeFlag = 85, RulePlayCard = 86, RulePlayUltimate = 87, 
+    RuleDiscardCards = 88, RuleGainsHeroic = 89, RuleHealPlayer = 90, RuleStunPlayer = 91, 
+    RuleRevealCards = 92, RuleDrawCards = 93, RuleRemoveControl = 94, RuleHardcastEffect = 95, 
+    RuleSeekEffect = 96, RuleMakeTerrain = 97, RuleRemoveTerrain = 98, RuleSpendResources = 99, 
+    RuleScryEffect = 100, RuleOverrideFrenzy = 101, RuleIncreaseCardDuration = 102, 
+    RuleResetUseOfCard = 103, RuleHeroic = 104, RuleOnlyPlayCertainCards = 105, 
+    RuleCostReduction = 106, RuleRangeSet = 107, RuleCantPlayCards = 108, 
+    RulePlayerCantBeTargeted = 109, RuleIncreasedHandSize = 110, RuleIncreasedMaxHP = 111, 
+    RuleReplacesSecondWind = 112, RuleNoInitiative = 113, RuleDrawRange = 114, 
+    RuleGainRange = 115, RuleLimitTargets = 116, RulePassiveEffect = 117, 
+    RuleDurationEffect = 118, RuleStartOfPlayerTurn = 119, RuleEndOfPlayerTurnTrigger = 120, 
+    RuleStartOfPlayerNextTurn = 121, RuleEndOfTurnTrigger = 122, RuleTurnTrigger = 123, 
+    RuleGameStartTrigger = 124, RuleEffectPostfix = 125, RuleIfPlayerMakesChoice = 126, 
+    RuleIfPreviousActionInvalid = 127, RuleIfResolvedCard = 128, RuleIfPlayedCard = 129, 
+    RuleIfUsedSecondWind = 130, RuleIfNear = 131, RuleIfControlled = 132, 
+    RuleIfTileHadTerrain = 133, RuleIfCardRevealed = 134, RuleIfPlayerHasMitigate = 135, 
+    RuleIfPlayerDidntLeaveTile = 136, RuleIfCardCostReduced = 137, RuleIfPlayerHasMoreHP = 138, 
+    RuleIfPlayerHasNoActions = 139, RuleIfInTerrain = 140, RuleCounterCardCondition = 141, 
+    RuleStunPlayerCondition = 142, RuleRevealCardsCondition = 143, RulePlayerControlledCondition = 144, 
+    RulePlayerUncontrolledCondition = 145, RulePlayerHasCardsInDiscardCondition = 146, 
+    RulePlayerHasTakenDamageCondition = 147, RuleCardResolvedCondition = 148, 
+    RulePlayerDrewCardCondition = 149, RulePlayerMadeTerrainCondition = 150, 
+    RulePlayerEntersSpaceCondition = 151, RulePlayerAttachesCardCondition = 152, 
+    RuleCardIsRevealedCondition = 153, RulePlayerStunsPlayerCondition = 154, 
+    RuleCardSentToDiscardCondition = 155, RuleCardFailsToResolveCondition = 156, 
+    RulePlayerSlowsPlayerCondition = 157, RulePlayerRecivesControlCondition = 158, 
+    RuleCondition = 159, RuleTriggerEffect = 160, RuleIfWouldRecieveControl = 161, 
+    RuleIfWouldTakeDamage = 162, RuleIfWouldHeal = 163, RuleReplacementTriggerEffect = 164, 
+    RuleCardCantBeTargeted = 165, RuleWhileEffect = 166, RulePrimaryCostReduction = 167, 
+    RuleOnlyPlayIf = 168, RuleOncePerGameLimit = 169, RuleTriggerLimit = 170, 
+    RuleTriggerTurnLimit = 171, RuleOmniPresentEffect = 172, RuleOne = 173, 
+    RuleTwo = 174, RuleThree = 175, RuleNumber = 176, RulePlayerPowerValue = 177, 
+    RulePlayerControlAmountValue = 178, RulePlayerHandSize = 179, RulePlayerMitigate = 180, 
+    RulePlayerCardsInHand = 181, RuleLiteralValue = 182, RuleGameStateValue = 183, 
+    RuleValue = 184, RuleChooseSameMultipleTimes = 185, RuleEffectList = 186, 
+    RuleChooseEffect = 187, RuleSingleEffect = 188, RuleRepeatedEffect = 189, 
+    RuleConditionalEffect = 190, RuleAlternativeEffect = 191, RuleEffect = 192, 
+    RuleEffectEnd = 193, RuleAnyEffect = 194, RuleBreachEffect = 195, RuleAdvantageEffect = 196, 
+    RuleFrenzyEffect = 197, RuleLine = 198, RuleText = 199
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -134,40 +130,37 @@ public:
 
   class GeneralPostInTerrainFilterContext;
   class GeneralPostNearTerrainFilterContext;
-  class GeneralPostNearPlayerFilterContext;
-  class GeneralPostNearTileFilterContext;
-  class GeneralPostInTileFilterContext;
-  class GeneralPostNearCardFilterContext;
-  class GeneralPostInCardFilterContext;
+  class GeneralPostNearEntityFilterContext;
+  class GeneralPostInEntityFilterContext;
   class GeneralPostPlayerChoiceFilterContext;
   class GeneralPostAtLeastAwayFilterContext;
-  class GeneralPostAtLeastAwayFromPlayerFilterContext;
+  class GeneralPostAtLeastAwayFromFilterContext;
   class PlayerTypeContext;
-  class PlayerPreFixContext;
-  class PlayerPostFixContext;
+  class AnotherFlagContext;
+  class UpToFlagContext;
+  class UncontrolledFlagContext;
+  class ControlledFlagContext;
+  class PlayerPrefixContext;
+  class PlayerPostfixContext;
   class PlayerFilterContext;
   class CurrentPlayerContext;
   class PreviousPlayerContext;
   class PreviousCardsOwnerContext;
   class PreviousCardsControllerContext;
   class PlayerRefContext;
-  class TargetPlayerContext;
-  class AllOtherPlayersContext;
+  class SelectPlayerContext;
   class AllPlayersContext;
   class PlayerContext;
-  class HypotheticalPlayerContext;
   class CardPreEnemyFilterContext;
   class CardPreAttachedFilterContext;
   class CardPreAbilityFilterContext;
   class CardPreAttackFilterContext;
   class CardPreRevealedFilterContext;
-  class CardPreAnotherFilterContext;
   class CardPreInstanceFilterContext;
   class CardPrefixContext;
   class CardPostTargettingFilterContext;
   class CardPostCostFilterContext;
-  class CardPostAttachedToPlayerFilterContext;
-  class CardPostAttachedToTileFilterContext;
+  class CardPostAttachedToFilterContext;
   class CardPostControlledByPlayerFilterContext;
   class CardPostHardcastFilterContext;
   class CardPostFrenzyFilterContext;
@@ -184,7 +177,6 @@ public:
   class AllCardsContext;
   class MultiCardContext;
   class CardContext;
-  class HypotheticalCardContext;
   class TilePreEmptyFilterContext;
   class TilePreFixContext;
   class TilePostFixContext;
@@ -198,7 +190,6 @@ public:
   class MultiTileContext;
   class AllTilesContext;
   class TileContext;
-  class HypotheticalTileContext;
   class EntityContext;
   class HypotheticalEntityContext;
   class DisarmPlayerContext;
@@ -206,7 +197,6 @@ public:
   class SlowPlayerContext;
   class ControlPlayerContext;
   class AwayFlagContext;
-  class UpToFlagContext;
   class TravelDistanceContext;
   class TravelPlayerContext;
   class DestroyCardContext;
@@ -371,75 +361,33 @@ public:
 
   GeneralPostNearTerrainFilterContext* generalPostNearTerrainFilter();
 
-  class  GeneralPostNearPlayerFilterContext : public antlr4::ParserRuleContext {
+  class  GeneralPostNearEntityFilterContext : public antlr4::ParserRuleContext {
   public:
-    GeneralPostNearPlayerFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GeneralPostNearEntityFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Near();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  GeneralPostNearPlayerFilterContext* generalPostNearPlayerFilter();
+  GeneralPostNearEntityFilterContext* generalPostNearEntityFilter();
 
-  class  GeneralPostNearTileFilterContext : public antlr4::ParserRuleContext {
+  class  GeneralPostInEntityFilterContext : public antlr4::ParserRuleContext {
   public:
-    GeneralPostNearTileFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Near();
-    HypotheticalTileContext *hypotheticalTile();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  GeneralPostNearTileFilterContext* generalPostNearTileFilter();
-
-  class  GeneralPostInTileFilterContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralPostInTileFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GeneralPostInEntityFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *In();
-    HypotheticalTileContext *hypotheticalTile();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  GeneralPostInTileFilterContext* generalPostInTileFilter();
-
-  class  GeneralPostNearCardFilterContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralPostNearCardFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Near();
-    HypotheticalCardContext *hypotheticalCard();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  GeneralPostNearCardFilterContext* generalPostNearCardFilter();
-
-  class  GeneralPostInCardFilterContext : public antlr4::ParserRuleContext {
-  public:
-    GeneralPostInCardFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *In();
-    HypotheticalCardContext *hypotheticalCard();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  GeneralPostInCardFilterContext* generalPostInCardFilter();
+  GeneralPostInEntityFilterContext* generalPostInEntityFilter();
 
   class  GeneralPostPlayerChoiceFilterContext : public antlr4::ParserRuleContext {
   public:
@@ -473,9 +421,9 @@ public:
 
   GeneralPostAtLeastAwayFilterContext* generalPostAtLeastAwayFilter();
 
-  class  GeneralPostAtLeastAwayFromPlayerFilterContext : public antlr4::ParserRuleContext {
+  class  GeneralPostAtLeastAwayFromFilterContext : public antlr4::ParserRuleContext {
   public:
-    GeneralPostAtLeastAwayFromPlayerFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    GeneralPostAtLeastAwayFromFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *At();
     antlr4::tree::TerminalNode *Least();
@@ -483,17 +431,18 @@ public:
     antlr4::tree::TerminalNode *Tile();
     antlr4::tree::TerminalNode *Away();
     antlr4::tree::TerminalNode *From();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  GeneralPostAtLeastAwayFromPlayerFilterContext* generalPostAtLeastAwayFromPlayerFilter();
+  GeneralPostAtLeastAwayFromFilterContext* generalPostAtLeastAwayFromFilter();
 
   class  PlayerTypeContext : public antlr4::ParserRuleContext {
   public:
+    antlr4::Token *flag = nullptr;;
     PlayerTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Player();
@@ -507,13 +456,37 @@ public:
 
   PlayerTypeContext* playerType();
 
-  class  PlayerPreFixContext : public antlr4::ParserRuleContext {
+  class  AnotherFlagContext : public antlr4::ParserRuleContext {
   public:
-    PlayerPreFixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    AnotherFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    PlayerTypeContext *playerType();
     antlr4::tree::TerminalNode *Another();
-    antlr4::tree::TerminalNode *Controlled();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  AnotherFlagContext* anotherFlag();
+
+  class  UpToFlagContext : public antlr4::ParserRuleContext {
+  public:
+    UpToFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Up();
+    antlr4::tree::TerminalNode *To();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  UpToFlagContext* upToFlag();
+
+  class  UncontrolledFlagContext : public antlr4::ParserRuleContext {
+  public:
+    UncontrolledFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Uncontrolled();
 
 
@@ -521,37 +494,64 @@ public:
    
   };
 
-  PlayerPreFixContext* playerPreFix();
+  UncontrolledFlagContext* uncontrolledFlag();
 
-  class  PlayerPostFixContext : public antlr4::ParserRuleContext {
+  class  ControlledFlagContext : public antlr4::ParserRuleContext {
   public:
-    PlayerPostFixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    ControlledFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    PlayerPreFixContext *playerPreFix();
-    PlayerPostFixContext *playerPostFix();
-    GeneralPostInTerrainFilterContext *generalPostInTerrainFilter();
-    GeneralPostNearTerrainFilterContext *generalPostNearTerrainFilter();
-    GeneralPostNearPlayerFilterContext *generalPostNearPlayerFilter();
-    GeneralPostNearTileFilterContext *generalPostNearTileFilter();
-    GeneralPostInTileFilterContext *generalPostInTileFilter();
-    GeneralPostNearCardFilterContext *generalPostNearCardFilter();
-    GeneralPostInCardFilterContext *generalPostInCardFilter();
-    GeneralPostPlayerChoiceFilterContext *generalPostPlayerChoiceFilter();
-    GeneralPostAtLeastAwayFilterContext *generalPostAtLeastAwayFilter();
-    GeneralPostAtLeastAwayFromPlayerFilterContext *generalPostAtLeastAwayFromPlayerFilter();
+    antlr4::tree::TerminalNode *Controlled();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  PlayerPostFixContext* playerPostFix();
-  PlayerPostFixContext* playerPostFix(int precedence);
+  ControlledFlagContext* controlledFlag();
+
+  class  PlayerPrefixContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerPrefixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    AnotherFlagContext *anotherFlag();
+    UncontrolledFlagContext *uncontrolledFlag();
+    ControlledFlagContext *controlledFlag();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerPrefixContext* playerPrefix();
+
+  class  PlayerPostfixContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerPostfixContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    GeneralPostInTerrainFilterContext *generalPostInTerrainFilter();
+    GeneralPostNearTerrainFilterContext *generalPostNearTerrainFilter();
+    GeneralPostNearEntityFilterContext *generalPostNearEntityFilter();
+    GeneralPostInEntityFilterContext *generalPostInEntityFilter();
+    GeneralPostPlayerChoiceFilterContext *generalPostPlayerChoiceFilter();
+    GeneralPostAtLeastAwayFilterContext *generalPostAtLeastAwayFilter();
+    GeneralPostAtLeastAwayFromFilterContext *generalPostAtLeastAwayFromFilter();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerPostfixContext* playerPostfix();
+
   class  PlayerFilterContext : public antlr4::ParserRuleContext {
   public:
     PlayerFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    PlayerPostFixContext *playerPostFix();
+    PlayerTypeContext *playerType();
+    std::vector<PlayerPrefixContext *> playerPrefix();
+    PlayerPrefixContext* playerPrefix(size_t i);
+    std::vector<PlayerPostfixContext *> playerPostfix();
+    PlayerPostfixContext* playerPostfix(size_t i);
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -637,47 +637,33 @@ public:
 
   PlayerRefContext* playerRef();
 
-  class  TargetPlayerContext : public antlr4::ParserRuleContext {
+  class  SelectPlayerContext : public antlr4::ParserRuleContext {
   public:
-    TargetPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    SelectPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Target();
     PlayerFilterContext *playerFilter();
-    antlr4::tree::TerminalNode *Another();
-    LiteralValueContext *literalValue();
     UpToFlagContext *upToFlag();
+    LiteralValueContext *literalValue();
+    AnotherFlagContext *anotherFlag();
+    antlr4::tree::TerminalNode *Target();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  TargetPlayerContext* targetPlayer();
-
-  class  AllOtherPlayersContext : public antlr4::ParserRuleContext {
-  public:
-    AllOtherPlayersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Other();
-    PlayerFilterContext *playerFilter();
-    antlr4::tree::TerminalNode *All();
-    antlr4::tree::TerminalNode *Each();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  AllOtherPlayersContext* allOtherPlayers();
+  SelectPlayerContext* selectPlayer();
 
   class  AllPlayersContext : public antlr4::ParserRuleContext {
   public:
+    antlr4::Token *otherFlag = nullptr;;
     AllPlayersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     PlayerFilterContext *playerFilter();
     antlr4::tree::TerminalNode *Each();
     antlr4::tree::TerminalNode *All();
     antlr4::tree::TerminalNode *Any();
+    antlr4::tree::TerminalNode *Other();
     antlr4::tree::TerminalNode *Yourself();
     antlr4::tree::TerminalNode *Or();
     antlr4::tree::TerminalNode *Another();
@@ -694,10 +680,9 @@ public:
   public:
     PlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    TargetPlayerContext *targetPlayer();
+    SelectPlayerContext *selectPlayer();
     PlayerRefContext *playerRef();
     AllPlayersContext *allPlayers();
-    AllOtherPlayersContext *allOtherPlayers();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -705,21 +690,6 @@ public:
   };
 
   PlayerContext* player();
-
-  class  HypotheticalPlayerContext : public antlr4::ParserRuleContext {
-  public:
-    HypotheticalPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    PlayerFilterContext *playerFilter();
-    antlr4::tree::TerminalNode *A();
-    PlayerContext *player();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  HypotheticalPlayerContext* hypotheticalPlayer();
 
   class  CardPreEnemyFilterContext : public antlr4::ParserRuleContext {
   public:
@@ -788,19 +758,6 @@ public:
 
   CardPreRevealedFilterContext* cardPreRevealedFilter();
 
-  class  CardPreAnotherFilterContext : public antlr4::ParserRuleContext {
-  public:
-    CardPreAnotherFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Another();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  CardPreAnotherFilterContext* cardPreAnotherFilter();
-
   class  CardPreInstanceFilterContext : public antlr4::ParserRuleContext {
   public:
     CardPreInstanceFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -827,7 +784,7 @@ public:
     CardPreAbilityFilterContext *cardPreAbilityFilter();
     CardPreAttackFilterContext *cardPreAttackFilter();
     CardPreRevealedFilterContext *cardPreRevealedFilter();
-    CardPreAnotherFilterContext *cardPreAnotherFilter();
+    AnotherFlagContext *anotherFlag();
     CardPreInstanceFilterContext *cardPreInstanceFilter();
 
 
@@ -842,7 +799,7 @@ public:
     CardPostTargettingFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Targeting();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -872,35 +829,20 @@ public:
 
   CardPostCostFilterContext* cardPostCostFilter();
 
-  class  CardPostAttachedToPlayerFilterContext : public antlr4::ParserRuleContext {
+  class  CardPostAttachedToFilterContext : public antlr4::ParserRuleContext {
   public:
-    CardPostAttachedToPlayerFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    CardPostAttachedToFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Attached();
     antlr4::tree::TerminalNode *To();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  CardPostAttachedToPlayerFilterContext* cardPostAttachedToPlayerFilter();
-
-  class  CardPostAttachedToTileFilterContext : public antlr4::ParserRuleContext {
-  public:
-    CardPostAttachedToTileFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Attached();
-    antlr4::tree::TerminalNode *To();
-    HypotheticalTileContext *hypotheticalTile();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  CardPostAttachedToTileFilterContext* cardPostAttachedToTileFilter();
+  CardPostAttachedToFilterContext* cardPostAttachedToFilter();
 
   class  CardPostControlledByPlayerFilterContext : public antlr4::ParserRuleContext {
   public:
@@ -908,7 +850,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Controlled();
     antlr4::tree::TerminalNode *By();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -982,8 +924,7 @@ public:
     virtual size_t getRuleIndex() const override;
     CardPostTargettingFilterContext *cardPostTargettingFilter();
     CardPostCostFilterContext *cardPostCostFilter();
-    CardPostAttachedToPlayerFilterContext *cardPostAttachedToPlayerFilter();
-    CardPostAttachedToTileFilterContext *cardPostAttachedToTileFilter();
+    CardPostAttachedToFilterContext *cardPostAttachedToFilter();
     CardPostControlledByPlayerFilterContext *cardPostControlledByPlayerFilter();
     CardPostHardcastFilterContext *cardPostHardcastFilter();
     CardPostFrenzyFilterContext *cardPostFrenzyFilter();
@@ -991,14 +932,11 @@ public:
     CardPostTurnRefFilterContext *cardPostTurnRefFilter();
     GeneralPostInTerrainFilterContext *generalPostInTerrainFilter();
     GeneralPostNearTerrainFilterContext *generalPostNearTerrainFilter();
-    GeneralPostNearPlayerFilterContext *generalPostNearPlayerFilter();
-    GeneralPostNearTileFilterContext *generalPostNearTileFilter();
-    GeneralPostInTileFilterContext *generalPostInTileFilter();
-    GeneralPostNearCardFilterContext *generalPostNearCardFilter();
-    GeneralPostInCardFilterContext *generalPostInCardFilter();
+    GeneralPostNearEntityFilterContext *generalPostNearEntityFilter();
+    GeneralPostInEntityFilterContext *generalPostInEntityFilter();
     GeneralPostPlayerChoiceFilterContext *generalPostPlayerChoiceFilter();
     GeneralPostAtLeastAwayFilterContext *generalPostAtLeastAwayFilter();
-    GeneralPostAtLeastAwayFromPlayerFilterContext *generalPostAtLeastAwayFromPlayerFilter();
+    GeneralPostAtLeastAwayFromFilterContext *generalPostAtLeastAwayFromFilter();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1045,7 +983,7 @@ public:
     antlr4::tree::TerminalNode *Bottom();
     antlr4::tree::TerminalNode *Card();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Deck();
 
 
@@ -1093,8 +1031,8 @@ public:
   public:
     SelectCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *A();
     CardFilterContext *cardFilter();
+    antlr4::tree::TerminalNode *A();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1136,13 +1074,12 @@ public:
 
   class  MultiCardContext : public antlr4::ParserRuleContext {
   public:
-    IvionParser::UpToFlagContext *UpToFlag = nullptr;;
     MultiCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     LiteralValueContext *literalValue();
-    TargetCardContext *targetCard();
-    UpToFlagContext *upToFlag();
     CardFilterContext *cardFilter();
+    UpToFlagContext *upToFlag();
+    antlr4::tree::TerminalNode *Target();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1165,21 +1102,6 @@ public:
   };
 
   CardContext* card();
-
-  class  HypotheticalCardContext : public antlr4::ParserRuleContext {
-  public:
-    HypotheticalCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    CardFilterContext *cardFilter();
-    antlr4::tree::TerminalNode *A();
-    CardContext *card();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  HypotheticalCardContext* hypotheticalCard();
 
   class  TilePreEmptyFilterContext : public antlr4::ParserRuleContext {
   public:
@@ -1214,14 +1136,11 @@ public:
     virtual size_t getRuleIndex() const override;
     GeneralPostInTerrainFilterContext *generalPostInTerrainFilter();
     GeneralPostNearTerrainFilterContext *generalPostNearTerrainFilter();
-    GeneralPostNearPlayerFilterContext *generalPostNearPlayerFilter();
-    GeneralPostNearTileFilterContext *generalPostNearTileFilter();
-    GeneralPostInTileFilterContext *generalPostInTileFilter();
-    GeneralPostNearCardFilterContext *generalPostNearCardFilter();
-    GeneralPostInCardFilterContext *generalPostInCardFilter();
+    GeneralPostNearEntityFilterContext *generalPostNearEntityFilter();
+    GeneralPostInEntityFilterContext *generalPostInEntityFilter();
     GeneralPostPlayerChoiceFilterContext *generalPostPlayerChoiceFilter();
     GeneralPostAtLeastAwayFilterContext *generalPostAtLeastAwayFilter();
-    GeneralPostAtLeastAwayFromPlayerFilterContext *generalPostAtLeastAwayFromPlayerFilter();
+    GeneralPostAtLeastAwayFromFilterContext *generalPostAtLeastAwayFromFilter();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1251,10 +1170,10 @@ public:
   public:
     TargetTileContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Target();
     TileFilterContext *tileFilter();
     antlr4::tree::TerminalNode *Another();
     LiteralValueContext *literalValue();
+    antlr4::tree::TerminalNode *Target();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1287,8 +1206,7 @@ public:
     TileFilterContext *tileFilter();
     antlr4::tree::TerminalNode *Next();
     antlr4::tree::TerminalNode *To();
-    HypotheticalPlayerContext *hypotheticalPlayer();
-    HypotheticalCardContext *hypotheticalCard();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1347,7 +1265,6 @@ public:
 
   class  MultiTileContext : public antlr4::ParserRuleContext {
   public:
-    IvionParser::UpToFlagContext *UpToFlag = nullptr;;
     MultiTileContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     LiteralValueContext *literalValue();
@@ -1391,21 +1308,6 @@ public:
 
   TileContext* tile();
 
-  class  HypotheticalTileContext : public antlr4::ParserRuleContext {
-  public:
-    HypotheticalTileContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TileFilterContext *tileFilter();
-    antlr4::tree::TerminalNode *A();
-    TileContext *tile();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  HypotheticalTileContext* hypotheticalTile();
-
   class  EntityContext : public antlr4::ParserRuleContext {
   public:
     EntityContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -1425,9 +1327,9 @@ public:
   public:
     HypotheticalEntityContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalPlayerContext *hypotheticalPlayer();
-    HypotheticalTileContext *hypotheticalTile();
+    CardContext *card();
+    PlayerContext *player();
+    TileContext *tile();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1520,7 +1422,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Away();
     antlr4::tree::TerminalNode *From();
-    PlayerContext *player();
+    EntityContext *entity();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1529,33 +1431,16 @@ public:
 
   AwayFlagContext* awayFlag();
 
-  class  UpToFlagContext : public antlr4::ParserRuleContext {
-  public:
-    UpToFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Up();
-    antlr4::tree::TerminalNode *To();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  UpToFlagContext* upToFlag();
-
   class  TravelDistanceContext : public antlr4::ParserRuleContext {
   public:
-    IvionParser::PlayerContext *TargetPlayer = nullptr;;
-    IvionParser::UpToFlagContext *UpToFlag = nullptr;;
-    IvionParser::AwayFlagContext *Awayflag = nullptr;;
     TravelDistanceContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Travel();
     LiteralValueContext *literalValue();
     antlr4::tree::TerminalNode *Tile();
-    antlr4::tree::TerminalNode *Another();
     PlayerContext *player();
     UpToFlagContext *upToFlag();
+    AnotherFlagContext *anotherFlag();
     AwayFlagContext *awayFlag();
 
 
@@ -1567,15 +1452,11 @@ public:
 
   class  TravelPlayerContext : public antlr4::ParserRuleContext {
   public:
-    IvionParser::PlayerContext *TargetPlayer = nullptr;;
-    IvionParser::TileContext *TargetTile = nullptr;;
-    IvionParser::CardContext *TargetCard = nullptr;;
     TravelPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Travel();
     antlr4::tree::TerminalNode *To();
-    TileContext *tile();
-    CardContext *card();
+    EntityContext *entity();
     PlayerContext *player();
 
 
@@ -1777,7 +1658,7 @@ public:
     PutBottomCardOfDeckIntoHandContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Put();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Into();
     antlr4::tree::TerminalNode *Your();
     antlr4::tree::TerminalNode *Hand();
@@ -2205,7 +2086,7 @@ public:
   public:
     OnlyPlayCertainCardsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *May();
     antlr4::tree::TerminalNode *Only();
     antlr4::tree::TerminalNode *Play();
@@ -2226,8 +2107,8 @@ public:
   public:
     CostReductionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    CardContext *card();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Play();
     antlr4::tree::TerminalNode *Cost();
     LiteralValueContext *literalValue();
@@ -2272,7 +2153,7 @@ public:
   public:
     CantPlayCardsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Cant();
     antlr4::tree::TerminalNode *Play();
     antlr4::tree::TerminalNode *Card();
@@ -2288,7 +2169,7 @@ public:
   public:
     PlayerCantBeTargetedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Cant();
     antlr4::tree::TerminalNode *Be();
     antlr4::tree::TerminalNode *Targeted();
@@ -2363,7 +2244,7 @@ public:
   public:
     NoInitiativeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Dont();
     antlr4::tree::TerminalNode *Gain();
     antlr4::tree::TerminalNode *INITIATIVE();
@@ -2387,7 +2268,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *All();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     std::vector<antlr4::tree::TerminalNode *> Card();
     antlr4::tree::TerminalNode* Card(size_t i);
     std::vector<antlr4::tree::TerminalNode *> C();
@@ -2402,8 +2283,8 @@ public:
     antlr4::tree::TerminalNode *Draw();
     antlr4::tree::TerminalNode *Range();
     antlr4::tree::TerminalNode *From();
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalTileContext *hypotheticalTile();
+    CardContext *card();
+    TileContext *tile();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -2418,7 +2299,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *All();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     std::vector<antlr4::tree::TerminalNode *> Card();
     antlr4::tree::TerminalNode* Card(size_t i);
     std::vector<antlr4::tree::TerminalNode *> C();
@@ -2447,7 +2328,7 @@ public:
     antlr4::tree::TerminalNode *Only();
     antlr4::tree::TerminalNode *Target();
     antlr4::tree::TerminalNode *Other();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *If();
     ConditionContext *condition();
 
@@ -2502,7 +2383,7 @@ public:
     antlr4::tree::TerminalNode *The();
     antlr4::tree::TerminalNode *Start();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Turn();
 
 
@@ -2519,7 +2400,7 @@ public:
     antlr4::tree::TerminalNode *The();
     antlr4::tree::TerminalNode *End();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Turn();
 
 
@@ -2536,7 +2417,7 @@ public:
     antlr4::tree::TerminalNode *The();
     antlr4::tree::TerminalNode *Start();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Next();
     antlr4::tree::TerminalNode *Turn();
 
@@ -2651,9 +2532,9 @@ public:
   public:
     IfResolvedCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Resolve();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Have();
 
 
@@ -2667,9 +2548,9 @@ public:
   public:
     IfPlayedCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Play();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Have();
 
 
@@ -2683,7 +2564,7 @@ public:
   public:
     IfUsedSecondWindContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Used();
     PlayerRefContext *playerRef();
     antlr4::tree::TerminalNode *Second();
@@ -2706,9 +2587,9 @@ public:
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Near();
     antlr4::tree::TerminalNode *Terrain();
-    HypotheticalTileContext *hypotheticalTile();
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    TileContext *tile();
+    CardContext *card();
+    PlayerContext *player();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -2721,7 +2602,7 @@ public:
   public:
     IfControlledContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Controlled();
 
@@ -2752,7 +2633,7 @@ public:
   public:
     IfCardRevealedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *At();
     antlr4::tree::TerminalNode *Least();
@@ -2774,7 +2655,7 @@ public:
   public:
     IfPlayerHasMitigateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Mitigate();
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *Gains();
@@ -2790,7 +2671,7 @@ public:
   public:
     IfPlayerDidntLeaveTileContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Didnt();
     antlr4::tree::TerminalNode *Leave();
     antlr4::tree::TerminalNode *A();
@@ -2809,7 +2690,7 @@ public:
   public:
     IfCardCostReducedContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Cost();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Reduced();
@@ -2825,8 +2706,8 @@ public:
   public:
     IfPlayerHasMoreHPContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *More();
     antlr4::tree::TerminalNode *HP();
@@ -2843,7 +2724,7 @@ public:
   public:
     IfPlayerHasNoActionsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *No();
     antlr4::tree::TerminalNode *Resource();
@@ -2875,7 +2756,7 @@ public:
   public:
     CounterCardConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Countered();
 
@@ -2909,7 +2790,7 @@ public:
   public:
     RevealCardsConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Reveal();
     antlr4::tree::TerminalNode *This();
@@ -2927,7 +2808,7 @@ public:
   public:
     PlayerControlledConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Controlled();
 
@@ -2942,7 +2823,7 @@ public:
   public:
     PlayerUncontrolledConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Uncontrolled();
 
@@ -2957,7 +2838,7 @@ public:
   public:
     PlayerHasCardsInDiscardConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *At();
     antlr4::tree::TerminalNode *Least();
@@ -2978,7 +2859,7 @@ public:
   public:
     PlayerHasTakenDamageConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Have();
     antlr4::tree::TerminalNode *Taken();
     LiteralValueContext *literalValue();
@@ -2999,7 +2880,7 @@ public:
   public:
     CardResolvedConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Resolve();
 
 
@@ -3013,7 +2894,7 @@ public:
   public:
     PlayerDrewCardConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Draw();
     antlr4::tree::TerminalNode *A();
     antlr4::tree::TerminalNode *Card();
@@ -3029,11 +2910,11 @@ public:
   public:
     PlayerMadeTerrainConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Make();
     antlr4::tree::TerminalNode *Terrain();
     antlr4::tree::TerminalNode *In();
-    HypotheticalTileContext *hypotheticalTile();
+    TileContext *tile();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -3046,11 +2927,11 @@ public:
   public:
     PlayerEntersSpaceConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Enters();
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalTileContext *hypotheticalTile();
+    CardContext *card();
+    TileContext *tile();
     std::vector<antlr4::tree::TerminalNode *> Or();
     antlr4::tree::TerminalNode* Or(size_t i);
 
@@ -3065,10 +2946,10 @@ public:
   public:
     PlayerAttachesCardConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Attach();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *To();
 
 
@@ -3082,7 +2963,7 @@ public:
   public:
     CardIsRevealedConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Reveal();
 
@@ -3097,8 +2978,8 @@ public:
   public:
     PlayerStunsPlayerConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Stun();
 
 
@@ -3112,7 +2993,7 @@ public:
   public:
     CardSentToDiscardConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *Is();
     antlr4::tree::TerminalNode *Sent();
     antlr4::tree::TerminalNode *To();
@@ -3130,8 +3011,8 @@ public:
   public:
     CardFailsToResolveConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalCardContext *hypotheticalCard();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    CardContext *card();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Play();
     antlr4::tree::TerminalNode *Fails();
     antlr4::tree::TerminalNode *To();
@@ -3148,8 +3029,8 @@ public:
   public:
     PlayerSlowsPlayerConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Slow();
 
 
@@ -3163,7 +3044,7 @@ public:
   public:
     PlayerRecivesControlConditionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Receive();
     antlr4::tree::TerminalNode *Control();
 
@@ -3246,7 +3127,8 @@ public:
     IfWouldRecieveControlContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *If();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Would();
     std::vector<antlr4::tree::TerminalNode *> Receive();
     antlr4::tree::TerminalNode* Receive(size_t i);
@@ -3254,7 +3136,6 @@ public:
     antlr4::tree::TerminalNode* Control(size_t i);
     antlr4::tree::TerminalNode *C();
     antlr4::tree::TerminalNode *Instead();
-    PlayerContext *player();
     antlr4::tree::TerminalNode *The();
 
 
@@ -3269,7 +3150,7 @@ public:
     IfWouldTakeDamageContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *If();
-    HypotheticalPlayerContext *hypotheticalPlayer();
+    PlayerContext *player();
     antlr4::tree::TerminalNode *Would();
     std::vector<antlr4::tree::TerminalNode *> Take();
     antlr4::tree::TerminalNode* Take(size_t i);
@@ -3308,8 +3189,8 @@ public:
     IfWouldHealContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *If();
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *Would();
     antlr4::tree::TerminalNode *Heal();
     antlr4::tree::TerminalNode *HP();
@@ -3320,7 +3201,6 @@ public:
     antlr4::tree::TerminalNode *Much();
     antlr4::tree::TerminalNode *Damage();
     antlr4::tree::TerminalNode *To();
-    PlayerContext *player();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -3594,7 +3474,7 @@ public:
     antlr4::tree::TerminalNode *The();
     antlr4::tree::TerminalNode *Number();
     antlr4::tree::TerminalNode *Of();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *In();
     antlr4::tree::TerminalNode *Their();
     antlr4::tree::TerminalNode *Hand();
@@ -3627,7 +3507,7 @@ public:
     LiteralValueContext *literalValue();
     antlr4::tree::TerminalNode *For();
     antlr4::tree::TerminalNode *Each();
-    HypotheticalCardContext *hypotheticalCard();
+    CardContext *card();
     antlr4::tree::TerminalNode *In();
     PlayerRefContext *playerRef();
     antlr4::tree::TerminalNode *Hand();
@@ -3859,8 +3739,8 @@ public:
   public:
     EffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<HypotheticalPlayerContext *> hypotheticalPlayer();
-    HypotheticalPlayerContext* hypotheticalPlayer(size_t i);
+    std::vector<PlayerContext *> player();
+    PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *May();
     antlr4::tree::TerminalNode *Have();
     std::vector<AlternativeEffectContext *> alternativeEffect();
@@ -3997,7 +3877,6 @@ public:
 
 
   virtual bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;
-  bool playerPostFixSempred(PlayerPostFixContext *_localctx, size_t predicateIndex);
   bool effectListSempred(EffectListContext *_localctx, size_t predicateIndex);
 
 private:

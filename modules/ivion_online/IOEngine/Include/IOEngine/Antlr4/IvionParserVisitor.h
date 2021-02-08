@@ -23,27 +23,29 @@ public:
 
     virtual antlrcpp::Any visitGeneralPostNearTerrainFilter(IvionParser::GeneralPostNearTerrainFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitGeneralPostNearPlayerFilter(IvionParser::GeneralPostNearPlayerFilterContext *context) = 0;
+    virtual antlrcpp::Any visitGeneralPostNearEntityFilter(IvionParser::GeneralPostNearEntityFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitGeneralPostNearTileFilter(IvionParser::GeneralPostNearTileFilterContext *context) = 0;
-
-    virtual antlrcpp::Any visitGeneralPostInTileFilter(IvionParser::GeneralPostInTileFilterContext *context) = 0;
-
-    virtual antlrcpp::Any visitGeneralPostNearCardFilter(IvionParser::GeneralPostNearCardFilterContext *context) = 0;
-
-    virtual antlrcpp::Any visitGeneralPostInCardFilter(IvionParser::GeneralPostInCardFilterContext *context) = 0;
+    virtual antlrcpp::Any visitGeneralPostInEntityFilter(IvionParser::GeneralPostInEntityFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitGeneralPostPlayerChoiceFilter(IvionParser::GeneralPostPlayerChoiceFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitGeneralPostAtLeastAwayFilter(IvionParser::GeneralPostAtLeastAwayFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitGeneralPostAtLeastAwayFromPlayerFilter(IvionParser::GeneralPostAtLeastAwayFromPlayerFilterContext *context) = 0;
+    virtual antlrcpp::Any visitGeneralPostAtLeastAwayFromFilter(IvionParser::GeneralPostAtLeastAwayFromFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *context) = 0;
 
-    virtual antlrcpp::Any visitPlayerPreFix(IvionParser::PlayerPreFixContext *context) = 0;
+    virtual antlrcpp::Any visitAnotherFlag(IvionParser::AnotherFlagContext *context) = 0;
 
-    virtual antlrcpp::Any visitPlayerPostFix(IvionParser::PlayerPostFixContext *context) = 0;
+    virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitUncontrolledFlag(IvionParser::UncontrolledFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitControlledFlag(IvionParser::ControlledFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerPrefix(IvionParser::PlayerPrefixContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerPostfix(IvionParser::PlayerPostfixContext *context) = 0;
 
     virtual antlrcpp::Any visitPlayerFilter(IvionParser::PlayerFilterContext *context) = 0;
 
@@ -57,15 +59,11 @@ public:
 
     virtual antlrcpp::Any visitPlayerRef(IvionParser::PlayerRefContext *context) = 0;
 
-    virtual antlrcpp::Any visitTargetPlayer(IvionParser::TargetPlayerContext *context) = 0;
-
-    virtual antlrcpp::Any visitAllOtherPlayers(IvionParser::AllOtherPlayersContext *context) = 0;
+    virtual antlrcpp::Any visitSelectPlayer(IvionParser::SelectPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitAllPlayers(IvionParser::AllPlayersContext *context) = 0;
 
     virtual antlrcpp::Any visitPlayer(IvionParser::PlayerContext *context) = 0;
-
-    virtual antlrcpp::Any visitHypotheticalPlayer(IvionParser::HypotheticalPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitCardPreEnemyFilter(IvionParser::CardPreEnemyFilterContext *context) = 0;
 
@@ -77,8 +75,6 @@ public:
 
     virtual antlrcpp::Any visitCardPreRevealedFilter(IvionParser::CardPreRevealedFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitCardPreAnotherFilter(IvionParser::CardPreAnotherFilterContext *context) = 0;
-
     virtual antlrcpp::Any visitCardPreInstanceFilter(IvionParser::CardPreInstanceFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitCardPrefix(IvionParser::CardPrefixContext *context) = 0;
@@ -87,9 +83,7 @@ public:
 
     virtual antlrcpp::Any visitCardPostCostFilter(IvionParser::CardPostCostFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitCardPostAttachedToPlayerFilter(IvionParser::CardPostAttachedToPlayerFilterContext *context) = 0;
-
-    virtual antlrcpp::Any visitCardPostAttachedToTileFilter(IvionParser::CardPostAttachedToTileFilterContext *context) = 0;
+    virtual antlrcpp::Any visitCardPostAttachedToFilter(IvionParser::CardPostAttachedToFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitCardPostControlledByPlayerFilter(IvionParser::CardPostControlledByPlayerFilterContext *context) = 0;
 
@@ -123,8 +117,6 @@ public:
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
 
-    virtual antlrcpp::Any visitHypotheticalCard(IvionParser::HypotheticalCardContext *context) = 0;
-
     virtual antlrcpp::Any visitTilePreEmptyFilter(IvionParser::TilePreEmptyFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitTilePreFix(IvionParser::TilePreFixContext *context) = 0;
@@ -151,8 +143,6 @@ public:
 
     virtual antlrcpp::Any visitTile(IvionParser::TileContext *context) = 0;
 
-    virtual antlrcpp::Any visitHypotheticalTile(IvionParser::HypotheticalTileContext *context) = 0;
-
     virtual antlrcpp::Any visitEntity(IvionParser::EntityContext *context) = 0;
 
     virtual antlrcpp::Any visitHypotheticalEntity(IvionParser::HypotheticalEntityContext *context) = 0;
@@ -166,8 +156,6 @@ public:
     virtual antlrcpp::Any visitControlPlayer(IvionParser::ControlPlayerContext *context) = 0;
 
     virtual antlrcpp::Any visitAwayFlag(IvionParser::AwayFlagContext *context) = 0;
-
-    virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *context) = 0;
 
     virtual antlrcpp::Any visitTravelDistance(IvionParser::TravelDistanceContext *context) = 0;
 

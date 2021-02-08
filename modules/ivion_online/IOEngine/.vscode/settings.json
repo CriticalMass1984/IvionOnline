@@ -71,13 +71,16 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cassert": "cpp"
     },
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
-        "Extern": true
+        "Extern/grpc": true,
+        "Extern/grpc_libs": true,
+        "build": true,
       }
     
     
