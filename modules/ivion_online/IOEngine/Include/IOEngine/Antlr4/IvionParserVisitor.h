@@ -33,11 +33,13 @@ public:
 
     virtual antlrcpp::Any visitGeneralPostAtLeastAwayFromFilter(IvionParser::GeneralPostAtLeastAwayFromFilterContext *context) = 0;
 
-    virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *context) = 0;
-
     virtual antlrcpp::Any visitAnotherFlag(IvionParser::AnotherFlagContext *context) = 0;
 
     virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitTargetFlag(IvionParser::TargetFlagContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *context) = 0;
 
     virtual antlrcpp::Any visitUncontrolledFlag(IvionParser::UncontrolledFlagContext *context) = 0;
 
@@ -65,6 +67,8 @@ public:
 
     virtual antlrcpp::Any visitPlayer(IvionParser::PlayerContext *context) = 0;
 
+    virtual antlrcpp::Any visitCardType(IvionParser::CardTypeContext *context) = 0;
+
     virtual antlrcpp::Any visitCardPreEnemyFilter(IvionParser::CardPreEnemyFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitCardPreAttachedFilter(IvionParser::CardPreAttachedFilterContext *context) = 0;
@@ -91,6 +95,10 @@ public:
 
     virtual antlrcpp::Any visitCardPostFrenzyFilter(IvionParser::CardPostFrenzyFilterContext *context) = 0;
 
+    virtual antlrcpp::Any visitCardPostBreachFilter(IvionParser::CardPostBreachFilterContext *context) = 0;
+
+    virtual antlrcpp::Any visitCardPostAdvantageFilter(IvionParser::CardPostAdvantageFilterContext *context) = 0;
+
     virtual antlrcpp::Any visitCardPostInDiscardFilter(IvionParser::CardPostInDiscardFilterContext *context) = 0;
 
     virtual antlrcpp::Any visitCardPostTurnRefFilter(IvionParser::CardPostTurnRefFilterContext *context) = 0;
@@ -105,15 +113,11 @@ public:
 
     virtual antlrcpp::Any visitPreviousCard(IvionParser::PreviousCardContext *context) = 0;
 
-    virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *context) = 0;
-
     virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *context) = 0;
 
     virtual antlrcpp::Any visitSingleCard(IvionParser::SingleCardContext *context) = 0;
 
     virtual antlrcpp::Any visitAllCards(IvionParser::AllCardsContext *context) = 0;
-
-    virtual antlrcpp::Any visitMultiCard(IvionParser::MultiCardContext *context) = 0;
 
     virtual antlrcpp::Any visitCard(IvionParser::CardContext *context) = 0;
 

@@ -8,15 +8,16 @@ generalPostInEntityFilter: In entity;
 generalPostPlayerChoiceFilter: Of player Choice; // TODO
 generalPostAtLeastAwayFilter: At Least literalValue Tile Away;
 generalPostAtLeastAwayFromFilter: At Least literalValue Tile Away From entity;
+anotherFlag: Another;
+upToFlag: Up To;
+targetFlag: Target;
 
 //////////////////////////////////////////////////////////////////////////// PLAYER
 
 playerType
-    : flag=(Player | Enemy | Ally)
+    : Player | Enemy | Ally
     ;
 
-anotherFlag: Another;
-upToFlag: Up To;
 uncontrolledFlag: Uncontrolled;
 controlledFlag: Controlled; 
 
@@ -65,10 +66,10 @@ playerRef
     | previousCardsController
     ;
 selectPlayer
-    : upToFlag? literalValue? anotherFlag? Target? playerFilter
+    : upToFlag? literalValue? anotherFlag? targetFlag? playerFilter
     ;
 allPlayers
-    : (Each | All | Any) otherFlag=Other? playerFilter
+    : (Each | All | Any) Other? playerFilter
     | Yourself Or Another Player
     ;
 
@@ -81,12 +82,14 @@ player
 
 //////////////////////////////////////////////////////////////////////////// CARD
 
+cardType: Card;
+
 cardPreEnemyFilter: Enemy;
 cardPreAttachedFilter: Attached;
 cardPreAbilityFilter: Non? Ability;
 cardPreAttackFilter: Non? Attack;
 cardPreRevealedFilter: Reveal;
-cardPreInstanceFilter: (| The | playerRef) (First | Second | Third);
+cardPreInstanceFilter: (| The | playerRef) literalValue;
 
 cardPrefix
     : cardPreEnemyFilter
@@ -104,8 +107,10 @@ cardPostAttachedToFilter: Attached To entity;
 cardPostControlledByPlayerFilter: Controlled By player;
 cardPostHardcastFilter: With Hardcast;
 cardPostFrenzyFilter: With Frenzy;
+cardPostBreachFilter: With Breach;
+cardPostAdvantageFilter: With Advantage;
 cardPostInDiscardFilter: From Your Discard;
-cardPostTurnRefFilter: This Turn | During playerRef Turn;
+cardPostTurnRefFilter: This Turn | During player Turn;
 
 cardPostfix
     : cardPostTargettingFilter
@@ -126,7 +131,7 @@ cardPostfix
     ;
 
 cardFilter
-    : cardPrefix* Card cardPostfix*
+    : cardPrefix* cardType cardPostfix*
     ;
 cardName
     : CARD_NAME
@@ -141,15 +146,11 @@ previousCard
     | It
     | It From Your Discard
     ;
-targetCard
-    : Target cardFilter
-    ;
 selectCard
-    : A? cardFilter
+    : upToFlag? literalValue? targetFlag? cardFilter
     ;
 singleCard
     : cardName
-    | targetCard
     | bottomCard
     | previousCard
     | selectCard
@@ -157,14 +158,10 @@ singleCard
 allCards
     : All cardFilter
     ;
-multiCard
-    : upToFlag? literalValue Target? cardFilter
-    ;
 ////
 card
     : singleCard
     | allCards
-    | multiCard
     ;
 
 //////////////////////////////////////////////////////////////////////////// TILE
@@ -190,7 +187,7 @@ tileFilter
     : tilePreFix* Tile tilePostFix*
     ;
 
-targetTile: Another? literalValue? Target? tileFilter;
+targetTile: Another? literalValue? targetFlag? tileFilter;
 
 previousTile
     : That Tile
@@ -429,7 +426,7 @@ makeTerrain
 	;
 
 removeTerrain
-	: Remove Target Terrain Token
+	: Remove targetFlag Terrain Token
 	;
 
 spendResources
@@ -778,9 +775,9 @@ omniPresentEffect
 
 //////////////////////////////////////////////////////////////////////////// misc
 
-one: A | Once | One;
-two: Two | Twice;
-three: Three;
+one: A | Once | One | First;
+two: Two | Twice | Second;
+three: Three | Third;
 number: Integer;
 playerPowerValue: player POWER;
 playerControlAmountValue: The Total Value Of Control Affecting player;

@@ -54,68 +54,70 @@ public:
     RuleGeneralPostInTerrainFilter = 0, RuleGeneralPostNearTerrainFilter = 1, 
     RuleGeneralPostNearEntityFilter = 2, RuleGeneralPostInEntityFilter = 3, 
     RuleGeneralPostPlayerChoiceFilter = 4, RuleGeneralPostAtLeastAwayFilter = 5, 
-    RuleGeneralPostAtLeastAwayFromFilter = 6, RulePlayerType = 7, RuleAnotherFlag = 8, 
-    RuleUpToFlag = 9, RuleUncontrolledFlag = 10, RuleControlledFlag = 11, 
-    RulePlayerPrefix = 12, RulePlayerPostfix = 13, RulePlayerFilter = 14, 
-    RuleCurrentPlayer = 15, RulePreviousPlayer = 16, RulePreviousCardsOwner = 17, 
-    RulePreviousCardsController = 18, RulePlayerRef = 19, RuleSelectPlayer = 20, 
-    RuleAllPlayers = 21, RulePlayer = 22, RuleCardPreEnemyFilter = 23, RuleCardPreAttachedFilter = 24, 
-    RuleCardPreAbilityFilter = 25, RuleCardPreAttackFilter = 26, RuleCardPreRevealedFilter = 27, 
-    RuleCardPreInstanceFilter = 28, RuleCardPrefix = 29, RuleCardPostTargettingFilter = 30, 
-    RuleCardPostCostFilter = 31, RuleCardPostAttachedToFilter = 32, RuleCardPostControlledByPlayerFilter = 33, 
-    RuleCardPostHardcastFilter = 34, RuleCardPostFrenzyFilter = 35, RuleCardPostInDiscardFilter = 36, 
-    RuleCardPostTurnRefFilter = 37, RuleCardPostfix = 38, RuleCardFilter = 39, 
-    RuleCardName = 40, RuleBottomCard = 41, RulePreviousCard = 42, RuleTargetCard = 43, 
-    RuleSelectCard = 44, RuleSingleCard = 45, RuleAllCards = 46, RuleMultiCard = 47, 
-    RuleCard = 48, RuleTilePreEmptyFilter = 49, RuleTilePreFix = 50, RuleTilePostFix = 51, 
-    RuleTileFilter = 52, RuleTargetTile = 53, RulePreviousTile = 54, RuleTheNearestTile = 55, 
-    RulePlayersTile = 56, RuleCardsTile = 57, RuleSingleTile = 58, RuleMultiTile = 59, 
-    RuleAllTiles = 60, RuleTile = 61, RuleEntity = 62, RuleHypotheticalEntity = 63, 
-    RuleDisarmPlayer = 64, RuleSilencePlayer = 65, RuleSlowPlayer = 66, 
-    RuleControlPlayer = 67, RuleAwayFlag = 68, RuleTravelDistance = 69, 
-    RuleTravelPlayer = 70, RuleDestroyCard = 71, RuleDealDamage = 72, RuleCounterCard = 73, 
-    RuleAttachCard = 74, RuleGainPower = 75, RuleGainAction = 76, RuleGainInitiative = 77, 
-    RuleGainMitigate = 78, RuleLoseMitigate = 79, RuleUseSecondWind = 80, 
-    RuleReturnCard = 81, RulePutBottomCardOfDeckIntoHand = 82, RuleTriggerDurationEffects = 83, 
-    RuleForLessResources = 84, RuleFreeFlag = 85, RulePlayCard = 86, RulePlayUltimate = 87, 
-    RuleDiscardCards = 88, RuleGainsHeroic = 89, RuleHealPlayer = 90, RuleStunPlayer = 91, 
-    RuleRevealCards = 92, RuleDrawCards = 93, RuleRemoveControl = 94, RuleHardcastEffect = 95, 
-    RuleSeekEffect = 96, RuleMakeTerrain = 97, RuleRemoveTerrain = 98, RuleSpendResources = 99, 
-    RuleScryEffect = 100, RuleOverrideFrenzy = 101, RuleIncreaseCardDuration = 102, 
-    RuleResetUseOfCard = 103, RuleHeroic = 104, RuleOnlyPlayCertainCards = 105, 
-    RuleCostReduction = 106, RuleRangeSet = 107, RuleCantPlayCards = 108, 
-    RulePlayerCantBeTargeted = 109, RuleIncreasedHandSize = 110, RuleIncreasedMaxHP = 111, 
-    RuleReplacesSecondWind = 112, RuleNoInitiative = 113, RuleDrawRange = 114, 
-    RuleGainRange = 115, RuleLimitTargets = 116, RulePassiveEffect = 117, 
-    RuleDurationEffect = 118, RuleStartOfPlayerTurn = 119, RuleEndOfPlayerTurnTrigger = 120, 
-    RuleStartOfPlayerNextTurn = 121, RuleEndOfTurnTrigger = 122, RuleTurnTrigger = 123, 
-    RuleGameStartTrigger = 124, RuleEffectPostfix = 125, RuleIfPlayerMakesChoice = 126, 
-    RuleIfPreviousActionInvalid = 127, RuleIfResolvedCard = 128, RuleIfPlayedCard = 129, 
-    RuleIfUsedSecondWind = 130, RuleIfNear = 131, RuleIfControlled = 132, 
-    RuleIfTileHadTerrain = 133, RuleIfCardRevealed = 134, RuleIfPlayerHasMitigate = 135, 
-    RuleIfPlayerDidntLeaveTile = 136, RuleIfCardCostReduced = 137, RuleIfPlayerHasMoreHP = 138, 
-    RuleIfPlayerHasNoActions = 139, RuleIfInTerrain = 140, RuleCounterCardCondition = 141, 
-    RuleStunPlayerCondition = 142, RuleRevealCardsCondition = 143, RulePlayerControlledCondition = 144, 
-    RulePlayerUncontrolledCondition = 145, RulePlayerHasCardsInDiscardCondition = 146, 
-    RulePlayerHasTakenDamageCondition = 147, RuleCardResolvedCondition = 148, 
-    RulePlayerDrewCardCondition = 149, RulePlayerMadeTerrainCondition = 150, 
-    RulePlayerEntersSpaceCondition = 151, RulePlayerAttachesCardCondition = 152, 
-    RuleCardIsRevealedCondition = 153, RulePlayerStunsPlayerCondition = 154, 
-    RuleCardSentToDiscardCondition = 155, RuleCardFailsToResolveCondition = 156, 
-    RulePlayerSlowsPlayerCondition = 157, RulePlayerRecivesControlCondition = 158, 
-    RuleCondition = 159, RuleTriggerEffect = 160, RuleIfWouldRecieveControl = 161, 
-    RuleIfWouldTakeDamage = 162, RuleIfWouldHeal = 163, RuleReplacementTriggerEffect = 164, 
-    RuleCardCantBeTargeted = 165, RuleWhileEffect = 166, RulePrimaryCostReduction = 167, 
-    RuleOnlyPlayIf = 168, RuleOncePerGameLimit = 169, RuleTriggerLimit = 170, 
-    RuleTriggerTurnLimit = 171, RuleOmniPresentEffect = 172, RuleOne = 173, 
-    RuleTwo = 174, RuleThree = 175, RuleNumber = 176, RulePlayerPowerValue = 177, 
-    RulePlayerControlAmountValue = 178, RulePlayerHandSize = 179, RulePlayerMitigate = 180, 
-    RulePlayerCardsInHand = 181, RuleLiteralValue = 182, RuleGameStateValue = 183, 
-    RuleValue = 184, RuleChooseSameMultipleTimes = 185, RuleEffectList = 186, 
-    RuleChooseEffect = 187, RuleSingleEffect = 188, RuleRepeatedEffect = 189, 
-    RuleConditionalEffect = 190, RuleAlternativeEffect = 191, RuleEffect = 192, 
-    RuleEffectEnd = 193, RuleAnyEffect = 194, RuleBreachEffect = 195, RuleAdvantageEffect = 196, 
-    RuleFrenzyEffect = 197, RuleLine = 198, RuleText = 199
+    RuleGeneralPostAtLeastAwayFromFilter = 6, RuleAnotherFlag = 7, RuleUpToFlag = 8, 
+    RuleTargetFlag = 9, RulePlayerType = 10, RuleUncontrolledFlag = 11, 
+    RuleControlledFlag = 12, RulePlayerPrefix = 13, RulePlayerPostfix = 14, 
+    RulePlayerFilter = 15, RuleCurrentPlayer = 16, RulePreviousPlayer = 17, 
+    RulePreviousCardsOwner = 18, RulePreviousCardsController = 19, RulePlayerRef = 20, 
+    RuleSelectPlayer = 21, RuleAllPlayers = 22, RulePlayer = 23, RuleCardType = 24, 
+    RuleCardPreEnemyFilter = 25, RuleCardPreAttachedFilter = 26, RuleCardPreAbilityFilter = 27, 
+    RuleCardPreAttackFilter = 28, RuleCardPreRevealedFilter = 29, RuleCardPreInstanceFilter = 30, 
+    RuleCardPrefix = 31, RuleCardPostTargettingFilter = 32, RuleCardPostCostFilter = 33, 
+    RuleCardPostAttachedToFilter = 34, RuleCardPostControlledByPlayerFilter = 35, 
+    RuleCardPostHardcastFilter = 36, RuleCardPostFrenzyFilter = 37, RuleCardPostBreachFilter = 38, 
+    RuleCardPostAdvantageFilter = 39, RuleCardPostInDiscardFilter = 40, 
+    RuleCardPostTurnRefFilter = 41, RuleCardPostfix = 42, RuleCardFilter = 43, 
+    RuleCardName = 44, RuleBottomCard = 45, RulePreviousCard = 46, RuleSelectCard = 47, 
+    RuleSingleCard = 48, RuleAllCards = 49, RuleCard = 50, RuleTilePreEmptyFilter = 51, 
+    RuleTilePreFix = 52, RuleTilePostFix = 53, RuleTileFilter = 54, RuleTargetTile = 55, 
+    RulePreviousTile = 56, RuleTheNearestTile = 57, RulePlayersTile = 58, 
+    RuleCardsTile = 59, RuleSingleTile = 60, RuleMultiTile = 61, RuleAllTiles = 62, 
+    RuleTile = 63, RuleEntity = 64, RuleHypotheticalEntity = 65, RuleDisarmPlayer = 66, 
+    RuleSilencePlayer = 67, RuleSlowPlayer = 68, RuleControlPlayer = 69, 
+    RuleAwayFlag = 70, RuleTravelDistance = 71, RuleTravelPlayer = 72, RuleDestroyCard = 73, 
+    RuleDealDamage = 74, RuleCounterCard = 75, RuleAttachCard = 76, RuleGainPower = 77, 
+    RuleGainAction = 78, RuleGainInitiative = 79, RuleGainMitigate = 80, 
+    RuleLoseMitigate = 81, RuleUseSecondWind = 82, RuleReturnCard = 83, 
+    RulePutBottomCardOfDeckIntoHand = 84, RuleTriggerDurationEffects = 85, 
+    RuleForLessResources = 86, RuleFreeFlag = 87, RulePlayCard = 88, RulePlayUltimate = 89, 
+    RuleDiscardCards = 90, RuleGainsHeroic = 91, RuleHealPlayer = 92, RuleStunPlayer = 93, 
+    RuleRevealCards = 94, RuleDrawCards = 95, RuleRemoveControl = 96, RuleHardcastEffect = 97, 
+    RuleSeekEffect = 98, RuleMakeTerrain = 99, RuleRemoveTerrain = 100, 
+    RuleSpendResources = 101, RuleScryEffect = 102, RuleOverrideFrenzy = 103, 
+    RuleIncreaseCardDuration = 104, RuleResetUseOfCard = 105, RuleHeroic = 106, 
+    RuleOnlyPlayCertainCards = 107, RuleCostReduction = 108, RuleRangeSet = 109, 
+    RuleCantPlayCards = 110, RulePlayerCantBeTargeted = 111, RuleIncreasedHandSize = 112, 
+    RuleIncreasedMaxHP = 113, RuleReplacesSecondWind = 114, RuleNoInitiative = 115, 
+    RuleDrawRange = 116, RuleGainRange = 117, RuleLimitTargets = 118, RulePassiveEffect = 119, 
+    RuleDurationEffect = 120, RuleStartOfPlayerTurn = 121, RuleEndOfPlayerTurnTrigger = 122, 
+    RuleStartOfPlayerNextTurn = 123, RuleEndOfTurnTrigger = 124, RuleTurnTrigger = 125, 
+    RuleGameStartTrigger = 126, RuleEffectPostfix = 127, RuleIfPlayerMakesChoice = 128, 
+    RuleIfPreviousActionInvalid = 129, RuleIfResolvedCard = 130, RuleIfPlayedCard = 131, 
+    RuleIfUsedSecondWind = 132, RuleIfNear = 133, RuleIfControlled = 134, 
+    RuleIfTileHadTerrain = 135, RuleIfCardRevealed = 136, RuleIfPlayerHasMitigate = 137, 
+    RuleIfPlayerDidntLeaveTile = 138, RuleIfCardCostReduced = 139, RuleIfPlayerHasMoreHP = 140, 
+    RuleIfPlayerHasNoActions = 141, RuleIfInTerrain = 142, RuleCounterCardCondition = 143, 
+    RuleStunPlayerCondition = 144, RuleRevealCardsCondition = 145, RulePlayerControlledCondition = 146, 
+    RulePlayerUncontrolledCondition = 147, RulePlayerHasCardsInDiscardCondition = 148, 
+    RulePlayerHasTakenDamageCondition = 149, RuleCardResolvedCondition = 150, 
+    RulePlayerDrewCardCondition = 151, RulePlayerMadeTerrainCondition = 152, 
+    RulePlayerEntersSpaceCondition = 153, RulePlayerAttachesCardCondition = 154, 
+    RuleCardIsRevealedCondition = 155, RulePlayerStunsPlayerCondition = 156, 
+    RuleCardSentToDiscardCondition = 157, RuleCardFailsToResolveCondition = 158, 
+    RulePlayerSlowsPlayerCondition = 159, RulePlayerRecivesControlCondition = 160, 
+    RuleCondition = 161, RuleTriggerEffect = 162, RuleIfWouldRecieveControl = 163, 
+    RuleIfWouldTakeDamage = 164, RuleIfWouldHeal = 165, RuleReplacementTriggerEffect = 166, 
+    RuleCardCantBeTargeted = 167, RuleWhileEffect = 168, RulePrimaryCostReduction = 169, 
+    RuleOnlyPlayIf = 170, RuleOncePerGameLimit = 171, RuleTriggerLimit = 172, 
+    RuleTriggerTurnLimit = 173, RuleOmniPresentEffect = 174, RuleOne = 175, 
+    RuleTwo = 176, RuleThree = 177, RuleNumber = 178, RulePlayerPowerValue = 179, 
+    RulePlayerControlAmountValue = 180, RulePlayerHandSize = 181, RulePlayerMitigate = 182, 
+    RulePlayerCardsInHand = 183, RuleLiteralValue = 184, RuleGameStateValue = 185, 
+    RuleValue = 186, RuleChooseSameMultipleTimes = 187, RuleEffectList = 188, 
+    RuleChooseEffect = 189, RuleSingleEffect = 190, RuleRepeatedEffect = 191, 
+    RuleConditionalEffect = 192, RuleAlternativeEffect = 193, RuleEffect = 194, 
+    RuleEffectEnd = 195, RuleAnyEffect = 196, RuleBreachEffect = 197, RuleAdvantageEffect = 198, 
+    RuleFrenzyEffect = 199, RuleLine = 200, RuleText = 201
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -135,9 +137,10 @@ public:
   class GeneralPostPlayerChoiceFilterContext;
   class GeneralPostAtLeastAwayFilterContext;
   class GeneralPostAtLeastAwayFromFilterContext;
-  class PlayerTypeContext;
   class AnotherFlagContext;
   class UpToFlagContext;
+  class TargetFlagContext;
+  class PlayerTypeContext;
   class UncontrolledFlagContext;
   class ControlledFlagContext;
   class PlayerPrefixContext;
@@ -151,6 +154,7 @@ public:
   class SelectPlayerContext;
   class AllPlayersContext;
   class PlayerContext;
+  class CardTypeContext;
   class CardPreEnemyFilterContext;
   class CardPreAttachedFilterContext;
   class CardPreAbilityFilterContext;
@@ -164,6 +168,8 @@ public:
   class CardPostControlledByPlayerFilterContext;
   class CardPostHardcastFilterContext;
   class CardPostFrenzyFilterContext;
+  class CardPostBreachFilterContext;
+  class CardPostAdvantageFilterContext;
   class CardPostInDiscardFilterContext;
   class CardPostTurnRefFilterContext;
   class CardPostfixContext;
@@ -171,11 +177,9 @@ public:
   class CardNameContext;
   class BottomCardContext;
   class PreviousCardContext;
-  class TargetCardContext;
   class SelectCardContext;
   class SingleCardContext;
   class AllCardsContext;
-  class MultiCardContext;
   class CardContext;
   class TilePreEmptyFilterContext;
   class TilePreFixContext;
@@ -440,22 +444,6 @@ public:
 
   GeneralPostAtLeastAwayFromFilterContext* generalPostAtLeastAwayFromFilter();
 
-  class  PlayerTypeContext : public antlr4::ParserRuleContext {
-  public:
-    antlr4::Token *flag = nullptr;;
-    PlayerTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Player();
-    antlr4::tree::TerminalNode *Enemy();
-    antlr4::tree::TerminalNode *Ally();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  PlayerTypeContext* playerType();
-
   class  AnotherFlagContext : public antlr4::ParserRuleContext {
   public:
     AnotherFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -482,6 +470,34 @@ public:
   };
 
   UpToFlagContext* upToFlag();
+
+  class  TargetFlagContext : public antlr4::ParserRuleContext {
+  public:
+    TargetFlagContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Target();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  TargetFlagContext* targetFlag();
+
+  class  PlayerTypeContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Player();
+    antlr4::tree::TerminalNode *Enemy();
+    antlr4::tree::TerminalNode *Ally();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerTypeContext* playerType();
 
   class  UncontrolledFlagContext : public antlr4::ParserRuleContext {
   public:
@@ -645,7 +661,7 @@ public:
     UpToFlagContext *upToFlag();
     LiteralValueContext *literalValue();
     AnotherFlagContext *anotherFlag();
-    antlr4::tree::TerminalNode *Target();
+    TargetFlagContext *targetFlag();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -656,7 +672,6 @@ public:
 
   class  AllPlayersContext : public antlr4::ParserRuleContext {
   public:
-    antlr4::Token *otherFlag = nullptr;;
     AllPlayersContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     PlayerFilterContext *playerFilter();
@@ -690,6 +705,19 @@ public:
   };
 
   PlayerContext* player();
+
+  class  CardTypeContext : public antlr4::ParserRuleContext {
+  public:
+    CardTypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Card();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  CardTypeContext* cardType();
 
   class  CardPreEnemyFilterContext : public antlr4::ParserRuleContext {
   public:
@@ -762,9 +790,7 @@ public:
   public:
     CardPreInstanceFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *First();
-    antlr4::tree::TerminalNode *Second();
-    antlr4::tree::TerminalNode *Third();
+    LiteralValueContext *literalValue();
     antlr4::tree::TerminalNode *The();
     PlayerRefContext *playerRef();
 
@@ -887,6 +913,34 @@ public:
 
   CardPostFrenzyFilterContext* cardPostFrenzyFilter();
 
+  class  CardPostBreachFilterContext : public antlr4::ParserRuleContext {
+  public:
+    CardPostBreachFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *With();
+    antlr4::tree::TerminalNode *Breach();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  CardPostBreachFilterContext* cardPostBreachFilter();
+
+  class  CardPostAdvantageFilterContext : public antlr4::ParserRuleContext {
+  public:
+    CardPostAdvantageFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *With();
+    antlr4::tree::TerminalNode *Advantage();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  CardPostAdvantageFilterContext* cardPostAdvantageFilter();
+
   class  CardPostInDiscardFilterContext : public antlr4::ParserRuleContext {
   public:
     CardPostInDiscardFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -909,7 +963,7 @@ public:
     antlr4::tree::TerminalNode *This();
     antlr4::tree::TerminalNode *Turn();
     antlr4::tree::TerminalNode *During();
-    PlayerRefContext *playerRef();
+    PlayerContext *player();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -949,7 +1003,7 @@ public:
   public:
     CardFilterContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Card();
+    CardTypeContext *cardType();
     std::vector<CardPrefixContext *> cardPrefix();
     CardPrefixContext* cardPrefix(size_t i);
     std::vector<CardPostfixContext *> cardPostfix();
@@ -1013,26 +1067,14 @@ public:
 
   PreviousCardContext* previousCard();
 
-  class  TargetCardContext : public antlr4::ParserRuleContext {
-  public:
-    TargetCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *Target();
-    CardFilterContext *cardFilter();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  TargetCardContext* targetCard();
-
   class  SelectCardContext : public antlr4::ParserRuleContext {
   public:
     SelectCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     CardFilterContext *cardFilter();
-    antlr4::tree::TerminalNode *A();
+    UpToFlagContext *upToFlag();
+    LiteralValueContext *literalValue();
+    TargetFlagContext *targetFlag();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1046,7 +1088,6 @@ public:
     SingleCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     CardNameContext *cardName();
-    TargetCardContext *targetCard();
     BottomCardContext *bottomCard();
     PreviousCardContext *previousCard();
     SelectCardContext *selectCard();
@@ -1072,29 +1113,12 @@ public:
 
   AllCardsContext* allCards();
 
-  class  MultiCardContext : public antlr4::ParserRuleContext {
-  public:
-    MultiCardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    LiteralValueContext *literalValue();
-    CardFilterContext *cardFilter();
-    UpToFlagContext *upToFlag();
-    antlr4::tree::TerminalNode *Target();
-
-
-    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
-   
-  };
-
-  MultiCardContext* multiCard();
-
   class  CardContext : public antlr4::ParserRuleContext {
   public:
     CardContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     SingleCardContext *singleCard();
     AllCardsContext *allCards();
-    MultiCardContext *multiCard();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1173,7 +1197,7 @@ public:
     TileFilterContext *tileFilter();
     antlr4::tree::TerminalNode *Another();
     LiteralValueContext *literalValue();
-    antlr4::tree::TerminalNode *Target();
+    TargetFlagContext *targetFlag();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -1944,7 +1968,7 @@ public:
     RemoveTerrainContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Remove();
-    antlr4::tree::TerminalNode *Target();
+    TargetFlagContext *targetFlag();
     antlr4::tree::TerminalNode *Terrain();
     antlr4::tree::TerminalNode *Token();
 
@@ -3386,6 +3410,7 @@ public:
     antlr4::tree::TerminalNode *A();
     antlr4::tree::TerminalNode *Once();
     antlr4::tree::TerminalNode *One();
+    antlr4::tree::TerminalNode *First();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -3400,6 +3425,7 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Two();
     antlr4::tree::TerminalNode *Twice();
+    antlr4::tree::TerminalNode *Second();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -3413,6 +3439,7 @@ public:
     ThreeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Three();
+    antlr4::tree::TerminalNode *Third();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

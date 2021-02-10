@@ -43,15 +43,19 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual antlrcpp::Any visitAnotherFlag(IvionParser::AnotherFlagContext *ctx) override {
     return visitChildren(ctx);
   }
 
   virtual antlrcpp::Any visitUpToFlag(IvionParser::UpToFlagContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitTargetFlag(IvionParser::TargetFlagContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerType(IvionParser::PlayerTypeContext *ctx) override {
     return visitChildren(ctx);
   }
 
@@ -107,6 +111,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitCardType(IvionParser::CardTypeContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitCardPreEnemyFilter(IvionParser::CardPreEnemyFilterContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -159,6 +167,14 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitCardPostBreachFilter(IvionParser::CardPostBreachFilterContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitCardPostAdvantageFilter(IvionParser::CardPostAdvantageFilterContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitCardPostInDiscardFilter(IvionParser::CardPostInDiscardFilterContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -187,10 +203,6 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitTargetCard(IvionParser::TargetCardContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
   virtual antlrcpp::Any visitSelectCard(IvionParser::SelectCardContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -200,10 +212,6 @@ public:
   }
 
   virtual antlrcpp::Any visitAllCards(IvionParser::AllCardsContext *ctx) override {
-    return visitChildren(ctx);
-  }
-
-  virtual antlrcpp::Any visitMultiCard(IvionParser::MultiCardContext *ctx) override {
     return visitChildren(ctx);
   }
 
