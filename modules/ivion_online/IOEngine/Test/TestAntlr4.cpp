@@ -65,6 +65,7 @@ std::string ScrubText(std::string text, const std::string& cardName )
 		{"they are", std::regex ("they're")},
 		{"they have", std::regex ("they've")},
 		{"you have", std::regex ("you've")},
+		{"ultimate", std::regex ("(Cursed Dagger)|(Runic Slaughter)")},
 	};
 	for(auto rule : replacements)
 	{
@@ -74,15 +75,6 @@ std::string ScrubText(std::string text, const std::string& cardName )
 	// call this one last
 	static std::regex scrubber (R"del(\[.*?\]|\{|\})del");
 	text = std::regex_replace (text, scrubber, "");
-
-
-	// for(char& c : text)
-	// {
-	// 	if(c == '{' || c == '}')
-	// 	{
-	// 		c = ' ';
-	// 	}
-	// }
 
 	// make everything lower case
 	std::transform(text.begin(), text.end(), text.begin(), [](unsigned char c){ return std::tolower(c); });
@@ -168,7 +160,6 @@ int main(int argc, char **argv) {
 			break;
 		}
 		if (!ParseText(passiveEffect)) {
-			
 			fprintf(stderr, "FAILED: %s - %s\n", name.c_str(), activeEffect.c_str());
 			break;
 		}

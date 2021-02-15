@@ -407,6 +407,14 @@ public:
 
     virtual antlrcpp::Any visitAlternativeEffect(IvionParser::AlternativeEffectContext *context) = 0;
 
+    virtual antlrcpp::Any visitPlayerOptionalEffectForPlayer(IvionParser::PlayerOptionalEffectForPlayerContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerOptionalEffectWithExtra(IvionParser::PlayerOptionalEffectWithExtraContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerOptionalEffect(IvionParser::PlayerOptionalEffectContext *context) = 0;
+
+    virtual antlrcpp::Any visitPlayerExtortEffect(IvionParser::PlayerExtortEffectContext *context) = 0;
+
     virtual antlrcpp::Any visitEffect(IvionParser::EffectContext *context) = 0;
 
     virtual antlrcpp::Any visitEffectEnd(IvionParser::EffectEndContext *context) = 0;

@@ -791,6 +791,22 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitPlayerOptionalEffectForPlayer(IvionParser::PlayerOptionalEffectForPlayerContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerOptionalEffectWithExtra(IvionParser::PlayerOptionalEffectWithExtraContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerOptionalEffect(IvionParser::PlayerOptionalEffectContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitPlayerExtortEffect(IvionParser::PlayerExtortEffectContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitEffect(IvionParser::EffectContext *ctx) override {
     return visitChildren(ctx);
   }

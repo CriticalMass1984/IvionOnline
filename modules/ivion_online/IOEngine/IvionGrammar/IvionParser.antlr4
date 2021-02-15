@@ -875,11 +875,16 @@ alternativeEffect
     | conditionalEffect
     ;
 
+playerOptionalEffectForPlayer: player May Have player alternativeEffect;
+playerOptionalEffectWithExtra: player May alternativeEffect To alternativeEffect;
+playerOptionalEffect: player May alternativeEffect;
+playerExtortEffect: alternativeEffect Unless player alternativeEffect;
+
 effect
-    : player May Have player alternativeEffect
-    | player May alternativeEffect To alternativeEffect
-    | player May alternativeEffect
-    | alternativeEffect Unless player alternativeEffect
+    : playerOptionalEffectForPlayer
+    | playerOptionalEffectWithExtra
+    | playerOptionalEffect
+    | playerExtortEffect
     | alternativeEffect
     ;
 
@@ -893,7 +898,12 @@ effectEnd
     | Then
     ;
 
-anyEffect: effect | passiveEffect | replacementTriggerEffect | triggerEffect;
+anyEffect
+    : effect
+    | passiveEffect
+    | replacementTriggerEffect
+    | triggerEffect
+    ;
 
 breachEffect: Breach D (anyEffect effectEnd)+;
 advantageEffect: Advantage D (anyEffect effectEnd)+;

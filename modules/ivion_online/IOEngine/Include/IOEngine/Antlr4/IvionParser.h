@@ -115,9 +115,11 @@ public:
     RulePlayerCardsInHand = 183, RuleLiteralValue = 184, RuleGameStateValue = 185, 
     RuleValue = 186, RuleChooseSameMultipleTimes = 187, RuleEffectList = 188, 
     RuleChooseEffect = 189, RuleSingleEffect = 190, RuleRepeatedEffect = 191, 
-    RuleConditionalEffect = 192, RuleAlternativeEffect = 193, RuleEffect = 194, 
-    RuleEffectEnd = 195, RuleAnyEffect = 196, RuleBreachEffect = 197, RuleAdvantageEffect = 198, 
-    RuleFrenzyEffect = 199, RuleLine = 200, RuleText = 201
+    RuleConditionalEffect = 192, RuleAlternativeEffect = 193, RulePlayerOptionalEffectForPlayer = 194, 
+    RulePlayerOptionalEffectWithExtra = 195, RulePlayerOptionalEffect = 196, 
+    RulePlayerExtortEffect = 197, RuleEffect = 198, RuleEffectEnd = 199, 
+    RuleAnyEffect = 200, RuleBreachEffect = 201, RuleAdvantageEffect = 202, 
+    RuleFrenzyEffect = 203, RuleLine = 204, RuleText = 205
   };
 
   IvionParser(antlr4::TokenStream *input);
@@ -324,6 +326,10 @@ public:
   class RepeatedEffectContext;
   class ConditionalEffectContext;
   class AlternativeEffectContext;
+  class PlayerOptionalEffectForPlayerContext;
+  class PlayerOptionalEffectWithExtraContext;
+  class PlayerOptionalEffectContext;
+  class PlayerExtortEffectContext;
   class EffectContext;
   class EffectEndContext;
   class AnyEffectContext;
@@ -3762,18 +3768,80 @@ public:
 
   AlternativeEffectContext* alternativeEffect();
 
-  class  EffectContext : public antlr4::ParserRuleContext {
+  class  PlayerOptionalEffectForPlayerContext : public antlr4::ParserRuleContext {
   public:
-    EffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    PlayerOptionalEffectForPlayerContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     std::vector<PlayerContext *> player();
     PlayerContext* player(size_t i);
     antlr4::tree::TerminalNode *May();
     antlr4::tree::TerminalNode *Have();
+    AlternativeEffectContext *alternativeEffect();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerOptionalEffectForPlayerContext* playerOptionalEffectForPlayer();
+
+  class  PlayerOptionalEffectWithExtraContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerOptionalEffectWithExtraContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    PlayerContext *player();
+    antlr4::tree::TerminalNode *May();
     std::vector<AlternativeEffectContext *> alternativeEffect();
     AlternativeEffectContext* alternativeEffect(size_t i);
     antlr4::tree::TerminalNode *To();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerOptionalEffectWithExtraContext* playerOptionalEffectWithExtra();
+
+  class  PlayerOptionalEffectContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerOptionalEffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    PlayerContext *player();
+    antlr4::tree::TerminalNode *May();
+    AlternativeEffectContext *alternativeEffect();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerOptionalEffectContext* playerOptionalEffect();
+
+  class  PlayerExtortEffectContext : public antlr4::ParserRuleContext {
+  public:
+    PlayerExtortEffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<AlternativeEffectContext *> alternativeEffect();
+    AlternativeEffectContext* alternativeEffect(size_t i);
     antlr4::tree::TerminalNode *Unless();
+    PlayerContext *player();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  PlayerExtortEffectContext* playerExtortEffect();
+
+  class  EffectContext : public antlr4::ParserRuleContext {
+  public:
+    EffectContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    PlayerOptionalEffectForPlayerContext *playerOptionalEffectForPlayer();
+    PlayerOptionalEffectWithExtraContext *playerOptionalEffectWithExtra();
+    PlayerOptionalEffectContext *playerOptionalEffect();
+    PlayerExtortEffectContext *playerExtortEffect();
+    AlternativeEffectContext *alternativeEffect();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
