@@ -11,13 +11,27 @@ def GetSources(directory):
     print("\n".join(matches))
     return matches
 
+def GetSharedLibs(directory):
+    matches = list()
+    for root, dirnames, filenames in os.walk(directory):
+        for filename in fnmatch.filter(filenames, '*.so'):
+            matches.append(os.path.join(root, filename))
+    print("\n".join(matches))
+    return matches
+
 # Thirdparty source files
 # Not unbundled for now as they are not commonly available as shared library
 includeDir = "Include"
 
 #env.StaticLibrary("Antlr4Runtime", GetSources("Extern/Antlr4Runtime/Source"), CPPPATH=["Extern/Antlr4Runtime/Include"], CXXFLAGS="-std=c++17")
 
-env.StaticLibrary("IOEngine", GetSources("Source"), CPPPATH=[includeDir], CXXFLAGS="-std=c++17", LIBS=["Antlr4Runtime"], LIBPATH='.')
+env.StaticLibrary(
+    "IOEngine",
+    GetSources("Source"), 
+    CPPPATH=[includeDir], 
+    CXXFLAGS="-std=c++17",
+    LIBS=GetSharedLibs("Python-3.9.1/build"),
+    LIBPATH='.')
 
 # build tests too
 for testFile in GetSources("Test"):

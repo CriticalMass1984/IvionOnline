@@ -1,16 +1,14 @@
 export OUT_DIR=$(realpath $(pwd)/Source/Antlr4)
+ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 .PHONY: antlr4
 antlr4:
-	mkdir -p Include/IOEngine/Antlr4 Source/Antlr4
-	cd IvionGrammar && java -jar ../antlr-4.8-complete.jar \
-		-Dlanguage=Cpp -no-listener -visitor \
-		-o ../Source/Antlr4  -lib ../Source/Antlr4 IvionLexer.antlr4 IvionParser.antlr4 
-	# cd IvionGrammar && java -jar ../antlr-4.8-complete.jar \
-	# 	-Dlanguage=Cpp -no-listener -visitor \
-	# 	-o ../Source/Antlr4 -lib ../Source/Antlr4 IvionParser.antlr4
-	mv Source/Antlr4/*.h Include/IOEngine/Antlr4
-	sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/*.cpp
+	cd IvionGrammar && java -jar ${ROOT_DIR}/antlr-4.8-complete.jar \
+		-Dlanguage=python3 -no-listener -visitor \
+		-o ${ROOT_DIR}/Python/Engine/Parser  -lib ${ROOT_DIR}/Python/Engine/Parser \
+		IvionLexer.antlr4 IvionParser.antlr4 
+	# mv Source/Antlr4/*.h Include/IOEngine/Antlr4
+	# sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/*.cpp
 
 grpc:
 	#git clone https://github.com/grpc/grpc.git Extern/grpc 2>/dev/null
@@ -27,3 +25,12 @@ all:
 	mkdir -p build
 	find build/ -type f -name "*.a" -delete -name "*.so" -delete
 	scons
+
+python3.9:
+	curl -C - https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz --output ${ROOT_DIR}/python-3.9.tgz
+	tar -xf ${ROOT_DIR}/python-3.9.tgz -C ${ROOT_DIR}
+	cd ${ROOT_DIR}/Python-3.9.1 && ./configure --enable-optimizations && make -j6
+	# --target=arm-linux --prefix=dir=/usr/local/arm-linux/
+
+protobuf:
+	/usr/bin/python3.8 -m grpc.tools.protoc -I${ROOT_DIR}/Protobuf --python_out=${ROOT_DIR}/Python/Engine/NetworkIO --grpc_python_out=${ROOT_DIR}/Python/Engine/NetworkIO GameInfo.proto

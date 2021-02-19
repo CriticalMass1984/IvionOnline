@@ -1,0 +1,4 @@
+[Bb]uild
+*.jar
+Extern/
+Python-3.9.1/
