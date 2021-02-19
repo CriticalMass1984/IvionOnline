@@ -1,0 +1,65 @@
+
+syntax = "proto3";
+
+package NetworkIO;
+
+enum Color {
+    GRAY = 0;
+    BLACK = 1;
+    RED = 2;
+    GREEN = 3;
+    BLUE = 4;
+    WHITE = 5;
+}
+
+message Card {
+    string Name = 1;
+    string Archetype = 2;
+    int32 Count = 3;
+    bool Ultimate = 4;
+    bool Feat = 5;
+    repeated Color Colors = 6;
+    bytes PlayEffects = 7;
+    bytes ResolveEffects = 8;
+}
+
+message DeckList {
+    Card Ultimate = 1;
+    repeated Card Feats = 2;
+    repeated Card Deck = 3;
+}
+
+message RandomAgent {
+
+}
+
+message AIAgent {
+    
+}
+
+// the game doesn't talk directly to clients, it instead talks to the server, which talks to the clients
+message PlayerAgent {
+    int32 PlayerID = 1;
+}
+
+message Vec2i {
+    int32 X = 1;
+    int32 Y = 2;
+}
+
+message PlayerInfo {
+    string Username = 1;
+    string UID = 2;
+    DeckList Deck = 3;
+    Vec2i StartingPosition = 4;
+    oneof AgentInfo {
+        AIAgent AIAgent = 5;
+        RandomAgent RandomAgent = 6;
+        PlayerAgent PlayerAgent = 7;
+    }
+}
+
+message GameInfo {
+    repeated PlayerInfo Players = 1;
+    Vec2i MapSize = 2;
+}
