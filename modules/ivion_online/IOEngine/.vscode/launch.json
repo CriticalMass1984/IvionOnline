@@ -29,13 +29,22 @@
             "name": "ConsoleGame",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Test/TestGame",
+            "program": "${workspaceFolder}/Test/terminal",
             "args": [
                 "DeckList.txt"
             ],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/../../../../ClientGodot",
-            "environment": [],
+            "cwd": "${workspaceFolder}/",
+            "environment": [
+                {
+                    "name": "PYTHONPATH",
+                    "value": "${workspaceFolder}/Python"
+                },
+                {
+                    "name": "LD_LIBRARY_PATH",
+                    "value": "${env:LD_LIBRARY_PATH}:${workspaceFolder}/PythonDev/lib"
+                }
+            ],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -45,7 +54,7 @@
                     "ignoreFailures": true
                 }
             ]
-        },
+        }, //"cwd": "${workspaceFolder}/../../../../ClientGodot",
         {
             "name": "Godot",
             "type": "cppdbg",

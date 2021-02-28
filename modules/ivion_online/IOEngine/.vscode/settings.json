@@ -78,10 +78,11 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
-        "Extern/grpc": true,
-        "Extern/grpc_libs": true,
-        "build": true,
-      }
+        "**/Extern/**": true,
+        "**/Python-3.9.1/**": true,
+        "**/build/**": true,
+    },
+    "python.pythonPath": "PythonDev/bin/python3.9"
     
     
 }

@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/Include",
-                "${workspaceFolder}/Extern/Antlr4Runtime/Include",
-                "${workspaceFolder}/Extern/RulesEngine/Include"
+                "${workspaceFolder}/Extern/Install/PythonDev/include",
+                "${workspaceFolder}/Extern/Install/GRPC/include/"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",

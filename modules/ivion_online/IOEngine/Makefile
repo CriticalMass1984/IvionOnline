@@ -11,11 +11,21 @@ antlr4:
 	# sed -i 's!#include "!#include "IOEngine/Antlr4/!g' Source/Antlr4/*.cpp
 
 grpc:
-	#git clone https://github.com/grpc/grpc.git Extern/grpc 2>/dev/null
-	cd Extern/grpc/ && git submodule update --init --recursive
-	cd Extern/grpc/third_party/protobuf && mkdir -p build && cd build && CC=/usr/bin/clangmake CXX=/usr/bin/clang++ cmake .. && make -j6
-	cd Extern/grpc/ && mkdir -p build && cd build && CC=/usr/bin/clangmake CXX=/usr/bin/clang++ cmake .. && make -j6
-	
+	# git clone https://github.com/grpc/grpc.git Extern/grpc 2>/dev/null
+	# cd Extern/grpc/ && git submodule update --init --recursive
+	# cd Extern/grpc/third_party/protobuf && mkdir -p build && cd build && CC=/usr/bin/clangmake CXX=/usr/bin/clang++ cmake .. && make -j6
+	cd Extern/grpc/ && mkdir -p build && cd build && \
+		cmake  ..\
+			-DgRPC_INSTALL=ON               \
+			-DCMAKE_BUILD_TYPE=Release      \
+			-DgRPC_ABSL_PROVIDER=module     \
+			-DgRPC_CARES_PROVIDER=module    \
+			-DgRPC_PROTOBUF_PROVIDER=module \
+			-DgRPC_RE2_PROVIDER=module      \
+			-DgRPC_SSL_PROVIDER=module      \
+			-DgRPC_ZLIB_PROVIDER=module     \
+			-DCMAKE_INSTALL_PREFIX=${ROOT_DIR}/Extern/Install/GRPC \
+		&& make -j6 && make install
 
 cmake:
 	cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG .. && make -j4
@@ -28,9 +38,26 @@ all:
 
 python3.9:
 	curl -C - https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz --output ${ROOT_DIR}/python-3.9.tgz
-	tar -xf ${ROOT_DIR}/python-3.9.tgz -C ${ROOT_DIR}
-	cd ${ROOT_DIR}/Python-3.9.1 && ./configure --enable-optimizations && make -j6
+	tar -xf ${ROOT_DIR}/python-3.9.tgz -C ${ROOT_DIR}/Extern/Source/
+	cd ${ROOT_DIR}/Extern/Source/Python-3.9.1 && \
+		./configure \
+			--prefix=${ROOT_DIR}/Extern/Install/PythonDev \
+			CFLAGS='-Xlinker -export-dynamic' \
+			CXXFLAGS='-Xlinker -export-dynamic' \
+			--enable-shared \
+			--enable-optimizations \
+		&& make clean && make -j6 && make install
 	# --target=arm-linux --prefix=dir=/usr/local/arm-linux/
 
 protobuf:
-	/usr/bin/python3.8 -m grpc.tools.protoc -I${ROOT_DIR}/Protobuf --python_out=${ROOT_DIR}/Python/Engine/NetworkIO --grpc_python_out=${ROOT_DIR}/Python/Engine/NetworkIO GameInfo.proto
+	${ROOT_DIR}/Extern/Install/GRPC/bin/protoc -I${ROOT_DIR}/Protobuf \
+	--plugin=protoc-gen-grpc_python=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_python_plugin \
+	--plugin=protoc-gen-grpc_cpp=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_cpp_plugin \
+	--cpp_out=${ROOT_DIR}/Source/GRPC \
+	--grpc_cpp_out=${ROOT_DIR}/Source/GRPC \
+	--python_out=${ROOT_DIR}/Python/Engine/NetworkIO \
+	--grpc_python_out=${ROOT_DIR}/Python/Engine/NetworkIO \
+	GameInfo.proto
+	mv ${ROOT_DIR}/Source/GRPC/*.h ${ROOT_DIR}/Include/GRPC/
+	sed -i 's|#include "GameInfo.pb.h"|#include <GRPC/GameInfo.pb.h>|g' ${ROOT_DIR}/Source/GRPC/*.cc
+	sed -i 's|#include "GameInfo.grpc.pb.h"|#include <GRPC/GameInfo.grpc.pb.h>|g' ${ROOT_DIR}/Source/GRPC/GameInfo.grpc.pb.cc
