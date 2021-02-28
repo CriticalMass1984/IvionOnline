@@ -3,20 +3,20 @@ import Engine.Mutation as mut
 class Vec2i:
     class Mutation(mut.Mutation):
         def __init__(self, obj, x: int, y: int):
-            self.Value = obj
+            self.Container = obj
             self.OldValue = (obj._x, obj._y)
             self.NewValue = (x, y)
             self.Apply()
         
         def Apply(self):
-            self.Value._x = self.NewValue[0]
-            self.Value._y = self.NewValue[1]
-            print("Apply: Vec2i {} <-= ({}, {})".format(self.Value, self.Value._x, self.Value._y))
+            self.Container._x = self.NewValue[0]
+            self.Container._y = self.NewValue[1]
+            print("Apply: Vec2i {} <-= ({}, {})".format(self.Container, self.Container._x, self.Container._y))
         
         def Revert(self):
-            self.Value._x = self.OldValue[0]
-            self.Value._y = self.OldValue[1]
-            print("Revert: Vec2i {} <-= ({}, {})".format(self.Value, self.Value._x, self.Value._y))
+            self.Container._x = self.OldValue[0]
+            self.Container._y = self.OldValue[1]
+            print("Revert: Vec2i {} <-= ({}, {})".format(self.Container, self.Container._x, self.Container._y))
 
     def __init__(self, x: int = 0, y: int = 0):
         self._x = x

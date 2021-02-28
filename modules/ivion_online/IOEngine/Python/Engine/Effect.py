@@ -6,6 +6,10 @@ from Engine.Mutation import Mutation
 import math
 from enum import IntEnum
 
+def MakePath(player: Object):
+    l = list()
+    l.Selector = player
+    return l
 
 def Revert(path: list):
     # last element of a path is always either None or split paths
@@ -80,11 +84,12 @@ class Constant(Effect):
 
 class Select(Effect):
     # count is something for which .Get() returns an int
-    def __init__(self, ents: Effect, count: Effect, upTo: bool):
+    def __init__(self, ents: Effect, count: Effect, upTo: bool, selector: Effect):
         super().__init__()
         self.Entities = ents
         self.Count = count
         self.upTo = upTo
+        self.Selector = selector
         self.Result = None
 
     def Execute(self, path: list, effectsTail: list):
@@ -113,7 +118,7 @@ class Select(Effect):
         hasGoodPath = False
         for choiceList in results:
             # new path
-            newPath = list()
+            newPath = MakePath(self.Selector)
             newPaths.append(newPath)
             for choice in choiceList:
                 newPath.append(self.Result.Append(choice))

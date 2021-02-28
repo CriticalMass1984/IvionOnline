@@ -3,43 +3,43 @@ import Engine.Mutation as mut
 class List:
     class SetMutation(mut.Mutation):
         def __init__(self, obj, index: int, val):
-            self.Value = obj
+            self.Container = obj
             self.NewValue = val
             self.OldValue = obj.Get(index)
             self.Index = index
             self.Apply()
         
         def Apply(self):
-            self.Value._value[self.Index] = self.NewValue
+            self.Container._value[self.Index] = self.NewValue
         
         def Revert(self):
-            self.Value._value[self.Index] = self.OldValue
+            self.Container._value[self.Index] = self.OldValue
 
     class InsertMutation(mut.Mutation):
         def __init__(self, obj, index: int, val):
-            self.Value = obj
+            self.Container = obj
             self.NewValue = val
             self.Index = index
             self.Apply()
         
         def Apply(self):
-            self.Value._value.insert(self.Index, self.NewValue)
+            self.Container._value.insert(self.Index, self.NewValue)
         
         def Revert(self):
-            del self.Value._value[self.Index]
+            del self.Container._value[self.Index]
 
     class RemoveMutation(mut.Mutation):
         def __init__(self, obj, index: int):
-            self.Value = obj
+            self.Container = obj
             self.OldValue = obj.Get(index)
             self.Index = index
             self.Apply()
         
         def Apply(self):
-            del self.Value._value[self.Index]
+            del self.Container._value[self.Index]
         
         def Revert(self):
-            self.Value._value.insert(self.Index, self.OldValue)
+            self.Container._value.insert(self.Index, self.OldValue)
 
     def __init__(self, value: list = None):
         if value is None:

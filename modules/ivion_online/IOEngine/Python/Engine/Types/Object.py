@@ -3,43 +3,43 @@ import Engine.Mutation as mut
 class Object:
     class SetMutation(mut.Mutation):
         def __init__(self, obj, key: str, val):
-            self.Value = obj
+            self.Container = obj
             self.NewValue = val
             self.OldValue = obj.Get(key)
             self.Key = key
             self.Apply()
         
         def Apply(self):
-            self.Value._value[self.Key] = self.NewValue
+            self.Container._value[self.Key] = self.NewValue
         
         def Revert(self):
-            self.Value._value[self.Key] = self.OldValue
+            self.Container._value[self.Key] = self.OldValue
 
     class InsertMutation(mut.Mutation):
         def __init__(self, obj, key: str, val):
-            self.Value = obj
+            self.Container = obj
             self.NewValue = val
             self.Key = key
             self.Apply()
         
         def Apply(self):
-            self.Value._value[self.Key] = self.NewValue
+            self.Container._value[self.Key] = self.NewValue
         
         def Revert(self):
-            del self.Value._value[self.Key]
+            del self.Container._value[self.Key]
 
     class RemoveMutation(mut.Mutation):
         def __init__(self, obj, key: str):
-            self.Value = obj
+            self.Container = obj
             self.OldValue = obj.Get(key)
             self.Key = key
             self.Apply()
         
         def Apply(self):
-            del self.Value._value[self.Key]
+            del self.Container._value[self.Key]
         
         def Revert(self):
-            self.Value._value[self.Key] = self.OldValue
+            self.Container._value[self.Key] = self.OldValue
 
     def __init__(self, value: dict = None):
         if value is None:

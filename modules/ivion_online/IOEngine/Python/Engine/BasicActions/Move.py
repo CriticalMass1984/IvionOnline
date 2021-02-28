@@ -6,7 +6,7 @@ def BuildMoveAction(gameinstance, player):
     player = GetMember(gameinstance, "ActivePlayer")
     ents = CopyMember(gameinstance, "Tiles")
     fltr = Filter(ents, Filter.InRange(Constant(1), player))
-    dest = Select(ents, Constant(1), False)
+    dest = Select(ents, Constant(1), False, player)
     move = Player_Move(player, dest)
 
     return List([
