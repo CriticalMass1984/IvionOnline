@@ -4,107 +4,38 @@ package GameState;
 
 import "Types.proto";
 import "Effects.proto";
-
-message Path {
-    repeated int32 FieldIndex = 1;
-}
-
-/////// structs
-message Integer {
-    int32 Value = 1;
-}
-
-message Vec2i {
-    int32 X = 1;
-    int32 Y = 2;
-}
-
-message PlayerRef {
-    Path ObjectPath = 1;
-}
-
-message CardRef {
-    Path ObjectPath = 1;
-}
-
-message TileRef {
-    Path ObjectPath = 1;
-}
-
-message IntegerRef {
-    Path ObjectPath = 1;
-}
-
-message Vec2iRef {
-    Path ObjectPath = 1;
-}
-
-message IntegerValue {
-    oneof value {
-        int32 Value = 1;
-        IntegerRef Ref = 2;
-    }
-}
-
-message Vec2iValue {
-    oneof value {
-        Vec2i Value = 1;
-        Vec2iRef Ref = 2;
-    }
-}
-
-message EntityRef {
-    oneof entity_ref {
-        PlayerRef Player = 1;
-        CardRef Card = 2;
-        TileRef Tile = 3;
-    }
-}
-
-message EntityValue {
-    oneof entity_val {
-        PlayerRef Player = 1;
-        CardRef Card = 2;
-        TileRef Tile = 3;
-        IntegerRef Integer = 4;
-        int32 IntValue = 5;
-        Vec2i Vec2iValue = 6;
-        Types.TerrainType TerrainValue = 7;
-    }
-}
-
 /////// Entities
 
 message Player {
     message Stats {
-        IntegerRef Health = 1;
-        IntegerRef Actions = 2;
-        IntegerRef Power = 3;
-        IntegerRef Slow = 4;
-        IntegerRef Silence = 5;
-        IntegerRef Disarm = 6;
-        IntegerRef Initiative = 7;
+        Types.IntegerRef Health = 1;
+        Types.IntegerRef Actions = 2;
+        Types.IntegerRef Power = 3;
+        Types.IntegerRef Slow = 4;
+        Types.IntegerRef Silence = 5;
+        Types.IntegerRef Disarm = 6;
+        Types.IntegerRef Initiative = 7;
     }
     string DisplayName = 1;
     string UID = 2;
     
-    repeated CardRef Field = 3;
-    repeated CardRef Hand = 4;
-    repeated CardRef Deck = 5;
-    repeated CardRef Discard = 6;
-    repeated CardRef Feats = 7;
+    repeated Types.CardRef Field = 3;
+    repeated Types.CardRef Hand = 4;
+    repeated Types.CardRef Deck = 5;
+    repeated Types.CardRef Discard = 6;
+    repeated Types.CardRef Feats = 7;
 
     Stats State = 8;
     Stats MaxState = 9;
 
-    Vec2iRef Position = 10;
+    Types.Vec2iRef Position = 10;
 }
 
 message Tile {
-    Vec2i Position = 1;
+    Types.Vec2i Position = 1;
     Types.TerrainType Terrain = 2;
-    repeated PlayerRef Players = 3;
-    repeated CardRef Cards = 4;
+    repeated Types.PlayerRef Players = 3;
+    repeated Types.CardRef Cards = 4;
 }
 
 message Card {
@@ -123,16 +54,16 @@ message Card {
     bool BasicAction = 5;
     repeated Color Colors = 6;
 
-    PlayerRef Owner = 7;
-    PlayerRef Controller = 8;
-    IntegerRef ActionCost = 9;
-    IntegerRef PowerCost = 10;
-    IntegerRef Range = 11;
-    EntityRef Attached = 12;
+    Types.PlayerRef Owner = 7;
+    Types.PlayerRef Controller = 8;
+    Types.IntegerRef ActionCost = 9;
+    Types.IntegerRef PowerCost = 10;
+    Types.IntegerRef Range = 11;
+    Types.EntityRef Attached = 12;
 
-    IntegerRef AffectedBySlow = 13;
-    IntegerRef AffectedBySilence = 14;
-    IntegerRef AffectedByDisarm = 15;
+    Types.IntegerRef AffectedBySlow = 13;
+    Types.IntegerRef AffectedBySilence = 14;
+    Types.IntegerRef AffectedByDisarm = 15;
 
     Effects.CardEffect OmniPresentEffect = 16;
     Effects.CardEffect PassiveEffect = 17;
@@ -142,26 +73,26 @@ message Card {
 }
 
 message Team {
-    repeated PlayerRef Players = 1;
+    repeated Types.PlayerRef Players = 1;
 }
 
 message SetMutation {
-    EntityRef Object = 1;
+    Types.EntityRef Object = 1;
 
-    EntityValue NewValue = 2;
-    EntityValue OldValue = 3;
+    Types.EntityValue NewValue = 2;
+    Types.EntityValue OldValue = 3;
 }
 
 message RemoveMutation {
-    EntityRef Object = 1;
+    Types.EntityRef Object = 1;
 
-    EntityValue OldValue = 2;
+    Types.EntityValue OldValue = 2;
 }
 
 message InsertMutation {
-    EntityRef Object = 1;
+    Types.EntityRef Object = 1;
 
-    EntityValue NewValue = 2;
+    Types.EntityValue NewValue = 2;
 }
 
 message Mutation {
@@ -178,7 +109,7 @@ message GameState {
     repeated Tile Tiles = 3;
     repeated Team Teams = 4;
 
-    Integer TurnNumber = 6;
+    Types.Integer TurnNumber = 6;
     repeated Card Stack = 7;
 
 }

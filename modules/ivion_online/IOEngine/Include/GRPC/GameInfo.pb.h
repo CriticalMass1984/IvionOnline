@@ -31,8 +31,9 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
-#include <GRPC/GameState.pb.h>
+#include <GRPC/Types.pb.h>
 #include <GRPC/Effects.pb.h>
+#include <GRPC/GameState.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto
@@ -1109,23 +1110,23 @@ class PlayerInfo PROTOBUF_FINAL :
       ::NetworkIO::DeckList* deck);
   ::NetworkIO::DeckList* unsafe_arena_release_deck();
 
-  // .GameState.Vec2i StartingPosition = 4;
+  // .Types.Vec2i StartingPosition = 4;
   bool has_startingposition() const;
   private:
   bool _internal_has_startingposition() const;
   public:
   void clear_startingposition();
-  const ::GameState::Vec2i& startingposition() const;
-  ::GameState::Vec2i* release_startingposition();
-  ::GameState::Vec2i* mutable_startingposition();
-  void set_allocated_startingposition(::GameState::Vec2i* startingposition);
+  const ::Types::Vec2i& startingposition() const;
+  ::Types::Vec2i* release_startingposition();
+  ::Types::Vec2i* mutable_startingposition();
+  void set_allocated_startingposition(::Types::Vec2i* startingposition);
   private:
-  const ::GameState::Vec2i& _internal_startingposition() const;
-  ::GameState::Vec2i* _internal_mutable_startingposition();
+  const ::Types::Vec2i& _internal_startingposition() const;
+  ::Types::Vec2i* _internal_mutable_startingposition();
   public:
   void unsafe_arena_set_allocated_startingposition(
-      ::GameState::Vec2i* startingposition);
-  ::GameState::Vec2i* unsafe_arena_release_startingposition();
+      ::Types::Vec2i* startingposition);
+  ::Types::Vec2i* unsafe_arena_release_startingposition();
 
   // .NetworkIO.AIAgent AIAgent = 5;
   bool has_aiagent() const;
@@ -1199,7 +1200,7 @@ class PlayerInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr username_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
   ::NetworkIO::DeckList* deck_;
-  ::GameState::Vec2i* startingposition_;
+  ::Types::Vec2i* startingposition_;
   union AgentInfoUnion {
     AgentInfoUnion() {}
     ::NetworkIO::AIAgent* aiagent_;
@@ -1346,23 +1347,23 @@ class GameInfo PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::PlayerInfo >&
       players() const;
 
-  // .GameState.Vec2i MapSize = 2;
+  // .Types.Vec2i MapSize = 2;
   bool has_mapsize() const;
   private:
   bool _internal_has_mapsize() const;
   public:
   void clear_mapsize();
-  const ::GameState::Vec2i& mapsize() const;
-  ::GameState::Vec2i* release_mapsize();
-  ::GameState::Vec2i* mutable_mapsize();
-  void set_allocated_mapsize(::GameState::Vec2i* mapsize);
+  const ::Types::Vec2i& mapsize() const;
+  ::Types::Vec2i* release_mapsize();
+  ::Types::Vec2i* mutable_mapsize();
+  void set_allocated_mapsize(::Types::Vec2i* mapsize);
   private:
-  const ::GameState::Vec2i& _internal_mapsize() const;
-  ::GameState::Vec2i* _internal_mutable_mapsize();
+  const ::Types::Vec2i& _internal_mapsize() const;
+  ::Types::Vec2i* _internal_mutable_mapsize();
   public:
   void unsafe_arena_set_allocated_mapsize(
-      ::GameState::Vec2i* mapsize);
-  ::GameState::Vec2i* unsafe_arena_release_mapsize();
+      ::Types::Vec2i* mapsize);
+  ::Types::Vec2i* unsafe_arena_release_mapsize();
 
   // @@protoc_insertion_point(class_scope:NetworkIO.GameInfo)
  private:
@@ -1372,7 +1373,7 @@ class GameInfo PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::PlayerInfo > players_;
-  ::GameState::Vec2i* mapsize_;
+  ::Types::Vec2i* mapsize_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameInfo_2eproto;
 };
@@ -2281,24 +2282,24 @@ inline void PlayerInfo::set_allocated_deck(::NetworkIO::DeckList* deck) {
   // @@protoc_insertion_point(field_set_allocated:NetworkIO.PlayerInfo.Deck)
 }
 
-// .GameState.Vec2i StartingPosition = 4;
+// .Types.Vec2i StartingPosition = 4;
 inline bool PlayerInfo::_internal_has_startingposition() const {
   return this != internal_default_instance() && startingposition_ != nullptr;
 }
 inline bool PlayerInfo::has_startingposition() const {
   return _internal_has_startingposition();
 }
-inline const ::GameState::Vec2i& PlayerInfo::_internal_startingposition() const {
-  const ::GameState::Vec2i* p = startingposition_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Vec2i&>(
-      ::GameState::_Vec2i_default_instance_);
+inline const ::Types::Vec2i& PlayerInfo::_internal_startingposition() const {
+  const ::Types::Vec2i* p = startingposition_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Vec2i&>(
+      ::Types::_Vec2i_default_instance_);
 }
-inline const ::GameState::Vec2i& PlayerInfo::startingposition() const {
+inline const ::Types::Vec2i& PlayerInfo::startingposition() const {
   // @@protoc_insertion_point(field_get:NetworkIO.PlayerInfo.StartingPosition)
   return _internal_startingposition();
 }
 inline void PlayerInfo::unsafe_arena_set_allocated_startingposition(
-    ::GameState::Vec2i* startingposition) {
+    ::Types::Vec2i* startingposition) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(startingposition_);
   }
@@ -2310,35 +2311,35 @@ inline void PlayerInfo::unsafe_arena_set_allocated_startingposition(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.PlayerInfo.StartingPosition)
 }
-inline ::GameState::Vec2i* PlayerInfo::release_startingposition() {
+inline ::Types::Vec2i* PlayerInfo::release_startingposition() {
   
-  ::GameState::Vec2i* temp = startingposition_;
+  ::Types::Vec2i* temp = startingposition_;
   startingposition_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::Vec2i* PlayerInfo::unsafe_arena_release_startingposition() {
+inline ::Types::Vec2i* PlayerInfo::unsafe_arena_release_startingposition() {
   // @@protoc_insertion_point(field_release:NetworkIO.PlayerInfo.StartingPosition)
   
-  ::GameState::Vec2i* temp = startingposition_;
+  ::Types::Vec2i* temp = startingposition_;
   startingposition_ = nullptr;
   return temp;
 }
-inline ::GameState::Vec2i* PlayerInfo::_internal_mutable_startingposition() {
+inline ::Types::Vec2i* PlayerInfo::_internal_mutable_startingposition() {
   
   if (startingposition_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Vec2i>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Vec2i>(GetArena());
     startingposition_ = p;
   }
   return startingposition_;
 }
-inline ::GameState::Vec2i* PlayerInfo::mutable_startingposition() {
+inline ::Types::Vec2i* PlayerInfo::mutable_startingposition() {
   // @@protoc_insertion_point(field_mutable:NetworkIO.PlayerInfo.StartingPosition)
   return _internal_mutable_startingposition();
 }
-inline void PlayerInfo::set_allocated_startingposition(::GameState::Vec2i* startingposition) {
+inline void PlayerInfo::set_allocated_startingposition(::Types::Vec2i* startingposition) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(startingposition_);
@@ -2629,24 +2630,24 @@ GameInfo::players() const {
   return players_;
 }
 
-// .GameState.Vec2i MapSize = 2;
+// .Types.Vec2i MapSize = 2;
 inline bool GameInfo::_internal_has_mapsize() const {
   return this != internal_default_instance() && mapsize_ != nullptr;
 }
 inline bool GameInfo::has_mapsize() const {
   return _internal_has_mapsize();
 }
-inline const ::GameState::Vec2i& GameInfo::_internal_mapsize() const {
-  const ::GameState::Vec2i* p = mapsize_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Vec2i&>(
-      ::GameState::_Vec2i_default_instance_);
+inline const ::Types::Vec2i& GameInfo::_internal_mapsize() const {
+  const ::Types::Vec2i* p = mapsize_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Vec2i&>(
+      ::Types::_Vec2i_default_instance_);
 }
-inline const ::GameState::Vec2i& GameInfo::mapsize() const {
+inline const ::Types::Vec2i& GameInfo::mapsize() const {
   // @@protoc_insertion_point(field_get:NetworkIO.GameInfo.MapSize)
   return _internal_mapsize();
 }
 inline void GameInfo::unsafe_arena_set_allocated_mapsize(
-    ::GameState::Vec2i* mapsize) {
+    ::Types::Vec2i* mapsize) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mapsize_);
   }
@@ -2658,35 +2659,35 @@ inline void GameInfo::unsafe_arena_set_allocated_mapsize(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.GameInfo.MapSize)
 }
-inline ::GameState::Vec2i* GameInfo::release_mapsize() {
+inline ::Types::Vec2i* GameInfo::release_mapsize() {
   
-  ::GameState::Vec2i* temp = mapsize_;
+  ::Types::Vec2i* temp = mapsize_;
   mapsize_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::Vec2i* GameInfo::unsafe_arena_release_mapsize() {
+inline ::Types::Vec2i* GameInfo::unsafe_arena_release_mapsize() {
   // @@protoc_insertion_point(field_release:NetworkIO.GameInfo.MapSize)
   
-  ::GameState::Vec2i* temp = mapsize_;
+  ::Types::Vec2i* temp = mapsize_;
   mapsize_ = nullptr;
   return temp;
 }
-inline ::GameState::Vec2i* GameInfo::_internal_mutable_mapsize() {
+inline ::Types::Vec2i* GameInfo::_internal_mutable_mapsize() {
   
   if (mapsize_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Vec2i>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Vec2i>(GetArena());
     mapsize_ = p;
   }
   return mapsize_;
 }
-inline ::GameState::Vec2i* GameInfo::mutable_mapsize() {
+inline ::Types::Vec2i* GameInfo::mutable_mapsize() {
   // @@protoc_insertion_point(field_mutable:NetworkIO.GameInfo.MapSize)
   return _internal_mutable_mapsize();
 }
-inline void GameInfo::set_allocated_mapsize(::GameState::Vec2i* mapsize) {
+inline void GameInfo::set_allocated_mapsize(::Types::Vec2i* mapsize) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(mapsize_);

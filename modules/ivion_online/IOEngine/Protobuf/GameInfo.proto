@@ -3,8 +3,9 @@ syntax = "proto3";
 
 package NetworkIO;
 
-import "GameState.proto";
+import "Types.proto";
 import "Effects.proto";
+import "GameState.proto";
 
 message CardMetaData {
     string Name = 1;
@@ -43,7 +44,7 @@ message PlayerInfo {
     string Username = 1;
     string UID = 2;
     DeckList Deck = 3;
-    GameState.Vec2i StartingPosition = 4;
+    Types.Vec2i StartingPosition = 4;
     oneof AgentInfo {
         AIAgent AIAgent = 5;
         RandomAgent RandomAgent = 6;
@@ -53,5 +54,5 @@ message PlayerInfo {
 
 message GameInfo {
     repeated PlayerInfo Players = 1;
-    GameState.Vec2i MapSize = 2;
+    Types.Vec2i MapSize = 2;
 }

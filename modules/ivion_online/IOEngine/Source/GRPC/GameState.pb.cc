@@ -16,74 +16,24 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardEffect_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Card_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardRef_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_EntityRef_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_GameState_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InsertMutation_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerRef_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Mutation_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Path_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Player_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Player_Stats_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerRef_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RemoveMutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SetMutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Team_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Tile_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileRef_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2iRef_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_EntityRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2iRef_Types_2eproto;
 namespace GameState {
-class PathDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Path> _instance;
-} _Path_default_instance_;
-class IntegerDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Integer> _instance;
-} _Integer_default_instance_;
-class Vec2iDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vec2i> _instance;
-} _Vec2i_default_instance_;
-class PlayerRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PlayerRef> _instance;
-} _PlayerRef_default_instance_;
-class CardRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CardRef> _instance;
-} _CardRef_default_instance_;
-class TileRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TileRef> _instance;
-} _TileRef_default_instance_;
-class IntegerRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IntegerRef> _instance;
-} _IntegerRef_default_instance_;
-class Vec2iRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vec2iRef> _instance;
-} _Vec2iRef_default_instance_;
-class IntegerValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IntegerValue> _instance;
-} _IntegerValue_default_instance_;
-class Vec2iValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vec2iValue> _instance;
-} _Vec2iValue_default_instance_;
-class EntityRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<EntityRef> _instance;
-} _EntityRef_default_instance_;
-class EntityValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<EntityValue> _instance;
-} _EntityValue_default_instance_;
 class Player_StatsDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Player_Stats> _instance;
@@ -141,58 +91,10 @@ static void InitDefaultsscc_info_Card_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Card_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Card_GameState_2eproto}, {
-      &scc_info_PlayerRef_GameState_2eproto.base,
-      &scc_info_IntegerRef_GameState_2eproto.base,
-      &scc_info_EntityRef_GameState_2eproto.base,
+      &scc_info_PlayerRef_Types_2eproto.base,
+      &scc_info_IntegerRef_Types_2eproto.base,
+      &scc_info_EntityRef_Types_2eproto.base,
       &scc_info_CardEffect_Effects_2eproto.base,}};
-
-static void InitDefaultsscc_info_CardRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_CardRef_default_instance_;
-    new (ptr) ::GameState::CardRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CardRef_GameState_2eproto}, {
-      &scc_info_Path_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_EntityRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_EntityRef_default_instance_;
-    new (ptr) ::GameState::EntityRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_EntityRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_EntityRef_GameState_2eproto}, {
-      &scc_info_PlayerRef_GameState_2eproto.base,
-      &scc_info_CardRef_GameState_2eproto.base,
-      &scc_info_TileRef_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_EntityValue_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_EntityValue_default_instance_;
-    new (ptr) ::GameState::EntityValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_EntityValue_GameState_2eproto}, {
-      &scc_info_PlayerRef_GameState_2eproto.base,
-      &scc_info_CardRef_GameState_2eproto.base,
-      &scc_info_TileRef_GameState_2eproto.base,
-      &scc_info_IntegerRef_GameState_2eproto.base,
-      &scc_info_Vec2i_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_GameInstance_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -225,7 +127,7 @@ static void InitDefaultsscc_info_GameState_GameState_2eproto() {
       &scc_info_Card_GameState_2eproto.base,
       &scc_info_Tile_GameState_2eproto.base,
       &scc_info_Team_GameState_2eproto.base,
-      &scc_info_Integer_GameState_2eproto.base,}};
+      &scc_info_Integer_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_InsertMutation_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -239,49 +141,8 @@ static void InitDefaultsscc_info_InsertMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InsertMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_InsertMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_GameState_2eproto.base,
-      &scc_info_EntityValue_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_Integer_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_Integer_default_instance_;
-    new (ptr) ::GameState::Integer();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Integer_GameState_2eproto}, {}};
-
-static void InitDefaultsscc_info_IntegerRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_IntegerRef_default_instance_;
-    new (ptr) ::GameState::IntegerRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_IntegerRef_GameState_2eproto}, {
-      &scc_info_Path_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_IntegerValue_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_IntegerValue_default_instance_;
-    new (ptr) ::GameState::IntegerValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerValue_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_IntegerValue_GameState_2eproto}, {
-      &scc_info_IntegerRef_GameState_2eproto.base,}};
+      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Mutation_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -299,19 +160,6 @@ static void InitDefaultsscc_info_Mutation_GameState_2eproto() {
       &scc_info_RemoveMutation_GameState_2eproto.base,
       &scc_info_InsertMutation_GameState_2eproto.base,}};
 
-static void InitDefaultsscc_info_Path_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_Path_default_instance_;
-    new (ptr) ::GameState::Path();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Path_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Path_GameState_2eproto}, {}};
-
 static void InitDefaultsscc_info_Player_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -324,9 +172,9 @@ static void InitDefaultsscc_info_Player_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Player_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Player_GameState_2eproto}, {
-      &scc_info_CardRef_GameState_2eproto.base,
+      &scc_info_CardRef_Types_2eproto.base,
       &scc_info_Player_Stats_GameState_2eproto.base,
-      &scc_info_Vec2iRef_GameState_2eproto.base,}};
+      &scc_info_Vec2iRef_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Player_Stats_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -340,21 +188,7 @@ static void InitDefaultsscc_info_Player_Stats_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Player_Stats_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Player_Stats_GameState_2eproto}, {
-      &scc_info_IntegerRef_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_PlayerRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_PlayerRef_default_instance_;
-    new (ptr) ::GameState::PlayerRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_PlayerRef_GameState_2eproto}, {
-      &scc_info_Path_GameState_2eproto.base,}};
+      &scc_info_IntegerRef_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_RemoveMutation_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -368,8 +202,8 @@ static void InitDefaultsscc_info_RemoveMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RemoveMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_RemoveMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_GameState_2eproto.base,
-      &scc_info_EntityValue_GameState_2eproto.base,}};
+      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_SetMutation_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -383,8 +217,8 @@ static void InitDefaultsscc_info_SetMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SetMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_SetMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_GameState_2eproto.base,
-      &scc_info_EntityValue_GameState_2eproto.base,}};
+      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Team_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -398,7 +232,7 @@ static void InitDefaultsscc_info_Team_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Team_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Team_GameState_2eproto}, {
-      &scc_info_PlayerRef_GameState_2eproto.base,}};
+      &scc_info_PlayerRef_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Tile_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -412,158 +246,15 @@ static void InitDefaultsscc_info_Tile_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Tile_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Tile_GameState_2eproto}, {
-      &scc_info_Vec2i_GameState_2eproto.base,
-      &scc_info_PlayerRef_GameState_2eproto.base,
-      &scc_info_CardRef_GameState_2eproto.base,}};
+      &scc_info_Vec2i_Types_2eproto.base,
+      &scc_info_PlayerRef_Types_2eproto.base,
+      &scc_info_CardRef_Types_2eproto.base,}};
 
-static void InitDefaultsscc_info_TileRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_TileRef_default_instance_;
-    new (ptr) ::GameState::TileRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TileRef_GameState_2eproto}, {
-      &scc_info_Path_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_Vec2i_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_Vec2i_default_instance_;
-    new (ptr) ::GameState::Vec2i();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Vec2i_GameState_2eproto}, {}};
-
-static void InitDefaultsscc_info_Vec2iRef_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_Vec2iRef_default_instance_;
-    new (ptr) ::GameState::Vec2iRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2iRef_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Vec2iRef_GameState_2eproto}, {
-      &scc_info_Path_GameState_2eproto.base,}};
-
-static void InitDefaultsscc_info_Vec2iValue_GameState_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::GameState::_Vec2iValue_default_instance_;
-    new (ptr) ::GameState::Vec2iValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Vec2iValue_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_Vec2iValue_GameState_2eproto}, {
-      &scc_info_Vec2i_GameState_2eproto.base,
-      &scc_info_Vec2iRef_GameState_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[23];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[11];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameState_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_GameState_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::Path, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::Path, fieldindex_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::Integer, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::Integer, value_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2i, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2i, x_),
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2i, y_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::PlayerRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::PlayerRef, objectpath_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::CardRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::CardRef, objectpath_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::TileRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::TileRef, objectpath_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::IntegerRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::IntegerRef, objectpath_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2iRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2iRef, objectpath_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::IntegerValue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::GameState::IntegerValue, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::GameState::IntegerValue, value_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2iValue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2iValue, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::GameState::Vec2iValue, value_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityRef, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityRef, entity_ref_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityValue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityValue, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::GameState::EntityValue, entity_val_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::GameState::Player_Stats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -682,44 +373,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::GameState::GameInstance, history_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::GameState::Path)},
-  { 6, -1, sizeof(::GameState::Integer)},
-  { 12, -1, sizeof(::GameState::Vec2i)},
-  { 19, -1, sizeof(::GameState::PlayerRef)},
-  { 25, -1, sizeof(::GameState::CardRef)},
-  { 31, -1, sizeof(::GameState::TileRef)},
-  { 37, -1, sizeof(::GameState::IntegerRef)},
-  { 43, -1, sizeof(::GameState::Vec2iRef)},
-  { 49, -1, sizeof(::GameState::IntegerValue)},
-  { 57, -1, sizeof(::GameState::Vec2iValue)},
-  { 65, -1, sizeof(::GameState::EntityRef)},
-  { 74, -1, sizeof(::GameState::EntityValue)},
-  { 87, -1, sizeof(::GameState::Player_Stats)},
-  { 99, -1, sizeof(::GameState::Player)},
-  { 114, -1, sizeof(::GameState::Tile)},
-  { 123, -1, sizeof(::GameState::Card)},
-  { 148, -1, sizeof(::GameState::Team)},
-  { 154, -1, sizeof(::GameState::SetMutation)},
-  { 162, -1, sizeof(::GameState::RemoveMutation)},
-  { 169, -1, sizeof(::GameState::InsertMutation)},
-  { 176, -1, sizeof(::GameState::Mutation)},
-  { 185, -1, sizeof(::GameState::GameState)},
-  { 196, -1, sizeof(::GameState::GameInstance)},
+  { 0, -1, sizeof(::GameState::Player_Stats)},
+  { 12, -1, sizeof(::GameState::Player)},
+  { 27, -1, sizeof(::GameState::Tile)},
+  { 36, -1, sizeof(::GameState::Card)},
+  { 61, -1, sizeof(::GameState::Team)},
+  { 67, -1, sizeof(::GameState::SetMutation)},
+  { 75, -1, sizeof(::GameState::RemoveMutation)},
+  { 82, -1, sizeof(::GameState::InsertMutation)},
+  { 89, -1, sizeof(::GameState::Mutation)},
+  { 98, -1, sizeof(::GameState::GameState)},
+  { 109, -1, sizeof(::GameState::GameInstance)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Path_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Integer_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Vec2i_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_PlayerRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_CardRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_TileRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_IntegerRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Vec2iRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_IntegerValue_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Vec2iValue_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_EntityRef_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_EntityValue_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Player_Stats_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Player_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::GameState::_Tile_default_instance_),
@@ -735,127 +402,89 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\017GameState.proto\022\tGameState\032\013Types.prot"
-  "o\032\rEffects.proto\"\032\n\004Path\022\022\n\nFieldIndex\030\001"
-  " \003(\005\"\030\n\007Integer\022\r\n\005Value\030\001 \001(\005\"\035\n\005Vec2i\022"
-  "\t\n\001X\030\001 \001(\005\022\t\n\001Y\030\002 \001(\005\"0\n\tPlayerRef\022#\n\nOb"
-  "jectPath\030\001 \001(\0132\017.GameState.Path\".\n\007CardR"
-  "ef\022#\n\nObjectPath\030\001 \001(\0132\017.GameState.Path\""
-  ".\n\007TileRef\022#\n\nObjectPath\030\001 \001(\0132\017.GameSta"
-  "te.Path\"1\n\nIntegerRef\022#\n\nObjectPath\030\001 \001("
-  "\0132\017.GameState.Path\"/\n\010Vec2iRef\022#\n\nObject"
-  "Path\030\001 \001(\0132\017.GameState.Path\"N\n\014IntegerVa"
-  "lue\022\017\n\005Value\030\001 \001(\005H\000\022$\n\003Ref\030\002 \001(\0132\025.Game"
-  "State.IntegerRefH\000B\007\n\005value\"\\\n\nVec2iValu"
-  "e\022!\n\005Value\030\001 \001(\0132\020.GameState.Vec2iH\000\022\"\n\003"
-  "Ref\030\002 \001(\0132\023.GameState.Vec2iRefH\000B\007\n\005valu"
-  "e\"\211\001\n\tEntityRef\022&\n\006Player\030\001 \001(\0132\024.GameSt"
-  "ate.PlayerRefH\000\022\"\n\004Card\030\002 \001(\0132\022.GameStat"
-  "e.CardRefH\000\022\"\n\004Tile\030\003 \001(\0132\022.GameState.Ti"
-  "leRefH\000B\014\n\nentity_ref\"\235\002\n\013EntityValue\022&\n"
-  "\006Player\030\001 \001(\0132\024.GameState.PlayerRefH\000\022\"\n"
-  "\004Card\030\002 \001(\0132\022.GameState.CardRefH\000\022\"\n\004Til"
-  "e\030\003 \001(\0132\022.GameState.TileRefH\000\022(\n\007Integer"
-  "\030\004 \001(\0132\025.GameState.IntegerRefH\000\022\022\n\010IntVa"
-  "lue\030\005 \001(\005H\000\022&\n\nVec2iValue\030\006 \001(\0132\020.GameSt"
-  "ate.Vec2iH\000\022*\n\014TerrainValue\030\007 \001(\0162\022.Type"
-  "s.TerrainTypeH\000B\014\n\nentity_val\"\361\004\n\006Player"
-  "\022\023\n\013DisplayName\030\001 \001(\t\022\013\n\003UID\030\002 \001(\t\022!\n\005Fi"
-  "eld\030\003 \003(\0132\022.GameState.CardRef\022 \n\004Hand\030\004 "
-  "\003(\0132\022.GameState.CardRef\022 \n\004Deck\030\005 \003(\0132\022."
-  "GameState.CardRef\022#\n\007Discard\030\006 \003(\0132\022.Gam"
-  "eState.CardRef\022!\n\005Feats\030\007 \003(\0132\022.GameStat"
-  "e.CardRef\022&\n\005State\030\010 \001(\0132\027.GameState.Pla"
-  "yer.Stats\022)\n\010MaxState\030\t \001(\0132\027.GameState."
-  "Player.Stats\022%\n\010Position\030\n \001(\0132\023.GameSta"
-  "te.Vec2iRef\032\233\002\n\005Stats\022%\n\006Health\030\001 \001(\0132\025."
-  "GameState.IntegerRef\022&\n\007Actions\030\002 \001(\0132\025."
-  "GameState.IntegerRef\022$\n\005Power\030\003 \001(\0132\025.Ga"
-  "meState.IntegerRef\022#\n\004Slow\030\004 \001(\0132\025.GameS"
-  "tate.IntegerRef\022&\n\007Silence\030\005 \001(\0132\025.GameS"
-  "tate.IntegerRef\022%\n\006Disarm\030\006 \001(\0132\025.GameSt"
-  "ate.IntegerRef\022)\n\nInitiative\030\007 \001(\0132\025.Gam"
-  "eState.IntegerRef\"\231\001\n\004Tile\022\"\n\010Position\030\001"
-  " \001(\0132\020.GameState.Vec2i\022#\n\007Terrain\030\002 \001(\0162"
-  "\022.Types.TerrainType\022%\n\007Players\030\003 \003(\0132\024.G"
-  "ameState.PlayerRef\022!\n\005Cards\030\004 \003(\0132\022.Game"
-  "State.CardRef\"\250\006\n\004Card\022\014\n\004Name\030\001 \001(\t\022\021\n\t"
-  "Archetype\030\002 \001(\t\022\020\n\010Ultimate\030\003 \001(\010\022\014\n\004Fea"
-  "t\030\004 \001(\010\022\023\n\013BasicAction\030\005 \001(\010\022%\n\006Colors\030\006"
-  " \003(\0162\025.GameState.Card.Color\022#\n\005Owner\030\007 \001"
-  "(\0132\024.GameState.PlayerRef\022(\n\nController\030\010"
-  " \001(\0132\024.GameState.PlayerRef\022)\n\nActionCost"
-  "\030\t \001(\0132\025.GameState.IntegerRef\022(\n\tPowerCo"
-  "st\030\n \001(\0132\025.GameState.IntegerRef\022$\n\005Range"
-  "\030\013 \001(\0132\025.GameState.IntegerRef\022&\n\010Attache"
-  "d\030\014 \001(\0132\024.GameState.EntityRef\022-\n\016Affecte"
-  "dBySlow\030\r \001(\0132\025.GameState.IntegerRef\0220\n\021"
-  "AffectedBySilence\030\016 \001(\0132\025.GameState.Inte"
-  "gerRef\022/\n\020AffectedByDisarm\030\017 \001(\0132\025.GameS"
-  "tate.IntegerRef\022.\n\021OmniPresentEffect\030\020 \001"
-  "(\0132\023.Effects.CardEffect\022*\n\rPassiveEffect"
-  "\030\021 \001(\0132\023.Effects.CardEffect\022\'\n\nFeatEffec"
-  "t\030\022 \001(\0132\023.Effects.CardEffect\022\'\n\nPlayEffe"
-  "ct\030\023 \001(\0132\023.Effects.CardEffect\022*\n\rResolve"
-  "Effect\030\024 \001(\0132\023.Effects.CardEffect\"E\n\005Col"
-  "or\022\010\n\004GRAY\020\000\022\t\n\005BLACK\020\001\022\007\n\003RED\020\002\022\t\n\005GREE"
-  "N\020\003\022\010\n\004BLUE\020\004\022\t\n\005WHITE\020\005\"-\n\004Team\022%\n\007Play"
-  "ers\030\001 \003(\0132\024.GameState.PlayerRef\"\207\001\n\013SetM"
-  "utation\022$\n\006Object\030\001 \001(\0132\024.GameState.Enti"
-  "tyRef\022(\n\010NewValue\030\002 \001(\0132\026.GameState.Enti"
-  "tyValue\022(\n\010OldValue\030\003 \001(\0132\026.GameState.En"
-  "tityValue\"`\n\016RemoveMutation\022$\n\006Object\030\001 "
-  "\001(\0132\024.GameState.EntityRef\022(\n\010OldValue\030\002 "
-  "\001(\0132\026.GameState.EntityValue\"`\n\016InsertMut"
-  "ation\022$\n\006Object\030\001 \001(\0132\024.GameState.Entity"
-  "Ref\022(\n\010NewValue\030\002 \001(\0132\026.GameState.Entity"
-  "Value\"\227\001\n\010Mutation\022%\n\003Set\030\001 \001(\0132\026.GameSt"
-  "ate.SetMutationH\000\022+\n\006Remove\030\002 \001(\0132\031.Game"
-  "State.RemoveMutationH\000\022+\n\006Insert\030\003 \001(\0132\031"
-  ".GameState.InsertMutationH\000B\n\n\010mutation\""
-  "\327\001\n\tGameState\022\"\n\007Players\030\001 \003(\0132\021.GameSta"
-  "te.Player\022\036\n\005Cards\030\002 \003(\0132\017.GameState.Car"
-  "d\022\036\n\005Tiles\030\003 \003(\0132\017.GameState.Tile\022\036\n\005Tea"
-  "ms\030\004 \003(\0132\017.GameState.Team\022&\n\nTurnNumber\030"
-  "\006 \001(\0132\022.GameState.Integer\022\036\n\005Stack\030\007 \003(\013"
-  "2\017.GameState.Card\"]\n\014GameInstance\022\'\n\tGam"
-  "eState\030\001 \001(\0132\024.GameState.GameState\022$\n\007Hi"
-  "story\030\002 \003(\0132\023.GameState.Mutationb\006proto3"
+  "o\032\rEffects.proto\"\275\004\n\006Player\022\023\n\013DisplayNa"
+  "me\030\001 \001(\t\022\013\n\003UID\030\002 \001(\t\022\035\n\005Field\030\003 \003(\0132\016.T"
+  "ypes.CardRef\022\034\n\004Hand\030\004 \003(\0132\016.Types.CardR"
+  "ef\022\034\n\004Deck\030\005 \003(\0132\016.Types.CardRef\022\037\n\007Disc"
+  "ard\030\006 \003(\0132\016.Types.CardRef\022\035\n\005Feats\030\007 \003(\013"
+  "2\016.Types.CardRef\022&\n\005State\030\010 \001(\0132\027.GameSt"
+  "ate.Player.Stats\022)\n\010MaxState\030\t \001(\0132\027.Gam"
+  "eState.Player.Stats\022!\n\010Position\030\n \001(\0132\017."
+  "Types.Vec2iRef\032\377\001\n\005Stats\022!\n\006Health\030\001 \001(\013"
+  "2\021.Types.IntegerRef\022\"\n\007Actions\030\002 \001(\0132\021.T"
+  "ypes.IntegerRef\022 \n\005Power\030\003 \001(\0132\021.Types.I"
+  "ntegerRef\022\037\n\004Slow\030\004 \001(\0132\021.Types.IntegerR"
+  "ef\022\"\n\007Silence\030\005 \001(\0132\021.Types.IntegerRef\022!"
+  "\n\006Disarm\030\006 \001(\0132\021.Types.IntegerRef\022%\n\nIni"
+  "tiative\030\007 \001(\0132\021.Types.IntegerRef\"\215\001\n\004Til"
+  "e\022\036\n\010Position\030\001 \001(\0132\014.Types.Vec2i\022#\n\007Ter"
+  "rain\030\002 \001(\0162\022.Types.TerrainType\022!\n\007Player"
+  "s\030\003 \003(\0132\020.Types.PlayerRef\022\035\n\005Cards\030\004 \003(\013"
+  "2\016.Types.CardRef\"\204\006\n\004Card\022\014\n\004Name\030\001 \001(\t\022"
+  "\021\n\tArchetype\030\002 \001(\t\022\020\n\010Ultimate\030\003 \001(\010\022\014\n\004"
+  "Feat\030\004 \001(\010\022\023\n\013BasicAction\030\005 \001(\010\022%\n\006Color"
+  "s\030\006 \003(\0162\025.GameState.Card.Color\022\037\n\005Owner\030"
+  "\007 \001(\0132\020.Types.PlayerRef\022$\n\nController\030\010 "
+  "\001(\0132\020.Types.PlayerRef\022%\n\nActionCost\030\t \001("
+  "\0132\021.Types.IntegerRef\022$\n\tPowerCost\030\n \001(\0132"
+  "\021.Types.IntegerRef\022 \n\005Range\030\013 \001(\0132\021.Type"
+  "s.IntegerRef\022\"\n\010Attached\030\014 \001(\0132\020.Types.E"
+  "ntityRef\022)\n\016AffectedBySlow\030\r \001(\0132\021.Types"
+  ".IntegerRef\022,\n\021AffectedBySilence\030\016 \001(\0132\021"
+  ".Types.IntegerRef\022+\n\020AffectedByDisarm\030\017 "
+  "\001(\0132\021.Types.IntegerRef\022.\n\021OmniPresentEff"
+  "ect\030\020 \001(\0132\023.Effects.CardEffect\022*\n\rPassiv"
+  "eEffect\030\021 \001(\0132\023.Effects.CardEffect\022\'\n\nFe"
+  "atEffect\030\022 \001(\0132\023.Effects.CardEffect\022\'\n\nP"
+  "layEffect\030\023 \001(\0132\023.Effects.CardEffect\022*\n\r"
+  "ResolveEffect\030\024 \001(\0132\023.Effects.CardEffect"
+  "\"E\n\005Color\022\010\n\004GRAY\020\000\022\t\n\005BLACK\020\001\022\007\n\003RED\020\002\022"
+  "\t\n\005GREEN\020\003\022\010\n\004BLUE\020\004\022\t\n\005WHITE\020\005\")\n\004Team\022"
+  "!\n\007Players\030\001 \003(\0132\020.Types.PlayerRef\"{\n\013Se"
+  "tMutation\022 \n\006Object\030\001 \001(\0132\020.Types.Entity"
+  "Ref\022$\n\010NewValue\030\002 \001(\0132\022.Types.EntityValu"
+  "e\022$\n\010OldValue\030\003 \001(\0132\022.Types.EntityValue\""
+  "X\n\016RemoveMutation\022 \n\006Object\030\001 \001(\0132\020.Type"
+  "s.EntityRef\022$\n\010OldValue\030\002 \001(\0132\022.Types.En"
+  "tityValue\"X\n\016InsertMutation\022 \n\006Object\030\001 "
+  "\001(\0132\020.Types.EntityRef\022$\n\010NewValue\030\002 \001(\0132"
+  "\022.Types.EntityValue\"\227\001\n\010Mutation\022%\n\003Set\030"
+  "\001 \001(\0132\026.GameState.SetMutationH\000\022+\n\006Remov"
+  "e\030\002 \001(\0132\031.GameState.RemoveMutationH\000\022+\n\006"
+  "Insert\030\003 \001(\0132\031.GameState.InsertMutationH"
+  "\000B\n\n\010mutation\"\323\001\n\tGameState\022\"\n\007Players\030\001"
+  " \003(\0132\021.GameState.Player\022\036\n\005Cards\030\002 \003(\0132\017"
+  ".GameState.Card\022\036\n\005Tiles\030\003 \003(\0132\017.GameSta"
+  "te.Tile\022\036\n\005Teams\030\004 \003(\0132\017.GameState.Team\022"
+  "\"\n\nTurnNumber\030\006 \001(\0132\016.Types.Integer\022\036\n\005S"
+  "tack\030\007 \003(\0132\017.GameState.Card\"]\n\014GameInsta"
+  "nce\022\'\n\tGameState\030\001 \001(\0132\024.GameState.GameS"
+  "tate\022$\n\007History\030\002 \003(\0132\023.GameState.Mutati"
+  "onb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[2] = {
   &::descriptor_table_Effects_2eproto,
   &::descriptor_table_Types_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[23] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[11] = {
   &scc_info_Card_GameState_2eproto.base,
-  &scc_info_CardRef_GameState_2eproto.base,
-  &scc_info_EntityRef_GameState_2eproto.base,
-  &scc_info_EntityValue_GameState_2eproto.base,
   &scc_info_GameInstance_GameState_2eproto.base,
   &scc_info_GameState_GameState_2eproto.base,
   &scc_info_InsertMutation_GameState_2eproto.base,
-  &scc_info_Integer_GameState_2eproto.base,
-  &scc_info_IntegerRef_GameState_2eproto.base,
-  &scc_info_IntegerValue_GameState_2eproto.base,
   &scc_info_Mutation_GameState_2eproto.base,
-  &scc_info_Path_GameState_2eproto.base,
   &scc_info_Player_GameState_2eproto.base,
   &scc_info_Player_Stats_GameState_2eproto.base,
-  &scc_info_PlayerRef_GameState_2eproto.base,
   &scc_info_RemoveMutation_GameState_2eproto.base,
   &scc_info_SetMutation_GameState_2eproto.base,
   &scc_info_Team_GameState_2eproto.base,
   &scc_info_Tile_GameState_2eproto.base,
-  &scc_info_TileRef_GameState_2eproto.base,
-  &scc_info_Vec2i_GameState_2eproto.base,
-  &scc_info_Vec2iRef_GameState_2eproto.base,
-  &scc_info_Vec2iValue_GameState_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 3440,
-  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 23, 2,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 2370,
+  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 11, 2,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
-  file_level_metadata_GameState_2eproto, 23, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
+  file_level_metadata_GameState_2eproto, 11, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -893,3244 +522,86 @@ constexpr int Card::Color_ARRAYSIZE;
 
 // ===================================================================
 
-class Path::_Internal {
- public:
-};
-
-Path::Path(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  fieldindex_(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.Path)
-}
-Path::Path(const Path& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      fieldindex_(from.fieldindex_) {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:GameState.Path)
-}
-
-void Path::SharedCtor() {
-}
-
-Path::~Path() {
-  // @@protoc_insertion_point(destructor:GameState.Path)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Path::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void Path::ArenaDtor(void* object) {
-  Path* _this = reinterpret_cast< Path* >(object);
-  (void)_this;
-}
-void Path::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Path::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Path& Path::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Path_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Path::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.Path)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  fieldindex_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Path::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // repeated int32 FieldIndex = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_fieldindex(), ptr, ctx);
-          CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
-          _internal_add_fieldindex(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Path::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.Path)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated int32 FieldIndex = 1;
-  {
-    int byte_size = _fieldindex_cached_byte_size_.load(std::memory_order_relaxed);
-    if (byte_size > 0) {
-      target = stream->WriteInt32Packed(
-          1, _internal_fieldindex(), byte_size, target);
-    }
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.Path)
-  return target;
-}
-
-size_t Path::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.Path)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated int32 FieldIndex = 1;
-  {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      Int32Size(this->fieldindex_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
-    }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _fieldindex_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
-    total_size += data_size;
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Path::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.Path)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Path* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Path>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.Path)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.Path)
-    MergeFrom(*source);
-  }
-}
-
-void Path::MergeFrom(const Path& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.Path)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  fieldindex_.MergeFrom(from.fieldindex_);
-}
-
-void Path::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.Path)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Path::CopyFrom(const Path& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.Path)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Path::IsInitialized() const {
-  return true;
-}
-
-void Path::InternalSwap(Path* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  fieldindex_.InternalSwap(&other->fieldindex_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Path::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Integer::_Internal {
- public:
-};
-
-Integer::Integer(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.Integer)
-}
-Integer::Integer(const Integer& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  value_ = from.value_;
-  // @@protoc_insertion_point(copy_constructor:GameState.Integer)
-}
-
-void Integer::SharedCtor() {
-  value_ = 0;
-}
-
-Integer::~Integer() {
-  // @@protoc_insertion_point(destructor:GameState.Integer)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Integer::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void Integer::ArenaDtor(void* object) {
-  Integer* _this = reinterpret_cast< Integer* >(object);
-  (void)_this;
-}
-void Integer::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Integer::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Integer& Integer::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Integer_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Integer::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.Integer)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  value_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Integer::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // int32 Value = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          value_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Integer::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.Integer)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 Value = 1;
-  if (this->value() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_value(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.Integer)
-  return target;
-}
-
-size_t Integer::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.Integer)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 Value = 1;
-  if (this->value() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_value());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Integer::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.Integer)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Integer* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Integer>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.Integer)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.Integer)
-    MergeFrom(*source);
-  }
-}
-
-void Integer::MergeFrom(const Integer& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.Integer)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.value() != 0) {
-    _internal_set_value(from._internal_value());
-  }
-}
-
-void Integer::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.Integer)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Integer::CopyFrom(const Integer& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.Integer)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Integer::IsInitialized() const {
-  return true;
-}
-
-void Integer::InternalSwap(Integer* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(value_, other->value_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Integer::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Vec2i::_Internal {
- public:
-};
-
-Vec2i::Vec2i(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.Vec2i)
-}
-Vec2i::Vec2i(const Vec2i& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&x_, &from.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(y_));
-  // @@protoc_insertion_point(copy_constructor:GameState.Vec2i)
-}
-
-void Vec2i::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
-}
-
-Vec2i::~Vec2i() {
-  // @@protoc_insertion_point(destructor:GameState.Vec2i)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Vec2i::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void Vec2i::ArenaDtor(void* object) {
-  Vec2i* _this = reinterpret_cast< Vec2i* >(object);
-  (void)_this;
-}
-void Vec2i::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Vec2i::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Vec2i& Vec2i::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Vec2i_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Vec2i::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.Vec2i)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Vec2i::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // int32 X = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 Y = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Vec2i::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.Vec2i)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 X = 1;
-  if (this->x() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_x(), target);
-  }
-
-  // int32 Y = 2;
-  if (this->y() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_y(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.Vec2i)
-  return target;
-}
-
-size_t Vec2i::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.Vec2i)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 X = 1;
-  if (this->x() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_x());
-  }
-
-  // int32 Y = 2;
-  if (this->y() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_y());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Vec2i::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.Vec2i)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Vec2i* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Vec2i>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.Vec2i)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.Vec2i)
-    MergeFrom(*source);
-  }
-}
-
-void Vec2i::MergeFrom(const Vec2i& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.Vec2i)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.x() != 0) {
-    _internal_set_x(from._internal_x());
-  }
-  if (from.y() != 0) {
-    _internal_set_y(from._internal_y());
-  }
-}
-
-void Vec2i::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.Vec2i)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Vec2i::CopyFrom(const Vec2i& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.Vec2i)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Vec2i::IsInitialized() const {
-  return true;
-}
-
-void Vec2i::InternalSwap(Vec2i* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Vec2i, y_)
-      + sizeof(Vec2i::y_)
-      - PROTOBUF_FIELD_OFFSET(Vec2i, x_)>(
-          reinterpret_cast<char*>(&x_),
-          reinterpret_cast<char*>(&other->x_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Vec2i::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class PlayerRef::_Internal {
- public:
-  static const ::GameState::Path& objectpath(const PlayerRef* msg);
-};
-
-const ::GameState::Path&
-PlayerRef::_Internal::objectpath(const PlayerRef* msg) {
-  return *msg->objectpath_;
-}
-PlayerRef::PlayerRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.PlayerRef)
-}
-PlayerRef::PlayerRef(const PlayerRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_objectpath()) {
-    objectpath_ = new ::GameState::Path(*from.objectpath_);
-  } else {
-    objectpath_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.PlayerRef)
-}
-
-void PlayerRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PlayerRef_GameState_2eproto.base);
-  objectpath_ = nullptr;
-}
-
-PlayerRef::~PlayerRef() {
-  // @@protoc_insertion_point(destructor:GameState.PlayerRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void PlayerRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete objectpath_;
-}
-
-void PlayerRef::ArenaDtor(void* object) {
-  PlayerRef* _this = reinterpret_cast< PlayerRef* >(object);
-  (void)_this;
-}
-void PlayerRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void PlayerRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const PlayerRef& PlayerRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PlayerRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void PlayerRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.PlayerRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* PlayerRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Path ObjectPath = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_objectpath(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* PlayerRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.PlayerRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::objectpath(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.PlayerRef)
-  return target;
-}
-
-size_t PlayerRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.PlayerRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *objectpath_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void PlayerRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.PlayerRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const PlayerRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PlayerRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.PlayerRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.PlayerRef)
-    MergeFrom(*source);
-  }
-}
-
-void PlayerRef::MergeFrom(const PlayerRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.PlayerRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_objectpath()) {
-    _internal_mutable_objectpath()->::GameState::Path::MergeFrom(from._internal_objectpath());
-  }
-}
-
-void PlayerRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.PlayerRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void PlayerRef::CopyFrom(const PlayerRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.PlayerRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool PlayerRef::IsInitialized() const {
-  return true;
-}
-
-void PlayerRef::InternalSwap(PlayerRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(objectpath_, other->objectpath_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata PlayerRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class CardRef::_Internal {
- public:
-  static const ::GameState::Path& objectpath(const CardRef* msg);
-};
-
-const ::GameState::Path&
-CardRef::_Internal::objectpath(const CardRef* msg) {
-  return *msg->objectpath_;
-}
-CardRef::CardRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.CardRef)
-}
-CardRef::CardRef(const CardRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_objectpath()) {
-    objectpath_ = new ::GameState::Path(*from.objectpath_);
-  } else {
-    objectpath_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.CardRef)
-}
-
-void CardRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CardRef_GameState_2eproto.base);
-  objectpath_ = nullptr;
-}
-
-CardRef::~CardRef() {
-  // @@protoc_insertion_point(destructor:GameState.CardRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CardRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete objectpath_;
-}
-
-void CardRef::ArenaDtor(void* object) {
-  CardRef* _this = reinterpret_cast< CardRef* >(object);
-  (void)_this;
-}
-void CardRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CardRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const CardRef& CardRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CardRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void CardRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.CardRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CardRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Path ObjectPath = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_objectpath(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* CardRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.CardRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::objectpath(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.CardRef)
-  return target;
-}
-
-size_t CardRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.CardRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *objectpath_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void CardRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.CardRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CardRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CardRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.CardRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.CardRef)
-    MergeFrom(*source);
-  }
-}
-
-void CardRef::MergeFrom(const CardRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.CardRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_objectpath()) {
-    _internal_mutable_objectpath()->::GameState::Path::MergeFrom(from._internal_objectpath());
-  }
-}
-
-void CardRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.CardRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CardRef::CopyFrom(const CardRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.CardRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CardRef::IsInitialized() const {
-  return true;
-}
-
-void CardRef::InternalSwap(CardRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(objectpath_, other->objectpath_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CardRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class TileRef::_Internal {
- public:
-  static const ::GameState::Path& objectpath(const TileRef* msg);
-};
-
-const ::GameState::Path&
-TileRef::_Internal::objectpath(const TileRef* msg) {
-  return *msg->objectpath_;
-}
-TileRef::TileRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.TileRef)
-}
-TileRef::TileRef(const TileRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_objectpath()) {
-    objectpath_ = new ::GameState::Path(*from.objectpath_);
-  } else {
-    objectpath_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.TileRef)
-}
-
-void TileRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TileRef_GameState_2eproto.base);
-  objectpath_ = nullptr;
-}
-
-TileRef::~TileRef() {
-  // @@protoc_insertion_point(destructor:GameState.TileRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void TileRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete objectpath_;
-}
-
-void TileRef::ArenaDtor(void* object) {
-  TileRef* _this = reinterpret_cast< TileRef* >(object);
-  (void)_this;
-}
-void TileRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void TileRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const TileRef& TileRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TileRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void TileRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.TileRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* TileRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Path ObjectPath = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_objectpath(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* TileRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.TileRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::objectpath(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.TileRef)
-  return target;
-}
-
-size_t TileRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.TileRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *objectpath_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void TileRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.TileRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const TileRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TileRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.TileRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.TileRef)
-    MergeFrom(*source);
-  }
-}
-
-void TileRef::MergeFrom(const TileRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.TileRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_objectpath()) {
-    _internal_mutable_objectpath()->::GameState::Path::MergeFrom(from._internal_objectpath());
-  }
-}
-
-void TileRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.TileRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void TileRef::CopyFrom(const TileRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.TileRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool TileRef::IsInitialized() const {
-  return true;
-}
-
-void TileRef::InternalSwap(TileRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(objectpath_, other->objectpath_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata TileRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class IntegerRef::_Internal {
- public:
-  static const ::GameState::Path& objectpath(const IntegerRef* msg);
-};
-
-const ::GameState::Path&
-IntegerRef::_Internal::objectpath(const IntegerRef* msg) {
-  return *msg->objectpath_;
-}
-IntegerRef::IntegerRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.IntegerRef)
-}
-IntegerRef::IntegerRef(const IntegerRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_objectpath()) {
-    objectpath_ = new ::GameState::Path(*from.objectpath_);
-  } else {
-    objectpath_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.IntegerRef)
-}
-
-void IntegerRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IntegerRef_GameState_2eproto.base);
-  objectpath_ = nullptr;
-}
-
-IntegerRef::~IntegerRef() {
-  // @@protoc_insertion_point(destructor:GameState.IntegerRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void IntegerRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete objectpath_;
-}
-
-void IntegerRef::ArenaDtor(void* object) {
-  IntegerRef* _this = reinterpret_cast< IntegerRef* >(object);
-  (void)_this;
-}
-void IntegerRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void IntegerRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const IntegerRef& IntegerRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IntegerRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void IntegerRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.IntegerRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* IntegerRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Path ObjectPath = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_objectpath(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* IntegerRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.IntegerRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::objectpath(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.IntegerRef)
-  return target;
-}
-
-size_t IntegerRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.IntegerRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *objectpath_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void IntegerRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.IntegerRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const IntegerRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IntegerRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.IntegerRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.IntegerRef)
-    MergeFrom(*source);
-  }
-}
-
-void IntegerRef::MergeFrom(const IntegerRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.IntegerRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_objectpath()) {
-    _internal_mutable_objectpath()->::GameState::Path::MergeFrom(from._internal_objectpath());
-  }
-}
-
-void IntegerRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.IntegerRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void IntegerRef::CopyFrom(const IntegerRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.IntegerRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool IntegerRef::IsInitialized() const {
-  return true;
-}
-
-void IntegerRef::InternalSwap(IntegerRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(objectpath_, other->objectpath_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata IntegerRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Vec2iRef::_Internal {
- public:
-  static const ::GameState::Path& objectpath(const Vec2iRef* msg);
-};
-
-const ::GameState::Path&
-Vec2iRef::_Internal::objectpath(const Vec2iRef* msg) {
-  return *msg->objectpath_;
-}
-Vec2iRef::Vec2iRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.Vec2iRef)
-}
-Vec2iRef::Vec2iRef(const Vec2iRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_objectpath()) {
-    objectpath_ = new ::GameState::Path(*from.objectpath_);
-  } else {
-    objectpath_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.Vec2iRef)
-}
-
-void Vec2iRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Vec2iRef_GameState_2eproto.base);
-  objectpath_ = nullptr;
-}
-
-Vec2iRef::~Vec2iRef() {
-  // @@protoc_insertion_point(destructor:GameState.Vec2iRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Vec2iRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete objectpath_;
-}
-
-void Vec2iRef::ArenaDtor(void* object) {
-  Vec2iRef* _this = reinterpret_cast< Vec2iRef* >(object);
-  (void)_this;
-}
-void Vec2iRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Vec2iRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Vec2iRef& Vec2iRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Vec2iRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Vec2iRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.Vec2iRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Vec2iRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Path ObjectPath = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_objectpath(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Vec2iRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.Vec2iRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::objectpath(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.Vec2iRef)
-  return target;
-}
-
-size_t Vec2iRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.Vec2iRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .GameState.Path ObjectPath = 1;
-  if (this->has_objectpath()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *objectpath_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Vec2iRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.Vec2iRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Vec2iRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Vec2iRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.Vec2iRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.Vec2iRef)
-    MergeFrom(*source);
-  }
-}
-
-void Vec2iRef::MergeFrom(const Vec2iRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.Vec2iRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_objectpath()) {
-    _internal_mutable_objectpath()->::GameState::Path::MergeFrom(from._internal_objectpath());
-  }
-}
-
-void Vec2iRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.Vec2iRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Vec2iRef::CopyFrom(const Vec2iRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.Vec2iRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Vec2iRef::IsInitialized() const {
-  return true;
-}
-
-void Vec2iRef::InternalSwap(Vec2iRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(objectpath_, other->objectpath_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Vec2iRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class IntegerValue::_Internal {
- public:
-  static const ::GameState::IntegerRef& ref(const IntegerValue* msg);
-};
-
-const ::GameState::IntegerRef&
-IntegerValue::_Internal::ref(const IntegerValue* msg) {
-  return *msg->value_.ref_;
-}
-void IntegerValue::set_allocated_ref(::GameState::IntegerRef* ref) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_value();
-  if (ref) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(ref);
-    if (message_arena != submessage_arena) {
-      ref = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, ref, submessage_arena);
-    }
-    set_has_ref();
-    value_.ref_ = ref;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.IntegerValue.Ref)
-}
-IntegerValue::IntegerValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.IntegerValue)
-}
-IntegerValue::IntegerValue(const IntegerValue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_value();
-  switch (from.value_case()) {
-    case kValue: {
-      _internal_set_value(from._internal_value());
-      break;
-    }
-    case kRef: {
-      _internal_mutable_ref()->::GameState::IntegerRef::MergeFrom(from._internal_ref());
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.IntegerValue)
-}
-
-void IntegerValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_IntegerValue_GameState_2eproto.base);
-  clear_has_value();
-}
-
-IntegerValue::~IntegerValue() {
-  // @@protoc_insertion_point(destructor:GameState.IntegerValue)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void IntegerValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (has_value()) {
-    clear_value();
-  }
-}
-
-void IntegerValue::ArenaDtor(void* object) {
-  IntegerValue* _this = reinterpret_cast< IntegerValue* >(object);
-  (void)_this;
-}
-void IntegerValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void IntegerValue::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const IntegerValue& IntegerValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IntegerValue_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void IntegerValue::clear_value() {
-// @@protoc_insertion_point(one_of_clear_start:GameState.IntegerValue)
-  switch (value_case()) {
-    case kValue: {
-      // No need to clear
-      break;
-    }
-    case kRef: {
-      if (GetArena() == nullptr) {
-        delete value_.ref_;
-      }
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = VALUE_NOT_SET;
-}
-
-
-void IntegerValue::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.IntegerValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_value();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* IntegerValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // int32 Value = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          _internal_set_value(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.IntegerRef Ref = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_ref(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* IntegerValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.IntegerValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 Value = 1;
-  if (_internal_has_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_value(), target);
-  }
-
-  // .GameState.IntegerRef Ref = 2;
-  if (_internal_has_ref()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::ref(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.IntegerValue)
-  return target;
-}
-
-size_t IntegerValue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.IntegerValue)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (value_case()) {
-    // int32 Value = 1;
-    case kValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_value());
-      break;
-    }
-    // .GameState.IntegerRef Ref = 2;
-    case kRef: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *value_.ref_);
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void IntegerValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.IntegerValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const IntegerValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IntegerValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.IntegerValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.IntegerValue)
-    MergeFrom(*source);
-  }
-}
-
-void IntegerValue::MergeFrom(const IntegerValue& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.IntegerValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.value_case()) {
-    case kValue: {
-      _internal_set_value(from._internal_value());
-      break;
-    }
-    case kRef: {
-      _internal_mutable_ref()->::GameState::IntegerRef::MergeFrom(from._internal_ref());
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-}
-
-void IntegerValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.IntegerValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void IntegerValue::CopyFrom(const IntegerValue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.IntegerValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool IntegerValue::IsInitialized() const {
-  return true;
-}
-
-void IntegerValue::InternalSwap(IntegerValue* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(value_, other->value_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata IntegerValue::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class Vec2iValue::_Internal {
- public:
-  static const ::GameState::Vec2i& value(const Vec2iValue* msg);
-  static const ::GameState::Vec2iRef& ref(const Vec2iValue* msg);
-};
-
-const ::GameState::Vec2i&
-Vec2iValue::_Internal::value(const Vec2iValue* msg) {
-  return *msg->value_.value_;
-}
-const ::GameState::Vec2iRef&
-Vec2iValue::_Internal::ref(const Vec2iValue* msg) {
-  return *msg->value_.ref_;
-}
-void Vec2iValue::set_allocated_value(::GameState::Vec2i* value) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_value();
-  if (value) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(value);
-    if (message_arena != submessage_arena) {
-      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, value, submessage_arena);
-    }
-    set_has_value();
-    value_.value_ = value;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.Vec2iValue.Value)
-}
-void Vec2iValue::set_allocated_ref(::GameState::Vec2iRef* ref) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_value();
-  if (ref) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(ref);
-    if (message_arena != submessage_arena) {
-      ref = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, ref, submessage_arena);
-    }
-    set_has_ref();
-    value_.ref_ = ref;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.Vec2iValue.Ref)
-}
-Vec2iValue::Vec2iValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.Vec2iValue)
-}
-Vec2iValue::Vec2iValue(const Vec2iValue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_value();
-  switch (from.value_case()) {
-    case kValue: {
-      _internal_mutable_value()->::GameState::Vec2i::MergeFrom(from._internal_value());
-      break;
-    }
-    case kRef: {
-      _internal_mutable_ref()->::GameState::Vec2iRef::MergeFrom(from._internal_ref());
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.Vec2iValue)
-}
-
-void Vec2iValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Vec2iValue_GameState_2eproto.base);
-  clear_has_value();
-}
-
-Vec2iValue::~Vec2iValue() {
-  // @@protoc_insertion_point(destructor:GameState.Vec2iValue)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Vec2iValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (has_value()) {
-    clear_value();
-  }
-}
-
-void Vec2iValue::ArenaDtor(void* object) {
-  Vec2iValue* _this = reinterpret_cast< Vec2iValue* >(object);
-  (void)_this;
-}
-void Vec2iValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Vec2iValue::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Vec2iValue& Vec2iValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Vec2iValue_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Vec2iValue::clear_value() {
-// @@protoc_insertion_point(one_of_clear_start:GameState.Vec2iValue)
-  switch (value_case()) {
-    case kValue: {
-      if (GetArena() == nullptr) {
-        delete value_.value_;
-      }
-      break;
-    }
-    case kRef: {
-      if (GetArena() == nullptr) {
-        delete value_.ref_;
-      }
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = VALUE_NOT_SET;
-}
-
-
-void Vec2iValue::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.Vec2iValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_value();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Vec2iValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.Vec2i Value = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.Vec2iRef Ref = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_ref(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Vec2iValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.Vec2iValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.Vec2i Value = 1;
-  if (_internal_has_value()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::value(this), target, stream);
-  }
-
-  // .GameState.Vec2iRef Ref = 2;
-  if (_internal_has_ref()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::ref(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.Vec2iValue)
-  return target;
-}
-
-size_t Vec2iValue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.Vec2iValue)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (value_case()) {
-    // .GameState.Vec2i Value = 1;
-    case kValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *value_.value_);
-      break;
-    }
-    // .GameState.Vec2iRef Ref = 2;
-    case kRef: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *value_.ref_);
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Vec2iValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.Vec2iValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Vec2iValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Vec2iValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.Vec2iValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.Vec2iValue)
-    MergeFrom(*source);
-  }
-}
-
-void Vec2iValue::MergeFrom(const Vec2iValue& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.Vec2iValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.value_case()) {
-    case kValue: {
-      _internal_mutable_value()->::GameState::Vec2i::MergeFrom(from._internal_value());
-      break;
-    }
-    case kRef: {
-      _internal_mutable_ref()->::GameState::Vec2iRef::MergeFrom(from._internal_ref());
-      break;
-    }
-    case VALUE_NOT_SET: {
-      break;
-    }
-  }
-}
-
-void Vec2iValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.Vec2iValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Vec2iValue::CopyFrom(const Vec2iValue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.Vec2iValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Vec2iValue::IsInitialized() const {
-  return true;
-}
-
-void Vec2iValue::InternalSwap(Vec2iValue* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(value_, other->value_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Vec2iValue::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class EntityRef::_Internal {
- public:
-  static const ::GameState::PlayerRef& player(const EntityRef* msg);
-  static const ::GameState::CardRef& card(const EntityRef* msg);
-  static const ::GameState::TileRef& tile(const EntityRef* msg);
-};
-
-const ::GameState::PlayerRef&
-EntityRef::_Internal::player(const EntityRef* msg) {
-  return *msg->entity_ref_.player_;
-}
-const ::GameState::CardRef&
-EntityRef::_Internal::card(const EntityRef* msg) {
-  return *msg->entity_ref_.card_;
-}
-const ::GameState::TileRef&
-EntityRef::_Internal::tile(const EntityRef* msg) {
-  return *msg->entity_ref_.tile_;
-}
-void EntityRef::set_allocated_player(::GameState::PlayerRef* player) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_ref();
-  if (player) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(player);
-    if (message_arena != submessage_arena) {
-      player = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, player, submessage_arena);
-    }
-    set_has_player();
-    entity_ref_.player_ = player;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityRef.Player)
-}
-void EntityRef::set_allocated_card(::GameState::CardRef* card) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_ref();
-  if (card) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(card);
-    if (message_arena != submessage_arena) {
-      card = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, card, submessage_arena);
-    }
-    set_has_card();
-    entity_ref_.card_ = card;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityRef.Card)
-}
-void EntityRef::set_allocated_tile(::GameState::TileRef* tile) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_ref();
-  if (tile) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(tile);
-    if (message_arena != submessage_arena) {
-      tile = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, tile, submessage_arena);
-    }
-    set_has_tile();
-    entity_ref_.tile_ = tile;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityRef.Tile)
-}
-EntityRef::EntityRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.EntityRef)
-}
-EntityRef::EntityRef(const EntityRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_entity_ref();
-  switch (from.entity_ref_case()) {
-    case kPlayer: {
-      _internal_mutable_player()->::GameState::PlayerRef::MergeFrom(from._internal_player());
-      break;
-    }
-    case kCard: {
-      _internal_mutable_card()->::GameState::CardRef::MergeFrom(from._internal_card());
-      break;
-    }
-    case kTile: {
-      _internal_mutable_tile()->::GameState::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case ENTITY_REF_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.EntityRef)
-}
-
-void EntityRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EntityRef_GameState_2eproto.base);
-  clear_has_entity_ref();
-}
-
-EntityRef::~EntityRef() {
-  // @@protoc_insertion_point(destructor:GameState.EntityRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void EntityRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (has_entity_ref()) {
-    clear_entity_ref();
-  }
-}
-
-void EntityRef::ArenaDtor(void* object) {
-  EntityRef* _this = reinterpret_cast< EntityRef* >(object);
-  (void)_this;
-}
-void EntityRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void EntityRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const EntityRef& EntityRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_EntityRef_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void EntityRef::clear_entity_ref() {
-// @@protoc_insertion_point(one_of_clear_start:GameState.EntityRef)
-  switch (entity_ref_case()) {
-    case kPlayer: {
-      if (GetArena() == nullptr) {
-        delete entity_ref_.player_;
-      }
-      break;
-    }
-    case kCard: {
-      if (GetArena() == nullptr) {
-        delete entity_ref_.card_;
-      }
-      break;
-    }
-    case kTile: {
-      if (GetArena() == nullptr) {
-        delete entity_ref_.tile_;
-      }
-      break;
-    }
-    case ENTITY_REF_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = ENTITY_REF_NOT_SET;
-}
-
-
-void EntityRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.EntityRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_entity_ref();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* EntityRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.PlayerRef Player = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.CardRef Card = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.TileRef Tile = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_tile(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* EntityRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.EntityRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.PlayerRef Player = 1;
-  if (_internal_has_player()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::player(this), target, stream);
-  }
-
-  // .GameState.CardRef Card = 2;
-  if (_internal_has_card()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::card(this), target, stream);
-  }
-
-  // .GameState.TileRef Tile = 3;
-  if (_internal_has_tile()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::tile(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.EntityRef)
-  return target;
-}
-
-size_t EntityRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.EntityRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (entity_ref_case()) {
-    // .GameState.PlayerRef Player = 1;
-    case kPlayer: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_ref_.player_);
-      break;
-    }
-    // .GameState.CardRef Card = 2;
-    case kCard: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_ref_.card_);
-      break;
-    }
-    // .GameState.TileRef Tile = 3;
-    case kTile: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_ref_.tile_);
-      break;
-    }
-    case ENTITY_REF_NOT_SET: {
-      break;
-    }
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void EntityRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.EntityRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const EntityRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<EntityRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.EntityRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.EntityRef)
-    MergeFrom(*source);
-  }
-}
-
-void EntityRef::MergeFrom(const EntityRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.EntityRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.entity_ref_case()) {
-    case kPlayer: {
-      _internal_mutable_player()->::GameState::PlayerRef::MergeFrom(from._internal_player());
-      break;
-    }
-    case kCard: {
-      _internal_mutable_card()->::GameState::CardRef::MergeFrom(from._internal_card());
-      break;
-    }
-    case kTile: {
-      _internal_mutable_tile()->::GameState::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case ENTITY_REF_NOT_SET: {
-      break;
-    }
-  }
-}
-
-void EntityRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.EntityRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void EntityRef::CopyFrom(const EntityRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.EntityRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool EntityRef::IsInitialized() const {
-  return true;
-}
-
-void EntityRef::InternalSwap(EntityRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(entity_ref_, other->entity_ref_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata EntityRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-class EntityValue::_Internal {
- public:
-  static const ::GameState::PlayerRef& player(const EntityValue* msg);
-  static const ::GameState::CardRef& card(const EntityValue* msg);
-  static const ::GameState::TileRef& tile(const EntityValue* msg);
-  static const ::GameState::IntegerRef& integer(const EntityValue* msg);
-  static const ::GameState::Vec2i& vec2ivalue(const EntityValue* msg);
-};
-
-const ::GameState::PlayerRef&
-EntityValue::_Internal::player(const EntityValue* msg) {
-  return *msg->entity_val_.player_;
-}
-const ::GameState::CardRef&
-EntityValue::_Internal::card(const EntityValue* msg) {
-  return *msg->entity_val_.card_;
-}
-const ::GameState::TileRef&
-EntityValue::_Internal::tile(const EntityValue* msg) {
-  return *msg->entity_val_.tile_;
-}
-const ::GameState::IntegerRef&
-EntityValue::_Internal::integer(const EntityValue* msg) {
-  return *msg->entity_val_.integer_;
-}
-const ::GameState::Vec2i&
-EntityValue::_Internal::vec2ivalue(const EntityValue* msg) {
-  return *msg->entity_val_.vec2ivalue_;
-}
-void EntityValue::set_allocated_player(::GameState::PlayerRef* player) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (player) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(player);
-    if (message_arena != submessage_arena) {
-      player = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, player, submessage_arena);
-    }
-    set_has_player();
-    entity_val_.player_ = player;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityValue.Player)
-}
-void EntityValue::set_allocated_card(::GameState::CardRef* card) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (card) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(card);
-    if (message_arena != submessage_arena) {
-      card = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, card, submessage_arena);
-    }
-    set_has_card();
-    entity_val_.card_ = card;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityValue.Card)
-}
-void EntityValue::set_allocated_tile(::GameState::TileRef* tile) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (tile) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(tile);
-    if (message_arena != submessage_arena) {
-      tile = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, tile, submessage_arena);
-    }
-    set_has_tile();
-    entity_val_.tile_ = tile;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityValue.Tile)
-}
-void EntityValue::set_allocated_integer(::GameState::IntegerRef* integer) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (integer) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(integer);
-    if (message_arena != submessage_arena) {
-      integer = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, integer, submessage_arena);
-    }
-    set_has_integer();
-    entity_val_.integer_ = integer;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityValue.Integer)
-}
-void EntityValue::set_allocated_vec2ivalue(::GameState::Vec2i* vec2ivalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (vec2ivalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(vec2ivalue);
-    if (message_arena != submessage_arena) {
-      vec2ivalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, vec2ivalue, submessage_arena);
-    }
-    set_has_vec2ivalue();
-    entity_val_.vec2ivalue_ = vec2ivalue;
-  }
-  // @@protoc_insertion_point(field_set_allocated:GameState.EntityValue.Vec2iValue)
-}
-EntityValue::EntityValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:GameState.EntityValue)
-}
-EntityValue::EntityValue(const EntityValue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  clear_has_entity_val();
-  switch (from.entity_val_case()) {
-    case kPlayer: {
-      _internal_mutable_player()->::GameState::PlayerRef::MergeFrom(from._internal_player());
-      break;
-    }
-    case kCard: {
-      _internal_mutable_card()->::GameState::CardRef::MergeFrom(from._internal_card());
-      break;
-    }
-    case kTile: {
-      _internal_mutable_tile()->::GameState::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kInteger: {
-      _internal_mutable_integer()->::GameState::IntegerRef::MergeFrom(from._internal_integer());
-      break;
-    }
-    case kIntValue: {
-      _internal_set_intvalue(from._internal_intvalue());
-      break;
-    }
-    case kVec2IValue: {
-      _internal_mutable_vec2ivalue()->::GameState::Vec2i::MergeFrom(from._internal_vec2ivalue());
-      break;
-    }
-    case kTerrainValue: {
-      _internal_set_terrainvalue(from._internal_terrainvalue());
-      break;
-    }
-    case ENTITY_VAL_NOT_SET: {
-      break;
-    }
-  }
-  // @@protoc_insertion_point(copy_constructor:GameState.EntityValue)
-}
-
-void EntityValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_EntityValue_GameState_2eproto.base);
-  clear_has_entity_val();
-}
-
-EntityValue::~EntityValue() {
-  // @@protoc_insertion_point(destructor:GameState.EntityValue)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void EntityValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (has_entity_val()) {
-    clear_entity_val();
-  }
-}
-
-void EntityValue::ArenaDtor(void* object) {
-  EntityValue* _this = reinterpret_cast< EntityValue* >(object);
-  (void)_this;
-}
-void EntityValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void EntityValue::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const EntityValue& EntityValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_EntityValue_GameState_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void EntityValue::clear_entity_val() {
-// @@protoc_insertion_point(one_of_clear_start:GameState.EntityValue)
-  switch (entity_val_case()) {
-    case kPlayer: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.player_;
-      }
-      break;
-    }
-    case kCard: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.card_;
-      }
-      break;
-    }
-    case kTile: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.tile_;
-      }
-      break;
-    }
-    case kInteger: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.integer_;
-      }
-      break;
-    }
-    case kIntValue: {
-      // No need to clear
-      break;
-    }
-    case kVec2IValue: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.vec2ivalue_;
-      }
-      break;
-    }
-    case kTerrainValue: {
-      // No need to clear
-      break;
-    }
-    case ENTITY_VAL_NOT_SET: {
-      break;
-    }
-  }
-  _oneof_case_[0] = ENTITY_VAL_NOT_SET;
-}
-
-
-void EntityValue::Clear() {
-// @@protoc_insertion_point(message_clear_start:GameState.EntityValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  clear_entity_val();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* EntityValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .GameState.PlayerRef Player = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.CardRef Card = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.TileRef Tile = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_tile(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.IntegerRef Integer = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_integer(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 IntValue = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          _internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .GameState.Vec2i Vec2iValue = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_vec2ivalue(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.TerrainType TerrainValue = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_terrainvalue(static_cast<::Types::TerrainType>(val));
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* EntityValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:GameState.EntityValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .GameState.PlayerRef Player = 1;
-  if (_internal_has_player()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::player(this), target, stream);
-  }
-
-  // .GameState.CardRef Card = 2;
-  if (_internal_has_card()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::card(this), target, stream);
-  }
-
-  // .GameState.TileRef Tile = 3;
-  if (_internal_has_tile()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::tile(this), target, stream);
-  }
-
-  // .GameState.IntegerRef Integer = 4;
-  if (_internal_has_integer()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::integer(this), target, stream);
-  }
-
-  // int32 IntValue = 5;
-  if (_internal_has_intvalue()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_intvalue(), target);
-  }
-
-  // .GameState.Vec2i Vec2iValue = 6;
-  if (_internal_has_vec2ivalue()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::vec2ivalue(this), target, stream);
-  }
-
-  // .Types.TerrainType TerrainValue = 7;
-  if (_internal_has_terrainvalue()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      7, this->_internal_terrainvalue(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:GameState.EntityValue)
-  return target;
-}
-
-size_t EntityValue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:GameState.EntityValue)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  switch (entity_val_case()) {
-    // .GameState.PlayerRef Player = 1;
-    case kPlayer: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.player_);
-      break;
-    }
-    // .GameState.CardRef Card = 2;
-    case kCard: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.card_);
-      break;
-    }
-    // .GameState.TileRef Tile = 3;
-    case kTile: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.tile_);
-      break;
-    }
-    // .GameState.IntegerRef Integer = 4;
-    case kInteger: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.integer_);
-      break;
-    }
-    // int32 IntValue = 5;
-    case kIntValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_intvalue());
-      break;
-    }
-    // .GameState.Vec2i Vec2iValue = 6;
-    case kVec2IValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.vec2ivalue_);
-      break;
-    }
-    // .Types.TerrainType TerrainValue = 7;
-    case kTerrainValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_terrainvalue());
-      break;
-    }
-    case ENTITY_VAL_NOT_SET: {
-      break;
-    }
-  }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void EntityValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:GameState.EntityValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const EntityValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<EntityValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:GameState.EntityValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:GameState.EntityValue)
-    MergeFrom(*source);
-  }
-}
-
-void EntityValue::MergeFrom(const EntityValue& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:GameState.EntityValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  switch (from.entity_val_case()) {
-    case kPlayer: {
-      _internal_mutable_player()->::GameState::PlayerRef::MergeFrom(from._internal_player());
-      break;
-    }
-    case kCard: {
-      _internal_mutable_card()->::GameState::CardRef::MergeFrom(from._internal_card());
-      break;
-    }
-    case kTile: {
-      _internal_mutable_tile()->::GameState::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kInteger: {
-      _internal_mutable_integer()->::GameState::IntegerRef::MergeFrom(from._internal_integer());
-      break;
-    }
-    case kIntValue: {
-      _internal_set_intvalue(from._internal_intvalue());
-      break;
-    }
-    case kVec2IValue: {
-      _internal_mutable_vec2ivalue()->::GameState::Vec2i::MergeFrom(from._internal_vec2ivalue());
-      break;
-    }
-    case kTerrainValue: {
-      _internal_set_terrainvalue(from._internal_terrainvalue());
-      break;
-    }
-    case ENTITY_VAL_NOT_SET: {
-      break;
-    }
-  }
-}
-
-void EntityValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:GameState.EntityValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void EntityValue::CopyFrom(const EntityValue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:GameState.EntityValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool EntityValue::IsInitialized() const {
-  return true;
-}
-
-void EntityValue::InternalSwap(EntityValue* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(entity_val_, other->entity_val_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata EntityValue::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class Player_Stats::_Internal {
  public:
-  static const ::GameState::IntegerRef& health(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& actions(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& power(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& slow(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& silence(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& disarm(const Player_Stats* msg);
-  static const ::GameState::IntegerRef& initiative(const Player_Stats* msg);
+  static const ::Types::IntegerRef& health(const Player_Stats* msg);
+  static const ::Types::IntegerRef& actions(const Player_Stats* msg);
+  static const ::Types::IntegerRef& power(const Player_Stats* msg);
+  static const ::Types::IntegerRef& slow(const Player_Stats* msg);
+  static const ::Types::IntegerRef& silence(const Player_Stats* msg);
+  static const ::Types::IntegerRef& disarm(const Player_Stats* msg);
+  static const ::Types::IntegerRef& initiative(const Player_Stats* msg);
 };
 
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::health(const Player_Stats* msg) {
   return *msg->health_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::actions(const Player_Stats* msg) {
   return *msg->actions_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::power(const Player_Stats* msg) {
   return *msg->power_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::slow(const Player_Stats* msg) {
   return *msg->slow_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::silence(const Player_Stats* msg) {
   return *msg->silence_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::disarm(const Player_Stats* msg) {
   return *msg->disarm_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Player_Stats::_Internal::initiative(const Player_Stats* msg) {
   return *msg->initiative_;
+}
+void Player_Stats::clear_health() {
+  if (GetArena() == nullptr && health_ != nullptr) {
+    delete health_;
+  }
+  health_ = nullptr;
+}
+void Player_Stats::clear_actions() {
+  if (GetArena() == nullptr && actions_ != nullptr) {
+    delete actions_;
+  }
+  actions_ = nullptr;
+}
+void Player_Stats::clear_power() {
+  if (GetArena() == nullptr && power_ != nullptr) {
+    delete power_;
+  }
+  power_ = nullptr;
+}
+void Player_Stats::clear_slow() {
+  if (GetArena() == nullptr && slow_ != nullptr) {
+    delete slow_;
+  }
+  slow_ = nullptr;
+}
+void Player_Stats::clear_silence() {
+  if (GetArena() == nullptr && silence_ != nullptr) {
+    delete silence_;
+  }
+  silence_ = nullptr;
+}
+void Player_Stats::clear_disarm() {
+  if (GetArena() == nullptr && disarm_ != nullptr) {
+    delete disarm_;
+  }
+  disarm_ = nullptr;
+}
+void Player_Stats::clear_initiative() {
+  if (GetArena() == nullptr && initiative_ != nullptr) {
+    delete initiative_;
+  }
+  initiative_ = nullptr;
 }
 Player_Stats::Player_Stats(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -4142,37 +613,37 @@ Player_Stats::Player_Stats(const Player_Stats& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_health()) {
-    health_ = new ::GameState::IntegerRef(*from.health_);
+    health_ = new ::Types::IntegerRef(*from.health_);
   } else {
     health_ = nullptr;
   }
   if (from._internal_has_actions()) {
-    actions_ = new ::GameState::IntegerRef(*from.actions_);
+    actions_ = new ::Types::IntegerRef(*from.actions_);
   } else {
     actions_ = nullptr;
   }
   if (from._internal_has_power()) {
-    power_ = new ::GameState::IntegerRef(*from.power_);
+    power_ = new ::Types::IntegerRef(*from.power_);
   } else {
     power_ = nullptr;
   }
   if (from._internal_has_slow()) {
-    slow_ = new ::GameState::IntegerRef(*from.slow_);
+    slow_ = new ::Types::IntegerRef(*from.slow_);
   } else {
     slow_ = nullptr;
   }
   if (from._internal_has_silence()) {
-    silence_ = new ::GameState::IntegerRef(*from.silence_);
+    silence_ = new ::Types::IntegerRef(*from.silence_);
   } else {
     silence_ = nullptr;
   }
   if (from._internal_has_disarm()) {
-    disarm_ = new ::GameState::IntegerRef(*from.disarm_);
+    disarm_ = new ::Types::IntegerRef(*from.disarm_);
   } else {
     disarm_ = nullptr;
   }
   if (from._internal_has_initiative()) {
-    initiative_ = new ::GameState::IntegerRef(*from.initiative_);
+    initiative_ = new ::Types::IntegerRef(*from.initiative_);
   } else {
     initiative_ = nullptr;
   }
@@ -4263,49 +734,49 @@ const char* Player_Stats::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .GameState.IntegerRef Health = 1;
+      // .Types.IntegerRef Health = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_health(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Actions = 2;
+      // .Types.IntegerRef Actions = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_actions(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Power = 3;
+      // .Types.IntegerRef Power = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_power(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Slow = 4;
+      // .Types.IntegerRef Slow = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_slow(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Silence = 5;
+      // .Types.IntegerRef Silence = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_silence(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Disarm = 6;
+      // .Types.IntegerRef Disarm = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_disarm(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Initiative = 7;
+      // .Types.IntegerRef Initiative = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_initiative(), ptr);
@@ -4340,7 +811,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .GameState.IntegerRef Health = 1;
+  // .Types.IntegerRef Health = 1;
   if (this->has_health()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4348,7 +819,7 @@ failure:
         1, _Internal::health(this), target, stream);
   }
 
-  // .GameState.IntegerRef Actions = 2;
+  // .Types.IntegerRef Actions = 2;
   if (this->has_actions()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4356,7 +827,7 @@ failure:
         2, _Internal::actions(this), target, stream);
   }
 
-  // .GameState.IntegerRef Power = 3;
+  // .Types.IntegerRef Power = 3;
   if (this->has_power()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4364,7 +835,7 @@ failure:
         3, _Internal::power(this), target, stream);
   }
 
-  // .GameState.IntegerRef Slow = 4;
+  // .Types.IntegerRef Slow = 4;
   if (this->has_slow()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4372,7 +843,7 @@ failure:
         4, _Internal::slow(this), target, stream);
   }
 
-  // .GameState.IntegerRef Silence = 5;
+  // .Types.IntegerRef Silence = 5;
   if (this->has_silence()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4380,7 +851,7 @@ failure:
         5, _Internal::silence(this), target, stream);
   }
 
-  // .GameState.IntegerRef Disarm = 6;
+  // .Types.IntegerRef Disarm = 6;
   if (this->has_disarm()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4388,7 +859,7 @@ failure:
         6, _Internal::disarm(this), target, stream);
   }
 
-  // .GameState.IntegerRef Initiative = 7;
+  // .Types.IntegerRef Initiative = 7;
   if (this->has_initiative()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4412,49 +883,49 @@ size_t Player_Stats::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .GameState.IntegerRef Health = 1;
+  // .Types.IntegerRef Health = 1;
   if (this->has_health()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *health_);
   }
 
-  // .GameState.IntegerRef Actions = 2;
+  // .Types.IntegerRef Actions = 2;
   if (this->has_actions()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *actions_);
   }
 
-  // .GameState.IntegerRef Power = 3;
+  // .Types.IntegerRef Power = 3;
   if (this->has_power()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *power_);
   }
 
-  // .GameState.IntegerRef Slow = 4;
+  // .Types.IntegerRef Slow = 4;
   if (this->has_slow()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *slow_);
   }
 
-  // .GameState.IntegerRef Silence = 5;
+  // .Types.IntegerRef Silence = 5;
   if (this->has_silence()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *silence_);
   }
 
-  // .GameState.IntegerRef Disarm = 6;
+  // .Types.IntegerRef Disarm = 6;
   if (this->has_disarm()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *disarm_);
   }
 
-  // .GameState.IntegerRef Initiative = 7;
+  // .Types.IntegerRef Initiative = 7;
   if (this->has_initiative()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -4493,25 +964,25 @@ void Player_Stats::MergeFrom(const Player_Stats& from) {
   (void) cached_has_bits;
 
   if (from.has_health()) {
-    _internal_mutable_health()->::GameState::IntegerRef::MergeFrom(from._internal_health());
+    _internal_mutable_health()->::Types::IntegerRef::MergeFrom(from._internal_health());
   }
   if (from.has_actions()) {
-    _internal_mutable_actions()->::GameState::IntegerRef::MergeFrom(from._internal_actions());
+    _internal_mutable_actions()->::Types::IntegerRef::MergeFrom(from._internal_actions());
   }
   if (from.has_power()) {
-    _internal_mutable_power()->::GameState::IntegerRef::MergeFrom(from._internal_power());
+    _internal_mutable_power()->::Types::IntegerRef::MergeFrom(from._internal_power());
   }
   if (from.has_slow()) {
-    _internal_mutable_slow()->::GameState::IntegerRef::MergeFrom(from._internal_slow());
+    _internal_mutable_slow()->::Types::IntegerRef::MergeFrom(from._internal_slow());
   }
   if (from.has_silence()) {
-    _internal_mutable_silence()->::GameState::IntegerRef::MergeFrom(from._internal_silence());
+    _internal_mutable_silence()->::Types::IntegerRef::MergeFrom(from._internal_silence());
   }
   if (from.has_disarm()) {
-    _internal_mutable_disarm()->::GameState::IntegerRef::MergeFrom(from._internal_disarm());
+    _internal_mutable_disarm()->::Types::IntegerRef::MergeFrom(from._internal_disarm());
   }
   if (from.has_initiative()) {
-    _internal_mutable_initiative()->::GameState::IntegerRef::MergeFrom(from._internal_initiative());
+    _internal_mutable_initiative()->::Types::IntegerRef::MergeFrom(from._internal_initiative());
   }
 }
 
@@ -4555,7 +1026,7 @@ class Player::_Internal {
  public:
   static const ::GameState::Player_Stats& state(const Player* msg);
   static const ::GameState::Player_Stats& maxstate(const Player* msg);
-  static const ::GameState::Vec2iRef& position(const Player* msg);
+  static const ::Types::Vec2iRef& position(const Player* msg);
 };
 
 const ::GameState::Player_Stats&
@@ -4566,9 +1037,30 @@ const ::GameState::Player_Stats&
 Player::_Internal::maxstate(const Player* msg) {
   return *msg->maxstate_;
 }
-const ::GameState::Vec2iRef&
+const ::Types::Vec2iRef&
 Player::_Internal::position(const Player* msg) {
   return *msg->position_;
+}
+void Player::clear_field() {
+  field_.Clear();
+}
+void Player::clear_hand() {
+  hand_.Clear();
+}
+void Player::clear_deck() {
+  deck_.Clear();
+}
+void Player::clear_discard() {
+  discard_.Clear();
+}
+void Player::clear_feats() {
+  feats_.Clear();
+}
+void Player::clear_position() {
+  if (GetArena() == nullptr && position_ != nullptr) {
+    delete position_;
+  }
+  position_ = nullptr;
 }
 Player::Player(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
@@ -4610,7 +1102,7 @@ Player::Player(const Player& from)
     maxstate_ = nullptr;
   }
   if (from._internal_has_position()) {
-    position_ = new ::GameState::Vec2iRef(*from.position_);
+    position_ = new ::Types::Vec2iRef(*from.position_);
   } else {
     position_ = nullptr;
   }
@@ -4710,7 +1202,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Field = 3;
+      // repeated .Types.CardRef Field = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -4722,7 +1214,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Hand = 4;
+      // repeated .Types.CardRef Hand = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -4734,7 +1226,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Deck = 5;
+      // repeated .Types.CardRef Deck = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -4746,7 +1238,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Discard = 6;
+      // repeated .Types.CardRef Discard = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -4758,7 +1250,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Feats = 7;
+      // repeated .Types.CardRef Feats = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -4784,7 +1276,7 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.Vec2iRef Position = 10;
+      // .Types.Vec2iRef Position = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
@@ -4839,7 +1331,7 @@ failure:
         2, this->_internal_uid(), target);
   }
 
-  // repeated .GameState.CardRef Field = 3;
+  // repeated .Types.CardRef Field = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_field_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4847,7 +1339,7 @@ failure:
       InternalWriteMessage(3, this->_internal_field(i), target, stream);
   }
 
-  // repeated .GameState.CardRef Hand = 4;
+  // repeated .Types.CardRef Hand = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_hand_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4855,7 +1347,7 @@ failure:
       InternalWriteMessage(4, this->_internal_hand(i), target, stream);
   }
 
-  // repeated .GameState.CardRef Deck = 5;
+  // repeated .Types.CardRef Deck = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_deck_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4863,7 +1355,7 @@ failure:
       InternalWriteMessage(5, this->_internal_deck(i), target, stream);
   }
 
-  // repeated .GameState.CardRef Discard = 6;
+  // repeated .Types.CardRef Discard = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_discard_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4871,7 +1363,7 @@ failure:
       InternalWriteMessage(6, this->_internal_discard(i), target, stream);
   }
 
-  // repeated .GameState.CardRef Feats = 7;
+  // repeated .Types.CardRef Feats = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_feats_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4895,7 +1387,7 @@ failure:
         9, _Internal::maxstate(this), target, stream);
   }
 
-  // .GameState.Vec2iRef Position = 10;
+  // .Types.Vec2iRef Position = 10;
   if (this->has_position()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4919,35 +1411,35 @@ size_t Player::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GameState.CardRef Field = 3;
+  // repeated .Types.CardRef Field = 3;
   total_size += 1UL * this->_internal_field_size();
   for (const auto& msg : this->field_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .GameState.CardRef Hand = 4;
+  // repeated .Types.CardRef Hand = 4;
   total_size += 1UL * this->_internal_hand_size();
   for (const auto& msg : this->hand_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .GameState.CardRef Deck = 5;
+  // repeated .Types.CardRef Deck = 5;
   total_size += 1UL * this->_internal_deck_size();
   for (const auto& msg : this->deck_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .GameState.CardRef Discard = 6;
+  // repeated .Types.CardRef Discard = 6;
   total_size += 1UL * this->_internal_discard_size();
   for (const auto& msg : this->discard_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .GameState.CardRef Feats = 7;
+  // repeated .Types.CardRef Feats = 7;
   total_size += 1UL * this->_internal_feats_size();
   for (const auto& msg : this->feats_) {
     total_size +=
@@ -4982,7 +1474,7 @@ size_t Player::ByteSizeLong() const {
         *maxstate_);
   }
 
-  // .GameState.Vec2iRef Position = 10;
+  // .Types.Vec2iRef Position = 10;
   if (this->has_position()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -5038,7 +1530,7 @@ void Player::MergeFrom(const Player& from) {
     _internal_mutable_maxstate()->::GameState::Player_Stats::MergeFrom(from._internal_maxstate());
   }
   if (from.has_position()) {
-    _internal_mutable_position()->::GameState::Vec2iRef::MergeFrom(from._internal_position());
+    _internal_mutable_position()->::Types::Vec2iRef::MergeFrom(from._internal_position());
   }
 }
 
@@ -5087,12 +1579,24 @@ void Player::InternalSwap(Player* other) {
 
 class Tile::_Internal {
  public:
-  static const ::GameState::Vec2i& position(const Tile* msg);
+  static const ::Types::Vec2i& position(const Tile* msg);
 };
 
-const ::GameState::Vec2i&
+const ::Types::Vec2i&
 Tile::_Internal::position(const Tile* msg) {
   return *msg->position_;
+}
+void Tile::clear_position() {
+  if (GetArena() == nullptr && position_ != nullptr) {
+    delete position_;
+  }
+  position_ = nullptr;
+}
+void Tile::clear_players() {
+  players_.Clear();
+}
+void Tile::clear_cards() {
+  cards_.Clear();
 }
 Tile::Tile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
@@ -5108,7 +1612,7 @@ Tile::Tile(const Tile& from)
       cards_(from.cards_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_position()) {
-    position_ = new ::GameState::Vec2i(*from.position_);
+    position_ = new ::Types::Vec2i(*from.position_);
   } else {
     position_ = nullptr;
   }
@@ -5173,7 +1677,7 @@ const char* Tile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .GameState.Vec2i Position = 1;
+      // .Types.Vec2i Position = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
@@ -5188,7 +1692,7 @@ const char* Tile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           _internal_set_terrain(static_cast<::Types::TerrainType>(val));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.PlayerRef Players = 3;
+      // repeated .Types.PlayerRef Players = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -5200,7 +1704,7 @@ const char* Tile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .GameState.CardRef Cards = 4;
+      // repeated .Types.CardRef Cards = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -5240,7 +1744,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .GameState.Vec2i Position = 1;
+  // .Types.Vec2i Position = 1;
   if (this->has_position()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5255,7 +1759,7 @@ failure:
       2, this->_internal_terrain(), target);
   }
 
-  // repeated .GameState.PlayerRef Players = 3;
+  // repeated .Types.PlayerRef Players = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_players_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -5263,7 +1767,7 @@ failure:
       InternalWriteMessage(3, this->_internal_players(i), target, stream);
   }
 
-  // repeated .GameState.CardRef Cards = 4;
+  // repeated .Types.CardRef Cards = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_cards_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -5287,21 +1791,21 @@ size_t Tile::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GameState.PlayerRef Players = 3;
+  // repeated .Types.PlayerRef Players = 3;
   total_size += 1UL * this->_internal_players_size();
   for (const auto& msg : this->players_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .GameState.CardRef Cards = 4;
+  // repeated .Types.CardRef Cards = 4;
   total_size += 1UL * this->_internal_cards_size();
   for (const auto& msg : this->cards_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .GameState.Vec2i Position = 1;
+  // .Types.Vec2i Position = 1;
   if (this->has_position()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -5348,7 +1852,7 @@ void Tile::MergeFrom(const Tile& from) {
   players_.MergeFrom(from.players_);
   cards_.MergeFrom(from.cards_);
   if (from.has_position()) {
-    _internal_mutable_position()->::GameState::Vec2i::MergeFrom(from._internal_position());
+    _internal_mutable_position()->::Types::Vec2i::MergeFrom(from._internal_position());
   }
   if (from.terrain() != 0) {
     _internal_set_terrain(from._internal_terrain());
@@ -5395,15 +1899,15 @@ void Tile::InternalSwap(Tile* other) {
 
 class Card::_Internal {
  public:
-  static const ::GameState::PlayerRef& owner(const Card* msg);
-  static const ::GameState::PlayerRef& controller(const Card* msg);
-  static const ::GameState::IntegerRef& actioncost(const Card* msg);
-  static const ::GameState::IntegerRef& powercost(const Card* msg);
-  static const ::GameState::IntegerRef& range(const Card* msg);
-  static const ::GameState::EntityRef& attached(const Card* msg);
-  static const ::GameState::IntegerRef& affectedbyslow(const Card* msg);
-  static const ::GameState::IntegerRef& affectedbysilence(const Card* msg);
-  static const ::GameState::IntegerRef& affectedbydisarm(const Card* msg);
+  static const ::Types::PlayerRef& owner(const Card* msg);
+  static const ::Types::PlayerRef& controller(const Card* msg);
+  static const ::Types::IntegerRef& actioncost(const Card* msg);
+  static const ::Types::IntegerRef& powercost(const Card* msg);
+  static const ::Types::IntegerRef& range(const Card* msg);
+  static const ::Types::EntityRef& attached(const Card* msg);
+  static const ::Types::IntegerRef& affectedbyslow(const Card* msg);
+  static const ::Types::IntegerRef& affectedbysilence(const Card* msg);
+  static const ::Types::IntegerRef& affectedbydisarm(const Card* msg);
   static const ::Effects::CardEffect& omnipresenteffect(const Card* msg);
   static const ::Effects::CardEffect& passiveeffect(const Card* msg);
   static const ::Effects::CardEffect& feateffect(const Card* msg);
@@ -5411,39 +1915,39 @@ class Card::_Internal {
   static const ::Effects::CardEffect& resolveeffect(const Card* msg);
 };
 
-const ::GameState::PlayerRef&
+const ::Types::PlayerRef&
 Card::_Internal::owner(const Card* msg) {
   return *msg->owner_;
 }
-const ::GameState::PlayerRef&
+const ::Types::PlayerRef&
 Card::_Internal::controller(const Card* msg) {
   return *msg->controller_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::actioncost(const Card* msg) {
   return *msg->actioncost_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::powercost(const Card* msg) {
   return *msg->powercost_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::range(const Card* msg) {
   return *msg->range_;
 }
-const ::GameState::EntityRef&
+const ::Types::EntityRef&
 Card::_Internal::attached(const Card* msg) {
   return *msg->attached_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::affectedbyslow(const Card* msg) {
   return *msg->affectedbyslow_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::affectedbysilence(const Card* msg) {
   return *msg->affectedbysilence_;
 }
-const ::GameState::IntegerRef&
+const ::Types::IntegerRef&
 Card::_Internal::affectedbydisarm(const Card* msg) {
   return *msg->affectedbydisarm_;
 }
@@ -5466,6 +1970,60 @@ Card::_Internal::playeffect(const Card* msg) {
 const ::Effects::CardEffect&
 Card::_Internal::resolveeffect(const Card* msg) {
   return *msg->resolveeffect_;
+}
+void Card::clear_owner() {
+  if (GetArena() == nullptr && owner_ != nullptr) {
+    delete owner_;
+  }
+  owner_ = nullptr;
+}
+void Card::clear_controller() {
+  if (GetArena() == nullptr && controller_ != nullptr) {
+    delete controller_;
+  }
+  controller_ = nullptr;
+}
+void Card::clear_actioncost() {
+  if (GetArena() == nullptr && actioncost_ != nullptr) {
+    delete actioncost_;
+  }
+  actioncost_ = nullptr;
+}
+void Card::clear_powercost() {
+  if (GetArena() == nullptr && powercost_ != nullptr) {
+    delete powercost_;
+  }
+  powercost_ = nullptr;
+}
+void Card::clear_range() {
+  if (GetArena() == nullptr && range_ != nullptr) {
+    delete range_;
+  }
+  range_ = nullptr;
+}
+void Card::clear_attached() {
+  if (GetArena() == nullptr && attached_ != nullptr) {
+    delete attached_;
+  }
+  attached_ = nullptr;
+}
+void Card::clear_affectedbyslow() {
+  if (GetArena() == nullptr && affectedbyslow_ != nullptr) {
+    delete affectedbyslow_;
+  }
+  affectedbyslow_ = nullptr;
+}
+void Card::clear_affectedbysilence() {
+  if (GetArena() == nullptr && affectedbysilence_ != nullptr) {
+    delete affectedbysilence_;
+  }
+  affectedbysilence_ = nullptr;
+}
+void Card::clear_affectedbydisarm() {
+  if (GetArena() == nullptr && affectedbydisarm_ != nullptr) {
+    delete affectedbydisarm_;
+  }
+  affectedbydisarm_ = nullptr;
 }
 void Card::clear_omnipresenteffect() {
   if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
@@ -5519,47 +2077,47 @@ Card::Card(const Card& from)
       GetArena());
   }
   if (from._internal_has_owner()) {
-    owner_ = new ::GameState::PlayerRef(*from.owner_);
+    owner_ = new ::Types::PlayerRef(*from.owner_);
   } else {
     owner_ = nullptr;
   }
   if (from._internal_has_controller()) {
-    controller_ = new ::GameState::PlayerRef(*from.controller_);
+    controller_ = new ::Types::PlayerRef(*from.controller_);
   } else {
     controller_ = nullptr;
   }
   if (from._internal_has_actioncost()) {
-    actioncost_ = new ::GameState::IntegerRef(*from.actioncost_);
+    actioncost_ = new ::Types::IntegerRef(*from.actioncost_);
   } else {
     actioncost_ = nullptr;
   }
   if (from._internal_has_powercost()) {
-    powercost_ = new ::GameState::IntegerRef(*from.powercost_);
+    powercost_ = new ::Types::IntegerRef(*from.powercost_);
   } else {
     powercost_ = nullptr;
   }
   if (from._internal_has_range()) {
-    range_ = new ::GameState::IntegerRef(*from.range_);
+    range_ = new ::Types::IntegerRef(*from.range_);
   } else {
     range_ = nullptr;
   }
   if (from._internal_has_attached()) {
-    attached_ = new ::GameState::EntityRef(*from.attached_);
+    attached_ = new ::Types::EntityRef(*from.attached_);
   } else {
     attached_ = nullptr;
   }
   if (from._internal_has_affectedbyslow()) {
-    affectedbyslow_ = new ::GameState::IntegerRef(*from.affectedbyslow_);
+    affectedbyslow_ = new ::Types::IntegerRef(*from.affectedbyslow_);
   } else {
     affectedbyslow_ = nullptr;
   }
   if (from._internal_has_affectedbysilence()) {
-    affectedbysilence_ = new ::GameState::IntegerRef(*from.affectedbysilence_);
+    affectedbysilence_ = new ::Types::IntegerRef(*from.affectedbysilence_);
   } else {
     affectedbysilence_ = nullptr;
   }
   if (from._internal_has_affectedbydisarm()) {
-    affectedbydisarm_ = new ::GameState::IntegerRef(*from.affectedbydisarm_);
+    affectedbydisarm_ = new ::Types::IntegerRef(*from.affectedbydisarm_);
   } else {
     affectedbydisarm_ = nullptr;
   }
@@ -5773,63 +2331,63 @@ const char* Card::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           _internal_add_colors(static_cast<::GameState::Card_Color>(val));
         } else goto handle_unusual;
         continue;
-      // .GameState.PlayerRef Owner = 7;
+      // .Types.PlayerRef Owner = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_owner(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.PlayerRef Controller = 8;
+      // .Types.PlayerRef Controller = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_controller(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef ActionCost = 9;
+      // .Types.IntegerRef ActionCost = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_actioncost(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef PowerCost = 10;
+      // .Types.IntegerRef PowerCost = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_powercost(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef Range = 11;
+      // .Types.IntegerRef Range = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_range(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.EntityRef Attached = 12;
+      // .Types.EntityRef Attached = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_attached(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef AffectedBySlow = 13;
+      // .Types.IntegerRef AffectedBySlow = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_affectedbyslow(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef AffectedBySilence = 14;
+      // .Types.IntegerRef AffectedBySilence = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           ptr = ctx->ParseMessage(_internal_mutable_affectedbysilence(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.IntegerRef AffectedByDisarm = 15;
+      // .Types.IntegerRef AffectedByDisarm = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_affectedbydisarm(), ptr);
@@ -5946,7 +2504,7 @@ failure:
     }
   }
 
-  // .GameState.PlayerRef Owner = 7;
+  // .Types.PlayerRef Owner = 7;
   if (this->has_owner()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5954,7 +2512,7 @@ failure:
         7, _Internal::owner(this), target, stream);
   }
 
-  // .GameState.PlayerRef Controller = 8;
+  // .Types.PlayerRef Controller = 8;
   if (this->has_controller()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5962,7 +2520,7 @@ failure:
         8, _Internal::controller(this), target, stream);
   }
 
-  // .GameState.IntegerRef ActionCost = 9;
+  // .Types.IntegerRef ActionCost = 9;
   if (this->has_actioncost()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5970,7 +2528,7 @@ failure:
         9, _Internal::actioncost(this), target, stream);
   }
 
-  // .GameState.IntegerRef PowerCost = 10;
+  // .Types.IntegerRef PowerCost = 10;
   if (this->has_powercost()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5978,7 +2536,7 @@ failure:
         10, _Internal::powercost(this), target, stream);
   }
 
-  // .GameState.IntegerRef Range = 11;
+  // .Types.IntegerRef Range = 11;
   if (this->has_range()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5986,7 +2544,7 @@ failure:
         11, _Internal::range(this), target, stream);
   }
 
-  // .GameState.EntityRef Attached = 12;
+  // .Types.EntityRef Attached = 12;
   if (this->has_attached()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5994,7 +2552,7 @@ failure:
         12, _Internal::attached(this), target, stream);
   }
 
-  // .GameState.IntegerRef AffectedBySlow = 13;
+  // .Types.IntegerRef AffectedBySlow = 13;
   if (this->has_affectedbyslow()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6002,7 +2560,7 @@ failure:
         13, _Internal::affectedbyslow(this), target, stream);
   }
 
-  // .GameState.IntegerRef AffectedBySilence = 14;
+  // .Types.IntegerRef AffectedBySilence = 14;
   if (this->has_affectedbysilence()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6010,7 +2568,7 @@ failure:
         14, _Internal::affectedbysilence(this), target, stream);
   }
 
-  // .GameState.IntegerRef AffectedByDisarm = 15;
+  // .Types.IntegerRef AffectedByDisarm = 15;
   if (this->has_affectedbydisarm()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6106,63 +2664,63 @@ size_t Card::ByteSizeLong() const {
         this->_internal_archetype());
   }
 
-  // .GameState.PlayerRef Owner = 7;
+  // .Types.PlayerRef Owner = 7;
   if (this->has_owner()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *owner_);
   }
 
-  // .GameState.PlayerRef Controller = 8;
+  // .Types.PlayerRef Controller = 8;
   if (this->has_controller()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *controller_);
   }
 
-  // .GameState.IntegerRef ActionCost = 9;
+  // .Types.IntegerRef ActionCost = 9;
   if (this->has_actioncost()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *actioncost_);
   }
 
-  // .GameState.IntegerRef PowerCost = 10;
+  // .Types.IntegerRef PowerCost = 10;
   if (this->has_powercost()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *powercost_);
   }
 
-  // .GameState.IntegerRef Range = 11;
+  // .Types.IntegerRef Range = 11;
   if (this->has_range()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *range_);
   }
 
-  // .GameState.EntityRef Attached = 12;
+  // .Types.EntityRef Attached = 12;
   if (this->has_attached()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *attached_);
   }
 
-  // .GameState.IntegerRef AffectedBySlow = 13;
+  // .Types.IntegerRef AffectedBySlow = 13;
   if (this->has_affectedbyslow()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *affectedbyslow_);
   }
 
-  // .GameState.IntegerRef AffectedBySilence = 14;
+  // .Types.IntegerRef AffectedBySilence = 14;
   if (this->has_affectedbysilence()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *affectedbysilence_);
   }
 
-  // .GameState.IntegerRef AffectedByDisarm = 15;
+  // .Types.IntegerRef AffectedByDisarm = 15;
   if (this->has_affectedbydisarm()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -6258,31 +2816,31 @@ void Card::MergeFrom(const Card& from) {
     _internal_set_archetype(from._internal_archetype());
   }
   if (from.has_owner()) {
-    _internal_mutable_owner()->::GameState::PlayerRef::MergeFrom(from._internal_owner());
+    _internal_mutable_owner()->::Types::PlayerRef::MergeFrom(from._internal_owner());
   }
   if (from.has_controller()) {
-    _internal_mutable_controller()->::GameState::PlayerRef::MergeFrom(from._internal_controller());
+    _internal_mutable_controller()->::Types::PlayerRef::MergeFrom(from._internal_controller());
   }
   if (from.has_actioncost()) {
-    _internal_mutable_actioncost()->::GameState::IntegerRef::MergeFrom(from._internal_actioncost());
+    _internal_mutable_actioncost()->::Types::IntegerRef::MergeFrom(from._internal_actioncost());
   }
   if (from.has_powercost()) {
-    _internal_mutable_powercost()->::GameState::IntegerRef::MergeFrom(from._internal_powercost());
+    _internal_mutable_powercost()->::Types::IntegerRef::MergeFrom(from._internal_powercost());
   }
   if (from.has_range()) {
-    _internal_mutable_range()->::GameState::IntegerRef::MergeFrom(from._internal_range());
+    _internal_mutable_range()->::Types::IntegerRef::MergeFrom(from._internal_range());
   }
   if (from.has_attached()) {
-    _internal_mutable_attached()->::GameState::EntityRef::MergeFrom(from._internal_attached());
+    _internal_mutable_attached()->::Types::EntityRef::MergeFrom(from._internal_attached());
   }
   if (from.has_affectedbyslow()) {
-    _internal_mutable_affectedbyslow()->::GameState::IntegerRef::MergeFrom(from._internal_affectedbyslow());
+    _internal_mutable_affectedbyslow()->::Types::IntegerRef::MergeFrom(from._internal_affectedbyslow());
   }
   if (from.has_affectedbysilence()) {
-    _internal_mutable_affectedbysilence()->::GameState::IntegerRef::MergeFrom(from._internal_affectedbysilence());
+    _internal_mutable_affectedbysilence()->::Types::IntegerRef::MergeFrom(from._internal_affectedbysilence());
   }
   if (from.has_affectedbydisarm()) {
-    _internal_mutable_affectedbydisarm()->::GameState::IntegerRef::MergeFrom(from._internal_affectedbydisarm());
+    _internal_mutable_affectedbydisarm()->::Types::IntegerRef::MergeFrom(from._internal_affectedbydisarm());
   }
   if (from.has_omnipresenteffect()) {
     _internal_mutable_omnipresenteffect()->::Effects::CardEffect::MergeFrom(from._internal_omnipresenteffect());
@@ -6353,6 +2911,9 @@ class Team::_Internal {
  public:
 };
 
+void Team::clear_players() {
+  players_.Clear();
+}
 Team::Team(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   players_(arena) {
@@ -6413,7 +2974,7 @@ const char* Team::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GameState.PlayerRef Players = 1;
+      // repeated .Types.PlayerRef Players = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -6453,7 +3014,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GameState.PlayerRef Players = 1;
+  // repeated .Types.PlayerRef Players = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_players_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -6477,7 +3038,7 @@ size_t Team::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GameState.PlayerRef Players = 1;
+  // repeated .Types.PlayerRef Players = 1;
   total_size += 1UL * this->_internal_players_size();
   for (const auto& msg : this->players_) {
     total_size +=
@@ -6551,22 +3112,40 @@ void Team::InternalSwap(Team* other) {
 
 class SetMutation::_Internal {
  public:
-  static const ::GameState::EntityRef& object(const SetMutation* msg);
-  static const ::GameState::EntityValue& newvalue(const SetMutation* msg);
-  static const ::GameState::EntityValue& oldvalue(const SetMutation* msg);
+  static const ::Types::EntityRef& object(const SetMutation* msg);
+  static const ::Types::EntityValue& newvalue(const SetMutation* msg);
+  static const ::Types::EntityValue& oldvalue(const SetMutation* msg);
 };
 
-const ::GameState::EntityRef&
+const ::Types::EntityRef&
 SetMutation::_Internal::object(const SetMutation* msg) {
   return *msg->object_;
 }
-const ::GameState::EntityValue&
+const ::Types::EntityValue&
 SetMutation::_Internal::newvalue(const SetMutation* msg) {
   return *msg->newvalue_;
 }
-const ::GameState::EntityValue&
+const ::Types::EntityValue&
 SetMutation::_Internal::oldvalue(const SetMutation* msg) {
   return *msg->oldvalue_;
+}
+void SetMutation::clear_object() {
+  if (GetArena() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+void SetMutation::clear_newvalue() {
+  if (GetArena() == nullptr && newvalue_ != nullptr) {
+    delete newvalue_;
+  }
+  newvalue_ = nullptr;
+}
+void SetMutation::clear_oldvalue() {
+  if (GetArena() == nullptr && oldvalue_ != nullptr) {
+    delete oldvalue_;
+  }
+  oldvalue_ = nullptr;
 }
 SetMutation::SetMutation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -6578,17 +3157,17 @@ SetMutation::SetMutation(const SetMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::GameState::EntityRef(*from.object_);
+    object_ = new ::Types::EntityRef(*from.object_);
   } else {
     object_ = nullptr;
   }
   if (from._internal_has_newvalue()) {
-    newvalue_ = new ::GameState::EntityValue(*from.newvalue_);
+    newvalue_ = new ::Types::EntityValue(*from.newvalue_);
   } else {
     newvalue_ = nullptr;
   }
   if (from._internal_has_oldvalue()) {
-    oldvalue_ = new ::GameState::EntityValue(*from.oldvalue_);
+    oldvalue_ = new ::Types::EntityValue(*from.oldvalue_);
   } else {
     oldvalue_ = nullptr;
   }
@@ -6659,21 +3238,21 @@ const char* SetMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .GameState.EntityRef Object = 1;
+      // .Types.EntityRef Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.EntityValue NewValue = 2;
+      // .Types.EntityValue NewValue = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_newvalue(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.EntityValue OldValue = 3;
+      // .Types.EntityValue OldValue = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_oldvalue(), ptr);
@@ -6708,7 +3287,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6716,7 +3295,7 @@ failure:
         1, _Internal::object(this), target, stream);
   }
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   if (this->has_newvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6724,7 +3303,7 @@ failure:
         2, _Internal::newvalue(this), target, stream);
   }
 
-  // .GameState.EntityValue OldValue = 3;
+  // .Types.EntityValue OldValue = 3;
   if (this->has_oldvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6748,21 +3327,21 @@ size_t SetMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *object_);
   }
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   if (this->has_newvalue()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *newvalue_);
   }
 
-  // .GameState.EntityValue OldValue = 3;
+  // .Types.EntityValue OldValue = 3;
   if (this->has_oldvalue()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -6801,13 +3380,13 @@ void SetMutation::MergeFrom(const SetMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::GameState::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
   }
   if (from.has_newvalue()) {
-    _internal_mutable_newvalue()->::GameState::EntityValue::MergeFrom(from._internal_newvalue());
+    _internal_mutable_newvalue()->::Types::EntityValue::MergeFrom(from._internal_newvalue());
   }
   if (from.has_oldvalue()) {
-    _internal_mutable_oldvalue()->::GameState::EntityValue::MergeFrom(from._internal_oldvalue());
+    _internal_mutable_oldvalue()->::Types::EntityValue::MergeFrom(from._internal_oldvalue());
   }
 }
 
@@ -6849,17 +3428,29 @@ void SetMutation::InternalSwap(SetMutation* other) {
 
 class RemoveMutation::_Internal {
  public:
-  static const ::GameState::EntityRef& object(const RemoveMutation* msg);
-  static const ::GameState::EntityValue& oldvalue(const RemoveMutation* msg);
+  static const ::Types::EntityRef& object(const RemoveMutation* msg);
+  static const ::Types::EntityValue& oldvalue(const RemoveMutation* msg);
 };
 
-const ::GameState::EntityRef&
+const ::Types::EntityRef&
 RemoveMutation::_Internal::object(const RemoveMutation* msg) {
   return *msg->object_;
 }
-const ::GameState::EntityValue&
+const ::Types::EntityValue&
 RemoveMutation::_Internal::oldvalue(const RemoveMutation* msg) {
   return *msg->oldvalue_;
+}
+void RemoveMutation::clear_object() {
+  if (GetArena() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+void RemoveMutation::clear_oldvalue() {
+  if (GetArena() == nullptr && oldvalue_ != nullptr) {
+    delete oldvalue_;
+  }
+  oldvalue_ = nullptr;
 }
 RemoveMutation::RemoveMutation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -6871,12 +3462,12 @@ RemoveMutation::RemoveMutation(const RemoveMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::GameState::EntityRef(*from.object_);
+    object_ = new ::Types::EntityRef(*from.object_);
   } else {
     object_ = nullptr;
   }
   if (from._internal_has_oldvalue()) {
-    oldvalue_ = new ::GameState::EntityValue(*from.oldvalue_);
+    oldvalue_ = new ::Types::EntityValue(*from.oldvalue_);
   } else {
     oldvalue_ = nullptr;
   }
@@ -6942,14 +3533,14 @@ const char* RemoveMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .GameState.EntityRef Object = 1;
+      // .Types.EntityRef Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.EntityValue OldValue = 2;
+      // .Types.EntityValue OldValue = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_oldvalue(), ptr);
@@ -6984,7 +3575,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6992,7 +3583,7 @@ failure:
         1, _Internal::object(this), target, stream);
   }
 
-  // .GameState.EntityValue OldValue = 2;
+  // .Types.EntityValue OldValue = 2;
   if (this->has_oldvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -7016,14 +3607,14 @@ size_t RemoveMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *object_);
   }
 
-  // .GameState.EntityValue OldValue = 2;
+  // .Types.EntityValue OldValue = 2;
   if (this->has_oldvalue()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -7062,10 +3653,10 @@ void RemoveMutation::MergeFrom(const RemoveMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::GameState::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
   }
   if (from.has_oldvalue()) {
-    _internal_mutable_oldvalue()->::GameState::EntityValue::MergeFrom(from._internal_oldvalue());
+    _internal_mutable_oldvalue()->::Types::EntityValue::MergeFrom(from._internal_oldvalue());
   }
 }
 
@@ -7107,17 +3698,29 @@ void RemoveMutation::InternalSwap(RemoveMutation* other) {
 
 class InsertMutation::_Internal {
  public:
-  static const ::GameState::EntityRef& object(const InsertMutation* msg);
-  static const ::GameState::EntityValue& newvalue(const InsertMutation* msg);
+  static const ::Types::EntityRef& object(const InsertMutation* msg);
+  static const ::Types::EntityValue& newvalue(const InsertMutation* msg);
 };
 
-const ::GameState::EntityRef&
+const ::Types::EntityRef&
 InsertMutation::_Internal::object(const InsertMutation* msg) {
   return *msg->object_;
 }
-const ::GameState::EntityValue&
+const ::Types::EntityValue&
 InsertMutation::_Internal::newvalue(const InsertMutation* msg) {
   return *msg->newvalue_;
+}
+void InsertMutation::clear_object() {
+  if (GetArena() == nullptr && object_ != nullptr) {
+    delete object_;
+  }
+  object_ = nullptr;
+}
+void InsertMutation::clear_newvalue() {
+  if (GetArena() == nullptr && newvalue_ != nullptr) {
+    delete newvalue_;
+  }
+  newvalue_ = nullptr;
 }
 InsertMutation::InsertMutation(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -7129,12 +3732,12 @@ InsertMutation::InsertMutation(const InsertMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::GameState::EntityRef(*from.object_);
+    object_ = new ::Types::EntityRef(*from.object_);
   } else {
     object_ = nullptr;
   }
   if (from._internal_has_newvalue()) {
-    newvalue_ = new ::GameState::EntityValue(*from.newvalue_);
+    newvalue_ = new ::Types::EntityValue(*from.newvalue_);
   } else {
     newvalue_ = nullptr;
   }
@@ -7200,14 +3803,14 @@ const char* InsertMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .GameState.EntityRef Object = 1;
+      // .Types.EntityRef Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.EntityValue NewValue = 2;
+      // .Types.EntityValue NewValue = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_newvalue(), ptr);
@@ -7242,7 +3845,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -7250,7 +3853,7 @@ failure:
         1, _Internal::object(this), target, stream);
   }
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   if (this->has_newvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -7274,14 +3877,14 @@ size_t InsertMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *object_);
   }
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   if (this->has_newvalue()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -7320,10 +3923,10 @@ void InsertMutation::MergeFrom(const InsertMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::GameState::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
   }
   if (from.has_newvalue()) {
-    _internal_mutable_newvalue()->::GameState::EntityValue::MergeFrom(from._internal_newvalue());
+    _internal_mutable_newvalue()->::Types::EntityValue::MergeFrom(from._internal_newvalue());
   }
 }
 
@@ -7735,12 +4338,18 @@ void Mutation::InternalSwap(Mutation* other) {
 
 class GameState::_Internal {
  public:
-  static const ::GameState::Integer& turnnumber(const GameState* msg);
+  static const ::Types::Integer& turnnumber(const GameState* msg);
 };
 
-const ::GameState::Integer&
+const ::Types::Integer&
 GameState::_Internal::turnnumber(const GameState* msg) {
   return *msg->turnnumber_;
+}
+void GameState::clear_turnnumber() {
+  if (GetArena() == nullptr && turnnumber_ != nullptr) {
+    delete turnnumber_;
+  }
+  turnnumber_ = nullptr;
 }
 GameState::GameState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
@@ -7762,7 +4371,7 @@ GameState::GameState(const GameState& from)
       stack_(from.stack_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_turnnumber()) {
-    turnnumber_ = new ::GameState::Integer(*from.turnnumber_);
+    turnnumber_ = new ::Types::Integer(*from.turnnumber_);
   } else {
     turnnumber_ = nullptr;
   }
@@ -7873,7 +4482,7 @@ const char* GameState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // .GameState.Integer TurnNumber = 6;
+      // .Types.Integer TurnNumber = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_turnnumber(), ptr);
@@ -7952,7 +4561,7 @@ failure:
       InternalWriteMessage(4, this->_internal_teams(i), target, stream);
   }
 
-  // .GameState.Integer TurnNumber = 6;
+  // .Types.Integer TurnNumber = 6;
   if (this->has_turnnumber()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -8019,7 +4628,7 @@ size_t GameState::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .GameState.Integer TurnNumber = 6;
+  // .Types.Integer TurnNumber = 6;
   if (this->has_turnnumber()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -8063,7 +4672,7 @@ void GameState::MergeFrom(const GameState& from) {
   teams_.MergeFrom(from.teams_);
   stack_.MergeFrom(from.stack_);
   if (from.has_turnnumber()) {
-    _internal_mutable_turnnumber()->::GameState::Integer::MergeFrom(from._internal_turnnumber());
+    _internal_mutable_turnnumber()->::Types::Integer::MergeFrom(from._internal_turnnumber());
   }
 }
 
@@ -8346,42 +4955,6 @@ void GameInstance::InternalSwap(GameInstance* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace GameState
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::GameState::Path* Arena::CreateMaybeMessage< ::GameState::Path >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::Path >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::Integer* Arena::CreateMaybeMessage< ::GameState::Integer >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::Integer >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::Vec2i* Arena::CreateMaybeMessage< ::GameState::Vec2i >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::Vec2i >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::PlayerRef* Arena::CreateMaybeMessage< ::GameState::PlayerRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::PlayerRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::CardRef* Arena::CreateMaybeMessage< ::GameState::CardRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::CardRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::TileRef* Arena::CreateMaybeMessage< ::GameState::TileRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::TileRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::IntegerRef* Arena::CreateMaybeMessage< ::GameState::IntegerRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::IntegerRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::Vec2iRef* Arena::CreateMaybeMessage< ::GameState::Vec2iRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::Vec2iRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::IntegerValue* Arena::CreateMaybeMessage< ::GameState::IntegerValue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::IntegerValue >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::Vec2iValue* Arena::CreateMaybeMessage< ::GameState::Vec2iValue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::Vec2iValue >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::EntityRef* Arena::CreateMaybeMessage< ::GameState::EntityRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::EntityRef >(arena);
-}
-template<> PROTOBUF_NOINLINE ::GameState::EntityValue* Arena::CreateMaybeMessage< ::GameState::EntityValue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::GameState::EntityValue >(arena);
-}
 template<> PROTOBUF_NOINLINE ::GameState::Player_Stats* Arena::CreateMaybeMessage< ::GameState::Player_Stats >(Arena* arena) {
   return Arena::CreateMessageInternal< ::GameState::Player_Stats >(arena);
 }

@@ -15,13 +15,13 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardEffect_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIAgent_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardMetaData_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DeckList_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PlayerAgent_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_PlayerInfo_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RandomAgent_GameInfo_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Types_2eproto;
 namespace NetworkIO {
 class CardMetaDataDefaultTypeInternal {
  public:
@@ -106,7 +106,7 @@ static void InitDefaultsscc_info_GameInfo_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_GameInfo_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_GameInfo_GameInfo_2eproto}, {
       &scc_info_PlayerInfo_GameInfo_2eproto.base,
-      &scc_info_Vec2i_GameState_2eproto.base,}};
+      &scc_info_Vec2i_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_PlayerAgent_GameInfo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -134,7 +134,7 @@ static void InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_PlayerInfo_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto}, {
       &scc_info_DeckList_GameInfo_2eproto.base,
-      &scc_info_Vec2i_GameState_2eproto.base,
+      &scc_info_Vec2i_Types_2eproto.base,
       &scc_info_AIAgent_GameInfo_2eproto.base,
       &scc_info_RandomAgent_GameInfo_2eproto.base,
       &scc_info_PlayerAgent_GameInfo_2eproto.base,}};
@@ -237,33 +237,34 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_GameInfo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameInfo.proto\022\tNetworkIO\032\017GameState.p"
-  "roto\032\rEffects.proto\"\337\002\n\014CardMetaData\022\014\n\004"
-  "Name\030\001 \001(\t\022\021\n\tArchetype\030\002 \001(\t\022\020\n\010Ultimat"
-  "e\030\003 \001(\010\022\014\n\004Feat\030\004 \001(\010\022%\n\006Colors\030\005 \003(\0162\025."
-  "GameState.Card.Color\022\r\n\005Count\030\006 \001(\005\022.\n\021O"
-  "mniPresentEffect\030\007 \001(\0132\023.Effects.CardEff"
-  "ect\022*\n\rPassiveEffect\030\010 \001(\0132\023.Effects.Car"
-  "dEffect\022\'\n\nFeatEffect\030\t \001(\0132\023.Effects.Ca"
-  "rdEffect\022\'\n\nPlayEffect\030\n \001(\0132\023.Effects.C"
-  "ardEffect\022*\n\rResolveEffect\030\013 \001(\0132\023.Effec"
-  "ts.CardEffect\"1\n\010DeckList\022%\n\004Deck\030\003 \003(\0132"
-  "\027.NetworkIO.CardMetaData\"\r\n\013RandomAgent\""
-  "\t\n\007AIAgent\" \n\013PlayerAgent\022\021\n\tPlayerUID\030\001"
-  " \001(\005\"\214\002\n\nPlayerInfo\022\020\n\010Username\030\001 \001(\t\022\013\n"
-  "\003UID\030\002 \001(\t\022!\n\004Deck\030\003 \001(\0132\023.NetworkIO.Dec"
-  "kList\022*\n\020StartingPosition\030\004 \001(\0132\020.GameSt"
-  "ate.Vec2i\022%\n\007AIAgent\030\005 \001(\0132\022.NetworkIO.A"
-  "IAgentH\000\022-\n\013RandomAgent\030\006 \001(\0132\026.NetworkI"
-  "O.RandomAgentH\000\022-\n\013PlayerAgent\030\007 \001(\0132\026.N"
-  "etworkIO.PlayerAgentH\000B\013\n\tAgentInfo\"U\n\010G"
-  "ameInfo\022&\n\007Players\030\001 \003(\0132\025.NetworkIO.Pla"
-  "yerInfo\022!\n\007MapSize\030\002 \001(\0132\020.GameState.Vec"
-  "2ib\006proto3"
+  "\n\016GameInfo.proto\022\tNetworkIO\032\013Types.proto"
+  "\032\rEffects.proto\032\017GameState.proto\"\337\002\n\014Car"
+  "dMetaData\022\014\n\004Name\030\001 \001(\t\022\021\n\tArchetype\030\002 \001"
+  "(\t\022\020\n\010Ultimate\030\003 \001(\010\022\014\n\004Feat\030\004 \001(\010\022%\n\006Co"
+  "lors\030\005 \003(\0162\025.GameState.Card.Color\022\r\n\005Cou"
+  "nt\030\006 \001(\005\022.\n\021OmniPresentEffect\030\007 \001(\0132\023.Ef"
+  "fects.CardEffect\022*\n\rPassiveEffect\030\010 \001(\0132"
+  "\023.Effects.CardEffect\022\'\n\nFeatEffect\030\t \001(\013"
+  "2\023.Effects.CardEffect\022\'\n\nPlayEffect\030\n \001("
+  "\0132\023.Effects.CardEffect\022*\n\rResolveEffect\030"
+  "\013 \001(\0132\023.Effects.CardEffect\"1\n\010DeckList\022%"
+  "\n\004Deck\030\003 \003(\0132\027.NetworkIO.CardMetaData\"\r\n"
+  "\013RandomAgent\"\t\n\007AIAgent\" \n\013PlayerAgent\022\021"
+  "\n\tPlayerUID\030\001 \001(\005\"\210\002\n\nPlayerInfo\022\020\n\010User"
+  "name\030\001 \001(\t\022\013\n\003UID\030\002 \001(\t\022!\n\004Deck\030\003 \001(\0132\023."
+  "NetworkIO.DeckList\022&\n\020StartingPosition\030\004"
+  " \001(\0132\014.Types.Vec2i\022%\n\007AIAgent\030\005 \001(\0132\022.Ne"
+  "tworkIO.AIAgentH\000\022-\n\013RandomAgent\030\006 \001(\0132\026"
+  ".NetworkIO.RandomAgentH\000\022-\n\013PlayerAgent\030"
+  "\007 \001(\0132\026.NetworkIO.PlayerAgentH\000B\013\n\tAgent"
+  "Info\"Q\n\010GameInfo\022&\n\007Players\030\001 \003(\0132\025.Netw"
+  "orkIO.PlayerInfo\022\035\n\007MapSize\030\002 \001(\0132\014.Type"
+  "s.Vec2ib\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[2] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[3] = {
   &::descriptor_table_Effects_2eproto,
   &::descriptor_table_GameState_2eproto,
+  &::descriptor_table_Types_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameInfo_2eproto_sccs[7] = {
   &scc_info_AIAgent_GameInfo_2eproto.base,
@@ -276,8 +277,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameInfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameInfo_2eproto = {
-  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 890,
-  &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 7, 2,
+  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 895,
+  &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 7, 3,
   schemas, file_default_instances, TableStruct_GameInfo_2eproto::offsets,
   file_level_metadata_GameInfo_2eproto, 7, file_level_enum_descriptors_GameInfo_2eproto, file_level_service_descriptors_GameInfo_2eproto,
 };
@@ -1607,7 +1608,7 @@ void PlayerAgent::InternalSwap(PlayerAgent* other) {
 class PlayerInfo::_Internal {
  public:
   static const ::NetworkIO::DeckList& deck(const PlayerInfo* msg);
-  static const ::GameState::Vec2i& startingposition(const PlayerInfo* msg);
+  static const ::Types::Vec2i& startingposition(const PlayerInfo* msg);
   static const ::NetworkIO::AIAgent& aiagent(const PlayerInfo* msg);
   static const ::NetworkIO::RandomAgent& randomagent(const PlayerInfo* msg);
   static const ::NetworkIO::PlayerAgent& playeragent(const PlayerInfo* msg);
@@ -1617,7 +1618,7 @@ const ::NetworkIO::DeckList&
 PlayerInfo::_Internal::deck(const PlayerInfo* msg) {
   return *msg->deck_;
 }
-const ::GameState::Vec2i&
+const ::Types::Vec2i&
 PlayerInfo::_Internal::startingposition(const PlayerInfo* msg) {
   return *msg->startingposition_;
 }
@@ -1709,7 +1710,7 @@ PlayerInfo::PlayerInfo(const PlayerInfo& from)
     deck_ = nullptr;
   }
   if (from._internal_has_startingposition()) {
-    startingposition_ = new ::GameState::Vec2i(*from.startingposition_);
+    startingposition_ = new ::Types::Vec2i(*from.startingposition_);
   } else {
     startingposition_ = nullptr;
   }
@@ -1858,7 +1859,7 @@ const char* PlayerInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .GameState.Vec2i StartingPosition = 4;
+      // .Types.Vec2i StartingPosition = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_startingposition(), ptr);
@@ -1942,7 +1943,7 @@ failure:
         3, _Internal::deck(this), target, stream);
   }
 
-  // .GameState.Vec2i StartingPosition = 4;
+  // .Types.Vec2i StartingPosition = 4;
   if (this->has_startingposition()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2011,7 +2012,7 @@ size_t PlayerInfo::ByteSizeLong() const {
         *deck_);
   }
 
-  // .GameState.Vec2i StartingPosition = 4;
+  // .Types.Vec2i StartingPosition = 4;
   if (this->has_startingposition()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2085,7 +2086,7 @@ void PlayerInfo::MergeFrom(const PlayerInfo& from) {
     _internal_mutable_deck()->::NetworkIO::DeckList::MergeFrom(from._internal_deck());
   }
   if (from.has_startingposition()) {
-    _internal_mutable_startingposition()->::GameState::Vec2i::MergeFrom(from._internal_startingposition());
+    _internal_mutable_startingposition()->::Types::Vec2i::MergeFrom(from._internal_startingposition());
   }
   switch (from.AgentInfo_case()) {
     case kAIAgent: {
@@ -2148,10 +2149,10 @@ void PlayerInfo::InternalSwap(PlayerInfo* other) {
 
 class GameInfo::_Internal {
  public:
-  static const ::GameState::Vec2i& mapsize(const GameInfo* msg);
+  static const ::Types::Vec2i& mapsize(const GameInfo* msg);
 };
 
-const ::GameState::Vec2i&
+const ::Types::Vec2i&
 GameInfo::_Internal::mapsize(const GameInfo* msg) {
   return *msg->mapsize_;
 }
@@ -2173,7 +2174,7 @@ GameInfo::GameInfo(const GameInfo& from)
       players_(from.players_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_mapsize()) {
-    mapsize_ = new ::GameState::Vec2i(*from.mapsize_);
+    mapsize_ = new ::Types::Vec2i(*from.mapsize_);
   } else {
     mapsize_ = nullptr;
   }
@@ -2244,7 +2245,7 @@ const char* GameInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // .GameState.Vec2i MapSize = 2;
+      // .Types.Vec2i MapSize = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_mapsize(), ptr);
@@ -2287,7 +2288,7 @@ failure:
       InternalWriteMessage(1, this->_internal_players(i), target, stream);
   }
 
-  // .GameState.Vec2i MapSize = 2;
+  // .Types.Vec2i MapSize = 2;
   if (this->has_mapsize()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2318,7 +2319,7 @@ size_t GameInfo::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .GameState.Vec2i MapSize = 2;
+  // .Types.Vec2i MapSize = 2;
   if (this->has_mapsize()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2358,7 +2359,7 @@ void GameInfo::MergeFrom(const GameInfo& from) {
 
   players_.MergeFrom(from.players_);
   if (from.has_mapsize()) {
-    _internal_mutable_mapsize()->::GameState::Vec2i::MergeFrom(from._internal_mapsize());
+    _internal_mutable_mapsize()->::Types::Vec2i::MergeFrom(from._internal_mapsize());
   }
 }
 

@@ -49,7 +49,7 @@ struct TableStruct_GameState_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[23]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -60,15 +60,6 @@ namespace GameState {
 class Card;
 class CardDefaultTypeInternal;
 extern CardDefaultTypeInternal _Card_default_instance_;
-class CardRef;
-class CardRefDefaultTypeInternal;
-extern CardRefDefaultTypeInternal _CardRef_default_instance_;
-class EntityRef;
-class EntityRefDefaultTypeInternal;
-extern EntityRefDefaultTypeInternal _EntityRef_default_instance_;
-class EntityValue;
-class EntityValueDefaultTypeInternal;
-extern EntityValueDefaultTypeInternal _EntityValue_default_instance_;
 class GameInstance;
 class GameInstanceDefaultTypeInternal;
 extern GameInstanceDefaultTypeInternal _GameInstance_default_instance_;
@@ -78,27 +69,12 @@ extern GameStateDefaultTypeInternal _GameState_default_instance_;
 class InsertMutation;
 class InsertMutationDefaultTypeInternal;
 extern InsertMutationDefaultTypeInternal _InsertMutation_default_instance_;
-class Integer;
-class IntegerDefaultTypeInternal;
-extern IntegerDefaultTypeInternal _Integer_default_instance_;
-class IntegerRef;
-class IntegerRefDefaultTypeInternal;
-extern IntegerRefDefaultTypeInternal _IntegerRef_default_instance_;
-class IntegerValue;
-class IntegerValueDefaultTypeInternal;
-extern IntegerValueDefaultTypeInternal _IntegerValue_default_instance_;
 class Mutation;
 class MutationDefaultTypeInternal;
 extern MutationDefaultTypeInternal _Mutation_default_instance_;
-class Path;
-class PathDefaultTypeInternal;
-extern PathDefaultTypeInternal _Path_default_instance_;
 class Player;
 class PlayerDefaultTypeInternal;
 extern PlayerDefaultTypeInternal _Player_default_instance_;
-class PlayerRef;
-class PlayerRefDefaultTypeInternal;
-extern PlayerRefDefaultTypeInternal _PlayerRef_default_instance_;
 class Player_Stats;
 class Player_StatsDefaultTypeInternal;
 extern Player_StatsDefaultTypeInternal _Player_Stats_default_instance_;
@@ -114,43 +90,19 @@ extern TeamDefaultTypeInternal _Team_default_instance_;
 class Tile;
 class TileDefaultTypeInternal;
 extern TileDefaultTypeInternal _Tile_default_instance_;
-class TileRef;
-class TileRefDefaultTypeInternal;
-extern TileRefDefaultTypeInternal _TileRef_default_instance_;
-class Vec2i;
-class Vec2iDefaultTypeInternal;
-extern Vec2iDefaultTypeInternal _Vec2i_default_instance_;
-class Vec2iRef;
-class Vec2iRefDefaultTypeInternal;
-extern Vec2iRefDefaultTypeInternal _Vec2iRef_default_instance_;
-class Vec2iValue;
-class Vec2iValueDefaultTypeInternal;
-extern Vec2iValueDefaultTypeInternal _Vec2iValue_default_instance_;
 }  // namespace GameState
 PROTOBUF_NAMESPACE_OPEN
 template<> ::GameState::Card* Arena::CreateMaybeMessage<::GameState::Card>(Arena*);
-template<> ::GameState::CardRef* Arena::CreateMaybeMessage<::GameState::CardRef>(Arena*);
-template<> ::GameState::EntityRef* Arena::CreateMaybeMessage<::GameState::EntityRef>(Arena*);
-template<> ::GameState::EntityValue* Arena::CreateMaybeMessage<::GameState::EntityValue>(Arena*);
 template<> ::GameState::GameInstance* Arena::CreateMaybeMessage<::GameState::GameInstance>(Arena*);
 template<> ::GameState::GameState* Arena::CreateMaybeMessage<::GameState::GameState>(Arena*);
 template<> ::GameState::InsertMutation* Arena::CreateMaybeMessage<::GameState::InsertMutation>(Arena*);
-template<> ::GameState::Integer* Arena::CreateMaybeMessage<::GameState::Integer>(Arena*);
-template<> ::GameState::IntegerRef* Arena::CreateMaybeMessage<::GameState::IntegerRef>(Arena*);
-template<> ::GameState::IntegerValue* Arena::CreateMaybeMessage<::GameState::IntegerValue>(Arena*);
 template<> ::GameState::Mutation* Arena::CreateMaybeMessage<::GameState::Mutation>(Arena*);
-template<> ::GameState::Path* Arena::CreateMaybeMessage<::GameState::Path>(Arena*);
 template<> ::GameState::Player* Arena::CreateMaybeMessage<::GameState::Player>(Arena*);
-template<> ::GameState::PlayerRef* Arena::CreateMaybeMessage<::GameState::PlayerRef>(Arena*);
 template<> ::GameState::Player_Stats* Arena::CreateMaybeMessage<::GameState::Player_Stats>(Arena*);
 template<> ::GameState::RemoveMutation* Arena::CreateMaybeMessage<::GameState::RemoveMutation>(Arena*);
 template<> ::GameState::SetMutation* Arena::CreateMaybeMessage<::GameState::SetMutation>(Arena*);
 template<> ::GameState::Team* Arena::CreateMaybeMessage<::GameState::Team>(Arena*);
 template<> ::GameState::Tile* Arena::CreateMaybeMessage<::GameState::Tile>(Arena*);
-template<> ::GameState::TileRef* Arena::CreateMaybeMessage<::GameState::TileRef>(Arena*);
-template<> ::GameState::Vec2i* Arena::CreateMaybeMessage<::GameState::Vec2i>(Arena*);
-template<> ::GameState::Vec2iRef* Arena::CreateMaybeMessage<::GameState::Vec2iRef>(Arena*);
-template<> ::GameState::Vec2iValue* Arena::CreateMaybeMessage<::GameState::Vec2iValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace GameState {
 
@@ -184,2010 +136,6 @@ inline bool Card_Color_Parse(
     Card_Color_descriptor(), name, value);
 }
 // ===================================================================
-
-class Path PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Path) */ {
- public:
-  inline Path() : Path(nullptr) {}
-  virtual ~Path();
-
-  Path(const Path& from);
-  Path(Path&& from) noexcept
-    : Path() {
-    *this = ::std::move(from);
-  }
-
-  inline Path& operator=(const Path& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Path& operator=(Path&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Path& default_instance();
-
-  static inline const Path* internal_default_instance() {
-    return reinterpret_cast<const Path*>(
-               &_Path_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(Path& a, Path& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Path* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Path* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Path* New() const final {
-    return CreateMaybeMessage<Path>(nullptr);
-  }
-
-  Path* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Path>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Path& from);
-  void MergeFrom(const Path& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Path* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Path";
-  }
-  protected:
-  explicit Path(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kFieldIndexFieldNumber = 1,
-  };
-  // repeated int32 FieldIndex = 1;
-  int fieldindex_size() const;
-  private:
-  int _internal_fieldindex_size() const;
-  public:
-  void clear_fieldindex();
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_fieldindex(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_fieldindex() const;
-  void _internal_add_fieldindex(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_fieldindex();
-  public:
-  ::PROTOBUF_NAMESPACE_ID::int32 fieldindex(int index) const;
-  void set_fieldindex(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_fieldindex(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      fieldindex() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_fieldindex();
-
-  // @@protoc_insertion_point(class_scope:GameState.Path)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > fieldindex_;
-  mutable std::atomic<int> _fieldindex_cached_byte_size_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Integer PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Integer) */ {
- public:
-  inline Integer() : Integer(nullptr) {}
-  virtual ~Integer();
-
-  Integer(const Integer& from);
-  Integer(Integer&& from) noexcept
-    : Integer() {
-    *this = ::std::move(from);
-  }
-
-  inline Integer& operator=(const Integer& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Integer& operator=(Integer&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Integer& default_instance();
-
-  static inline const Integer* internal_default_instance() {
-    return reinterpret_cast<const Integer*>(
-               &_Integer_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(Integer& a, Integer& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Integer* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Integer* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Integer* New() const final {
-    return CreateMaybeMessage<Integer>(nullptr);
-  }
-
-  Integer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Integer>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Integer& from);
-  void MergeFrom(const Integer& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Integer* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Integer";
-  }
-  protected:
-  explicit Integer(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kValueFieldNumber = 1,
-  };
-  // int32 Value = 1;
-  void clear_value();
-  ::PROTOBUF_NAMESPACE_ID::int32 value() const;
-  void set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value() const;
-  void _internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:GameState.Integer)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 value_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Vec2i PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Vec2i) */ {
- public:
-  inline Vec2i() : Vec2i(nullptr) {}
-  virtual ~Vec2i();
-
-  Vec2i(const Vec2i& from);
-  Vec2i(Vec2i&& from) noexcept
-    : Vec2i() {
-    *this = ::std::move(from);
-  }
-
-  inline Vec2i& operator=(const Vec2i& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Vec2i& operator=(Vec2i&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Vec2i& default_instance();
-
-  static inline const Vec2i* internal_default_instance() {
-    return reinterpret_cast<const Vec2i*>(
-               &_Vec2i_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(Vec2i& a, Vec2i& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Vec2i* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Vec2i* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Vec2i* New() const final {
-    return CreateMaybeMessage<Vec2i>(nullptr);
-  }
-
-  Vec2i* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Vec2i>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Vec2i& from);
-  void MergeFrom(const Vec2i& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Vec2i* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Vec2i";
-  }
-  protected:
-  explicit Vec2i(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kXFieldNumber = 1,
-    kYFieldNumber = 2,
-  };
-  // int32 X = 1;
-  void clear_x();
-  ::PROTOBUF_NAMESPACE_ID::int32 x() const;
-  void set_x(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_x() const;
-  void _internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // int32 Y = 2;
-  void clear_y();
-  ::PROTOBUF_NAMESPACE_ID::int32 y() const;
-  void set_y(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_y() const;
-  void _internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:GameState.Vec2i)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 x_;
-  ::PROTOBUF_NAMESPACE_ID::int32 y_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class PlayerRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.PlayerRef) */ {
- public:
-  inline PlayerRef() : PlayerRef(nullptr) {}
-  virtual ~PlayerRef();
-
-  PlayerRef(const PlayerRef& from);
-  PlayerRef(PlayerRef&& from) noexcept
-    : PlayerRef() {
-    *this = ::std::move(from);
-  }
-
-  inline PlayerRef& operator=(const PlayerRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline PlayerRef& operator=(PlayerRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const PlayerRef& default_instance();
-
-  static inline const PlayerRef* internal_default_instance() {
-    return reinterpret_cast<const PlayerRef*>(
-               &_PlayerRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(PlayerRef& a, PlayerRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(PlayerRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(PlayerRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline PlayerRef* New() const final {
-    return CreateMaybeMessage<PlayerRef>(nullptr);
-  }
-
-  PlayerRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<PlayerRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const PlayerRef& from);
-  void MergeFrom(const PlayerRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(PlayerRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.PlayerRef";
-  }
-  protected:
-  explicit PlayerRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kObjectPathFieldNumber = 1,
-  };
-  // .GameState.Path ObjectPath = 1;
-  bool has_objectpath() const;
-  private:
-  bool _internal_has_objectpath() const;
-  public:
-  void clear_objectpath();
-  const ::GameState::Path& objectpath() const;
-  ::GameState::Path* release_objectpath();
-  ::GameState::Path* mutable_objectpath();
-  void set_allocated_objectpath(::GameState::Path* objectpath);
-  private:
-  const ::GameState::Path& _internal_objectpath() const;
-  ::GameState::Path* _internal_mutable_objectpath();
-  public:
-  void unsafe_arena_set_allocated_objectpath(
-      ::GameState::Path* objectpath);
-  ::GameState::Path* unsafe_arena_release_objectpath();
-
-  // @@protoc_insertion_point(class_scope:GameState.PlayerRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::GameState::Path* objectpath_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CardRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.CardRef) */ {
- public:
-  inline CardRef() : CardRef(nullptr) {}
-  virtual ~CardRef();
-
-  CardRef(const CardRef& from);
-  CardRef(CardRef&& from) noexcept
-    : CardRef() {
-    *this = ::std::move(from);
-  }
-
-  inline CardRef& operator=(const CardRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CardRef& operator=(CardRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const CardRef& default_instance();
-
-  static inline const CardRef* internal_default_instance() {
-    return reinterpret_cast<const CardRef*>(
-               &_CardRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(CardRef& a, CardRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CardRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CardRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline CardRef* New() const final {
-    return CreateMaybeMessage<CardRef>(nullptr);
-  }
-
-  CardRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CardRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CardRef& from);
-  void MergeFrom(const CardRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CardRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.CardRef";
-  }
-  protected:
-  explicit CardRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kObjectPathFieldNumber = 1,
-  };
-  // .GameState.Path ObjectPath = 1;
-  bool has_objectpath() const;
-  private:
-  bool _internal_has_objectpath() const;
-  public:
-  void clear_objectpath();
-  const ::GameState::Path& objectpath() const;
-  ::GameState::Path* release_objectpath();
-  ::GameState::Path* mutable_objectpath();
-  void set_allocated_objectpath(::GameState::Path* objectpath);
-  private:
-  const ::GameState::Path& _internal_objectpath() const;
-  ::GameState::Path* _internal_mutable_objectpath();
-  public:
-  void unsafe_arena_set_allocated_objectpath(
-      ::GameState::Path* objectpath);
-  ::GameState::Path* unsafe_arena_release_objectpath();
-
-  // @@protoc_insertion_point(class_scope:GameState.CardRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::GameState::Path* objectpath_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class TileRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.TileRef) */ {
- public:
-  inline TileRef() : TileRef(nullptr) {}
-  virtual ~TileRef();
-
-  TileRef(const TileRef& from);
-  TileRef(TileRef&& from) noexcept
-    : TileRef() {
-    *this = ::std::move(from);
-  }
-
-  inline TileRef& operator=(const TileRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TileRef& operator=(TileRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const TileRef& default_instance();
-
-  static inline const TileRef* internal_default_instance() {
-    return reinterpret_cast<const TileRef*>(
-               &_TileRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    5;
-
-  friend void swap(TileRef& a, TileRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(TileRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TileRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline TileRef* New() const final {
-    return CreateMaybeMessage<TileRef>(nullptr);
-  }
-
-  TileRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<TileRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const TileRef& from);
-  void MergeFrom(const TileRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(TileRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.TileRef";
-  }
-  protected:
-  explicit TileRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kObjectPathFieldNumber = 1,
-  };
-  // .GameState.Path ObjectPath = 1;
-  bool has_objectpath() const;
-  private:
-  bool _internal_has_objectpath() const;
-  public:
-  void clear_objectpath();
-  const ::GameState::Path& objectpath() const;
-  ::GameState::Path* release_objectpath();
-  ::GameState::Path* mutable_objectpath();
-  void set_allocated_objectpath(::GameState::Path* objectpath);
-  private:
-  const ::GameState::Path& _internal_objectpath() const;
-  ::GameState::Path* _internal_mutable_objectpath();
-  public:
-  void unsafe_arena_set_allocated_objectpath(
-      ::GameState::Path* objectpath);
-  ::GameState::Path* unsafe_arena_release_objectpath();
-
-  // @@protoc_insertion_point(class_scope:GameState.TileRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::GameState::Path* objectpath_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class IntegerRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.IntegerRef) */ {
- public:
-  inline IntegerRef() : IntegerRef(nullptr) {}
-  virtual ~IntegerRef();
-
-  IntegerRef(const IntegerRef& from);
-  IntegerRef(IntegerRef&& from) noexcept
-    : IntegerRef() {
-    *this = ::std::move(from);
-  }
-
-  inline IntegerRef& operator=(const IntegerRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline IntegerRef& operator=(IntegerRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const IntegerRef& default_instance();
-
-  static inline const IntegerRef* internal_default_instance() {
-    return reinterpret_cast<const IntegerRef*>(
-               &_IntegerRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    6;
-
-  friend void swap(IntegerRef& a, IntegerRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(IntegerRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(IntegerRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline IntegerRef* New() const final {
-    return CreateMaybeMessage<IntegerRef>(nullptr);
-  }
-
-  IntegerRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<IntegerRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const IntegerRef& from);
-  void MergeFrom(const IntegerRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(IntegerRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.IntegerRef";
-  }
-  protected:
-  explicit IntegerRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kObjectPathFieldNumber = 1,
-  };
-  // .GameState.Path ObjectPath = 1;
-  bool has_objectpath() const;
-  private:
-  bool _internal_has_objectpath() const;
-  public:
-  void clear_objectpath();
-  const ::GameState::Path& objectpath() const;
-  ::GameState::Path* release_objectpath();
-  ::GameState::Path* mutable_objectpath();
-  void set_allocated_objectpath(::GameState::Path* objectpath);
-  private:
-  const ::GameState::Path& _internal_objectpath() const;
-  ::GameState::Path* _internal_mutable_objectpath();
-  public:
-  void unsafe_arena_set_allocated_objectpath(
-      ::GameState::Path* objectpath);
-  ::GameState::Path* unsafe_arena_release_objectpath();
-
-  // @@protoc_insertion_point(class_scope:GameState.IntegerRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::GameState::Path* objectpath_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Vec2iRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Vec2iRef) */ {
- public:
-  inline Vec2iRef() : Vec2iRef(nullptr) {}
-  virtual ~Vec2iRef();
-
-  Vec2iRef(const Vec2iRef& from);
-  Vec2iRef(Vec2iRef&& from) noexcept
-    : Vec2iRef() {
-    *this = ::std::move(from);
-  }
-
-  inline Vec2iRef& operator=(const Vec2iRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Vec2iRef& operator=(Vec2iRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Vec2iRef& default_instance();
-
-  static inline const Vec2iRef* internal_default_instance() {
-    return reinterpret_cast<const Vec2iRef*>(
-               &_Vec2iRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    7;
-
-  friend void swap(Vec2iRef& a, Vec2iRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Vec2iRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Vec2iRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Vec2iRef* New() const final {
-    return CreateMaybeMessage<Vec2iRef>(nullptr);
-  }
-
-  Vec2iRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Vec2iRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Vec2iRef& from);
-  void MergeFrom(const Vec2iRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Vec2iRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Vec2iRef";
-  }
-  protected:
-  explicit Vec2iRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kObjectPathFieldNumber = 1,
-  };
-  // .GameState.Path ObjectPath = 1;
-  bool has_objectpath() const;
-  private:
-  bool _internal_has_objectpath() const;
-  public:
-  void clear_objectpath();
-  const ::GameState::Path& objectpath() const;
-  ::GameState::Path* release_objectpath();
-  ::GameState::Path* mutable_objectpath();
-  void set_allocated_objectpath(::GameState::Path* objectpath);
-  private:
-  const ::GameState::Path& _internal_objectpath() const;
-  ::GameState::Path* _internal_mutable_objectpath();
-  public:
-  void unsafe_arena_set_allocated_objectpath(
-      ::GameState::Path* objectpath);
-  ::GameState::Path* unsafe_arena_release_objectpath();
-
-  // @@protoc_insertion_point(class_scope:GameState.Vec2iRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::GameState::Path* objectpath_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class IntegerValue PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.IntegerValue) */ {
- public:
-  inline IntegerValue() : IntegerValue(nullptr) {}
-  virtual ~IntegerValue();
-
-  IntegerValue(const IntegerValue& from);
-  IntegerValue(IntegerValue&& from) noexcept
-    : IntegerValue() {
-    *this = ::std::move(from);
-  }
-
-  inline IntegerValue& operator=(const IntegerValue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline IntegerValue& operator=(IntegerValue&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const IntegerValue& default_instance();
-
-  enum ValueCase {
-    kValue = 1,
-    kRef = 2,
-    VALUE_NOT_SET = 0,
-  };
-
-  static inline const IntegerValue* internal_default_instance() {
-    return reinterpret_cast<const IntegerValue*>(
-               &_IntegerValue_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    8;
-
-  friend void swap(IntegerValue& a, IntegerValue& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(IntegerValue* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(IntegerValue* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline IntegerValue* New() const final {
-    return CreateMaybeMessage<IntegerValue>(nullptr);
-  }
-
-  IntegerValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<IntegerValue>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const IntegerValue& from);
-  void MergeFrom(const IntegerValue& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(IntegerValue* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.IntegerValue";
-  }
-  protected:
-  explicit IntegerValue(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kValueFieldNumber = 1,
-    kRefFieldNumber = 2,
-  };
-  // int32 Value = 1;
-  private:
-  bool _internal_has_value() const;
-  public:
-  void clear_value();
-  ::PROTOBUF_NAMESPACE_ID::int32 value() const;
-  void set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value() const;
-  void _internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // .GameState.IntegerRef Ref = 2;
-  bool has_ref() const;
-  private:
-  bool _internal_has_ref() const;
-  public:
-  void clear_ref();
-  const ::GameState::IntegerRef& ref() const;
-  ::GameState::IntegerRef* release_ref();
-  ::GameState::IntegerRef* mutable_ref();
-  void set_allocated_ref(::GameState::IntegerRef* ref);
-  private:
-  const ::GameState::IntegerRef& _internal_ref() const;
-  ::GameState::IntegerRef* _internal_mutable_ref();
-  public:
-  void unsafe_arena_set_allocated_ref(
-      ::GameState::IntegerRef* ref);
-  ::GameState::IntegerRef* unsafe_arena_release_ref();
-
-  void clear_value();
-  ValueCase value_case() const;
-  // @@protoc_insertion_point(class_scope:GameState.IntegerValue)
- private:
-  class _Internal;
-  void set_has_value();
-  void set_has_ref();
-
-  inline bool has_value() const;
-  inline void clear_has_value();
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  union ValueUnion {
-    ValueUnion() {}
-    ::PROTOBUF_NAMESPACE_ID::int32 value_;
-    ::GameState::IntegerRef* ref_;
-  } value_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Vec2iValue PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Vec2iValue) */ {
- public:
-  inline Vec2iValue() : Vec2iValue(nullptr) {}
-  virtual ~Vec2iValue();
-
-  Vec2iValue(const Vec2iValue& from);
-  Vec2iValue(Vec2iValue&& from) noexcept
-    : Vec2iValue() {
-    *this = ::std::move(from);
-  }
-
-  inline Vec2iValue& operator=(const Vec2iValue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Vec2iValue& operator=(Vec2iValue&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Vec2iValue& default_instance();
-
-  enum ValueCase {
-    kValue = 1,
-    kRef = 2,
-    VALUE_NOT_SET = 0,
-  };
-
-  static inline const Vec2iValue* internal_default_instance() {
-    return reinterpret_cast<const Vec2iValue*>(
-               &_Vec2iValue_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    9;
-
-  friend void swap(Vec2iValue& a, Vec2iValue& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Vec2iValue* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Vec2iValue* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Vec2iValue* New() const final {
-    return CreateMaybeMessage<Vec2iValue>(nullptr);
-  }
-
-  Vec2iValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Vec2iValue>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Vec2iValue& from);
-  void MergeFrom(const Vec2iValue& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Vec2iValue* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Vec2iValue";
-  }
-  protected:
-  explicit Vec2iValue(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kValueFieldNumber = 1,
-    kRefFieldNumber = 2,
-  };
-  // .GameState.Vec2i Value = 1;
-  bool has_value() const;
-  private:
-  bool _internal_has_value() const;
-  public:
-  void clear_value();
-  const ::GameState::Vec2i& value() const;
-  ::GameState::Vec2i* release_value();
-  ::GameState::Vec2i* mutable_value();
-  void set_allocated_value(::GameState::Vec2i* value);
-  private:
-  const ::GameState::Vec2i& _internal_value() const;
-  ::GameState::Vec2i* _internal_mutable_value();
-  public:
-  void unsafe_arena_set_allocated_value(
-      ::GameState::Vec2i* value);
-  ::GameState::Vec2i* unsafe_arena_release_value();
-
-  // .GameState.Vec2iRef Ref = 2;
-  bool has_ref() const;
-  private:
-  bool _internal_has_ref() const;
-  public:
-  void clear_ref();
-  const ::GameState::Vec2iRef& ref() const;
-  ::GameState::Vec2iRef* release_ref();
-  ::GameState::Vec2iRef* mutable_ref();
-  void set_allocated_ref(::GameState::Vec2iRef* ref);
-  private:
-  const ::GameState::Vec2iRef& _internal_ref() const;
-  ::GameState::Vec2iRef* _internal_mutable_ref();
-  public:
-  void unsafe_arena_set_allocated_ref(
-      ::GameState::Vec2iRef* ref);
-  ::GameState::Vec2iRef* unsafe_arena_release_ref();
-
-  void clear_value();
-  ValueCase value_case() const;
-  // @@protoc_insertion_point(class_scope:GameState.Vec2iValue)
- private:
-  class _Internal;
-  void set_has_value();
-  void set_has_ref();
-
-  inline bool has_value() const;
-  inline void clear_has_value();
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  union ValueUnion {
-    ValueUnion() {}
-    ::GameState::Vec2i* value_;
-    ::GameState::Vec2iRef* ref_;
-  } value_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class EntityRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.EntityRef) */ {
- public:
-  inline EntityRef() : EntityRef(nullptr) {}
-  virtual ~EntityRef();
-
-  EntityRef(const EntityRef& from);
-  EntityRef(EntityRef&& from) noexcept
-    : EntityRef() {
-    *this = ::std::move(from);
-  }
-
-  inline EntityRef& operator=(const EntityRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline EntityRef& operator=(EntityRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const EntityRef& default_instance();
-
-  enum EntityRefCase {
-    kPlayer = 1,
-    kCard = 2,
-    kTile = 3,
-    ENTITY_REF_NOT_SET = 0,
-  };
-
-  static inline const EntityRef* internal_default_instance() {
-    return reinterpret_cast<const EntityRef*>(
-               &_EntityRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(EntityRef& a, EntityRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(EntityRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(EntityRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline EntityRef* New() const final {
-    return CreateMaybeMessage<EntityRef>(nullptr);
-  }
-
-  EntityRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<EntityRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const EntityRef& from);
-  void MergeFrom(const EntityRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(EntityRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.EntityRef";
-  }
-  protected:
-  explicit EntityRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPlayerFieldNumber = 1,
-    kCardFieldNumber = 2,
-    kTileFieldNumber = 3,
-  };
-  // .GameState.PlayerRef Player = 1;
-  bool has_player() const;
-  private:
-  bool _internal_has_player() const;
-  public:
-  void clear_player();
-  const ::GameState::PlayerRef& player() const;
-  ::GameState::PlayerRef* release_player();
-  ::GameState::PlayerRef* mutable_player();
-  void set_allocated_player(::GameState::PlayerRef* player);
-  private:
-  const ::GameState::PlayerRef& _internal_player() const;
-  ::GameState::PlayerRef* _internal_mutable_player();
-  public:
-  void unsafe_arena_set_allocated_player(
-      ::GameState::PlayerRef* player);
-  ::GameState::PlayerRef* unsafe_arena_release_player();
-
-  // .GameState.CardRef Card = 2;
-  bool has_card() const;
-  private:
-  bool _internal_has_card() const;
-  public:
-  void clear_card();
-  const ::GameState::CardRef& card() const;
-  ::GameState::CardRef* release_card();
-  ::GameState::CardRef* mutable_card();
-  void set_allocated_card(::GameState::CardRef* card);
-  private:
-  const ::GameState::CardRef& _internal_card() const;
-  ::GameState::CardRef* _internal_mutable_card();
-  public:
-  void unsafe_arena_set_allocated_card(
-      ::GameState::CardRef* card);
-  ::GameState::CardRef* unsafe_arena_release_card();
-
-  // .GameState.TileRef Tile = 3;
-  bool has_tile() const;
-  private:
-  bool _internal_has_tile() const;
-  public:
-  void clear_tile();
-  const ::GameState::TileRef& tile() const;
-  ::GameState::TileRef* release_tile();
-  ::GameState::TileRef* mutable_tile();
-  void set_allocated_tile(::GameState::TileRef* tile);
-  private:
-  const ::GameState::TileRef& _internal_tile() const;
-  ::GameState::TileRef* _internal_mutable_tile();
-  public:
-  void unsafe_arena_set_allocated_tile(
-      ::GameState::TileRef* tile);
-  ::GameState::TileRef* unsafe_arena_release_tile();
-
-  void clear_entity_ref();
-  EntityRefCase entity_ref_case() const;
-  // @@protoc_insertion_point(class_scope:GameState.EntityRef)
- private:
-  class _Internal;
-  void set_has_player();
-  void set_has_card();
-  void set_has_tile();
-
-  inline bool has_entity_ref() const;
-  inline void clear_has_entity_ref();
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  union EntityRefUnion {
-    EntityRefUnion() {}
-    ::GameState::PlayerRef* player_;
-    ::GameState::CardRef* card_;
-    ::GameState::TileRef* tile_;
-  } entity_ref_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class EntityValue PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.EntityValue) */ {
- public:
-  inline EntityValue() : EntityValue(nullptr) {}
-  virtual ~EntityValue();
-
-  EntityValue(const EntityValue& from);
-  EntityValue(EntityValue&& from) noexcept
-    : EntityValue() {
-    *this = ::std::move(from);
-  }
-
-  inline EntityValue& operator=(const EntityValue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline EntityValue& operator=(EntityValue&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const EntityValue& default_instance();
-
-  enum EntityValCase {
-    kPlayer = 1,
-    kCard = 2,
-    kTile = 3,
-    kInteger = 4,
-    kIntValue = 5,
-    kVec2IValue = 6,
-    kTerrainValue = 7,
-    ENTITY_VAL_NOT_SET = 0,
-  };
-
-  static inline const EntityValue* internal_default_instance() {
-    return reinterpret_cast<const EntityValue*>(
-               &_EntityValue_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    11;
-
-  friend void swap(EntityValue& a, EntityValue& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(EntityValue* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(EntityValue* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline EntityValue* New() const final {
-    return CreateMaybeMessage<EntityValue>(nullptr);
-  }
-
-  EntityValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<EntityValue>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const EntityValue& from);
-  void MergeFrom(const EntityValue& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(EntityValue* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.EntityValue";
-  }
-  protected:
-  explicit EntityValue(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPlayerFieldNumber = 1,
-    kCardFieldNumber = 2,
-    kTileFieldNumber = 3,
-    kIntegerFieldNumber = 4,
-    kIntValueFieldNumber = 5,
-    kVec2IValueFieldNumber = 6,
-    kTerrainValueFieldNumber = 7,
-  };
-  // .GameState.PlayerRef Player = 1;
-  bool has_player() const;
-  private:
-  bool _internal_has_player() const;
-  public:
-  void clear_player();
-  const ::GameState::PlayerRef& player() const;
-  ::GameState::PlayerRef* release_player();
-  ::GameState::PlayerRef* mutable_player();
-  void set_allocated_player(::GameState::PlayerRef* player);
-  private:
-  const ::GameState::PlayerRef& _internal_player() const;
-  ::GameState::PlayerRef* _internal_mutable_player();
-  public:
-  void unsafe_arena_set_allocated_player(
-      ::GameState::PlayerRef* player);
-  ::GameState::PlayerRef* unsafe_arena_release_player();
-
-  // .GameState.CardRef Card = 2;
-  bool has_card() const;
-  private:
-  bool _internal_has_card() const;
-  public:
-  void clear_card();
-  const ::GameState::CardRef& card() const;
-  ::GameState::CardRef* release_card();
-  ::GameState::CardRef* mutable_card();
-  void set_allocated_card(::GameState::CardRef* card);
-  private:
-  const ::GameState::CardRef& _internal_card() const;
-  ::GameState::CardRef* _internal_mutable_card();
-  public:
-  void unsafe_arena_set_allocated_card(
-      ::GameState::CardRef* card);
-  ::GameState::CardRef* unsafe_arena_release_card();
-
-  // .GameState.TileRef Tile = 3;
-  bool has_tile() const;
-  private:
-  bool _internal_has_tile() const;
-  public:
-  void clear_tile();
-  const ::GameState::TileRef& tile() const;
-  ::GameState::TileRef* release_tile();
-  ::GameState::TileRef* mutable_tile();
-  void set_allocated_tile(::GameState::TileRef* tile);
-  private:
-  const ::GameState::TileRef& _internal_tile() const;
-  ::GameState::TileRef* _internal_mutable_tile();
-  public:
-  void unsafe_arena_set_allocated_tile(
-      ::GameState::TileRef* tile);
-  ::GameState::TileRef* unsafe_arena_release_tile();
-
-  // .GameState.IntegerRef Integer = 4;
-  bool has_integer() const;
-  private:
-  bool _internal_has_integer() const;
-  public:
-  void clear_integer();
-  const ::GameState::IntegerRef& integer() const;
-  ::GameState::IntegerRef* release_integer();
-  ::GameState::IntegerRef* mutable_integer();
-  void set_allocated_integer(::GameState::IntegerRef* integer);
-  private:
-  const ::GameState::IntegerRef& _internal_integer() const;
-  ::GameState::IntegerRef* _internal_mutable_integer();
-  public:
-  void unsafe_arena_set_allocated_integer(
-      ::GameState::IntegerRef* integer);
-  ::GameState::IntegerRef* unsafe_arena_release_integer();
-
-  // int32 IntValue = 5;
-  private:
-  bool _internal_has_intvalue() const;
-  public:
-  void clear_intvalue();
-  ::PROTOBUF_NAMESPACE_ID::int32 intvalue() const;
-  void set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_intvalue() const;
-  void _internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // .GameState.Vec2i Vec2iValue = 6;
-  bool has_vec2ivalue() const;
-  private:
-  bool _internal_has_vec2ivalue() const;
-  public:
-  void clear_vec2ivalue();
-  const ::GameState::Vec2i& vec2ivalue() const;
-  ::GameState::Vec2i* release_vec2ivalue();
-  ::GameState::Vec2i* mutable_vec2ivalue();
-  void set_allocated_vec2ivalue(::GameState::Vec2i* vec2ivalue);
-  private:
-  const ::GameState::Vec2i& _internal_vec2ivalue() const;
-  ::GameState::Vec2i* _internal_mutable_vec2ivalue();
-  public:
-  void unsafe_arena_set_allocated_vec2ivalue(
-      ::GameState::Vec2i* vec2ivalue);
-  ::GameState::Vec2i* unsafe_arena_release_vec2ivalue();
-
-  // .Types.TerrainType TerrainValue = 7;
-  private:
-  bool _internal_has_terrainvalue() const;
-  public:
-  void clear_terrainvalue();
-  ::Types::TerrainType terrainvalue() const;
-  void set_terrainvalue(::Types::TerrainType value);
-  private:
-  ::Types::TerrainType _internal_terrainvalue() const;
-  void _internal_set_terrainvalue(::Types::TerrainType value);
-  public:
-
-  void clear_entity_val();
-  EntityValCase entity_val_case() const;
-  // @@protoc_insertion_point(class_scope:GameState.EntityValue)
- private:
-  class _Internal;
-  void set_has_player();
-  void set_has_card();
-  void set_has_tile();
-  void set_has_integer();
-  void set_has_intvalue();
-  void set_has_vec2ivalue();
-  void set_has_terrainvalue();
-
-  inline bool has_entity_val() const;
-  inline void clear_has_entity_val();
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  union EntityValUnion {
-    EntityValUnion() {}
-    ::GameState::PlayerRef* player_;
-    ::GameState::CardRef* card_;
-    ::GameState::TileRef* tile_;
-    ::GameState::IntegerRef* integer_;
-    ::PROTOBUF_NAMESPACE_ID::int32 intvalue_;
-    ::GameState::Vec2i* vec2ivalue_;
-    int terrainvalue_;
-  } entity_val_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
 
 class Player_Stats PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Player.Stats) */ {
@@ -2230,7 +178,7 @@ class Player_Stats PROTOBUF_FINAL :
                &_Player_Stats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    0;
 
   friend void swap(Player_Stats& a, Player_Stats& b) {
     a.Swap(&b);
@@ -2309,131 +257,131 @@ class Player_Stats PROTOBUF_FINAL :
     kDisarmFieldNumber = 6,
     kInitiativeFieldNumber = 7,
   };
-  // .GameState.IntegerRef Health = 1;
+  // .Types.IntegerRef Health = 1;
   bool has_health() const;
   private:
   bool _internal_has_health() const;
   public:
   void clear_health();
-  const ::GameState::IntegerRef& health() const;
-  ::GameState::IntegerRef* release_health();
-  ::GameState::IntegerRef* mutable_health();
-  void set_allocated_health(::GameState::IntegerRef* health);
+  const ::Types::IntegerRef& health() const;
+  ::Types::IntegerRef* release_health();
+  ::Types::IntegerRef* mutable_health();
+  void set_allocated_health(::Types::IntegerRef* health);
   private:
-  const ::GameState::IntegerRef& _internal_health() const;
-  ::GameState::IntegerRef* _internal_mutable_health();
+  const ::Types::IntegerRef& _internal_health() const;
+  ::Types::IntegerRef* _internal_mutable_health();
   public:
   void unsafe_arena_set_allocated_health(
-      ::GameState::IntegerRef* health);
-  ::GameState::IntegerRef* unsafe_arena_release_health();
+      ::Types::IntegerRef* health);
+  ::Types::IntegerRef* unsafe_arena_release_health();
 
-  // .GameState.IntegerRef Actions = 2;
+  // .Types.IntegerRef Actions = 2;
   bool has_actions() const;
   private:
   bool _internal_has_actions() const;
   public:
   void clear_actions();
-  const ::GameState::IntegerRef& actions() const;
-  ::GameState::IntegerRef* release_actions();
-  ::GameState::IntegerRef* mutable_actions();
-  void set_allocated_actions(::GameState::IntegerRef* actions);
+  const ::Types::IntegerRef& actions() const;
+  ::Types::IntegerRef* release_actions();
+  ::Types::IntegerRef* mutable_actions();
+  void set_allocated_actions(::Types::IntegerRef* actions);
   private:
-  const ::GameState::IntegerRef& _internal_actions() const;
-  ::GameState::IntegerRef* _internal_mutable_actions();
+  const ::Types::IntegerRef& _internal_actions() const;
+  ::Types::IntegerRef* _internal_mutable_actions();
   public:
   void unsafe_arena_set_allocated_actions(
-      ::GameState::IntegerRef* actions);
-  ::GameState::IntegerRef* unsafe_arena_release_actions();
+      ::Types::IntegerRef* actions);
+  ::Types::IntegerRef* unsafe_arena_release_actions();
 
-  // .GameState.IntegerRef Power = 3;
+  // .Types.IntegerRef Power = 3;
   bool has_power() const;
   private:
   bool _internal_has_power() const;
   public:
   void clear_power();
-  const ::GameState::IntegerRef& power() const;
-  ::GameState::IntegerRef* release_power();
-  ::GameState::IntegerRef* mutable_power();
-  void set_allocated_power(::GameState::IntegerRef* power);
+  const ::Types::IntegerRef& power() const;
+  ::Types::IntegerRef* release_power();
+  ::Types::IntegerRef* mutable_power();
+  void set_allocated_power(::Types::IntegerRef* power);
   private:
-  const ::GameState::IntegerRef& _internal_power() const;
-  ::GameState::IntegerRef* _internal_mutable_power();
+  const ::Types::IntegerRef& _internal_power() const;
+  ::Types::IntegerRef* _internal_mutable_power();
   public:
   void unsafe_arena_set_allocated_power(
-      ::GameState::IntegerRef* power);
-  ::GameState::IntegerRef* unsafe_arena_release_power();
+      ::Types::IntegerRef* power);
+  ::Types::IntegerRef* unsafe_arena_release_power();
 
-  // .GameState.IntegerRef Slow = 4;
+  // .Types.IntegerRef Slow = 4;
   bool has_slow() const;
   private:
   bool _internal_has_slow() const;
   public:
   void clear_slow();
-  const ::GameState::IntegerRef& slow() const;
-  ::GameState::IntegerRef* release_slow();
-  ::GameState::IntegerRef* mutable_slow();
-  void set_allocated_slow(::GameState::IntegerRef* slow);
+  const ::Types::IntegerRef& slow() const;
+  ::Types::IntegerRef* release_slow();
+  ::Types::IntegerRef* mutable_slow();
+  void set_allocated_slow(::Types::IntegerRef* slow);
   private:
-  const ::GameState::IntegerRef& _internal_slow() const;
-  ::GameState::IntegerRef* _internal_mutable_slow();
+  const ::Types::IntegerRef& _internal_slow() const;
+  ::Types::IntegerRef* _internal_mutable_slow();
   public:
   void unsafe_arena_set_allocated_slow(
-      ::GameState::IntegerRef* slow);
-  ::GameState::IntegerRef* unsafe_arena_release_slow();
+      ::Types::IntegerRef* slow);
+  ::Types::IntegerRef* unsafe_arena_release_slow();
 
-  // .GameState.IntegerRef Silence = 5;
+  // .Types.IntegerRef Silence = 5;
   bool has_silence() const;
   private:
   bool _internal_has_silence() const;
   public:
   void clear_silence();
-  const ::GameState::IntegerRef& silence() const;
-  ::GameState::IntegerRef* release_silence();
-  ::GameState::IntegerRef* mutable_silence();
-  void set_allocated_silence(::GameState::IntegerRef* silence);
+  const ::Types::IntegerRef& silence() const;
+  ::Types::IntegerRef* release_silence();
+  ::Types::IntegerRef* mutable_silence();
+  void set_allocated_silence(::Types::IntegerRef* silence);
   private:
-  const ::GameState::IntegerRef& _internal_silence() const;
-  ::GameState::IntegerRef* _internal_mutable_silence();
+  const ::Types::IntegerRef& _internal_silence() const;
+  ::Types::IntegerRef* _internal_mutable_silence();
   public:
   void unsafe_arena_set_allocated_silence(
-      ::GameState::IntegerRef* silence);
-  ::GameState::IntegerRef* unsafe_arena_release_silence();
+      ::Types::IntegerRef* silence);
+  ::Types::IntegerRef* unsafe_arena_release_silence();
 
-  // .GameState.IntegerRef Disarm = 6;
+  // .Types.IntegerRef Disarm = 6;
   bool has_disarm() const;
   private:
   bool _internal_has_disarm() const;
   public:
   void clear_disarm();
-  const ::GameState::IntegerRef& disarm() const;
-  ::GameState::IntegerRef* release_disarm();
-  ::GameState::IntegerRef* mutable_disarm();
-  void set_allocated_disarm(::GameState::IntegerRef* disarm);
+  const ::Types::IntegerRef& disarm() const;
+  ::Types::IntegerRef* release_disarm();
+  ::Types::IntegerRef* mutable_disarm();
+  void set_allocated_disarm(::Types::IntegerRef* disarm);
   private:
-  const ::GameState::IntegerRef& _internal_disarm() const;
-  ::GameState::IntegerRef* _internal_mutable_disarm();
+  const ::Types::IntegerRef& _internal_disarm() const;
+  ::Types::IntegerRef* _internal_mutable_disarm();
   public:
   void unsafe_arena_set_allocated_disarm(
-      ::GameState::IntegerRef* disarm);
-  ::GameState::IntegerRef* unsafe_arena_release_disarm();
+      ::Types::IntegerRef* disarm);
+  ::Types::IntegerRef* unsafe_arena_release_disarm();
 
-  // .GameState.IntegerRef Initiative = 7;
+  // .Types.IntegerRef Initiative = 7;
   bool has_initiative() const;
   private:
   bool _internal_has_initiative() const;
   public:
   void clear_initiative();
-  const ::GameState::IntegerRef& initiative() const;
-  ::GameState::IntegerRef* release_initiative();
-  ::GameState::IntegerRef* mutable_initiative();
-  void set_allocated_initiative(::GameState::IntegerRef* initiative);
+  const ::Types::IntegerRef& initiative() const;
+  ::Types::IntegerRef* release_initiative();
+  ::Types::IntegerRef* mutable_initiative();
+  void set_allocated_initiative(::Types::IntegerRef* initiative);
   private:
-  const ::GameState::IntegerRef& _internal_initiative() const;
-  ::GameState::IntegerRef* _internal_mutable_initiative();
+  const ::Types::IntegerRef& _internal_initiative() const;
+  ::Types::IntegerRef* _internal_mutable_initiative();
   public:
   void unsafe_arena_set_allocated_initiative(
-      ::GameState::IntegerRef* initiative);
-  ::GameState::IntegerRef* unsafe_arena_release_initiative();
+      ::Types::IntegerRef* initiative);
+  ::Types::IntegerRef* unsafe_arena_release_initiative();
 
   // @@protoc_insertion_point(class_scope:GameState.Player.Stats)
  private:
@@ -2442,13 +390,13 @@ class Player_Stats PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::GameState::IntegerRef* health_;
-  ::GameState::IntegerRef* actions_;
-  ::GameState::IntegerRef* power_;
-  ::GameState::IntegerRef* slow_;
-  ::GameState::IntegerRef* silence_;
-  ::GameState::IntegerRef* disarm_;
-  ::GameState::IntegerRef* initiative_;
+  ::Types::IntegerRef* health_;
+  ::Types::IntegerRef* actions_;
+  ::Types::IntegerRef* power_;
+  ::Types::IntegerRef* slow_;
+  ::Types::IntegerRef* silence_;
+  ::Types::IntegerRef* disarm_;
+  ::Types::IntegerRef* initiative_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2495,7 +443,7 @@ class Player PROTOBUF_FINAL :
                &_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    1;
 
   friend void swap(Player& a, Player& b) {
     a.Swap(&b);
@@ -2579,94 +527,94 @@ class Player PROTOBUF_FINAL :
     kMaxStateFieldNumber = 9,
     kPositionFieldNumber = 10,
   };
-  // repeated .GameState.CardRef Field = 3;
+  // repeated .Types.CardRef Field = 3;
   int field_size() const;
   private:
   int _internal_field_size() const;
   public:
   void clear_field();
-  ::GameState::CardRef* mutable_field(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_field(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_field();
   private:
-  const ::GameState::CardRef& _internal_field(int index) const;
-  ::GameState::CardRef* _internal_add_field();
+  const ::Types::CardRef& _internal_field(int index) const;
+  ::Types::CardRef* _internal_add_field();
   public:
-  const ::GameState::CardRef& field(int index) const;
-  ::GameState::CardRef* add_field();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& field(int index) const;
+  ::Types::CardRef* add_field();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       field() const;
 
-  // repeated .GameState.CardRef Hand = 4;
+  // repeated .Types.CardRef Hand = 4;
   int hand_size() const;
   private:
   int _internal_hand_size() const;
   public:
   void clear_hand();
-  ::GameState::CardRef* mutable_hand(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_hand(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_hand();
   private:
-  const ::GameState::CardRef& _internal_hand(int index) const;
-  ::GameState::CardRef* _internal_add_hand();
+  const ::Types::CardRef& _internal_hand(int index) const;
+  ::Types::CardRef* _internal_add_hand();
   public:
-  const ::GameState::CardRef& hand(int index) const;
-  ::GameState::CardRef* add_hand();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& hand(int index) const;
+  ::Types::CardRef* add_hand();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       hand() const;
 
-  // repeated .GameState.CardRef Deck = 5;
+  // repeated .Types.CardRef Deck = 5;
   int deck_size() const;
   private:
   int _internal_deck_size() const;
   public:
   void clear_deck();
-  ::GameState::CardRef* mutable_deck(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_deck(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_deck();
   private:
-  const ::GameState::CardRef& _internal_deck(int index) const;
-  ::GameState::CardRef* _internal_add_deck();
+  const ::Types::CardRef& _internal_deck(int index) const;
+  ::Types::CardRef* _internal_add_deck();
   public:
-  const ::GameState::CardRef& deck(int index) const;
-  ::GameState::CardRef* add_deck();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& deck(int index) const;
+  ::Types::CardRef* add_deck();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       deck() const;
 
-  // repeated .GameState.CardRef Discard = 6;
+  // repeated .Types.CardRef Discard = 6;
   int discard_size() const;
   private:
   int _internal_discard_size() const;
   public:
   void clear_discard();
-  ::GameState::CardRef* mutable_discard(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_discard(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_discard();
   private:
-  const ::GameState::CardRef& _internal_discard(int index) const;
-  ::GameState::CardRef* _internal_add_discard();
+  const ::Types::CardRef& _internal_discard(int index) const;
+  ::Types::CardRef* _internal_add_discard();
   public:
-  const ::GameState::CardRef& discard(int index) const;
-  ::GameState::CardRef* add_discard();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& discard(int index) const;
+  ::Types::CardRef* add_discard();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       discard() const;
 
-  // repeated .GameState.CardRef Feats = 7;
+  // repeated .Types.CardRef Feats = 7;
   int feats_size() const;
   private:
   int _internal_feats_size() const;
   public:
   void clear_feats();
-  ::GameState::CardRef* mutable_feats(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_feats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_feats();
   private:
-  const ::GameState::CardRef& _internal_feats(int index) const;
-  ::GameState::CardRef* _internal_add_feats();
+  const ::Types::CardRef& _internal_feats(int index) const;
+  ::Types::CardRef* _internal_add_feats();
   public:
-  const ::GameState::CardRef& feats(int index) const;
-  ::GameState::CardRef* add_feats();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& feats(int index) const;
+  ::Types::CardRef* add_feats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       feats() const;
 
   // string DisplayName = 1;
@@ -2737,23 +685,23 @@ class Player PROTOBUF_FINAL :
       ::GameState::Player_Stats* maxstate);
   ::GameState::Player_Stats* unsafe_arena_release_maxstate();
 
-  // .GameState.Vec2iRef Position = 10;
+  // .Types.Vec2iRef Position = 10;
   bool has_position() const;
   private:
   bool _internal_has_position() const;
   public:
   void clear_position();
-  const ::GameState::Vec2iRef& position() const;
-  ::GameState::Vec2iRef* release_position();
-  ::GameState::Vec2iRef* mutable_position();
-  void set_allocated_position(::GameState::Vec2iRef* position);
+  const ::Types::Vec2iRef& position() const;
+  ::Types::Vec2iRef* release_position();
+  ::Types::Vec2iRef* mutable_position();
+  void set_allocated_position(::Types::Vec2iRef* position);
   private:
-  const ::GameState::Vec2iRef& _internal_position() const;
-  ::GameState::Vec2iRef* _internal_mutable_position();
+  const ::Types::Vec2iRef& _internal_position() const;
+  ::Types::Vec2iRef* _internal_mutable_position();
   public:
   void unsafe_arena_set_allocated_position(
-      ::GameState::Vec2iRef* position);
-  ::GameState::Vec2iRef* unsafe_arena_release_position();
+      ::Types::Vec2iRef* position);
+  ::Types::Vec2iRef* unsafe_arena_release_position();
 
   // @@protoc_insertion_point(class_scope:GameState.Player)
  private:
@@ -2762,16 +710,16 @@ class Player PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > field_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > hand_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > deck_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > discard_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > feats_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > field_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > hand_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > deck_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > discard_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > feats_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr displayname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
   ::GameState::Player_Stats* state_;
   ::GameState::Player_Stats* maxstate_;
-  ::GameState::Vec2iRef* position_;
+  ::Types::Vec2iRef* position_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2818,7 +766,7 @@ class Tile PROTOBUF_FINAL :
                &_Tile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    2;
 
   friend void swap(Tile& a, Tile& b) {
     a.Swap(&b);
@@ -2894,59 +842,59 @@ class Tile PROTOBUF_FINAL :
     kPositionFieldNumber = 1,
     kTerrainFieldNumber = 2,
   };
-  // repeated .GameState.PlayerRef Players = 3;
+  // repeated .Types.PlayerRef Players = 3;
   int players_size() const;
   private:
   int _internal_players_size() const;
   public:
   void clear_players();
-  ::GameState::PlayerRef* mutable_players(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >*
+  ::Types::PlayerRef* mutable_players(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >*
       mutable_players();
   private:
-  const ::GameState::PlayerRef& _internal_players(int index) const;
-  ::GameState::PlayerRef* _internal_add_players();
+  const ::Types::PlayerRef& _internal_players(int index) const;
+  ::Types::PlayerRef* _internal_add_players();
   public:
-  const ::GameState::PlayerRef& players(int index) const;
-  ::GameState::PlayerRef* add_players();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >&
+  const ::Types::PlayerRef& players(int index) const;
+  ::Types::PlayerRef* add_players();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >&
       players() const;
 
-  // repeated .GameState.CardRef Cards = 4;
+  // repeated .Types.CardRef Cards = 4;
   int cards_size() const;
   private:
   int _internal_cards_size() const;
   public:
   void clear_cards();
-  ::GameState::CardRef* mutable_cards(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+  ::Types::CardRef* mutable_cards(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
       mutable_cards();
   private:
-  const ::GameState::CardRef& _internal_cards(int index) const;
-  ::GameState::CardRef* _internal_add_cards();
+  const ::Types::CardRef& _internal_cards(int index) const;
+  ::Types::CardRef* _internal_add_cards();
   public:
-  const ::GameState::CardRef& cards(int index) const;
-  ::GameState::CardRef* add_cards();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+  const ::Types::CardRef& cards(int index) const;
+  ::Types::CardRef* add_cards();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       cards() const;
 
-  // .GameState.Vec2i Position = 1;
+  // .Types.Vec2i Position = 1;
   bool has_position() const;
   private:
   bool _internal_has_position() const;
   public:
   void clear_position();
-  const ::GameState::Vec2i& position() const;
-  ::GameState::Vec2i* release_position();
-  ::GameState::Vec2i* mutable_position();
-  void set_allocated_position(::GameState::Vec2i* position);
+  const ::Types::Vec2i& position() const;
+  ::Types::Vec2i* release_position();
+  ::Types::Vec2i* mutable_position();
+  void set_allocated_position(::Types::Vec2i* position);
   private:
-  const ::GameState::Vec2i& _internal_position() const;
-  ::GameState::Vec2i* _internal_mutable_position();
+  const ::Types::Vec2i& _internal_position() const;
+  ::Types::Vec2i* _internal_mutable_position();
   public:
   void unsafe_arena_set_allocated_position(
-      ::GameState::Vec2i* position);
-  ::GameState::Vec2i* unsafe_arena_release_position();
+      ::Types::Vec2i* position);
+  ::Types::Vec2i* unsafe_arena_release_position();
 
   // .Types.TerrainType Terrain = 2;
   void clear_terrain();
@@ -2964,9 +912,9 @@ class Tile PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef > players_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef > cards_;
-  ::GameState::Vec2i* position_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef > players_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > cards_;
+  ::Types::Vec2i* position_;
   int terrain_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -3014,7 +962,7 @@ class Card PROTOBUF_FINAL :
                &_Card_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    3;
 
   friend void swap(Card& a, Card& b) {
     a.Swap(&b);
@@ -3193,167 +1141,167 @@ class Card PROTOBUF_FINAL :
   std::string* _internal_mutable_archetype();
   public:
 
-  // .GameState.PlayerRef Owner = 7;
+  // .Types.PlayerRef Owner = 7;
   bool has_owner() const;
   private:
   bool _internal_has_owner() const;
   public:
   void clear_owner();
-  const ::GameState::PlayerRef& owner() const;
-  ::GameState::PlayerRef* release_owner();
-  ::GameState::PlayerRef* mutable_owner();
-  void set_allocated_owner(::GameState::PlayerRef* owner);
+  const ::Types::PlayerRef& owner() const;
+  ::Types::PlayerRef* release_owner();
+  ::Types::PlayerRef* mutable_owner();
+  void set_allocated_owner(::Types::PlayerRef* owner);
   private:
-  const ::GameState::PlayerRef& _internal_owner() const;
-  ::GameState::PlayerRef* _internal_mutable_owner();
+  const ::Types::PlayerRef& _internal_owner() const;
+  ::Types::PlayerRef* _internal_mutable_owner();
   public:
   void unsafe_arena_set_allocated_owner(
-      ::GameState::PlayerRef* owner);
-  ::GameState::PlayerRef* unsafe_arena_release_owner();
+      ::Types::PlayerRef* owner);
+  ::Types::PlayerRef* unsafe_arena_release_owner();
 
-  // .GameState.PlayerRef Controller = 8;
+  // .Types.PlayerRef Controller = 8;
   bool has_controller() const;
   private:
   bool _internal_has_controller() const;
   public:
   void clear_controller();
-  const ::GameState::PlayerRef& controller() const;
-  ::GameState::PlayerRef* release_controller();
-  ::GameState::PlayerRef* mutable_controller();
-  void set_allocated_controller(::GameState::PlayerRef* controller);
+  const ::Types::PlayerRef& controller() const;
+  ::Types::PlayerRef* release_controller();
+  ::Types::PlayerRef* mutable_controller();
+  void set_allocated_controller(::Types::PlayerRef* controller);
   private:
-  const ::GameState::PlayerRef& _internal_controller() const;
-  ::GameState::PlayerRef* _internal_mutable_controller();
+  const ::Types::PlayerRef& _internal_controller() const;
+  ::Types::PlayerRef* _internal_mutable_controller();
   public:
   void unsafe_arena_set_allocated_controller(
-      ::GameState::PlayerRef* controller);
-  ::GameState::PlayerRef* unsafe_arena_release_controller();
+      ::Types::PlayerRef* controller);
+  ::Types::PlayerRef* unsafe_arena_release_controller();
 
-  // .GameState.IntegerRef ActionCost = 9;
+  // .Types.IntegerRef ActionCost = 9;
   bool has_actioncost() const;
   private:
   bool _internal_has_actioncost() const;
   public:
   void clear_actioncost();
-  const ::GameState::IntegerRef& actioncost() const;
-  ::GameState::IntegerRef* release_actioncost();
-  ::GameState::IntegerRef* mutable_actioncost();
-  void set_allocated_actioncost(::GameState::IntegerRef* actioncost);
+  const ::Types::IntegerRef& actioncost() const;
+  ::Types::IntegerRef* release_actioncost();
+  ::Types::IntegerRef* mutable_actioncost();
+  void set_allocated_actioncost(::Types::IntegerRef* actioncost);
   private:
-  const ::GameState::IntegerRef& _internal_actioncost() const;
-  ::GameState::IntegerRef* _internal_mutable_actioncost();
+  const ::Types::IntegerRef& _internal_actioncost() const;
+  ::Types::IntegerRef* _internal_mutable_actioncost();
   public:
   void unsafe_arena_set_allocated_actioncost(
-      ::GameState::IntegerRef* actioncost);
-  ::GameState::IntegerRef* unsafe_arena_release_actioncost();
+      ::Types::IntegerRef* actioncost);
+  ::Types::IntegerRef* unsafe_arena_release_actioncost();
 
-  // .GameState.IntegerRef PowerCost = 10;
+  // .Types.IntegerRef PowerCost = 10;
   bool has_powercost() const;
   private:
   bool _internal_has_powercost() const;
   public:
   void clear_powercost();
-  const ::GameState::IntegerRef& powercost() const;
-  ::GameState::IntegerRef* release_powercost();
-  ::GameState::IntegerRef* mutable_powercost();
-  void set_allocated_powercost(::GameState::IntegerRef* powercost);
+  const ::Types::IntegerRef& powercost() const;
+  ::Types::IntegerRef* release_powercost();
+  ::Types::IntegerRef* mutable_powercost();
+  void set_allocated_powercost(::Types::IntegerRef* powercost);
   private:
-  const ::GameState::IntegerRef& _internal_powercost() const;
-  ::GameState::IntegerRef* _internal_mutable_powercost();
+  const ::Types::IntegerRef& _internal_powercost() const;
+  ::Types::IntegerRef* _internal_mutable_powercost();
   public:
   void unsafe_arena_set_allocated_powercost(
-      ::GameState::IntegerRef* powercost);
-  ::GameState::IntegerRef* unsafe_arena_release_powercost();
+      ::Types::IntegerRef* powercost);
+  ::Types::IntegerRef* unsafe_arena_release_powercost();
 
-  // .GameState.IntegerRef Range = 11;
+  // .Types.IntegerRef Range = 11;
   bool has_range() const;
   private:
   bool _internal_has_range() const;
   public:
   void clear_range();
-  const ::GameState::IntegerRef& range() const;
-  ::GameState::IntegerRef* release_range();
-  ::GameState::IntegerRef* mutable_range();
-  void set_allocated_range(::GameState::IntegerRef* range);
+  const ::Types::IntegerRef& range() const;
+  ::Types::IntegerRef* release_range();
+  ::Types::IntegerRef* mutable_range();
+  void set_allocated_range(::Types::IntegerRef* range);
   private:
-  const ::GameState::IntegerRef& _internal_range() const;
-  ::GameState::IntegerRef* _internal_mutable_range();
+  const ::Types::IntegerRef& _internal_range() const;
+  ::Types::IntegerRef* _internal_mutable_range();
   public:
   void unsafe_arena_set_allocated_range(
-      ::GameState::IntegerRef* range);
-  ::GameState::IntegerRef* unsafe_arena_release_range();
+      ::Types::IntegerRef* range);
+  ::Types::IntegerRef* unsafe_arena_release_range();
 
-  // .GameState.EntityRef Attached = 12;
+  // .Types.EntityRef Attached = 12;
   bool has_attached() const;
   private:
   bool _internal_has_attached() const;
   public:
   void clear_attached();
-  const ::GameState::EntityRef& attached() const;
-  ::GameState::EntityRef* release_attached();
-  ::GameState::EntityRef* mutable_attached();
-  void set_allocated_attached(::GameState::EntityRef* attached);
+  const ::Types::EntityRef& attached() const;
+  ::Types::EntityRef* release_attached();
+  ::Types::EntityRef* mutable_attached();
+  void set_allocated_attached(::Types::EntityRef* attached);
   private:
-  const ::GameState::EntityRef& _internal_attached() const;
-  ::GameState::EntityRef* _internal_mutable_attached();
+  const ::Types::EntityRef& _internal_attached() const;
+  ::Types::EntityRef* _internal_mutable_attached();
   public:
   void unsafe_arena_set_allocated_attached(
-      ::GameState::EntityRef* attached);
-  ::GameState::EntityRef* unsafe_arena_release_attached();
+      ::Types::EntityRef* attached);
+  ::Types::EntityRef* unsafe_arena_release_attached();
 
-  // .GameState.IntegerRef AffectedBySlow = 13;
+  // .Types.IntegerRef AffectedBySlow = 13;
   bool has_affectedbyslow() const;
   private:
   bool _internal_has_affectedbyslow() const;
   public:
   void clear_affectedbyslow();
-  const ::GameState::IntegerRef& affectedbyslow() const;
-  ::GameState::IntegerRef* release_affectedbyslow();
-  ::GameState::IntegerRef* mutable_affectedbyslow();
-  void set_allocated_affectedbyslow(::GameState::IntegerRef* affectedbyslow);
+  const ::Types::IntegerRef& affectedbyslow() const;
+  ::Types::IntegerRef* release_affectedbyslow();
+  ::Types::IntegerRef* mutable_affectedbyslow();
+  void set_allocated_affectedbyslow(::Types::IntegerRef* affectedbyslow);
   private:
-  const ::GameState::IntegerRef& _internal_affectedbyslow() const;
-  ::GameState::IntegerRef* _internal_mutable_affectedbyslow();
+  const ::Types::IntegerRef& _internal_affectedbyslow() const;
+  ::Types::IntegerRef* _internal_mutable_affectedbyslow();
   public:
   void unsafe_arena_set_allocated_affectedbyslow(
-      ::GameState::IntegerRef* affectedbyslow);
-  ::GameState::IntegerRef* unsafe_arena_release_affectedbyslow();
+      ::Types::IntegerRef* affectedbyslow);
+  ::Types::IntegerRef* unsafe_arena_release_affectedbyslow();
 
-  // .GameState.IntegerRef AffectedBySilence = 14;
+  // .Types.IntegerRef AffectedBySilence = 14;
   bool has_affectedbysilence() const;
   private:
   bool _internal_has_affectedbysilence() const;
   public:
   void clear_affectedbysilence();
-  const ::GameState::IntegerRef& affectedbysilence() const;
-  ::GameState::IntegerRef* release_affectedbysilence();
-  ::GameState::IntegerRef* mutable_affectedbysilence();
-  void set_allocated_affectedbysilence(::GameState::IntegerRef* affectedbysilence);
+  const ::Types::IntegerRef& affectedbysilence() const;
+  ::Types::IntegerRef* release_affectedbysilence();
+  ::Types::IntegerRef* mutable_affectedbysilence();
+  void set_allocated_affectedbysilence(::Types::IntegerRef* affectedbysilence);
   private:
-  const ::GameState::IntegerRef& _internal_affectedbysilence() const;
-  ::GameState::IntegerRef* _internal_mutable_affectedbysilence();
+  const ::Types::IntegerRef& _internal_affectedbysilence() const;
+  ::Types::IntegerRef* _internal_mutable_affectedbysilence();
   public:
   void unsafe_arena_set_allocated_affectedbysilence(
-      ::GameState::IntegerRef* affectedbysilence);
-  ::GameState::IntegerRef* unsafe_arena_release_affectedbysilence();
+      ::Types::IntegerRef* affectedbysilence);
+  ::Types::IntegerRef* unsafe_arena_release_affectedbysilence();
 
-  // .GameState.IntegerRef AffectedByDisarm = 15;
+  // .Types.IntegerRef AffectedByDisarm = 15;
   bool has_affectedbydisarm() const;
   private:
   bool _internal_has_affectedbydisarm() const;
   public:
   void clear_affectedbydisarm();
-  const ::GameState::IntegerRef& affectedbydisarm() const;
-  ::GameState::IntegerRef* release_affectedbydisarm();
-  ::GameState::IntegerRef* mutable_affectedbydisarm();
-  void set_allocated_affectedbydisarm(::GameState::IntegerRef* affectedbydisarm);
+  const ::Types::IntegerRef& affectedbydisarm() const;
+  ::Types::IntegerRef* release_affectedbydisarm();
+  ::Types::IntegerRef* mutable_affectedbydisarm();
+  void set_allocated_affectedbydisarm(::Types::IntegerRef* affectedbydisarm);
   private:
-  const ::GameState::IntegerRef& _internal_affectedbydisarm() const;
-  ::GameState::IntegerRef* _internal_mutable_affectedbydisarm();
+  const ::Types::IntegerRef& _internal_affectedbydisarm() const;
+  ::Types::IntegerRef* _internal_mutable_affectedbydisarm();
   public:
   void unsafe_arena_set_allocated_affectedbydisarm(
-      ::GameState::IntegerRef* affectedbydisarm);
-  ::GameState::IntegerRef* unsafe_arena_release_affectedbydisarm();
+      ::Types::IntegerRef* affectedbydisarm);
+  ::Types::IntegerRef* unsafe_arena_release_affectedbydisarm();
 
   // .Effects.CardEffect OmniPresentEffect = 16;
   bool has_omnipresenteffect() const;
@@ -3483,15 +1431,15 @@ class Card PROTOBUF_FINAL :
   mutable std::atomic<int> _colors_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr archetype_;
-  ::GameState::PlayerRef* owner_;
-  ::GameState::PlayerRef* controller_;
-  ::GameState::IntegerRef* actioncost_;
-  ::GameState::IntegerRef* powercost_;
-  ::GameState::IntegerRef* range_;
-  ::GameState::EntityRef* attached_;
-  ::GameState::IntegerRef* affectedbyslow_;
-  ::GameState::IntegerRef* affectedbysilence_;
-  ::GameState::IntegerRef* affectedbydisarm_;
+  ::Types::PlayerRef* owner_;
+  ::Types::PlayerRef* controller_;
+  ::Types::IntegerRef* actioncost_;
+  ::Types::IntegerRef* powercost_;
+  ::Types::IntegerRef* range_;
+  ::Types::EntityRef* attached_;
+  ::Types::IntegerRef* affectedbyslow_;
+  ::Types::IntegerRef* affectedbysilence_;
+  ::Types::IntegerRef* affectedbydisarm_;
   ::Effects::CardEffect* omnipresenteffect_;
   ::Effects::CardEffect* passiveeffect_;
   ::Effects::CardEffect* feateffect_;
@@ -3546,7 +1494,7 @@ class Team PROTOBUF_FINAL :
                &_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    4;
 
   friend void swap(Team& a, Team& b) {
     a.Swap(&b);
@@ -3619,22 +1567,22 @@ class Team PROTOBUF_FINAL :
   enum : int {
     kPlayersFieldNumber = 1,
   };
-  // repeated .GameState.PlayerRef Players = 1;
+  // repeated .Types.PlayerRef Players = 1;
   int players_size() const;
   private:
   int _internal_players_size() const;
   public:
   void clear_players();
-  ::GameState::PlayerRef* mutable_players(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >*
+  ::Types::PlayerRef* mutable_players(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >*
       mutable_players();
   private:
-  const ::GameState::PlayerRef& _internal_players(int index) const;
-  ::GameState::PlayerRef* _internal_add_players();
+  const ::Types::PlayerRef& _internal_players(int index) const;
+  ::Types::PlayerRef* _internal_add_players();
   public:
-  const ::GameState::PlayerRef& players(int index) const;
-  ::GameState::PlayerRef* add_players();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >&
+  const ::Types::PlayerRef& players(int index) const;
+  ::Types::PlayerRef* add_players();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >&
       players() const;
 
   // @@protoc_insertion_point(class_scope:GameState.Team)
@@ -3644,7 +1592,7 @@ class Team PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef > players_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef > players_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3691,7 +1639,7 @@ class SetMutation PROTOBUF_FINAL :
                &_SetMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    5;
 
   friend void swap(SetMutation& a, SetMutation& b) {
     a.Swap(&b);
@@ -3766,59 +1714,59 @@ class SetMutation PROTOBUF_FINAL :
     kNewValueFieldNumber = 2,
     kOldValueFieldNumber = 3,
   };
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::GameState::EntityRef& object() const;
-  ::GameState::EntityRef* release_object();
-  ::GameState::EntityRef* mutable_object();
-  void set_allocated_object(::GameState::EntityRef* object);
+  const ::Types::EntityRef& object() const;
+  ::Types::EntityRef* release_object();
+  ::Types::EntityRef* mutable_object();
+  void set_allocated_object(::Types::EntityRef* object);
   private:
-  const ::GameState::EntityRef& _internal_object() const;
-  ::GameState::EntityRef* _internal_mutable_object();
+  const ::Types::EntityRef& _internal_object() const;
+  ::Types::EntityRef* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::GameState::EntityRef* object);
-  ::GameState::EntityRef* unsafe_arena_release_object();
+      ::Types::EntityRef* object);
+  ::Types::EntityRef* unsafe_arena_release_object();
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   bool has_newvalue() const;
   private:
   bool _internal_has_newvalue() const;
   public:
   void clear_newvalue();
-  const ::GameState::EntityValue& newvalue() const;
-  ::GameState::EntityValue* release_newvalue();
-  ::GameState::EntityValue* mutable_newvalue();
-  void set_allocated_newvalue(::GameState::EntityValue* newvalue);
+  const ::Types::EntityValue& newvalue() const;
+  ::Types::EntityValue* release_newvalue();
+  ::Types::EntityValue* mutable_newvalue();
+  void set_allocated_newvalue(::Types::EntityValue* newvalue);
   private:
-  const ::GameState::EntityValue& _internal_newvalue() const;
-  ::GameState::EntityValue* _internal_mutable_newvalue();
+  const ::Types::EntityValue& _internal_newvalue() const;
+  ::Types::EntityValue* _internal_mutable_newvalue();
   public:
   void unsafe_arena_set_allocated_newvalue(
-      ::GameState::EntityValue* newvalue);
-  ::GameState::EntityValue* unsafe_arena_release_newvalue();
+      ::Types::EntityValue* newvalue);
+  ::Types::EntityValue* unsafe_arena_release_newvalue();
 
-  // .GameState.EntityValue OldValue = 3;
+  // .Types.EntityValue OldValue = 3;
   bool has_oldvalue() const;
   private:
   bool _internal_has_oldvalue() const;
   public:
   void clear_oldvalue();
-  const ::GameState::EntityValue& oldvalue() const;
-  ::GameState::EntityValue* release_oldvalue();
-  ::GameState::EntityValue* mutable_oldvalue();
-  void set_allocated_oldvalue(::GameState::EntityValue* oldvalue);
+  const ::Types::EntityValue& oldvalue() const;
+  ::Types::EntityValue* release_oldvalue();
+  ::Types::EntityValue* mutable_oldvalue();
+  void set_allocated_oldvalue(::Types::EntityValue* oldvalue);
   private:
-  const ::GameState::EntityValue& _internal_oldvalue() const;
-  ::GameState::EntityValue* _internal_mutable_oldvalue();
+  const ::Types::EntityValue& _internal_oldvalue() const;
+  ::Types::EntityValue* _internal_mutable_oldvalue();
   public:
   void unsafe_arena_set_allocated_oldvalue(
-      ::GameState::EntityValue* oldvalue);
-  ::GameState::EntityValue* unsafe_arena_release_oldvalue();
+      ::Types::EntityValue* oldvalue);
+  ::Types::EntityValue* unsafe_arena_release_oldvalue();
 
   // @@protoc_insertion_point(class_scope:GameState.SetMutation)
  private:
@@ -3827,9 +1775,9 @@ class SetMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::GameState::EntityRef* object_;
-  ::GameState::EntityValue* newvalue_;
-  ::GameState::EntityValue* oldvalue_;
+  ::Types::EntityRef* object_;
+  ::Types::EntityValue* newvalue_;
+  ::Types::EntityValue* oldvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3876,7 +1824,7 @@ class RemoveMutation PROTOBUF_FINAL :
                &_RemoveMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    6;
 
   friend void swap(RemoveMutation& a, RemoveMutation& b) {
     a.Swap(&b);
@@ -3950,41 +1898,41 @@ class RemoveMutation PROTOBUF_FINAL :
     kObjectFieldNumber = 1,
     kOldValueFieldNumber = 2,
   };
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::GameState::EntityRef& object() const;
-  ::GameState::EntityRef* release_object();
-  ::GameState::EntityRef* mutable_object();
-  void set_allocated_object(::GameState::EntityRef* object);
+  const ::Types::EntityRef& object() const;
+  ::Types::EntityRef* release_object();
+  ::Types::EntityRef* mutable_object();
+  void set_allocated_object(::Types::EntityRef* object);
   private:
-  const ::GameState::EntityRef& _internal_object() const;
-  ::GameState::EntityRef* _internal_mutable_object();
+  const ::Types::EntityRef& _internal_object() const;
+  ::Types::EntityRef* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::GameState::EntityRef* object);
-  ::GameState::EntityRef* unsafe_arena_release_object();
+      ::Types::EntityRef* object);
+  ::Types::EntityRef* unsafe_arena_release_object();
 
-  // .GameState.EntityValue OldValue = 2;
+  // .Types.EntityValue OldValue = 2;
   bool has_oldvalue() const;
   private:
   bool _internal_has_oldvalue() const;
   public:
   void clear_oldvalue();
-  const ::GameState::EntityValue& oldvalue() const;
-  ::GameState::EntityValue* release_oldvalue();
-  ::GameState::EntityValue* mutable_oldvalue();
-  void set_allocated_oldvalue(::GameState::EntityValue* oldvalue);
+  const ::Types::EntityValue& oldvalue() const;
+  ::Types::EntityValue* release_oldvalue();
+  ::Types::EntityValue* mutable_oldvalue();
+  void set_allocated_oldvalue(::Types::EntityValue* oldvalue);
   private:
-  const ::GameState::EntityValue& _internal_oldvalue() const;
-  ::GameState::EntityValue* _internal_mutable_oldvalue();
+  const ::Types::EntityValue& _internal_oldvalue() const;
+  ::Types::EntityValue* _internal_mutable_oldvalue();
   public:
   void unsafe_arena_set_allocated_oldvalue(
-      ::GameState::EntityValue* oldvalue);
-  ::GameState::EntityValue* unsafe_arena_release_oldvalue();
+      ::Types::EntityValue* oldvalue);
+  ::Types::EntityValue* unsafe_arena_release_oldvalue();
 
   // @@protoc_insertion_point(class_scope:GameState.RemoveMutation)
  private:
@@ -3993,8 +1941,8 @@ class RemoveMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::GameState::EntityRef* object_;
-  ::GameState::EntityValue* oldvalue_;
+  ::Types::EntityRef* object_;
+  ::Types::EntityValue* oldvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4041,7 +1989,7 @@ class InsertMutation PROTOBUF_FINAL :
                &_InsertMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    7;
 
   friend void swap(InsertMutation& a, InsertMutation& b) {
     a.Swap(&b);
@@ -4115,41 +2063,41 @@ class InsertMutation PROTOBUF_FINAL :
     kObjectFieldNumber = 1,
     kNewValueFieldNumber = 2,
   };
-  // .GameState.EntityRef Object = 1;
+  // .Types.EntityRef Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::GameState::EntityRef& object() const;
-  ::GameState::EntityRef* release_object();
-  ::GameState::EntityRef* mutable_object();
-  void set_allocated_object(::GameState::EntityRef* object);
+  const ::Types::EntityRef& object() const;
+  ::Types::EntityRef* release_object();
+  ::Types::EntityRef* mutable_object();
+  void set_allocated_object(::Types::EntityRef* object);
   private:
-  const ::GameState::EntityRef& _internal_object() const;
-  ::GameState::EntityRef* _internal_mutable_object();
+  const ::Types::EntityRef& _internal_object() const;
+  ::Types::EntityRef* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::GameState::EntityRef* object);
-  ::GameState::EntityRef* unsafe_arena_release_object();
+      ::Types::EntityRef* object);
+  ::Types::EntityRef* unsafe_arena_release_object();
 
-  // .GameState.EntityValue NewValue = 2;
+  // .Types.EntityValue NewValue = 2;
   bool has_newvalue() const;
   private:
   bool _internal_has_newvalue() const;
   public:
   void clear_newvalue();
-  const ::GameState::EntityValue& newvalue() const;
-  ::GameState::EntityValue* release_newvalue();
-  ::GameState::EntityValue* mutable_newvalue();
-  void set_allocated_newvalue(::GameState::EntityValue* newvalue);
+  const ::Types::EntityValue& newvalue() const;
+  ::Types::EntityValue* release_newvalue();
+  ::Types::EntityValue* mutable_newvalue();
+  void set_allocated_newvalue(::Types::EntityValue* newvalue);
   private:
-  const ::GameState::EntityValue& _internal_newvalue() const;
-  ::GameState::EntityValue* _internal_mutable_newvalue();
+  const ::Types::EntityValue& _internal_newvalue() const;
+  ::Types::EntityValue* _internal_mutable_newvalue();
   public:
   void unsafe_arena_set_allocated_newvalue(
-      ::GameState::EntityValue* newvalue);
-  ::GameState::EntityValue* unsafe_arena_release_newvalue();
+      ::Types::EntityValue* newvalue);
+  ::Types::EntityValue* unsafe_arena_release_newvalue();
 
   // @@protoc_insertion_point(class_scope:GameState.InsertMutation)
  private:
@@ -4158,8 +2106,8 @@ class InsertMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::GameState::EntityRef* object_;
-  ::GameState::EntityValue* newvalue_;
+  ::Types::EntityRef* object_;
+  ::Types::EntityValue* newvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4213,7 +2161,7 @@ class Mutation PROTOBUF_FINAL :
                &_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    8;
 
   friend void swap(Mutation& a, Mutation& b) {
     a.Swap(&b);
@@ -4411,7 +2359,7 @@ class GameState PROTOBUF_FINAL :
                &_GameState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    9;
 
   friend void swap(GameState& a, GameState& b) {
     a.Swap(&b);
@@ -4579,23 +2527,23 @@ class GameState PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::Card >&
       stack() const;
 
-  // .GameState.Integer TurnNumber = 6;
+  // .Types.Integer TurnNumber = 6;
   bool has_turnnumber() const;
   private:
   bool _internal_has_turnnumber() const;
   public:
   void clear_turnnumber();
-  const ::GameState::Integer& turnnumber() const;
-  ::GameState::Integer* release_turnnumber();
-  ::GameState::Integer* mutable_turnnumber();
-  void set_allocated_turnnumber(::GameState::Integer* turnnumber);
+  const ::Types::Integer& turnnumber() const;
+  ::Types::Integer* release_turnnumber();
+  ::Types::Integer* mutable_turnnumber();
+  void set_allocated_turnnumber(::Types::Integer* turnnumber);
   private:
-  const ::GameState::Integer& _internal_turnnumber() const;
-  ::GameState::Integer* _internal_mutable_turnnumber();
+  const ::Types::Integer& _internal_turnnumber() const;
+  ::Types::Integer* _internal_mutable_turnnumber();
   public:
   void unsafe_arena_set_allocated_turnnumber(
-      ::GameState::Integer* turnnumber);
-  ::GameState::Integer* unsafe_arena_release_turnnumber();
+      ::Types::Integer* turnnumber);
+  ::Types::Integer* unsafe_arena_release_turnnumber();
 
   // @@protoc_insertion_point(class_scope:GameState.GameState)
  private:
@@ -4609,7 +2557,7 @@ class GameState PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::Tile > tiles_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::Team > teams_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::Card > stack_;
-  ::GameState::Integer* turnnumber_;
+  ::Types::Integer* turnnumber_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4656,7 +2604,7 @@ class GameInstance PROTOBUF_FINAL :
                &_GameInstance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    10;
 
   friend void swap(GameInstance& a, GameInstance& b) {
     a.Swap(&b);
@@ -4787,1546 +2735,26 @@ class GameInstance PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Path
-
-// repeated int32 FieldIndex = 1;
-inline int Path::_internal_fieldindex_size() const {
-  return fieldindex_.size();
-}
-inline int Path::fieldindex_size() const {
-  return _internal_fieldindex_size();
-}
-inline void Path::clear_fieldindex() {
-  fieldindex_.Clear();
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Path::_internal_fieldindex(int index) const {
-  return fieldindex_.Get(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Path::fieldindex(int index) const {
-  // @@protoc_insertion_point(field_get:GameState.Path.FieldIndex)
-  return _internal_fieldindex(index);
-}
-inline void Path::set_fieldindex(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  fieldindex_.Set(index, value);
-  // @@protoc_insertion_point(field_set:GameState.Path.FieldIndex)
-}
-inline void Path::_internal_add_fieldindex(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  fieldindex_.Add(value);
-}
-inline void Path::add_fieldindex(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_fieldindex(value);
-  // @@protoc_insertion_point(field_add:GameState.Path.FieldIndex)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Path::_internal_fieldindex() const {
-  return fieldindex_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-Path::fieldindex() const {
-  // @@protoc_insertion_point(field_list:GameState.Path.FieldIndex)
-  return _internal_fieldindex();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Path::_internal_mutable_fieldindex() {
-  return &fieldindex_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-Path::mutable_fieldindex() {
-  // @@protoc_insertion_point(field_mutable_list:GameState.Path.FieldIndex)
-  return _internal_mutable_fieldindex();
-}
-
-// -------------------------------------------------------------------
-
-// Integer
-
-// int32 Value = 1;
-inline void Integer::clear_value() {
-  value_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::_internal_value() const {
-  return value_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::value() const {
-  // @@protoc_insertion_point(field_get:GameState.Integer.Value)
-  return _internal_value();
-}
-inline void Integer::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  value_ = value;
-}
-inline void Integer::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:GameState.Integer.Value)
-}
-
-// -------------------------------------------------------------------
-
-// Vec2i
-
-// int32 X = 1;
-inline void Vec2i::clear_x() {
-  x_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_x() const {
-  return x_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::x() const {
-  // @@protoc_insertion_point(field_get:GameState.Vec2i.X)
-  return _internal_x();
-}
-inline void Vec2i::_internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  x_ = value;
-}
-inline void Vec2i::set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:GameState.Vec2i.X)
-}
-
-// int32 Y = 2;
-inline void Vec2i::clear_y() {
-  y_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_y() const {
-  return y_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::y() const {
-  // @@protoc_insertion_point(field_get:GameState.Vec2i.Y)
-  return _internal_y();
-}
-inline void Vec2i::_internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  y_ = value;
-}
-inline void Vec2i::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:GameState.Vec2i.Y)
-}
-
-// -------------------------------------------------------------------
-
-// PlayerRef
-
-// .GameState.Path ObjectPath = 1;
-inline bool PlayerRef::_internal_has_objectpath() const {
-  return this != internal_default_instance() && objectpath_ != nullptr;
-}
-inline bool PlayerRef::has_objectpath() const {
-  return _internal_has_objectpath();
-}
-inline void PlayerRef::clear_objectpath() {
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-}
-inline const ::GameState::Path& PlayerRef::_internal_objectpath() const {
-  const ::GameState::Path* p = objectpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Path&>(
-      ::GameState::_Path_default_instance_);
-}
-inline const ::GameState::Path& PlayerRef::objectpath() const {
-  // @@protoc_insertion_point(field_get:GameState.PlayerRef.ObjectPath)
-  return _internal_objectpath();
-}
-inline void PlayerRef::unsafe_arena_set_allocated_objectpath(
-    ::GameState::Path* objectpath) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(objectpath_);
-  }
-  objectpath_ = objectpath;
-  if (objectpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.PlayerRef.ObjectPath)
-}
-inline ::GameState::Path* PlayerRef::release_objectpath() {
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Path* PlayerRef::unsafe_arena_release_objectpath() {
-  // @@protoc_insertion_point(field_release:GameState.PlayerRef.ObjectPath)
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  return temp;
-}
-inline ::GameState::Path* PlayerRef::_internal_mutable_objectpath() {
-  
-  if (objectpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Path>(GetArena());
-    objectpath_ = p;
-  }
-  return objectpath_;
-}
-inline ::GameState::Path* PlayerRef::mutable_objectpath() {
-  // @@protoc_insertion_point(field_mutable:GameState.PlayerRef.ObjectPath)
-  return _internal_mutable_objectpath();
-}
-inline void PlayerRef::set_allocated_objectpath(::GameState::Path* objectpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete objectpath_;
-  }
-  if (objectpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(objectpath);
-    if (message_arena != submessage_arena) {
-      objectpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, objectpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  objectpath_ = objectpath;
-  // @@protoc_insertion_point(field_set_allocated:GameState.PlayerRef.ObjectPath)
-}
-
-// -------------------------------------------------------------------
-
-// CardRef
-
-// .GameState.Path ObjectPath = 1;
-inline bool CardRef::_internal_has_objectpath() const {
-  return this != internal_default_instance() && objectpath_ != nullptr;
-}
-inline bool CardRef::has_objectpath() const {
-  return _internal_has_objectpath();
-}
-inline void CardRef::clear_objectpath() {
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-}
-inline const ::GameState::Path& CardRef::_internal_objectpath() const {
-  const ::GameState::Path* p = objectpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Path&>(
-      ::GameState::_Path_default_instance_);
-}
-inline const ::GameState::Path& CardRef::objectpath() const {
-  // @@protoc_insertion_point(field_get:GameState.CardRef.ObjectPath)
-  return _internal_objectpath();
-}
-inline void CardRef::unsafe_arena_set_allocated_objectpath(
-    ::GameState::Path* objectpath) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(objectpath_);
-  }
-  objectpath_ = objectpath;
-  if (objectpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardRef.ObjectPath)
-}
-inline ::GameState::Path* CardRef::release_objectpath() {
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Path* CardRef::unsafe_arena_release_objectpath() {
-  // @@protoc_insertion_point(field_release:GameState.CardRef.ObjectPath)
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  return temp;
-}
-inline ::GameState::Path* CardRef::_internal_mutable_objectpath() {
-  
-  if (objectpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Path>(GetArena());
-    objectpath_ = p;
-  }
-  return objectpath_;
-}
-inline ::GameState::Path* CardRef::mutable_objectpath() {
-  // @@protoc_insertion_point(field_mutable:GameState.CardRef.ObjectPath)
-  return _internal_mutable_objectpath();
-}
-inline void CardRef::set_allocated_objectpath(::GameState::Path* objectpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete objectpath_;
-  }
-  if (objectpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(objectpath);
-    if (message_arena != submessage_arena) {
-      objectpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, objectpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  objectpath_ = objectpath;
-  // @@protoc_insertion_point(field_set_allocated:GameState.CardRef.ObjectPath)
-}
-
-// -------------------------------------------------------------------
-
-// TileRef
-
-// .GameState.Path ObjectPath = 1;
-inline bool TileRef::_internal_has_objectpath() const {
-  return this != internal_default_instance() && objectpath_ != nullptr;
-}
-inline bool TileRef::has_objectpath() const {
-  return _internal_has_objectpath();
-}
-inline void TileRef::clear_objectpath() {
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-}
-inline const ::GameState::Path& TileRef::_internal_objectpath() const {
-  const ::GameState::Path* p = objectpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Path&>(
-      ::GameState::_Path_default_instance_);
-}
-inline const ::GameState::Path& TileRef::objectpath() const {
-  // @@protoc_insertion_point(field_get:GameState.TileRef.ObjectPath)
-  return _internal_objectpath();
-}
-inline void TileRef::unsafe_arena_set_allocated_objectpath(
-    ::GameState::Path* objectpath) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(objectpath_);
-  }
-  objectpath_ = objectpath;
-  if (objectpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.TileRef.ObjectPath)
-}
-inline ::GameState::Path* TileRef::release_objectpath() {
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Path* TileRef::unsafe_arena_release_objectpath() {
-  // @@protoc_insertion_point(field_release:GameState.TileRef.ObjectPath)
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  return temp;
-}
-inline ::GameState::Path* TileRef::_internal_mutable_objectpath() {
-  
-  if (objectpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Path>(GetArena());
-    objectpath_ = p;
-  }
-  return objectpath_;
-}
-inline ::GameState::Path* TileRef::mutable_objectpath() {
-  // @@protoc_insertion_point(field_mutable:GameState.TileRef.ObjectPath)
-  return _internal_mutable_objectpath();
-}
-inline void TileRef::set_allocated_objectpath(::GameState::Path* objectpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete objectpath_;
-  }
-  if (objectpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(objectpath);
-    if (message_arena != submessage_arena) {
-      objectpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, objectpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  objectpath_ = objectpath;
-  // @@protoc_insertion_point(field_set_allocated:GameState.TileRef.ObjectPath)
-}
-
-// -------------------------------------------------------------------
-
-// IntegerRef
-
-// .GameState.Path ObjectPath = 1;
-inline bool IntegerRef::_internal_has_objectpath() const {
-  return this != internal_default_instance() && objectpath_ != nullptr;
-}
-inline bool IntegerRef::has_objectpath() const {
-  return _internal_has_objectpath();
-}
-inline void IntegerRef::clear_objectpath() {
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-}
-inline const ::GameState::Path& IntegerRef::_internal_objectpath() const {
-  const ::GameState::Path* p = objectpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Path&>(
-      ::GameState::_Path_default_instance_);
-}
-inline const ::GameState::Path& IntegerRef::objectpath() const {
-  // @@protoc_insertion_point(field_get:GameState.IntegerRef.ObjectPath)
-  return _internal_objectpath();
-}
-inline void IntegerRef::unsafe_arena_set_allocated_objectpath(
-    ::GameState::Path* objectpath) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(objectpath_);
-  }
-  objectpath_ = objectpath;
-  if (objectpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.IntegerRef.ObjectPath)
-}
-inline ::GameState::Path* IntegerRef::release_objectpath() {
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Path* IntegerRef::unsafe_arena_release_objectpath() {
-  // @@protoc_insertion_point(field_release:GameState.IntegerRef.ObjectPath)
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  return temp;
-}
-inline ::GameState::Path* IntegerRef::_internal_mutable_objectpath() {
-  
-  if (objectpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Path>(GetArena());
-    objectpath_ = p;
-  }
-  return objectpath_;
-}
-inline ::GameState::Path* IntegerRef::mutable_objectpath() {
-  // @@protoc_insertion_point(field_mutable:GameState.IntegerRef.ObjectPath)
-  return _internal_mutable_objectpath();
-}
-inline void IntegerRef::set_allocated_objectpath(::GameState::Path* objectpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete objectpath_;
-  }
-  if (objectpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(objectpath);
-    if (message_arena != submessage_arena) {
-      objectpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, objectpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  objectpath_ = objectpath;
-  // @@protoc_insertion_point(field_set_allocated:GameState.IntegerRef.ObjectPath)
-}
-
-// -------------------------------------------------------------------
-
-// Vec2iRef
-
-// .GameState.Path ObjectPath = 1;
-inline bool Vec2iRef::_internal_has_objectpath() const {
-  return this != internal_default_instance() && objectpath_ != nullptr;
-}
-inline bool Vec2iRef::has_objectpath() const {
-  return _internal_has_objectpath();
-}
-inline void Vec2iRef::clear_objectpath() {
-  if (GetArena() == nullptr && objectpath_ != nullptr) {
-    delete objectpath_;
-  }
-  objectpath_ = nullptr;
-}
-inline const ::GameState::Path& Vec2iRef::_internal_objectpath() const {
-  const ::GameState::Path* p = objectpath_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Path&>(
-      ::GameState::_Path_default_instance_);
-}
-inline const ::GameState::Path& Vec2iRef::objectpath() const {
-  // @@protoc_insertion_point(field_get:GameState.Vec2iRef.ObjectPath)
-  return _internal_objectpath();
-}
-inline void Vec2iRef::unsafe_arena_set_allocated_objectpath(
-    ::GameState::Path* objectpath) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(objectpath_);
-  }
-  objectpath_ = objectpath;
-  if (objectpath) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Vec2iRef.ObjectPath)
-}
-inline ::GameState::Path* Vec2iRef::release_objectpath() {
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Path* Vec2iRef::unsafe_arena_release_objectpath() {
-  // @@protoc_insertion_point(field_release:GameState.Vec2iRef.ObjectPath)
-  
-  ::GameState::Path* temp = objectpath_;
-  objectpath_ = nullptr;
-  return temp;
-}
-inline ::GameState::Path* Vec2iRef::_internal_mutable_objectpath() {
-  
-  if (objectpath_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Path>(GetArena());
-    objectpath_ = p;
-  }
-  return objectpath_;
-}
-inline ::GameState::Path* Vec2iRef::mutable_objectpath() {
-  // @@protoc_insertion_point(field_mutable:GameState.Vec2iRef.ObjectPath)
-  return _internal_mutable_objectpath();
-}
-inline void Vec2iRef::set_allocated_objectpath(::GameState::Path* objectpath) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete objectpath_;
-  }
-  if (objectpath) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(objectpath);
-    if (message_arena != submessage_arena) {
-      objectpath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, objectpath, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  objectpath_ = objectpath;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Vec2iRef.ObjectPath)
-}
-
-// -------------------------------------------------------------------
-
-// IntegerValue
-
-// int32 Value = 1;
-inline bool IntegerValue::_internal_has_value() const {
-  return value_case() == kValue;
-}
-inline void IntegerValue::set_has_value() {
-  _oneof_case_[0] = kValue;
-}
-inline void IntegerValue::clear_value() {
-  if (_internal_has_value()) {
-    value_.value_ = 0;
-    clear_has_value();
-  }
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 IntegerValue::_internal_value() const {
-  if (_internal_has_value()) {
-    return value_.value_;
-  }
-  return 0;
-}
-inline void IntegerValue::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  if (!_internal_has_value()) {
-    clear_value();
-    set_has_value();
-  }
-  value_.value_ = value;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 IntegerValue::value() const {
-  // @@protoc_insertion_point(field_get:GameState.IntegerValue.Value)
-  return _internal_value();
-}
-inline void IntegerValue::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:GameState.IntegerValue.Value)
-}
-
-// .GameState.IntegerRef Ref = 2;
-inline bool IntegerValue::_internal_has_ref() const {
-  return value_case() == kRef;
-}
-inline bool IntegerValue::has_ref() const {
-  return _internal_has_ref();
-}
-inline void IntegerValue::set_has_ref() {
-  _oneof_case_[0] = kRef;
-}
-inline void IntegerValue::clear_ref() {
-  if (_internal_has_ref()) {
-    if (GetArena() == nullptr) {
-      delete value_.ref_;
-    }
-    clear_has_value();
-  }
-}
-inline ::GameState::IntegerRef* IntegerValue::release_ref() {
-  // @@protoc_insertion_point(field_release:GameState.IntegerValue.Ref)
-  if (_internal_has_ref()) {
-    clear_has_value();
-      ::GameState::IntegerRef* temp = value_.ref_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    value_.ref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::IntegerRef& IntegerValue::_internal_ref() const {
-  return _internal_has_ref()
-      ? *value_.ref_
-      : reinterpret_cast< ::GameState::IntegerRef&>(::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& IntegerValue::ref() const {
-  // @@protoc_insertion_point(field_get:GameState.IntegerValue.Ref)
-  return _internal_ref();
-}
-inline ::GameState::IntegerRef* IntegerValue::unsafe_arena_release_ref() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.IntegerValue.Ref)
-  if (_internal_has_ref()) {
-    clear_has_value();
-    ::GameState::IntegerRef* temp = value_.ref_;
-    value_.ref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void IntegerValue::unsafe_arena_set_allocated_ref(::GameState::IntegerRef* ref) {
-  clear_value();
-  if (ref) {
-    set_has_ref();
-    value_.ref_ = ref;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.IntegerValue.Ref)
-}
-inline ::GameState::IntegerRef* IntegerValue::_internal_mutable_ref() {
-  if (!_internal_has_ref()) {
-    clear_value();
-    set_has_ref();
-    value_.ref_ = CreateMaybeMessage< ::GameState::IntegerRef >(GetArena());
-  }
-  return value_.ref_;
-}
-inline ::GameState::IntegerRef* IntegerValue::mutable_ref() {
-  // @@protoc_insertion_point(field_mutable:GameState.IntegerValue.Ref)
-  return _internal_mutable_ref();
-}
-
-inline bool IntegerValue::has_value() const {
-  return value_case() != VALUE_NOT_SET;
-}
-inline void IntegerValue::clear_has_value() {
-  _oneof_case_[0] = VALUE_NOT_SET;
-}
-inline IntegerValue::ValueCase IntegerValue::value_case() const {
-  return IntegerValue::ValueCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// Vec2iValue
-
-// .GameState.Vec2i Value = 1;
-inline bool Vec2iValue::_internal_has_value() const {
-  return value_case() == kValue;
-}
-inline bool Vec2iValue::has_value() const {
-  return _internal_has_value();
-}
-inline void Vec2iValue::set_has_value() {
-  _oneof_case_[0] = kValue;
-}
-inline void Vec2iValue::clear_value() {
-  if (_internal_has_value()) {
-    if (GetArena() == nullptr) {
-      delete value_.value_;
-    }
-    clear_has_value();
-  }
-}
-inline ::GameState::Vec2i* Vec2iValue::release_value() {
-  // @@protoc_insertion_point(field_release:GameState.Vec2iValue.Value)
-  if (_internal_has_value()) {
-    clear_has_value();
-      ::GameState::Vec2i* temp = value_.value_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    value_.value_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::Vec2i& Vec2iValue::_internal_value() const {
-  return _internal_has_value()
-      ? *value_.value_
-      : reinterpret_cast< ::GameState::Vec2i&>(::GameState::_Vec2i_default_instance_);
-}
-inline const ::GameState::Vec2i& Vec2iValue::value() const {
-  // @@protoc_insertion_point(field_get:GameState.Vec2iValue.Value)
-  return _internal_value();
-}
-inline ::GameState::Vec2i* Vec2iValue::unsafe_arena_release_value() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.Vec2iValue.Value)
-  if (_internal_has_value()) {
-    clear_has_value();
-    ::GameState::Vec2i* temp = value_.value_;
-    value_.value_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Vec2iValue::unsafe_arena_set_allocated_value(::GameState::Vec2i* value) {
-  clear_value();
-  if (value) {
-    set_has_value();
-    value_.value_ = value;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Vec2iValue.Value)
-}
-inline ::GameState::Vec2i* Vec2iValue::_internal_mutable_value() {
-  if (!_internal_has_value()) {
-    clear_value();
-    set_has_value();
-    value_.value_ = CreateMaybeMessage< ::GameState::Vec2i >(GetArena());
-  }
-  return value_.value_;
-}
-inline ::GameState::Vec2i* Vec2iValue::mutable_value() {
-  // @@protoc_insertion_point(field_mutable:GameState.Vec2iValue.Value)
-  return _internal_mutable_value();
-}
-
-// .GameState.Vec2iRef Ref = 2;
-inline bool Vec2iValue::_internal_has_ref() const {
-  return value_case() == kRef;
-}
-inline bool Vec2iValue::has_ref() const {
-  return _internal_has_ref();
-}
-inline void Vec2iValue::set_has_ref() {
-  _oneof_case_[0] = kRef;
-}
-inline void Vec2iValue::clear_ref() {
-  if (_internal_has_ref()) {
-    if (GetArena() == nullptr) {
-      delete value_.ref_;
-    }
-    clear_has_value();
-  }
-}
-inline ::GameState::Vec2iRef* Vec2iValue::release_ref() {
-  // @@protoc_insertion_point(field_release:GameState.Vec2iValue.Ref)
-  if (_internal_has_ref()) {
-    clear_has_value();
-      ::GameState::Vec2iRef* temp = value_.ref_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    value_.ref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::Vec2iRef& Vec2iValue::_internal_ref() const {
-  return _internal_has_ref()
-      ? *value_.ref_
-      : reinterpret_cast< ::GameState::Vec2iRef&>(::GameState::_Vec2iRef_default_instance_);
-}
-inline const ::GameState::Vec2iRef& Vec2iValue::ref() const {
-  // @@protoc_insertion_point(field_get:GameState.Vec2iValue.Ref)
-  return _internal_ref();
-}
-inline ::GameState::Vec2iRef* Vec2iValue::unsafe_arena_release_ref() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.Vec2iValue.Ref)
-  if (_internal_has_ref()) {
-    clear_has_value();
-    ::GameState::Vec2iRef* temp = value_.ref_;
-    value_.ref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Vec2iValue::unsafe_arena_set_allocated_ref(::GameState::Vec2iRef* ref) {
-  clear_value();
-  if (ref) {
-    set_has_ref();
-    value_.ref_ = ref;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Vec2iValue.Ref)
-}
-inline ::GameState::Vec2iRef* Vec2iValue::_internal_mutable_ref() {
-  if (!_internal_has_ref()) {
-    clear_value();
-    set_has_ref();
-    value_.ref_ = CreateMaybeMessage< ::GameState::Vec2iRef >(GetArena());
-  }
-  return value_.ref_;
-}
-inline ::GameState::Vec2iRef* Vec2iValue::mutable_ref() {
-  // @@protoc_insertion_point(field_mutable:GameState.Vec2iValue.Ref)
-  return _internal_mutable_ref();
-}
-
-inline bool Vec2iValue::has_value() const {
-  return value_case() != VALUE_NOT_SET;
-}
-inline void Vec2iValue::clear_has_value() {
-  _oneof_case_[0] = VALUE_NOT_SET;
-}
-inline Vec2iValue::ValueCase Vec2iValue::value_case() const {
-  return Vec2iValue::ValueCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// EntityRef
-
-// .GameState.PlayerRef Player = 1;
-inline bool EntityRef::_internal_has_player() const {
-  return entity_ref_case() == kPlayer;
-}
-inline bool EntityRef::has_player() const {
-  return _internal_has_player();
-}
-inline void EntityRef::set_has_player() {
-  _oneof_case_[0] = kPlayer;
-}
-inline void EntityRef::clear_player() {
-  if (_internal_has_player()) {
-    if (GetArena() == nullptr) {
-      delete entity_ref_.player_;
-    }
-    clear_has_entity_ref();
-  }
-}
-inline ::GameState::PlayerRef* EntityRef::release_player() {
-  // @@protoc_insertion_point(field_release:GameState.EntityRef.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_ref();
-      ::GameState::PlayerRef* temp = entity_ref_.player_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_ref_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::PlayerRef& EntityRef::_internal_player() const {
-  return _internal_has_player()
-      ? *entity_ref_.player_
-      : reinterpret_cast< ::GameState::PlayerRef&>(::GameState::_PlayerRef_default_instance_);
-}
-inline const ::GameState::PlayerRef& EntityRef::player() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityRef.Player)
-  return _internal_player();
-}
-inline ::GameState::PlayerRef* EntityRef::unsafe_arena_release_player() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityRef.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_ref();
-    ::GameState::PlayerRef* temp = entity_ref_.player_;
-    entity_ref_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityRef::unsafe_arena_set_allocated_player(::GameState::PlayerRef* player) {
-  clear_entity_ref();
-  if (player) {
-    set_has_player();
-    entity_ref_.player_ = player;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityRef.Player)
-}
-inline ::GameState::PlayerRef* EntityRef::_internal_mutable_player() {
-  if (!_internal_has_player()) {
-    clear_entity_ref();
-    set_has_player();
-    entity_ref_.player_ = CreateMaybeMessage< ::GameState::PlayerRef >(GetArena());
-  }
-  return entity_ref_.player_;
-}
-inline ::GameState::PlayerRef* EntityRef::mutable_player() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityRef.Player)
-  return _internal_mutable_player();
-}
-
-// .GameState.CardRef Card = 2;
-inline bool EntityRef::_internal_has_card() const {
-  return entity_ref_case() == kCard;
-}
-inline bool EntityRef::has_card() const {
-  return _internal_has_card();
-}
-inline void EntityRef::set_has_card() {
-  _oneof_case_[0] = kCard;
-}
-inline void EntityRef::clear_card() {
-  if (_internal_has_card()) {
-    if (GetArena() == nullptr) {
-      delete entity_ref_.card_;
-    }
-    clear_has_entity_ref();
-  }
-}
-inline ::GameState::CardRef* EntityRef::release_card() {
-  // @@protoc_insertion_point(field_release:GameState.EntityRef.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_ref();
-      ::GameState::CardRef* temp = entity_ref_.card_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_ref_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::CardRef& EntityRef::_internal_card() const {
-  return _internal_has_card()
-      ? *entity_ref_.card_
-      : reinterpret_cast< ::GameState::CardRef&>(::GameState::_CardRef_default_instance_);
-}
-inline const ::GameState::CardRef& EntityRef::card() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityRef.Card)
-  return _internal_card();
-}
-inline ::GameState::CardRef* EntityRef::unsafe_arena_release_card() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityRef.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_ref();
-    ::GameState::CardRef* temp = entity_ref_.card_;
-    entity_ref_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityRef::unsafe_arena_set_allocated_card(::GameState::CardRef* card) {
-  clear_entity_ref();
-  if (card) {
-    set_has_card();
-    entity_ref_.card_ = card;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityRef.Card)
-}
-inline ::GameState::CardRef* EntityRef::_internal_mutable_card() {
-  if (!_internal_has_card()) {
-    clear_entity_ref();
-    set_has_card();
-    entity_ref_.card_ = CreateMaybeMessage< ::GameState::CardRef >(GetArena());
-  }
-  return entity_ref_.card_;
-}
-inline ::GameState::CardRef* EntityRef::mutable_card() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityRef.Card)
-  return _internal_mutable_card();
-}
-
-// .GameState.TileRef Tile = 3;
-inline bool EntityRef::_internal_has_tile() const {
-  return entity_ref_case() == kTile;
-}
-inline bool EntityRef::has_tile() const {
-  return _internal_has_tile();
-}
-inline void EntityRef::set_has_tile() {
-  _oneof_case_[0] = kTile;
-}
-inline void EntityRef::clear_tile() {
-  if (_internal_has_tile()) {
-    if (GetArena() == nullptr) {
-      delete entity_ref_.tile_;
-    }
-    clear_has_entity_ref();
-  }
-}
-inline ::GameState::TileRef* EntityRef::release_tile() {
-  // @@protoc_insertion_point(field_release:GameState.EntityRef.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_ref();
-      ::GameState::TileRef* temp = entity_ref_.tile_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_ref_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::TileRef& EntityRef::_internal_tile() const {
-  return _internal_has_tile()
-      ? *entity_ref_.tile_
-      : reinterpret_cast< ::GameState::TileRef&>(::GameState::_TileRef_default_instance_);
-}
-inline const ::GameState::TileRef& EntityRef::tile() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityRef.Tile)
-  return _internal_tile();
-}
-inline ::GameState::TileRef* EntityRef::unsafe_arena_release_tile() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityRef.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_ref();
-    ::GameState::TileRef* temp = entity_ref_.tile_;
-    entity_ref_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityRef::unsafe_arena_set_allocated_tile(::GameState::TileRef* tile) {
-  clear_entity_ref();
-  if (tile) {
-    set_has_tile();
-    entity_ref_.tile_ = tile;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityRef.Tile)
-}
-inline ::GameState::TileRef* EntityRef::_internal_mutable_tile() {
-  if (!_internal_has_tile()) {
-    clear_entity_ref();
-    set_has_tile();
-    entity_ref_.tile_ = CreateMaybeMessage< ::GameState::TileRef >(GetArena());
-  }
-  return entity_ref_.tile_;
-}
-inline ::GameState::TileRef* EntityRef::mutable_tile() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityRef.Tile)
-  return _internal_mutable_tile();
-}
-
-inline bool EntityRef::has_entity_ref() const {
-  return entity_ref_case() != ENTITY_REF_NOT_SET;
-}
-inline void EntityRef::clear_has_entity_ref() {
-  _oneof_case_[0] = ENTITY_REF_NOT_SET;
-}
-inline EntityRef::EntityRefCase EntityRef::entity_ref_case() const {
-  return EntityRef::EntityRefCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// EntityValue
-
-// .GameState.PlayerRef Player = 1;
-inline bool EntityValue::_internal_has_player() const {
-  return entity_val_case() == kPlayer;
-}
-inline bool EntityValue::has_player() const {
-  return _internal_has_player();
-}
-inline void EntityValue::set_has_player() {
-  _oneof_case_[0] = kPlayer;
-}
-inline void EntityValue::clear_player() {
-  if (_internal_has_player()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.player_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::GameState::PlayerRef* EntityValue::release_player() {
-  // @@protoc_insertion_point(field_release:GameState.EntityValue.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_val();
-      ::GameState::PlayerRef* temp = entity_val_.player_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::PlayerRef& EntityValue::_internal_player() const {
-  return _internal_has_player()
-      ? *entity_val_.player_
-      : reinterpret_cast< ::GameState::PlayerRef&>(::GameState::_PlayerRef_default_instance_);
-}
-inline const ::GameState::PlayerRef& EntityValue::player() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.Player)
-  return _internal_player();
-}
-inline ::GameState::PlayerRef* EntityValue::unsafe_arena_release_player() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityValue.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_val();
-    ::GameState::PlayerRef* temp = entity_val_.player_;
-    entity_val_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_player(::GameState::PlayerRef* player) {
-  clear_entity_val();
-  if (player) {
-    set_has_player();
-    entity_val_.player_ = player;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityValue.Player)
-}
-inline ::GameState::PlayerRef* EntityValue::_internal_mutable_player() {
-  if (!_internal_has_player()) {
-    clear_entity_val();
-    set_has_player();
-    entity_val_.player_ = CreateMaybeMessage< ::GameState::PlayerRef >(GetArena());
-  }
-  return entity_val_.player_;
-}
-inline ::GameState::PlayerRef* EntityValue::mutable_player() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityValue.Player)
-  return _internal_mutable_player();
-}
-
-// .GameState.CardRef Card = 2;
-inline bool EntityValue::_internal_has_card() const {
-  return entity_val_case() == kCard;
-}
-inline bool EntityValue::has_card() const {
-  return _internal_has_card();
-}
-inline void EntityValue::set_has_card() {
-  _oneof_case_[0] = kCard;
-}
-inline void EntityValue::clear_card() {
-  if (_internal_has_card()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.card_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::GameState::CardRef* EntityValue::release_card() {
-  // @@protoc_insertion_point(field_release:GameState.EntityValue.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_val();
-      ::GameState::CardRef* temp = entity_val_.card_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::CardRef& EntityValue::_internal_card() const {
-  return _internal_has_card()
-      ? *entity_val_.card_
-      : reinterpret_cast< ::GameState::CardRef&>(::GameState::_CardRef_default_instance_);
-}
-inline const ::GameState::CardRef& EntityValue::card() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.Card)
-  return _internal_card();
-}
-inline ::GameState::CardRef* EntityValue::unsafe_arena_release_card() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityValue.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_val();
-    ::GameState::CardRef* temp = entity_val_.card_;
-    entity_val_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_card(::GameState::CardRef* card) {
-  clear_entity_val();
-  if (card) {
-    set_has_card();
-    entity_val_.card_ = card;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityValue.Card)
-}
-inline ::GameState::CardRef* EntityValue::_internal_mutable_card() {
-  if (!_internal_has_card()) {
-    clear_entity_val();
-    set_has_card();
-    entity_val_.card_ = CreateMaybeMessage< ::GameState::CardRef >(GetArena());
-  }
-  return entity_val_.card_;
-}
-inline ::GameState::CardRef* EntityValue::mutable_card() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityValue.Card)
-  return _internal_mutable_card();
-}
-
-// .GameState.TileRef Tile = 3;
-inline bool EntityValue::_internal_has_tile() const {
-  return entity_val_case() == kTile;
-}
-inline bool EntityValue::has_tile() const {
-  return _internal_has_tile();
-}
-inline void EntityValue::set_has_tile() {
-  _oneof_case_[0] = kTile;
-}
-inline void EntityValue::clear_tile() {
-  if (_internal_has_tile()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.tile_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::GameState::TileRef* EntityValue::release_tile() {
-  // @@protoc_insertion_point(field_release:GameState.EntityValue.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_val();
-      ::GameState::TileRef* temp = entity_val_.tile_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::TileRef& EntityValue::_internal_tile() const {
-  return _internal_has_tile()
-      ? *entity_val_.tile_
-      : reinterpret_cast< ::GameState::TileRef&>(::GameState::_TileRef_default_instance_);
-}
-inline const ::GameState::TileRef& EntityValue::tile() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.Tile)
-  return _internal_tile();
-}
-inline ::GameState::TileRef* EntityValue::unsafe_arena_release_tile() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityValue.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_val();
-    ::GameState::TileRef* temp = entity_val_.tile_;
-    entity_val_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_tile(::GameState::TileRef* tile) {
-  clear_entity_val();
-  if (tile) {
-    set_has_tile();
-    entity_val_.tile_ = tile;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityValue.Tile)
-}
-inline ::GameState::TileRef* EntityValue::_internal_mutable_tile() {
-  if (!_internal_has_tile()) {
-    clear_entity_val();
-    set_has_tile();
-    entity_val_.tile_ = CreateMaybeMessage< ::GameState::TileRef >(GetArena());
-  }
-  return entity_val_.tile_;
-}
-inline ::GameState::TileRef* EntityValue::mutable_tile() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityValue.Tile)
-  return _internal_mutable_tile();
-}
-
-// .GameState.IntegerRef Integer = 4;
-inline bool EntityValue::_internal_has_integer() const {
-  return entity_val_case() == kInteger;
-}
-inline bool EntityValue::has_integer() const {
-  return _internal_has_integer();
-}
-inline void EntityValue::set_has_integer() {
-  _oneof_case_[0] = kInteger;
-}
-inline void EntityValue::clear_integer() {
-  if (_internal_has_integer()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.integer_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::GameState::IntegerRef* EntityValue::release_integer() {
-  // @@protoc_insertion_point(field_release:GameState.EntityValue.Integer)
-  if (_internal_has_integer()) {
-    clear_has_entity_val();
-      ::GameState::IntegerRef* temp = entity_val_.integer_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.integer_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::IntegerRef& EntityValue::_internal_integer() const {
-  return _internal_has_integer()
-      ? *entity_val_.integer_
-      : reinterpret_cast< ::GameState::IntegerRef&>(::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& EntityValue::integer() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.Integer)
-  return _internal_integer();
-}
-inline ::GameState::IntegerRef* EntityValue::unsafe_arena_release_integer() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityValue.Integer)
-  if (_internal_has_integer()) {
-    clear_has_entity_val();
-    ::GameState::IntegerRef* temp = entity_val_.integer_;
-    entity_val_.integer_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_integer(::GameState::IntegerRef* integer) {
-  clear_entity_val();
-  if (integer) {
-    set_has_integer();
-    entity_val_.integer_ = integer;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityValue.Integer)
-}
-inline ::GameState::IntegerRef* EntityValue::_internal_mutable_integer() {
-  if (!_internal_has_integer()) {
-    clear_entity_val();
-    set_has_integer();
-    entity_val_.integer_ = CreateMaybeMessage< ::GameState::IntegerRef >(GetArena());
-  }
-  return entity_val_.integer_;
-}
-inline ::GameState::IntegerRef* EntityValue::mutable_integer() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityValue.Integer)
-  return _internal_mutable_integer();
-}
-
-// int32 IntValue = 5;
-inline bool EntityValue::_internal_has_intvalue() const {
-  return entity_val_case() == kIntValue;
-}
-inline void EntityValue::set_has_intvalue() {
-  _oneof_case_[0] = kIntValue;
-}
-inline void EntityValue::clear_intvalue() {
-  if (_internal_has_intvalue()) {
-    entity_val_.intvalue_ = 0;
-    clear_has_entity_val();
-  }
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 EntityValue::_internal_intvalue() const {
-  if (_internal_has_intvalue()) {
-    return entity_val_.intvalue_;
-  }
-  return 0;
-}
-inline void EntityValue::_internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  if (!_internal_has_intvalue()) {
-    clear_entity_val();
-    set_has_intvalue();
-  }
-  entity_val_.intvalue_ = value;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 EntityValue::intvalue() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.IntValue)
-  return _internal_intvalue();
-}
-inline void EntityValue::set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_intvalue(value);
-  // @@protoc_insertion_point(field_set:GameState.EntityValue.IntValue)
-}
-
-// .GameState.Vec2i Vec2iValue = 6;
-inline bool EntityValue::_internal_has_vec2ivalue() const {
-  return entity_val_case() == kVec2IValue;
-}
-inline bool EntityValue::has_vec2ivalue() const {
-  return _internal_has_vec2ivalue();
-}
-inline void EntityValue::set_has_vec2ivalue() {
-  _oneof_case_[0] = kVec2IValue;
-}
-inline void EntityValue::clear_vec2ivalue() {
-  if (_internal_has_vec2ivalue()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.vec2ivalue_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::GameState::Vec2i* EntityValue::release_vec2ivalue() {
-  // @@protoc_insertion_point(field_release:GameState.EntityValue.Vec2iValue)
-  if (_internal_has_vec2ivalue()) {
-    clear_has_entity_val();
-      ::GameState::Vec2i* temp = entity_val_.vec2ivalue_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.vec2ivalue_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::GameState::Vec2i& EntityValue::_internal_vec2ivalue() const {
-  return _internal_has_vec2ivalue()
-      ? *entity_val_.vec2ivalue_
-      : reinterpret_cast< ::GameState::Vec2i&>(::GameState::_Vec2i_default_instance_);
-}
-inline const ::GameState::Vec2i& EntityValue::vec2ivalue() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.Vec2iValue)
-  return _internal_vec2ivalue();
-}
-inline ::GameState::Vec2i* EntityValue::unsafe_arena_release_vec2ivalue() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:GameState.EntityValue.Vec2iValue)
-  if (_internal_has_vec2ivalue()) {
-    clear_has_entity_val();
-    ::GameState::Vec2i* temp = entity_val_.vec2ivalue_;
-    entity_val_.vec2ivalue_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_vec2ivalue(::GameState::Vec2i* vec2ivalue) {
-  clear_entity_val();
-  if (vec2ivalue) {
-    set_has_vec2ivalue();
-    entity_val_.vec2ivalue_ = vec2ivalue;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.EntityValue.Vec2iValue)
-}
-inline ::GameState::Vec2i* EntityValue::_internal_mutable_vec2ivalue() {
-  if (!_internal_has_vec2ivalue()) {
-    clear_entity_val();
-    set_has_vec2ivalue();
-    entity_val_.vec2ivalue_ = CreateMaybeMessage< ::GameState::Vec2i >(GetArena());
-  }
-  return entity_val_.vec2ivalue_;
-}
-inline ::GameState::Vec2i* EntityValue::mutable_vec2ivalue() {
-  // @@protoc_insertion_point(field_mutable:GameState.EntityValue.Vec2iValue)
-  return _internal_mutable_vec2ivalue();
-}
-
-// .Types.TerrainType TerrainValue = 7;
-inline bool EntityValue::_internal_has_terrainvalue() const {
-  return entity_val_case() == kTerrainValue;
-}
-inline void EntityValue::set_has_terrainvalue() {
-  _oneof_case_[0] = kTerrainValue;
-}
-inline void EntityValue::clear_terrainvalue() {
-  if (_internal_has_terrainvalue()) {
-    entity_val_.terrainvalue_ = 0;
-    clear_has_entity_val();
-  }
-}
-inline ::Types::TerrainType EntityValue::_internal_terrainvalue() const {
-  if (_internal_has_terrainvalue()) {
-    return static_cast< ::Types::TerrainType >(entity_val_.terrainvalue_);
-  }
-  return static_cast< ::Types::TerrainType >(0);
-}
-inline ::Types::TerrainType EntityValue::terrainvalue() const {
-  // @@protoc_insertion_point(field_get:GameState.EntityValue.TerrainValue)
-  return _internal_terrainvalue();
-}
-inline void EntityValue::_internal_set_terrainvalue(::Types::TerrainType value) {
-  if (!_internal_has_terrainvalue()) {
-    clear_entity_val();
-    set_has_terrainvalue();
-  }
-  entity_val_.terrainvalue_ = value;
-}
-inline void EntityValue::set_terrainvalue(::Types::TerrainType value) {
-  // @@protoc_insertion_point(field_set:GameState.EntityValue.TerrainValue)
-  _internal_set_terrainvalue(value);
-}
-
-inline bool EntityValue::has_entity_val() const {
-  return entity_val_case() != ENTITY_VAL_NOT_SET;
-}
-inline void EntityValue::clear_has_entity_val() {
-  _oneof_case_[0] = ENTITY_VAL_NOT_SET;
-}
-inline EntityValue::EntityValCase EntityValue::entity_val_case() const {
-  return EntityValue::EntityValCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
 // Player_Stats
 
-// .GameState.IntegerRef Health = 1;
+// .Types.IntegerRef Health = 1;
 inline bool Player_Stats::_internal_has_health() const {
   return this != internal_default_instance() && health_ != nullptr;
 }
 inline bool Player_Stats::has_health() const {
   return _internal_has_health();
 }
-inline void Player_Stats::clear_health() {
-  if (GetArena() == nullptr && health_ != nullptr) {
-    delete health_;
-  }
-  health_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_health() const {
+  const ::Types::IntegerRef* p = health_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_health() const {
-  const ::GameState::IntegerRef* p = health_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::health() const {
+inline const ::Types::IntegerRef& Player_Stats::health() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Health)
   return _internal_health();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_health(
-    ::GameState::IntegerRef* health) {
+    ::Types::IntegerRef* health) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
   }
@@ -6338,42 +2766,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_health(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Health)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_health() {
+inline ::Types::IntegerRef* Player_Stats::release_health() {
   
-  ::GameState::IntegerRef* temp = health_;
+  ::Types::IntegerRef* temp = health_;
   health_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_health() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_health() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Health)
   
-  ::GameState::IntegerRef* temp = health_;
+  ::Types::IntegerRef* temp = health_;
   health_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_health() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_health() {
   
   if (health_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     health_ = p;
   }
   return health_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_health() {
+inline ::Types::IntegerRef* Player_Stats::mutable_health() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Health)
   return _internal_mutable_health();
 }
-inline void Player_Stats::set_allocated_health(::GameState::IntegerRef* health) {
+inline void Player_Stats::set_allocated_health(::Types::IntegerRef* health) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete health_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
   }
   if (health) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(health);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health)->GetArena();
     if (message_arena != submessage_arena) {
       health = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, health, submessage_arena);
@@ -6386,30 +2814,24 @@ inline void Player_Stats::set_allocated_health(::GameState::IntegerRef* health) 
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Health)
 }
 
-// .GameState.IntegerRef Actions = 2;
+// .Types.IntegerRef Actions = 2;
 inline bool Player_Stats::_internal_has_actions() const {
   return this != internal_default_instance() && actions_ != nullptr;
 }
 inline bool Player_Stats::has_actions() const {
   return _internal_has_actions();
 }
-inline void Player_Stats::clear_actions() {
-  if (GetArena() == nullptr && actions_ != nullptr) {
-    delete actions_;
-  }
-  actions_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_actions() const {
+  const ::Types::IntegerRef* p = actions_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_actions() const {
-  const ::GameState::IntegerRef* p = actions_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::actions() const {
+inline const ::Types::IntegerRef& Player_Stats::actions() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Actions)
   return _internal_actions();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_actions(
-    ::GameState::IntegerRef* actions) {
+    ::Types::IntegerRef* actions) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
   }
@@ -6421,42 +2843,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_actions(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Actions)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_actions() {
+inline ::Types::IntegerRef* Player_Stats::release_actions() {
   
-  ::GameState::IntegerRef* temp = actions_;
+  ::Types::IntegerRef* temp = actions_;
   actions_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_actions() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_actions() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Actions)
   
-  ::GameState::IntegerRef* temp = actions_;
+  ::Types::IntegerRef* temp = actions_;
   actions_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_actions() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_actions() {
   
   if (actions_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     actions_ = p;
   }
   return actions_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_actions() {
+inline ::Types::IntegerRef* Player_Stats::mutable_actions() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Actions)
   return _internal_mutable_actions();
 }
-inline void Player_Stats::set_allocated_actions(::GameState::IntegerRef* actions) {
+inline void Player_Stats::set_allocated_actions(::Types::IntegerRef* actions) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete actions_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
   }
   if (actions) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(actions);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions)->GetArena();
     if (message_arena != submessage_arena) {
       actions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, actions, submessage_arena);
@@ -6469,30 +2891,24 @@ inline void Player_Stats::set_allocated_actions(::GameState::IntegerRef* actions
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Actions)
 }
 
-// .GameState.IntegerRef Power = 3;
+// .Types.IntegerRef Power = 3;
 inline bool Player_Stats::_internal_has_power() const {
   return this != internal_default_instance() && power_ != nullptr;
 }
 inline bool Player_Stats::has_power() const {
   return _internal_has_power();
 }
-inline void Player_Stats::clear_power() {
-  if (GetArena() == nullptr && power_ != nullptr) {
-    delete power_;
-  }
-  power_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_power() const {
+  const ::Types::IntegerRef* p = power_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_power() const {
-  const ::GameState::IntegerRef* p = power_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::power() const {
+inline const ::Types::IntegerRef& Player_Stats::power() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Power)
   return _internal_power();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_power(
-    ::GameState::IntegerRef* power) {
+    ::Types::IntegerRef* power) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
   }
@@ -6504,42 +2920,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_power(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Power)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_power() {
+inline ::Types::IntegerRef* Player_Stats::release_power() {
   
-  ::GameState::IntegerRef* temp = power_;
+  ::Types::IntegerRef* temp = power_;
   power_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_power() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_power() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Power)
   
-  ::GameState::IntegerRef* temp = power_;
+  ::Types::IntegerRef* temp = power_;
   power_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_power() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_power() {
   
   if (power_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     power_ = p;
   }
   return power_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_power() {
+inline ::Types::IntegerRef* Player_Stats::mutable_power() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Power)
   return _internal_mutable_power();
 }
-inline void Player_Stats::set_allocated_power(::GameState::IntegerRef* power) {
+inline void Player_Stats::set_allocated_power(::Types::IntegerRef* power) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete power_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
   }
   if (power) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(power);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power)->GetArena();
     if (message_arena != submessage_arena) {
       power = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, power, submessage_arena);
@@ -6552,30 +2968,24 @@ inline void Player_Stats::set_allocated_power(::GameState::IntegerRef* power) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Power)
 }
 
-// .GameState.IntegerRef Slow = 4;
+// .Types.IntegerRef Slow = 4;
 inline bool Player_Stats::_internal_has_slow() const {
   return this != internal_default_instance() && slow_ != nullptr;
 }
 inline bool Player_Stats::has_slow() const {
   return _internal_has_slow();
 }
-inline void Player_Stats::clear_slow() {
-  if (GetArena() == nullptr && slow_ != nullptr) {
-    delete slow_;
-  }
-  slow_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_slow() const {
+  const ::Types::IntegerRef* p = slow_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_slow() const {
-  const ::GameState::IntegerRef* p = slow_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::slow() const {
+inline const ::Types::IntegerRef& Player_Stats::slow() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Slow)
   return _internal_slow();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_slow(
-    ::GameState::IntegerRef* slow) {
+    ::Types::IntegerRef* slow) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
   }
@@ -6587,42 +2997,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_slow(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Slow)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_slow() {
+inline ::Types::IntegerRef* Player_Stats::release_slow() {
   
-  ::GameState::IntegerRef* temp = slow_;
+  ::Types::IntegerRef* temp = slow_;
   slow_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_slow() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_slow() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Slow)
   
-  ::GameState::IntegerRef* temp = slow_;
+  ::Types::IntegerRef* temp = slow_;
   slow_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_slow() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_slow() {
   
   if (slow_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     slow_ = p;
   }
   return slow_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_slow() {
+inline ::Types::IntegerRef* Player_Stats::mutable_slow() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Slow)
   return _internal_mutable_slow();
 }
-inline void Player_Stats::set_allocated_slow(::GameState::IntegerRef* slow) {
+inline void Player_Stats::set_allocated_slow(::Types::IntegerRef* slow) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete slow_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
   }
   if (slow) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(slow);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow)->GetArena();
     if (message_arena != submessage_arena) {
       slow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, slow, submessage_arena);
@@ -6635,30 +3045,24 @@ inline void Player_Stats::set_allocated_slow(::GameState::IntegerRef* slow) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Slow)
 }
 
-// .GameState.IntegerRef Silence = 5;
+// .Types.IntegerRef Silence = 5;
 inline bool Player_Stats::_internal_has_silence() const {
   return this != internal_default_instance() && silence_ != nullptr;
 }
 inline bool Player_Stats::has_silence() const {
   return _internal_has_silence();
 }
-inline void Player_Stats::clear_silence() {
-  if (GetArena() == nullptr && silence_ != nullptr) {
-    delete silence_;
-  }
-  silence_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_silence() const {
+  const ::Types::IntegerRef* p = silence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_silence() const {
-  const ::GameState::IntegerRef* p = silence_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::silence() const {
+inline const ::Types::IntegerRef& Player_Stats::silence() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Silence)
   return _internal_silence();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_silence(
-    ::GameState::IntegerRef* silence) {
+    ::Types::IntegerRef* silence) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
   }
@@ -6670,42 +3074,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_silence(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Silence)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_silence() {
+inline ::Types::IntegerRef* Player_Stats::release_silence() {
   
-  ::GameState::IntegerRef* temp = silence_;
+  ::Types::IntegerRef* temp = silence_;
   silence_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_silence() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_silence() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Silence)
   
-  ::GameState::IntegerRef* temp = silence_;
+  ::Types::IntegerRef* temp = silence_;
   silence_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_silence() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_silence() {
   
   if (silence_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     silence_ = p;
   }
   return silence_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_silence() {
+inline ::Types::IntegerRef* Player_Stats::mutable_silence() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Silence)
   return _internal_mutable_silence();
 }
-inline void Player_Stats::set_allocated_silence(::GameState::IntegerRef* silence) {
+inline void Player_Stats::set_allocated_silence(::Types::IntegerRef* silence) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete silence_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
   }
   if (silence) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(silence);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence)->GetArena();
     if (message_arena != submessage_arena) {
       silence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, silence, submessage_arena);
@@ -6718,30 +3122,24 @@ inline void Player_Stats::set_allocated_silence(::GameState::IntegerRef* silence
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Silence)
 }
 
-// .GameState.IntegerRef Disarm = 6;
+// .Types.IntegerRef Disarm = 6;
 inline bool Player_Stats::_internal_has_disarm() const {
   return this != internal_default_instance() && disarm_ != nullptr;
 }
 inline bool Player_Stats::has_disarm() const {
   return _internal_has_disarm();
 }
-inline void Player_Stats::clear_disarm() {
-  if (GetArena() == nullptr && disarm_ != nullptr) {
-    delete disarm_;
-  }
-  disarm_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_disarm() const {
+  const ::Types::IntegerRef* p = disarm_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_disarm() const {
-  const ::GameState::IntegerRef* p = disarm_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::disarm() const {
+inline const ::Types::IntegerRef& Player_Stats::disarm() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Disarm)
   return _internal_disarm();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_disarm(
-    ::GameState::IntegerRef* disarm) {
+    ::Types::IntegerRef* disarm) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
   }
@@ -6753,42 +3151,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_disarm(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Disarm)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_disarm() {
+inline ::Types::IntegerRef* Player_Stats::release_disarm() {
   
-  ::GameState::IntegerRef* temp = disarm_;
+  ::Types::IntegerRef* temp = disarm_;
   disarm_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_disarm() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_disarm() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Disarm)
   
-  ::GameState::IntegerRef* temp = disarm_;
+  ::Types::IntegerRef* temp = disarm_;
   disarm_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_disarm() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_disarm() {
   
   if (disarm_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     disarm_ = p;
   }
   return disarm_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_disarm() {
+inline ::Types::IntegerRef* Player_Stats::mutable_disarm() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Disarm)
   return _internal_mutable_disarm();
 }
-inline void Player_Stats::set_allocated_disarm(::GameState::IntegerRef* disarm) {
+inline void Player_Stats::set_allocated_disarm(::Types::IntegerRef* disarm) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete disarm_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
   }
   if (disarm) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(disarm);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm)->GetArena();
     if (message_arena != submessage_arena) {
       disarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, disarm, submessage_arena);
@@ -6801,30 +3199,24 @@ inline void Player_Stats::set_allocated_disarm(::GameState::IntegerRef* disarm) 
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Disarm)
 }
 
-// .GameState.IntegerRef Initiative = 7;
+// .Types.IntegerRef Initiative = 7;
 inline bool Player_Stats::_internal_has_initiative() const {
   return this != internal_default_instance() && initiative_ != nullptr;
 }
 inline bool Player_Stats::has_initiative() const {
   return _internal_has_initiative();
 }
-inline void Player_Stats::clear_initiative() {
-  if (GetArena() == nullptr && initiative_ != nullptr) {
-    delete initiative_;
-  }
-  initiative_ = nullptr;
+inline const ::Types::IntegerRef& Player_Stats::_internal_initiative() const {
+  const ::Types::IntegerRef* p = initiative_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Player_Stats::_internal_initiative() const {
-  const ::GameState::IntegerRef* p = initiative_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Player_Stats::initiative() const {
+inline const ::Types::IntegerRef& Player_Stats::initiative() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Stats.Initiative)
   return _internal_initiative();
 }
 inline void Player_Stats::unsafe_arena_set_allocated_initiative(
-    ::GameState::IntegerRef* initiative) {
+    ::Types::IntegerRef* initiative) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
   }
@@ -6836,42 +3228,42 @@ inline void Player_Stats::unsafe_arena_set_allocated_initiative(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Initiative)
 }
-inline ::GameState::IntegerRef* Player_Stats::release_initiative() {
+inline ::Types::IntegerRef* Player_Stats::release_initiative() {
   
-  ::GameState::IntegerRef* temp = initiative_;
+  ::Types::IntegerRef* temp = initiative_;
   initiative_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::unsafe_arena_release_initiative() {
+inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_initiative() {
   // @@protoc_insertion_point(field_release:GameState.Player.Stats.Initiative)
   
-  ::GameState::IntegerRef* temp = initiative_;
+  ::Types::IntegerRef* temp = initiative_;
   initiative_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Player_Stats::_internal_mutable_initiative() {
+inline ::Types::IntegerRef* Player_Stats::_internal_mutable_initiative() {
   
   if (initiative_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     initiative_ = p;
   }
   return initiative_;
 }
-inline ::GameState::IntegerRef* Player_Stats::mutable_initiative() {
+inline ::Types::IntegerRef* Player_Stats::mutable_initiative() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Initiative)
   return _internal_mutable_initiative();
 }
-inline void Player_Stats::set_allocated_initiative(::GameState::IntegerRef* initiative) {
+inline void Player_Stats::set_allocated_initiative(::Types::IntegerRef* initiative) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete initiative_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
   }
   if (initiative) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(initiative);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative)->GetArena();
     if (message_arena != submessage_arena) {
       initiative = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, initiative, submessage_arena);
@@ -7010,196 +3402,181 @@ inline void Player::set_allocated_uid(std::string* uid) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.UID)
 }
 
-// repeated .GameState.CardRef Field = 3;
+// repeated .Types.CardRef Field = 3;
 inline int Player::_internal_field_size() const {
   return field_.size();
 }
 inline int Player::field_size() const {
   return _internal_field_size();
 }
-inline void Player::clear_field() {
-  field_.Clear();
-}
-inline ::GameState::CardRef* Player::mutable_field(int index) {
+inline ::Types::CardRef* Player::mutable_field(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Field)
   return field_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Player::mutable_field() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Player.Field)
   return &field_;
 }
-inline const ::GameState::CardRef& Player::_internal_field(int index) const {
+inline const ::Types::CardRef& Player::_internal_field(int index) const {
   return field_.Get(index);
 }
-inline const ::GameState::CardRef& Player::field(int index) const {
+inline const ::Types::CardRef& Player::field(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Player.Field)
   return _internal_field(index);
 }
-inline ::GameState::CardRef* Player::_internal_add_field() {
+inline ::Types::CardRef* Player::_internal_add_field() {
   return field_.Add();
 }
-inline ::GameState::CardRef* Player::add_field() {
+inline ::Types::CardRef* Player::add_field() {
   // @@protoc_insertion_point(field_add:GameState.Player.Field)
   return _internal_add_field();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Player::field() const {
   // @@protoc_insertion_point(field_list:GameState.Player.Field)
   return field_;
 }
 
-// repeated .GameState.CardRef Hand = 4;
+// repeated .Types.CardRef Hand = 4;
 inline int Player::_internal_hand_size() const {
   return hand_.size();
 }
 inline int Player::hand_size() const {
   return _internal_hand_size();
 }
-inline void Player::clear_hand() {
-  hand_.Clear();
-}
-inline ::GameState::CardRef* Player::mutable_hand(int index) {
+inline ::Types::CardRef* Player::mutable_hand(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Hand)
   return hand_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Player::mutable_hand() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Player.Hand)
   return &hand_;
 }
-inline const ::GameState::CardRef& Player::_internal_hand(int index) const {
+inline const ::Types::CardRef& Player::_internal_hand(int index) const {
   return hand_.Get(index);
 }
-inline const ::GameState::CardRef& Player::hand(int index) const {
+inline const ::Types::CardRef& Player::hand(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Player.Hand)
   return _internal_hand(index);
 }
-inline ::GameState::CardRef* Player::_internal_add_hand() {
+inline ::Types::CardRef* Player::_internal_add_hand() {
   return hand_.Add();
 }
-inline ::GameState::CardRef* Player::add_hand() {
+inline ::Types::CardRef* Player::add_hand() {
   // @@protoc_insertion_point(field_add:GameState.Player.Hand)
   return _internal_add_hand();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Player::hand() const {
   // @@protoc_insertion_point(field_list:GameState.Player.Hand)
   return hand_;
 }
 
-// repeated .GameState.CardRef Deck = 5;
+// repeated .Types.CardRef Deck = 5;
 inline int Player::_internal_deck_size() const {
   return deck_.size();
 }
 inline int Player::deck_size() const {
   return _internal_deck_size();
 }
-inline void Player::clear_deck() {
-  deck_.Clear();
-}
-inline ::GameState::CardRef* Player::mutable_deck(int index) {
+inline ::Types::CardRef* Player::mutable_deck(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Deck)
   return deck_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Player::mutable_deck() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Player.Deck)
   return &deck_;
 }
-inline const ::GameState::CardRef& Player::_internal_deck(int index) const {
+inline const ::Types::CardRef& Player::_internal_deck(int index) const {
   return deck_.Get(index);
 }
-inline const ::GameState::CardRef& Player::deck(int index) const {
+inline const ::Types::CardRef& Player::deck(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Player.Deck)
   return _internal_deck(index);
 }
-inline ::GameState::CardRef* Player::_internal_add_deck() {
+inline ::Types::CardRef* Player::_internal_add_deck() {
   return deck_.Add();
 }
-inline ::GameState::CardRef* Player::add_deck() {
+inline ::Types::CardRef* Player::add_deck() {
   // @@protoc_insertion_point(field_add:GameState.Player.Deck)
   return _internal_add_deck();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Player::deck() const {
   // @@protoc_insertion_point(field_list:GameState.Player.Deck)
   return deck_;
 }
 
-// repeated .GameState.CardRef Discard = 6;
+// repeated .Types.CardRef Discard = 6;
 inline int Player::_internal_discard_size() const {
   return discard_.size();
 }
 inline int Player::discard_size() const {
   return _internal_discard_size();
 }
-inline void Player::clear_discard() {
-  discard_.Clear();
-}
-inline ::GameState::CardRef* Player::mutable_discard(int index) {
+inline ::Types::CardRef* Player::mutable_discard(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Discard)
   return discard_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Player::mutable_discard() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Player.Discard)
   return &discard_;
 }
-inline const ::GameState::CardRef& Player::_internal_discard(int index) const {
+inline const ::Types::CardRef& Player::_internal_discard(int index) const {
   return discard_.Get(index);
 }
-inline const ::GameState::CardRef& Player::discard(int index) const {
+inline const ::Types::CardRef& Player::discard(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Player.Discard)
   return _internal_discard(index);
 }
-inline ::GameState::CardRef* Player::_internal_add_discard() {
+inline ::Types::CardRef* Player::_internal_add_discard() {
   return discard_.Add();
 }
-inline ::GameState::CardRef* Player::add_discard() {
+inline ::Types::CardRef* Player::add_discard() {
   // @@protoc_insertion_point(field_add:GameState.Player.Discard)
   return _internal_add_discard();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Player::discard() const {
   // @@protoc_insertion_point(field_list:GameState.Player.Discard)
   return discard_;
 }
 
-// repeated .GameState.CardRef Feats = 7;
+// repeated .Types.CardRef Feats = 7;
 inline int Player::_internal_feats_size() const {
   return feats_.size();
 }
 inline int Player::feats_size() const {
   return _internal_feats_size();
 }
-inline void Player::clear_feats() {
-  feats_.Clear();
-}
-inline ::GameState::CardRef* Player::mutable_feats(int index) {
+inline ::Types::CardRef* Player::mutable_feats(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Feats)
   return feats_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Player::mutable_feats() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Player.Feats)
   return &feats_;
 }
-inline const ::GameState::CardRef& Player::_internal_feats(int index) const {
+inline const ::Types::CardRef& Player::_internal_feats(int index) const {
   return feats_.Get(index);
 }
-inline const ::GameState::CardRef& Player::feats(int index) const {
+inline const ::Types::CardRef& Player::feats(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Player.Feats)
   return _internal_feats(index);
 }
-inline ::GameState::CardRef* Player::_internal_add_feats() {
+inline ::Types::CardRef* Player::_internal_add_feats() {
   return feats_.Add();
 }
-inline ::GameState::CardRef* Player::add_feats() {
+inline ::Types::CardRef* Player::add_feats() {
   // @@protoc_insertion_point(field_add:GameState.Player.Feats)
   return _internal_add_feats();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Player::feats() const {
   // @@protoc_insertion_point(field_list:GameState.Player.Feats)
   return feats_;
@@ -7371,30 +3748,24 @@ inline void Player::set_allocated_maxstate(::GameState::Player_Stats* maxstate) 
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxState)
 }
 
-// .GameState.Vec2iRef Position = 10;
+// .Types.Vec2iRef Position = 10;
 inline bool Player::_internal_has_position() const {
   return this != internal_default_instance() && position_ != nullptr;
 }
 inline bool Player::has_position() const {
   return _internal_has_position();
 }
-inline void Player::clear_position() {
-  if (GetArena() == nullptr && position_ != nullptr) {
-    delete position_;
-  }
-  position_ = nullptr;
+inline const ::Types::Vec2iRef& Player::_internal_position() const {
+  const ::Types::Vec2iRef* p = position_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Vec2iRef&>(
+      ::Types::_Vec2iRef_default_instance_);
 }
-inline const ::GameState::Vec2iRef& Player::_internal_position() const {
-  const ::GameState::Vec2iRef* p = position_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Vec2iRef&>(
-      ::GameState::_Vec2iRef_default_instance_);
-}
-inline const ::GameState::Vec2iRef& Player::position() const {
+inline const ::Types::Vec2iRef& Player::position() const {
   // @@protoc_insertion_point(field_get:GameState.Player.Position)
   return _internal_position();
 }
 inline void Player::unsafe_arena_set_allocated_position(
-    ::GameState::Vec2iRef* position) {
+    ::Types::Vec2iRef* position) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
   }
@@ -7406,42 +3777,42 @@ inline void Player::unsafe_arena_set_allocated_position(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Position)
 }
-inline ::GameState::Vec2iRef* Player::release_position() {
+inline ::Types::Vec2iRef* Player::release_position() {
   
-  ::GameState::Vec2iRef* temp = position_;
+  ::Types::Vec2iRef* temp = position_;
   position_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::Vec2iRef* Player::unsafe_arena_release_position() {
+inline ::Types::Vec2iRef* Player::unsafe_arena_release_position() {
   // @@protoc_insertion_point(field_release:GameState.Player.Position)
   
-  ::GameState::Vec2iRef* temp = position_;
+  ::Types::Vec2iRef* temp = position_;
   position_ = nullptr;
   return temp;
 }
-inline ::GameState::Vec2iRef* Player::_internal_mutable_position() {
+inline ::Types::Vec2iRef* Player::_internal_mutable_position() {
   
   if (position_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Vec2iRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Vec2iRef>(GetArena());
     position_ = p;
   }
   return position_;
 }
-inline ::GameState::Vec2iRef* Player::mutable_position() {
+inline ::Types::Vec2iRef* Player::mutable_position() {
   // @@protoc_insertion_point(field_mutable:GameState.Player.Position)
   return _internal_mutable_position();
 }
-inline void Player::set_allocated_position(::GameState::Vec2iRef* position) {
+inline void Player::set_allocated_position(::Types::Vec2iRef* position) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete position_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
   }
   if (position) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(position);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(position)->GetArena();
     if (message_arena != submessage_arena) {
       position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, position, submessage_arena);
@@ -7458,30 +3829,24 @@ inline void Player::set_allocated_position(::GameState::Vec2iRef* position) {
 
 // Tile
 
-// .GameState.Vec2i Position = 1;
+// .Types.Vec2i Position = 1;
 inline bool Tile::_internal_has_position() const {
   return this != internal_default_instance() && position_ != nullptr;
 }
 inline bool Tile::has_position() const {
   return _internal_has_position();
 }
-inline void Tile::clear_position() {
-  if (GetArena() == nullptr && position_ != nullptr) {
-    delete position_;
-  }
-  position_ = nullptr;
+inline const ::Types::Vec2i& Tile::_internal_position() const {
+  const ::Types::Vec2i* p = position_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Vec2i&>(
+      ::Types::_Vec2i_default_instance_);
 }
-inline const ::GameState::Vec2i& Tile::_internal_position() const {
-  const ::GameState::Vec2i* p = position_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Vec2i&>(
-      ::GameState::_Vec2i_default_instance_);
-}
-inline const ::GameState::Vec2i& Tile::position() const {
+inline const ::Types::Vec2i& Tile::position() const {
   // @@protoc_insertion_point(field_get:GameState.Tile.Position)
   return _internal_position();
 }
 inline void Tile::unsafe_arena_set_allocated_position(
-    ::GameState::Vec2i* position) {
+    ::Types::Vec2i* position) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
   }
@@ -7493,42 +3858,42 @@ inline void Tile::unsafe_arena_set_allocated_position(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Tile.Position)
 }
-inline ::GameState::Vec2i* Tile::release_position() {
+inline ::Types::Vec2i* Tile::release_position() {
   
-  ::GameState::Vec2i* temp = position_;
+  ::Types::Vec2i* temp = position_;
   position_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::Vec2i* Tile::unsafe_arena_release_position() {
+inline ::Types::Vec2i* Tile::unsafe_arena_release_position() {
   // @@protoc_insertion_point(field_release:GameState.Tile.Position)
   
-  ::GameState::Vec2i* temp = position_;
+  ::Types::Vec2i* temp = position_;
   position_ = nullptr;
   return temp;
 }
-inline ::GameState::Vec2i* Tile::_internal_mutable_position() {
+inline ::Types::Vec2i* Tile::_internal_mutable_position() {
   
   if (position_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Vec2i>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Vec2i>(GetArena());
     position_ = p;
   }
   return position_;
 }
-inline ::GameState::Vec2i* Tile::mutable_position() {
+inline ::Types::Vec2i* Tile::mutable_position() {
   // @@protoc_insertion_point(field_mutable:GameState.Tile.Position)
   return _internal_mutable_position();
 }
-inline void Tile::set_allocated_position(::GameState::Vec2i* position) {
+inline void Tile::set_allocated_position(::Types::Vec2i* position) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete position_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(position_);
   }
   if (position) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(position);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(position)->GetArena();
     if (message_arena != submessage_arena) {
       position = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, position, submessage_arena);
@@ -7561,79 +3926,73 @@ inline void Tile::set_terrain(::Types::TerrainType value) {
   // @@protoc_insertion_point(field_set:GameState.Tile.Terrain)
 }
 
-// repeated .GameState.PlayerRef Players = 3;
+// repeated .Types.PlayerRef Players = 3;
 inline int Tile::_internal_players_size() const {
   return players_.size();
 }
 inline int Tile::players_size() const {
   return _internal_players_size();
 }
-inline void Tile::clear_players() {
-  players_.Clear();
-}
-inline ::GameState::PlayerRef* Tile::mutable_players(int index) {
+inline ::Types::PlayerRef* Tile::mutable_players(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Tile.Players)
   return players_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >*
 Tile::mutable_players() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Tile.Players)
   return &players_;
 }
-inline const ::GameState::PlayerRef& Tile::_internal_players(int index) const {
+inline const ::Types::PlayerRef& Tile::_internal_players(int index) const {
   return players_.Get(index);
 }
-inline const ::GameState::PlayerRef& Tile::players(int index) const {
+inline const ::Types::PlayerRef& Tile::players(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Tile.Players)
   return _internal_players(index);
 }
-inline ::GameState::PlayerRef* Tile::_internal_add_players() {
+inline ::Types::PlayerRef* Tile::_internal_add_players() {
   return players_.Add();
 }
-inline ::GameState::PlayerRef* Tile::add_players() {
+inline ::Types::PlayerRef* Tile::add_players() {
   // @@protoc_insertion_point(field_add:GameState.Tile.Players)
   return _internal_add_players();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >&
 Tile::players() const {
   // @@protoc_insertion_point(field_list:GameState.Tile.Players)
   return players_;
 }
 
-// repeated .GameState.CardRef Cards = 4;
+// repeated .Types.CardRef Cards = 4;
 inline int Tile::_internal_cards_size() const {
   return cards_.size();
 }
 inline int Tile::cards_size() const {
   return _internal_cards_size();
 }
-inline void Tile::clear_cards() {
-  cards_.Clear();
-}
-inline ::GameState::CardRef* Tile::mutable_cards(int index) {
+inline ::Types::CardRef* Tile::mutable_cards(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Tile.Cards)
   return cards_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >*
 Tile::mutable_cards() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Tile.Cards)
   return &cards_;
 }
-inline const ::GameState::CardRef& Tile::_internal_cards(int index) const {
+inline const ::Types::CardRef& Tile::_internal_cards(int index) const {
   return cards_.Get(index);
 }
-inline const ::GameState::CardRef& Tile::cards(int index) const {
+inline const ::Types::CardRef& Tile::cards(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Tile.Cards)
   return _internal_cards(index);
 }
-inline ::GameState::CardRef* Tile::_internal_add_cards() {
+inline ::Types::CardRef* Tile::_internal_add_cards() {
   return cards_.Add();
 }
-inline ::GameState::CardRef* Tile::add_cards() {
+inline ::Types::CardRef* Tile::add_cards() {
   // @@protoc_insertion_point(field_add:GameState.Tile.Cards)
   return _internal_add_cards();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::CardRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
 Tile::cards() const {
   // @@protoc_insertion_point(field_list:GameState.Tile.Cards)
   return cards_;
@@ -7868,30 +4227,24 @@ Card::mutable_colors() {
   return _internal_mutable_colors();
 }
 
-// .GameState.PlayerRef Owner = 7;
+// .Types.PlayerRef Owner = 7;
 inline bool Card::_internal_has_owner() const {
   return this != internal_default_instance() && owner_ != nullptr;
 }
 inline bool Card::has_owner() const {
   return _internal_has_owner();
 }
-inline void Card::clear_owner() {
-  if (GetArena() == nullptr && owner_ != nullptr) {
-    delete owner_;
-  }
-  owner_ = nullptr;
+inline const ::Types::PlayerRef& Card::_internal_owner() const {
+  const ::Types::PlayerRef* p = owner_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::PlayerRef&>(
+      ::Types::_PlayerRef_default_instance_);
 }
-inline const ::GameState::PlayerRef& Card::_internal_owner() const {
-  const ::GameState::PlayerRef* p = owner_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::PlayerRef&>(
-      ::GameState::_PlayerRef_default_instance_);
-}
-inline const ::GameState::PlayerRef& Card::owner() const {
+inline const ::Types::PlayerRef& Card::owner() const {
   // @@protoc_insertion_point(field_get:GameState.Card.Owner)
   return _internal_owner();
 }
 inline void Card::unsafe_arena_set_allocated_owner(
-    ::GameState::PlayerRef* owner) {
+    ::Types::PlayerRef* owner) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(owner_);
   }
@@ -7903,42 +4256,42 @@ inline void Card::unsafe_arena_set_allocated_owner(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Owner)
 }
-inline ::GameState::PlayerRef* Card::release_owner() {
+inline ::Types::PlayerRef* Card::release_owner() {
   
-  ::GameState::PlayerRef* temp = owner_;
+  ::Types::PlayerRef* temp = owner_;
   owner_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::PlayerRef* Card::unsafe_arena_release_owner() {
+inline ::Types::PlayerRef* Card::unsafe_arena_release_owner() {
   // @@protoc_insertion_point(field_release:GameState.Card.Owner)
   
-  ::GameState::PlayerRef* temp = owner_;
+  ::Types::PlayerRef* temp = owner_;
   owner_ = nullptr;
   return temp;
 }
-inline ::GameState::PlayerRef* Card::_internal_mutable_owner() {
+inline ::Types::PlayerRef* Card::_internal_mutable_owner() {
   
   if (owner_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::PlayerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::PlayerRef>(GetArena());
     owner_ = p;
   }
   return owner_;
 }
-inline ::GameState::PlayerRef* Card::mutable_owner() {
+inline ::Types::PlayerRef* Card::mutable_owner() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.Owner)
   return _internal_mutable_owner();
 }
-inline void Card::set_allocated_owner(::GameState::PlayerRef* owner) {
+inline void Card::set_allocated_owner(::Types::PlayerRef* owner) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete owner_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(owner_);
   }
   if (owner) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(owner);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(owner)->GetArena();
     if (message_arena != submessage_arena) {
       owner = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, owner, submessage_arena);
@@ -7951,30 +4304,24 @@ inline void Card::set_allocated_owner(::GameState::PlayerRef* owner) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Owner)
 }
 
-// .GameState.PlayerRef Controller = 8;
+// .Types.PlayerRef Controller = 8;
 inline bool Card::_internal_has_controller() const {
   return this != internal_default_instance() && controller_ != nullptr;
 }
 inline bool Card::has_controller() const {
   return _internal_has_controller();
 }
-inline void Card::clear_controller() {
-  if (GetArena() == nullptr && controller_ != nullptr) {
-    delete controller_;
-  }
-  controller_ = nullptr;
+inline const ::Types::PlayerRef& Card::_internal_controller() const {
+  const ::Types::PlayerRef* p = controller_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::PlayerRef&>(
+      ::Types::_PlayerRef_default_instance_);
 }
-inline const ::GameState::PlayerRef& Card::_internal_controller() const {
-  const ::GameState::PlayerRef* p = controller_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::PlayerRef&>(
-      ::GameState::_PlayerRef_default_instance_);
-}
-inline const ::GameState::PlayerRef& Card::controller() const {
+inline const ::Types::PlayerRef& Card::controller() const {
   // @@protoc_insertion_point(field_get:GameState.Card.Controller)
   return _internal_controller();
 }
 inline void Card::unsafe_arena_set_allocated_controller(
-    ::GameState::PlayerRef* controller) {
+    ::Types::PlayerRef* controller) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(controller_);
   }
@@ -7986,42 +4333,42 @@ inline void Card::unsafe_arena_set_allocated_controller(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Controller)
 }
-inline ::GameState::PlayerRef* Card::release_controller() {
+inline ::Types::PlayerRef* Card::release_controller() {
   
-  ::GameState::PlayerRef* temp = controller_;
+  ::Types::PlayerRef* temp = controller_;
   controller_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::PlayerRef* Card::unsafe_arena_release_controller() {
+inline ::Types::PlayerRef* Card::unsafe_arena_release_controller() {
   // @@protoc_insertion_point(field_release:GameState.Card.Controller)
   
-  ::GameState::PlayerRef* temp = controller_;
+  ::Types::PlayerRef* temp = controller_;
   controller_ = nullptr;
   return temp;
 }
-inline ::GameState::PlayerRef* Card::_internal_mutable_controller() {
+inline ::Types::PlayerRef* Card::_internal_mutable_controller() {
   
   if (controller_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::PlayerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::PlayerRef>(GetArena());
     controller_ = p;
   }
   return controller_;
 }
-inline ::GameState::PlayerRef* Card::mutable_controller() {
+inline ::Types::PlayerRef* Card::mutable_controller() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.Controller)
   return _internal_mutable_controller();
 }
-inline void Card::set_allocated_controller(::GameState::PlayerRef* controller) {
+inline void Card::set_allocated_controller(::Types::PlayerRef* controller) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete controller_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(controller_);
   }
   if (controller) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(controller);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(controller)->GetArena();
     if (message_arena != submessage_arena) {
       controller = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, controller, submessage_arena);
@@ -8034,30 +4381,24 @@ inline void Card::set_allocated_controller(::GameState::PlayerRef* controller) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Controller)
 }
 
-// .GameState.IntegerRef ActionCost = 9;
+// .Types.IntegerRef ActionCost = 9;
 inline bool Card::_internal_has_actioncost() const {
   return this != internal_default_instance() && actioncost_ != nullptr;
 }
 inline bool Card::has_actioncost() const {
   return _internal_has_actioncost();
 }
-inline void Card::clear_actioncost() {
-  if (GetArena() == nullptr && actioncost_ != nullptr) {
-    delete actioncost_;
-  }
-  actioncost_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_actioncost() const {
+  const ::Types::IntegerRef* p = actioncost_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_actioncost() const {
-  const ::GameState::IntegerRef* p = actioncost_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::actioncost() const {
+inline const ::Types::IntegerRef& Card::actioncost() const {
   // @@protoc_insertion_point(field_get:GameState.Card.ActionCost)
   return _internal_actioncost();
 }
 inline void Card::unsafe_arena_set_allocated_actioncost(
-    ::GameState::IntegerRef* actioncost) {
+    ::Types::IntegerRef* actioncost) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
   }
@@ -8069,42 +4410,42 @@ inline void Card::unsafe_arena_set_allocated_actioncost(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.ActionCost)
 }
-inline ::GameState::IntegerRef* Card::release_actioncost() {
+inline ::Types::IntegerRef* Card::release_actioncost() {
   
-  ::GameState::IntegerRef* temp = actioncost_;
+  ::Types::IntegerRef* temp = actioncost_;
   actioncost_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_actioncost() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_actioncost() {
   // @@protoc_insertion_point(field_release:GameState.Card.ActionCost)
   
-  ::GameState::IntegerRef* temp = actioncost_;
+  ::Types::IntegerRef* temp = actioncost_;
   actioncost_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_actioncost() {
+inline ::Types::IntegerRef* Card::_internal_mutable_actioncost() {
   
   if (actioncost_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     actioncost_ = p;
   }
   return actioncost_;
 }
-inline ::GameState::IntegerRef* Card::mutable_actioncost() {
+inline ::Types::IntegerRef* Card::mutable_actioncost() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.ActionCost)
   return _internal_mutable_actioncost();
 }
-inline void Card::set_allocated_actioncost(::GameState::IntegerRef* actioncost) {
+inline void Card::set_allocated_actioncost(::Types::IntegerRef* actioncost) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete actioncost_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
   }
   if (actioncost) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(actioncost);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost)->GetArena();
     if (message_arena != submessage_arena) {
       actioncost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, actioncost, submessage_arena);
@@ -8117,30 +4458,24 @@ inline void Card::set_allocated_actioncost(::GameState::IntegerRef* actioncost) 
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.ActionCost)
 }
 
-// .GameState.IntegerRef PowerCost = 10;
+// .Types.IntegerRef PowerCost = 10;
 inline bool Card::_internal_has_powercost() const {
   return this != internal_default_instance() && powercost_ != nullptr;
 }
 inline bool Card::has_powercost() const {
   return _internal_has_powercost();
 }
-inline void Card::clear_powercost() {
-  if (GetArena() == nullptr && powercost_ != nullptr) {
-    delete powercost_;
-  }
-  powercost_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_powercost() const {
+  const ::Types::IntegerRef* p = powercost_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_powercost() const {
-  const ::GameState::IntegerRef* p = powercost_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::powercost() const {
+inline const ::Types::IntegerRef& Card::powercost() const {
   // @@protoc_insertion_point(field_get:GameState.Card.PowerCost)
   return _internal_powercost();
 }
 inline void Card::unsafe_arena_set_allocated_powercost(
-    ::GameState::IntegerRef* powercost) {
+    ::Types::IntegerRef* powercost) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
   }
@@ -8152,42 +4487,42 @@ inline void Card::unsafe_arena_set_allocated_powercost(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.PowerCost)
 }
-inline ::GameState::IntegerRef* Card::release_powercost() {
+inline ::Types::IntegerRef* Card::release_powercost() {
   
-  ::GameState::IntegerRef* temp = powercost_;
+  ::Types::IntegerRef* temp = powercost_;
   powercost_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_powercost() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_powercost() {
   // @@protoc_insertion_point(field_release:GameState.Card.PowerCost)
   
-  ::GameState::IntegerRef* temp = powercost_;
+  ::Types::IntegerRef* temp = powercost_;
   powercost_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_powercost() {
+inline ::Types::IntegerRef* Card::_internal_mutable_powercost() {
   
   if (powercost_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     powercost_ = p;
   }
   return powercost_;
 }
-inline ::GameState::IntegerRef* Card::mutable_powercost() {
+inline ::Types::IntegerRef* Card::mutable_powercost() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.PowerCost)
   return _internal_mutable_powercost();
 }
-inline void Card::set_allocated_powercost(::GameState::IntegerRef* powercost) {
+inline void Card::set_allocated_powercost(::Types::IntegerRef* powercost) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete powercost_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
   }
   if (powercost) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(powercost);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost)->GetArena();
     if (message_arena != submessage_arena) {
       powercost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, powercost, submessage_arena);
@@ -8200,30 +4535,24 @@ inline void Card::set_allocated_powercost(::GameState::IntegerRef* powercost) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.PowerCost)
 }
 
-// .GameState.IntegerRef Range = 11;
+// .Types.IntegerRef Range = 11;
 inline bool Card::_internal_has_range() const {
   return this != internal_default_instance() && range_ != nullptr;
 }
 inline bool Card::has_range() const {
   return _internal_has_range();
 }
-inline void Card::clear_range() {
-  if (GetArena() == nullptr && range_ != nullptr) {
-    delete range_;
-  }
-  range_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_range() const {
+  const ::Types::IntegerRef* p = range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_range() const {
-  const ::GameState::IntegerRef* p = range_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::range() const {
+inline const ::Types::IntegerRef& Card::range() const {
   // @@protoc_insertion_point(field_get:GameState.Card.Range)
   return _internal_range();
 }
 inline void Card::unsafe_arena_set_allocated_range(
-    ::GameState::IntegerRef* range) {
+    ::Types::IntegerRef* range) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
   }
@@ -8235,42 +4564,42 @@ inline void Card::unsafe_arena_set_allocated_range(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Range)
 }
-inline ::GameState::IntegerRef* Card::release_range() {
+inline ::Types::IntegerRef* Card::release_range() {
   
-  ::GameState::IntegerRef* temp = range_;
+  ::Types::IntegerRef* temp = range_;
   range_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_range() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_range() {
   // @@protoc_insertion_point(field_release:GameState.Card.Range)
   
-  ::GameState::IntegerRef* temp = range_;
+  ::Types::IntegerRef* temp = range_;
   range_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_range() {
+inline ::Types::IntegerRef* Card::_internal_mutable_range() {
   
   if (range_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     range_ = p;
   }
   return range_;
 }
-inline ::GameState::IntegerRef* Card::mutable_range() {
+inline ::Types::IntegerRef* Card::mutable_range() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.Range)
   return _internal_mutable_range();
 }
-inline void Card::set_allocated_range(::GameState::IntegerRef* range) {
+inline void Card::set_allocated_range(::Types::IntegerRef* range) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete range_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
   }
   if (range) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(range);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range)->GetArena();
     if (message_arena != submessage_arena) {
       range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, range, submessage_arena);
@@ -8283,30 +4612,24 @@ inline void Card::set_allocated_range(::GameState::IntegerRef* range) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Range)
 }
 
-// .GameState.EntityRef Attached = 12;
+// .Types.EntityRef Attached = 12;
 inline bool Card::_internal_has_attached() const {
   return this != internal_default_instance() && attached_ != nullptr;
 }
 inline bool Card::has_attached() const {
   return _internal_has_attached();
 }
-inline void Card::clear_attached() {
-  if (GetArena() == nullptr && attached_ != nullptr) {
-    delete attached_;
-  }
-  attached_ = nullptr;
+inline const ::Types::EntityRef& Card::_internal_attached() const {
+  const ::Types::EntityRef* p = attached_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
+      ::Types::_EntityRef_default_instance_);
 }
-inline const ::GameState::EntityRef& Card::_internal_attached() const {
-  const ::GameState::EntityRef* p = attached_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityRef&>(
-      ::GameState::_EntityRef_default_instance_);
-}
-inline const ::GameState::EntityRef& Card::attached() const {
+inline const ::Types::EntityRef& Card::attached() const {
   // @@protoc_insertion_point(field_get:GameState.Card.Attached)
   return _internal_attached();
 }
 inline void Card::unsafe_arena_set_allocated_attached(
-    ::GameState::EntityRef* attached) {
+    ::Types::EntityRef* attached) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(attached_);
   }
@@ -8318,42 +4641,42 @@ inline void Card::unsafe_arena_set_allocated_attached(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Attached)
 }
-inline ::GameState::EntityRef* Card::release_attached() {
+inline ::Types::EntityRef* Card::release_attached() {
   
-  ::GameState::EntityRef* temp = attached_;
+  ::Types::EntityRef* temp = attached_;
   attached_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityRef* Card::unsafe_arena_release_attached() {
+inline ::Types::EntityRef* Card::unsafe_arena_release_attached() {
   // @@protoc_insertion_point(field_release:GameState.Card.Attached)
   
-  ::GameState::EntityRef* temp = attached_;
+  ::Types::EntityRef* temp = attached_;
   attached_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityRef* Card::_internal_mutable_attached() {
+inline ::Types::EntityRef* Card::_internal_mutable_attached() {
   
   if (attached_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
     attached_ = p;
   }
   return attached_;
 }
-inline ::GameState::EntityRef* Card::mutable_attached() {
+inline ::Types::EntityRef* Card::mutable_attached() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.Attached)
   return _internal_mutable_attached();
 }
-inline void Card::set_allocated_attached(::GameState::EntityRef* attached) {
+inline void Card::set_allocated_attached(::Types::EntityRef* attached) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete attached_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(attached_);
   }
   if (attached) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(attached);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(attached)->GetArena();
     if (message_arena != submessage_arena) {
       attached = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, attached, submessage_arena);
@@ -8366,30 +4689,24 @@ inline void Card::set_allocated_attached(::GameState::EntityRef* attached) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Attached)
 }
 
-// .GameState.IntegerRef AffectedBySlow = 13;
+// .Types.IntegerRef AffectedBySlow = 13;
 inline bool Card::_internal_has_affectedbyslow() const {
   return this != internal_default_instance() && affectedbyslow_ != nullptr;
 }
 inline bool Card::has_affectedbyslow() const {
   return _internal_has_affectedbyslow();
 }
-inline void Card::clear_affectedbyslow() {
-  if (GetArena() == nullptr && affectedbyslow_ != nullptr) {
-    delete affectedbyslow_;
-  }
-  affectedbyslow_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_affectedbyslow() const {
+  const ::Types::IntegerRef* p = affectedbyslow_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_affectedbyslow() const {
-  const ::GameState::IntegerRef* p = affectedbyslow_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::affectedbyslow() const {
+inline const ::Types::IntegerRef& Card::affectedbyslow() const {
   // @@protoc_insertion_point(field_get:GameState.Card.AffectedBySlow)
   return _internal_affectedbyslow();
 }
 inline void Card::unsafe_arena_set_allocated_affectedbyslow(
-    ::GameState::IntegerRef* affectedbyslow) {
+    ::Types::IntegerRef* affectedbyslow) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
   }
@@ -8401,42 +4718,42 @@ inline void Card::unsafe_arena_set_allocated_affectedbyslow(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedBySlow)
 }
-inline ::GameState::IntegerRef* Card::release_affectedbyslow() {
+inline ::Types::IntegerRef* Card::release_affectedbyslow() {
   
-  ::GameState::IntegerRef* temp = affectedbyslow_;
+  ::Types::IntegerRef* temp = affectedbyslow_;
   affectedbyslow_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_affectedbyslow() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbyslow() {
   // @@protoc_insertion_point(field_release:GameState.Card.AffectedBySlow)
   
-  ::GameState::IntegerRef* temp = affectedbyslow_;
+  ::Types::IntegerRef* temp = affectedbyslow_;
   affectedbyslow_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_affectedbyslow() {
+inline ::Types::IntegerRef* Card::_internal_mutable_affectedbyslow() {
   
   if (affectedbyslow_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     affectedbyslow_ = p;
   }
   return affectedbyslow_;
 }
-inline ::GameState::IntegerRef* Card::mutable_affectedbyslow() {
+inline ::Types::IntegerRef* Card::mutable_affectedbyslow() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedBySlow)
   return _internal_mutable_affectedbyslow();
 }
-inline void Card::set_allocated_affectedbyslow(::GameState::IntegerRef* affectedbyslow) {
+inline void Card::set_allocated_affectedbyslow(::Types::IntegerRef* affectedbyslow) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete affectedbyslow_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
   }
   if (affectedbyslow) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(affectedbyslow);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow)->GetArena();
     if (message_arena != submessage_arena) {
       affectedbyslow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, affectedbyslow, submessage_arena);
@@ -8449,30 +4766,24 @@ inline void Card::set_allocated_affectedbyslow(::GameState::IntegerRef* affected
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.AffectedBySlow)
 }
 
-// .GameState.IntegerRef AffectedBySilence = 14;
+// .Types.IntegerRef AffectedBySilence = 14;
 inline bool Card::_internal_has_affectedbysilence() const {
   return this != internal_default_instance() && affectedbysilence_ != nullptr;
 }
 inline bool Card::has_affectedbysilence() const {
   return _internal_has_affectedbysilence();
 }
-inline void Card::clear_affectedbysilence() {
-  if (GetArena() == nullptr && affectedbysilence_ != nullptr) {
-    delete affectedbysilence_;
-  }
-  affectedbysilence_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_affectedbysilence() const {
+  const ::Types::IntegerRef* p = affectedbysilence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_affectedbysilence() const {
-  const ::GameState::IntegerRef* p = affectedbysilence_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::affectedbysilence() const {
+inline const ::Types::IntegerRef& Card::affectedbysilence() const {
   // @@protoc_insertion_point(field_get:GameState.Card.AffectedBySilence)
   return _internal_affectedbysilence();
 }
 inline void Card::unsafe_arena_set_allocated_affectedbysilence(
-    ::GameState::IntegerRef* affectedbysilence) {
+    ::Types::IntegerRef* affectedbysilence) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
   }
@@ -8484,42 +4795,42 @@ inline void Card::unsafe_arena_set_allocated_affectedbysilence(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedBySilence)
 }
-inline ::GameState::IntegerRef* Card::release_affectedbysilence() {
+inline ::Types::IntegerRef* Card::release_affectedbysilence() {
   
-  ::GameState::IntegerRef* temp = affectedbysilence_;
+  ::Types::IntegerRef* temp = affectedbysilence_;
   affectedbysilence_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_affectedbysilence() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbysilence() {
   // @@protoc_insertion_point(field_release:GameState.Card.AffectedBySilence)
   
-  ::GameState::IntegerRef* temp = affectedbysilence_;
+  ::Types::IntegerRef* temp = affectedbysilence_;
   affectedbysilence_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_affectedbysilence() {
+inline ::Types::IntegerRef* Card::_internal_mutable_affectedbysilence() {
   
   if (affectedbysilence_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     affectedbysilence_ = p;
   }
   return affectedbysilence_;
 }
-inline ::GameState::IntegerRef* Card::mutable_affectedbysilence() {
+inline ::Types::IntegerRef* Card::mutable_affectedbysilence() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedBySilence)
   return _internal_mutable_affectedbysilence();
 }
-inline void Card::set_allocated_affectedbysilence(::GameState::IntegerRef* affectedbysilence) {
+inline void Card::set_allocated_affectedbysilence(::Types::IntegerRef* affectedbysilence) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete affectedbysilence_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
   }
   if (affectedbysilence) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(affectedbysilence);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence)->GetArena();
     if (message_arena != submessage_arena) {
       affectedbysilence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, affectedbysilence, submessage_arena);
@@ -8532,30 +4843,24 @@ inline void Card::set_allocated_affectedbysilence(::GameState::IntegerRef* affec
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.AffectedBySilence)
 }
 
-// .GameState.IntegerRef AffectedByDisarm = 15;
+// .Types.IntegerRef AffectedByDisarm = 15;
 inline bool Card::_internal_has_affectedbydisarm() const {
   return this != internal_default_instance() && affectedbydisarm_ != nullptr;
 }
 inline bool Card::has_affectedbydisarm() const {
   return _internal_has_affectedbydisarm();
 }
-inline void Card::clear_affectedbydisarm() {
-  if (GetArena() == nullptr && affectedbydisarm_ != nullptr) {
-    delete affectedbydisarm_;
-  }
-  affectedbydisarm_ = nullptr;
+inline const ::Types::IntegerRef& Card::_internal_affectedbydisarm() const {
+  const ::Types::IntegerRef* p = affectedbydisarm_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
+      ::Types::_IntegerRef_default_instance_);
 }
-inline const ::GameState::IntegerRef& Card::_internal_affectedbydisarm() const {
-  const ::GameState::IntegerRef* p = affectedbydisarm_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::IntegerRef&>(
-      ::GameState::_IntegerRef_default_instance_);
-}
-inline const ::GameState::IntegerRef& Card::affectedbydisarm() const {
+inline const ::Types::IntegerRef& Card::affectedbydisarm() const {
   // @@protoc_insertion_point(field_get:GameState.Card.AffectedByDisarm)
   return _internal_affectedbydisarm();
 }
 inline void Card::unsafe_arena_set_allocated_affectedbydisarm(
-    ::GameState::IntegerRef* affectedbydisarm) {
+    ::Types::IntegerRef* affectedbydisarm) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
   }
@@ -8567,42 +4872,42 @@ inline void Card::unsafe_arena_set_allocated_affectedbydisarm(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedByDisarm)
 }
-inline ::GameState::IntegerRef* Card::release_affectedbydisarm() {
+inline ::Types::IntegerRef* Card::release_affectedbydisarm() {
   
-  ::GameState::IntegerRef* temp = affectedbydisarm_;
+  ::Types::IntegerRef* temp = affectedbydisarm_;
   affectedbydisarm_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::IntegerRef* Card::unsafe_arena_release_affectedbydisarm() {
+inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbydisarm() {
   // @@protoc_insertion_point(field_release:GameState.Card.AffectedByDisarm)
   
-  ::GameState::IntegerRef* temp = affectedbydisarm_;
+  ::Types::IntegerRef* temp = affectedbydisarm_;
   affectedbydisarm_ = nullptr;
   return temp;
 }
-inline ::GameState::IntegerRef* Card::_internal_mutable_affectedbydisarm() {
+inline ::Types::IntegerRef* Card::_internal_mutable_affectedbydisarm() {
   
   if (affectedbydisarm_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::IntegerRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
     affectedbydisarm_ = p;
   }
   return affectedbydisarm_;
 }
-inline ::GameState::IntegerRef* Card::mutable_affectedbydisarm() {
+inline ::Types::IntegerRef* Card::mutable_affectedbydisarm() {
   // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedByDisarm)
   return _internal_mutable_affectedbydisarm();
 }
-inline void Card::set_allocated_affectedbydisarm(::GameState::IntegerRef* affectedbydisarm) {
+inline void Card::set_allocated_affectedbydisarm(::Types::IntegerRef* affectedbydisarm) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete affectedbydisarm_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
   }
   if (affectedbydisarm) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(affectedbydisarm);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm)->GetArena();
     if (message_arena != submessage_arena) {
       affectedbydisarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, affectedbydisarm, submessage_arena);
@@ -9004,40 +5309,37 @@ inline void Card::set_allocated_resolveeffect(::Effects::CardEffect* resolveeffe
 
 // Team
 
-// repeated .GameState.PlayerRef Players = 1;
+// repeated .Types.PlayerRef Players = 1;
 inline int Team::_internal_players_size() const {
   return players_.size();
 }
 inline int Team::players_size() const {
   return _internal_players_size();
 }
-inline void Team::clear_players() {
-  players_.Clear();
-}
-inline ::GameState::PlayerRef* Team::mutable_players(int index) {
+inline ::Types::PlayerRef* Team::mutable_players(int index) {
   // @@protoc_insertion_point(field_mutable:GameState.Team.Players)
   return players_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >*
 Team::mutable_players() {
   // @@protoc_insertion_point(field_mutable_list:GameState.Team.Players)
   return &players_;
 }
-inline const ::GameState::PlayerRef& Team::_internal_players(int index) const {
+inline const ::Types::PlayerRef& Team::_internal_players(int index) const {
   return players_.Get(index);
 }
-inline const ::GameState::PlayerRef& Team::players(int index) const {
+inline const ::Types::PlayerRef& Team::players(int index) const {
   // @@protoc_insertion_point(field_get:GameState.Team.Players)
   return _internal_players(index);
 }
-inline ::GameState::PlayerRef* Team::_internal_add_players() {
+inline ::Types::PlayerRef* Team::_internal_add_players() {
   return players_.Add();
 }
-inline ::GameState::PlayerRef* Team::add_players() {
+inline ::Types::PlayerRef* Team::add_players() {
   // @@protoc_insertion_point(field_add:GameState.Team.Players)
   return _internal_add_players();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GameState::PlayerRef >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::PlayerRef >&
 Team::players() const {
   // @@protoc_insertion_point(field_list:GameState.Team.Players)
   return players_;
@@ -9047,30 +5349,24 @@ Team::players() const {
 
 // SetMutation
 
-// .GameState.EntityRef Object = 1;
+// .Types.EntityRef Object = 1;
 inline bool SetMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool SetMutation::has_object() const {
   return _internal_has_object();
 }
-inline void SetMutation::clear_object() {
-  if (GetArena() == nullptr && object_ != nullptr) {
-    delete object_;
-  }
-  object_ = nullptr;
+inline const ::Types::EntityRef& SetMutation::_internal_object() const {
+  const ::Types::EntityRef* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
+      ::Types::_EntityRef_default_instance_);
 }
-inline const ::GameState::EntityRef& SetMutation::_internal_object() const {
-  const ::GameState::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityRef&>(
-      ::GameState::_EntityRef_default_instance_);
-}
-inline const ::GameState::EntityRef& SetMutation::object() const {
+inline const ::Types::EntityRef& SetMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.SetMutation.Object)
   return _internal_object();
 }
 inline void SetMutation::unsafe_arena_set_allocated_object(
-    ::GameState::EntityRef* object) {
+    ::Types::EntityRef* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -9082,42 +5378,42 @@ inline void SetMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.SetMutation.Object)
 }
-inline ::GameState::EntityRef* SetMutation::release_object() {
+inline ::Types::EntityRef* SetMutation::release_object() {
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityRef* SetMutation::unsafe_arena_release_object() {
+inline ::Types::EntityRef* SetMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.SetMutation.Object)
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityRef* SetMutation::_internal_mutable_object() {
+inline ::Types::EntityRef* SetMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::GameState::EntityRef* SetMutation::mutable_object() {
+inline ::Types::EntityRef* SetMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.SetMutation.Object)
   return _internal_mutable_object();
 }
-inline void SetMutation::set_allocated_object(::GameState::EntityRef* object) {
+inline void SetMutation::set_allocated_object(::Types::EntityRef* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete object_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
   if (object) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(object);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object)->GetArena();
     if (message_arena != submessage_arena) {
       object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, object, submessage_arena);
@@ -9130,30 +5426,24 @@ inline void SetMutation::set_allocated_object(::GameState::EntityRef* object) {
   // @@protoc_insertion_point(field_set_allocated:GameState.SetMutation.Object)
 }
 
-// .GameState.EntityValue NewValue = 2;
+// .Types.EntityValue NewValue = 2;
 inline bool SetMutation::_internal_has_newvalue() const {
   return this != internal_default_instance() && newvalue_ != nullptr;
 }
 inline bool SetMutation::has_newvalue() const {
   return _internal_has_newvalue();
 }
-inline void SetMutation::clear_newvalue() {
-  if (GetArena() == nullptr && newvalue_ != nullptr) {
-    delete newvalue_;
-  }
-  newvalue_ = nullptr;
+inline const ::Types::EntityValue& SetMutation::_internal_newvalue() const {
+  const ::Types::EntityValue* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityValue&>(
+      ::Types::_EntityValue_default_instance_);
 }
-inline const ::GameState::EntityValue& SetMutation::_internal_newvalue() const {
-  const ::GameState::EntityValue* p = newvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityValue&>(
-      ::GameState::_EntityValue_default_instance_);
-}
-inline const ::GameState::EntityValue& SetMutation::newvalue() const {
+inline const ::Types::EntityValue& SetMutation::newvalue() const {
   // @@protoc_insertion_point(field_get:GameState.SetMutation.NewValue)
   return _internal_newvalue();
 }
 inline void SetMutation::unsafe_arena_set_allocated_newvalue(
-    ::GameState::EntityValue* newvalue) {
+    ::Types::EntityValue* newvalue) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
   }
@@ -9165,42 +5455,42 @@ inline void SetMutation::unsafe_arena_set_allocated_newvalue(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.SetMutation.NewValue)
 }
-inline ::GameState::EntityValue* SetMutation::release_newvalue() {
+inline ::Types::EntityValue* SetMutation::release_newvalue() {
   
-  ::GameState::EntityValue* temp = newvalue_;
+  ::Types::EntityValue* temp = newvalue_;
   newvalue_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityValue* SetMutation::unsafe_arena_release_newvalue() {
+inline ::Types::EntityValue* SetMutation::unsafe_arena_release_newvalue() {
   // @@protoc_insertion_point(field_release:GameState.SetMutation.NewValue)
   
-  ::GameState::EntityValue* temp = newvalue_;
+  ::Types::EntityValue* temp = newvalue_;
   newvalue_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityValue* SetMutation::_internal_mutable_newvalue() {
+inline ::Types::EntityValue* SetMutation::_internal_mutable_newvalue() {
   
   if (newvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityValue>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityValue>(GetArena());
     newvalue_ = p;
   }
   return newvalue_;
 }
-inline ::GameState::EntityValue* SetMutation::mutable_newvalue() {
+inline ::Types::EntityValue* SetMutation::mutable_newvalue() {
   // @@protoc_insertion_point(field_mutable:GameState.SetMutation.NewValue)
   return _internal_mutable_newvalue();
 }
-inline void SetMutation::set_allocated_newvalue(::GameState::EntityValue* newvalue) {
+inline void SetMutation::set_allocated_newvalue(::Types::EntityValue* newvalue) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete newvalue_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
   }
   if (newvalue) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
     if (message_arena != submessage_arena) {
       newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, newvalue, submessage_arena);
@@ -9213,30 +5503,24 @@ inline void SetMutation::set_allocated_newvalue(::GameState::EntityValue* newval
   // @@protoc_insertion_point(field_set_allocated:GameState.SetMutation.NewValue)
 }
 
-// .GameState.EntityValue OldValue = 3;
+// .Types.EntityValue OldValue = 3;
 inline bool SetMutation::_internal_has_oldvalue() const {
   return this != internal_default_instance() && oldvalue_ != nullptr;
 }
 inline bool SetMutation::has_oldvalue() const {
   return _internal_has_oldvalue();
 }
-inline void SetMutation::clear_oldvalue() {
-  if (GetArena() == nullptr && oldvalue_ != nullptr) {
-    delete oldvalue_;
-  }
-  oldvalue_ = nullptr;
+inline const ::Types::EntityValue& SetMutation::_internal_oldvalue() const {
+  const ::Types::EntityValue* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityValue&>(
+      ::Types::_EntityValue_default_instance_);
 }
-inline const ::GameState::EntityValue& SetMutation::_internal_oldvalue() const {
-  const ::GameState::EntityValue* p = oldvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityValue&>(
-      ::GameState::_EntityValue_default_instance_);
-}
-inline const ::GameState::EntityValue& SetMutation::oldvalue() const {
+inline const ::Types::EntityValue& SetMutation::oldvalue() const {
   // @@protoc_insertion_point(field_get:GameState.SetMutation.OldValue)
   return _internal_oldvalue();
 }
 inline void SetMutation::unsafe_arena_set_allocated_oldvalue(
-    ::GameState::EntityValue* oldvalue) {
+    ::Types::EntityValue* oldvalue) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
   }
@@ -9248,42 +5532,42 @@ inline void SetMutation::unsafe_arena_set_allocated_oldvalue(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.SetMutation.OldValue)
 }
-inline ::GameState::EntityValue* SetMutation::release_oldvalue() {
+inline ::Types::EntityValue* SetMutation::release_oldvalue() {
   
-  ::GameState::EntityValue* temp = oldvalue_;
+  ::Types::EntityValue* temp = oldvalue_;
   oldvalue_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityValue* SetMutation::unsafe_arena_release_oldvalue() {
+inline ::Types::EntityValue* SetMutation::unsafe_arena_release_oldvalue() {
   // @@protoc_insertion_point(field_release:GameState.SetMutation.OldValue)
   
-  ::GameState::EntityValue* temp = oldvalue_;
+  ::Types::EntityValue* temp = oldvalue_;
   oldvalue_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityValue* SetMutation::_internal_mutable_oldvalue() {
+inline ::Types::EntityValue* SetMutation::_internal_mutable_oldvalue() {
   
   if (oldvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityValue>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityValue>(GetArena());
     oldvalue_ = p;
   }
   return oldvalue_;
 }
-inline ::GameState::EntityValue* SetMutation::mutable_oldvalue() {
+inline ::Types::EntityValue* SetMutation::mutable_oldvalue() {
   // @@protoc_insertion_point(field_mutable:GameState.SetMutation.OldValue)
   return _internal_mutable_oldvalue();
 }
-inline void SetMutation::set_allocated_oldvalue(::GameState::EntityValue* oldvalue) {
+inline void SetMutation::set_allocated_oldvalue(::Types::EntityValue* oldvalue) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete oldvalue_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
   }
   if (oldvalue) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
     if (message_arena != submessage_arena) {
       oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, oldvalue, submessage_arena);
@@ -9300,30 +5584,24 @@ inline void SetMutation::set_allocated_oldvalue(::GameState::EntityValue* oldval
 
 // RemoveMutation
 
-// .GameState.EntityRef Object = 1;
+// .Types.EntityRef Object = 1;
 inline bool RemoveMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool RemoveMutation::has_object() const {
   return _internal_has_object();
 }
-inline void RemoveMutation::clear_object() {
-  if (GetArena() == nullptr && object_ != nullptr) {
-    delete object_;
-  }
-  object_ = nullptr;
+inline const ::Types::EntityRef& RemoveMutation::_internal_object() const {
+  const ::Types::EntityRef* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
+      ::Types::_EntityRef_default_instance_);
 }
-inline const ::GameState::EntityRef& RemoveMutation::_internal_object() const {
-  const ::GameState::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityRef&>(
-      ::GameState::_EntityRef_default_instance_);
-}
-inline const ::GameState::EntityRef& RemoveMutation::object() const {
+inline const ::Types::EntityRef& RemoveMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.RemoveMutation.Object)
   return _internal_object();
 }
 inline void RemoveMutation::unsafe_arena_set_allocated_object(
-    ::GameState::EntityRef* object) {
+    ::Types::EntityRef* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -9335,42 +5613,42 @@ inline void RemoveMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.RemoveMutation.Object)
 }
-inline ::GameState::EntityRef* RemoveMutation::release_object() {
+inline ::Types::EntityRef* RemoveMutation::release_object() {
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityRef* RemoveMutation::unsafe_arena_release_object() {
+inline ::Types::EntityRef* RemoveMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.RemoveMutation.Object)
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityRef* RemoveMutation::_internal_mutable_object() {
+inline ::Types::EntityRef* RemoveMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::GameState::EntityRef* RemoveMutation::mutable_object() {
+inline ::Types::EntityRef* RemoveMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.RemoveMutation.Object)
   return _internal_mutable_object();
 }
-inline void RemoveMutation::set_allocated_object(::GameState::EntityRef* object) {
+inline void RemoveMutation::set_allocated_object(::Types::EntityRef* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete object_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
   if (object) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(object);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object)->GetArena();
     if (message_arena != submessage_arena) {
       object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, object, submessage_arena);
@@ -9383,30 +5661,24 @@ inline void RemoveMutation::set_allocated_object(::GameState::EntityRef* object)
   // @@protoc_insertion_point(field_set_allocated:GameState.RemoveMutation.Object)
 }
 
-// .GameState.EntityValue OldValue = 2;
+// .Types.EntityValue OldValue = 2;
 inline bool RemoveMutation::_internal_has_oldvalue() const {
   return this != internal_default_instance() && oldvalue_ != nullptr;
 }
 inline bool RemoveMutation::has_oldvalue() const {
   return _internal_has_oldvalue();
 }
-inline void RemoveMutation::clear_oldvalue() {
-  if (GetArena() == nullptr && oldvalue_ != nullptr) {
-    delete oldvalue_;
-  }
-  oldvalue_ = nullptr;
+inline const ::Types::EntityValue& RemoveMutation::_internal_oldvalue() const {
+  const ::Types::EntityValue* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityValue&>(
+      ::Types::_EntityValue_default_instance_);
 }
-inline const ::GameState::EntityValue& RemoveMutation::_internal_oldvalue() const {
-  const ::GameState::EntityValue* p = oldvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityValue&>(
-      ::GameState::_EntityValue_default_instance_);
-}
-inline const ::GameState::EntityValue& RemoveMutation::oldvalue() const {
+inline const ::Types::EntityValue& RemoveMutation::oldvalue() const {
   // @@protoc_insertion_point(field_get:GameState.RemoveMutation.OldValue)
   return _internal_oldvalue();
 }
 inline void RemoveMutation::unsafe_arena_set_allocated_oldvalue(
-    ::GameState::EntityValue* oldvalue) {
+    ::Types::EntityValue* oldvalue) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
   }
@@ -9418,42 +5690,42 @@ inline void RemoveMutation::unsafe_arena_set_allocated_oldvalue(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.RemoveMutation.OldValue)
 }
-inline ::GameState::EntityValue* RemoveMutation::release_oldvalue() {
+inline ::Types::EntityValue* RemoveMutation::release_oldvalue() {
   
-  ::GameState::EntityValue* temp = oldvalue_;
+  ::Types::EntityValue* temp = oldvalue_;
   oldvalue_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityValue* RemoveMutation::unsafe_arena_release_oldvalue() {
+inline ::Types::EntityValue* RemoveMutation::unsafe_arena_release_oldvalue() {
   // @@protoc_insertion_point(field_release:GameState.RemoveMutation.OldValue)
   
-  ::GameState::EntityValue* temp = oldvalue_;
+  ::Types::EntityValue* temp = oldvalue_;
   oldvalue_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityValue* RemoveMutation::_internal_mutable_oldvalue() {
+inline ::Types::EntityValue* RemoveMutation::_internal_mutable_oldvalue() {
   
   if (oldvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityValue>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityValue>(GetArena());
     oldvalue_ = p;
   }
   return oldvalue_;
 }
-inline ::GameState::EntityValue* RemoveMutation::mutable_oldvalue() {
+inline ::Types::EntityValue* RemoveMutation::mutable_oldvalue() {
   // @@protoc_insertion_point(field_mutable:GameState.RemoveMutation.OldValue)
   return _internal_mutable_oldvalue();
 }
-inline void RemoveMutation::set_allocated_oldvalue(::GameState::EntityValue* oldvalue) {
+inline void RemoveMutation::set_allocated_oldvalue(::Types::EntityValue* oldvalue) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete oldvalue_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
   }
   if (oldvalue) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
     if (message_arena != submessage_arena) {
       oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, oldvalue, submessage_arena);
@@ -9470,30 +5742,24 @@ inline void RemoveMutation::set_allocated_oldvalue(::GameState::EntityValue* old
 
 // InsertMutation
 
-// .GameState.EntityRef Object = 1;
+// .Types.EntityRef Object = 1;
 inline bool InsertMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool InsertMutation::has_object() const {
   return _internal_has_object();
 }
-inline void InsertMutation::clear_object() {
-  if (GetArena() == nullptr && object_ != nullptr) {
-    delete object_;
-  }
-  object_ = nullptr;
+inline const ::Types::EntityRef& InsertMutation::_internal_object() const {
+  const ::Types::EntityRef* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
+      ::Types::_EntityRef_default_instance_);
 }
-inline const ::GameState::EntityRef& InsertMutation::_internal_object() const {
-  const ::GameState::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityRef&>(
-      ::GameState::_EntityRef_default_instance_);
-}
-inline const ::GameState::EntityRef& InsertMutation::object() const {
+inline const ::Types::EntityRef& InsertMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.InsertMutation.Object)
   return _internal_object();
 }
 inline void InsertMutation::unsafe_arena_set_allocated_object(
-    ::GameState::EntityRef* object) {
+    ::Types::EntityRef* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -9505,42 +5771,42 @@ inline void InsertMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.InsertMutation.Object)
 }
-inline ::GameState::EntityRef* InsertMutation::release_object() {
+inline ::Types::EntityRef* InsertMutation::release_object() {
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityRef* InsertMutation::unsafe_arena_release_object() {
+inline ::Types::EntityRef* InsertMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.InsertMutation.Object)
   
-  ::GameState::EntityRef* temp = object_;
+  ::Types::EntityRef* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityRef* InsertMutation::_internal_mutable_object() {
+inline ::Types::EntityRef* InsertMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::GameState::EntityRef* InsertMutation::mutable_object() {
+inline ::Types::EntityRef* InsertMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.InsertMutation.Object)
   return _internal_mutable_object();
 }
-inline void InsertMutation::set_allocated_object(::GameState::EntityRef* object) {
+inline void InsertMutation::set_allocated_object(::Types::EntityRef* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete object_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
   if (object) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(object);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object)->GetArena();
     if (message_arena != submessage_arena) {
       object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, object, submessage_arena);
@@ -9553,30 +5819,24 @@ inline void InsertMutation::set_allocated_object(::GameState::EntityRef* object)
   // @@protoc_insertion_point(field_set_allocated:GameState.InsertMutation.Object)
 }
 
-// .GameState.EntityValue NewValue = 2;
+// .Types.EntityValue NewValue = 2;
 inline bool InsertMutation::_internal_has_newvalue() const {
   return this != internal_default_instance() && newvalue_ != nullptr;
 }
 inline bool InsertMutation::has_newvalue() const {
   return _internal_has_newvalue();
 }
-inline void InsertMutation::clear_newvalue() {
-  if (GetArena() == nullptr && newvalue_ != nullptr) {
-    delete newvalue_;
-  }
-  newvalue_ = nullptr;
+inline const ::Types::EntityValue& InsertMutation::_internal_newvalue() const {
+  const ::Types::EntityValue* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityValue&>(
+      ::Types::_EntityValue_default_instance_);
 }
-inline const ::GameState::EntityValue& InsertMutation::_internal_newvalue() const {
-  const ::GameState::EntityValue* p = newvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::EntityValue&>(
-      ::GameState::_EntityValue_default_instance_);
-}
-inline const ::GameState::EntityValue& InsertMutation::newvalue() const {
+inline const ::Types::EntityValue& InsertMutation::newvalue() const {
   // @@protoc_insertion_point(field_get:GameState.InsertMutation.NewValue)
   return _internal_newvalue();
 }
 inline void InsertMutation::unsafe_arena_set_allocated_newvalue(
-    ::GameState::EntityValue* newvalue) {
+    ::Types::EntityValue* newvalue) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
   }
@@ -9588,42 +5848,42 @@ inline void InsertMutation::unsafe_arena_set_allocated_newvalue(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.InsertMutation.NewValue)
 }
-inline ::GameState::EntityValue* InsertMutation::release_newvalue() {
+inline ::Types::EntityValue* InsertMutation::release_newvalue() {
   
-  ::GameState::EntityValue* temp = newvalue_;
+  ::Types::EntityValue* temp = newvalue_;
   newvalue_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::EntityValue* InsertMutation::unsafe_arena_release_newvalue() {
+inline ::Types::EntityValue* InsertMutation::unsafe_arena_release_newvalue() {
   // @@protoc_insertion_point(field_release:GameState.InsertMutation.NewValue)
   
-  ::GameState::EntityValue* temp = newvalue_;
+  ::Types::EntityValue* temp = newvalue_;
   newvalue_ = nullptr;
   return temp;
 }
-inline ::GameState::EntityValue* InsertMutation::_internal_mutable_newvalue() {
+inline ::Types::EntityValue* InsertMutation::_internal_mutable_newvalue() {
   
   if (newvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::EntityValue>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::EntityValue>(GetArena());
     newvalue_ = p;
   }
   return newvalue_;
 }
-inline ::GameState::EntityValue* InsertMutation::mutable_newvalue() {
+inline ::Types::EntityValue* InsertMutation::mutable_newvalue() {
   // @@protoc_insertion_point(field_mutable:GameState.InsertMutation.NewValue)
   return _internal_mutable_newvalue();
 }
-inline void InsertMutation::set_allocated_newvalue(::GameState::EntityValue* newvalue) {
+inline void InsertMutation::set_allocated_newvalue(::Types::EntityValue* newvalue) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete newvalue_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
   }
   if (newvalue) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
     if (message_arena != submessage_arena) {
       newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, newvalue, submessage_arena);
@@ -10028,30 +6288,24 @@ GameState::teams() const {
   return teams_;
 }
 
-// .GameState.Integer TurnNumber = 6;
+// .Types.Integer TurnNumber = 6;
 inline bool GameState::_internal_has_turnnumber() const {
   return this != internal_default_instance() && turnnumber_ != nullptr;
 }
 inline bool GameState::has_turnnumber() const {
   return _internal_has_turnnumber();
 }
-inline void GameState::clear_turnnumber() {
-  if (GetArena() == nullptr && turnnumber_ != nullptr) {
-    delete turnnumber_;
-  }
-  turnnumber_ = nullptr;
+inline const ::Types::Integer& GameState::_internal_turnnumber() const {
+  const ::Types::Integer* p = turnnumber_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
 }
-inline const ::GameState::Integer& GameState::_internal_turnnumber() const {
-  const ::GameState::Integer* p = turnnumber_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Integer&>(
-      ::GameState::_Integer_default_instance_);
-}
-inline const ::GameState::Integer& GameState::turnnumber() const {
+inline const ::Types::Integer& GameState::turnnumber() const {
   // @@protoc_insertion_point(field_get:GameState.GameState.TurnNumber)
   return _internal_turnnumber();
 }
 inline void GameState::unsafe_arena_set_allocated_turnnumber(
-    ::GameState::Integer* turnnumber) {
+    ::Types::Integer* turnnumber) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(turnnumber_);
   }
@@ -10063,42 +6317,42 @@ inline void GameState::unsafe_arena_set_allocated_turnnumber(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.GameState.TurnNumber)
 }
-inline ::GameState::Integer* GameState::release_turnnumber() {
+inline ::Types::Integer* GameState::release_turnnumber() {
   
-  ::GameState::Integer* temp = turnnumber_;
+  ::Types::Integer* temp = turnnumber_;
   turnnumber_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::GameState::Integer* GameState::unsafe_arena_release_turnnumber() {
+inline ::Types::Integer* GameState::unsafe_arena_release_turnnumber() {
   // @@protoc_insertion_point(field_release:GameState.GameState.TurnNumber)
   
-  ::GameState::Integer* temp = turnnumber_;
+  ::Types::Integer* temp = turnnumber_;
   turnnumber_ = nullptr;
   return temp;
 }
-inline ::GameState::Integer* GameState::_internal_mutable_turnnumber() {
+inline ::Types::Integer* GameState::_internal_mutable_turnnumber() {
   
   if (turnnumber_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Integer>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
     turnnumber_ = p;
   }
   return turnnumber_;
 }
-inline ::GameState::Integer* GameState::mutable_turnnumber() {
+inline ::Types::Integer* GameState::mutable_turnnumber() {
   // @@protoc_insertion_point(field_mutable:GameState.GameState.TurnNumber)
   return _internal_mutable_turnnumber();
 }
-inline void GameState::set_allocated_turnnumber(::GameState::Integer* turnnumber) {
+inline void GameState::set_allocated_turnnumber(::Types::Integer* turnnumber) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete turnnumber_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(turnnumber_);
   }
   if (turnnumber) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(turnnumber);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(turnnumber)->GetArena();
     if (message_arena != submessage_arena) {
       turnnumber = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, turnnumber, submessage_arena);
@@ -10279,30 +6533,6 @@ GameInstance::history() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
