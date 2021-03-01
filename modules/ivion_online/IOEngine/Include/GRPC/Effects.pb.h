@@ -48,7 +48,7 @@ struct TableStruct_Effects_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -86,9 +86,6 @@ extern SelectDefaultTypeInternal _Select_default_instance_;
 class StackVar;
 class StackVarDefaultTypeInternal;
 extern StackVarDefaultTypeInternal _StackVar_default_instance_;
-class StackVarRef;
-class StackVarRefDefaultTypeInternal;
-extern StackVarRefDefaultTypeInternal _StackVarRef_default_instance_;
 class TileList;
 class TileListDefaultTypeInternal;
 extern TileListDefaultTypeInternal _TileList_default_instance_;
@@ -104,7 +101,6 @@ template<> ::Effects::Move* Arena::CreateMaybeMessage<::Effects::Move>(Arena*);
 template<> ::Effects::PlayerList* Arena::CreateMaybeMessage<::Effects::PlayerList>(Arena*);
 template<> ::Effects::Select* Arena::CreateMaybeMessage<::Effects::Select>(Arena*);
 template<> ::Effects::StackVar* Arena::CreateMaybeMessage<::Effects::StackVar>(Arena*);
-template<> ::Effects::StackVarRef* Arena::CreateMaybeMessage<::Effects::StackVarRef>(Arena*);
 template<> ::Effects::TileList* Arena::CreateMaybeMessage<::Effects::TileList>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Effects {
@@ -895,151 +891,6 @@ class StackVar PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class StackVarRef PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Effects.StackVarRef) */ {
- public:
-  inline StackVarRef() : StackVarRef(nullptr) {}
-  virtual ~StackVarRef();
-
-  StackVarRef(const StackVarRef& from);
-  StackVarRef(StackVarRef&& from) noexcept
-    : StackVarRef() {
-    *this = ::std::move(from);
-  }
-
-  inline StackVarRef& operator=(const StackVarRef& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline StackVarRef& operator=(StackVarRef&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const StackVarRef& default_instance();
-
-  static inline const StackVarRef* internal_default_instance() {
-    return reinterpret_cast<const StackVarRef*>(
-               &_StackVarRef_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    4;
-
-  friend void swap(StackVarRef& a, StackVarRef& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(StackVarRef* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(StackVarRef* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline StackVarRef* New() const final {
-    return CreateMaybeMessage<StackVarRef>(nullptr);
-  }
-
-  StackVarRef* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<StackVarRef>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const StackVarRef& from);
-  void MergeFrom(const StackVarRef& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(StackVarRef* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Effects.StackVarRef";
-  }
-  protected:
-  explicit StackVarRef(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Effects_2eproto);
-    return ::descriptor_table_Effects_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPathFieldNumber = 1,
-  };
-  // .Types.Path Path = 1;
-  bool has_path() const;
-  private:
-  bool _internal_has_path() const;
-  public:
-  void clear_path();
-  const ::Types::Path& path() const;
-  ::Types::Path* release_path();
-  ::Types::Path* mutable_path();
-  void set_allocated_path(::Types::Path* path);
-  private:
-  const ::Types::Path& _internal_path() const;
-  ::Types::Path* _internal_mutable_path();
-  public:
-  void unsafe_arena_set_allocated_path(
-      ::Types::Path* path);
-  ::Types::Path* unsafe_arena_release_path();
-
-  // @@protoc_insertion_point(class_scope:Effects.StackVarRef)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::Types::Path* path_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_Effects_2eproto;
-};
-// -------------------------------------------------------------------
-
 class Constant PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Effects.Constant) */ {
  public:
@@ -1081,7 +932,7 @@ class Constant PROTOBUF_FINAL :
                &_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(Constant& a, Constant& b) {
     a.Swap(&b);
@@ -1152,8 +1003,25 @@ class Constant PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 2,
     kResultFieldNumber = 1,
   };
+  // string Name = 2;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .Effects.StackVar Result = 1;
   bool has_result() const;
   private:
@@ -1179,6 +1047,7 @@ class Constant PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::Effects::StackVar* result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Effects_2eproto;
@@ -1226,7 +1095,7 @@ class Get PROTOBUF_FINAL :
                &_Get_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(Get& a, Get& b) {
     a.Swap(&b);
@@ -1297,9 +1166,26 @@ class Get PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 3,
     kResultFieldNumber = 1,
     kSourceFieldNumber = 2,
   };
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .Effects.StackVar Result = 1;
   bool has_result() const;
   private:
@@ -1343,6 +1229,7 @@ class Get PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::Effects::StackVar* result_;
   ::Types::Path* source_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1391,7 +1278,7 @@ class Filter_Distance PROTOBUF_FINAL :
                &_Filter_Distance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   friend void swap(Filter_Distance& a, Filter_Distance& b) {
     a.Swap(&b);
@@ -1540,59 +1427,59 @@ class Filter_Distance PROTOBUF_FINAL :
     kComparisonFieldNumber = 4,
     kLogicalUnionFieldNumber = 5,
   };
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   bool has_source() const;
   private:
   bool _internal_has_source() const;
   public:
   void clear_source();
-  const ::Effects::StackVarRef& source() const;
-  ::Effects::StackVarRef* release_source();
-  ::Effects::StackVarRef* mutable_source();
-  void set_allocated_source(::Effects::StackVarRef* source);
+  const ::Types::Path& source() const;
+  ::Types::Path* release_source();
+  ::Types::Path* mutable_source();
+  void set_allocated_source(::Types::Path* source);
   private:
-  const ::Effects::StackVarRef& _internal_source() const;
-  ::Effects::StackVarRef* _internal_mutable_source();
+  const ::Types::Path& _internal_source() const;
+  ::Types::Path* _internal_mutable_source();
   public:
   void unsafe_arena_set_allocated_source(
-      ::Effects::StackVarRef* source);
-  ::Effects::StackVarRef* unsafe_arena_release_source();
+      ::Types::Path* source);
+  ::Types::Path* unsafe_arena_release_source();
 
-  // .Effects.StackVarRef From = 2;
+  // .Types.Path From = 2;
   bool has_from() const;
   private:
   bool _internal_has_from() const;
   public:
   void clear_from();
-  const ::Effects::StackVarRef& from() const;
-  ::Effects::StackVarRef* release_from();
-  ::Effects::StackVarRef* mutable_from();
-  void set_allocated_from(::Effects::StackVarRef* from);
+  const ::Types::Path& from() const;
+  ::Types::Path* release_from();
+  ::Types::Path* mutable_from();
+  void set_allocated_from(::Types::Path* from);
   private:
-  const ::Effects::StackVarRef& _internal_from() const;
-  ::Effects::StackVarRef* _internal_mutable_from();
+  const ::Types::Path& _internal_from() const;
+  ::Types::Path* _internal_mutable_from();
   public:
   void unsafe_arena_set_allocated_from(
-      ::Effects::StackVarRef* from);
-  ::Effects::StackVarRef* unsafe_arena_release_from();
+      ::Types::Path* from);
+  ::Types::Path* unsafe_arena_release_from();
 
-  // .Effects.StackVarRef Distance = 3;
+  // .Types.Path Distance = 3;
   bool has_distance() const;
   private:
   bool _internal_has_distance() const;
   public:
   void clear_distance();
-  const ::Effects::StackVarRef& distance() const;
-  ::Effects::StackVarRef* release_distance();
-  ::Effects::StackVarRef* mutable_distance();
-  void set_allocated_distance(::Effects::StackVarRef* distance);
+  const ::Types::Path& distance() const;
+  ::Types::Path* release_distance();
+  ::Types::Path* mutable_distance();
+  void set_allocated_distance(::Types::Path* distance);
   private:
-  const ::Effects::StackVarRef& _internal_distance() const;
-  ::Effects::StackVarRef* _internal_mutable_distance();
+  const ::Types::Path& _internal_distance() const;
+  ::Types::Path* _internal_mutable_distance();
   public:
   void unsafe_arena_set_allocated_distance(
-      ::Effects::StackVarRef* distance);
-  ::Effects::StackVarRef* unsafe_arena_release_distance();
+      ::Types::Path* distance);
+  ::Types::Path* unsafe_arena_release_distance();
 
   // .Effects.Filter_Distance.CompType Comparison = 4;
   void clear_comparison();
@@ -1619,9 +1506,9 @@ class Filter_Distance PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Effects::StackVarRef* source_;
-  ::Effects::StackVarRef* from_;
-  ::Effects::StackVarRef* distance_;
+  ::Types::Path* source_;
+  ::Types::Path* from_;
+  ::Types::Path* distance_;
   int comparison_;
   int logicalunion_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1670,7 +1557,7 @@ class Select PROTOBUF_FINAL :
                &_Select_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(Select& a, Select& b) {
     a.Swap(&b);
@@ -1746,41 +1633,41 @@ class Select PROTOBUF_FINAL :
     kUpToFieldNumber = 3,
     kTargetsFieldNumber = 4,
   };
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   bool has_source() const;
   private:
   bool _internal_has_source() const;
   public:
   void clear_source();
-  const ::Effects::StackVarRef& source() const;
-  ::Effects::StackVarRef* release_source();
-  ::Effects::StackVarRef* mutable_source();
-  void set_allocated_source(::Effects::StackVarRef* source);
+  const ::Types::Path& source() const;
+  ::Types::Path* release_source();
+  ::Types::Path* mutable_source();
+  void set_allocated_source(::Types::Path* source);
   private:
-  const ::Effects::StackVarRef& _internal_source() const;
-  ::Effects::StackVarRef* _internal_mutable_source();
+  const ::Types::Path& _internal_source() const;
+  ::Types::Path* _internal_mutable_source();
   public:
   void unsafe_arena_set_allocated_source(
-      ::Effects::StackVarRef* source);
-  ::Effects::StackVarRef* unsafe_arena_release_source();
+      ::Types::Path* source);
+  ::Types::Path* unsafe_arena_release_source();
 
-  // .Effects.StackVarRef Number = 2;
+  // .Types.Path Number = 2;
   bool has_number() const;
   private:
   bool _internal_has_number() const;
   public:
   void clear_number();
-  const ::Effects::StackVarRef& number() const;
-  ::Effects::StackVarRef* release_number();
-  ::Effects::StackVarRef* mutable_number();
-  void set_allocated_number(::Effects::StackVarRef* number);
+  const ::Types::Path& number() const;
+  ::Types::Path* release_number();
+  ::Types::Path* mutable_number();
+  void set_allocated_number(::Types::Path* number);
   private:
-  const ::Effects::StackVarRef& _internal_number() const;
-  ::Effects::StackVarRef* _internal_mutable_number();
+  const ::Types::Path& _internal_number() const;
+  ::Types::Path* _internal_mutable_number();
   public:
   void unsafe_arena_set_allocated_number(
-      ::Effects::StackVarRef* number);
-  ::Effects::StackVarRef* unsafe_arena_release_number();
+      ::Types::Path* number);
+  ::Types::Path* unsafe_arena_release_number();
 
   // bool UpTo = 3;
   void clear_upto();
@@ -1807,8 +1694,8 @@ class Select PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Effects::StackVarRef* source_;
-  ::Effects::StackVarRef* number_;
+  ::Types::Path* source_;
+  ::Types::Path* number_;
   bool upto_;
   bool targets_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1857,7 +1744,7 @@ class Move PROTOBUF_FINAL :
                &_Move_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(Move& a, Move& b) {
     a.Swap(&b);
@@ -1931,41 +1818,41 @@ class Move PROTOBUF_FINAL :
     kDestinationFieldNumber = 1,
     kPlayerFieldNumber = 2,
   };
-  // .Effects.StackVarRef Destination = 1;
+  // .Types.Path Destination = 1;
   bool has_destination() const;
   private:
   bool _internal_has_destination() const;
   public:
   void clear_destination();
-  const ::Effects::StackVarRef& destination() const;
-  ::Effects::StackVarRef* release_destination();
-  ::Effects::StackVarRef* mutable_destination();
-  void set_allocated_destination(::Effects::StackVarRef* destination);
+  const ::Types::Path& destination() const;
+  ::Types::Path* release_destination();
+  ::Types::Path* mutable_destination();
+  void set_allocated_destination(::Types::Path* destination);
   private:
-  const ::Effects::StackVarRef& _internal_destination() const;
-  ::Effects::StackVarRef* _internal_mutable_destination();
+  const ::Types::Path& _internal_destination() const;
+  ::Types::Path* _internal_mutable_destination();
   public:
   void unsafe_arena_set_allocated_destination(
-      ::Effects::StackVarRef* destination);
-  ::Effects::StackVarRef* unsafe_arena_release_destination();
+      ::Types::Path* destination);
+  ::Types::Path* unsafe_arena_release_destination();
 
-  // .Effects.StackVarRef Player = 2;
+  // .Types.Path Player = 2;
   bool has_player() const;
   private:
   bool _internal_has_player() const;
   public:
   void clear_player();
-  const ::Effects::StackVarRef& player() const;
-  ::Effects::StackVarRef* release_player();
-  ::Effects::StackVarRef* mutable_player();
-  void set_allocated_player(::Effects::StackVarRef* player);
+  const ::Types::Path& player() const;
+  ::Types::Path* release_player();
+  ::Types::Path* mutable_player();
+  void set_allocated_player(::Types::Path* player);
   private:
-  const ::Effects::StackVarRef& _internal_player() const;
-  ::Effects::StackVarRef* _internal_mutable_player();
+  const ::Types::Path& _internal_player() const;
+  ::Types::Path* _internal_mutable_player();
   public:
   void unsafe_arena_set_allocated_player(
-      ::Effects::StackVarRef* player);
-  ::Effects::StackVarRef* unsafe_arena_release_player();
+      ::Types::Path* player);
+  ::Types::Path* unsafe_arena_release_player();
 
   // @@protoc_insertion_point(class_scope:Effects.Move)
  private:
@@ -1974,8 +1861,8 @@ class Move PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Effects::StackVarRef* destination_;
-  ::Effects::StackVarRef* player_;
+  ::Types::Path* destination_;
+  ::Types::Path* player_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Effects_2eproto;
 };
@@ -2030,7 +1917,7 @@ class Effect PROTOBUF_FINAL :
                &_Effect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   friend void swap(Effect& a, Effect& b) {
     a.Swap(&b);
@@ -2249,7 +2136,7 @@ class CardEffect PROTOBUF_FINAL :
                &_CardEffect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(CardEffect& a, CardEffect& b) {
     a.Swap(&b);
@@ -2972,87 +2859,6 @@ inline StackVar::EntityCase StackVar::entity_case() const {
 }
 // -------------------------------------------------------------------
 
-// StackVarRef
-
-// .Types.Path Path = 1;
-inline bool StackVarRef::_internal_has_path() const {
-  return this != internal_default_instance() && path_ != nullptr;
-}
-inline bool StackVarRef::has_path() const {
-  return _internal_has_path();
-}
-inline const ::Types::Path& StackVarRef::_internal_path() const {
-  const ::Types::Path* p = path_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
-      ::Types::_Path_default_instance_);
-}
-inline const ::Types::Path& StackVarRef::path() const {
-  // @@protoc_insertion_point(field_get:Effects.StackVarRef.Path)
-  return _internal_path();
-}
-inline void StackVarRef::unsafe_arena_set_allocated_path(
-    ::Types::Path* path) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
-  }
-  path_ = path;
-  if (path) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.StackVarRef.Path)
-}
-inline ::Types::Path* StackVarRef::release_path() {
-  
-  ::Types::Path* temp = path_;
-  path_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::Path* StackVarRef::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:Effects.StackVarRef.Path)
-  
-  ::Types::Path* temp = path_;
-  path_ = nullptr;
-  return temp;
-}
-inline ::Types::Path* StackVarRef::_internal_mutable_path() {
-  
-  if (path_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
-    path_ = p;
-  }
-  return path_;
-}
-inline ::Types::Path* StackVarRef::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:Effects.StackVarRef.Path)
-  return _internal_mutable_path();
-}
-inline void StackVarRef::set_allocated_path(::Types::Path* path) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
-  }
-  if (path) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path)->GetArena();
-    if (message_arena != submessage_arena) {
-      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, path, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:Effects.StackVarRef.Path)
-}
-
-// -------------------------------------------------------------------
-
 // Constant
 
 // .Effects.StackVar Result = 1;
@@ -3136,6 +2942,67 @@ inline void Constant::set_allocated_result(::Effects::StackVar* result) {
   }
   result_ = result;
   // @@protoc_insertion_point(field_set_allocated:Effects.Constant.Result)
+}
+
+// string Name = 2;
+inline void Constant::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Constant::name() const {
+  // @@protoc_insertion_point(field_get:Effects.Constant.Name)
+  return _internal_name();
+}
+inline void Constant::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:Effects.Constant.Name)
+}
+inline std::string* Constant::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:Effects.Constant.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Constant::_internal_name() const {
+  return name_.Get();
+}
+inline void Constant::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Constant::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:Effects.Constant.Name)
+}
+inline void Constant::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:Effects.Constant.Name)
+}
+inline void Constant::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:Effects.Constant.Name)
+}
+inline std::string* Constant::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Constant::release_name() {
+  // @@protoc_insertion_point(field_release:Effects.Constant.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Constant::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:Effects.Constant.Name)
 }
 
 // -------------------------------------------------------------------
@@ -3302,34 +3169,89 @@ inline void Get::set_allocated_source(::Types::Path* source) {
   // @@protoc_insertion_point(field_set_allocated:Effects.Get.Source)
 }
 
+// string Name = 3;
+inline void Get::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Get::name() const {
+  // @@protoc_insertion_point(field_get:Effects.Get.Name)
+  return _internal_name();
+}
+inline void Get::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:Effects.Get.Name)
+}
+inline std::string* Get::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:Effects.Get.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Get::_internal_name() const {
+  return name_.Get();
+}
+inline void Get::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Get::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:Effects.Get.Name)
+}
+inline void Get::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:Effects.Get.Name)
+}
+inline void Get::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:Effects.Get.Name)
+}
+inline std::string* Get::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Get::release_name() {
+  // @@protoc_insertion_point(field_release:Effects.Get.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Get::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:Effects.Get.Name)
+}
+
 // -------------------------------------------------------------------
 
 // Filter_Distance
 
-// .Effects.StackVarRef Source = 1;
+// .Types.Path Source = 1;
 inline bool Filter_Distance::_internal_has_source() const {
   return this != internal_default_instance() && source_ != nullptr;
 }
 inline bool Filter_Distance::has_source() const {
   return _internal_has_source();
 }
-inline void Filter_Distance::clear_source() {
-  if (GetArena() == nullptr && source_ != nullptr) {
-    delete source_;
-  }
-  source_ = nullptr;
+inline const ::Types::Path& Filter_Distance::_internal_source() const {
+  const ::Types::Path* p = source_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Filter_Distance::_internal_source() const {
-  const ::Effects::StackVarRef* p = source_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Filter_Distance::source() const {
+inline const ::Types::Path& Filter_Distance::source() const {
   // @@protoc_insertion_point(field_get:Effects.Filter_Distance.Source)
   return _internal_source();
 }
 inline void Filter_Distance::unsafe_arena_set_allocated_source(
-    ::Effects::StackVarRef* source) {
+    ::Types::Path* source) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(source_);
   }
@@ -3341,42 +3263,42 @@ inline void Filter_Distance::unsafe_arena_set_allocated_source(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Filter_Distance.Source)
 }
-inline ::Effects::StackVarRef* Filter_Distance::release_source() {
+inline ::Types::Path* Filter_Distance::release_source() {
   
-  ::Effects::StackVarRef* temp = source_;
+  ::Types::Path* temp = source_;
   source_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::unsafe_arena_release_source() {
+inline ::Types::Path* Filter_Distance::unsafe_arena_release_source() {
   // @@protoc_insertion_point(field_release:Effects.Filter_Distance.Source)
   
-  ::Effects::StackVarRef* temp = source_;
+  ::Types::Path* temp = source_;
   source_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::_internal_mutable_source() {
+inline ::Types::Path* Filter_Distance::_internal_mutable_source() {
   
   if (source_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     source_ = p;
   }
   return source_;
 }
-inline ::Effects::StackVarRef* Filter_Distance::mutable_source() {
+inline ::Types::Path* Filter_Distance::mutable_source() {
   // @@protoc_insertion_point(field_mutable:Effects.Filter_Distance.Source)
   return _internal_mutable_source();
 }
-inline void Filter_Distance::set_allocated_source(::Effects::StackVarRef* source) {
+inline void Filter_Distance::set_allocated_source(::Types::Path* source) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete source_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(source_);
   }
   if (source) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(source);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(source)->GetArena();
     if (message_arena != submessage_arena) {
       source = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, source, submessage_arena);
@@ -3389,30 +3311,24 @@ inline void Filter_Distance::set_allocated_source(::Effects::StackVarRef* source
   // @@protoc_insertion_point(field_set_allocated:Effects.Filter_Distance.Source)
 }
 
-// .Effects.StackVarRef From = 2;
+// .Types.Path From = 2;
 inline bool Filter_Distance::_internal_has_from() const {
   return this != internal_default_instance() && from_ != nullptr;
 }
 inline bool Filter_Distance::has_from() const {
   return _internal_has_from();
 }
-inline void Filter_Distance::clear_from() {
-  if (GetArena() == nullptr && from_ != nullptr) {
-    delete from_;
-  }
-  from_ = nullptr;
+inline const ::Types::Path& Filter_Distance::_internal_from() const {
+  const ::Types::Path* p = from_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Filter_Distance::_internal_from() const {
-  const ::Effects::StackVarRef* p = from_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Filter_Distance::from() const {
+inline const ::Types::Path& Filter_Distance::from() const {
   // @@protoc_insertion_point(field_get:Effects.Filter_Distance.From)
   return _internal_from();
 }
 inline void Filter_Distance::unsafe_arena_set_allocated_from(
-    ::Effects::StackVarRef* from) {
+    ::Types::Path* from) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(from_);
   }
@@ -3424,42 +3340,42 @@ inline void Filter_Distance::unsafe_arena_set_allocated_from(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Filter_Distance.From)
 }
-inline ::Effects::StackVarRef* Filter_Distance::release_from() {
+inline ::Types::Path* Filter_Distance::release_from() {
   
-  ::Effects::StackVarRef* temp = from_;
+  ::Types::Path* temp = from_;
   from_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::unsafe_arena_release_from() {
+inline ::Types::Path* Filter_Distance::unsafe_arena_release_from() {
   // @@protoc_insertion_point(field_release:Effects.Filter_Distance.From)
   
-  ::Effects::StackVarRef* temp = from_;
+  ::Types::Path* temp = from_;
   from_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::_internal_mutable_from() {
+inline ::Types::Path* Filter_Distance::_internal_mutable_from() {
   
   if (from_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     from_ = p;
   }
   return from_;
 }
-inline ::Effects::StackVarRef* Filter_Distance::mutable_from() {
+inline ::Types::Path* Filter_Distance::mutable_from() {
   // @@protoc_insertion_point(field_mutable:Effects.Filter_Distance.From)
   return _internal_mutable_from();
 }
-inline void Filter_Distance::set_allocated_from(::Effects::StackVarRef* from) {
+inline void Filter_Distance::set_allocated_from(::Types::Path* from) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete from_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(from_);
   }
   if (from) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(from);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(from)->GetArena();
     if (message_arena != submessage_arena) {
       from = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, from, submessage_arena);
@@ -3472,30 +3388,24 @@ inline void Filter_Distance::set_allocated_from(::Effects::StackVarRef* from) {
   // @@protoc_insertion_point(field_set_allocated:Effects.Filter_Distance.From)
 }
 
-// .Effects.StackVarRef Distance = 3;
+// .Types.Path Distance = 3;
 inline bool Filter_Distance::_internal_has_distance() const {
   return this != internal_default_instance() && distance_ != nullptr;
 }
 inline bool Filter_Distance::has_distance() const {
   return _internal_has_distance();
 }
-inline void Filter_Distance::clear_distance() {
-  if (GetArena() == nullptr && distance_ != nullptr) {
-    delete distance_;
-  }
-  distance_ = nullptr;
+inline const ::Types::Path& Filter_Distance::_internal_distance() const {
+  const ::Types::Path* p = distance_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Filter_Distance::_internal_distance() const {
-  const ::Effects::StackVarRef* p = distance_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Filter_Distance::distance() const {
+inline const ::Types::Path& Filter_Distance::distance() const {
   // @@protoc_insertion_point(field_get:Effects.Filter_Distance.Distance)
   return _internal_distance();
 }
 inline void Filter_Distance::unsafe_arena_set_allocated_distance(
-    ::Effects::StackVarRef* distance) {
+    ::Types::Path* distance) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(distance_);
   }
@@ -3507,42 +3417,42 @@ inline void Filter_Distance::unsafe_arena_set_allocated_distance(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Filter_Distance.Distance)
 }
-inline ::Effects::StackVarRef* Filter_Distance::release_distance() {
+inline ::Types::Path* Filter_Distance::release_distance() {
   
-  ::Effects::StackVarRef* temp = distance_;
+  ::Types::Path* temp = distance_;
   distance_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::unsafe_arena_release_distance() {
+inline ::Types::Path* Filter_Distance::unsafe_arena_release_distance() {
   // @@protoc_insertion_point(field_release:Effects.Filter_Distance.Distance)
   
-  ::Effects::StackVarRef* temp = distance_;
+  ::Types::Path* temp = distance_;
   distance_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Filter_Distance::_internal_mutable_distance() {
+inline ::Types::Path* Filter_Distance::_internal_mutable_distance() {
   
   if (distance_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     distance_ = p;
   }
   return distance_;
 }
-inline ::Effects::StackVarRef* Filter_Distance::mutable_distance() {
+inline ::Types::Path* Filter_Distance::mutable_distance() {
   // @@protoc_insertion_point(field_mutable:Effects.Filter_Distance.Distance)
   return _internal_mutable_distance();
 }
-inline void Filter_Distance::set_allocated_distance(::Effects::StackVarRef* distance) {
+inline void Filter_Distance::set_allocated_distance(::Types::Path* distance) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete distance_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(distance_);
   }
   if (distance) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(distance);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(distance)->GetArena();
     if (message_arena != submessage_arena) {
       distance = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, distance, submessage_arena);
@@ -3599,30 +3509,24 @@ inline void Filter_Distance::set_logicalunion(::Effects::Filter_Distance_GroupTy
 
 // Select
 
-// .Effects.StackVarRef Source = 1;
+// .Types.Path Source = 1;
 inline bool Select::_internal_has_source() const {
   return this != internal_default_instance() && source_ != nullptr;
 }
 inline bool Select::has_source() const {
   return _internal_has_source();
 }
-inline void Select::clear_source() {
-  if (GetArena() == nullptr && source_ != nullptr) {
-    delete source_;
-  }
-  source_ = nullptr;
+inline const ::Types::Path& Select::_internal_source() const {
+  const ::Types::Path* p = source_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Select::_internal_source() const {
-  const ::Effects::StackVarRef* p = source_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Select::source() const {
+inline const ::Types::Path& Select::source() const {
   // @@protoc_insertion_point(field_get:Effects.Select.Source)
   return _internal_source();
 }
 inline void Select::unsafe_arena_set_allocated_source(
-    ::Effects::StackVarRef* source) {
+    ::Types::Path* source) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(source_);
   }
@@ -3634,42 +3538,42 @@ inline void Select::unsafe_arena_set_allocated_source(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Select.Source)
 }
-inline ::Effects::StackVarRef* Select::release_source() {
+inline ::Types::Path* Select::release_source() {
   
-  ::Effects::StackVarRef* temp = source_;
+  ::Types::Path* temp = source_;
   source_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Select::unsafe_arena_release_source() {
+inline ::Types::Path* Select::unsafe_arena_release_source() {
   // @@protoc_insertion_point(field_release:Effects.Select.Source)
   
-  ::Effects::StackVarRef* temp = source_;
+  ::Types::Path* temp = source_;
   source_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Select::_internal_mutable_source() {
+inline ::Types::Path* Select::_internal_mutable_source() {
   
   if (source_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     source_ = p;
   }
   return source_;
 }
-inline ::Effects::StackVarRef* Select::mutable_source() {
+inline ::Types::Path* Select::mutable_source() {
   // @@protoc_insertion_point(field_mutable:Effects.Select.Source)
   return _internal_mutable_source();
 }
-inline void Select::set_allocated_source(::Effects::StackVarRef* source) {
+inline void Select::set_allocated_source(::Types::Path* source) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete source_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(source_);
   }
   if (source) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(source);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(source)->GetArena();
     if (message_arena != submessage_arena) {
       source = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, source, submessage_arena);
@@ -3682,30 +3586,24 @@ inline void Select::set_allocated_source(::Effects::StackVarRef* source) {
   // @@protoc_insertion_point(field_set_allocated:Effects.Select.Source)
 }
 
-// .Effects.StackVarRef Number = 2;
+// .Types.Path Number = 2;
 inline bool Select::_internal_has_number() const {
   return this != internal_default_instance() && number_ != nullptr;
 }
 inline bool Select::has_number() const {
   return _internal_has_number();
 }
-inline void Select::clear_number() {
-  if (GetArena() == nullptr && number_ != nullptr) {
-    delete number_;
-  }
-  number_ = nullptr;
+inline const ::Types::Path& Select::_internal_number() const {
+  const ::Types::Path* p = number_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Select::_internal_number() const {
-  const ::Effects::StackVarRef* p = number_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Select::number() const {
+inline const ::Types::Path& Select::number() const {
   // @@protoc_insertion_point(field_get:Effects.Select.Number)
   return _internal_number();
 }
 inline void Select::unsafe_arena_set_allocated_number(
-    ::Effects::StackVarRef* number) {
+    ::Types::Path* number) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(number_);
   }
@@ -3717,42 +3615,42 @@ inline void Select::unsafe_arena_set_allocated_number(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Select.Number)
 }
-inline ::Effects::StackVarRef* Select::release_number() {
+inline ::Types::Path* Select::release_number() {
   
-  ::Effects::StackVarRef* temp = number_;
+  ::Types::Path* temp = number_;
   number_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Select::unsafe_arena_release_number() {
+inline ::Types::Path* Select::unsafe_arena_release_number() {
   // @@protoc_insertion_point(field_release:Effects.Select.Number)
   
-  ::Effects::StackVarRef* temp = number_;
+  ::Types::Path* temp = number_;
   number_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Select::_internal_mutable_number() {
+inline ::Types::Path* Select::_internal_mutable_number() {
   
   if (number_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     number_ = p;
   }
   return number_;
 }
-inline ::Effects::StackVarRef* Select::mutable_number() {
+inline ::Types::Path* Select::mutable_number() {
   // @@protoc_insertion_point(field_mutable:Effects.Select.Number)
   return _internal_mutable_number();
 }
-inline void Select::set_allocated_number(::Effects::StackVarRef* number) {
+inline void Select::set_allocated_number(::Types::Path* number) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete number_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(number_);
   }
   if (number) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(number);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(number)->GetArena();
     if (message_arena != submessage_arena) {
       number = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, number, submessage_arena);
@@ -3809,30 +3707,24 @@ inline void Select::set_targets(bool value) {
 
 // Move
 
-// .Effects.StackVarRef Destination = 1;
+// .Types.Path Destination = 1;
 inline bool Move::_internal_has_destination() const {
   return this != internal_default_instance() && destination_ != nullptr;
 }
 inline bool Move::has_destination() const {
   return _internal_has_destination();
 }
-inline void Move::clear_destination() {
-  if (GetArena() == nullptr && destination_ != nullptr) {
-    delete destination_;
-  }
-  destination_ = nullptr;
+inline const ::Types::Path& Move::_internal_destination() const {
+  const ::Types::Path* p = destination_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Move::_internal_destination() const {
-  const ::Effects::StackVarRef* p = destination_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Move::destination() const {
+inline const ::Types::Path& Move::destination() const {
   // @@protoc_insertion_point(field_get:Effects.Move.Destination)
   return _internal_destination();
 }
 inline void Move::unsafe_arena_set_allocated_destination(
-    ::Effects::StackVarRef* destination) {
+    ::Types::Path* destination) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(destination_);
   }
@@ -3844,42 +3736,42 @@ inline void Move::unsafe_arena_set_allocated_destination(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Move.Destination)
 }
-inline ::Effects::StackVarRef* Move::release_destination() {
+inline ::Types::Path* Move::release_destination() {
   
-  ::Effects::StackVarRef* temp = destination_;
+  ::Types::Path* temp = destination_;
   destination_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Move::unsafe_arena_release_destination() {
+inline ::Types::Path* Move::unsafe_arena_release_destination() {
   // @@protoc_insertion_point(field_release:Effects.Move.Destination)
   
-  ::Effects::StackVarRef* temp = destination_;
+  ::Types::Path* temp = destination_;
   destination_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Move::_internal_mutable_destination() {
+inline ::Types::Path* Move::_internal_mutable_destination() {
   
   if (destination_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     destination_ = p;
   }
   return destination_;
 }
-inline ::Effects::StackVarRef* Move::mutable_destination() {
+inline ::Types::Path* Move::mutable_destination() {
   // @@protoc_insertion_point(field_mutable:Effects.Move.Destination)
   return _internal_mutable_destination();
 }
-inline void Move::set_allocated_destination(::Effects::StackVarRef* destination) {
+inline void Move::set_allocated_destination(::Types::Path* destination) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete destination_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(destination_);
   }
   if (destination) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(destination);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(destination)->GetArena();
     if (message_arena != submessage_arena) {
       destination = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, destination, submessage_arena);
@@ -3892,30 +3784,24 @@ inline void Move::set_allocated_destination(::Effects::StackVarRef* destination)
   // @@protoc_insertion_point(field_set_allocated:Effects.Move.Destination)
 }
 
-// .Effects.StackVarRef Player = 2;
+// .Types.Path Player = 2;
 inline bool Move::_internal_has_player() const {
   return this != internal_default_instance() && player_ != nullptr;
 }
 inline bool Move::has_player() const {
   return _internal_has_player();
 }
-inline void Move::clear_player() {
-  if (GetArena() == nullptr && player_ != nullptr) {
-    delete player_;
-  }
-  player_ = nullptr;
+inline const ::Types::Path& Move::_internal_player() const {
+  const ::Types::Path* p = player_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Effects::StackVarRef& Move::_internal_player() const {
-  const ::Effects::StackVarRef* p = player_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::StackVarRef&>(
-      ::Effects::_StackVarRef_default_instance_);
-}
-inline const ::Effects::StackVarRef& Move::player() const {
+inline const ::Types::Path& Move::player() const {
   // @@protoc_insertion_point(field_get:Effects.Move.Player)
   return _internal_player();
 }
 inline void Move::unsafe_arena_set_allocated_player(
-    ::Effects::StackVarRef* player) {
+    ::Types::Path* player) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_);
   }
@@ -3927,42 +3813,42 @@ inline void Move::unsafe_arena_set_allocated_player(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Move.Player)
 }
-inline ::Effects::StackVarRef* Move::release_player() {
+inline ::Types::Path* Move::release_player() {
   
-  ::Effects::StackVarRef* temp = player_;
+  ::Types::Path* temp = player_;
   player_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Effects::StackVarRef* Move::unsafe_arena_release_player() {
+inline ::Types::Path* Move::unsafe_arena_release_player() {
   // @@protoc_insertion_point(field_release:Effects.Move.Player)
   
-  ::Effects::StackVarRef* temp = player_;
+  ::Types::Path* temp = player_;
   player_ = nullptr;
   return temp;
 }
-inline ::Effects::StackVarRef* Move::_internal_mutable_player() {
+inline ::Types::Path* Move::_internal_mutable_player() {
   
   if (player_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::StackVarRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     player_ = p;
   }
   return player_;
 }
-inline ::Effects::StackVarRef* Move::mutable_player() {
+inline ::Types::Path* Move::mutable_player() {
   // @@protoc_insertion_point(field_mutable:Effects.Move.Player)
   return _internal_mutable_player();
 }
-inline void Move::set_allocated_player(::Effects::StackVarRef* player) {
+inline void Move::set_allocated_player(::Types::Path* player) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete player_;
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(player_);
   }
   if (player) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(player);
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(player)->GetArena();
     if (message_arena != submessage_arena) {
       player = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, player, submessage_arena);
@@ -4326,8 +4212,6 @@ CardEffect::effects() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -22,7 +22,6 @@ extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::interna
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Select_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_StackVar_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StackVarRef_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerValue_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Path_Types_2eproto;
@@ -44,10 +43,6 @@ class StackVarDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StackVar> _instance;
 } _StackVar_default_instance_;
-class StackVarRefDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StackVarRef> _instance;
-} _StackVarRef_default_instance_;
 class ConstantDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Constant> _instance;
@@ -148,7 +143,7 @@ static void InitDefaultsscc_info_Filter_Distance_Effects_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Filter_Distance_Effects_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Filter_Distance_Effects_2eproto}, {
-      &scc_info_StackVarRef_Effects_2eproto.base,}};
+      &scc_info_Path_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Get_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -177,7 +172,7 @@ static void InitDefaultsscc_info_Move_Effects_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Move_Effects_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Move_Effects_2eproto}, {
-      &scc_info_StackVarRef_Effects_2eproto.base,}};
+      &scc_info_Path_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_PlayerList_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -205,7 +200,7 @@ static void InitDefaultsscc_info_Select_Effects_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Select_Effects_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Select_Effects_2eproto}, {
-      &scc_info_StackVarRef_Effects_2eproto.base,}};
+      &scc_info_Path_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_StackVar_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -226,20 +221,6 @@ static void InitDefaultsscc_info_StackVar_Effects_2eproto() {
       &scc_info_IntegerValue_Types_2eproto.base,
       &scc_info_Vec2iValue_Types_2eproto.base,}};
 
-static void InitDefaultsscc_info_StackVarRef_Effects_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::Effects::_StackVarRef_default_instance_;
-    new (ptr) ::Effects::StackVarRef();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StackVarRef_Effects_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_StackVarRef_Effects_2eproto}, {
-      &scc_info_Path_Types_2eproto.base,}};
-
 static void InitDefaultsscc_info_TileList_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -254,7 +235,7 @@ static void InitDefaultsscc_info_TileList_Effects_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TileList_Effects_2eproto}, {
       &scc_info_Path_Types_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Effects_2eproto[12];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Effects_2eproto[11];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_Effects_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_Effects_2eproto = nullptr;
 
@@ -291,17 +272,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Effects_2eproto::offsets[] PRO
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Effects::StackVar, entity_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Effects::StackVarRef, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Effects::StackVarRef, path_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Effects::Constant, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::Effects::Constant, result_),
+  PROTOBUF_FIELD_OFFSET(::Effects::Constant, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Effects::Get, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -309,6 +285,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Effects_2eproto::offsets[] PRO
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::Effects::Get, result_),
   PROTOBUF_FIELD_OFFSET(::Effects::Get, source_),
+  PROTOBUF_FIELD_OFFSET(::Effects::Get, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Effects::Filter_Distance, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -357,14 +334,13 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::Effects::CardList)},
   { 12, -1, sizeof(::Effects::TileList)},
   { 18, -1, sizeof(::Effects::StackVar)},
-  { 31, -1, sizeof(::Effects::StackVarRef)},
-  { 37, -1, sizeof(::Effects::Constant)},
-  { 43, -1, sizeof(::Effects::Get)},
-  { 50, -1, sizeof(::Effects::Filter_Distance)},
-  { 60, -1, sizeof(::Effects::Select)},
-  { 69, -1, sizeof(::Effects::Move)},
-  { 76, -1, sizeof(::Effects::Effect)},
-  { 86, -1, sizeof(::Effects::CardEffect)},
+  { 31, -1, sizeof(::Effects::Constant)},
+  { 38, -1, sizeof(::Effects::Get)},
+  { 46, -1, sizeof(::Effects::Filter_Distance)},
+  { 56, -1, sizeof(::Effects::Select)},
+  { 65, -1, sizeof(::Effects::Move)},
+  { 72, -1, sizeof(::Effects::Effect)},
+  { 82, -1, sizeof(::Effects::CardEffect)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -372,7 +348,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_CardList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_TileList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_StackVar_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_StackVarRef_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Constant_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Get_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Filter_Distance_default_instance_),
@@ -394,40 +369,38 @@ const char descriptor_table_protodef_Effects_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\000\022\037\n\010Vec2iRef\030\005 \001(\0132\013.Types.PathH\000\022&\n\007In"
   "teger\030\006 \001(\0132\023.Types.IntegerValueH\000\022\"\n\005Ve"
   "c2i\030\007 \001(\0132\021.Types.Vec2iValueH\000B\010\n\006entity"
-  "\"(\n\013StackVarRef\022\031\n\004Path\030\001 \001(\0132\013.Types.Pa"
-  "th\"-\n\010Constant\022!\n\006Result\030\001 \001(\0132\021.Effects"
-  ".StackVar\"E\n\003Get\022!\n\006Result\030\001 \001(\0132\021.Effec"
-  "ts.StackVar\022\033\n\006Source\030\002 \001(\0132\013.Types.Path"
-  "\"\220\004\n\017Filter_Distance\022$\n\006Source\030\001 \001(\0132\024.E"
-  "ffects.StackVarRef\022\"\n\004From\030\002 \001(\0132\024.Effec"
-  "ts.StackVarRef\022&\n\010Distance\030\003 \001(\0132\024.Effec"
-  "ts.StackVarRef\0225\n\nComparison\030\004 \001(\0162!.Eff"
-  "ects.Filter_Distance.CompType\0228\n\014Logical"
-  "Union\030\005 \001(\0162\".Effects.Filter_Distance.Gr"
-  "oupType\"\251\001\n\010CompType\022\022\n\016COMP_TYPE_NONE\020\000"
-  "\022\023\n\017COMP_TYPE_EQUAL\020\001\022\027\n\023COMP_TYPE_LESS_"
-  "THAN\020\002\022\035\n\031COMP_TYPE_LESS_THAN_EQUAL\020\003\022\032\n"
-  "\026COMP_TYPE_GREATER_THAN\020\004\022 \n\034COMP_TYPE_G"
-  "REATER_THAN_EQUAL\020\005\"n\n\tGroupType\022\023\n\017GROU"
-  "P_TYPE_NONE\020\000\022\022\n\016GROUP_TYPE_ALL\020\001\022\033\n\027GRO"
-  "UP_TYPE_AT_LEAST_ONE\020\002\022\033\n\027GROUP_TYPE_AT_"
-  "MOST_NONE\020\003\"s\n\006Select\022$\n\006Source\030\001 \001(\0132\024."
-  "Effects.StackVarRef\022$\n\006Number\030\002 \001(\0132\024.Ef"
-  "fects.StackVarRef\022\014\n\004UpTo\030\003 \001(\010\022\017\n\007Targe"
-  "ts\030\004 \001(\010\"W\n\004Move\022)\n\013Destination\030\001 \001(\0132\024."
-  "Effects.StackVarRef\022$\n\006Player\030\002 \001(\0132\024.Ef"
-  "fects.StackVarRef\"\246\001\n\006Effect\022\033\n\003Get\030\001 \001("
-  "\0132\014.Effects.GetH\000\0223\n\017Filter_Distance\030\002 \001"
-  "(\0132\030.Effects.Filter_DistanceH\000\022!\n\006Select"
-  "\030\003 \001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\004 \001(\0132"
-  "\r.Effects.MoveH\000B\010\n\006effect\".\n\nCardEffect"
-  "\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006prot"
-  "o3"
+  "\";\n\010Constant\022!\n\006Result\030\001 \001(\0132\021.Effects.S"
+  "tackVar\022\014\n\004Name\030\002 \001(\t\"S\n\003Get\022!\n\006Result\030\001"
+  " \001(\0132\021.Effects.StackVar\022\033\n\006Source\030\002 \001(\0132"
+  "\013.Types.Path\022\014\n\004Name\030\003 \001(\t\"\365\003\n\017Filter_Di"
+  "stance\022\033\n\006Source\030\001 \001(\0132\013.Types.Path\022\031\n\004F"
+  "rom\030\002 \001(\0132\013.Types.Path\022\035\n\010Distance\030\003 \001(\013"
+  "2\013.Types.Path\0225\n\nComparison\030\004 \001(\0162!.Effe"
+  "cts.Filter_Distance.CompType\0228\n\014LogicalU"
+  "nion\030\005 \001(\0162\".Effects.Filter_Distance.Gro"
+  "upType\"\251\001\n\010CompType\022\022\n\016COMP_TYPE_NONE\020\000\022"
+  "\023\n\017COMP_TYPE_EQUAL\020\001\022\027\n\023COMP_TYPE_LESS_T"
+  "HAN\020\002\022\035\n\031COMP_TYPE_LESS_THAN_EQUAL\020\003\022\032\n\026"
+  "COMP_TYPE_GREATER_THAN\020\004\022 \n\034COMP_TYPE_GR"
+  "EATER_THAN_EQUAL\020\005\"n\n\tGroupType\022\023\n\017GROUP"
+  "_TYPE_NONE\020\000\022\022\n\016GROUP_TYPE_ALL\020\001\022\033\n\027GROU"
+  "P_TYPE_AT_LEAST_ONE\020\002\022\033\n\027GROUP_TYPE_AT_M"
+  "OST_NONE\020\003\"a\n\006Select\022\033\n\006Source\030\001 \001(\0132\013.T"
+  "ypes.Path\022\033\n\006Number\030\002 \001(\0132\013.Types.Path\022\014"
+  "\n\004UpTo\030\003 \001(\010\022\017\n\007Targets\030\004 \001(\010\"E\n\004Move\022 \n"
+  "\013Destination\030\001 \001(\0132\013.Types.Path\022\033\n\006Playe"
+  "r\030\002 \001(\0132\013.Types.Path\"\246\001\n\006Effect\022\033\n\003Get\030\001"
+  " \001(\0132\014.Effects.GetH\000\0223\n\017Filter_Distance\030"
+  "\002 \001(\0132\030.Effects.Filter_DistanceH\000\022!\n\006Sel"
+  "ect\030\003 \001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\004 \001"
+  "(\0132\r.Effects.MoveH\000B\010\n\006effect\".\n\nCardEff"
+  "ect\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006p"
+  "roto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Effects_2eproto_deps[1] = {
   &::descriptor_table_Types_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Effects_2eproto_sccs[12] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Effects_2eproto_sccs[11] = {
   &scc_info_CardEffect_Effects_2eproto.base,
   &scc_info_CardList_Effects_2eproto.base,
   &scc_info_Constant_Effects_2eproto.base,
@@ -438,15 +411,14 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Eff
   &scc_info_PlayerList_Effects_2eproto.base,
   &scc_info_Select_Effects_2eproto.base,
   &scc_info_StackVar_Effects_2eproto.base,
-  &scc_info_StackVarRef_Effects_2eproto.base,
   &scc_info_TileList_Effects_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Effects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Effects_2eproto = {
-  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1562,
-  &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 12, 1,
+  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1485,
+  &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 11, 1,
   schemas, file_default_instances, TableStruct_Effects_2eproto::offsets,
-  file_level_metadata_Effects_2eproto, 12, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
+  file_level_metadata_Effects_2eproto, 11, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -1744,222 +1716,6 @@ void StackVar::InternalSwap(StackVar* other) {
 
 // ===================================================================
 
-class StackVarRef::_Internal {
- public:
-  static const ::Types::Path& path(const StackVarRef* msg);
-};
-
-const ::Types::Path&
-StackVarRef::_Internal::path(const StackVarRef* msg) {
-  return *msg->path_;
-}
-void StackVarRef::clear_path() {
-  if (GetArena() == nullptr && path_ != nullptr) {
-    delete path_;
-  }
-  path_ = nullptr;
-}
-StackVarRef::StackVarRef(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Effects.StackVarRef)
-}
-StackVarRef::StackVarRef(const StackVarRef& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_path()) {
-    path_ = new ::Types::Path(*from.path_);
-  } else {
-    path_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:Effects.StackVarRef)
-}
-
-void StackVarRef::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StackVarRef_Effects_2eproto.base);
-  path_ = nullptr;
-}
-
-StackVarRef::~StackVarRef() {
-  // @@protoc_insertion_point(destructor:Effects.StackVarRef)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void StackVarRef::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete path_;
-}
-
-void StackVarRef::ArenaDtor(void* object) {
-  StackVarRef* _this = reinterpret_cast< StackVarRef* >(object);
-  (void)_this;
-}
-void StackVarRef::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void StackVarRef::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const StackVarRef& StackVarRef::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StackVarRef_Effects_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void StackVarRef::Clear() {
-// @@protoc_insertion_point(message_clear_start:Effects.StackVarRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArena() == nullptr && path_ != nullptr) {
-    delete path_;
-  }
-  path_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* StackVarRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .Types.Path Path = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_path(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* StackVarRef::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Effects.StackVarRef)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .Types.Path Path = 1;
-  if (this->has_path()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::path(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:Effects.StackVarRef)
-  return target;
-}
-
-size_t StackVarRef::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Effects.StackVarRef)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .Types.Path Path = 1;
-  if (this->has_path()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *path_);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void StackVarRef::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Effects.StackVarRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StackVarRef* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StackVarRef>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Effects.StackVarRef)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Effects.StackVarRef)
-    MergeFrom(*source);
-  }
-}
-
-void StackVarRef::MergeFrom(const StackVarRef& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Effects.StackVarRef)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_path()) {
-    _internal_mutable_path()->::Types::Path::MergeFrom(from._internal_path());
-  }
-}
-
-void StackVarRef::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Effects.StackVarRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void StackVarRef::CopyFrom(const StackVarRef& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Effects.StackVarRef)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool StackVarRef::IsInitialized() const {
-  return true;
-}
-
-void StackVarRef::InternalSwap(StackVarRef* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(path_, other->path_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata StackVarRef::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class Constant::_Internal {
  public:
   static const ::Effects::StackVar& result(const Constant* msg);
@@ -1978,6 +1734,11 @@ Constant::Constant(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Constant::Constant(const Constant& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
   if (from._internal_has_result()) {
     result_ = new ::Effects::StackVar(*from.result_);
   } else {
@@ -1988,6 +1749,7 @@ Constant::Constant(const Constant& from)
 
 void Constant::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Constant_Effects_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   result_ = nullptr;
 }
 
@@ -1999,6 +1761,7 @@ Constant::~Constant() {
 
 void Constant::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete result_;
 }
 
@@ -2023,6 +1786,7 @@ void Constant::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  name_.ClearToEmpty();
   if (GetArena() == nullptr && result_ != nullptr) {
     delete result_;
   }
@@ -2041,6 +1805,15 @@ const char* Constant::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_result(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string Name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Effects.Constant.Name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2080,6 +1853,16 @@ failure:
         1, _Internal::result(this), target, stream);
   }
 
+  // string Name = 2;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Effects.Constant.Name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2095,6 +1878,13 @@ size_t Constant::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string Name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
 
   // .Effects.StackVar Result = 1;
   if (this->has_result()) {
@@ -2134,6 +1924,9 @@ void Constant::MergeFrom(const Constant& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
   if (from.has_result()) {
     _internal_mutable_result()->::Effects::StackVar::MergeFrom(from._internal_result());
   }
@@ -2160,6 +1953,7 @@ bool Constant::IsInitialized() const {
 void Constant::InternalSwap(Constant* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(result_, other->result_);
 }
 
@@ -2199,6 +1993,11 @@ Get::Get(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Get::Get(const Get& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
   if (from._internal_has_result()) {
     result_ = new ::Effects::StackVar(*from.result_);
   } else {
@@ -2214,6 +2013,7 @@ Get::Get(const Get& from)
 
 void Get::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Get_Effects_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&result_) - reinterpret_cast<char*>(this)),
       0, static_cast<size_t>(reinterpret_cast<char*>(&source_) -
@@ -2228,6 +2028,7 @@ Get::~Get() {
 
 void Get::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete result_;
   if (this != internal_default_instance()) delete source_;
 }
@@ -2253,6 +2054,7 @@ void Get::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  name_.ClearToEmpty();
   if (GetArena() == nullptr && result_ != nullptr) {
     delete result_;
   }
@@ -2282,6 +2084,15 @@ const char* Get::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_source(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string Name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Effects.Get.Name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2329,6 +2140,16 @@ failure:
         2, _Internal::source(this), target, stream);
   }
 
+  // string Name = 3;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Effects.Get.Name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2344,6 +2165,13 @@ size_t Get::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string Name = 3;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
 
   // .Effects.StackVar Result = 1;
   if (this->has_result()) {
@@ -2390,6 +2218,9 @@ void Get::MergeFrom(const Get& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
   if (from.has_result()) {
     _internal_mutable_result()->::Effects::StackVar::MergeFrom(from._internal_result());
   }
@@ -2419,6 +2250,7 @@ bool Get::IsInitialized() const {
 void Get::InternalSwap(Get* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Get, source_)
       + sizeof(Get::source_)
@@ -2436,22 +2268,40 @@ void Get::InternalSwap(Get* other) {
 
 class Filter_Distance::_Internal {
  public:
-  static const ::Effects::StackVarRef& source(const Filter_Distance* msg);
-  static const ::Effects::StackVarRef& from(const Filter_Distance* msg);
-  static const ::Effects::StackVarRef& distance(const Filter_Distance* msg);
+  static const ::Types::Path& source(const Filter_Distance* msg);
+  static const ::Types::Path& from(const Filter_Distance* msg);
+  static const ::Types::Path& distance(const Filter_Distance* msg);
 };
 
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Filter_Distance::_Internal::source(const Filter_Distance* msg) {
   return *msg->source_;
 }
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Filter_Distance::_Internal::from(const Filter_Distance* msg) {
   return *msg->from_;
 }
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Filter_Distance::_Internal::distance(const Filter_Distance* msg) {
   return *msg->distance_;
+}
+void Filter_Distance::clear_source() {
+  if (GetArena() == nullptr && source_ != nullptr) {
+    delete source_;
+  }
+  source_ = nullptr;
+}
+void Filter_Distance::clear_from() {
+  if (GetArena() == nullptr && from_ != nullptr) {
+    delete from_;
+  }
+  from_ = nullptr;
+}
+void Filter_Distance::clear_distance() {
+  if (GetArena() == nullptr && distance_ != nullptr) {
+    delete distance_;
+  }
+  distance_ = nullptr;
 }
 Filter_Distance::Filter_Distance(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -2463,17 +2313,17 @@ Filter_Distance::Filter_Distance(const Filter_Distance& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_source()) {
-    source_ = new ::Effects::StackVarRef(*from.source_);
+    source_ = new ::Types::Path(*from.source_);
   } else {
     source_ = nullptr;
   }
   if (from._internal_has_from()) {
-    from_ = new ::Effects::StackVarRef(*from.from_);
+    from_ = new ::Types::Path(*from.from_);
   } else {
     from_ = nullptr;
   }
   if (from._internal_has_distance()) {
-    distance_ = new ::Effects::StackVarRef(*from.distance_);
+    distance_ = new ::Types::Path(*from.distance_);
   } else {
     distance_ = nullptr;
   }
@@ -2550,21 +2400,21 @@ const char* Filter_Distance::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Effects.StackVarRef Source = 1;
+      // .Types.Path Source = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_source(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.StackVarRef From = 2;
+      // .Types.Path From = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_from(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.StackVarRef Distance = 3;
+      // .Types.Path Distance = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_distance(), ptr);
@@ -2615,7 +2465,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   if (this->has_source()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2623,7 +2473,7 @@ failure:
         1, _Internal::source(this), target, stream);
   }
 
-  // .Effects.StackVarRef From = 2;
+  // .Types.Path From = 2;
   if (this->has_from()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2631,7 +2481,7 @@ failure:
         2, _Internal::from(this), target, stream);
   }
 
-  // .Effects.StackVarRef Distance = 3;
+  // .Types.Path Distance = 3;
   if (this->has_distance()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2669,21 +2519,21 @@ size_t Filter_Distance::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   if (this->has_source()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *source_);
   }
 
-  // .Effects.StackVarRef From = 2;
+  // .Types.Path From = 2;
   if (this->has_from()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *from_);
   }
 
-  // .Effects.StackVarRef Distance = 3;
+  // .Types.Path Distance = 3;
   if (this->has_distance()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2734,13 +2584,13 @@ void Filter_Distance::MergeFrom(const Filter_Distance& from) {
   (void) cached_has_bits;
 
   if (from.has_source()) {
-    _internal_mutable_source()->::Effects::StackVarRef::MergeFrom(from._internal_source());
+    _internal_mutable_source()->::Types::Path::MergeFrom(from._internal_source());
   }
   if (from.has_from()) {
-    _internal_mutable_from()->::Effects::StackVarRef::MergeFrom(from._internal_from());
+    _internal_mutable_from()->::Types::Path::MergeFrom(from._internal_from());
   }
   if (from.has_distance()) {
-    _internal_mutable_distance()->::Effects::StackVarRef::MergeFrom(from._internal_distance());
+    _internal_mutable_distance()->::Types::Path::MergeFrom(from._internal_distance());
   }
   if (from.comparison() != 0) {
     _internal_set_comparison(from._internal_comparison());
@@ -2788,17 +2638,29 @@ void Filter_Distance::InternalSwap(Filter_Distance* other) {
 
 class Select::_Internal {
  public:
-  static const ::Effects::StackVarRef& source(const Select* msg);
-  static const ::Effects::StackVarRef& number(const Select* msg);
+  static const ::Types::Path& source(const Select* msg);
+  static const ::Types::Path& number(const Select* msg);
 };
 
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Select::_Internal::source(const Select* msg) {
   return *msg->source_;
 }
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Select::_Internal::number(const Select* msg) {
   return *msg->number_;
+}
+void Select::clear_source() {
+  if (GetArena() == nullptr && source_ != nullptr) {
+    delete source_;
+  }
+  source_ = nullptr;
+}
+void Select::clear_number() {
+  if (GetArena() == nullptr && number_ != nullptr) {
+    delete number_;
+  }
+  number_ = nullptr;
 }
 Select::Select(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -2810,12 +2672,12 @@ Select::Select(const Select& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_source()) {
-    source_ = new ::Effects::StackVarRef(*from.source_);
+    source_ = new ::Types::Path(*from.source_);
   } else {
     source_ = nullptr;
   }
   if (from._internal_has_number()) {
-    number_ = new ::Effects::StackVarRef(*from.number_);
+    number_ = new ::Types::Path(*from.number_);
   } else {
     number_ = nullptr;
   }
@@ -2887,14 +2749,14 @@ const char* Select::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Effects.StackVarRef Source = 1;
+      // .Types.Path Source = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_source(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.StackVarRef Number = 2;
+      // .Types.Path Number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_number(), ptr);
@@ -2943,7 +2805,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   if (this->has_source()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2951,7 +2813,7 @@ failure:
         1, _Internal::source(this), target, stream);
   }
 
-  // .Effects.StackVarRef Number = 2;
+  // .Types.Path Number = 2;
   if (this->has_number()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2987,14 +2849,14 @@ size_t Select::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Source = 1;
+  // .Types.Path Source = 1;
   if (this->has_source()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *source_);
   }
 
-  // .Effects.StackVarRef Number = 2;
+  // .Types.Path Number = 2;
   if (this->has_number()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3043,10 +2905,10 @@ void Select::MergeFrom(const Select& from) {
   (void) cached_has_bits;
 
   if (from.has_source()) {
-    _internal_mutable_source()->::Effects::StackVarRef::MergeFrom(from._internal_source());
+    _internal_mutable_source()->::Types::Path::MergeFrom(from._internal_source());
   }
   if (from.has_number()) {
-    _internal_mutable_number()->::Effects::StackVarRef::MergeFrom(from._internal_number());
+    _internal_mutable_number()->::Types::Path::MergeFrom(from._internal_number());
   }
   if (from.upto() != 0) {
     _internal_set_upto(from._internal_upto());
@@ -3094,17 +2956,29 @@ void Select::InternalSwap(Select* other) {
 
 class Move::_Internal {
  public:
-  static const ::Effects::StackVarRef& destination(const Move* msg);
-  static const ::Effects::StackVarRef& player(const Move* msg);
+  static const ::Types::Path& destination(const Move* msg);
+  static const ::Types::Path& player(const Move* msg);
 };
 
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Move::_Internal::destination(const Move* msg) {
   return *msg->destination_;
 }
-const ::Effects::StackVarRef&
+const ::Types::Path&
 Move::_Internal::player(const Move* msg) {
   return *msg->player_;
+}
+void Move::clear_destination() {
+  if (GetArena() == nullptr && destination_ != nullptr) {
+    delete destination_;
+  }
+  destination_ = nullptr;
+}
+void Move::clear_player() {
+  if (GetArena() == nullptr && player_ != nullptr) {
+    delete player_;
+  }
+  player_ = nullptr;
 }
 Move::Move(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -3116,12 +2990,12 @@ Move::Move(const Move& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_destination()) {
-    destination_ = new ::Effects::StackVarRef(*from.destination_);
+    destination_ = new ::Types::Path(*from.destination_);
   } else {
     destination_ = nullptr;
   }
   if (from._internal_has_player()) {
-    player_ = new ::Effects::StackVarRef(*from.player_);
+    player_ = new ::Types::Path(*from.player_);
   } else {
     player_ = nullptr;
   }
@@ -3187,14 +3061,14 @@ const char* Move::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Effects.StackVarRef Destination = 1;
+      // .Types.Path Destination = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_destination(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.StackVarRef Player = 2;
+      // .Types.Path Player = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
@@ -3229,7 +3103,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Destination = 1;
+  // .Types.Path Destination = 1;
   if (this->has_destination()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3237,7 +3111,7 @@ failure:
         1, _Internal::destination(this), target, stream);
   }
 
-  // .Effects.StackVarRef Player = 2;
+  // .Types.Path Player = 2;
   if (this->has_player()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3261,14 +3135,14 @@ size_t Move::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Effects.StackVarRef Destination = 1;
+  // .Types.Path Destination = 1;
   if (this->has_destination()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *destination_);
   }
 
-  // .Effects.StackVarRef Player = 2;
+  // .Types.Path Player = 2;
   if (this->has_player()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3307,10 +3181,10 @@ void Move::MergeFrom(const Move& from) {
   (void) cached_has_bits;
 
   if (from.has_destination()) {
-    _internal_mutable_destination()->::Effects::StackVarRef::MergeFrom(from._internal_destination());
+    _internal_mutable_destination()->::Types::Path::MergeFrom(from._internal_destination());
   }
   if (from.has_player()) {
-    _internal_mutable_player()->::Effects::StackVarRef::MergeFrom(from._internal_player());
+    _internal_mutable_player()->::Types::Path::MergeFrom(from._internal_player());
   }
 }
 
@@ -3988,9 +3862,6 @@ template<> PROTOBUF_NOINLINE ::Effects::TileList* Arena::CreateMaybeMessage< ::E
 }
 template<> PROTOBUF_NOINLINE ::Effects::StackVar* Arena::CreateMaybeMessage< ::Effects::StackVar >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Effects::StackVar >(arena);
-}
-template<> PROTOBUF_NOINLINE ::Effects::StackVarRef* Arena::CreateMaybeMessage< ::Effects::StackVarRef >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Effects::StackVarRef >(arena);
 }
 template<> PROTOBUF_NOINLINE ::Effects::Constant* Arena::CreateMaybeMessage< ::Effects::Constant >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Effects::Constant >(arena);

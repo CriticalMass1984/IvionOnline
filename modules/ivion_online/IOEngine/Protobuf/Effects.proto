@@ -29,24 +29,22 @@ message StackVar {
     }
 }
 
-message StackVarRef {
-    Types.Path Path = 1;
-}
-
 // effects
 message Constant {
     StackVar Result = 1;
+    string Name = 2;
 }
 
 message Get {
     StackVar Result = 1;
     Types.Path Source = 2;
+    string Name = 3;
 }
 
 message Filter_Distance {
-    StackVarRef Source = 1;
-    StackVarRef From = 2;
-    StackVarRef Distance = 3;
+    Types.Path Source = 1;
+    Types.Path From = 2;
+    Types.Path Distance = 3;
 
     enum CompType {
         COMP_TYPE_NONE = 0;
@@ -68,15 +66,15 @@ message Filter_Distance {
 }
 
 message Select {
-    StackVarRef Source = 1;
-    StackVarRef Number = 2;
+    Types.Path Source = 1;
+    Types.Path Number = 2;
     bool UpTo = 3;
     bool Targets = 4;
 }
 
 message Move {
-    StackVarRef Destination = 1;
-    StackVarRef Player = 2;
+    Types.Path Destination = 1;
+    Types.Path Player = 2;
 }
 
 message Effect {
