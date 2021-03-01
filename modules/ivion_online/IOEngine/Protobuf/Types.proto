@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package Types;
+
+
+message Path {
+    message FieldIndecies {
+        repeated int32 Indecies = 1;
+    }
+    oneof path {
+        FieldIndecies Fields = 1;
+        string FullPath = 2;
+    }
+}
+
+enum TerrainType {
+    TERRAIN_NONE = 0;
+    TERRAIN_DIFFICULT = 1;
+    TERRAIN_ENCHANTED = 2;
+}
+
+message Integer {
+    int32 Value = 1;
+}
+
+message Vec2i {
+    int32 X = 1;
+    int32 Y = 2;
+}
+
+message PlayerRef {
+    Path ObjectPath = 1;
+}
+
+message CardRef {
+    Path ObjectPath = 1;
+}
+
+message TileRef {
+    Path ObjectPath = 1;
+}
+
+message IntegerRef {
+    Path ObjectPath = 1;
+}
+
+message Vec2iRef {
+    Path ObjectPath = 1;
+}
+
+message IntegerValue {
+    oneof value {
+        int32 Value = 1;
+        IntegerRef Ref = 2;
+    }
+}
+
+message Vec2iValue {
+    oneof value {
+        Vec2i Value = 1;
+        Vec2iRef Ref = 2;
+    }
+}
+
+message EntityRef {
+    oneof entity_ref {
+        PlayerRef Player = 1;
+        CardRef Card = 2;
+        TileRef Tile = 3;
+    }
+}
+
+message EntityValue {
+    oneof entity_val {
+        PlayerRef Player = 1;
+        CardRef Card = 2;
+        TileRef Tile = 3;
+        IntegerRef Integer = 4;
+        int32 IntValue = 5;
+        Vec2i Vec2iValue = 6;
+        TerrainType TerrainValue = 7;
+    }
+}

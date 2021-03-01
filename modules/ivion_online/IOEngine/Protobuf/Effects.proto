@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package Effects;
+
+import "Types.proto";
+
+// types
+message PlayerList {
+    repeated Types.Path Players = 1;
+}
+
+message CardList {
+    repeated Types.Path Cards = 1;
+}
+
+message TileList {
+    repeated Types.Path Tiles = 1;
+}
+
+message StackVar {
+    oneof entity {
+        PlayerList Players = 1;
+        CardList Cards = 2;
+        TileList Tiles = 3;
+        Types.Path IntegerRef = 4;
+        Types.Path Vec2iRef = 5;
+        Types.IntegerValue Integer = 6;
+        Types.Vec2iValue Vec2i = 7;
+    }
+}
+
+message StackVarRef {
+    Types.Path Path = 1;
+}
+
+// effects
+message Constant {
+    StackVar Result = 1;
+}
+
+message Get {
+    StackVar Result = 1;
+    Types.Path Source = 2;
+}
+
+message Filter_Distance {
+    StackVarRef Source = 1;
+    StackVarRef From = 2;
+    StackVarRef Distance = 3;
+
+    enum CompType {
+        COMP_TYPE_NONE = 0;
+        COMP_TYPE_EQUAL = 1;
+        COMP_TYPE_LESS_THAN = 2;
+        COMP_TYPE_LESS_THAN_EQUAL = 3;
+        COMP_TYPE_GREATER_THAN = 4;
+        COMP_TYPE_GREATER_THAN_EQUAL = 5;
+    }
+    CompType Comparison = 4;
+
+    enum GroupType {
+        GROUP_TYPE_NONE = 0;
+        GROUP_TYPE_ALL = 1;
+        GROUP_TYPE_AT_LEAST_ONE = 2;
+        GROUP_TYPE_AT_MOST_NONE = 3;
+    }
+    GroupType LogicalUnion = 5;
+}
+
+message Select {
+    StackVarRef Source = 1;
+    StackVarRef Number = 2;
+    bool UpTo = 3;
+    bool Targets = 4;
+}
+
+message Move {
+    StackVarRef Destination = 1;
+    StackVarRef Player = 2;
+}
+
+message Effect {
+    oneof effect {
+        Get Get = 1;
+        Filter_Distance Filter_Distance = 2;
+        Select Select = 3;
+        Move Move = 4;
+    }
+}
+
+message CardEffect {
+    repeated Effect Effects = 1;
+}

@@ -14,18 +14,19 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardEffect_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIAgent_GameInfo_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Card_GameInfo_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardMetaData_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DeckList_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PlayerAgent_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_PlayerInfo_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RandomAgent_GameInfo_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameInfo_2eproto;
 namespace NetworkIO {
-class CardDefaultTypeInternal {
+class CardMetaDataDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Card> _instance;
-} _Card_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CardMetaData> _instance;
+} _CardMetaData_default_instance_;
 class DeckListDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DeckList> _instance;
@@ -42,10 +43,6 @@ class PlayerAgentDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PlayerAgent> _instance;
 } _PlayerAgent_default_instance_;
-class Vec2iDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vec2i> _instance;
-} _Vec2i_default_instance_;
 class PlayerInfoDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PlayerInfo> _instance;
@@ -68,18 +65,19 @@ static void InitDefaultsscc_info_AIAgent_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AIAgent_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_AIAgent_GameInfo_2eproto}, {}};
 
-static void InitDefaultsscc_info_Card_GameInfo_2eproto() {
+static void InitDefaultsscc_info_CardMetaData_GameInfo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::NetworkIO::_Card_default_instance_;
-    new (ptr) ::NetworkIO::Card();
+    void* ptr = &::NetworkIO::_CardMetaData_default_instance_;
+    new (ptr) ::NetworkIO::CardMetaData();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Card_GameInfo_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Card_GameInfo_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardMetaData_GameInfo_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CardMetaData_GameInfo_2eproto}, {
+      &scc_info_CardEffect_Effects_2eproto.base,}};
 
 static void InitDefaultsscc_info_DeckList_GameInfo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -93,7 +91,7 @@ static void InitDefaultsscc_info_DeckList_GameInfo_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DeckList_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_DeckList_GameInfo_2eproto}, {
-      &scc_info_Card_GameInfo_2eproto.base,}};
+      &scc_info_CardMetaData_GameInfo_2eproto.base,}};
 
 static void InitDefaultsscc_info_GameInfo_GameInfo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -108,7 +106,7 @@ static void InitDefaultsscc_info_GameInfo_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_GameInfo_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_GameInfo_GameInfo_2eproto}, {
       &scc_info_PlayerInfo_GameInfo_2eproto.base,
-      &scc_info_Vec2i_GameInfo_2eproto.base,}};
+      &scc_info_Vec2i_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_PlayerAgent_GameInfo_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -136,7 +134,7 @@ static void InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_PlayerInfo_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto}, {
       &scc_info_DeckList_GameInfo_2eproto.base,
-      &scc_info_Vec2i_GameInfo_2eproto.base,
+      &scc_info_Vec2i_GameState_2eproto.base,
       &scc_info_AIAgent_GameInfo_2eproto.base,
       &scc_info_RandomAgent_GameInfo_2eproto.base,
       &scc_info_PlayerAgent_GameInfo_2eproto.base,}};
@@ -154,44 +152,32 @@ static void InitDefaultsscc_info_RandomAgent_GameInfo_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RandomAgent_GameInfo_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RandomAgent_GameInfo_2eproto}, {}};
 
-static void InitDefaultsscc_info_Vec2i_GameInfo_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::NetworkIO::_Vec2i_default_instance_;
-    new (ptr) ::NetworkIO::Vec2i();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_GameInfo_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Vec2i_GameInfo_2eproto}, {}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameInfo_2eproto[8];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameInfo_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameInfo_2eproto[7];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_GameInfo_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_GameInfo_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameInfo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, name_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, archetype_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, count_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, ultimate_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, feat_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, colors_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, playeffects_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Card, resolveeffects_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, name_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, archetype_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, ultimate_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, feat_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, colors_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, count_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, omnipresenteffect_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, passiveeffect_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, feateffect_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, playeffect_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::CardMetaData, resolveeffect_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::NetworkIO::DeckList, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::DeckList, ultimate_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::DeckList, feats_),
   PROTOBUF_FIELD_OFFSET(::NetworkIO::DeckList, deck_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::NetworkIO::RandomAgent, _internal_metadata_),
@@ -208,14 +194,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameInfo_2eproto::offsets[] PR
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::PlayerAgent, playerid_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Vec2i, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Vec2i, x_),
-  PROTOBUF_FIELD_OFFSET(::NetworkIO::Vec2i, y_),
+  PROTOBUF_FIELD_OFFSET(::NetworkIO::PlayerAgent, playeruid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::NetworkIO::PlayerInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -238,106 +217,144 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameInfo_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::NetworkIO::GameInfo, mapsize_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::NetworkIO::Card)},
-  { 13, -1, sizeof(::NetworkIO::DeckList)},
-  { 21, -1, sizeof(::NetworkIO::RandomAgent)},
-  { 26, -1, sizeof(::NetworkIO::AIAgent)},
-  { 31, -1, sizeof(::NetworkIO::PlayerAgent)},
-  { 37, -1, sizeof(::NetworkIO::Vec2i)},
-  { 44, -1, sizeof(::NetworkIO::PlayerInfo)},
-  { 57, -1, sizeof(::NetworkIO::GameInfo)},
+  { 0, -1, sizeof(::NetworkIO::CardMetaData)},
+  { 16, -1, sizeof(::NetworkIO::DeckList)},
+  { 22, -1, sizeof(::NetworkIO::RandomAgent)},
+  { 27, -1, sizeof(::NetworkIO::AIAgent)},
+  { 32, -1, sizeof(::NetworkIO::PlayerAgent)},
+  { 38, -1, sizeof(::NetworkIO::PlayerInfo)},
+  { 51, -1, sizeof(::NetworkIO::GameInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_Card_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_CardMetaData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_DeckList_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_RandomAgent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_AIAgent_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_PlayerAgent_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_Vec2i_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_PlayerInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::NetworkIO::_GameInfo_default_instance_),
 };
 
 const char descriptor_table_protodef_GameInfo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameInfo.proto\022\tNetworkIO\"\245\001\n\004Card\022\014\n\004"
-  "Name\030\001 \001(\t\022\021\n\tArchetype\030\002 \001(\t\022\r\n\005Count\030\003"
-  " \001(\005\022\020\n\010Ultimate\030\004 \001(\010\022\014\n\004Feat\030\005 \001(\010\022 \n\006"
-  "Colors\030\006 \003(\0162\020.NetworkIO.Color\022\023\n\013PlayEf"
-  "fects\030\007 \001(\014\022\026\n\016ResolveEffects\030\010 \001(\014\"l\n\010D"
-  "eckList\022!\n\010Ultimate\030\001 \001(\0132\017.NetworkIO.Ca"
-  "rd\022\036\n\005Feats\030\002 \003(\0132\017.NetworkIO.Card\022\035\n\004De"
-  "ck\030\003 \003(\0132\017.NetworkIO.Card\"\r\n\013RandomAgent"
-  "\"\t\n\007AIAgent\"\037\n\013PlayerAgent\022\020\n\010PlayerID\030\001"
-  " \001(\005\"\035\n\005Vec2i\022\t\n\001X\030\001 \001(\005\022\t\n\001Y\030\002 \001(\005\"\214\002\n\n"
-  "PlayerInfo\022\020\n\010Username\030\001 \001(\t\022\013\n\003UID\030\002 \001("
-  "\t\022!\n\004Deck\030\003 \001(\0132\023.NetworkIO.DeckList\022*\n\020"
-  "StartingPosition\030\004 \001(\0132\020.NetworkIO.Vec2i"
-  "\022%\n\007AIAgent\030\005 \001(\0132\022.NetworkIO.AIAgentH\000\022"
-  "-\n\013RandomAgent\030\006 \001(\0132\026.NetworkIO.RandomA"
-  "gentH\000\022-\n\013PlayerAgent\030\007 \001(\0132\026.NetworkIO."
-  "PlayerAgentH\000B\013\n\tAgentInfo\"U\n\010GameInfo\022&"
-  "\n\007Players\030\001 \003(\0132\025.NetworkIO.PlayerInfo\022!"
-  "\n\007MapSize\030\002 \001(\0132\020.NetworkIO.Vec2i*E\n\005Col"
-  "or\022\010\n\004GRAY\020\000\022\t\n\005BLACK\020\001\022\007\n\003RED\020\002\022\t\n\005GREE"
-  "N\020\003\022\010\n\004BLUE\020\004\022\t\n\005WHITE\020\005b\006proto3"
+  "\n\016GameInfo.proto\022\tNetworkIO\032\017GameState.p"
+  "roto\032\rEffects.proto\"\337\002\n\014CardMetaData\022\014\n\004"
+  "Name\030\001 \001(\t\022\021\n\tArchetype\030\002 \001(\t\022\020\n\010Ultimat"
+  "e\030\003 \001(\010\022\014\n\004Feat\030\004 \001(\010\022%\n\006Colors\030\005 \003(\0162\025."
+  "GameState.Card.Color\022\r\n\005Count\030\006 \001(\005\022.\n\021O"
+  "mniPresentEffect\030\007 \001(\0132\023.Effects.CardEff"
+  "ect\022*\n\rPassiveEffect\030\010 \001(\0132\023.Effects.Car"
+  "dEffect\022\'\n\nFeatEffect\030\t \001(\0132\023.Effects.Ca"
+  "rdEffect\022\'\n\nPlayEffect\030\n \001(\0132\023.Effects.C"
+  "ardEffect\022*\n\rResolveEffect\030\013 \001(\0132\023.Effec"
+  "ts.CardEffect\"1\n\010DeckList\022%\n\004Deck\030\003 \003(\0132"
+  "\027.NetworkIO.CardMetaData\"\r\n\013RandomAgent\""
+  "\t\n\007AIAgent\" \n\013PlayerAgent\022\021\n\tPlayerUID\030\001"
+  " \001(\005\"\214\002\n\nPlayerInfo\022\020\n\010Username\030\001 \001(\t\022\013\n"
+  "\003UID\030\002 \001(\t\022!\n\004Deck\030\003 \001(\0132\023.NetworkIO.Dec"
+  "kList\022*\n\020StartingPosition\030\004 \001(\0132\020.GameSt"
+  "ate.Vec2i\022%\n\007AIAgent\030\005 \001(\0132\022.NetworkIO.A"
+  "IAgentH\000\022-\n\013RandomAgent\030\006 \001(\0132\026.NetworkI"
+  "O.RandomAgentH\000\022-\n\013PlayerAgent\030\007 \001(\0132\026.N"
+  "etworkIO.PlayerAgentH\000B\013\n\tAgentInfo\"U\n\010G"
+  "ameInfo\022&\n\007Players\030\001 \003(\0132\025.NetworkIO.Pla"
+  "yerInfo\022!\n\007MapSize\030\002 \001(\0132\020.GameState.Vec"
+  "2ib\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[1] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[2] = {
+  &::descriptor_table_Effects_2eproto,
+  &::descriptor_table_GameState_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameInfo_2eproto_sccs[8] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameInfo_2eproto_sccs[7] = {
   &scc_info_AIAgent_GameInfo_2eproto.base,
-  &scc_info_Card_GameInfo_2eproto.base,
+  &scc_info_CardMetaData_GameInfo_2eproto.base,
   &scc_info_DeckList_GameInfo_2eproto.base,
   &scc_info_GameInfo_GameInfo_2eproto.base,
   &scc_info_PlayerAgent_GameInfo_2eproto.base,
   &scc_info_PlayerInfo_GameInfo_2eproto.base,
   &scc_info_RandomAgent_GameInfo_2eproto.base,
-  &scc_info_Vec2i_GameInfo_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameInfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameInfo_2eproto = {
-  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 832,
-  &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 8, 0,
+  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 890,
+  &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 7, 2,
   schemas, file_default_instances, TableStruct_GameInfo_2eproto::offsets,
-  file_level_metadata_GameInfo_2eproto, 8, file_level_enum_descriptors_GameInfo_2eproto, file_level_service_descriptors_GameInfo_2eproto,
+  file_level_metadata_GameInfo_2eproto, 7, file_level_enum_descriptors_GameInfo_2eproto, file_level_service_descriptors_GameInfo_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_GameInfo_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_GameInfo_2eproto)), true);
 namespace NetworkIO {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Color_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_GameInfo_2eproto);
-  return file_level_enum_descriptors_GameInfo_2eproto[0];
-}
-bool Color_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
-class Card::_Internal {
+class CardMetaData::_Internal {
  public:
+  static const ::Effects::CardEffect& omnipresenteffect(const CardMetaData* msg);
+  static const ::Effects::CardEffect& passiveeffect(const CardMetaData* msg);
+  static const ::Effects::CardEffect& feateffect(const CardMetaData* msg);
+  static const ::Effects::CardEffect& playeffect(const CardMetaData* msg);
+  static const ::Effects::CardEffect& resolveeffect(const CardMetaData* msg);
 };
 
-Card::Card(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+const ::Effects::CardEffect&
+CardMetaData::_Internal::omnipresenteffect(const CardMetaData* msg) {
+  return *msg->omnipresenteffect_;
+}
+const ::Effects::CardEffect&
+CardMetaData::_Internal::passiveeffect(const CardMetaData* msg) {
+  return *msg->passiveeffect_;
+}
+const ::Effects::CardEffect&
+CardMetaData::_Internal::feateffect(const CardMetaData* msg) {
+  return *msg->feateffect_;
+}
+const ::Effects::CardEffect&
+CardMetaData::_Internal::playeffect(const CardMetaData* msg) {
+  return *msg->playeffect_;
+}
+const ::Effects::CardEffect&
+CardMetaData::_Internal::resolveeffect(const CardMetaData* msg) {
+  return *msg->resolveeffect_;
+}
+void CardMetaData::clear_omnipresenteffect() {
+  if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
+    delete omnipresenteffect_;
+  }
+  omnipresenteffect_ = nullptr;
+}
+void CardMetaData::clear_passiveeffect() {
+  if (GetArena() == nullptr && passiveeffect_ != nullptr) {
+    delete passiveeffect_;
+  }
+  passiveeffect_ = nullptr;
+}
+void CardMetaData::clear_feateffect() {
+  if (GetArena() == nullptr && feateffect_ != nullptr) {
+    delete feateffect_;
+  }
+  feateffect_ = nullptr;
+}
+void CardMetaData::clear_playeffect() {
+  if (GetArena() == nullptr && playeffect_ != nullptr) {
+    delete playeffect_;
+  }
+  playeffect_ = nullptr;
+}
+void CardMetaData::clear_resolveeffect() {
+  if (GetArena() == nullptr && resolveeffect_ != nullptr) {
+    delete resolveeffect_;
+  }
+  resolveeffect_ = nullptr;
+}
+CardMetaData::CardMetaData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   colors_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:NetworkIO.Card)
+  // @@protoc_insertion_point(arena_constructor:NetworkIO.CardMetaData)
 }
-Card::Card(const Card& from)
+CardMetaData::CardMetaData(const CardMetaData& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       colors_(from.colors_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -351,65 +368,81 @@ Card::Card(const Card& from)
     archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_archetype(), 
       GetArena());
   }
-  playeffects_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_playeffects().empty()) {
-    playeffects_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_playeffects(), 
-      GetArena());
+  if (from._internal_has_omnipresenteffect()) {
+    omnipresenteffect_ = new ::Effects::CardEffect(*from.omnipresenteffect_);
+  } else {
+    omnipresenteffect_ = nullptr;
   }
-  resolveeffects_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_resolveeffects().empty()) {
-    resolveeffects_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_resolveeffects(), 
-      GetArena());
+  if (from._internal_has_passiveeffect()) {
+    passiveeffect_ = new ::Effects::CardEffect(*from.passiveeffect_);
+  } else {
+    passiveeffect_ = nullptr;
   }
-  ::memcpy(&count_, &from.count_,
-    static_cast<size_t>(reinterpret_cast<char*>(&feat_) -
-    reinterpret_cast<char*>(&count_)) + sizeof(feat_));
-  // @@protoc_insertion_point(copy_constructor:NetworkIO.Card)
+  if (from._internal_has_feateffect()) {
+    feateffect_ = new ::Effects::CardEffect(*from.feateffect_);
+  } else {
+    feateffect_ = nullptr;
+  }
+  if (from._internal_has_playeffect()) {
+    playeffect_ = new ::Effects::CardEffect(*from.playeffect_);
+  } else {
+    playeffect_ = nullptr;
+  }
+  if (from._internal_has_resolveeffect()) {
+    resolveeffect_ = new ::Effects::CardEffect(*from.resolveeffect_);
+  } else {
+    resolveeffect_ = nullptr;
+  }
+  ::memcpy(&ultimate_, &from.ultimate_,
+    static_cast<size_t>(reinterpret_cast<char*>(&count_) -
+    reinterpret_cast<char*>(&ultimate_)) + sizeof(count_));
+  // @@protoc_insertion_point(copy_constructor:NetworkIO.CardMetaData)
 }
 
-void Card::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Card_GameInfo_2eproto.base);
+void CardMetaData::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CardMetaData_GameInfo_2eproto.base);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   archetype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  playeffects_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  resolveeffects_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&feat_) -
-      reinterpret_cast<char*>(&count_)) + sizeof(feat_));
+      reinterpret_cast<char*>(&omnipresenteffect_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&count_) -
+      reinterpret_cast<char*>(&omnipresenteffect_)) + sizeof(count_));
 }
 
-Card::~Card() {
-  // @@protoc_insertion_point(destructor:NetworkIO.Card)
+CardMetaData::~CardMetaData() {
+  // @@protoc_insertion_point(destructor:NetworkIO.CardMetaData)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Card::SharedDtor() {
+void CardMetaData::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   archetype_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  playeffects_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  resolveeffects_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete omnipresenteffect_;
+  if (this != internal_default_instance()) delete passiveeffect_;
+  if (this != internal_default_instance()) delete feateffect_;
+  if (this != internal_default_instance()) delete playeffect_;
+  if (this != internal_default_instance()) delete resolveeffect_;
 }
 
-void Card::ArenaDtor(void* object) {
-  Card* _this = reinterpret_cast< Card* >(object);
+void CardMetaData::ArenaDtor(void* object) {
+  CardMetaData* _this = reinterpret_cast< CardMetaData* >(object);
   (void)_this;
 }
-void Card::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CardMetaData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void Card::SetCachedSize(int size) const {
+void CardMetaData::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Card& Card::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Card_GameInfo_2eproto.base);
+const CardMetaData& CardMetaData::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CardMetaData_GameInfo_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Card::Clear() {
-// @@protoc_insertion_point(message_clear_start:NetworkIO.Card)
+void CardMetaData::Clear() {
+// @@protoc_insertion_point(message_clear_start:NetworkIO.CardMetaData)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -417,15 +450,33 @@ void Card::Clear() {
   colors_.Clear();
   name_.ClearToEmpty();
   archetype_.ClearToEmpty();
-  playeffects_.ClearToEmpty();
-  resolveeffects_.ClearToEmpty();
-  ::memset(&count_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&feat_) -
-      reinterpret_cast<char*>(&count_)) + sizeof(feat_));
+  if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
+    delete omnipresenteffect_;
+  }
+  omnipresenteffect_ = nullptr;
+  if (GetArena() == nullptr && passiveeffect_ != nullptr) {
+    delete passiveeffect_;
+  }
+  passiveeffect_ = nullptr;
+  if (GetArena() == nullptr && feateffect_ != nullptr) {
+    delete feateffect_;
+  }
+  feateffect_ = nullptr;
+  if (GetArena() == nullptr && playeffect_ != nullptr) {
+    delete playeffect_;
+  }
+  playeffect_ = nullptr;
+  if (GetArena() == nullptr && resolveeffect_ != nullptr) {
+    delete resolveeffect_;
+  }
+  resolveeffect_ = nullptr;
+  ::memset(&ultimate_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&count_) -
+      reinterpret_cast<char*>(&ultimate_)) + sizeof(count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Card::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CardMetaData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -437,7 +488,7 @@ const char* Card::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "NetworkIO.Card.Name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "NetworkIO.CardMetaData.Name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -446,55 +497,74 @@ const char* Card::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_archetype();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "NetworkIO.Card.Archetype"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "NetworkIO.CardMetaData.Archetype"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 Count = 3;
+      // bool Ultimate = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool Ultimate = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ultimate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bool Feat = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+      // bool Feat = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           feat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .NetworkIO.Color Colors = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+      // repeated .GameState.Card.Color Colors = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_colors(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48) {
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_add_colors(static_cast<::NetworkIO::Color>(val));
+          _internal_add_colors(static_cast<::GameState::Card_Color>(val));
         } else goto handle_unusual;
         continue;
-      // bytes PlayEffects = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          auto str = _internal_mutable_playeffects();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+      // int32 Count = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // bytes ResolveEffects = 8;
+      // .Effects.CardEffect OmniPresentEffect = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_omnipresenteffect(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.CardEffect PassiveEffect = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
-          auto str = _internal_mutable_resolveeffects();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ctx->ParseMessage(_internal_mutable_passiveeffect(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.CardEffect FeatEffect = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_feateffect(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.CardEffect PlayEffect = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_playeffect(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.CardEffect ResolveEffect = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_resolveeffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -520,9 +590,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Card::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CardMetaData::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:NetworkIO.Card)
+  // @@protoc_insertion_point(serialize_to_array_start:NetworkIO.CardMetaData)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -531,7 +601,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "NetworkIO.Card.Name");
+      "NetworkIO.CardMetaData.Name");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_name(), target);
   }
@@ -541,67 +611,95 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_archetype().data(), static_cast<int>(this->_internal_archetype().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "NetworkIO.Card.Archetype");
+      "NetworkIO.CardMetaData.Archetype");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_archetype(), target);
   }
 
-  // int32 Count = 3;
-  if (this->count() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_count(), target);
-  }
-
-  // bool Ultimate = 4;
+  // bool Ultimate = 3;
   if (this->ultimate() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_ultimate(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_ultimate(), target);
   }
 
-  // bool Feat = 5;
+  // bool Feat = 4;
   if (this->feat() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_feat(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_feat(), target);
   }
 
-  // repeated .NetworkIO.Color Colors = 6;
+  // repeated .GameState.Card.Color Colors = 5;
   {
     int byte_size = _colors_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteEnumPacked(
-          6, colors_, byte_size, target);
+          5, colors_, byte_size, target);
     }
   }
 
-  // bytes PlayEffects = 7;
-  if (this->playeffects().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        7, this->_internal_playeffects(), target);
+  // int32 Count = 6;
+  if (this->count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_count(), target);
   }
 
-  // bytes ResolveEffects = 8;
-  if (this->resolveeffects().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        8, this->_internal_resolveeffects(), target);
+  // .Effects.CardEffect OmniPresentEffect = 7;
+  if (this->has_omnipresenteffect()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::omnipresenteffect(this), target, stream);
+  }
+
+  // .Effects.CardEffect PassiveEffect = 8;
+  if (this->has_passiveeffect()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        8, _Internal::passiveeffect(this), target, stream);
+  }
+
+  // .Effects.CardEffect FeatEffect = 9;
+  if (this->has_feateffect()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::feateffect(this), target, stream);
+  }
+
+  // .Effects.CardEffect PlayEffect = 10;
+  if (this->has_playeffect()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        10, _Internal::playeffect(this), target, stream);
+  }
+
+  // .Effects.CardEffect ResolveEffect = 11;
+  if (this->has_resolveeffect()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        11, _Internal::resolveeffect(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:NetworkIO.Card)
+  // @@protoc_insertion_point(serialize_to_array_end:NetworkIO.CardMetaData)
   return target;
 }
 
-size_t Card::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:NetworkIO.Card)
+size_t CardMetaData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:NetworkIO.CardMetaData)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .NetworkIO.Color Colors = 6;
+  // repeated .GameState.Card.Color Colors = 5;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_colors_size());for (unsigned int i = 0; i < count; i++) {
@@ -633,35 +731,56 @@ size_t Card::ByteSizeLong() const {
         this->_internal_archetype());
   }
 
-  // bytes PlayEffects = 7;
-  if (this->playeffects().size() > 0) {
+  // .Effects.CardEffect OmniPresentEffect = 7;
+  if (this->has_omnipresenteffect()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_playeffects());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *omnipresenteffect_);
   }
 
-  // bytes ResolveEffects = 8;
-  if (this->resolveeffects().size() > 0) {
+  // .Effects.CardEffect PassiveEffect = 8;
+  if (this->has_passiveeffect()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_resolveeffects());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *passiveeffect_);
   }
 
-  // int32 Count = 3;
-  if (this->count() != 0) {
+  // .Effects.CardEffect FeatEffect = 9;
+  if (this->has_feateffect()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_count());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *feateffect_);
   }
 
-  // bool Ultimate = 4;
+  // .Effects.CardEffect PlayEffect = 10;
+  if (this->has_playeffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *playeffect_);
+  }
+
+  // .Effects.CardEffect ResolveEffect = 11;
+  if (this->has_resolveeffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *resolveeffect_);
+  }
+
+  // bool Ultimate = 3;
   if (this->ultimate() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool Feat = 5;
+  // bool Feat = 4;
   if (this->feat() != 0) {
     total_size += 1 + 1;
+  }
+
+  // int32 Count = 6;
+  if (this->count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_count());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -673,23 +792,23 @@ size_t Card::ByteSizeLong() const {
   return total_size;
 }
 
-void Card::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:NetworkIO.Card)
+void CardMetaData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:NetworkIO.CardMetaData)
   GOOGLE_DCHECK_NE(&from, this);
-  const Card* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Card>(
+  const CardMetaData* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CardMetaData>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:NetworkIO.Card)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:NetworkIO.CardMetaData)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:NetworkIO.Card)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:NetworkIO.CardMetaData)
     MergeFrom(*source);
   }
 }
 
-void Card::MergeFrom(const Card& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:NetworkIO.Card)
+void CardMetaData::MergeFrom(const CardMetaData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:NetworkIO.CardMetaData)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -702,14 +821,20 @@ void Card::MergeFrom(const Card& from) {
   if (from.archetype().size() > 0) {
     _internal_set_archetype(from._internal_archetype());
   }
-  if (from.playeffects().size() > 0) {
-    _internal_set_playeffects(from._internal_playeffects());
+  if (from.has_omnipresenteffect()) {
+    _internal_mutable_omnipresenteffect()->::Effects::CardEffect::MergeFrom(from._internal_omnipresenteffect());
   }
-  if (from.resolveeffects().size() > 0) {
-    _internal_set_resolveeffects(from._internal_resolveeffects());
+  if (from.has_passiveeffect()) {
+    _internal_mutable_passiveeffect()->::Effects::CardEffect::MergeFrom(from._internal_passiveeffect());
   }
-  if (from.count() != 0) {
-    _internal_set_count(from._internal_count());
+  if (from.has_feateffect()) {
+    _internal_mutable_feateffect()->::Effects::CardEffect::MergeFrom(from._internal_feateffect());
+  }
+  if (from.has_playeffect()) {
+    _internal_mutable_playeffect()->::Effects::CardEffect::MergeFrom(from._internal_playeffect());
+  }
+  if (from.has_resolveeffect()) {
+    _internal_mutable_resolveeffect()->::Effects::CardEffect::MergeFrom(from._internal_resolveeffect());
   }
   if (from.ultimate() != 0) {
     _internal_set_ultimate(from._internal_ultimate());
@@ -717,43 +842,44 @@ void Card::MergeFrom(const Card& from) {
   if (from.feat() != 0) {
     _internal_set_feat(from._internal_feat());
   }
+  if (from.count() != 0) {
+    _internal_set_count(from._internal_count());
+  }
 }
 
-void Card::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:NetworkIO.Card)
+void CardMetaData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:NetworkIO.CardMetaData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Card::CopyFrom(const Card& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:NetworkIO.Card)
+void CardMetaData::CopyFrom(const CardMetaData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:NetworkIO.CardMetaData)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Card::IsInitialized() const {
+bool CardMetaData::IsInitialized() const {
   return true;
 }
 
-void Card::InternalSwap(Card* other) {
+void CardMetaData::InternalSwap(CardMetaData* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   colors_.InternalSwap(&other->colors_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   archetype_.Swap(&other->archetype_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  playeffects_.Swap(&other->playeffects_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  resolveeffects_.Swap(&other->resolveeffects_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Card, feat_)
-      + sizeof(Card::feat_)
-      - PROTOBUF_FIELD_OFFSET(Card, count_)>(
-          reinterpret_cast<char*>(&count_),
-          reinterpret_cast<char*>(&other->count_));
+      PROTOBUF_FIELD_OFFSET(CardMetaData, count_)
+      + sizeof(CardMetaData::count_)
+      - PROTOBUF_FIELD_OFFSET(CardMetaData, omnipresenteffect_)>(
+          reinterpret_cast<char*>(&omnipresenteffect_),
+          reinterpret_cast<char*>(&other->omnipresenteffect_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Card::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CardMetaData::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -762,16 +888,10 @@ void Card::InternalSwap(Card* other) {
 
 class DeckList::_Internal {
  public:
-  static const ::NetworkIO::Card& ultimate(const DeckList* msg);
 };
 
-const ::NetworkIO::Card&
-DeckList::_Internal::ultimate(const DeckList* msg) {
-  return *msg->ultimate_;
-}
 DeckList::DeckList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  feats_(arena),
   deck_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
@@ -779,20 +899,13 @@ DeckList::DeckList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 }
 DeckList::DeckList(const DeckList& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      feats_(from.feats_),
       deck_(from.deck_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_ultimate()) {
-    ultimate_ = new ::NetworkIO::Card(*from.ultimate_);
-  } else {
-    ultimate_ = nullptr;
-  }
   // @@protoc_insertion_point(copy_constructor:NetworkIO.DeckList)
 }
 
 void DeckList::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DeckList_GameInfo_2eproto.base);
-  ultimate_ = nullptr;
 }
 
 DeckList::~DeckList() {
@@ -803,7 +916,6 @@ DeckList::~DeckList() {
 
 void DeckList::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete ultimate_;
 }
 
 void DeckList::ArenaDtor(void* object) {
@@ -827,12 +939,7 @@ void DeckList::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  feats_.Clear();
   deck_.Clear();
-  if (GetArena() == nullptr && ultimate_ != nullptr) {
-    delete ultimate_;
-  }
-  ultimate_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -843,26 +950,7 @@ const char* DeckList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .NetworkIO.Card Ultimate = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_ultimate(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .NetworkIO.Card Feats = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_feats(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
-        continue;
-      // repeated .NetworkIO.Card Deck = 3;
+      // repeated .NetworkIO.CardMetaData Deck = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -902,23 +990,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .NetworkIO.Card Ultimate = 1;
-  if (this->has_ultimate()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::ultimate(this), target, stream);
-  }
-
-  // repeated .NetworkIO.Card Feats = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_feats_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_feats(i), target, stream);
-  }
-
-  // repeated .NetworkIO.Card Deck = 3;
+  // repeated .NetworkIO.CardMetaData Deck = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_deck_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -942,25 +1014,11 @@ size_t DeckList::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .NetworkIO.Card Feats = 2;
-  total_size += 1UL * this->_internal_feats_size();
-  for (const auto& msg : this->feats_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .NetworkIO.Card Deck = 3;
+  // repeated .NetworkIO.CardMetaData Deck = 3;
   total_size += 1UL * this->_internal_deck_size();
   for (const auto& msg : this->deck_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // .NetworkIO.Card Ultimate = 1;
-  if (this->has_ultimate()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *ultimate_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -994,11 +1052,7 @@ void DeckList::MergeFrom(const DeckList& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  feats_.MergeFrom(from.feats_);
   deck_.MergeFrom(from.deck_);
-  if (from.has_ultimate()) {
-    _internal_mutable_ultimate()->::NetworkIO::Card::MergeFrom(from._internal_ultimate());
-  }
 }
 
 void DeckList::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -1022,9 +1076,7 @@ bool DeckList::IsInitialized() const {
 void DeckList::InternalSwap(DeckList* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  feats_.InternalSwap(&other->feats_);
   deck_.InternalSwap(&other->deck_);
-  swap(ultimate_, other->ultimate_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DeckList::GetMetadata() const {
@@ -1371,12 +1423,12 @@ PlayerAgent::PlayerAgent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 PlayerAgent::PlayerAgent(const PlayerAgent& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  playerid_ = from.playerid_;
+  playeruid_ = from.playeruid_;
   // @@protoc_insertion_point(copy_constructor:NetworkIO.PlayerAgent)
 }
 
 void PlayerAgent::SharedCtor() {
-  playerid_ = 0;
+  playeruid_ = 0;
 }
 
 PlayerAgent::~PlayerAgent() {
@@ -1410,7 +1462,7 @@ void PlayerAgent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  playerid_ = 0;
+  playeruid_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1421,10 +1473,10 @@ const char* PlayerAgent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // int32 PlayerID = 1;
+      // int32 PlayerUID = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          playerid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          playeruid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1456,10 +1508,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 PlayerID = 1;
-  if (this->playerid() != 0) {
+  // int32 PlayerUID = 1;
+  if (this->playeruid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_playerid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_playeruid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1478,11 +1530,11 @@ size_t PlayerAgent::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 PlayerID = 1;
-  if (this->playerid() != 0) {
+  // int32 PlayerUID = 1;
+  if (this->playeruid() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_playerid());
+        this->_internal_playeruid());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1516,8 +1568,8 @@ void PlayerAgent::MergeFrom(const PlayerAgent& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.playerid() != 0) {
-    _internal_set_playerid(from._internal_playerid());
+  if (from.playeruid() != 0) {
+    _internal_set_playeruid(from._internal_playeruid());
   }
 }
 
@@ -1542,7 +1594,7 @@ bool PlayerAgent::IsInitialized() const {
 void PlayerAgent::InternalSwap(PlayerAgent* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(playerid_, other->playerid_);
+  swap(playeruid_, other->playeruid_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PlayerAgent::GetMetadata() const {
@@ -1552,239 +1604,10 @@ void PlayerAgent::InternalSwap(PlayerAgent* other) {
 
 // ===================================================================
 
-class Vec2i::_Internal {
- public:
-};
-
-Vec2i::Vec2i(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:NetworkIO.Vec2i)
-}
-Vec2i::Vec2i(const Vec2i& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&x_, &from.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
-    reinterpret_cast<char*>(&x_)) + sizeof(y_));
-  // @@protoc_insertion_point(copy_constructor:NetworkIO.Vec2i)
-}
-
-void Vec2i::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
-}
-
-Vec2i::~Vec2i() {
-  // @@protoc_insertion_point(destructor:NetworkIO.Vec2i)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void Vec2i::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void Vec2i::ArenaDtor(void* object) {
-  Vec2i* _this = reinterpret_cast< Vec2i* >(object);
-  (void)_this;
-}
-void Vec2i::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void Vec2i::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const Vec2i& Vec2i::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Vec2i_GameInfo_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void Vec2i::Clear() {
-// @@protoc_insertion_point(message_clear_start:NetworkIO.Vec2i)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&y_) -
-      reinterpret_cast<char*>(&x_)) + sizeof(y_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Vec2i::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // int32 X = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          x_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // int32 Y = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          y_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* Vec2i::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:NetworkIO.Vec2i)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 X = 1;
-  if (this->x() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_x(), target);
-  }
-
-  // int32 Y = 2;
-  if (this->y() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_y(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:NetworkIO.Vec2i)
-  return target;
-}
-
-size_t Vec2i::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:NetworkIO.Vec2i)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // int32 X = 1;
-  if (this->x() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_x());
-  }
-
-  // int32 Y = 2;
-  if (this->y() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_y());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void Vec2i::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:NetworkIO.Vec2i)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Vec2i* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Vec2i>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:NetworkIO.Vec2i)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:NetworkIO.Vec2i)
-    MergeFrom(*source);
-  }
-}
-
-void Vec2i::MergeFrom(const Vec2i& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:NetworkIO.Vec2i)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.x() != 0) {
-    _internal_set_x(from._internal_x());
-  }
-  if (from.y() != 0) {
-    _internal_set_y(from._internal_y());
-  }
-}
-
-void Vec2i::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:NetworkIO.Vec2i)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Vec2i::CopyFrom(const Vec2i& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:NetworkIO.Vec2i)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Vec2i::IsInitialized() const {
-  return true;
-}
-
-void Vec2i::InternalSwap(Vec2i* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Vec2i, y_)
-      + sizeof(Vec2i::y_)
-      - PROTOBUF_FIELD_OFFSET(Vec2i, x_)>(
-          reinterpret_cast<char*>(&x_),
-          reinterpret_cast<char*>(&other->x_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Vec2i::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
 class PlayerInfo::_Internal {
  public:
   static const ::NetworkIO::DeckList& deck(const PlayerInfo* msg);
-  static const ::NetworkIO::Vec2i& startingposition(const PlayerInfo* msg);
+  static const ::GameState::Vec2i& startingposition(const PlayerInfo* msg);
   static const ::NetworkIO::AIAgent& aiagent(const PlayerInfo* msg);
   static const ::NetworkIO::RandomAgent& randomagent(const PlayerInfo* msg);
   static const ::NetworkIO::PlayerAgent& playeragent(const PlayerInfo* msg);
@@ -1794,7 +1617,7 @@ const ::NetworkIO::DeckList&
 PlayerInfo::_Internal::deck(const PlayerInfo* msg) {
   return *msg->deck_;
 }
-const ::NetworkIO::Vec2i&
+const ::GameState::Vec2i&
 PlayerInfo::_Internal::startingposition(const PlayerInfo* msg) {
   return *msg->startingposition_;
 }
@@ -1809,6 +1632,12 @@ PlayerInfo::_Internal::randomagent(const PlayerInfo* msg) {
 const ::NetworkIO::PlayerAgent&
 PlayerInfo::_Internal::playeragent(const PlayerInfo* msg) {
   return *msg->AgentInfo_.playeragent_;
+}
+void PlayerInfo::clear_startingposition() {
+  if (GetArena() == nullptr && startingposition_ != nullptr) {
+    delete startingposition_;
+  }
+  startingposition_ = nullptr;
 }
 void PlayerInfo::set_allocated_aiagent(::NetworkIO::AIAgent* aiagent) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -1880,7 +1709,7 @@ PlayerInfo::PlayerInfo(const PlayerInfo& from)
     deck_ = nullptr;
   }
   if (from._internal_has_startingposition()) {
-    startingposition_ = new ::NetworkIO::Vec2i(*from.startingposition_);
+    startingposition_ = new ::GameState::Vec2i(*from.startingposition_);
   } else {
     startingposition_ = nullptr;
   }
@@ -2029,7 +1858,7 @@ const char* PlayerInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .NetworkIO.Vec2i StartingPosition = 4;
+      // .GameState.Vec2i StartingPosition = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_startingposition(), ptr);
@@ -2113,7 +1942,7 @@ failure:
         3, _Internal::deck(this), target, stream);
   }
 
-  // .NetworkIO.Vec2i StartingPosition = 4;
+  // .GameState.Vec2i StartingPosition = 4;
   if (this->has_startingposition()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2182,7 +2011,7 @@ size_t PlayerInfo::ByteSizeLong() const {
         *deck_);
   }
 
-  // .NetworkIO.Vec2i StartingPosition = 4;
+  // .GameState.Vec2i StartingPosition = 4;
   if (this->has_startingposition()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2256,7 +2085,7 @@ void PlayerInfo::MergeFrom(const PlayerInfo& from) {
     _internal_mutable_deck()->::NetworkIO::DeckList::MergeFrom(from._internal_deck());
   }
   if (from.has_startingposition()) {
-    _internal_mutable_startingposition()->::NetworkIO::Vec2i::MergeFrom(from._internal_startingposition());
+    _internal_mutable_startingposition()->::GameState::Vec2i::MergeFrom(from._internal_startingposition());
   }
   switch (from.AgentInfo_case()) {
     case kAIAgent: {
@@ -2319,12 +2148,18 @@ void PlayerInfo::InternalSwap(PlayerInfo* other) {
 
 class GameInfo::_Internal {
  public:
-  static const ::NetworkIO::Vec2i& mapsize(const GameInfo* msg);
+  static const ::GameState::Vec2i& mapsize(const GameInfo* msg);
 };
 
-const ::NetworkIO::Vec2i&
+const ::GameState::Vec2i&
 GameInfo::_Internal::mapsize(const GameInfo* msg) {
   return *msg->mapsize_;
+}
+void GameInfo::clear_mapsize() {
+  if (GetArena() == nullptr && mapsize_ != nullptr) {
+    delete mapsize_;
+  }
+  mapsize_ = nullptr;
 }
 GameInfo::GameInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
@@ -2338,7 +2173,7 @@ GameInfo::GameInfo(const GameInfo& from)
       players_(from.players_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_mapsize()) {
-    mapsize_ = new ::NetworkIO::Vec2i(*from.mapsize_);
+    mapsize_ = new ::GameState::Vec2i(*from.mapsize_);
   } else {
     mapsize_ = nullptr;
   }
@@ -2409,7 +2244,7 @@ const char* GameInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // .NetworkIO.Vec2i MapSize = 2;
+      // .GameState.Vec2i MapSize = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_mapsize(), ptr);
@@ -2452,7 +2287,7 @@ failure:
       InternalWriteMessage(1, this->_internal_players(i), target, stream);
   }
 
-  // .NetworkIO.Vec2i MapSize = 2;
+  // .GameState.Vec2i MapSize = 2;
   if (this->has_mapsize()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2483,7 +2318,7 @@ size_t GameInfo::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .NetworkIO.Vec2i MapSize = 2;
+  // .GameState.Vec2i MapSize = 2;
   if (this->has_mapsize()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2523,7 +2358,7 @@ void GameInfo::MergeFrom(const GameInfo& from) {
 
   players_.MergeFrom(from.players_);
   if (from.has_mapsize()) {
-    _internal_mutable_mapsize()->::NetworkIO::Vec2i::MergeFrom(from._internal_mapsize());
+    _internal_mutable_mapsize()->::GameState::Vec2i::MergeFrom(from._internal_mapsize());
   }
 }
 
@@ -2560,8 +2395,8 @@ void GameInfo::InternalSwap(GameInfo* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace NetworkIO
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::NetworkIO::Card* Arena::CreateMaybeMessage< ::NetworkIO::Card >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::NetworkIO::Card >(arena);
+template<> PROTOBUF_NOINLINE ::NetworkIO::CardMetaData* Arena::CreateMaybeMessage< ::NetworkIO::CardMetaData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::NetworkIO::CardMetaData >(arena);
 }
 template<> PROTOBUF_NOINLINE ::NetworkIO::DeckList* Arena::CreateMaybeMessage< ::NetworkIO::DeckList >(Arena* arena) {
   return Arena::CreateMessageInternal< ::NetworkIO::DeckList >(arena);
@@ -2574,9 +2409,6 @@ template<> PROTOBUF_NOINLINE ::NetworkIO::AIAgent* Arena::CreateMaybeMessage< ::
 }
 template<> PROTOBUF_NOINLINE ::NetworkIO::PlayerAgent* Arena::CreateMaybeMessage< ::NetworkIO::PlayerAgent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::NetworkIO::PlayerAgent >(arena);
-}
-template<> PROTOBUF_NOINLINE ::NetworkIO::Vec2i* Arena::CreateMaybeMessage< ::NetworkIO::Vec2i >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::NetworkIO::Vec2i >(arena);
 }
 template<> PROTOBUF_NOINLINE ::NetworkIO::PlayerInfo* Arena::CreateMaybeMessage< ::NetworkIO::PlayerInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::NetworkIO::PlayerInfo >(arena);
