@@ -55,9 +55,15 @@ protobuf:
 	--plugin=protoc-gen-grpc_cpp=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_cpp_plugin \
 	--cpp_out=${ROOT_DIR}/Source/GRPC \
 	--grpc_cpp_out=${ROOT_DIR}/Source/GRPC \
-	--python_out=${ROOT_DIR}/Python/Engine/NetworkIO \
-	--grpc_python_out=${ROOT_DIR}/Python/Engine/NetworkIO \
-	GameInfo.proto
+	Effects.proto GameState.proto GameInfo.proto Types.proto
+	sed -i \
+		-e 's|"GameInfo.pb.h"|<GRPC/GameInfo.pb.h>|g' \
+		-e 's|"GameInfo.grpc.pb.h"|<GRPC/GameInfo.grpc.pb.h>|g' \
+		-e 's|"GameState.pb.h"|<GRPC/GameState.pb.h>|g' \
+		-e 's|"GameState.grpc.pb.h"|<GRPC/GameState.grpc.pb.h>|g' \
+		-e 's|"Effects.pb.h"|<GRPC/Effects.pb.h>|g' \
+		-e 's|"Effects.grpc.pb.h"|<GRPC/Effects.grpc.pb.h>|g' \
+		-e 's|"Types.pb.h"|<GRPC/Types.pb.h>|g' \
+		-e 's|"Types.grpc.pb.h"|<GRPC/Types.grpc.pb.h>|g' \
+		${ROOT_DIR}/Source/GRPC/*
 	mv ${ROOT_DIR}/Source/GRPC/*.h ${ROOT_DIR}/Include/GRPC/
-	sed -i 's|#include "GameInfo.pb.h"|#include <GRPC/GameInfo.pb.h>|g' ${ROOT_DIR}/Source/GRPC/*.cc
-	sed -i 's|#include "GameInfo.grpc.pb.h"|#include <GRPC/GameInfo.grpc.pb.h>|g' ${ROOT_DIR}/Source/GRPC/GameInfo.grpc.pb.cc
