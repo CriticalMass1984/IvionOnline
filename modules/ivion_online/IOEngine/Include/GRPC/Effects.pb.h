@@ -1906,9 +1906,10 @@ class Effect PROTOBUF_FINAL :
 
   enum EffectCase {
     kGet = 1,
-    kFilterDistance = 2,
-    kSelect = 3,
-    kMove = 4,
+    kConstant = 2,
+    kFilterDistance = 3,
+    kSelect = 4,
+    kMove = 5,
     EFFECT_NOT_SET = 0,
   };
 
@@ -1989,9 +1990,10 @@ class Effect PROTOBUF_FINAL :
 
   enum : int {
     kGetFieldNumber = 1,
-    kFilterDistanceFieldNumber = 2,
-    kSelectFieldNumber = 3,
-    kMoveFieldNumber = 4,
+    kConstantFieldNumber = 2,
+    kFilterDistanceFieldNumber = 3,
+    kSelectFieldNumber = 4,
+    kMoveFieldNumber = 5,
   };
   // .Effects.Get Get = 1;
   bool has_get() const;
@@ -2011,7 +2013,25 @@ class Effect PROTOBUF_FINAL :
       ::Effects::Get* get);
   ::Effects::Get* unsafe_arena_release_get();
 
-  // .Effects.Filter_Distance Filter_Distance = 2;
+  // .Effects.Constant Constant = 2;
+  bool has_constant() const;
+  private:
+  bool _internal_has_constant() const;
+  public:
+  void clear_constant();
+  const ::Effects::Constant& constant() const;
+  ::Effects::Constant* release_constant();
+  ::Effects::Constant* mutable_constant();
+  void set_allocated_constant(::Effects::Constant* constant);
+  private:
+  const ::Effects::Constant& _internal_constant() const;
+  ::Effects::Constant* _internal_mutable_constant();
+  public:
+  void unsafe_arena_set_allocated_constant(
+      ::Effects::Constant* constant);
+  ::Effects::Constant* unsafe_arena_release_constant();
+
+  // .Effects.Filter_Distance Filter_Distance = 3;
   bool has_filter_distance() const;
   private:
   bool _internal_has_filter_distance() const;
@@ -2029,7 +2049,7 @@ class Effect PROTOBUF_FINAL :
       ::Effects::Filter_Distance* filter_distance);
   ::Effects::Filter_Distance* unsafe_arena_release_filter_distance();
 
-  // .Effects.Select Select = 3;
+  // .Effects.Select Select = 4;
   bool has_select() const;
   private:
   bool _internal_has_select() const;
@@ -2047,7 +2067,7 @@ class Effect PROTOBUF_FINAL :
       ::Effects::Select* select);
   ::Effects::Select* unsafe_arena_release_select();
 
-  // .Effects.Move Move = 4;
+  // .Effects.Move Move = 5;
   bool has_move() const;
   private:
   bool _internal_has_move() const;
@@ -2071,6 +2091,7 @@ class Effect PROTOBUF_FINAL :
  private:
   class _Internal;
   void set_has_get();
+  void set_has_constant();
   void set_has_filter_distance();
   void set_has_select();
   void set_has_move();
@@ -2084,6 +2105,7 @@ class Effect PROTOBUF_FINAL :
   union EffectUnion {
     EffectUnion() {}
     ::Effects::Get* get_;
+    ::Effects::Constant* constant_;
     ::Effects::Filter_Distance* filter_distance_;
     ::Effects::Select* select_;
     ::Effects::Move* move_;
@@ -3938,7 +3960,80 @@ inline ::Effects::Get* Effect::mutable_get() {
   return _internal_mutable_get();
 }
 
-// .Effects.Filter_Distance Filter_Distance = 2;
+// .Effects.Constant Constant = 2;
+inline bool Effect::_internal_has_constant() const {
+  return effect_case() == kConstant;
+}
+inline bool Effect::has_constant() const {
+  return _internal_has_constant();
+}
+inline void Effect::set_has_constant() {
+  _oneof_case_[0] = kConstant;
+}
+inline void Effect::clear_constant() {
+  if (_internal_has_constant()) {
+    if (GetArena() == nullptr) {
+      delete effect_.constant_;
+    }
+    clear_has_effect();
+  }
+}
+inline ::Effects::Constant* Effect::release_constant() {
+  // @@protoc_insertion_point(field_release:Effects.Effect.Constant)
+  if (_internal_has_constant()) {
+    clear_has_effect();
+      ::Effects::Constant* temp = effect_.constant_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    effect_.constant_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Effects::Constant& Effect::_internal_constant() const {
+  return _internal_has_constant()
+      ? *effect_.constant_
+      : reinterpret_cast< ::Effects::Constant&>(::Effects::_Constant_default_instance_);
+}
+inline const ::Effects::Constant& Effect::constant() const {
+  // @@protoc_insertion_point(field_get:Effects.Effect.Constant)
+  return _internal_constant();
+}
+inline ::Effects::Constant* Effect::unsafe_arena_release_constant() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Effects.Effect.Constant)
+  if (_internal_has_constant()) {
+    clear_has_effect();
+    ::Effects::Constant* temp = effect_.constant_;
+    effect_.constant_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Effect::unsafe_arena_set_allocated_constant(::Effects::Constant* constant) {
+  clear_effect();
+  if (constant) {
+    set_has_constant();
+    effect_.constant_ = constant;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Effect.Constant)
+}
+inline ::Effects::Constant* Effect::_internal_mutable_constant() {
+  if (!_internal_has_constant()) {
+    clear_effect();
+    set_has_constant();
+    effect_.constant_ = CreateMaybeMessage< ::Effects::Constant >(GetArena());
+  }
+  return effect_.constant_;
+}
+inline ::Effects::Constant* Effect::mutable_constant() {
+  // @@protoc_insertion_point(field_mutable:Effects.Effect.Constant)
+  return _internal_mutable_constant();
+}
+
+// .Effects.Filter_Distance Filter_Distance = 3;
 inline bool Effect::_internal_has_filter_distance() const {
   return effect_case() == kFilterDistance;
 }
@@ -4011,7 +4106,7 @@ inline ::Effects::Filter_Distance* Effect::mutable_filter_distance() {
   return _internal_mutable_filter_distance();
 }
 
-// .Effects.Select Select = 3;
+// .Effects.Select Select = 4;
 inline bool Effect::_internal_has_select() const {
   return effect_case() == kSelect;
 }
@@ -4084,7 +4179,7 @@ inline ::Effects::Select* Effect::mutable_select() {
   return _internal_mutable_select();
 }
 
-// .Effects.Move Move = 4;
+// .Effects.Move Move = 5;
 inline bool Effect::_internal_has_move() const {
   return effect_case() == kMove;
 }

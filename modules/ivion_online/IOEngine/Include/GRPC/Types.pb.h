@@ -326,12 +326,6 @@ class Path PROTOBUF_FINAL :
   }
   static const Path& default_instance();
 
-  enum PathCase {
-    kFields = 1,
-    kFullPath = 2,
-    PATH_NOT_SET = 0,
-  };
-
   static inline const Path* internal_default_instance() {
     return reinterpret_cast<const Path*>(
                &_Path_default_instance_);
@@ -410,9 +404,25 @@ class Path PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFieldsFieldNumber = 1,
     kFullPathFieldNumber = 2,
+    kFieldsFieldNumber = 1,
   };
+  // string FullPath = 2;
+  void clear_fullpath();
+  const std::string& fullpath() const;
+  void set_fullpath(const std::string& value);
+  void set_fullpath(std::string&& value);
+  void set_fullpath(const char* value);
+  void set_fullpath(const char* value, size_t size);
+  std::string* mutable_fullpath();
+  std::string* release_fullpath();
+  void set_allocated_fullpath(std::string* fullpath);
+  private:
+  const std::string& _internal_fullpath() const;
+  void _internal_set_fullpath(const std::string& value);
+  std::string* _internal_mutable_fullpath();
+  public:
+
   // .Types.Path.FieldIndecies Fields = 1;
   bool has_fields() const;
   private:
@@ -431,47 +441,16 @@ class Path PROTOBUF_FINAL :
       ::Types::Path_FieldIndecies* fields);
   ::Types::Path_FieldIndecies* unsafe_arena_release_fields();
 
-  // string FullPath = 2;
-  private:
-  bool _internal_has_fullpath() const;
-  public:
-  void clear_fullpath();
-  const std::string& fullpath() const;
-  void set_fullpath(const std::string& value);
-  void set_fullpath(std::string&& value);
-  void set_fullpath(const char* value);
-  void set_fullpath(const char* value, size_t size);
-  std::string* mutable_fullpath();
-  std::string* release_fullpath();
-  void set_allocated_fullpath(std::string* fullpath);
-  private:
-  const std::string& _internal_fullpath() const;
-  void _internal_set_fullpath(const std::string& value);
-  std::string* _internal_mutable_fullpath();
-  public:
-
-  void clear_path();
-  PathCase path_case() const;
   // @@protoc_insertion_point(class_scope:Types.Path)
  private:
   class _Internal;
-  void set_has_fields();
-  void set_has_fullpath();
-
-  inline bool has_path() const;
-  inline void clear_has_path();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union PathUnion {
-    PathUnion() {}
-    ::Types::Path_FieldIndecies* fields_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fullpath_;
-  } path_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fullpath_;
+  ::Types::Path_FieldIndecies* fields_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
-
   friend struct ::TableStruct_Types_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1520,10 +1499,10 @@ class IntegerValue PROTOBUF_FINAL :
   }
   static const IntegerValue& default_instance();
 
-  enum ValueCase {
+  enum IntValueCase {
     kValue = 1,
     kRef = 2,
-    VALUE_NOT_SET = 0,
+    INT_VALUE_NOT_SET = 0,
   };
 
   static inline const IntegerValue* internal_default_instance() {
@@ -1605,17 +1584,23 @@ class IntegerValue PROTOBUF_FINAL :
     kValueFieldNumber = 1,
     kRefFieldNumber = 2,
   };
-  // int32 Value = 1;
+  // .Types.Integer Value = 1;
+  bool has_value() const;
   private:
   bool _internal_has_value() const;
   public:
   void clear_value();
-  ::PROTOBUF_NAMESPACE_ID::int32 value() const;
-  void set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::Types::Integer& value() const;
+  ::Types::Integer* release_value();
+  ::Types::Integer* mutable_value();
+  void set_allocated_value(::Types::Integer* value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_value() const;
-  void _internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value);
+  const ::Types::Integer& _internal_value() const;
+  ::Types::Integer* _internal_mutable_value();
   public:
+  void unsafe_arena_set_allocated_value(
+      ::Types::Integer* value);
+  ::Types::Integer* unsafe_arena_release_value();
 
   // .Types.IntegerRef Ref = 2;
   bool has_ref() const;
@@ -1635,25 +1620,25 @@ class IntegerValue PROTOBUF_FINAL :
       ::Types::IntegerRef* ref);
   ::Types::IntegerRef* unsafe_arena_release_ref();
 
-  void clear_value();
-  ValueCase value_case() const;
+  void clear_int_value();
+  IntValueCase int_value_case() const;
   // @@protoc_insertion_point(class_scope:Types.IntegerValue)
  private:
   class _Internal;
   void set_has_value();
   void set_has_ref();
 
-  inline bool has_value() const;
-  inline void clear_has_value();
+  inline bool has_int_value() const;
+  inline void clear_has_int_value();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union ValueUnion {
-    ValueUnion() {}
-    ::PROTOBUF_NAMESPACE_ID::int32 value_;
+  union IntValueUnion {
+    IntValueUnion() {}
+    ::Types::Integer* value_;
     ::Types::IntegerRef* ref_;
-  } value_;
+  } int_value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
@@ -1697,10 +1682,10 @@ class Vec2iValue PROTOBUF_FINAL :
   }
   static const Vec2iValue& default_instance();
 
-  enum ValueCase {
+  enum Vec2IValueCase {
     kValue = 1,
     kRef = 2,
-    VALUE_NOT_SET = 0,
+    VEC2I_VALUE_NOT_SET = 0,
   };
 
   static inline const Vec2iValue* internal_default_instance() {
@@ -1818,25 +1803,25 @@ class Vec2iValue PROTOBUF_FINAL :
       ::Types::Vec2iRef* ref);
   ::Types::Vec2iRef* unsafe_arena_release_ref();
 
-  void clear_value();
-  ValueCase value_case() const;
+  void clear_vec2i_value();
+  Vec2IValueCase vec2i_value_case() const;
   // @@protoc_insertion_point(class_scope:Types.Vec2iValue)
  private:
   class _Internal;
   void set_has_value();
   void set_has_ref();
 
-  inline bool has_value() const;
-  inline void clear_has_value();
+  inline bool has_vec2i_value() const;
+  inline void clear_has_vec2i_value();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  union ValueUnion {
-    ValueUnion() {}
+  union Vec2IValueUnion {
+    Vec2IValueUnion() {}
     ::Types::Vec2i* value_;
     ::Types::Vec2iRef* ref_;
-  } value_;
+  } vec2i_value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
 
@@ -2392,89 +2377,90 @@ Path_FieldIndecies::mutable_indecies() {
 
 // .Types.Path.FieldIndecies Fields = 1;
 inline bool Path::_internal_has_fields() const {
-  return path_case() == kFields;
+  return this != internal_default_instance() && fields_ != nullptr;
 }
 inline bool Path::has_fields() const {
   return _internal_has_fields();
 }
-inline void Path::set_has_fields() {
-  _oneof_case_[0] = kFields;
-}
 inline void Path::clear_fields() {
-  if (_internal_has_fields()) {
-    if (GetArena() == nullptr) {
-      delete path_.fields_;
-    }
-    clear_has_path();
+  if (GetArena() == nullptr && fields_ != nullptr) {
+    delete fields_;
   }
-}
-inline ::Types::Path_FieldIndecies* Path::release_fields() {
-  // @@protoc_insertion_point(field_release:Types.Path.Fields)
-  if (_internal_has_fields()) {
-    clear_has_path();
-      ::Types::Path_FieldIndecies* temp = path_.fields_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    path_.fields_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
+  fields_ = nullptr;
 }
 inline const ::Types::Path_FieldIndecies& Path::_internal_fields() const {
-  return _internal_has_fields()
-      ? *path_.fields_
-      : reinterpret_cast< ::Types::Path_FieldIndecies&>(::Types::_Path_FieldIndecies_default_instance_);
+  const ::Types::Path_FieldIndecies* p = fields_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path_FieldIndecies&>(
+      ::Types::_Path_FieldIndecies_default_instance_);
 }
 inline const ::Types::Path_FieldIndecies& Path::fields() const {
   // @@protoc_insertion_point(field_get:Types.Path.Fields)
   return _internal_fields();
 }
-inline ::Types::Path_FieldIndecies* Path::unsafe_arena_release_fields() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Types.Path.Fields)
-  if (_internal_has_fields()) {
-    clear_has_path();
-    ::Types::Path_FieldIndecies* temp = path_.fields_;
-    path_.fields_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
+inline void Path::unsafe_arena_set_allocated_fields(
+    ::Types::Path_FieldIndecies* fields) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(fields_);
   }
-}
-inline void Path::unsafe_arena_set_allocated_fields(::Types::Path_FieldIndecies* fields) {
-  clear_path();
+  fields_ = fields;
   if (fields) {
-    set_has_fields();
-    path_.fields_ = fields;
+    
+  } else {
+    
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.Path.Fields)
 }
-inline ::Types::Path_FieldIndecies* Path::_internal_mutable_fields() {
-  if (!_internal_has_fields()) {
-    clear_path();
-    set_has_fields();
-    path_.fields_ = CreateMaybeMessage< ::Types::Path_FieldIndecies >(GetArena());
+inline ::Types::Path_FieldIndecies* Path::release_fields() {
+  
+  ::Types::Path_FieldIndecies* temp = fields_;
+  fields_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
-  return path_.fields_;
+  return temp;
+}
+inline ::Types::Path_FieldIndecies* Path::unsafe_arena_release_fields() {
+  // @@protoc_insertion_point(field_release:Types.Path.Fields)
+  
+  ::Types::Path_FieldIndecies* temp = fields_;
+  fields_ = nullptr;
+  return temp;
+}
+inline ::Types::Path_FieldIndecies* Path::_internal_mutable_fields() {
+  
+  if (fields_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Path_FieldIndecies>(GetArena());
+    fields_ = p;
+  }
+  return fields_;
 }
 inline ::Types::Path_FieldIndecies* Path::mutable_fields() {
   // @@protoc_insertion_point(field_mutable:Types.Path.Fields)
   return _internal_mutable_fields();
 }
+inline void Path::set_allocated_fields(::Types::Path_FieldIndecies* fields) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete fields_;
+  }
+  if (fields) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(fields);
+    if (message_arena != submessage_arena) {
+      fields = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fields, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  fields_ = fields;
+  // @@protoc_insertion_point(field_set_allocated:Types.Path.Fields)
+}
 
 // string FullPath = 2;
-inline bool Path::_internal_has_fullpath() const {
-  return path_case() == kFullPath;
-}
-inline void Path::set_has_fullpath() {
-  _oneof_case_[0] = kFullPath;
-}
 inline void Path::clear_fullpath() {
-  if (_internal_has_fullpath()) {
-    path_.fullpath_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-    clear_has_path();
-  }
+  fullpath_.ClearToEmpty();
 }
 inline const std::string& Path::fullpath() const {
   // @@protoc_insertion_point(field_get:Types.Path.FullPath)
@@ -2489,96 +2475,50 @@ inline std::string* Path::mutable_fullpath() {
   return _internal_mutable_fullpath();
 }
 inline const std::string& Path::_internal_fullpath() const {
-  if (_internal_has_fullpath()) {
-    return path_.fullpath_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+  return fullpath_.Get();
 }
 inline void Path::_internal_set_fullpath(const std::string& value) {
-  if (!_internal_has_fullpath()) {
-    clear_path();
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  path_.fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  
+  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
 inline void Path::set_fullpath(std::string&& value) {
-  // @@protoc_insertion_point(field_set:Types.Path.FullPath)
-  if (!_internal_has_fullpath()) {
-    clear_path();
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  path_.fullpath_.Set(
+  
+  fullpath_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
   // @@protoc_insertion_point(field_set_rvalue:Types.Path.FullPath)
 }
 inline void Path::set_fullpath(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  if (!_internal_has_fullpath()) {
-    clear_path();
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  path_.fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{},
-      ::std::string(value), GetArena());
+  
+  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
   // @@protoc_insertion_point(field_set_char:Types.Path.FullPath)
 }
 inline void Path::set_fullpath(const char* value,
-                             size_t size) {
-  if (!_internal_has_fullpath()) {
-    clear_path();
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  path_.fullpath_.Set(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size),
-      GetArena());
+    size_t size) {
+  
+  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
   // @@protoc_insertion_point(field_set_pointer:Types.Path.FullPath)
 }
 inline std::string* Path::_internal_mutable_fullpath() {
-  if (!_internal_has_fullpath()) {
-    clear_path();
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  }
-  return path_.fullpath_.Mutable(
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  
+  return fullpath_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
 inline std::string* Path::release_fullpath() {
   // @@protoc_insertion_point(field_release:Types.Path.FullPath)
-  if (_internal_has_fullpath()) {
-    clear_has_path();
-    return path_.fullpath_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  } else {
-    return nullptr;
-  }
+  return fullpath_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 inline void Path::set_allocated_fullpath(std::string* fullpath) {
-  if (has_path()) {
-    clear_path();
-  }
   if (fullpath != nullptr) {
-    set_has_fullpath();
-    path_.fullpath_.UnsafeSetDefault(fullpath);
-    ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena();
-    if (arena != nullptr) {
-      arena->Own(fullpath);
-    }
+    
+  } else {
+    
   }
+  fullpath_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), fullpath,
+      GetArena());
   // @@protoc_insertion_point(field_set_allocated:Types.Path.FullPath)
 }
 
-inline bool Path::has_path() const {
-  return path_case() != PATH_NOT_SET;
-}
-inline void Path::clear_has_path() {
-  _oneof_case_[0] = PATH_NOT_SET;
-}
-inline Path::PathCase Path::path_case() const {
-  return Path::PathCase(_oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // Integer
@@ -3086,44 +3026,82 @@ inline void Vec2iRef::set_allocated_objectpath(::Types::Path* objectpath) {
 
 // IntegerValue
 
-// int32 Value = 1;
+// .Types.Integer Value = 1;
 inline bool IntegerValue::_internal_has_value() const {
-  return value_case() == kValue;
+  return int_value_case() == kValue;
+}
+inline bool IntegerValue::has_value() const {
+  return _internal_has_value();
 }
 inline void IntegerValue::set_has_value() {
   _oneof_case_[0] = kValue;
 }
 inline void IntegerValue::clear_value() {
   if (_internal_has_value()) {
-    value_.value_ = 0;
-    clear_has_value();
+    if (GetArena() == nullptr) {
+      delete int_value_.value_;
+    }
+    clear_has_int_value();
   }
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 IntegerValue::_internal_value() const {
+inline ::Types::Integer* IntegerValue::release_value() {
+  // @@protoc_insertion_point(field_release:Types.IntegerValue.Value)
   if (_internal_has_value()) {
-    return value_.value_;
+    clear_has_int_value();
+      ::Types::Integer* temp = int_value_.value_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    int_value_.value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
   }
-  return 0;
 }
-inline void IntegerValue::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  if (!_internal_has_value()) {
-    clear_value();
-    set_has_value();
-  }
-  value_.value_ = value;
+inline const ::Types::Integer& IntegerValue::_internal_value() const {
+  return _internal_has_value()
+      ? *int_value_.value_
+      : reinterpret_cast< ::Types::Integer&>(::Types::_Integer_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 IntegerValue::value() const {
+inline const ::Types::Integer& IntegerValue::value() const {
   // @@protoc_insertion_point(field_get:Types.IntegerValue.Value)
   return _internal_value();
 }
-inline void IntegerValue::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:Types.IntegerValue.Value)
+inline ::Types::Integer* IntegerValue::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.IntegerValue.Value)
+  if (_internal_has_value()) {
+    clear_has_int_value();
+    ::Types::Integer* temp = int_value_.value_;
+    int_value_.value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void IntegerValue::unsafe_arena_set_allocated_value(::Types::Integer* value) {
+  clear_int_value();
+  if (value) {
+    set_has_value();
+    int_value_.value_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.IntegerValue.Value)
+}
+inline ::Types::Integer* IntegerValue::_internal_mutable_value() {
+  if (!_internal_has_value()) {
+    clear_int_value();
+    set_has_value();
+    int_value_.value_ = CreateMaybeMessage< ::Types::Integer >(GetArena());
+  }
+  return int_value_.value_;
+}
+inline ::Types::Integer* IntegerValue::mutable_value() {
+  // @@protoc_insertion_point(field_mutable:Types.IntegerValue.Value)
+  return _internal_mutable_value();
 }
 
 // .Types.IntegerRef Ref = 2;
 inline bool IntegerValue::_internal_has_ref() const {
-  return value_case() == kRef;
+  return int_value_case() == kRef;
 }
 inline bool IntegerValue::has_ref() const {
   return _internal_has_ref();
@@ -3134,20 +3112,20 @@ inline void IntegerValue::set_has_ref() {
 inline void IntegerValue::clear_ref() {
   if (_internal_has_ref()) {
     if (GetArena() == nullptr) {
-      delete value_.ref_;
+      delete int_value_.ref_;
     }
-    clear_has_value();
+    clear_has_int_value();
   }
 }
 inline ::Types::IntegerRef* IntegerValue::release_ref() {
   // @@protoc_insertion_point(field_release:Types.IntegerValue.Ref)
   if (_internal_has_ref()) {
-    clear_has_value();
-      ::Types::IntegerRef* temp = value_.ref_;
+    clear_has_int_value();
+      ::Types::IntegerRef* temp = int_value_.ref_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    value_.ref_ = nullptr;
+    int_value_.ref_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3155,7 +3133,7 @@ inline ::Types::IntegerRef* IntegerValue::release_ref() {
 }
 inline const ::Types::IntegerRef& IntegerValue::_internal_ref() const {
   return _internal_has_ref()
-      ? *value_.ref_
+      ? *int_value_.ref_
       : reinterpret_cast< ::Types::IntegerRef&>(::Types::_IntegerRef_default_instance_);
 }
 inline const ::Types::IntegerRef& IntegerValue::ref() const {
@@ -3165,43 +3143,43 @@ inline const ::Types::IntegerRef& IntegerValue::ref() const {
 inline ::Types::IntegerRef* IntegerValue::unsafe_arena_release_ref() {
   // @@protoc_insertion_point(field_unsafe_arena_release:Types.IntegerValue.Ref)
   if (_internal_has_ref()) {
-    clear_has_value();
-    ::Types::IntegerRef* temp = value_.ref_;
-    value_.ref_ = nullptr;
+    clear_has_int_value();
+    ::Types::IntegerRef* temp = int_value_.ref_;
+    int_value_.ref_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void IntegerValue::unsafe_arena_set_allocated_ref(::Types::IntegerRef* ref) {
-  clear_value();
+  clear_int_value();
   if (ref) {
     set_has_ref();
-    value_.ref_ = ref;
+    int_value_.ref_ = ref;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.IntegerValue.Ref)
 }
 inline ::Types::IntegerRef* IntegerValue::_internal_mutable_ref() {
   if (!_internal_has_ref()) {
-    clear_value();
+    clear_int_value();
     set_has_ref();
-    value_.ref_ = CreateMaybeMessage< ::Types::IntegerRef >(GetArena());
+    int_value_.ref_ = CreateMaybeMessage< ::Types::IntegerRef >(GetArena());
   }
-  return value_.ref_;
+  return int_value_.ref_;
 }
 inline ::Types::IntegerRef* IntegerValue::mutable_ref() {
   // @@protoc_insertion_point(field_mutable:Types.IntegerValue.Ref)
   return _internal_mutable_ref();
 }
 
-inline bool IntegerValue::has_value() const {
-  return value_case() != VALUE_NOT_SET;
+inline bool IntegerValue::has_int_value() const {
+  return int_value_case() != INT_VALUE_NOT_SET;
 }
-inline void IntegerValue::clear_has_value() {
-  _oneof_case_[0] = VALUE_NOT_SET;
+inline void IntegerValue::clear_has_int_value() {
+  _oneof_case_[0] = INT_VALUE_NOT_SET;
 }
-inline IntegerValue::ValueCase IntegerValue::value_case() const {
-  return IntegerValue::ValueCase(_oneof_case_[0]);
+inline IntegerValue::IntValueCase IntegerValue::int_value_case() const {
+  return IntegerValue::IntValueCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 
@@ -3209,7 +3187,7 @@ inline IntegerValue::ValueCase IntegerValue::value_case() const {
 
 // .Types.Vec2i Value = 1;
 inline bool Vec2iValue::_internal_has_value() const {
-  return value_case() == kValue;
+  return vec2i_value_case() == kValue;
 }
 inline bool Vec2iValue::has_value() const {
   return _internal_has_value();
@@ -3220,20 +3198,20 @@ inline void Vec2iValue::set_has_value() {
 inline void Vec2iValue::clear_value() {
   if (_internal_has_value()) {
     if (GetArena() == nullptr) {
-      delete value_.value_;
+      delete vec2i_value_.value_;
     }
-    clear_has_value();
+    clear_has_vec2i_value();
   }
 }
 inline ::Types::Vec2i* Vec2iValue::release_value() {
   // @@protoc_insertion_point(field_release:Types.Vec2iValue.Value)
   if (_internal_has_value()) {
-    clear_has_value();
-      ::Types::Vec2i* temp = value_.value_;
+    clear_has_vec2i_value();
+      ::Types::Vec2i* temp = vec2i_value_.value_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    value_.value_ = nullptr;
+    vec2i_value_.value_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3241,7 +3219,7 @@ inline ::Types::Vec2i* Vec2iValue::release_value() {
 }
 inline const ::Types::Vec2i& Vec2iValue::_internal_value() const {
   return _internal_has_value()
-      ? *value_.value_
+      ? *vec2i_value_.value_
       : reinterpret_cast< ::Types::Vec2i&>(::Types::_Vec2i_default_instance_);
 }
 inline const ::Types::Vec2i& Vec2iValue::value() const {
@@ -3251,29 +3229,29 @@ inline const ::Types::Vec2i& Vec2iValue::value() const {
 inline ::Types::Vec2i* Vec2iValue::unsafe_arena_release_value() {
   // @@protoc_insertion_point(field_unsafe_arena_release:Types.Vec2iValue.Value)
   if (_internal_has_value()) {
-    clear_has_value();
-    ::Types::Vec2i* temp = value_.value_;
-    value_.value_ = nullptr;
+    clear_has_vec2i_value();
+    ::Types::Vec2i* temp = vec2i_value_.value_;
+    vec2i_value_.value_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void Vec2iValue::unsafe_arena_set_allocated_value(::Types::Vec2i* value) {
-  clear_value();
+  clear_vec2i_value();
   if (value) {
     set_has_value();
-    value_.value_ = value;
+    vec2i_value_.value_ = value;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.Vec2iValue.Value)
 }
 inline ::Types::Vec2i* Vec2iValue::_internal_mutable_value() {
   if (!_internal_has_value()) {
-    clear_value();
+    clear_vec2i_value();
     set_has_value();
-    value_.value_ = CreateMaybeMessage< ::Types::Vec2i >(GetArena());
+    vec2i_value_.value_ = CreateMaybeMessage< ::Types::Vec2i >(GetArena());
   }
-  return value_.value_;
+  return vec2i_value_.value_;
 }
 inline ::Types::Vec2i* Vec2iValue::mutable_value() {
   // @@protoc_insertion_point(field_mutable:Types.Vec2iValue.Value)
@@ -3282,7 +3260,7 @@ inline ::Types::Vec2i* Vec2iValue::mutable_value() {
 
 // .Types.Vec2iRef Ref = 2;
 inline bool Vec2iValue::_internal_has_ref() const {
-  return value_case() == kRef;
+  return vec2i_value_case() == kRef;
 }
 inline bool Vec2iValue::has_ref() const {
   return _internal_has_ref();
@@ -3293,20 +3271,20 @@ inline void Vec2iValue::set_has_ref() {
 inline void Vec2iValue::clear_ref() {
   if (_internal_has_ref()) {
     if (GetArena() == nullptr) {
-      delete value_.ref_;
+      delete vec2i_value_.ref_;
     }
-    clear_has_value();
+    clear_has_vec2i_value();
   }
 }
 inline ::Types::Vec2iRef* Vec2iValue::release_ref() {
   // @@protoc_insertion_point(field_release:Types.Vec2iValue.Ref)
   if (_internal_has_ref()) {
-    clear_has_value();
-      ::Types::Vec2iRef* temp = value_.ref_;
+    clear_has_vec2i_value();
+      ::Types::Vec2iRef* temp = vec2i_value_.ref_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    value_.ref_ = nullptr;
+    vec2i_value_.ref_ = nullptr;
     return temp;
   } else {
     return nullptr;
@@ -3314,7 +3292,7 @@ inline ::Types::Vec2iRef* Vec2iValue::release_ref() {
 }
 inline const ::Types::Vec2iRef& Vec2iValue::_internal_ref() const {
   return _internal_has_ref()
-      ? *value_.ref_
+      ? *vec2i_value_.ref_
       : reinterpret_cast< ::Types::Vec2iRef&>(::Types::_Vec2iRef_default_instance_);
 }
 inline const ::Types::Vec2iRef& Vec2iValue::ref() const {
@@ -3324,43 +3302,43 @@ inline const ::Types::Vec2iRef& Vec2iValue::ref() const {
 inline ::Types::Vec2iRef* Vec2iValue::unsafe_arena_release_ref() {
   // @@protoc_insertion_point(field_unsafe_arena_release:Types.Vec2iValue.Ref)
   if (_internal_has_ref()) {
-    clear_has_value();
-    ::Types::Vec2iRef* temp = value_.ref_;
-    value_.ref_ = nullptr;
+    clear_has_vec2i_value();
+    ::Types::Vec2iRef* temp = vec2i_value_.ref_;
+    vec2i_value_.ref_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
 inline void Vec2iValue::unsafe_arena_set_allocated_ref(::Types::Vec2iRef* ref) {
-  clear_value();
+  clear_vec2i_value();
   if (ref) {
     set_has_ref();
-    value_.ref_ = ref;
+    vec2i_value_.ref_ = ref;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.Vec2iValue.Ref)
 }
 inline ::Types::Vec2iRef* Vec2iValue::_internal_mutable_ref() {
   if (!_internal_has_ref()) {
-    clear_value();
+    clear_vec2i_value();
     set_has_ref();
-    value_.ref_ = CreateMaybeMessage< ::Types::Vec2iRef >(GetArena());
+    vec2i_value_.ref_ = CreateMaybeMessage< ::Types::Vec2iRef >(GetArena());
   }
-  return value_.ref_;
+  return vec2i_value_.ref_;
 }
 inline ::Types::Vec2iRef* Vec2iValue::mutable_ref() {
   // @@protoc_insertion_point(field_mutable:Types.Vec2iValue.Ref)
   return _internal_mutable_ref();
 }
 
-inline bool Vec2iValue::has_value() const {
-  return value_case() != VALUE_NOT_SET;
+inline bool Vec2iValue::has_vec2i_value() const {
+  return vec2i_value_case() != VEC2I_VALUE_NOT_SET;
 }
-inline void Vec2iValue::clear_has_value() {
-  _oneof_case_[0] = VALUE_NOT_SET;
+inline void Vec2iValue::clear_has_vec2i_value() {
+  _oneof_case_[0] = VEC2I_VALUE_NOT_SET;
 }
-inline Vec2iValue::ValueCase Vec2iValue::value_case() const {
-  return Vec2iValue::ValueCase(_oneof_case_[0]);
+inline Vec2iValue::Vec2IValueCase Vec2iValue::vec2i_value_case() const {
+  return Vec2iValue::Vec2IValueCase(_oneof_case_[0]);
 }
 // -------------------------------------------------------------------
 

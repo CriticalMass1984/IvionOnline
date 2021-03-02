@@ -80,9 +80,10 @@ message Move {
 message Effect {
     oneof effect {
         Get Get = 1;
-        Filter_Distance Filter_Distance = 2;
-        Select Select = 3;
-        Move Move = 4;
+        Constant Constant = 2;
+        Filter_Distance Filter_Distance = 3;
+        Select Select = 4;
+        Move Move = 5;
     }
 }
 

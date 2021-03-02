@@ -15,7 +15,8 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardList_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Effect_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Constant_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Effect_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Filter_Distance_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Get_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Move_Effects_2eproto;
@@ -23,7 +24,7 @@ extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::interna
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Select_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_StackVar_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileList_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerValue_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_IntegerValue_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Path_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Vec2iValue_Types_2eproto;
 namespace Effects {
@@ -124,9 +125,10 @@ static void InitDefaultsscc_info_Effect_Effects_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Effect_Effects_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Effect_Effects_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Effect_Effects_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_Effect_Effects_2eproto}, {
       &scc_info_Get_Effects_2eproto.base,
+      &scc_info_Constant_Effects_2eproto.base,
       &scc_info_Filter_Distance_Effects_2eproto.base,
       &scc_info_Select_Effects_2eproto.base,
       &scc_info_Move_Effects_2eproto.base,}};
@@ -321,6 +323,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Effects_2eproto::offsets[] PRO
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Effects::Effect, effect_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Effects::CardEffect, _internal_metadata_),
@@ -340,7 +343,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 56, -1, sizeof(::Effects::Select)},
   { 65, -1, sizeof(::Effects::Move)},
   { 72, -1, sizeof(::Effects::Effect)},
-  { 82, -1, sizeof(::Effects::CardEffect)},
+  { 83, -1, sizeof(::Effects::CardEffect)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -389,13 +392,14 @@ const char descriptor_table_protodef_Effects_2eproto[] PROTOBUF_SECTION_VARIABLE
   "ypes.Path\022\033\n\006Number\030\002 \001(\0132\013.Types.Path\022\014"
   "\n\004UpTo\030\003 \001(\010\022\017\n\007Targets\030\004 \001(\010\"E\n\004Move\022 \n"
   "\013Destination\030\001 \001(\0132\013.Types.Path\022\033\n\006Playe"
-  "r\030\002 \001(\0132\013.Types.Path\"\246\001\n\006Effect\022\033\n\003Get\030\001"
-  " \001(\0132\014.Effects.GetH\000\0223\n\017Filter_Distance\030"
-  "\002 \001(\0132\030.Effects.Filter_DistanceH\000\022!\n\006Sel"
-  "ect\030\003 \001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\004 \001"
-  "(\0132\r.Effects.MoveH\000B\010\n\006effect\".\n\nCardEff"
-  "ect\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006p"
-  "roto3"
+  "r\030\002 \001(\0132\013.Types.Path\"\315\001\n\006Effect\022\033\n\003Get\030\001"
+  " \001(\0132\014.Effects.GetH\000\022%\n\010Constant\030\002 \001(\0132\021"
+  ".Effects.ConstantH\000\0223\n\017Filter_Distance\030\003"
+  " \001(\0132\030.Effects.Filter_DistanceH\000\022!\n\006Sele"
+  "ct\030\004 \001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\005 \001("
+  "\0132\r.Effects.MoveH\000B\010\n\006effect\".\n\nCardEffe"
+  "ct\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006pr"
+  "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Effects_2eproto_deps[1] = {
   &::descriptor_table_Types_2eproto,
@@ -415,7 +419,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Eff
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Effects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Effects_2eproto = {
-  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1485,
+  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1524,
   &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 11, 1,
   schemas, file_default_instances, TableStruct_Effects_2eproto::offsets,
   file_level_metadata_Effects_2eproto, 11, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
@@ -3227,6 +3231,7 @@ void Move::InternalSwap(Move* other) {
 class Effect::_Internal {
  public:
   static const ::Effects::Get& get(const Effect* msg);
+  static const ::Effects::Constant& constant(const Effect* msg);
   static const ::Effects::Filter_Distance& filter_distance(const Effect* msg);
   static const ::Effects::Select& select(const Effect* msg);
   static const ::Effects::Move& move(const Effect* msg);
@@ -3235,6 +3240,10 @@ class Effect::_Internal {
 const ::Effects::Get&
 Effect::_Internal::get(const Effect* msg) {
   return *msg->effect_.get_;
+}
+const ::Effects::Constant&
+Effect::_Internal::constant(const Effect* msg) {
+  return *msg->effect_.constant_;
 }
 const ::Effects::Filter_Distance&
 Effect::_Internal::filter_distance(const Effect* msg) {
@@ -3262,6 +3271,21 @@ void Effect::set_allocated_get(::Effects::Get* get) {
     effect_.get_ = get;
   }
   // @@protoc_insertion_point(field_set_allocated:Effects.Effect.Get)
+}
+void Effect::set_allocated_constant(::Effects::Constant* constant) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_effect();
+  if (constant) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(constant);
+    if (message_arena != submessage_arena) {
+      constant = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, constant, submessage_arena);
+    }
+    set_has_constant();
+    effect_.constant_ = constant;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Effects.Effect.Constant)
 }
 void Effect::set_allocated_filter_distance(::Effects::Filter_Distance* filter_distance) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -3321,6 +3345,10 @@ Effect::Effect(const Effect& from)
   switch (from.effect_case()) {
     case kGet: {
       _internal_mutable_get()->::Effects::Get::MergeFrom(from._internal_get());
+      break;
+    }
+    case kConstant: {
+      _internal_mutable_constant()->::Effects::Constant::MergeFrom(from._internal_constant());
       break;
     }
     case kFilterDistance: {
@@ -3384,6 +3412,12 @@ void Effect::clear_effect() {
       }
       break;
     }
+    case kConstant: {
+      if (GetArena() == nullptr) {
+        delete effect_.constant_;
+      }
+      break;
+    }
     case kFilterDistance: {
       if (GetArena() == nullptr) {
         delete effect_.filter_distance_;
@@ -3434,23 +3468,30 @@ const char* Effect::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.Filter_Distance Filter_Distance = 2;
+      // .Effects.Constant Constant = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_constant(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.Filter_Distance Filter_Distance = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_filter_distance(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.Select Select = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // .Effects.Select Select = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_select(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Effects.Move Move = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+      // .Effects.Move Move = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_move(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -3491,28 +3532,36 @@ failure:
         1, _Internal::get(this), target, stream);
   }
 
-  // .Effects.Filter_Distance Filter_Distance = 2;
+  // .Effects.Constant Constant = 2;
+  if (_internal_has_constant()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::constant(this), target, stream);
+  }
+
+  // .Effects.Filter_Distance Filter_Distance = 3;
   if (_internal_has_filter_distance()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::filter_distance(this), target, stream);
+        3, _Internal::filter_distance(this), target, stream);
   }
 
-  // .Effects.Select Select = 3;
+  // .Effects.Select Select = 4;
   if (_internal_has_select()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::select(this), target, stream);
+        4, _Internal::select(this), target, stream);
   }
 
-  // .Effects.Move Move = 4;
+  // .Effects.Move Move = 5;
   if (_internal_has_move()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::move(this), target, stream);
+        5, _Internal::move(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3539,21 +3588,28 @@ size_t Effect::ByteSizeLong() const {
           *effect_.get_);
       break;
     }
-    // .Effects.Filter_Distance Filter_Distance = 2;
+    // .Effects.Constant Constant = 2;
+    case kConstant: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *effect_.constant_);
+      break;
+    }
+    // .Effects.Filter_Distance Filter_Distance = 3;
     case kFilterDistance: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *effect_.filter_distance_);
       break;
     }
-    // .Effects.Select Select = 3;
+    // .Effects.Select Select = 4;
     case kSelect: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *effect_.select_);
       break;
     }
-    // .Effects.Move Move = 4;
+    // .Effects.Move Move = 5;
     case kMove: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3598,6 +3654,10 @@ void Effect::MergeFrom(const Effect& from) {
   switch (from.effect_case()) {
     case kGet: {
       _internal_mutable_get()->::Effects::Get::MergeFrom(from._internal_get());
+      break;
+    }
+    case kConstant: {
+      _internal_mutable_constant()->::Effects::Constant::MergeFrom(from._internal_constant());
       break;
     }
     case kFilterDistance: {

@@ -1,0 +1,72 @@
+{
+    "Effects": [
+        {
+            "Get": {
+                "Result": {
+                    "Tiles": {}
+                },
+                "Source": {
+                    "FullPath": "/Tiles"
+                },
+                "Name": "Tiles"
+            }
+        },
+        {
+            "Constant": {
+                "Result": {
+                    "Integer": {
+                        "Value": {
+                            "Value": 1
+                        }
+                    }
+                },
+                "Name": "Distance"
+            }
+        },
+        {
+            "Constant": {
+                "Result": {
+                    "Integer": {
+                        "Value": {
+                            "Value": 1
+                        }
+                    }
+                },
+                "Name": "Number"
+            }
+        },
+        {
+            "FilterDistance": {
+                "Source": {
+                    "FullPath": "./PlayEffects/Tiles"
+                },
+                "From": {
+                    "FullPath": "./Controller"
+                },
+                "Distance": {
+                    "FullPath": "./PlayEffects/Distance"
+                }
+            }
+        },
+        {
+            "Select": {
+                "Source": {
+                    "FullPath": "./PlayEffects/Tiles"
+                },
+                "Number": {
+                    "FullPath": "./PlayEffects/Number"
+                }
+            }
+        },
+        {
+            "Move": {
+                "Destination": {
+                    "FullPath": "./PlayEffects/Tiles"
+                },
+                "Player": {
+                    "FullPath": "./Controller"
+                }
+            }
+        }
+    ]
+}

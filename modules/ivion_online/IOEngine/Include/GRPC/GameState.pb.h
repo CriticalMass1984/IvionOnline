@@ -49,7 +49,7 @@ struct TableStruct_GameState_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -60,6 +60,12 @@ namespace GameState {
 class Card;
 class CardDefaultTypeInternal;
 extern CardDefaultTypeInternal _Card_default_instance_;
+class CardMetaData;
+class CardMetaDataDefaultTypeInternal;
+extern CardMetaDataDefaultTypeInternal _CardMetaData_default_instance_;
+class CardStats;
+class CardStatsDefaultTypeInternal;
+extern CardStatsDefaultTypeInternal _CardStats_default_instance_;
 class GameInstance;
 class GameInstanceDefaultTypeInternal;
 extern GameInstanceDefaultTypeInternal _GameInstance_default_instance_;
@@ -75,9 +81,6 @@ extern MutationDefaultTypeInternal _Mutation_default_instance_;
 class Player;
 class PlayerDefaultTypeInternal;
 extern PlayerDefaultTypeInternal _Player_default_instance_;
-class Player_Stats;
-class Player_StatsDefaultTypeInternal;
-extern Player_StatsDefaultTypeInternal _Player_Stats_default_instance_;
 class RemoveMutation;
 class RemoveMutationDefaultTypeInternal;
 extern RemoveMutationDefaultTypeInternal _RemoveMutation_default_instance_;
@@ -93,12 +96,13 @@ extern TileDefaultTypeInternal _Tile_default_instance_;
 }  // namespace GameState
 PROTOBUF_NAMESPACE_OPEN
 template<> ::GameState::Card* Arena::CreateMaybeMessage<::GameState::Card>(Arena*);
+template<> ::GameState::CardMetaData* Arena::CreateMaybeMessage<::GameState::CardMetaData>(Arena*);
+template<> ::GameState::CardStats* Arena::CreateMaybeMessage<::GameState::CardStats>(Arena*);
 template<> ::GameState::GameInstance* Arena::CreateMaybeMessage<::GameState::GameInstance>(Arena*);
 template<> ::GameState::GameState* Arena::CreateMaybeMessage<::GameState::GameState>(Arena*);
 template<> ::GameState::InsertMutation* Arena::CreateMaybeMessage<::GameState::InsertMutation>(Arena*);
 template<> ::GameState::Mutation* Arena::CreateMaybeMessage<::GameState::Mutation>(Arena*);
 template<> ::GameState::Player* Arena::CreateMaybeMessage<::GameState::Player>(Arena*);
-template<> ::GameState::Player_Stats* Arena::CreateMaybeMessage<::GameState::Player_Stats>(Arena*);
 template<> ::GameState::RemoveMutation* Arena::CreateMaybeMessage<::GameState::RemoveMutation>(Arena*);
 template<> ::GameState::SetMutation* Arena::CreateMaybeMessage<::GameState::SetMutation>(Arena*);
 template<> ::GameState::Team* Arena::CreateMaybeMessage<::GameState::Team>(Arena*);
@@ -106,301 +110,36 @@ template<> ::GameState::Tile* Arena::CreateMaybeMessage<::GameState::Tile>(Arena
 PROTOBUF_NAMESPACE_CLOSE
 namespace GameState {
 
-enum Card_Color : int {
-  Card_Color_GRAY = 0,
-  Card_Color_BLACK = 1,
-  Card_Color_RED = 2,
-  Card_Color_GREEN = 3,
-  Card_Color_BLUE = 4,
-  Card_Color_WHITE = 5,
-  Card_Color_Card_Color_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  Card_Color_Card_Color_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+enum CardMetaData_Color : int {
+  CardMetaData_Color_GRAY = 0,
+  CardMetaData_Color_BLACK = 1,
+  CardMetaData_Color_RED = 2,
+  CardMetaData_Color_GREEN = 3,
+  CardMetaData_Color_BLUE = 4,
+  CardMetaData_Color_WHITE = 5,
+  CardMetaData_Color_CardMetaData_Color_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  CardMetaData_Color_CardMetaData_Color_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool Card_Color_IsValid(int value);
-constexpr Card_Color Card_Color_Color_MIN = Card_Color_GRAY;
-constexpr Card_Color Card_Color_Color_MAX = Card_Color_WHITE;
-constexpr int Card_Color_Color_ARRAYSIZE = Card_Color_Color_MAX + 1;
+bool CardMetaData_Color_IsValid(int value);
+constexpr CardMetaData_Color CardMetaData_Color_Color_MIN = CardMetaData_Color_GRAY;
+constexpr CardMetaData_Color CardMetaData_Color_Color_MAX = CardMetaData_Color_WHITE;
+constexpr int CardMetaData_Color_Color_ARRAYSIZE = CardMetaData_Color_Color_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Card_Color_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CardMetaData_Color_descriptor();
 template<typename T>
-inline const std::string& Card_Color_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Card_Color>::value ||
+inline const std::string& CardMetaData_Color_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CardMetaData_Color>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function Card_Color_Name.");
+    "Incorrect type passed to function CardMetaData_Color_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Card_Color_descriptor(), enum_t_value);
+    CardMetaData_Color_descriptor(), enum_t_value);
 }
-inline bool Card_Color_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Card_Color* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Card_Color>(
-    Card_Color_descriptor(), name, value);
+inline bool CardMetaData_Color_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CardMetaData_Color* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CardMetaData_Color>(
+    CardMetaData_Color_descriptor(), name, value);
 }
 // ===================================================================
-
-class Player_Stats PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Player.Stats) */ {
- public:
-  inline Player_Stats() : Player_Stats(nullptr) {}
-  virtual ~Player_Stats();
-
-  Player_Stats(const Player_Stats& from);
-  Player_Stats(Player_Stats&& from) noexcept
-    : Player_Stats() {
-    *this = ::std::move(from);
-  }
-
-  inline Player_Stats& operator=(const Player_Stats& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Player_Stats& operator=(Player_Stats&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const Player_Stats& default_instance();
-
-  static inline const Player_Stats* internal_default_instance() {
-    return reinterpret_cast<const Player_Stats*>(
-               &_Player_Stats_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    0;
-
-  friend void swap(Player_Stats& a, Player_Stats& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Player_Stats* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Player_Stats* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline Player_Stats* New() const final {
-    return CreateMaybeMessage<Player_Stats>(nullptr);
-  }
-
-  Player_Stats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Player_Stats>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Player_Stats& from);
-  void MergeFrom(const Player_Stats& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Player_Stats* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "GameState.Player.Stats";
-  }
-  protected:
-  explicit Player_Stats(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kHealthFieldNumber = 1,
-    kActionsFieldNumber = 2,
-    kPowerFieldNumber = 3,
-    kSlowFieldNumber = 4,
-    kSilenceFieldNumber = 5,
-    kDisarmFieldNumber = 6,
-    kInitiativeFieldNumber = 7,
-  };
-  // .Types.IntegerRef Health = 1;
-  bool has_health() const;
-  private:
-  bool _internal_has_health() const;
-  public:
-  void clear_health();
-  const ::Types::IntegerRef& health() const;
-  ::Types::IntegerRef* release_health();
-  ::Types::IntegerRef* mutable_health();
-  void set_allocated_health(::Types::IntegerRef* health);
-  private:
-  const ::Types::IntegerRef& _internal_health() const;
-  ::Types::IntegerRef* _internal_mutable_health();
-  public:
-  void unsafe_arena_set_allocated_health(
-      ::Types::IntegerRef* health);
-  ::Types::IntegerRef* unsafe_arena_release_health();
-
-  // .Types.IntegerRef Actions = 2;
-  bool has_actions() const;
-  private:
-  bool _internal_has_actions() const;
-  public:
-  void clear_actions();
-  const ::Types::IntegerRef& actions() const;
-  ::Types::IntegerRef* release_actions();
-  ::Types::IntegerRef* mutable_actions();
-  void set_allocated_actions(::Types::IntegerRef* actions);
-  private:
-  const ::Types::IntegerRef& _internal_actions() const;
-  ::Types::IntegerRef* _internal_mutable_actions();
-  public:
-  void unsafe_arena_set_allocated_actions(
-      ::Types::IntegerRef* actions);
-  ::Types::IntegerRef* unsafe_arena_release_actions();
-
-  // .Types.IntegerRef Power = 3;
-  bool has_power() const;
-  private:
-  bool _internal_has_power() const;
-  public:
-  void clear_power();
-  const ::Types::IntegerRef& power() const;
-  ::Types::IntegerRef* release_power();
-  ::Types::IntegerRef* mutable_power();
-  void set_allocated_power(::Types::IntegerRef* power);
-  private:
-  const ::Types::IntegerRef& _internal_power() const;
-  ::Types::IntegerRef* _internal_mutable_power();
-  public:
-  void unsafe_arena_set_allocated_power(
-      ::Types::IntegerRef* power);
-  ::Types::IntegerRef* unsafe_arena_release_power();
-
-  // .Types.IntegerRef Slow = 4;
-  bool has_slow() const;
-  private:
-  bool _internal_has_slow() const;
-  public:
-  void clear_slow();
-  const ::Types::IntegerRef& slow() const;
-  ::Types::IntegerRef* release_slow();
-  ::Types::IntegerRef* mutable_slow();
-  void set_allocated_slow(::Types::IntegerRef* slow);
-  private:
-  const ::Types::IntegerRef& _internal_slow() const;
-  ::Types::IntegerRef* _internal_mutable_slow();
-  public:
-  void unsafe_arena_set_allocated_slow(
-      ::Types::IntegerRef* slow);
-  ::Types::IntegerRef* unsafe_arena_release_slow();
-
-  // .Types.IntegerRef Silence = 5;
-  bool has_silence() const;
-  private:
-  bool _internal_has_silence() const;
-  public:
-  void clear_silence();
-  const ::Types::IntegerRef& silence() const;
-  ::Types::IntegerRef* release_silence();
-  ::Types::IntegerRef* mutable_silence();
-  void set_allocated_silence(::Types::IntegerRef* silence);
-  private:
-  const ::Types::IntegerRef& _internal_silence() const;
-  ::Types::IntegerRef* _internal_mutable_silence();
-  public:
-  void unsafe_arena_set_allocated_silence(
-      ::Types::IntegerRef* silence);
-  ::Types::IntegerRef* unsafe_arena_release_silence();
-
-  // .Types.IntegerRef Disarm = 6;
-  bool has_disarm() const;
-  private:
-  bool _internal_has_disarm() const;
-  public:
-  void clear_disarm();
-  const ::Types::IntegerRef& disarm() const;
-  ::Types::IntegerRef* release_disarm();
-  ::Types::IntegerRef* mutable_disarm();
-  void set_allocated_disarm(::Types::IntegerRef* disarm);
-  private:
-  const ::Types::IntegerRef& _internal_disarm() const;
-  ::Types::IntegerRef* _internal_mutable_disarm();
-  public:
-  void unsafe_arena_set_allocated_disarm(
-      ::Types::IntegerRef* disarm);
-  ::Types::IntegerRef* unsafe_arena_release_disarm();
-
-  // .Types.IntegerRef Initiative = 7;
-  bool has_initiative() const;
-  private:
-  bool _internal_has_initiative() const;
-  public:
-  void clear_initiative();
-  const ::Types::IntegerRef& initiative() const;
-  ::Types::IntegerRef* release_initiative();
-  ::Types::IntegerRef* mutable_initiative();
-  void set_allocated_initiative(::Types::IntegerRef* initiative);
-  private:
-  const ::Types::IntegerRef& _internal_initiative() const;
-  ::Types::IntegerRef* _internal_mutable_initiative();
-  public:
-  void unsafe_arena_set_allocated_initiative(
-      ::Types::IntegerRef* initiative);
-  ::Types::IntegerRef* unsafe_arena_release_initiative();
-
-  // @@protoc_insertion_point(class_scope:GameState.Player.Stats)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::Types::IntegerRef* health_;
-  ::Types::IntegerRef* actions_;
-  ::Types::IntegerRef* power_;
-  ::Types::IntegerRef* slow_;
-  ::Types::IntegerRef* silence_;
-  ::Types::IntegerRef* disarm_;
-  ::Types::IntegerRef* initiative_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
 
 class Player PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Player) */ {
@@ -443,7 +182,7 @@ class Player PROTOBUF_FINAL :
                &_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   friend void swap(Player& a, Player& b) {
     a.Swap(&b);
@@ -511,8 +250,6 @@ class Player PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
-  typedef Player_Stats Stats;
-
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -521,11 +258,23 @@ class Player PROTOBUF_FINAL :
     kDeckFieldNumber = 5,
     kDiscardFieldNumber = 6,
     kFeatsFieldNumber = 7,
-    kDisplayNameFieldNumber = 1,
+    kNameFieldNumber = 1,
     kUIDFieldNumber = 2,
-    kStateFieldNumber = 8,
-    kMaxStateFieldNumber = 9,
-    kPositionFieldNumber = 10,
+    kPositionFieldNumber = 8,
+    kHealthFieldNumber = 9,
+    kActionsFieldNumber = 10,
+    kPowerFieldNumber = 11,
+    kSlowFieldNumber = 12,
+    kSilenceFieldNumber = 13,
+    kDisarmFieldNumber = 14,
+    kInitiativeFieldNumber = 15,
+    kMaxHealthFieldNumber = 16,
+    kMaxActionsFieldNumber = 17,
+    kMaxPowerFieldNumber = 18,
+    kMaxSlowFieldNumber = 19,
+    kMaxSilenceFieldNumber = 20,
+    kMaxDisarmFieldNumber = 21,
+    kMaxInitiativeFieldNumber = 22,
   };
   // repeated .Types.CardRef Field = 3;
   int field_size() const;
@@ -617,20 +366,20 @@ class Player PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef >&
       feats() const;
 
-  // string DisplayName = 1;
-  void clear_displayname();
-  const std::string& displayname() const;
-  void set_displayname(const std::string& value);
-  void set_displayname(std::string&& value);
-  void set_displayname(const char* value);
-  void set_displayname(const char* value, size_t size);
-  std::string* mutable_displayname();
-  std::string* release_displayname();
-  void set_allocated_displayname(std::string* displayname);
+  // string Name = 1;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
   private:
-  const std::string& _internal_displayname() const;
-  void _internal_set_displayname(const std::string& value);
-  std::string* _internal_mutable_displayname();
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
   public:
 
   // string UID = 2;
@@ -649,43 +398,7 @@ class Player PROTOBUF_FINAL :
   std::string* _internal_mutable_uid();
   public:
 
-  // .GameState.Player.Stats State = 8;
-  bool has_state() const;
-  private:
-  bool _internal_has_state() const;
-  public:
-  void clear_state();
-  const ::GameState::Player_Stats& state() const;
-  ::GameState::Player_Stats* release_state();
-  ::GameState::Player_Stats* mutable_state();
-  void set_allocated_state(::GameState::Player_Stats* state);
-  private:
-  const ::GameState::Player_Stats& _internal_state() const;
-  ::GameState::Player_Stats* _internal_mutable_state();
-  public:
-  void unsafe_arena_set_allocated_state(
-      ::GameState::Player_Stats* state);
-  ::GameState::Player_Stats* unsafe_arena_release_state();
-
-  // .GameState.Player.Stats MaxState = 9;
-  bool has_maxstate() const;
-  private:
-  bool _internal_has_maxstate() const;
-  public:
-  void clear_maxstate();
-  const ::GameState::Player_Stats& maxstate() const;
-  ::GameState::Player_Stats* release_maxstate();
-  ::GameState::Player_Stats* mutable_maxstate();
-  void set_allocated_maxstate(::GameState::Player_Stats* maxstate);
-  private:
-  const ::GameState::Player_Stats& _internal_maxstate() const;
-  ::GameState::Player_Stats* _internal_mutable_maxstate();
-  public:
-  void unsafe_arena_set_allocated_maxstate(
-      ::GameState::Player_Stats* maxstate);
-  ::GameState::Player_Stats* unsafe_arena_release_maxstate();
-
-  // .Types.Vec2iRef Position = 10;
+  // .Types.Vec2iRef Position = 8;
   bool has_position() const;
   private:
   bool _internal_has_position() const;
@@ -703,6 +416,258 @@ class Player PROTOBUF_FINAL :
       ::Types::Vec2iRef* position);
   ::Types::Vec2iRef* unsafe_arena_release_position();
 
+  // .Types.Integer Health = 9;
+  bool has_health() const;
+  private:
+  bool _internal_has_health() const;
+  public:
+  void clear_health();
+  const ::Types::Integer& health() const;
+  ::Types::Integer* release_health();
+  ::Types::Integer* mutable_health();
+  void set_allocated_health(::Types::Integer* health);
+  private:
+  const ::Types::Integer& _internal_health() const;
+  ::Types::Integer* _internal_mutable_health();
+  public:
+  void unsafe_arena_set_allocated_health(
+      ::Types::Integer* health);
+  ::Types::Integer* unsafe_arena_release_health();
+
+  // .Types.Integer Actions = 10;
+  bool has_actions() const;
+  private:
+  bool _internal_has_actions() const;
+  public:
+  void clear_actions();
+  const ::Types::Integer& actions() const;
+  ::Types::Integer* release_actions();
+  ::Types::Integer* mutable_actions();
+  void set_allocated_actions(::Types::Integer* actions);
+  private:
+  const ::Types::Integer& _internal_actions() const;
+  ::Types::Integer* _internal_mutable_actions();
+  public:
+  void unsafe_arena_set_allocated_actions(
+      ::Types::Integer* actions);
+  ::Types::Integer* unsafe_arena_release_actions();
+
+  // .Types.Integer Power = 11;
+  bool has_power() const;
+  private:
+  bool _internal_has_power() const;
+  public:
+  void clear_power();
+  const ::Types::Integer& power() const;
+  ::Types::Integer* release_power();
+  ::Types::Integer* mutable_power();
+  void set_allocated_power(::Types::Integer* power);
+  private:
+  const ::Types::Integer& _internal_power() const;
+  ::Types::Integer* _internal_mutable_power();
+  public:
+  void unsafe_arena_set_allocated_power(
+      ::Types::Integer* power);
+  ::Types::Integer* unsafe_arena_release_power();
+
+  // .Types.Integer Slow = 12;
+  bool has_slow() const;
+  private:
+  bool _internal_has_slow() const;
+  public:
+  void clear_slow();
+  const ::Types::Integer& slow() const;
+  ::Types::Integer* release_slow();
+  ::Types::Integer* mutable_slow();
+  void set_allocated_slow(::Types::Integer* slow);
+  private:
+  const ::Types::Integer& _internal_slow() const;
+  ::Types::Integer* _internal_mutable_slow();
+  public:
+  void unsafe_arena_set_allocated_slow(
+      ::Types::Integer* slow);
+  ::Types::Integer* unsafe_arena_release_slow();
+
+  // .Types.Integer Silence = 13;
+  bool has_silence() const;
+  private:
+  bool _internal_has_silence() const;
+  public:
+  void clear_silence();
+  const ::Types::Integer& silence() const;
+  ::Types::Integer* release_silence();
+  ::Types::Integer* mutable_silence();
+  void set_allocated_silence(::Types::Integer* silence);
+  private:
+  const ::Types::Integer& _internal_silence() const;
+  ::Types::Integer* _internal_mutable_silence();
+  public:
+  void unsafe_arena_set_allocated_silence(
+      ::Types::Integer* silence);
+  ::Types::Integer* unsafe_arena_release_silence();
+
+  // .Types.Integer Disarm = 14;
+  bool has_disarm() const;
+  private:
+  bool _internal_has_disarm() const;
+  public:
+  void clear_disarm();
+  const ::Types::Integer& disarm() const;
+  ::Types::Integer* release_disarm();
+  ::Types::Integer* mutable_disarm();
+  void set_allocated_disarm(::Types::Integer* disarm);
+  private:
+  const ::Types::Integer& _internal_disarm() const;
+  ::Types::Integer* _internal_mutable_disarm();
+  public:
+  void unsafe_arena_set_allocated_disarm(
+      ::Types::Integer* disarm);
+  ::Types::Integer* unsafe_arena_release_disarm();
+
+  // .Types.Integer Initiative = 15;
+  bool has_initiative() const;
+  private:
+  bool _internal_has_initiative() const;
+  public:
+  void clear_initiative();
+  const ::Types::Integer& initiative() const;
+  ::Types::Integer* release_initiative();
+  ::Types::Integer* mutable_initiative();
+  void set_allocated_initiative(::Types::Integer* initiative);
+  private:
+  const ::Types::Integer& _internal_initiative() const;
+  ::Types::Integer* _internal_mutable_initiative();
+  public:
+  void unsafe_arena_set_allocated_initiative(
+      ::Types::Integer* initiative);
+  ::Types::Integer* unsafe_arena_release_initiative();
+
+  // .Types.Integer MaxHealth = 16;
+  bool has_maxhealth() const;
+  private:
+  bool _internal_has_maxhealth() const;
+  public:
+  void clear_maxhealth();
+  const ::Types::Integer& maxhealth() const;
+  ::Types::Integer* release_maxhealth();
+  ::Types::Integer* mutable_maxhealth();
+  void set_allocated_maxhealth(::Types::Integer* maxhealth);
+  private:
+  const ::Types::Integer& _internal_maxhealth() const;
+  ::Types::Integer* _internal_mutable_maxhealth();
+  public:
+  void unsafe_arena_set_allocated_maxhealth(
+      ::Types::Integer* maxhealth);
+  ::Types::Integer* unsafe_arena_release_maxhealth();
+
+  // .Types.Integer MaxActions = 17;
+  bool has_maxactions() const;
+  private:
+  bool _internal_has_maxactions() const;
+  public:
+  void clear_maxactions();
+  const ::Types::Integer& maxactions() const;
+  ::Types::Integer* release_maxactions();
+  ::Types::Integer* mutable_maxactions();
+  void set_allocated_maxactions(::Types::Integer* maxactions);
+  private:
+  const ::Types::Integer& _internal_maxactions() const;
+  ::Types::Integer* _internal_mutable_maxactions();
+  public:
+  void unsafe_arena_set_allocated_maxactions(
+      ::Types::Integer* maxactions);
+  ::Types::Integer* unsafe_arena_release_maxactions();
+
+  // .Types.Integer MaxPower = 18;
+  bool has_maxpower() const;
+  private:
+  bool _internal_has_maxpower() const;
+  public:
+  void clear_maxpower();
+  const ::Types::Integer& maxpower() const;
+  ::Types::Integer* release_maxpower();
+  ::Types::Integer* mutable_maxpower();
+  void set_allocated_maxpower(::Types::Integer* maxpower);
+  private:
+  const ::Types::Integer& _internal_maxpower() const;
+  ::Types::Integer* _internal_mutable_maxpower();
+  public:
+  void unsafe_arena_set_allocated_maxpower(
+      ::Types::Integer* maxpower);
+  ::Types::Integer* unsafe_arena_release_maxpower();
+
+  // .Types.Integer MaxSlow = 19;
+  bool has_maxslow() const;
+  private:
+  bool _internal_has_maxslow() const;
+  public:
+  void clear_maxslow();
+  const ::Types::Integer& maxslow() const;
+  ::Types::Integer* release_maxslow();
+  ::Types::Integer* mutable_maxslow();
+  void set_allocated_maxslow(::Types::Integer* maxslow);
+  private:
+  const ::Types::Integer& _internal_maxslow() const;
+  ::Types::Integer* _internal_mutable_maxslow();
+  public:
+  void unsafe_arena_set_allocated_maxslow(
+      ::Types::Integer* maxslow);
+  ::Types::Integer* unsafe_arena_release_maxslow();
+
+  // .Types.Integer MaxSilence = 20;
+  bool has_maxsilence() const;
+  private:
+  bool _internal_has_maxsilence() const;
+  public:
+  void clear_maxsilence();
+  const ::Types::Integer& maxsilence() const;
+  ::Types::Integer* release_maxsilence();
+  ::Types::Integer* mutable_maxsilence();
+  void set_allocated_maxsilence(::Types::Integer* maxsilence);
+  private:
+  const ::Types::Integer& _internal_maxsilence() const;
+  ::Types::Integer* _internal_mutable_maxsilence();
+  public:
+  void unsafe_arena_set_allocated_maxsilence(
+      ::Types::Integer* maxsilence);
+  ::Types::Integer* unsafe_arena_release_maxsilence();
+
+  // .Types.Integer MaxDisarm = 21;
+  bool has_maxdisarm() const;
+  private:
+  bool _internal_has_maxdisarm() const;
+  public:
+  void clear_maxdisarm();
+  const ::Types::Integer& maxdisarm() const;
+  ::Types::Integer* release_maxdisarm();
+  ::Types::Integer* mutable_maxdisarm();
+  void set_allocated_maxdisarm(::Types::Integer* maxdisarm);
+  private:
+  const ::Types::Integer& _internal_maxdisarm() const;
+  ::Types::Integer* _internal_mutable_maxdisarm();
+  public:
+  void unsafe_arena_set_allocated_maxdisarm(
+      ::Types::Integer* maxdisarm);
+  ::Types::Integer* unsafe_arena_release_maxdisarm();
+
+  // .Types.Integer MaxInitiative = 22;
+  bool has_maxinitiative() const;
+  private:
+  bool _internal_has_maxinitiative() const;
+  public:
+  void clear_maxinitiative();
+  const ::Types::Integer& maxinitiative() const;
+  ::Types::Integer* release_maxinitiative();
+  ::Types::Integer* mutable_maxinitiative();
+  void set_allocated_maxinitiative(::Types::Integer* maxinitiative);
+  private:
+  const ::Types::Integer& _internal_maxinitiative() const;
+  ::Types::Integer* _internal_mutable_maxinitiative();
+  public:
+  void unsafe_arena_set_allocated_maxinitiative(
+      ::Types::Integer* maxinitiative);
+  ::Types::Integer* unsafe_arena_release_maxinitiative();
+
   // @@protoc_insertion_point(class_scope:GameState.Player)
  private:
   class _Internal;
@@ -715,11 +680,23 @@ class Player PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > deck_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > discard_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Types::CardRef > feats_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr displayname_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
-  ::GameState::Player_Stats* state_;
-  ::GameState::Player_Stats* maxstate_;
   ::Types::Vec2iRef* position_;
+  ::Types::Integer* health_;
+  ::Types::Integer* actions_;
+  ::Types::Integer* power_;
+  ::Types::Integer* slow_;
+  ::Types::Integer* silence_;
+  ::Types::Integer* disarm_;
+  ::Types::Integer* initiative_;
+  ::Types::Integer* maxhealth_;
+  ::Types::Integer* maxactions_;
+  ::Types::Integer* maxpower_;
+  ::Types::Integer* maxslow_;
+  ::Types::Integer* maxsilence_;
+  ::Types::Integer* maxdisarm_;
+  ::Types::Integer* maxinitiative_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -766,7 +743,7 @@ class Tile PROTOBUF_FINAL :
                &_Tile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(Tile& a, Tile& b) {
     a.Swap(&b);
@@ -921,6 +898,603 @@ class Tile PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CardMetaData PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.CardMetaData) */ {
+ public:
+  inline CardMetaData() : CardMetaData(nullptr) {}
+  virtual ~CardMetaData();
+
+  CardMetaData(const CardMetaData& from);
+  CardMetaData(CardMetaData&& from) noexcept
+    : CardMetaData() {
+    *this = ::std::move(from);
+  }
+
+  inline CardMetaData& operator=(const CardMetaData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CardMetaData& operator=(CardMetaData&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CardMetaData& default_instance();
+
+  static inline const CardMetaData* internal_default_instance() {
+    return reinterpret_cast<const CardMetaData*>(
+               &_CardMetaData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CardMetaData& a, CardMetaData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CardMetaData* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CardMetaData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CardMetaData* New() const final {
+    return CreateMaybeMessage<CardMetaData>(nullptr);
+  }
+
+  CardMetaData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CardMetaData>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CardMetaData& from);
+  void MergeFrom(const CardMetaData& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CardMetaData* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "GameState.CardMetaData";
+  }
+  protected:
+  explicit CardMetaData(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef CardMetaData_Color Color;
+  static constexpr Color GRAY =
+    CardMetaData_Color_GRAY;
+  static constexpr Color BLACK =
+    CardMetaData_Color_BLACK;
+  static constexpr Color RED =
+    CardMetaData_Color_RED;
+  static constexpr Color GREEN =
+    CardMetaData_Color_GREEN;
+  static constexpr Color BLUE =
+    CardMetaData_Color_BLUE;
+  static constexpr Color WHITE =
+    CardMetaData_Color_WHITE;
+  static inline bool Color_IsValid(int value) {
+    return CardMetaData_Color_IsValid(value);
+  }
+  static constexpr Color Color_MIN =
+    CardMetaData_Color_Color_MIN;
+  static constexpr Color Color_MAX =
+    CardMetaData_Color_Color_MAX;
+  static constexpr int Color_ARRAYSIZE =
+    CardMetaData_Color_Color_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Color_descriptor() {
+    return CardMetaData_Color_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Color_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Color>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Color_Name.");
+    return CardMetaData_Color_Name(enum_t_value);
+  }
+  static inline bool Color_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Color* value) {
+    return CardMetaData_Color_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColorsFieldNumber = 6,
+    kBaseNameFieldNumber = 1,
+    kArchetypeFieldNumber = 2,
+    kUltimateFieldNumber = 3,
+    kFeatFieldNumber = 4,
+    kBasicActionFieldNumber = 5,
+  };
+  // repeated .GameState.CardMetaData.Color Colors = 6;
+  int colors_size() const;
+  private:
+  int _internal_colors_size() const;
+  public:
+  void clear_colors();
+  private:
+  ::GameState::CardMetaData_Color _internal_colors(int index) const;
+  void _internal_add_colors(::GameState::CardMetaData_Color value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_colors();
+  public:
+  ::GameState::CardMetaData_Color colors(int index) const;
+  void set_colors(int index, ::GameState::CardMetaData_Color value);
+  void add_colors(::GameState::CardMetaData_Color value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& colors() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_colors();
+
+  // string BaseName = 1;
+  void clear_basename();
+  const std::string& basename() const;
+  void set_basename(const std::string& value);
+  void set_basename(std::string&& value);
+  void set_basename(const char* value);
+  void set_basename(const char* value, size_t size);
+  std::string* mutable_basename();
+  std::string* release_basename();
+  void set_allocated_basename(std::string* basename);
+  private:
+  const std::string& _internal_basename() const;
+  void _internal_set_basename(const std::string& value);
+  std::string* _internal_mutable_basename();
+  public:
+
+  // string Archetype = 2;
+  void clear_archetype();
+  const std::string& archetype() const;
+  void set_archetype(const std::string& value);
+  void set_archetype(std::string&& value);
+  void set_archetype(const char* value);
+  void set_archetype(const char* value, size_t size);
+  std::string* mutable_archetype();
+  std::string* release_archetype();
+  void set_allocated_archetype(std::string* archetype);
+  private:
+  const std::string& _internal_archetype() const;
+  void _internal_set_archetype(const std::string& value);
+  std::string* _internal_mutable_archetype();
+  public:
+
+  // bool Ultimate = 3;
+  void clear_ultimate();
+  bool ultimate() const;
+  void set_ultimate(bool value);
+  private:
+  bool _internal_ultimate() const;
+  void _internal_set_ultimate(bool value);
+  public:
+
+  // bool Feat = 4;
+  void clear_feat();
+  bool feat() const;
+  void set_feat(bool value);
+  private:
+  bool _internal_feat() const;
+  void _internal_set_feat(bool value);
+  public:
+
+  // bool BasicAction = 5;
+  void clear_basicaction();
+  bool basicaction() const;
+  void set_basicaction(bool value);
+  private:
+  bool _internal_basicaction() const;
+  void _internal_set_basicaction(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:GameState.CardMetaData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> colors_;
+  mutable std::atomic<int> _colors_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr basename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr archetype_;
+  bool ultimate_;
+  bool feat_;
+  bool basicaction_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CardStats PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.CardStats) */ {
+ public:
+  inline CardStats() : CardStats(nullptr) {}
+  virtual ~CardStats();
+
+  CardStats(const CardStats& from);
+  CardStats(CardStats&& from) noexcept
+    : CardStats() {
+    *this = ::std::move(from);
+  }
+
+  inline CardStats& operator=(const CardStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CardStats& operator=(CardStats&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CardStats& default_instance();
+
+  static inline const CardStats* internal_default_instance() {
+    return reinterpret_cast<const CardStats*>(
+               &_CardStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CardStats& a, CardStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CardStats* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CardStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CardStats* New() const final {
+    return CreateMaybeMessage<CardStats>(nullptr);
+  }
+
+  CardStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CardStats>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CardStats& from);
+  void MergeFrom(const CardStats& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CardStats* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "GameState.CardStats";
+  }
+  protected:
+  explicit CardStats(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kActionCostFieldNumber = 1,
+    kPowerCostFieldNumber = 2,
+    kRangeFieldNumber = 3,
+    kAffectedBySlowFieldNumber = 4,
+    kAffectedBySilenceFieldNumber = 5,
+    kAffectedByDisarmFieldNumber = 6,
+    kOmniPresentEffectFieldNumber = 7,
+    kPassiveEffectFieldNumber = 8,
+    kFeatEffectFieldNumber = 9,
+    kPlayEffectFieldNumber = 10,
+    kResolveEffectFieldNumber = 11,
+  };
+  // .Types.Integer ActionCost = 1;
+  bool has_actioncost() const;
+  private:
+  bool _internal_has_actioncost() const;
+  public:
+  void clear_actioncost();
+  const ::Types::Integer& actioncost() const;
+  ::Types::Integer* release_actioncost();
+  ::Types::Integer* mutable_actioncost();
+  void set_allocated_actioncost(::Types::Integer* actioncost);
+  private:
+  const ::Types::Integer& _internal_actioncost() const;
+  ::Types::Integer* _internal_mutable_actioncost();
+  public:
+  void unsafe_arena_set_allocated_actioncost(
+      ::Types::Integer* actioncost);
+  ::Types::Integer* unsafe_arena_release_actioncost();
+
+  // .Types.Integer PowerCost = 2;
+  bool has_powercost() const;
+  private:
+  bool _internal_has_powercost() const;
+  public:
+  void clear_powercost();
+  const ::Types::Integer& powercost() const;
+  ::Types::Integer* release_powercost();
+  ::Types::Integer* mutable_powercost();
+  void set_allocated_powercost(::Types::Integer* powercost);
+  private:
+  const ::Types::Integer& _internal_powercost() const;
+  ::Types::Integer* _internal_mutable_powercost();
+  public:
+  void unsafe_arena_set_allocated_powercost(
+      ::Types::Integer* powercost);
+  ::Types::Integer* unsafe_arena_release_powercost();
+
+  // .Types.Integer Range = 3;
+  bool has_range() const;
+  private:
+  bool _internal_has_range() const;
+  public:
+  void clear_range();
+  const ::Types::Integer& range() const;
+  ::Types::Integer* release_range();
+  ::Types::Integer* mutable_range();
+  void set_allocated_range(::Types::Integer* range);
+  private:
+  const ::Types::Integer& _internal_range() const;
+  ::Types::Integer* _internal_mutable_range();
+  public:
+  void unsafe_arena_set_allocated_range(
+      ::Types::Integer* range);
+  ::Types::Integer* unsafe_arena_release_range();
+
+  // .Types.Integer AffectedBySlow = 4;
+  bool has_affectedbyslow() const;
+  private:
+  bool _internal_has_affectedbyslow() const;
+  public:
+  void clear_affectedbyslow();
+  const ::Types::Integer& affectedbyslow() const;
+  ::Types::Integer* release_affectedbyslow();
+  ::Types::Integer* mutable_affectedbyslow();
+  void set_allocated_affectedbyslow(::Types::Integer* affectedbyslow);
+  private:
+  const ::Types::Integer& _internal_affectedbyslow() const;
+  ::Types::Integer* _internal_mutable_affectedbyslow();
+  public:
+  void unsafe_arena_set_allocated_affectedbyslow(
+      ::Types::Integer* affectedbyslow);
+  ::Types::Integer* unsafe_arena_release_affectedbyslow();
+
+  // .Types.Integer AffectedBySilence = 5;
+  bool has_affectedbysilence() const;
+  private:
+  bool _internal_has_affectedbysilence() const;
+  public:
+  void clear_affectedbysilence();
+  const ::Types::Integer& affectedbysilence() const;
+  ::Types::Integer* release_affectedbysilence();
+  ::Types::Integer* mutable_affectedbysilence();
+  void set_allocated_affectedbysilence(::Types::Integer* affectedbysilence);
+  private:
+  const ::Types::Integer& _internal_affectedbysilence() const;
+  ::Types::Integer* _internal_mutable_affectedbysilence();
+  public:
+  void unsafe_arena_set_allocated_affectedbysilence(
+      ::Types::Integer* affectedbysilence);
+  ::Types::Integer* unsafe_arena_release_affectedbysilence();
+
+  // .Types.Integer AffectedByDisarm = 6;
+  bool has_affectedbydisarm() const;
+  private:
+  bool _internal_has_affectedbydisarm() const;
+  public:
+  void clear_affectedbydisarm();
+  const ::Types::Integer& affectedbydisarm() const;
+  ::Types::Integer* release_affectedbydisarm();
+  ::Types::Integer* mutable_affectedbydisarm();
+  void set_allocated_affectedbydisarm(::Types::Integer* affectedbydisarm);
+  private:
+  const ::Types::Integer& _internal_affectedbydisarm() const;
+  ::Types::Integer* _internal_mutable_affectedbydisarm();
+  public:
+  void unsafe_arena_set_allocated_affectedbydisarm(
+      ::Types::Integer* affectedbydisarm);
+  ::Types::Integer* unsafe_arena_release_affectedbydisarm();
+
+  // .Effects.CardEffect OmniPresentEffect = 7;
+  bool has_omnipresenteffect() const;
+  private:
+  bool _internal_has_omnipresenteffect() const;
+  public:
+  void clear_omnipresenteffect();
+  const ::Effects::CardEffect& omnipresenteffect() const;
+  ::Effects::CardEffect* release_omnipresenteffect();
+  ::Effects::CardEffect* mutable_omnipresenteffect();
+  void set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect);
+  private:
+  const ::Effects::CardEffect& _internal_omnipresenteffect() const;
+  ::Effects::CardEffect* _internal_mutable_omnipresenteffect();
+  public:
+  void unsafe_arena_set_allocated_omnipresenteffect(
+      ::Effects::CardEffect* omnipresenteffect);
+  ::Effects::CardEffect* unsafe_arena_release_omnipresenteffect();
+
+  // .Effects.CardEffect PassiveEffect = 8;
+  bool has_passiveeffect() const;
+  private:
+  bool _internal_has_passiveeffect() const;
+  public:
+  void clear_passiveeffect();
+  const ::Effects::CardEffect& passiveeffect() const;
+  ::Effects::CardEffect* release_passiveeffect();
+  ::Effects::CardEffect* mutable_passiveeffect();
+  void set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect);
+  private:
+  const ::Effects::CardEffect& _internal_passiveeffect() const;
+  ::Effects::CardEffect* _internal_mutable_passiveeffect();
+  public:
+  void unsafe_arena_set_allocated_passiveeffect(
+      ::Effects::CardEffect* passiveeffect);
+  ::Effects::CardEffect* unsafe_arena_release_passiveeffect();
+
+  // .Effects.CardEffect FeatEffect = 9;
+  bool has_feateffect() const;
+  private:
+  bool _internal_has_feateffect() const;
+  public:
+  void clear_feateffect();
+  const ::Effects::CardEffect& feateffect() const;
+  ::Effects::CardEffect* release_feateffect();
+  ::Effects::CardEffect* mutable_feateffect();
+  void set_allocated_feateffect(::Effects::CardEffect* feateffect);
+  private:
+  const ::Effects::CardEffect& _internal_feateffect() const;
+  ::Effects::CardEffect* _internal_mutable_feateffect();
+  public:
+  void unsafe_arena_set_allocated_feateffect(
+      ::Effects::CardEffect* feateffect);
+  ::Effects::CardEffect* unsafe_arena_release_feateffect();
+
+  // .Effects.CardEffect PlayEffect = 10;
+  bool has_playeffect() const;
+  private:
+  bool _internal_has_playeffect() const;
+  public:
+  void clear_playeffect();
+  const ::Effects::CardEffect& playeffect() const;
+  ::Effects::CardEffect* release_playeffect();
+  ::Effects::CardEffect* mutable_playeffect();
+  void set_allocated_playeffect(::Effects::CardEffect* playeffect);
+  private:
+  const ::Effects::CardEffect& _internal_playeffect() const;
+  ::Effects::CardEffect* _internal_mutable_playeffect();
+  public:
+  void unsafe_arena_set_allocated_playeffect(
+      ::Effects::CardEffect* playeffect);
+  ::Effects::CardEffect* unsafe_arena_release_playeffect();
+
+  // .Effects.CardEffect ResolveEffect = 11;
+  bool has_resolveeffect() const;
+  private:
+  bool _internal_has_resolveeffect() const;
+  public:
+  void clear_resolveeffect();
+  const ::Effects::CardEffect& resolveeffect() const;
+  ::Effects::CardEffect* release_resolveeffect();
+  ::Effects::CardEffect* mutable_resolveeffect();
+  void set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect);
+  private:
+  const ::Effects::CardEffect& _internal_resolveeffect() const;
+  ::Effects::CardEffect* _internal_mutable_resolveeffect();
+  public:
+  void unsafe_arena_set_allocated_resolveeffect(
+      ::Effects::CardEffect* resolveeffect);
+  ::Effects::CardEffect* unsafe_arena_release_resolveeffect();
+
+  // @@protoc_insertion_point(class_scope:GameState.CardStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::Types::Integer* actioncost_;
+  ::Types::Integer* powercost_;
+  ::Types::Integer* range_;
+  ::Types::Integer* affectedbyslow_;
+  ::Types::Integer* affectedbysilence_;
+  ::Types::Integer* affectedbydisarm_;
+  ::Effects::CardEffect* omnipresenteffect_;
+  ::Effects::CardEffect* passiveeffect_;
+  ::Effects::CardEffect* feateffect_;
+  ::Effects::CardEffect* playeffect_;
+  ::Effects::CardEffect* resolveeffect_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Card PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:GameState.Card) */ {
  public:
@@ -962,7 +1536,7 @@ class Card PROTOBUF_FINAL :
                &_Card_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Card& a, Card& b) {
     a.Swap(&b);
@@ -1030,85 +1604,16 @@ class Card PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
-  typedef Card_Color Color;
-  static constexpr Color GRAY =
-    Card_Color_GRAY;
-  static constexpr Color BLACK =
-    Card_Color_BLACK;
-  static constexpr Color RED =
-    Card_Color_RED;
-  static constexpr Color GREEN =
-    Card_Color_GREEN;
-  static constexpr Color BLUE =
-    Card_Color_BLUE;
-  static constexpr Color WHITE =
-    Card_Color_WHITE;
-  static inline bool Color_IsValid(int value) {
-    return Card_Color_IsValid(value);
-  }
-  static constexpr Color Color_MIN =
-    Card_Color_Color_MIN;
-  static constexpr Color Color_MAX =
-    Card_Color_Color_MAX;
-  static constexpr int Color_ARRAYSIZE =
-    Card_Color_Color_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  Color_descriptor() {
-    return Card_Color_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& Color_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, Color>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function Color_Name.");
-    return Card_Color_Name(enum_t_value);
-  }
-  static inline bool Color_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      Color* value) {
-    return Card_Color_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kColorsFieldNumber = 6,
     kNameFieldNumber = 1,
-    kArchetypeFieldNumber = 2,
-    kOwnerFieldNumber = 7,
-    kControllerFieldNumber = 8,
-    kActionCostFieldNumber = 9,
-    kPowerCostFieldNumber = 10,
-    kRangeFieldNumber = 11,
-    kAttachedFieldNumber = 12,
-    kAffectedBySlowFieldNumber = 13,
-    kAffectedBySilenceFieldNumber = 14,
-    kAffectedByDisarmFieldNumber = 15,
-    kOmniPresentEffectFieldNumber = 16,
-    kPassiveEffectFieldNumber = 17,
-    kFeatEffectFieldNumber = 18,
-    kPlayEffectFieldNumber = 19,
-    kResolveEffectFieldNumber = 20,
-    kUltimateFieldNumber = 3,
-    kFeatFieldNumber = 4,
-    kBasicActionFieldNumber = 5,
+    kMetaDataFieldNumber = 2,
+    kOwnerFieldNumber = 3,
+    kControllerFieldNumber = 4,
+    kAttachedFieldNumber = 5,
+    kStatsFieldNumber = 6,
   };
-  // repeated .GameState.Card.Color Colors = 6;
-  int colors_size() const;
-  private:
-  int _internal_colors_size() const;
-  public:
-  void clear_colors();
-  private:
-  ::GameState::Card_Color _internal_colors(int index) const;
-  void _internal_add_colors(::GameState::Card_Color value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_colors();
-  public:
-  ::GameState::Card_Color colors(int index) const;
-  void set_colors(int index, ::GameState::Card_Color value);
-  void add_colors(::GameState::Card_Color value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& colors() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_colors();
-
   // string Name = 1;
   void clear_name();
   const std::string& name() const;
@@ -1125,23 +1630,25 @@ class Card PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // string Archetype = 2;
-  void clear_archetype();
-  const std::string& archetype() const;
-  void set_archetype(const std::string& value);
-  void set_archetype(std::string&& value);
-  void set_archetype(const char* value);
-  void set_archetype(const char* value, size_t size);
-  std::string* mutable_archetype();
-  std::string* release_archetype();
-  void set_allocated_archetype(std::string* archetype);
+  // .GameState.CardMetaData MetaData = 2;
+  bool has_metadata() const;
   private:
-  const std::string& _internal_archetype() const;
-  void _internal_set_archetype(const std::string& value);
-  std::string* _internal_mutable_archetype();
+  bool _internal_has_metadata() const;
   public:
+  void clear_metadata();
+  const ::GameState::CardMetaData& metadata() const;
+  ::GameState::CardMetaData* release_metadata();
+  ::GameState::CardMetaData* mutable_metadata();
+  void set_allocated_metadata(::GameState::CardMetaData* metadata);
+  private:
+  const ::GameState::CardMetaData& _internal_metadata() const;
+  ::GameState::CardMetaData* _internal_mutable_metadata();
+  public:
+  void unsafe_arena_set_allocated_metadata(
+      ::GameState::CardMetaData* metadata);
+  ::GameState::CardMetaData* unsafe_arena_release_metadata();
 
-  // .Types.PlayerRef Owner = 7;
+  // .Types.PlayerRef Owner = 3;
   bool has_owner() const;
   private:
   bool _internal_has_owner() const;
@@ -1159,7 +1666,7 @@ class Card PROTOBUF_FINAL :
       ::Types::PlayerRef* owner);
   ::Types::PlayerRef* unsafe_arena_release_owner();
 
-  // .Types.PlayerRef Controller = 8;
+  // .Types.PlayerRef Controller = 4;
   bool has_controller() const;
   private:
   bool _internal_has_controller() const;
@@ -1177,61 +1684,7 @@ class Card PROTOBUF_FINAL :
       ::Types::PlayerRef* controller);
   ::Types::PlayerRef* unsafe_arena_release_controller();
 
-  // .Types.IntegerRef ActionCost = 9;
-  bool has_actioncost() const;
-  private:
-  bool _internal_has_actioncost() const;
-  public:
-  void clear_actioncost();
-  const ::Types::IntegerRef& actioncost() const;
-  ::Types::IntegerRef* release_actioncost();
-  ::Types::IntegerRef* mutable_actioncost();
-  void set_allocated_actioncost(::Types::IntegerRef* actioncost);
-  private:
-  const ::Types::IntegerRef& _internal_actioncost() const;
-  ::Types::IntegerRef* _internal_mutable_actioncost();
-  public:
-  void unsafe_arena_set_allocated_actioncost(
-      ::Types::IntegerRef* actioncost);
-  ::Types::IntegerRef* unsafe_arena_release_actioncost();
-
-  // .Types.IntegerRef PowerCost = 10;
-  bool has_powercost() const;
-  private:
-  bool _internal_has_powercost() const;
-  public:
-  void clear_powercost();
-  const ::Types::IntegerRef& powercost() const;
-  ::Types::IntegerRef* release_powercost();
-  ::Types::IntegerRef* mutable_powercost();
-  void set_allocated_powercost(::Types::IntegerRef* powercost);
-  private:
-  const ::Types::IntegerRef& _internal_powercost() const;
-  ::Types::IntegerRef* _internal_mutable_powercost();
-  public:
-  void unsafe_arena_set_allocated_powercost(
-      ::Types::IntegerRef* powercost);
-  ::Types::IntegerRef* unsafe_arena_release_powercost();
-
-  // .Types.IntegerRef Range = 11;
-  bool has_range() const;
-  private:
-  bool _internal_has_range() const;
-  public:
-  void clear_range();
-  const ::Types::IntegerRef& range() const;
-  ::Types::IntegerRef* release_range();
-  ::Types::IntegerRef* mutable_range();
-  void set_allocated_range(::Types::IntegerRef* range);
-  private:
-  const ::Types::IntegerRef& _internal_range() const;
-  ::Types::IntegerRef* _internal_mutable_range();
-  public:
-  void unsafe_arena_set_allocated_range(
-      ::Types::IntegerRef* range);
-  ::Types::IntegerRef* unsafe_arena_release_range();
-
-  // .Types.EntityRef Attached = 12;
+  // .Types.EntityRef Attached = 5;
   bool has_attached() const;
   private:
   bool _internal_has_attached() const;
@@ -1249,176 +1702,23 @@ class Card PROTOBUF_FINAL :
       ::Types::EntityRef* attached);
   ::Types::EntityRef* unsafe_arena_release_attached();
 
-  // .Types.IntegerRef AffectedBySlow = 13;
-  bool has_affectedbyslow() const;
+  // .GameState.CardStats Stats = 6;
+  bool has_stats() const;
   private:
-  bool _internal_has_affectedbyslow() const;
+  bool _internal_has_stats() const;
   public:
-  void clear_affectedbyslow();
-  const ::Types::IntegerRef& affectedbyslow() const;
-  ::Types::IntegerRef* release_affectedbyslow();
-  ::Types::IntegerRef* mutable_affectedbyslow();
-  void set_allocated_affectedbyslow(::Types::IntegerRef* affectedbyslow);
+  void clear_stats();
+  const ::GameState::CardStats& stats() const;
+  ::GameState::CardStats* release_stats();
+  ::GameState::CardStats* mutable_stats();
+  void set_allocated_stats(::GameState::CardStats* stats);
   private:
-  const ::Types::IntegerRef& _internal_affectedbyslow() const;
-  ::Types::IntegerRef* _internal_mutable_affectedbyslow();
+  const ::GameState::CardStats& _internal_stats() const;
+  ::GameState::CardStats* _internal_mutable_stats();
   public:
-  void unsafe_arena_set_allocated_affectedbyslow(
-      ::Types::IntegerRef* affectedbyslow);
-  ::Types::IntegerRef* unsafe_arena_release_affectedbyslow();
-
-  // .Types.IntegerRef AffectedBySilence = 14;
-  bool has_affectedbysilence() const;
-  private:
-  bool _internal_has_affectedbysilence() const;
-  public:
-  void clear_affectedbysilence();
-  const ::Types::IntegerRef& affectedbysilence() const;
-  ::Types::IntegerRef* release_affectedbysilence();
-  ::Types::IntegerRef* mutable_affectedbysilence();
-  void set_allocated_affectedbysilence(::Types::IntegerRef* affectedbysilence);
-  private:
-  const ::Types::IntegerRef& _internal_affectedbysilence() const;
-  ::Types::IntegerRef* _internal_mutable_affectedbysilence();
-  public:
-  void unsafe_arena_set_allocated_affectedbysilence(
-      ::Types::IntegerRef* affectedbysilence);
-  ::Types::IntegerRef* unsafe_arena_release_affectedbysilence();
-
-  // .Types.IntegerRef AffectedByDisarm = 15;
-  bool has_affectedbydisarm() const;
-  private:
-  bool _internal_has_affectedbydisarm() const;
-  public:
-  void clear_affectedbydisarm();
-  const ::Types::IntegerRef& affectedbydisarm() const;
-  ::Types::IntegerRef* release_affectedbydisarm();
-  ::Types::IntegerRef* mutable_affectedbydisarm();
-  void set_allocated_affectedbydisarm(::Types::IntegerRef* affectedbydisarm);
-  private:
-  const ::Types::IntegerRef& _internal_affectedbydisarm() const;
-  ::Types::IntegerRef* _internal_mutable_affectedbydisarm();
-  public:
-  void unsafe_arena_set_allocated_affectedbydisarm(
-      ::Types::IntegerRef* affectedbydisarm);
-  ::Types::IntegerRef* unsafe_arena_release_affectedbydisarm();
-
-  // .Effects.CardEffect OmniPresentEffect = 16;
-  bool has_omnipresenteffect() const;
-  private:
-  bool _internal_has_omnipresenteffect() const;
-  public:
-  void clear_omnipresenteffect();
-  const ::Effects::CardEffect& omnipresenteffect() const;
-  ::Effects::CardEffect* release_omnipresenteffect();
-  ::Effects::CardEffect* mutable_omnipresenteffect();
-  void set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect);
-  private:
-  const ::Effects::CardEffect& _internal_omnipresenteffect() const;
-  ::Effects::CardEffect* _internal_mutable_omnipresenteffect();
-  public:
-  void unsafe_arena_set_allocated_omnipresenteffect(
-      ::Effects::CardEffect* omnipresenteffect);
-  ::Effects::CardEffect* unsafe_arena_release_omnipresenteffect();
-
-  // .Effects.CardEffect PassiveEffect = 17;
-  bool has_passiveeffect() const;
-  private:
-  bool _internal_has_passiveeffect() const;
-  public:
-  void clear_passiveeffect();
-  const ::Effects::CardEffect& passiveeffect() const;
-  ::Effects::CardEffect* release_passiveeffect();
-  ::Effects::CardEffect* mutable_passiveeffect();
-  void set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect);
-  private:
-  const ::Effects::CardEffect& _internal_passiveeffect() const;
-  ::Effects::CardEffect* _internal_mutable_passiveeffect();
-  public:
-  void unsafe_arena_set_allocated_passiveeffect(
-      ::Effects::CardEffect* passiveeffect);
-  ::Effects::CardEffect* unsafe_arena_release_passiveeffect();
-
-  // .Effects.CardEffect FeatEffect = 18;
-  bool has_feateffect() const;
-  private:
-  bool _internal_has_feateffect() const;
-  public:
-  void clear_feateffect();
-  const ::Effects::CardEffect& feateffect() const;
-  ::Effects::CardEffect* release_feateffect();
-  ::Effects::CardEffect* mutable_feateffect();
-  void set_allocated_feateffect(::Effects::CardEffect* feateffect);
-  private:
-  const ::Effects::CardEffect& _internal_feateffect() const;
-  ::Effects::CardEffect* _internal_mutable_feateffect();
-  public:
-  void unsafe_arena_set_allocated_feateffect(
-      ::Effects::CardEffect* feateffect);
-  ::Effects::CardEffect* unsafe_arena_release_feateffect();
-
-  // .Effects.CardEffect PlayEffect = 19;
-  bool has_playeffect() const;
-  private:
-  bool _internal_has_playeffect() const;
-  public:
-  void clear_playeffect();
-  const ::Effects::CardEffect& playeffect() const;
-  ::Effects::CardEffect* release_playeffect();
-  ::Effects::CardEffect* mutable_playeffect();
-  void set_allocated_playeffect(::Effects::CardEffect* playeffect);
-  private:
-  const ::Effects::CardEffect& _internal_playeffect() const;
-  ::Effects::CardEffect* _internal_mutable_playeffect();
-  public:
-  void unsafe_arena_set_allocated_playeffect(
-      ::Effects::CardEffect* playeffect);
-  ::Effects::CardEffect* unsafe_arena_release_playeffect();
-
-  // .Effects.CardEffect ResolveEffect = 20;
-  bool has_resolveeffect() const;
-  private:
-  bool _internal_has_resolveeffect() const;
-  public:
-  void clear_resolveeffect();
-  const ::Effects::CardEffect& resolveeffect() const;
-  ::Effects::CardEffect* release_resolveeffect();
-  ::Effects::CardEffect* mutable_resolveeffect();
-  void set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect);
-  private:
-  const ::Effects::CardEffect& _internal_resolveeffect() const;
-  ::Effects::CardEffect* _internal_mutable_resolveeffect();
-  public:
-  void unsafe_arena_set_allocated_resolveeffect(
-      ::Effects::CardEffect* resolveeffect);
-  ::Effects::CardEffect* unsafe_arena_release_resolveeffect();
-
-  // bool Ultimate = 3;
-  void clear_ultimate();
-  bool ultimate() const;
-  void set_ultimate(bool value);
-  private:
-  bool _internal_ultimate() const;
-  void _internal_set_ultimate(bool value);
-  public:
-
-  // bool Feat = 4;
-  void clear_feat();
-  bool feat() const;
-  void set_feat(bool value);
-  private:
-  bool _internal_feat() const;
-  void _internal_set_feat(bool value);
-  public:
-
-  // bool BasicAction = 5;
-  void clear_basicaction();
-  bool basicaction() const;
-  void set_basicaction(bool value);
-  private:
-  bool _internal_basicaction() const;
-  void _internal_set_basicaction(bool value);
-  public:
+  void unsafe_arena_set_allocated_stats(
+      ::GameState::CardStats* stats);
+  ::GameState::CardStats* unsafe_arena_release_stats();
 
   // @@protoc_insertion_point(class_scope:GameState.Card)
  private:
@@ -1427,27 +1727,12 @@ class Card PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> colors_;
-  mutable std::atomic<int> _colors_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr archetype_;
+  ::GameState::CardMetaData* metadata_;
   ::Types::PlayerRef* owner_;
   ::Types::PlayerRef* controller_;
-  ::Types::IntegerRef* actioncost_;
-  ::Types::IntegerRef* powercost_;
-  ::Types::IntegerRef* range_;
   ::Types::EntityRef* attached_;
-  ::Types::IntegerRef* affectedbyslow_;
-  ::Types::IntegerRef* affectedbysilence_;
-  ::Types::IntegerRef* affectedbydisarm_;
-  ::Effects::CardEffect* omnipresenteffect_;
-  ::Effects::CardEffect* passiveeffect_;
-  ::Effects::CardEffect* feateffect_;
-  ::Effects::CardEffect* playeffect_;
-  ::Effects::CardEffect* resolveeffect_;
-  bool ultimate_;
-  bool feat_;
-  bool basicaction_;
+  ::GameState::CardStats* stats_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -1494,7 +1779,7 @@ class Team PROTOBUF_FINAL :
                &_Team_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(Team& a, Team& b) {
     a.Swap(&b);
@@ -1639,7 +1924,7 @@ class SetMutation PROTOBUF_FINAL :
                &_SetMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(SetMutation& a, SetMutation& b) {
     a.Swap(&b);
@@ -1824,7 +2109,7 @@ class RemoveMutation PROTOBUF_FINAL :
                &_RemoveMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(RemoveMutation& a, RemoveMutation& b) {
     a.Swap(&b);
@@ -1989,7 +2274,7 @@ class InsertMutation PROTOBUF_FINAL :
                &_InsertMutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(InsertMutation& a, InsertMutation& b) {
     a.Swap(&b);
@@ -2161,7 +2446,7 @@ class Mutation PROTOBUF_FINAL :
                &_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(Mutation& a, Mutation& b) {
     a.Swap(&b);
@@ -2359,7 +2644,7 @@ class GameState PROTOBUF_FINAL :
                &_GameState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(GameState& a, GameState& b) {
     a.Swap(&b);
@@ -2604,7 +2889,7 @@ class GameInstance PROTOBUF_FINAL :
                &_GameInstance_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(GameInstance& a, GameInstance& b) {
     a.Swap(&b);
@@ -2735,610 +3020,67 @@ class GameInstance PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Player_Stats
-
-// .Types.IntegerRef Health = 1;
-inline bool Player_Stats::_internal_has_health() const {
-  return this != internal_default_instance() && health_ != nullptr;
-}
-inline bool Player_Stats::has_health() const {
-  return _internal_has_health();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_health() const {
-  const ::Types::IntegerRef* p = health_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::health() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Health)
-  return _internal_health();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_health(
-    ::Types::IntegerRef* health) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
-  }
-  health_ = health;
-  if (health) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Health)
-}
-inline ::Types::IntegerRef* Player_Stats::release_health() {
-  
-  ::Types::IntegerRef* temp = health_;
-  health_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_health() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Health)
-  
-  ::Types::IntegerRef* temp = health_;
-  health_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_health() {
-  
-  if (health_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    health_ = p;
-  }
-  return health_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_health() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Health)
-  return _internal_mutable_health();
-}
-inline void Player_Stats::set_allocated_health(::Types::IntegerRef* health) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
-  }
-  if (health) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health)->GetArena();
-    if (message_arena != submessage_arena) {
-      health = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, health, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  health_ = health;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Health)
-}
-
-// .Types.IntegerRef Actions = 2;
-inline bool Player_Stats::_internal_has_actions() const {
-  return this != internal_default_instance() && actions_ != nullptr;
-}
-inline bool Player_Stats::has_actions() const {
-  return _internal_has_actions();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_actions() const {
-  const ::Types::IntegerRef* p = actions_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::actions() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Actions)
-  return _internal_actions();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_actions(
-    ::Types::IntegerRef* actions) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
-  }
-  actions_ = actions;
-  if (actions) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Actions)
-}
-inline ::Types::IntegerRef* Player_Stats::release_actions() {
-  
-  ::Types::IntegerRef* temp = actions_;
-  actions_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_actions() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Actions)
-  
-  ::Types::IntegerRef* temp = actions_;
-  actions_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_actions() {
-  
-  if (actions_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    actions_ = p;
-  }
-  return actions_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_actions() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Actions)
-  return _internal_mutable_actions();
-}
-inline void Player_Stats::set_allocated_actions(::Types::IntegerRef* actions) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
-  }
-  if (actions) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions)->GetArena();
-    if (message_arena != submessage_arena) {
-      actions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, actions, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  actions_ = actions;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Actions)
-}
-
-// .Types.IntegerRef Power = 3;
-inline bool Player_Stats::_internal_has_power() const {
-  return this != internal_default_instance() && power_ != nullptr;
-}
-inline bool Player_Stats::has_power() const {
-  return _internal_has_power();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_power() const {
-  const ::Types::IntegerRef* p = power_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::power() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Power)
-  return _internal_power();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_power(
-    ::Types::IntegerRef* power) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
-  }
-  power_ = power;
-  if (power) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Power)
-}
-inline ::Types::IntegerRef* Player_Stats::release_power() {
-  
-  ::Types::IntegerRef* temp = power_;
-  power_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_power() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Power)
-  
-  ::Types::IntegerRef* temp = power_;
-  power_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_power() {
-  
-  if (power_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    power_ = p;
-  }
-  return power_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_power() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Power)
-  return _internal_mutable_power();
-}
-inline void Player_Stats::set_allocated_power(::Types::IntegerRef* power) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
-  }
-  if (power) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power)->GetArena();
-    if (message_arena != submessage_arena) {
-      power = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, power, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  power_ = power;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Power)
-}
-
-// .Types.IntegerRef Slow = 4;
-inline bool Player_Stats::_internal_has_slow() const {
-  return this != internal_default_instance() && slow_ != nullptr;
-}
-inline bool Player_Stats::has_slow() const {
-  return _internal_has_slow();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_slow() const {
-  const ::Types::IntegerRef* p = slow_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::slow() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Slow)
-  return _internal_slow();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_slow(
-    ::Types::IntegerRef* slow) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
-  }
-  slow_ = slow;
-  if (slow) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Slow)
-}
-inline ::Types::IntegerRef* Player_Stats::release_slow() {
-  
-  ::Types::IntegerRef* temp = slow_;
-  slow_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_slow() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Slow)
-  
-  ::Types::IntegerRef* temp = slow_;
-  slow_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_slow() {
-  
-  if (slow_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    slow_ = p;
-  }
-  return slow_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_slow() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Slow)
-  return _internal_mutable_slow();
-}
-inline void Player_Stats::set_allocated_slow(::Types::IntegerRef* slow) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
-  }
-  if (slow) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow)->GetArena();
-    if (message_arena != submessage_arena) {
-      slow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, slow, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  slow_ = slow;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Slow)
-}
-
-// .Types.IntegerRef Silence = 5;
-inline bool Player_Stats::_internal_has_silence() const {
-  return this != internal_default_instance() && silence_ != nullptr;
-}
-inline bool Player_Stats::has_silence() const {
-  return _internal_has_silence();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_silence() const {
-  const ::Types::IntegerRef* p = silence_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::silence() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Silence)
-  return _internal_silence();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_silence(
-    ::Types::IntegerRef* silence) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
-  }
-  silence_ = silence;
-  if (silence) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Silence)
-}
-inline ::Types::IntegerRef* Player_Stats::release_silence() {
-  
-  ::Types::IntegerRef* temp = silence_;
-  silence_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_silence() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Silence)
-  
-  ::Types::IntegerRef* temp = silence_;
-  silence_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_silence() {
-  
-  if (silence_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    silence_ = p;
-  }
-  return silence_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_silence() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Silence)
-  return _internal_mutable_silence();
-}
-inline void Player_Stats::set_allocated_silence(::Types::IntegerRef* silence) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
-  }
-  if (silence) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence)->GetArena();
-    if (message_arena != submessage_arena) {
-      silence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, silence, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  silence_ = silence;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Silence)
-}
-
-// .Types.IntegerRef Disarm = 6;
-inline bool Player_Stats::_internal_has_disarm() const {
-  return this != internal_default_instance() && disarm_ != nullptr;
-}
-inline bool Player_Stats::has_disarm() const {
-  return _internal_has_disarm();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_disarm() const {
-  const ::Types::IntegerRef* p = disarm_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::disarm() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Disarm)
-  return _internal_disarm();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_disarm(
-    ::Types::IntegerRef* disarm) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
-  }
-  disarm_ = disarm;
-  if (disarm) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Disarm)
-}
-inline ::Types::IntegerRef* Player_Stats::release_disarm() {
-  
-  ::Types::IntegerRef* temp = disarm_;
-  disarm_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_disarm() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Disarm)
-  
-  ::Types::IntegerRef* temp = disarm_;
-  disarm_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_disarm() {
-  
-  if (disarm_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    disarm_ = p;
-  }
-  return disarm_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_disarm() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Disarm)
-  return _internal_mutable_disarm();
-}
-inline void Player_Stats::set_allocated_disarm(::Types::IntegerRef* disarm) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
-  }
-  if (disarm) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm)->GetArena();
-    if (message_arena != submessage_arena) {
-      disarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, disarm, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  disarm_ = disarm;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Disarm)
-}
-
-// .Types.IntegerRef Initiative = 7;
-inline bool Player_Stats::_internal_has_initiative() const {
-  return this != internal_default_instance() && initiative_ != nullptr;
-}
-inline bool Player_Stats::has_initiative() const {
-  return _internal_has_initiative();
-}
-inline const ::Types::IntegerRef& Player_Stats::_internal_initiative() const {
-  const ::Types::IntegerRef* p = initiative_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Player_Stats::initiative() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.Stats.Initiative)
-  return _internal_initiative();
-}
-inline void Player_Stats::unsafe_arena_set_allocated_initiative(
-    ::Types::IntegerRef* initiative) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
-  }
-  initiative_ = initiative;
-  if (initiative) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Stats.Initiative)
-}
-inline ::Types::IntegerRef* Player_Stats::release_initiative() {
-  
-  ::Types::IntegerRef* temp = initiative_;
-  initiative_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::unsafe_arena_release_initiative() {
-  // @@protoc_insertion_point(field_release:GameState.Player.Stats.Initiative)
-  
-  ::Types::IntegerRef* temp = initiative_;
-  initiative_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Player_Stats::_internal_mutable_initiative() {
-  
-  if (initiative_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    initiative_ = p;
-  }
-  return initiative_;
-}
-inline ::Types::IntegerRef* Player_Stats::mutable_initiative() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.Stats.Initiative)
-  return _internal_mutable_initiative();
-}
-inline void Player_Stats::set_allocated_initiative(::Types::IntegerRef* initiative) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
-  }
-  if (initiative) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative)->GetArena();
-    if (message_arena != submessage_arena) {
-      initiative = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, initiative, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  initiative_ = initiative;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Stats.Initiative)
-}
-
-// -------------------------------------------------------------------
-
 // Player
 
-// string DisplayName = 1;
-inline void Player::clear_displayname() {
-  displayname_.ClearToEmpty();
+// string Name = 1;
+inline void Player::clear_name() {
+  name_.ClearToEmpty();
 }
-inline const std::string& Player::displayname() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.DisplayName)
-  return _internal_displayname();
+inline const std::string& Player::name() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Name)
+  return _internal_name();
 }
-inline void Player::set_displayname(const std::string& value) {
-  _internal_set_displayname(value);
-  // @@protoc_insertion_point(field_set:GameState.Player.DisplayName)
+inline void Player::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:GameState.Player.Name)
 }
-inline std::string* Player::mutable_displayname() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.DisplayName)
-  return _internal_mutable_displayname();
+inline std::string* Player::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Name)
+  return _internal_mutable_name();
 }
-inline const std::string& Player::_internal_displayname() const {
-  return displayname_.Get();
+inline const std::string& Player::_internal_name() const {
+  return name_.Get();
 }
-inline void Player::_internal_set_displayname(const std::string& value) {
+inline void Player::_internal_set_name(const std::string& value) {
   
-  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Player::set_displayname(std::string&& value) {
+inline void Player::set_name(std::string&& value) {
   
-  displayname_.Set(
+  name_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:GameState.Player.DisplayName)
+  // @@protoc_insertion_point(field_set_rvalue:GameState.Player.Name)
 }
-inline void Player::set_displayname(const char* value) {
+inline void Player::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:GameState.Player.DisplayName)
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:GameState.Player.Name)
 }
-inline void Player::set_displayname(const char* value,
+inline void Player::set_name(const char* value,
     size_t size) {
   
-  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:GameState.Player.DisplayName)
+  // @@protoc_insertion_point(field_set_pointer:GameState.Player.Name)
 }
-inline std::string* Player::_internal_mutable_displayname() {
+inline std::string* Player::_internal_mutable_name() {
   
-  return displayname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Player::release_displayname() {
-  // @@protoc_insertion_point(field_release:GameState.Player.DisplayName)
-  return displayname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* Player::release_name() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Player::set_allocated_displayname(std::string* displayname) {
-  if (displayname != nullptr) {
+inline void Player::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
     
   } else {
     
   }
-  displayname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), displayname,
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.DisplayName)
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Name)
 }
 
 // string UID = 2;
@@ -3582,173 +3324,7 @@ Player::feats() const {
   return feats_;
 }
 
-// .GameState.Player.Stats State = 8;
-inline bool Player::_internal_has_state() const {
-  return this != internal_default_instance() && state_ != nullptr;
-}
-inline bool Player::has_state() const {
-  return _internal_has_state();
-}
-inline void Player::clear_state() {
-  if (GetArena() == nullptr && state_ != nullptr) {
-    delete state_;
-  }
-  state_ = nullptr;
-}
-inline const ::GameState::Player_Stats& Player::_internal_state() const {
-  const ::GameState::Player_Stats* p = state_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Player_Stats&>(
-      ::GameState::_Player_Stats_default_instance_);
-}
-inline const ::GameState::Player_Stats& Player::state() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.State)
-  return _internal_state();
-}
-inline void Player::unsafe_arena_set_allocated_state(
-    ::GameState::Player_Stats* state) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(state_);
-  }
-  state_ = state;
-  if (state) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.State)
-}
-inline ::GameState::Player_Stats* Player::release_state() {
-  
-  ::GameState::Player_Stats* temp = state_;
-  state_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Player_Stats* Player::unsafe_arena_release_state() {
-  // @@protoc_insertion_point(field_release:GameState.Player.State)
-  
-  ::GameState::Player_Stats* temp = state_;
-  state_ = nullptr;
-  return temp;
-}
-inline ::GameState::Player_Stats* Player::_internal_mutable_state() {
-  
-  if (state_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Player_Stats>(GetArena());
-    state_ = p;
-  }
-  return state_;
-}
-inline ::GameState::Player_Stats* Player::mutable_state() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.State)
-  return _internal_mutable_state();
-}
-inline void Player::set_allocated_state(::GameState::Player_Stats* state) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete state_;
-  }
-  if (state) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(state);
-    if (message_arena != submessage_arena) {
-      state = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, state, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  state_ = state;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.State)
-}
-
-// .GameState.Player.Stats MaxState = 9;
-inline bool Player::_internal_has_maxstate() const {
-  return this != internal_default_instance() && maxstate_ != nullptr;
-}
-inline bool Player::has_maxstate() const {
-  return _internal_has_maxstate();
-}
-inline void Player::clear_maxstate() {
-  if (GetArena() == nullptr && maxstate_ != nullptr) {
-    delete maxstate_;
-  }
-  maxstate_ = nullptr;
-}
-inline const ::GameState::Player_Stats& Player::_internal_maxstate() const {
-  const ::GameState::Player_Stats* p = maxstate_;
-  return p != nullptr ? *p : reinterpret_cast<const ::GameState::Player_Stats&>(
-      ::GameState::_Player_Stats_default_instance_);
-}
-inline const ::GameState::Player_Stats& Player::maxstate() const {
-  // @@protoc_insertion_point(field_get:GameState.Player.MaxState)
-  return _internal_maxstate();
-}
-inline void Player::unsafe_arena_set_allocated_maxstate(
-    ::GameState::Player_Stats* maxstate) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxstate_);
-  }
-  maxstate_ = maxstate;
-  if (maxstate) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxState)
-}
-inline ::GameState::Player_Stats* Player::release_maxstate() {
-  
-  ::GameState::Player_Stats* temp = maxstate_;
-  maxstate_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::GameState::Player_Stats* Player::unsafe_arena_release_maxstate() {
-  // @@protoc_insertion_point(field_release:GameState.Player.MaxState)
-  
-  ::GameState::Player_Stats* temp = maxstate_;
-  maxstate_ = nullptr;
-  return temp;
-}
-inline ::GameState::Player_Stats* Player::_internal_mutable_maxstate() {
-  
-  if (maxstate_ == nullptr) {
-    auto* p = CreateMaybeMessage<::GameState::Player_Stats>(GetArena());
-    maxstate_ = p;
-  }
-  return maxstate_;
-}
-inline ::GameState::Player_Stats* Player::mutable_maxstate() {
-  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxState)
-  return _internal_mutable_maxstate();
-}
-inline void Player::set_allocated_maxstate(::GameState::Player_Stats* maxstate) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete maxstate_;
-  }
-  if (maxstate) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(maxstate);
-    if (message_arena != submessage_arena) {
-      maxstate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, maxstate, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  maxstate_ = maxstate;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxState)
-}
-
-// .Types.Vec2iRef Position = 10;
+// .Types.Vec2iRef Position = 8;
 inline bool Player::_internal_has_position() const {
   return this != internal_default_instance() && position_ != nullptr;
 }
@@ -3823,6 +3399,1084 @@ inline void Player::set_allocated_position(::Types::Vec2iRef* position) {
   }
   position_ = position;
   // @@protoc_insertion_point(field_set_allocated:GameState.Player.Position)
+}
+
+// .Types.Integer Health = 9;
+inline bool Player::_internal_has_health() const {
+  return this != internal_default_instance() && health_ != nullptr;
+}
+inline bool Player::has_health() const {
+  return _internal_has_health();
+}
+inline const ::Types::Integer& Player::_internal_health() const {
+  const ::Types::Integer* p = health_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::health() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Health)
+  return _internal_health();
+}
+inline void Player::unsafe_arena_set_allocated_health(
+    ::Types::Integer* health) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
+  }
+  health_ = health;
+  if (health) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Health)
+}
+inline ::Types::Integer* Player::release_health() {
+  
+  ::Types::Integer* temp = health_;
+  health_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_health() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Health)
+  
+  ::Types::Integer* temp = health_;
+  health_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_health() {
+  
+  if (health_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    health_ = p;
+  }
+  return health_;
+}
+inline ::Types::Integer* Player::mutable_health() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Health)
+  return _internal_mutable_health();
+}
+inline void Player::set_allocated_health(::Types::Integer* health) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(health_);
+  }
+  if (health) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(health)->GetArena();
+    if (message_arena != submessage_arena) {
+      health = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, health, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  health_ = health;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Health)
+}
+
+// .Types.Integer Actions = 10;
+inline bool Player::_internal_has_actions() const {
+  return this != internal_default_instance() && actions_ != nullptr;
+}
+inline bool Player::has_actions() const {
+  return _internal_has_actions();
+}
+inline const ::Types::Integer& Player::_internal_actions() const {
+  const ::Types::Integer* p = actions_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::actions() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Actions)
+  return _internal_actions();
+}
+inline void Player::unsafe_arena_set_allocated_actions(
+    ::Types::Integer* actions) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
+  }
+  actions_ = actions;
+  if (actions) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Actions)
+}
+inline ::Types::Integer* Player::release_actions() {
+  
+  ::Types::Integer* temp = actions_;
+  actions_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_actions() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Actions)
+  
+  ::Types::Integer* temp = actions_;
+  actions_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_actions() {
+  
+  if (actions_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    actions_ = p;
+  }
+  return actions_;
+}
+inline ::Types::Integer* Player::mutable_actions() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Actions)
+  return _internal_mutable_actions();
+}
+inline void Player::set_allocated_actions(::Types::Integer* actions) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions_);
+  }
+  if (actions) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actions)->GetArena();
+    if (message_arena != submessage_arena) {
+      actions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actions, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  actions_ = actions;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Actions)
+}
+
+// .Types.Integer Power = 11;
+inline bool Player::_internal_has_power() const {
+  return this != internal_default_instance() && power_ != nullptr;
+}
+inline bool Player::has_power() const {
+  return _internal_has_power();
+}
+inline const ::Types::Integer& Player::_internal_power() const {
+  const ::Types::Integer* p = power_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::power() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Power)
+  return _internal_power();
+}
+inline void Player::unsafe_arena_set_allocated_power(
+    ::Types::Integer* power) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
+  }
+  power_ = power;
+  if (power) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Power)
+}
+inline ::Types::Integer* Player::release_power() {
+  
+  ::Types::Integer* temp = power_;
+  power_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_power() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Power)
+  
+  ::Types::Integer* temp = power_;
+  power_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_power() {
+  
+  if (power_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    power_ = p;
+  }
+  return power_;
+}
+inline ::Types::Integer* Player::mutable_power() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Power)
+  return _internal_mutable_power();
+}
+inline void Player::set_allocated_power(::Types::Integer* power) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(power_);
+  }
+  if (power) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(power)->GetArena();
+    if (message_arena != submessage_arena) {
+      power = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, power, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  power_ = power;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Power)
+}
+
+// .Types.Integer Slow = 12;
+inline bool Player::_internal_has_slow() const {
+  return this != internal_default_instance() && slow_ != nullptr;
+}
+inline bool Player::has_slow() const {
+  return _internal_has_slow();
+}
+inline const ::Types::Integer& Player::_internal_slow() const {
+  const ::Types::Integer* p = slow_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::slow() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Slow)
+  return _internal_slow();
+}
+inline void Player::unsafe_arena_set_allocated_slow(
+    ::Types::Integer* slow) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
+  }
+  slow_ = slow;
+  if (slow) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Slow)
+}
+inline ::Types::Integer* Player::release_slow() {
+  
+  ::Types::Integer* temp = slow_;
+  slow_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_slow() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Slow)
+  
+  ::Types::Integer* temp = slow_;
+  slow_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_slow() {
+  
+  if (slow_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    slow_ = p;
+  }
+  return slow_;
+}
+inline ::Types::Integer* Player::mutable_slow() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Slow)
+  return _internal_mutable_slow();
+}
+inline void Player::set_allocated_slow(::Types::Integer* slow) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow_);
+  }
+  if (slow) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(slow)->GetArena();
+    if (message_arena != submessage_arena) {
+      slow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, slow, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  slow_ = slow;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Slow)
+}
+
+// .Types.Integer Silence = 13;
+inline bool Player::_internal_has_silence() const {
+  return this != internal_default_instance() && silence_ != nullptr;
+}
+inline bool Player::has_silence() const {
+  return _internal_has_silence();
+}
+inline const ::Types::Integer& Player::_internal_silence() const {
+  const ::Types::Integer* p = silence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::silence() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Silence)
+  return _internal_silence();
+}
+inline void Player::unsafe_arena_set_allocated_silence(
+    ::Types::Integer* silence) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
+  }
+  silence_ = silence;
+  if (silence) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Silence)
+}
+inline ::Types::Integer* Player::release_silence() {
+  
+  ::Types::Integer* temp = silence_;
+  silence_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_silence() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Silence)
+  
+  ::Types::Integer* temp = silence_;
+  silence_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_silence() {
+  
+  if (silence_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    silence_ = p;
+  }
+  return silence_;
+}
+inline ::Types::Integer* Player::mutable_silence() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Silence)
+  return _internal_mutable_silence();
+}
+inline void Player::set_allocated_silence(::Types::Integer* silence) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence_);
+  }
+  if (silence) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(silence)->GetArena();
+    if (message_arena != submessage_arena) {
+      silence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, silence, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  silence_ = silence;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Silence)
+}
+
+// .Types.Integer Disarm = 14;
+inline bool Player::_internal_has_disarm() const {
+  return this != internal_default_instance() && disarm_ != nullptr;
+}
+inline bool Player::has_disarm() const {
+  return _internal_has_disarm();
+}
+inline const ::Types::Integer& Player::_internal_disarm() const {
+  const ::Types::Integer* p = disarm_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::disarm() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Disarm)
+  return _internal_disarm();
+}
+inline void Player::unsafe_arena_set_allocated_disarm(
+    ::Types::Integer* disarm) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
+  }
+  disarm_ = disarm;
+  if (disarm) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Disarm)
+}
+inline ::Types::Integer* Player::release_disarm() {
+  
+  ::Types::Integer* temp = disarm_;
+  disarm_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_disarm() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Disarm)
+  
+  ::Types::Integer* temp = disarm_;
+  disarm_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_disarm() {
+  
+  if (disarm_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    disarm_ = p;
+  }
+  return disarm_;
+}
+inline ::Types::Integer* Player::mutable_disarm() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Disarm)
+  return _internal_mutable_disarm();
+}
+inline void Player::set_allocated_disarm(::Types::Integer* disarm) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm_);
+  }
+  if (disarm) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(disarm)->GetArena();
+    if (message_arena != submessage_arena) {
+      disarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, disarm, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  disarm_ = disarm;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Disarm)
+}
+
+// .Types.Integer Initiative = 15;
+inline bool Player::_internal_has_initiative() const {
+  return this != internal_default_instance() && initiative_ != nullptr;
+}
+inline bool Player::has_initiative() const {
+  return _internal_has_initiative();
+}
+inline const ::Types::Integer& Player::_internal_initiative() const {
+  const ::Types::Integer* p = initiative_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::initiative() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.Initiative)
+  return _internal_initiative();
+}
+inline void Player::unsafe_arena_set_allocated_initiative(
+    ::Types::Integer* initiative) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
+  }
+  initiative_ = initiative;
+  if (initiative) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.Initiative)
+}
+inline ::Types::Integer* Player::release_initiative() {
+  
+  ::Types::Integer* temp = initiative_;
+  initiative_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_initiative() {
+  // @@protoc_insertion_point(field_release:GameState.Player.Initiative)
+  
+  ::Types::Integer* temp = initiative_;
+  initiative_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_initiative() {
+  
+  if (initiative_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    initiative_ = p;
+  }
+  return initiative_;
+}
+inline ::Types::Integer* Player::mutable_initiative() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.Initiative)
+  return _internal_mutable_initiative();
+}
+inline void Player::set_allocated_initiative(::Types::Integer* initiative) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative_);
+  }
+  if (initiative) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(initiative)->GetArena();
+    if (message_arena != submessage_arena) {
+      initiative = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, initiative, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  initiative_ = initiative;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.Initiative)
+}
+
+// .Types.Integer MaxHealth = 16;
+inline bool Player::_internal_has_maxhealth() const {
+  return this != internal_default_instance() && maxhealth_ != nullptr;
+}
+inline bool Player::has_maxhealth() const {
+  return _internal_has_maxhealth();
+}
+inline const ::Types::Integer& Player::_internal_maxhealth() const {
+  const ::Types::Integer* p = maxhealth_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxhealth() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxHealth)
+  return _internal_maxhealth();
+}
+inline void Player::unsafe_arena_set_allocated_maxhealth(
+    ::Types::Integer* maxhealth) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxhealth_);
+  }
+  maxhealth_ = maxhealth;
+  if (maxhealth) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxHealth)
+}
+inline ::Types::Integer* Player::release_maxhealth() {
+  
+  ::Types::Integer* temp = maxhealth_;
+  maxhealth_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxhealth() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxHealth)
+  
+  ::Types::Integer* temp = maxhealth_;
+  maxhealth_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxhealth() {
+  
+  if (maxhealth_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxhealth_ = p;
+  }
+  return maxhealth_;
+}
+inline ::Types::Integer* Player::mutable_maxhealth() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxHealth)
+  return _internal_mutable_maxhealth();
+}
+inline void Player::set_allocated_maxhealth(::Types::Integer* maxhealth) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxhealth_);
+  }
+  if (maxhealth) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxhealth)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxhealth = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxhealth, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxhealth_ = maxhealth;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxHealth)
+}
+
+// .Types.Integer MaxActions = 17;
+inline bool Player::_internal_has_maxactions() const {
+  return this != internal_default_instance() && maxactions_ != nullptr;
+}
+inline bool Player::has_maxactions() const {
+  return _internal_has_maxactions();
+}
+inline const ::Types::Integer& Player::_internal_maxactions() const {
+  const ::Types::Integer* p = maxactions_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxactions() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxActions)
+  return _internal_maxactions();
+}
+inline void Player::unsafe_arena_set_allocated_maxactions(
+    ::Types::Integer* maxactions) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxactions_);
+  }
+  maxactions_ = maxactions;
+  if (maxactions) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxActions)
+}
+inline ::Types::Integer* Player::release_maxactions() {
+  
+  ::Types::Integer* temp = maxactions_;
+  maxactions_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxactions() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxActions)
+  
+  ::Types::Integer* temp = maxactions_;
+  maxactions_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxactions() {
+  
+  if (maxactions_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxactions_ = p;
+  }
+  return maxactions_;
+}
+inline ::Types::Integer* Player::mutable_maxactions() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxActions)
+  return _internal_mutable_maxactions();
+}
+inline void Player::set_allocated_maxactions(::Types::Integer* maxactions) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxactions_);
+  }
+  if (maxactions) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxactions)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxactions = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxactions, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxactions_ = maxactions;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxActions)
+}
+
+// .Types.Integer MaxPower = 18;
+inline bool Player::_internal_has_maxpower() const {
+  return this != internal_default_instance() && maxpower_ != nullptr;
+}
+inline bool Player::has_maxpower() const {
+  return _internal_has_maxpower();
+}
+inline const ::Types::Integer& Player::_internal_maxpower() const {
+  const ::Types::Integer* p = maxpower_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxpower() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxPower)
+  return _internal_maxpower();
+}
+inline void Player::unsafe_arena_set_allocated_maxpower(
+    ::Types::Integer* maxpower) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxpower_);
+  }
+  maxpower_ = maxpower;
+  if (maxpower) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxPower)
+}
+inline ::Types::Integer* Player::release_maxpower() {
+  
+  ::Types::Integer* temp = maxpower_;
+  maxpower_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxpower() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxPower)
+  
+  ::Types::Integer* temp = maxpower_;
+  maxpower_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxpower() {
+  
+  if (maxpower_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxpower_ = p;
+  }
+  return maxpower_;
+}
+inline ::Types::Integer* Player::mutable_maxpower() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxPower)
+  return _internal_mutable_maxpower();
+}
+inline void Player::set_allocated_maxpower(::Types::Integer* maxpower) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxpower_);
+  }
+  if (maxpower) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxpower)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxpower = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxpower, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxpower_ = maxpower;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxPower)
+}
+
+// .Types.Integer MaxSlow = 19;
+inline bool Player::_internal_has_maxslow() const {
+  return this != internal_default_instance() && maxslow_ != nullptr;
+}
+inline bool Player::has_maxslow() const {
+  return _internal_has_maxslow();
+}
+inline const ::Types::Integer& Player::_internal_maxslow() const {
+  const ::Types::Integer* p = maxslow_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxslow() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxSlow)
+  return _internal_maxslow();
+}
+inline void Player::unsafe_arena_set_allocated_maxslow(
+    ::Types::Integer* maxslow) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxslow_);
+  }
+  maxslow_ = maxslow;
+  if (maxslow) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxSlow)
+}
+inline ::Types::Integer* Player::release_maxslow() {
+  
+  ::Types::Integer* temp = maxslow_;
+  maxslow_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxslow() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxSlow)
+  
+  ::Types::Integer* temp = maxslow_;
+  maxslow_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxslow() {
+  
+  if (maxslow_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxslow_ = p;
+  }
+  return maxslow_;
+}
+inline ::Types::Integer* Player::mutable_maxslow() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxSlow)
+  return _internal_mutable_maxslow();
+}
+inline void Player::set_allocated_maxslow(::Types::Integer* maxslow) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxslow_);
+  }
+  if (maxslow) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxslow)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxslow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxslow, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxslow_ = maxslow;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxSlow)
+}
+
+// .Types.Integer MaxSilence = 20;
+inline bool Player::_internal_has_maxsilence() const {
+  return this != internal_default_instance() && maxsilence_ != nullptr;
+}
+inline bool Player::has_maxsilence() const {
+  return _internal_has_maxsilence();
+}
+inline const ::Types::Integer& Player::_internal_maxsilence() const {
+  const ::Types::Integer* p = maxsilence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxsilence() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxSilence)
+  return _internal_maxsilence();
+}
+inline void Player::unsafe_arena_set_allocated_maxsilence(
+    ::Types::Integer* maxsilence) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxsilence_);
+  }
+  maxsilence_ = maxsilence;
+  if (maxsilence) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxSilence)
+}
+inline ::Types::Integer* Player::release_maxsilence() {
+  
+  ::Types::Integer* temp = maxsilence_;
+  maxsilence_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxsilence() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxSilence)
+  
+  ::Types::Integer* temp = maxsilence_;
+  maxsilence_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxsilence() {
+  
+  if (maxsilence_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxsilence_ = p;
+  }
+  return maxsilence_;
+}
+inline ::Types::Integer* Player::mutable_maxsilence() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxSilence)
+  return _internal_mutable_maxsilence();
+}
+inline void Player::set_allocated_maxsilence(::Types::Integer* maxsilence) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxsilence_);
+  }
+  if (maxsilence) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxsilence)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxsilence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxsilence, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxsilence_ = maxsilence;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxSilence)
+}
+
+// .Types.Integer MaxDisarm = 21;
+inline bool Player::_internal_has_maxdisarm() const {
+  return this != internal_default_instance() && maxdisarm_ != nullptr;
+}
+inline bool Player::has_maxdisarm() const {
+  return _internal_has_maxdisarm();
+}
+inline const ::Types::Integer& Player::_internal_maxdisarm() const {
+  const ::Types::Integer* p = maxdisarm_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxdisarm() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxDisarm)
+  return _internal_maxdisarm();
+}
+inline void Player::unsafe_arena_set_allocated_maxdisarm(
+    ::Types::Integer* maxdisarm) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxdisarm_);
+  }
+  maxdisarm_ = maxdisarm;
+  if (maxdisarm) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxDisarm)
+}
+inline ::Types::Integer* Player::release_maxdisarm() {
+  
+  ::Types::Integer* temp = maxdisarm_;
+  maxdisarm_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxdisarm() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxDisarm)
+  
+  ::Types::Integer* temp = maxdisarm_;
+  maxdisarm_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxdisarm() {
+  
+  if (maxdisarm_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxdisarm_ = p;
+  }
+  return maxdisarm_;
+}
+inline ::Types::Integer* Player::mutable_maxdisarm() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxDisarm)
+  return _internal_mutable_maxdisarm();
+}
+inline void Player::set_allocated_maxdisarm(::Types::Integer* maxdisarm) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxdisarm_);
+  }
+  if (maxdisarm) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxdisarm)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxdisarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxdisarm, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxdisarm_ = maxdisarm;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxDisarm)
+}
+
+// .Types.Integer MaxInitiative = 22;
+inline bool Player::_internal_has_maxinitiative() const {
+  return this != internal_default_instance() && maxinitiative_ != nullptr;
+}
+inline bool Player::has_maxinitiative() const {
+  return _internal_has_maxinitiative();
+}
+inline const ::Types::Integer& Player::_internal_maxinitiative() const {
+  const ::Types::Integer* p = maxinitiative_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& Player::maxinitiative() const {
+  // @@protoc_insertion_point(field_get:GameState.Player.MaxInitiative)
+  return _internal_maxinitiative();
+}
+inline void Player::unsafe_arena_set_allocated_maxinitiative(
+    ::Types::Integer* maxinitiative) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxinitiative_);
+  }
+  maxinitiative_ = maxinitiative;
+  if (maxinitiative) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Player.MaxInitiative)
+}
+inline ::Types::Integer* Player::release_maxinitiative() {
+  
+  ::Types::Integer* temp = maxinitiative_;
+  maxinitiative_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* Player::unsafe_arena_release_maxinitiative() {
+  // @@protoc_insertion_point(field_release:GameState.Player.MaxInitiative)
+  
+  ::Types::Integer* temp = maxinitiative_;
+  maxinitiative_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* Player::_internal_mutable_maxinitiative() {
+  
+  if (maxinitiative_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    maxinitiative_ = p;
+  }
+  return maxinitiative_;
+}
+inline ::Types::Integer* Player::mutable_maxinitiative() {
+  // @@protoc_insertion_point(field_mutable:GameState.Player.MaxInitiative)
+  return _internal_mutable_maxinitiative();
+}
+inline void Player::set_allocated_maxinitiative(::Types::Integer* maxinitiative) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxinitiative_);
+  }
+  if (maxinitiative) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxinitiative)->GetArena();
+    if (message_arena != submessage_arena) {
+      maxinitiative = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxinitiative, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxinitiative_ = maxinitiative;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Player.MaxInitiative)
 }
 
 // -------------------------------------------------------------------
@@ -4000,6 +4654,1086 @@ Tile::cards() const {
 
 // -------------------------------------------------------------------
 
+// CardMetaData
+
+// string BaseName = 1;
+inline void CardMetaData::clear_basename() {
+  basename_.ClearToEmpty();
+}
+inline const std::string& CardMetaData::basename() const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.BaseName)
+  return _internal_basename();
+}
+inline void CardMetaData::set_basename(const std::string& value) {
+  _internal_set_basename(value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.BaseName)
+}
+inline std::string* CardMetaData::mutable_basename() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardMetaData.BaseName)
+  return _internal_mutable_basename();
+}
+inline const std::string& CardMetaData::_internal_basename() const {
+  return basename_.Get();
+}
+inline void CardMetaData::_internal_set_basename(const std::string& value) {
+  
+  basename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CardMetaData::set_basename(std::string&& value) {
+  
+  basename_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:GameState.CardMetaData.BaseName)
+}
+inline void CardMetaData::set_basename(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  basename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:GameState.CardMetaData.BaseName)
+}
+inline void CardMetaData::set_basename(const char* value,
+    size_t size) {
+  
+  basename_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:GameState.CardMetaData.BaseName)
+}
+inline std::string* CardMetaData::_internal_mutable_basename() {
+  
+  return basename_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CardMetaData::release_basename() {
+  // @@protoc_insertion_point(field_release:GameState.CardMetaData.BaseName)
+  return basename_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CardMetaData::set_allocated_basename(std::string* basename) {
+  if (basename != nullptr) {
+    
+  } else {
+    
+  }
+  basename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), basename,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardMetaData.BaseName)
+}
+
+// string Archetype = 2;
+inline void CardMetaData::clear_archetype() {
+  archetype_.ClearToEmpty();
+}
+inline const std::string& CardMetaData::archetype() const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.Archetype)
+  return _internal_archetype();
+}
+inline void CardMetaData::set_archetype(const std::string& value) {
+  _internal_set_archetype(value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.Archetype)
+}
+inline std::string* CardMetaData::mutable_archetype() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardMetaData.Archetype)
+  return _internal_mutable_archetype();
+}
+inline const std::string& CardMetaData::_internal_archetype() const {
+  return archetype_.Get();
+}
+inline void CardMetaData::_internal_set_archetype(const std::string& value) {
+  
+  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CardMetaData::set_archetype(std::string&& value) {
+  
+  archetype_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:GameState.CardMetaData.Archetype)
+}
+inline void CardMetaData::set_archetype(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:GameState.CardMetaData.Archetype)
+}
+inline void CardMetaData::set_archetype(const char* value,
+    size_t size) {
+  
+  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:GameState.CardMetaData.Archetype)
+}
+inline std::string* CardMetaData::_internal_mutable_archetype() {
+  
+  return archetype_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CardMetaData::release_archetype() {
+  // @@protoc_insertion_point(field_release:GameState.CardMetaData.Archetype)
+  return archetype_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CardMetaData::set_allocated_archetype(std::string* archetype) {
+  if (archetype != nullptr) {
+    
+  } else {
+    
+  }
+  archetype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), archetype,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardMetaData.Archetype)
+}
+
+// bool Ultimate = 3;
+inline void CardMetaData::clear_ultimate() {
+  ultimate_ = false;
+}
+inline bool CardMetaData::_internal_ultimate() const {
+  return ultimate_;
+}
+inline bool CardMetaData::ultimate() const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.Ultimate)
+  return _internal_ultimate();
+}
+inline void CardMetaData::_internal_set_ultimate(bool value) {
+  
+  ultimate_ = value;
+}
+inline void CardMetaData::set_ultimate(bool value) {
+  _internal_set_ultimate(value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.Ultimate)
+}
+
+// bool Feat = 4;
+inline void CardMetaData::clear_feat() {
+  feat_ = false;
+}
+inline bool CardMetaData::_internal_feat() const {
+  return feat_;
+}
+inline bool CardMetaData::feat() const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.Feat)
+  return _internal_feat();
+}
+inline void CardMetaData::_internal_set_feat(bool value) {
+  
+  feat_ = value;
+}
+inline void CardMetaData::set_feat(bool value) {
+  _internal_set_feat(value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.Feat)
+}
+
+// bool BasicAction = 5;
+inline void CardMetaData::clear_basicaction() {
+  basicaction_ = false;
+}
+inline bool CardMetaData::_internal_basicaction() const {
+  return basicaction_;
+}
+inline bool CardMetaData::basicaction() const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.BasicAction)
+  return _internal_basicaction();
+}
+inline void CardMetaData::_internal_set_basicaction(bool value) {
+  
+  basicaction_ = value;
+}
+inline void CardMetaData::set_basicaction(bool value) {
+  _internal_set_basicaction(value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.BasicAction)
+}
+
+// repeated .GameState.CardMetaData.Color Colors = 6;
+inline int CardMetaData::_internal_colors_size() const {
+  return colors_.size();
+}
+inline int CardMetaData::colors_size() const {
+  return _internal_colors_size();
+}
+inline void CardMetaData::clear_colors() {
+  colors_.Clear();
+}
+inline ::GameState::CardMetaData_Color CardMetaData::_internal_colors(int index) const {
+  return static_cast< ::GameState::CardMetaData_Color >(colors_.Get(index));
+}
+inline ::GameState::CardMetaData_Color CardMetaData::colors(int index) const {
+  // @@protoc_insertion_point(field_get:GameState.CardMetaData.Colors)
+  return _internal_colors(index);
+}
+inline void CardMetaData::set_colors(int index, ::GameState::CardMetaData_Color value) {
+  colors_.Set(index, value);
+  // @@protoc_insertion_point(field_set:GameState.CardMetaData.Colors)
+}
+inline void CardMetaData::_internal_add_colors(::GameState::CardMetaData_Color value) {
+  colors_.Add(value);
+}
+inline void CardMetaData::add_colors(::GameState::CardMetaData_Color value) {
+  // @@protoc_insertion_point(field_add:GameState.CardMetaData.Colors)
+  _internal_add_colors(value);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+CardMetaData::colors() const {
+  // @@protoc_insertion_point(field_list:GameState.CardMetaData.Colors)
+  return colors_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CardMetaData::_internal_mutable_colors() {
+  return &colors_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+CardMetaData::mutable_colors() {
+  // @@protoc_insertion_point(field_mutable_list:GameState.CardMetaData.Colors)
+  return _internal_mutable_colors();
+}
+
+// -------------------------------------------------------------------
+
+// CardStats
+
+// .Types.Integer ActionCost = 1;
+inline bool CardStats::_internal_has_actioncost() const {
+  return this != internal_default_instance() && actioncost_ != nullptr;
+}
+inline bool CardStats::has_actioncost() const {
+  return _internal_has_actioncost();
+}
+inline const ::Types::Integer& CardStats::_internal_actioncost() const {
+  const ::Types::Integer* p = actioncost_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::actioncost() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.ActionCost)
+  return _internal_actioncost();
+}
+inline void CardStats::unsafe_arena_set_allocated_actioncost(
+    ::Types::Integer* actioncost) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
+  }
+  actioncost_ = actioncost;
+  if (actioncost) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.ActionCost)
+}
+inline ::Types::Integer* CardStats::release_actioncost() {
+  
+  ::Types::Integer* temp = actioncost_;
+  actioncost_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_actioncost() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.ActionCost)
+  
+  ::Types::Integer* temp = actioncost_;
+  actioncost_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_actioncost() {
+  
+  if (actioncost_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    actioncost_ = p;
+  }
+  return actioncost_;
+}
+inline ::Types::Integer* CardStats::mutable_actioncost() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.ActionCost)
+  return _internal_mutable_actioncost();
+}
+inline void CardStats::set_allocated_actioncost(::Types::Integer* actioncost) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
+  }
+  if (actioncost) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost)->GetArena();
+    if (message_arena != submessage_arena) {
+      actioncost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actioncost, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  actioncost_ = actioncost;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.ActionCost)
+}
+
+// .Types.Integer PowerCost = 2;
+inline bool CardStats::_internal_has_powercost() const {
+  return this != internal_default_instance() && powercost_ != nullptr;
+}
+inline bool CardStats::has_powercost() const {
+  return _internal_has_powercost();
+}
+inline const ::Types::Integer& CardStats::_internal_powercost() const {
+  const ::Types::Integer* p = powercost_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::powercost() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.PowerCost)
+  return _internal_powercost();
+}
+inline void CardStats::unsafe_arena_set_allocated_powercost(
+    ::Types::Integer* powercost) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
+  }
+  powercost_ = powercost;
+  if (powercost) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.PowerCost)
+}
+inline ::Types::Integer* CardStats::release_powercost() {
+  
+  ::Types::Integer* temp = powercost_;
+  powercost_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_powercost() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.PowerCost)
+  
+  ::Types::Integer* temp = powercost_;
+  powercost_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_powercost() {
+  
+  if (powercost_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    powercost_ = p;
+  }
+  return powercost_;
+}
+inline ::Types::Integer* CardStats::mutable_powercost() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.PowerCost)
+  return _internal_mutable_powercost();
+}
+inline void CardStats::set_allocated_powercost(::Types::Integer* powercost) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
+  }
+  if (powercost) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost)->GetArena();
+    if (message_arena != submessage_arena) {
+      powercost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, powercost, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  powercost_ = powercost;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.PowerCost)
+}
+
+// .Types.Integer Range = 3;
+inline bool CardStats::_internal_has_range() const {
+  return this != internal_default_instance() && range_ != nullptr;
+}
+inline bool CardStats::has_range() const {
+  return _internal_has_range();
+}
+inline const ::Types::Integer& CardStats::_internal_range() const {
+  const ::Types::Integer* p = range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::range() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.Range)
+  return _internal_range();
+}
+inline void CardStats::unsafe_arena_set_allocated_range(
+    ::Types::Integer* range) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
+  }
+  range_ = range;
+  if (range) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.Range)
+}
+inline ::Types::Integer* CardStats::release_range() {
+  
+  ::Types::Integer* temp = range_;
+  range_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_range() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.Range)
+  
+  ::Types::Integer* temp = range_;
+  range_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_range() {
+  
+  if (range_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    range_ = p;
+  }
+  return range_;
+}
+inline ::Types::Integer* CardStats::mutable_range() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.Range)
+  return _internal_mutable_range();
+}
+inline void CardStats::set_allocated_range(::Types::Integer* range) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
+  }
+  if (range) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range)->GetArena();
+    if (message_arena != submessage_arena) {
+      range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, range, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  range_ = range;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.Range)
+}
+
+// .Types.Integer AffectedBySlow = 4;
+inline bool CardStats::_internal_has_affectedbyslow() const {
+  return this != internal_default_instance() && affectedbyslow_ != nullptr;
+}
+inline bool CardStats::has_affectedbyslow() const {
+  return _internal_has_affectedbyslow();
+}
+inline const ::Types::Integer& CardStats::_internal_affectedbyslow() const {
+  const ::Types::Integer* p = affectedbyslow_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::affectedbyslow() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.AffectedBySlow)
+  return _internal_affectedbyslow();
+}
+inline void CardStats::unsafe_arena_set_allocated_affectedbyslow(
+    ::Types::Integer* affectedbyslow) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
+  }
+  affectedbyslow_ = affectedbyslow;
+  if (affectedbyslow) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.AffectedBySlow)
+}
+inline ::Types::Integer* CardStats::release_affectedbyslow() {
+  
+  ::Types::Integer* temp = affectedbyslow_;
+  affectedbyslow_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_affectedbyslow() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.AffectedBySlow)
+  
+  ::Types::Integer* temp = affectedbyslow_;
+  affectedbyslow_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_affectedbyslow() {
+  
+  if (affectedbyslow_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    affectedbyslow_ = p;
+  }
+  return affectedbyslow_;
+}
+inline ::Types::Integer* CardStats::mutable_affectedbyslow() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.AffectedBySlow)
+  return _internal_mutable_affectedbyslow();
+}
+inline void CardStats::set_allocated_affectedbyslow(::Types::Integer* affectedbyslow) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
+  }
+  if (affectedbyslow) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow)->GetArena();
+    if (message_arena != submessage_arena) {
+      affectedbyslow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, affectedbyslow, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  affectedbyslow_ = affectedbyslow;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.AffectedBySlow)
+}
+
+// .Types.Integer AffectedBySilence = 5;
+inline bool CardStats::_internal_has_affectedbysilence() const {
+  return this != internal_default_instance() && affectedbysilence_ != nullptr;
+}
+inline bool CardStats::has_affectedbysilence() const {
+  return _internal_has_affectedbysilence();
+}
+inline const ::Types::Integer& CardStats::_internal_affectedbysilence() const {
+  const ::Types::Integer* p = affectedbysilence_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::affectedbysilence() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.AffectedBySilence)
+  return _internal_affectedbysilence();
+}
+inline void CardStats::unsafe_arena_set_allocated_affectedbysilence(
+    ::Types::Integer* affectedbysilence) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
+  }
+  affectedbysilence_ = affectedbysilence;
+  if (affectedbysilence) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.AffectedBySilence)
+}
+inline ::Types::Integer* CardStats::release_affectedbysilence() {
+  
+  ::Types::Integer* temp = affectedbysilence_;
+  affectedbysilence_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_affectedbysilence() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.AffectedBySilence)
+  
+  ::Types::Integer* temp = affectedbysilence_;
+  affectedbysilence_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_affectedbysilence() {
+  
+  if (affectedbysilence_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    affectedbysilence_ = p;
+  }
+  return affectedbysilence_;
+}
+inline ::Types::Integer* CardStats::mutable_affectedbysilence() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.AffectedBySilence)
+  return _internal_mutable_affectedbysilence();
+}
+inline void CardStats::set_allocated_affectedbysilence(::Types::Integer* affectedbysilence) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
+  }
+  if (affectedbysilence) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence)->GetArena();
+    if (message_arena != submessage_arena) {
+      affectedbysilence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, affectedbysilence, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  affectedbysilence_ = affectedbysilence;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.AffectedBySilence)
+}
+
+// .Types.Integer AffectedByDisarm = 6;
+inline bool CardStats::_internal_has_affectedbydisarm() const {
+  return this != internal_default_instance() && affectedbydisarm_ != nullptr;
+}
+inline bool CardStats::has_affectedbydisarm() const {
+  return _internal_has_affectedbydisarm();
+}
+inline const ::Types::Integer& CardStats::_internal_affectedbydisarm() const {
+  const ::Types::Integer* p = affectedbydisarm_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Integer&>(
+      ::Types::_Integer_default_instance_);
+}
+inline const ::Types::Integer& CardStats::affectedbydisarm() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.AffectedByDisarm)
+  return _internal_affectedbydisarm();
+}
+inline void CardStats::unsafe_arena_set_allocated_affectedbydisarm(
+    ::Types::Integer* affectedbydisarm) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
+  }
+  affectedbydisarm_ = affectedbydisarm;
+  if (affectedbydisarm) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.AffectedByDisarm)
+}
+inline ::Types::Integer* CardStats::release_affectedbydisarm() {
+  
+  ::Types::Integer* temp = affectedbydisarm_;
+  affectedbydisarm_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Types::Integer* CardStats::unsafe_arena_release_affectedbydisarm() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.AffectedByDisarm)
+  
+  ::Types::Integer* temp = affectedbydisarm_;
+  affectedbydisarm_ = nullptr;
+  return temp;
+}
+inline ::Types::Integer* CardStats::_internal_mutable_affectedbydisarm() {
+  
+  if (affectedbydisarm_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Types::Integer>(GetArena());
+    affectedbydisarm_ = p;
+  }
+  return affectedbydisarm_;
+}
+inline ::Types::Integer* CardStats::mutable_affectedbydisarm() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.AffectedByDisarm)
+  return _internal_mutable_affectedbydisarm();
+}
+inline void CardStats::set_allocated_affectedbydisarm(::Types::Integer* affectedbydisarm) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
+  }
+  if (affectedbydisarm) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm)->GetArena();
+    if (message_arena != submessage_arena) {
+      affectedbydisarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, affectedbydisarm, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  affectedbydisarm_ = affectedbydisarm;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.AffectedByDisarm)
+}
+
+// .Effects.CardEffect OmniPresentEffect = 7;
+inline bool CardStats::_internal_has_omnipresenteffect() const {
+  return this != internal_default_instance() && omnipresenteffect_ != nullptr;
+}
+inline bool CardStats::has_omnipresenteffect() const {
+  return _internal_has_omnipresenteffect();
+}
+inline const ::Effects::CardEffect& CardStats::_internal_omnipresenteffect() const {
+  const ::Effects::CardEffect* p = omnipresenteffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
+      ::Effects::_CardEffect_default_instance_);
+}
+inline const ::Effects::CardEffect& CardStats::omnipresenteffect() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.OmniPresentEffect)
+  return _internal_omnipresenteffect();
+}
+inline void CardStats::unsafe_arena_set_allocated_omnipresenteffect(
+    ::Effects::CardEffect* omnipresenteffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
+  }
+  omnipresenteffect_ = omnipresenteffect;
+  if (omnipresenteffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.OmniPresentEffect)
+}
+inline ::Effects::CardEffect* CardStats::release_omnipresenteffect() {
+  
+  ::Effects::CardEffect* temp = omnipresenteffect_;
+  omnipresenteffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::unsafe_arena_release_omnipresenteffect() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.OmniPresentEffect)
+  
+  ::Effects::CardEffect* temp = omnipresenteffect_;
+  omnipresenteffect_ = nullptr;
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::_internal_mutable_omnipresenteffect() {
+  
+  if (omnipresenteffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
+    omnipresenteffect_ = p;
+  }
+  return omnipresenteffect_;
+}
+inline ::Effects::CardEffect* CardStats::mutable_omnipresenteffect() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.OmniPresentEffect)
+  return _internal_mutable_omnipresenteffect();
+}
+inline void CardStats::set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
+  }
+  if (omnipresenteffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect)->GetArena();
+    if (message_arena != submessage_arena) {
+      omnipresenteffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, omnipresenteffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  omnipresenteffect_ = omnipresenteffect;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.OmniPresentEffect)
+}
+
+// .Effects.CardEffect PassiveEffect = 8;
+inline bool CardStats::_internal_has_passiveeffect() const {
+  return this != internal_default_instance() && passiveeffect_ != nullptr;
+}
+inline bool CardStats::has_passiveeffect() const {
+  return _internal_has_passiveeffect();
+}
+inline const ::Effects::CardEffect& CardStats::_internal_passiveeffect() const {
+  const ::Effects::CardEffect* p = passiveeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
+      ::Effects::_CardEffect_default_instance_);
+}
+inline const ::Effects::CardEffect& CardStats::passiveeffect() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.PassiveEffect)
+  return _internal_passiveeffect();
+}
+inline void CardStats::unsafe_arena_set_allocated_passiveeffect(
+    ::Effects::CardEffect* passiveeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
+  }
+  passiveeffect_ = passiveeffect;
+  if (passiveeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.PassiveEffect)
+}
+inline ::Effects::CardEffect* CardStats::release_passiveeffect() {
+  
+  ::Effects::CardEffect* temp = passiveeffect_;
+  passiveeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::unsafe_arena_release_passiveeffect() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.PassiveEffect)
+  
+  ::Effects::CardEffect* temp = passiveeffect_;
+  passiveeffect_ = nullptr;
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::_internal_mutable_passiveeffect() {
+  
+  if (passiveeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
+    passiveeffect_ = p;
+  }
+  return passiveeffect_;
+}
+inline ::Effects::CardEffect* CardStats::mutable_passiveeffect() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.PassiveEffect)
+  return _internal_mutable_passiveeffect();
+}
+inline void CardStats::set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
+  }
+  if (passiveeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect)->GetArena();
+    if (message_arena != submessage_arena) {
+      passiveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, passiveeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  passiveeffect_ = passiveeffect;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.PassiveEffect)
+}
+
+// .Effects.CardEffect FeatEffect = 9;
+inline bool CardStats::_internal_has_feateffect() const {
+  return this != internal_default_instance() && feateffect_ != nullptr;
+}
+inline bool CardStats::has_feateffect() const {
+  return _internal_has_feateffect();
+}
+inline const ::Effects::CardEffect& CardStats::_internal_feateffect() const {
+  const ::Effects::CardEffect* p = feateffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
+      ::Effects::_CardEffect_default_instance_);
+}
+inline const ::Effects::CardEffect& CardStats::feateffect() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.FeatEffect)
+  return _internal_feateffect();
+}
+inline void CardStats::unsafe_arena_set_allocated_feateffect(
+    ::Effects::CardEffect* feateffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
+  }
+  feateffect_ = feateffect;
+  if (feateffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.FeatEffect)
+}
+inline ::Effects::CardEffect* CardStats::release_feateffect() {
+  
+  ::Effects::CardEffect* temp = feateffect_;
+  feateffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::unsafe_arena_release_feateffect() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.FeatEffect)
+  
+  ::Effects::CardEffect* temp = feateffect_;
+  feateffect_ = nullptr;
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::_internal_mutable_feateffect() {
+  
+  if (feateffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
+    feateffect_ = p;
+  }
+  return feateffect_;
+}
+inline ::Effects::CardEffect* CardStats::mutable_feateffect() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.FeatEffect)
+  return _internal_mutable_feateffect();
+}
+inline void CardStats::set_allocated_feateffect(::Effects::CardEffect* feateffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
+  }
+  if (feateffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect)->GetArena();
+    if (message_arena != submessage_arena) {
+      feateffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, feateffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  feateffect_ = feateffect;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.FeatEffect)
+}
+
+// .Effects.CardEffect PlayEffect = 10;
+inline bool CardStats::_internal_has_playeffect() const {
+  return this != internal_default_instance() && playeffect_ != nullptr;
+}
+inline bool CardStats::has_playeffect() const {
+  return _internal_has_playeffect();
+}
+inline const ::Effects::CardEffect& CardStats::_internal_playeffect() const {
+  const ::Effects::CardEffect* p = playeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
+      ::Effects::_CardEffect_default_instance_);
+}
+inline const ::Effects::CardEffect& CardStats::playeffect() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.PlayEffect)
+  return _internal_playeffect();
+}
+inline void CardStats::unsafe_arena_set_allocated_playeffect(
+    ::Effects::CardEffect* playeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
+  }
+  playeffect_ = playeffect;
+  if (playeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.PlayEffect)
+}
+inline ::Effects::CardEffect* CardStats::release_playeffect() {
+  
+  ::Effects::CardEffect* temp = playeffect_;
+  playeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::unsafe_arena_release_playeffect() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.PlayEffect)
+  
+  ::Effects::CardEffect* temp = playeffect_;
+  playeffect_ = nullptr;
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::_internal_mutable_playeffect() {
+  
+  if (playeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
+    playeffect_ = p;
+  }
+  return playeffect_;
+}
+inline ::Effects::CardEffect* CardStats::mutable_playeffect() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.PlayEffect)
+  return _internal_mutable_playeffect();
+}
+inline void CardStats::set_allocated_playeffect(::Effects::CardEffect* playeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
+  }
+  if (playeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect)->GetArena();
+    if (message_arena != submessage_arena) {
+      playeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, playeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  playeffect_ = playeffect;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.PlayEffect)
+}
+
+// .Effects.CardEffect ResolveEffect = 11;
+inline bool CardStats::_internal_has_resolveeffect() const {
+  return this != internal_default_instance() && resolveeffect_ != nullptr;
+}
+inline bool CardStats::has_resolveeffect() const {
+  return _internal_has_resolveeffect();
+}
+inline const ::Effects::CardEffect& CardStats::_internal_resolveeffect() const {
+  const ::Effects::CardEffect* p = resolveeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
+      ::Effects::_CardEffect_default_instance_);
+}
+inline const ::Effects::CardEffect& CardStats::resolveeffect() const {
+  // @@protoc_insertion_point(field_get:GameState.CardStats.ResolveEffect)
+  return _internal_resolveeffect();
+}
+inline void CardStats::unsafe_arena_set_allocated_resolveeffect(
+    ::Effects::CardEffect* resolveeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
+  }
+  resolveeffect_ = resolveeffect;
+  if (resolveeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.CardStats.ResolveEffect)
+}
+inline ::Effects::CardEffect* CardStats::release_resolveeffect() {
+  
+  ::Effects::CardEffect* temp = resolveeffect_;
+  resolveeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::unsafe_arena_release_resolveeffect() {
+  // @@protoc_insertion_point(field_release:GameState.CardStats.ResolveEffect)
+  
+  ::Effects::CardEffect* temp = resolveeffect_;
+  resolveeffect_ = nullptr;
+  return temp;
+}
+inline ::Effects::CardEffect* CardStats::_internal_mutable_resolveeffect() {
+  
+  if (resolveeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
+    resolveeffect_ = p;
+  }
+  return resolveeffect_;
+}
+inline ::Effects::CardEffect* CardStats::mutable_resolveeffect() {
+  // @@protoc_insertion_point(field_mutable:GameState.CardStats.ResolveEffect)
+  return _internal_mutable_resolveeffect();
+}
+inline void CardStats::set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
+  }
+  if (resolveeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect)->GetArena();
+    if (message_arena != submessage_arena) {
+      resolveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, resolveeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  resolveeffect_ = resolveeffect;
+  // @@protoc_insertion_point(field_set_allocated:GameState.CardStats.ResolveEffect)
+}
+
+// -------------------------------------------------------------------
+
 // Card
 
 // string Name = 1;
@@ -4063,171 +5797,90 @@ inline void Card::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Name)
 }
 
-// string Archetype = 2;
-inline void Card::clear_archetype() {
-  archetype_.ClearToEmpty();
+// .GameState.CardMetaData MetaData = 2;
+inline bool Card::_internal_has_metadata() const {
+  return this != internal_default_instance() && metadata_ != nullptr;
 }
-inline const std::string& Card::archetype() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.Archetype)
-  return _internal_archetype();
+inline bool Card::has_metadata() const {
+  return _internal_has_metadata();
 }
-inline void Card::set_archetype(const std::string& value) {
-  _internal_set_archetype(value);
-  // @@protoc_insertion_point(field_set:GameState.Card.Archetype)
+inline void Card::clear_metadata() {
+  if (GetArena() == nullptr && metadata_ != nullptr) {
+    delete metadata_;
+  }
+  metadata_ = nullptr;
 }
-inline std::string* Card::mutable_archetype() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.Archetype)
-  return _internal_mutable_archetype();
+inline const ::GameState::CardMetaData& Card::_internal_metadata() const {
+  const ::GameState::CardMetaData* p = metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::GameState::CardMetaData&>(
+      ::GameState::_CardMetaData_default_instance_);
 }
-inline const std::string& Card::_internal_archetype() const {
-  return archetype_.Get();
+inline const ::GameState::CardMetaData& Card::metadata() const {
+  // @@protoc_insertion_point(field_get:GameState.Card.MetaData)
+  return _internal_metadata();
 }
-inline void Card::_internal_set_archetype(const std::string& value) {
-  
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Card::set_archetype(std::string&& value) {
-  
-  archetype_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:GameState.Card.Archetype)
-}
-inline void Card::set_archetype(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:GameState.Card.Archetype)
-}
-inline void Card::set_archetype(const char* value,
-    size_t size) {
-  
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:GameState.Card.Archetype)
-}
-inline std::string* Card::_internal_mutable_archetype() {
-  
-  return archetype_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Card::release_archetype() {
-  // @@protoc_insertion_point(field_release:GameState.Card.Archetype)
-  return archetype_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Card::set_allocated_archetype(std::string* archetype) {
-  if (archetype != nullptr) {
+inline void Card::unsafe_arena_set_allocated_metadata(
+    ::GameState::CardMetaData* metadata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metadata_);
+  }
+  metadata_ = metadata;
+  if (metadata) {
     
   } else {
     
   }
-  archetype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), archetype,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.Archetype)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.MetaData)
 }
-
-// bool Ultimate = 3;
-inline void Card::clear_ultimate() {
-  ultimate_ = false;
-}
-inline bool Card::_internal_ultimate() const {
-  return ultimate_;
-}
-inline bool Card::ultimate() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.Ultimate)
-  return _internal_ultimate();
-}
-inline void Card::_internal_set_ultimate(bool value) {
+inline ::GameState::CardMetaData* Card::release_metadata() {
   
-  ultimate_ = value;
+  ::GameState::CardMetaData* temp = metadata_;
+  metadata_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline void Card::set_ultimate(bool value) {
-  _internal_set_ultimate(value);
-  // @@protoc_insertion_point(field_set:GameState.Card.Ultimate)
-}
-
-// bool Feat = 4;
-inline void Card::clear_feat() {
-  feat_ = false;
-}
-inline bool Card::_internal_feat() const {
-  return feat_;
-}
-inline bool Card::feat() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.Feat)
-  return _internal_feat();
-}
-inline void Card::_internal_set_feat(bool value) {
+inline ::GameState::CardMetaData* Card::unsafe_arena_release_metadata() {
+  // @@protoc_insertion_point(field_release:GameState.Card.MetaData)
   
-  feat_ = value;
+  ::GameState::CardMetaData* temp = metadata_;
+  metadata_ = nullptr;
+  return temp;
 }
-inline void Card::set_feat(bool value) {
-  _internal_set_feat(value);
-  // @@protoc_insertion_point(field_set:GameState.Card.Feat)
-}
-
-// bool BasicAction = 5;
-inline void Card::clear_basicaction() {
-  basicaction_ = false;
-}
-inline bool Card::_internal_basicaction() const {
-  return basicaction_;
-}
-inline bool Card::basicaction() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.BasicAction)
-  return _internal_basicaction();
-}
-inline void Card::_internal_set_basicaction(bool value) {
+inline ::GameState::CardMetaData* Card::_internal_mutable_metadata() {
   
-  basicaction_ = value;
+  if (metadata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::GameState::CardMetaData>(GetArena());
+    metadata_ = p;
+  }
+  return metadata_;
 }
-inline void Card::set_basicaction(bool value) {
-  _internal_set_basicaction(value);
-  // @@protoc_insertion_point(field_set:GameState.Card.BasicAction)
+inline ::GameState::CardMetaData* Card::mutable_metadata() {
+  // @@protoc_insertion_point(field_mutable:GameState.Card.MetaData)
+  return _internal_mutable_metadata();
 }
-
-// repeated .GameState.Card.Color Colors = 6;
-inline int Card::_internal_colors_size() const {
-  return colors_.size();
-}
-inline int Card::colors_size() const {
-  return _internal_colors_size();
-}
-inline void Card::clear_colors() {
-  colors_.Clear();
-}
-inline ::GameState::Card_Color Card::_internal_colors(int index) const {
-  return static_cast< ::GameState::Card_Color >(colors_.Get(index));
-}
-inline ::GameState::Card_Color Card::colors(int index) const {
-  // @@protoc_insertion_point(field_get:GameState.Card.Colors)
-  return _internal_colors(index);
-}
-inline void Card::set_colors(int index, ::GameState::Card_Color value) {
-  colors_.Set(index, value);
-  // @@protoc_insertion_point(field_set:GameState.Card.Colors)
-}
-inline void Card::_internal_add_colors(::GameState::Card_Color value) {
-  colors_.Add(value);
-}
-inline void Card::add_colors(::GameState::Card_Color value) {
-  // @@protoc_insertion_point(field_add:GameState.Card.Colors)
-  _internal_add_colors(value);
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-Card::colors() const {
-  // @@protoc_insertion_point(field_list:GameState.Card.Colors)
-  return colors_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Card::_internal_mutable_colors() {
-  return &colors_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Card::mutable_colors() {
-  // @@protoc_insertion_point(field_mutable_list:GameState.Card.Colors)
-  return _internal_mutable_colors();
+inline void Card::set_allocated_metadata(::GameState::CardMetaData* metadata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete metadata_;
+  }
+  if (metadata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(metadata);
+    if (message_arena != submessage_arena) {
+      metadata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, metadata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  metadata_ = metadata;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Card.MetaData)
 }
 
-// .Types.PlayerRef Owner = 7;
+// .Types.PlayerRef Owner = 3;
 inline bool Card::_internal_has_owner() const {
   return this != internal_default_instance() && owner_ != nullptr;
 }
@@ -4304,7 +5957,7 @@ inline void Card::set_allocated_owner(::Types::PlayerRef* owner) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Owner)
 }
 
-// .Types.PlayerRef Controller = 8;
+// .Types.PlayerRef Controller = 4;
 inline bool Card::_internal_has_controller() const {
   return this != internal_default_instance() && controller_ != nullptr;
 }
@@ -4381,238 +6034,7 @@ inline void Card::set_allocated_controller(::Types::PlayerRef* controller) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Controller)
 }
 
-// .Types.IntegerRef ActionCost = 9;
-inline bool Card::_internal_has_actioncost() const {
-  return this != internal_default_instance() && actioncost_ != nullptr;
-}
-inline bool Card::has_actioncost() const {
-  return _internal_has_actioncost();
-}
-inline const ::Types::IntegerRef& Card::_internal_actioncost() const {
-  const ::Types::IntegerRef* p = actioncost_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::actioncost() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.ActionCost)
-  return _internal_actioncost();
-}
-inline void Card::unsafe_arena_set_allocated_actioncost(
-    ::Types::IntegerRef* actioncost) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
-  }
-  actioncost_ = actioncost;
-  if (actioncost) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.ActionCost)
-}
-inline ::Types::IntegerRef* Card::release_actioncost() {
-  
-  ::Types::IntegerRef* temp = actioncost_;
-  actioncost_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Card::unsafe_arena_release_actioncost() {
-  // @@protoc_insertion_point(field_release:GameState.Card.ActionCost)
-  
-  ::Types::IntegerRef* temp = actioncost_;
-  actioncost_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Card::_internal_mutable_actioncost() {
-  
-  if (actioncost_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    actioncost_ = p;
-  }
-  return actioncost_;
-}
-inline ::Types::IntegerRef* Card::mutable_actioncost() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.ActionCost)
-  return _internal_mutable_actioncost();
-}
-inline void Card::set_allocated_actioncost(::Types::IntegerRef* actioncost) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost_);
-  }
-  if (actioncost) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncost)->GetArena();
-    if (message_arena != submessage_arena) {
-      actioncost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, actioncost, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  actioncost_ = actioncost;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.ActionCost)
-}
-
-// .Types.IntegerRef PowerCost = 10;
-inline bool Card::_internal_has_powercost() const {
-  return this != internal_default_instance() && powercost_ != nullptr;
-}
-inline bool Card::has_powercost() const {
-  return _internal_has_powercost();
-}
-inline const ::Types::IntegerRef& Card::_internal_powercost() const {
-  const ::Types::IntegerRef* p = powercost_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::powercost() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.PowerCost)
-  return _internal_powercost();
-}
-inline void Card::unsafe_arena_set_allocated_powercost(
-    ::Types::IntegerRef* powercost) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
-  }
-  powercost_ = powercost;
-  if (powercost) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.PowerCost)
-}
-inline ::Types::IntegerRef* Card::release_powercost() {
-  
-  ::Types::IntegerRef* temp = powercost_;
-  powercost_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Card::unsafe_arena_release_powercost() {
-  // @@protoc_insertion_point(field_release:GameState.Card.PowerCost)
-  
-  ::Types::IntegerRef* temp = powercost_;
-  powercost_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Card::_internal_mutable_powercost() {
-  
-  if (powercost_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    powercost_ = p;
-  }
-  return powercost_;
-}
-inline ::Types::IntegerRef* Card::mutable_powercost() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.PowerCost)
-  return _internal_mutable_powercost();
-}
-inline void Card::set_allocated_powercost(::Types::IntegerRef* powercost) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost_);
-  }
-  if (powercost) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercost)->GetArena();
-    if (message_arena != submessage_arena) {
-      powercost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, powercost, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  powercost_ = powercost;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.PowerCost)
-}
-
-// .Types.IntegerRef Range = 11;
-inline bool Card::_internal_has_range() const {
-  return this != internal_default_instance() && range_ != nullptr;
-}
-inline bool Card::has_range() const {
-  return _internal_has_range();
-}
-inline const ::Types::IntegerRef& Card::_internal_range() const {
-  const ::Types::IntegerRef* p = range_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::range() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.Range)
-  return _internal_range();
-}
-inline void Card::unsafe_arena_set_allocated_range(
-    ::Types::IntegerRef* range) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
-  }
-  range_ = range;
-  if (range) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Range)
-}
-inline ::Types::IntegerRef* Card::release_range() {
-  
-  ::Types::IntegerRef* temp = range_;
-  range_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Card::unsafe_arena_release_range() {
-  // @@protoc_insertion_point(field_release:GameState.Card.Range)
-  
-  ::Types::IntegerRef* temp = range_;
-  range_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Card::_internal_mutable_range() {
-  
-  if (range_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    range_ = p;
-  }
-  return range_;
-}
-inline ::Types::IntegerRef* Card::mutable_range() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.Range)
-  return _internal_mutable_range();
-}
-inline void Card::set_allocated_range(::Types::IntegerRef* range) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(range_);
-  }
-  if (range) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(range)->GetArena();
-    if (message_arena != submessage_arena) {
-      range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, range, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  range_ = range;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.Range)
-}
-
-// .Types.EntityRef Attached = 12;
+// .Types.EntityRef Attached = 5;
 inline bool Card::_internal_has_attached() const {
   return this != internal_default_instance() && attached_ != nullptr;
 }
@@ -4689,620 +6111,87 @@ inline void Card::set_allocated_attached(::Types::EntityRef* attached) {
   // @@protoc_insertion_point(field_set_allocated:GameState.Card.Attached)
 }
 
-// .Types.IntegerRef AffectedBySlow = 13;
-inline bool Card::_internal_has_affectedbyslow() const {
-  return this != internal_default_instance() && affectedbyslow_ != nullptr;
+// .GameState.CardStats Stats = 6;
+inline bool Card::_internal_has_stats() const {
+  return this != internal_default_instance() && stats_ != nullptr;
 }
-inline bool Card::has_affectedbyslow() const {
-  return _internal_has_affectedbyslow();
+inline bool Card::has_stats() const {
+  return _internal_has_stats();
 }
-inline const ::Types::IntegerRef& Card::_internal_affectedbyslow() const {
-  const ::Types::IntegerRef* p = affectedbyslow_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::affectedbyslow() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.AffectedBySlow)
-  return _internal_affectedbyslow();
-}
-inline void Card::unsafe_arena_set_allocated_affectedbyslow(
-    ::Types::IntegerRef* affectedbyslow) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
+inline void Card::clear_stats() {
+  if (GetArena() == nullptr && stats_ != nullptr) {
+    delete stats_;
   }
-  affectedbyslow_ = affectedbyslow;
-  if (affectedbyslow) {
+  stats_ = nullptr;
+}
+inline const ::GameState::CardStats& Card::_internal_stats() const {
+  const ::GameState::CardStats* p = stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::GameState::CardStats&>(
+      ::GameState::_CardStats_default_instance_);
+}
+inline const ::GameState::CardStats& Card::stats() const {
+  // @@protoc_insertion_point(field_get:GameState.Card.Stats)
+  return _internal_stats();
+}
+inline void Card::unsafe_arena_set_allocated_stats(
+    ::GameState::CardStats* stats) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(stats_);
+  }
+  stats_ = stats;
+  if (stats) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedBySlow)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.Stats)
 }
-inline ::Types::IntegerRef* Card::release_affectedbyslow() {
+inline ::GameState::CardStats* Card::release_stats() {
   
-  ::Types::IntegerRef* temp = affectedbyslow_;
-  affectedbyslow_ = nullptr;
+  ::GameState::CardStats* temp = stats_;
+  stats_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbyslow() {
-  // @@protoc_insertion_point(field_release:GameState.Card.AffectedBySlow)
+inline ::GameState::CardStats* Card::unsafe_arena_release_stats() {
+  // @@protoc_insertion_point(field_release:GameState.Card.Stats)
   
-  ::Types::IntegerRef* temp = affectedbyslow_;
-  affectedbyslow_ = nullptr;
+  ::GameState::CardStats* temp = stats_;
+  stats_ = nullptr;
   return temp;
 }
-inline ::Types::IntegerRef* Card::_internal_mutable_affectedbyslow() {
+inline ::GameState::CardStats* Card::_internal_mutable_stats() {
   
-  if (affectedbyslow_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    affectedbyslow_ = p;
+  if (stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::GameState::CardStats>(GetArena());
+    stats_ = p;
   }
-  return affectedbyslow_;
+  return stats_;
 }
-inline ::Types::IntegerRef* Card::mutable_affectedbyslow() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedBySlow)
-  return _internal_mutable_affectedbyslow();
+inline ::GameState::CardStats* Card::mutable_stats() {
+  // @@protoc_insertion_point(field_mutable:GameState.Card.Stats)
+  return _internal_mutable_stats();
 }
-inline void Card::set_allocated_affectedbyslow(::Types::IntegerRef* affectedbyslow) {
+inline void Card::set_allocated_stats(::GameState::CardStats* stats) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow_);
+    delete stats_;
   }
-  if (affectedbyslow) {
+  if (stats) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbyslow)->GetArena();
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(stats);
     if (message_arena != submessage_arena) {
-      affectedbyslow = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, affectedbyslow, submessage_arena);
+      stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, stats, submessage_arena);
     }
     
   } else {
     
   }
-  affectedbyslow_ = affectedbyslow;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.AffectedBySlow)
-}
-
-// .Types.IntegerRef AffectedBySilence = 14;
-inline bool Card::_internal_has_affectedbysilence() const {
-  return this != internal_default_instance() && affectedbysilence_ != nullptr;
-}
-inline bool Card::has_affectedbysilence() const {
-  return _internal_has_affectedbysilence();
-}
-inline const ::Types::IntegerRef& Card::_internal_affectedbysilence() const {
-  const ::Types::IntegerRef* p = affectedbysilence_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::affectedbysilence() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.AffectedBySilence)
-  return _internal_affectedbysilence();
-}
-inline void Card::unsafe_arena_set_allocated_affectedbysilence(
-    ::Types::IntegerRef* affectedbysilence) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
-  }
-  affectedbysilence_ = affectedbysilence;
-  if (affectedbysilence) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedBySilence)
-}
-inline ::Types::IntegerRef* Card::release_affectedbysilence() {
-  
-  ::Types::IntegerRef* temp = affectedbysilence_;
-  affectedbysilence_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbysilence() {
-  // @@protoc_insertion_point(field_release:GameState.Card.AffectedBySilence)
-  
-  ::Types::IntegerRef* temp = affectedbysilence_;
-  affectedbysilence_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Card::_internal_mutable_affectedbysilence() {
-  
-  if (affectedbysilence_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    affectedbysilence_ = p;
-  }
-  return affectedbysilence_;
-}
-inline ::Types::IntegerRef* Card::mutable_affectedbysilence() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedBySilence)
-  return _internal_mutable_affectedbysilence();
-}
-inline void Card::set_allocated_affectedbysilence(::Types::IntegerRef* affectedbysilence) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence_);
-  }
-  if (affectedbysilence) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbysilence)->GetArena();
-    if (message_arena != submessage_arena) {
-      affectedbysilence = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, affectedbysilence, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  affectedbysilence_ = affectedbysilence;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.AffectedBySilence)
-}
-
-// .Types.IntegerRef AffectedByDisarm = 15;
-inline bool Card::_internal_has_affectedbydisarm() const {
-  return this != internal_default_instance() && affectedbydisarm_ != nullptr;
-}
-inline bool Card::has_affectedbydisarm() const {
-  return _internal_has_affectedbydisarm();
-}
-inline const ::Types::IntegerRef& Card::_internal_affectedbydisarm() const {
-  const ::Types::IntegerRef* p = affectedbydisarm_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::IntegerRef&>(
-      ::Types::_IntegerRef_default_instance_);
-}
-inline const ::Types::IntegerRef& Card::affectedbydisarm() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.AffectedByDisarm)
-  return _internal_affectedbydisarm();
-}
-inline void Card::unsafe_arena_set_allocated_affectedbydisarm(
-    ::Types::IntegerRef* affectedbydisarm) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
-  }
-  affectedbydisarm_ = affectedbydisarm;
-  if (affectedbydisarm) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.AffectedByDisarm)
-}
-inline ::Types::IntegerRef* Card::release_affectedbydisarm() {
-  
-  ::Types::IntegerRef* temp = affectedbydisarm_;
-  affectedbydisarm_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Types::IntegerRef* Card::unsafe_arena_release_affectedbydisarm() {
-  // @@protoc_insertion_point(field_release:GameState.Card.AffectedByDisarm)
-  
-  ::Types::IntegerRef* temp = affectedbydisarm_;
-  affectedbydisarm_ = nullptr;
-  return temp;
-}
-inline ::Types::IntegerRef* Card::_internal_mutable_affectedbydisarm() {
-  
-  if (affectedbydisarm_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::IntegerRef>(GetArena());
-    affectedbydisarm_ = p;
-  }
-  return affectedbydisarm_;
-}
-inline ::Types::IntegerRef* Card::mutable_affectedbydisarm() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.AffectedByDisarm)
-  return _internal_mutable_affectedbydisarm();
-}
-inline void Card::set_allocated_affectedbydisarm(::Types::IntegerRef* affectedbydisarm) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm_);
-  }
-  if (affectedbydisarm) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(affectedbydisarm)->GetArena();
-    if (message_arena != submessage_arena) {
-      affectedbydisarm = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, affectedbydisarm, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  affectedbydisarm_ = affectedbydisarm;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.AffectedByDisarm)
-}
-
-// .Effects.CardEffect OmniPresentEffect = 16;
-inline bool Card::_internal_has_omnipresenteffect() const {
-  return this != internal_default_instance() && omnipresenteffect_ != nullptr;
-}
-inline bool Card::has_omnipresenteffect() const {
-  return _internal_has_omnipresenteffect();
-}
-inline const ::Effects::CardEffect& Card::_internal_omnipresenteffect() const {
-  const ::Effects::CardEffect* p = omnipresenteffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& Card::omnipresenteffect() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.OmniPresentEffect)
-  return _internal_omnipresenteffect();
-}
-inline void Card::unsafe_arena_set_allocated_omnipresenteffect(
-    ::Effects::CardEffect* omnipresenteffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
-  }
-  omnipresenteffect_ = omnipresenteffect;
-  if (omnipresenteffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.OmniPresentEffect)
-}
-inline ::Effects::CardEffect* Card::release_omnipresenteffect() {
-  
-  ::Effects::CardEffect* temp = omnipresenteffect_;
-  omnipresenteffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* Card::unsafe_arena_release_omnipresenteffect() {
-  // @@protoc_insertion_point(field_release:GameState.Card.OmniPresentEffect)
-  
-  ::Effects::CardEffect* temp = omnipresenteffect_;
-  omnipresenteffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* Card::_internal_mutable_omnipresenteffect() {
-  
-  if (omnipresenteffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    omnipresenteffect_ = p;
-  }
-  return omnipresenteffect_;
-}
-inline ::Effects::CardEffect* Card::mutable_omnipresenteffect() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.OmniPresentEffect)
-  return _internal_mutable_omnipresenteffect();
-}
-inline void Card::set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
-  }
-  if (omnipresenteffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      omnipresenteffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, omnipresenteffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  omnipresenteffect_ = omnipresenteffect;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.OmniPresentEffect)
-}
-
-// .Effects.CardEffect PassiveEffect = 17;
-inline bool Card::_internal_has_passiveeffect() const {
-  return this != internal_default_instance() && passiveeffect_ != nullptr;
-}
-inline bool Card::has_passiveeffect() const {
-  return _internal_has_passiveeffect();
-}
-inline const ::Effects::CardEffect& Card::_internal_passiveeffect() const {
-  const ::Effects::CardEffect* p = passiveeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& Card::passiveeffect() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.PassiveEffect)
-  return _internal_passiveeffect();
-}
-inline void Card::unsafe_arena_set_allocated_passiveeffect(
-    ::Effects::CardEffect* passiveeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
-  }
-  passiveeffect_ = passiveeffect;
-  if (passiveeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.PassiveEffect)
-}
-inline ::Effects::CardEffect* Card::release_passiveeffect() {
-  
-  ::Effects::CardEffect* temp = passiveeffect_;
-  passiveeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* Card::unsafe_arena_release_passiveeffect() {
-  // @@protoc_insertion_point(field_release:GameState.Card.PassiveEffect)
-  
-  ::Effects::CardEffect* temp = passiveeffect_;
-  passiveeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* Card::_internal_mutable_passiveeffect() {
-  
-  if (passiveeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    passiveeffect_ = p;
-  }
-  return passiveeffect_;
-}
-inline ::Effects::CardEffect* Card::mutable_passiveeffect() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.PassiveEffect)
-  return _internal_mutable_passiveeffect();
-}
-inline void Card::set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
-  }
-  if (passiveeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      passiveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, passiveeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  passiveeffect_ = passiveeffect;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.PassiveEffect)
-}
-
-// .Effects.CardEffect FeatEffect = 18;
-inline bool Card::_internal_has_feateffect() const {
-  return this != internal_default_instance() && feateffect_ != nullptr;
-}
-inline bool Card::has_feateffect() const {
-  return _internal_has_feateffect();
-}
-inline const ::Effects::CardEffect& Card::_internal_feateffect() const {
-  const ::Effects::CardEffect* p = feateffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& Card::feateffect() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.FeatEffect)
-  return _internal_feateffect();
-}
-inline void Card::unsafe_arena_set_allocated_feateffect(
-    ::Effects::CardEffect* feateffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
-  }
-  feateffect_ = feateffect;
-  if (feateffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.FeatEffect)
-}
-inline ::Effects::CardEffect* Card::release_feateffect() {
-  
-  ::Effects::CardEffect* temp = feateffect_;
-  feateffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* Card::unsafe_arena_release_feateffect() {
-  // @@protoc_insertion_point(field_release:GameState.Card.FeatEffect)
-  
-  ::Effects::CardEffect* temp = feateffect_;
-  feateffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* Card::_internal_mutable_feateffect() {
-  
-  if (feateffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    feateffect_ = p;
-  }
-  return feateffect_;
-}
-inline ::Effects::CardEffect* Card::mutable_feateffect() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.FeatEffect)
-  return _internal_mutable_feateffect();
-}
-inline void Card::set_allocated_feateffect(::Effects::CardEffect* feateffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
-  }
-  if (feateffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      feateffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, feateffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  feateffect_ = feateffect;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.FeatEffect)
-}
-
-// .Effects.CardEffect PlayEffect = 19;
-inline bool Card::_internal_has_playeffect() const {
-  return this != internal_default_instance() && playeffect_ != nullptr;
-}
-inline bool Card::has_playeffect() const {
-  return _internal_has_playeffect();
-}
-inline const ::Effects::CardEffect& Card::_internal_playeffect() const {
-  const ::Effects::CardEffect* p = playeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& Card::playeffect() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.PlayEffect)
-  return _internal_playeffect();
-}
-inline void Card::unsafe_arena_set_allocated_playeffect(
-    ::Effects::CardEffect* playeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
-  }
-  playeffect_ = playeffect;
-  if (playeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.PlayEffect)
-}
-inline ::Effects::CardEffect* Card::release_playeffect() {
-  
-  ::Effects::CardEffect* temp = playeffect_;
-  playeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* Card::unsafe_arena_release_playeffect() {
-  // @@protoc_insertion_point(field_release:GameState.Card.PlayEffect)
-  
-  ::Effects::CardEffect* temp = playeffect_;
-  playeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* Card::_internal_mutable_playeffect() {
-  
-  if (playeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    playeffect_ = p;
-  }
-  return playeffect_;
-}
-inline ::Effects::CardEffect* Card::mutable_playeffect() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.PlayEffect)
-  return _internal_mutable_playeffect();
-}
-inline void Card::set_allocated_playeffect(::Effects::CardEffect* playeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
-  }
-  if (playeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      playeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, playeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  playeffect_ = playeffect;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.PlayEffect)
-}
-
-// .Effects.CardEffect ResolveEffect = 20;
-inline bool Card::_internal_has_resolveeffect() const {
-  return this != internal_default_instance() && resolveeffect_ != nullptr;
-}
-inline bool Card::has_resolveeffect() const {
-  return _internal_has_resolveeffect();
-}
-inline const ::Effects::CardEffect& Card::_internal_resolveeffect() const {
-  const ::Effects::CardEffect* p = resolveeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& Card::resolveeffect() const {
-  // @@protoc_insertion_point(field_get:GameState.Card.ResolveEffect)
-  return _internal_resolveeffect();
-}
-inline void Card::unsafe_arena_set_allocated_resolveeffect(
-    ::Effects::CardEffect* resolveeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
-  }
-  resolveeffect_ = resolveeffect;
-  if (resolveeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.Card.ResolveEffect)
-}
-inline ::Effects::CardEffect* Card::release_resolveeffect() {
-  
-  ::Effects::CardEffect* temp = resolveeffect_;
-  resolveeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* Card::unsafe_arena_release_resolveeffect() {
-  // @@protoc_insertion_point(field_release:GameState.Card.ResolveEffect)
-  
-  ::Effects::CardEffect* temp = resolveeffect_;
-  resolveeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* Card::_internal_mutable_resolveeffect() {
-  
-  if (resolveeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    resolveeffect_ = p;
-  }
-  return resolveeffect_;
-}
-inline ::Effects::CardEffect* Card::mutable_resolveeffect() {
-  // @@protoc_insertion_point(field_mutable:GameState.Card.ResolveEffect)
-  return _internal_mutable_resolveeffect();
-}
-inline void Card::set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
-  }
-  if (resolveeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      resolveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, resolveeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  resolveeffect_ = resolveeffect;
-  // @@protoc_insertion_point(field_set_allocated:GameState.Card.ResolveEffect)
+  stats_ = stats;
+  // @@protoc_insertion_point(field_set_allocated:GameState.Card.Stats)
 }
 
 // -------------------------------------------------------------------
@@ -6553,6 +7442,8 @@ GameInstance::history() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -6560,10 +7451,10 @@ GameInstance::history() const {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::GameState::Card_Color> : ::std::true_type {};
+template <> struct is_proto_enum< ::GameState::CardMetaData_Color> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::GameState::Card_Color>() {
-  return ::GameState::Card_Color_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::GameState::CardMetaData_Color>() {
+  return ::GameState::CardMetaData_Color_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -7,10 +7,10 @@ message Path {
     message FieldIndecies {
         repeated int32 Indecies = 1;
     }
-    oneof path {
+    // oneof path {
         FieldIndecies Fields = 1;
         string FullPath = 2;
-    }
+    // }
 }
 
 enum TerrainType {
@@ -49,14 +49,14 @@ message Vec2iRef {
 }
 
 message IntegerValue {
-    oneof value {
-        int32 Value = 1;
+    oneof int_value {
+        Integer Value = 1;
         IntegerRef Ref = 2;
     }
 }
 
 message Vec2iValue {
-    oneof value {
+    oneof vec2i_value {
         Vec2i Value = 1;
         Vec2iRef Ref = 2;
     }

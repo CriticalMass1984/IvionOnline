@@ -7,24 +7,9 @@ import "Types.proto";
 import "Effects.proto";
 import "GameState.proto";
 
-message CardMetaData {
-    string Name = 1;
-    string Archetype = 2;
-    bool Ultimate = 3;
-    bool Feat = 4;
-    repeated GameState.Card.Color Colors = 5;
-    
-    int32 Count = 6;
-
-    Effects.CardEffect OmniPresentEffect = 7;
-    Effects.CardEffect PassiveEffect = 8;
-    Effects.CardEffect FeatEffect = 9;
-    Effects.CardEffect PlayEffect = 10;
-    Effects.CardEffect ResolveEffect = 11;
-}
-
-message DeckList {
-    repeated CardMetaData Deck = 3;
+message CardInfo {
+    GameState.CardMetaData metadata = 1;
+    int32 Count = 2;
 }
 
 message RandomAgent {
@@ -37,13 +22,12 @@ message AIAgent {
 
 // the game doesn't talk directly to clients, it instead talks to the server, which talks to the clients
 message PlayerAgent {
-    int32 PlayerUID = 1;
 }
 
 message PlayerInfo {
     string Username = 1;
     string UID = 2;
-    DeckList Deck = 3;
+    repeated CardInfo Deck = 3;
     Types.Vec2i StartingPosition = 4;
     oneof AgentInfo {
         AIAgent AIAgent = 5;

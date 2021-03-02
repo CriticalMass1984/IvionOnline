@@ -49,7 +49,7 @@ struct TableStruct_GameInfo_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -60,12 +60,9 @@ namespace NetworkIO {
 class AIAgent;
 class AIAgentDefaultTypeInternal;
 extern AIAgentDefaultTypeInternal _AIAgent_default_instance_;
-class CardMetaData;
-class CardMetaDataDefaultTypeInternal;
-extern CardMetaDataDefaultTypeInternal _CardMetaData_default_instance_;
-class DeckList;
-class DeckListDefaultTypeInternal;
-extern DeckListDefaultTypeInternal _DeckList_default_instance_;
+class CardInfo;
+class CardInfoDefaultTypeInternal;
+extern CardInfoDefaultTypeInternal _CardInfo_default_instance_;
 class GameInfo;
 class GameInfoDefaultTypeInternal;
 extern GameInfoDefaultTypeInternal _GameInfo_default_instance_;
@@ -81,8 +78,7 @@ extern RandomAgentDefaultTypeInternal _RandomAgent_default_instance_;
 }  // namespace NetworkIO
 PROTOBUF_NAMESPACE_OPEN
 template<> ::NetworkIO::AIAgent* Arena::CreateMaybeMessage<::NetworkIO::AIAgent>(Arena*);
-template<> ::NetworkIO::CardMetaData* Arena::CreateMaybeMessage<::NetworkIO::CardMetaData>(Arena*);
-template<> ::NetworkIO::DeckList* Arena::CreateMaybeMessage<::NetworkIO::DeckList>(Arena*);
+template<> ::NetworkIO::CardInfo* Arena::CreateMaybeMessage<::NetworkIO::CardInfo>(Arena*);
 template<> ::NetworkIO::GameInfo* Arena::CreateMaybeMessage<::NetworkIO::GameInfo>(Arena*);
 template<> ::NetworkIO::PlayerAgent* Arena::CreateMaybeMessage<::NetworkIO::PlayerAgent>(Arena*);
 template<> ::NetworkIO::PlayerInfo* Arena::CreateMaybeMessage<::NetworkIO::PlayerInfo>(Arena*);
@@ -92,23 +88,23 @@ namespace NetworkIO {
 
 // ===================================================================
 
-class CardMetaData PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NetworkIO.CardMetaData) */ {
+class CardInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NetworkIO.CardInfo) */ {
  public:
-  inline CardMetaData() : CardMetaData(nullptr) {}
-  virtual ~CardMetaData();
+  inline CardInfo() : CardInfo(nullptr) {}
+  virtual ~CardInfo();
 
-  CardMetaData(const CardMetaData& from);
-  CardMetaData(CardMetaData&& from) noexcept
-    : CardMetaData() {
+  CardInfo(const CardInfo& from);
+  CardInfo(CardInfo&& from) noexcept
+    : CardInfo() {
     *this = ::std::move(from);
   }
 
-  inline CardMetaData& operator=(const CardMetaData& from) {
+  inline CardInfo& operator=(const CardInfo& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CardMetaData& operator=(CardMetaData&& from) noexcept {
+  inline CardInfo& operator=(CardInfo&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -126,19 +122,19 @@ class CardMetaData PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const CardMetaData& default_instance();
+  static const CardInfo& default_instance();
 
-  static inline const CardMetaData* internal_default_instance() {
-    return reinterpret_cast<const CardMetaData*>(
-               &_CardMetaData_default_instance_);
+  static inline const CardInfo* internal_default_instance() {
+    return reinterpret_cast<const CardInfo*>(
+               &_CardInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(CardMetaData& a, CardMetaData& b) {
+  friend void swap(CardInfo& a, CardInfo& b) {
     a.Swap(&b);
   }
-  inline void Swap(CardMetaData* other) {
+  inline void Swap(CardInfo* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -146,7 +142,7 @@ class CardMetaData PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CardMetaData* other) {
+  void UnsafeArenaSwap(CardInfo* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -154,17 +150,17 @@ class CardMetaData PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline CardMetaData* New() const final {
-    return CreateMaybeMessage<CardMetaData>(nullptr);
+  inline CardInfo* New() const final {
+    return CreateMaybeMessage<CardInfo>(nullptr);
   }
 
-  CardMetaData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<CardMetaData>(arena);
+  CardInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CardInfo>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const CardMetaData& from);
-  void MergeFrom(const CardMetaData& from);
+  void CopyFrom(const CardInfo& from);
+  void MergeFrom(const CardInfo& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -178,13 +174,13 @@ class CardMetaData PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CardMetaData* other);
+  void InternalSwap(CardInfo* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "NetworkIO.CardMetaData";
+    return "NetworkIO.CardInfo";
   }
   protected:
-  explicit CardMetaData(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit CardInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -204,176 +200,28 @@ class CardMetaData PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kColorsFieldNumber = 5,
-    kNameFieldNumber = 1,
-    kArchetypeFieldNumber = 2,
-    kOmniPresentEffectFieldNumber = 7,
-    kPassiveEffectFieldNumber = 8,
-    kFeatEffectFieldNumber = 9,
-    kPlayEffectFieldNumber = 10,
-    kResolveEffectFieldNumber = 11,
-    kUltimateFieldNumber = 3,
-    kFeatFieldNumber = 4,
-    kCountFieldNumber = 6,
+    kMetadataFieldNumber = 1,
+    kCountFieldNumber = 2,
   };
-  // repeated .GameState.Card.Color Colors = 5;
-  int colors_size() const;
+  // .GameState.CardMetaData metadata = 1;
+  bool has_metadata() const;
   private:
-  int _internal_colors_size() const;
+  bool _internal_has_metadata() const;
   public:
-  void clear_colors();
+  void clear_metadata();
+  const ::GameState::CardMetaData& metadata() const;
+  ::GameState::CardMetaData* release_metadata();
+  ::GameState::CardMetaData* mutable_metadata();
+  void set_allocated_metadata(::GameState::CardMetaData* metadata);
   private:
-  ::GameState::Card_Color _internal_colors(int index) const;
-  void _internal_add_colors(::GameState::Card_Color value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_colors();
+  const ::GameState::CardMetaData& _internal_metadata() const;
+  ::GameState::CardMetaData* _internal_mutable_metadata();
   public:
-  ::GameState::Card_Color colors(int index) const;
-  void set_colors(int index, ::GameState::Card_Color value);
-  void add_colors(::GameState::Card_Color value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& colors() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_colors();
+  void unsafe_arena_set_allocated_metadata(
+      ::GameState::CardMetaData* metadata);
+  ::GameState::CardMetaData* unsafe_arena_release_metadata();
 
-  // string Name = 1;
-  void clear_name();
-  const std::string& name() const;
-  void set_name(const std::string& value);
-  void set_name(std::string&& value);
-  void set_name(const char* value);
-  void set_name(const char* value, size_t size);
-  std::string* mutable_name();
-  std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // string Archetype = 2;
-  void clear_archetype();
-  const std::string& archetype() const;
-  void set_archetype(const std::string& value);
-  void set_archetype(std::string&& value);
-  void set_archetype(const char* value);
-  void set_archetype(const char* value, size_t size);
-  std::string* mutable_archetype();
-  std::string* release_archetype();
-  void set_allocated_archetype(std::string* archetype);
-  private:
-  const std::string& _internal_archetype() const;
-  void _internal_set_archetype(const std::string& value);
-  std::string* _internal_mutable_archetype();
-  public:
-
-  // .Effects.CardEffect OmniPresentEffect = 7;
-  bool has_omnipresenteffect() const;
-  private:
-  bool _internal_has_omnipresenteffect() const;
-  public:
-  void clear_omnipresenteffect();
-  const ::Effects::CardEffect& omnipresenteffect() const;
-  ::Effects::CardEffect* release_omnipresenteffect();
-  ::Effects::CardEffect* mutable_omnipresenteffect();
-  void set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect);
-  private:
-  const ::Effects::CardEffect& _internal_omnipresenteffect() const;
-  ::Effects::CardEffect* _internal_mutable_omnipresenteffect();
-  public:
-  void unsafe_arena_set_allocated_omnipresenteffect(
-      ::Effects::CardEffect* omnipresenteffect);
-  ::Effects::CardEffect* unsafe_arena_release_omnipresenteffect();
-
-  // .Effects.CardEffect PassiveEffect = 8;
-  bool has_passiveeffect() const;
-  private:
-  bool _internal_has_passiveeffect() const;
-  public:
-  void clear_passiveeffect();
-  const ::Effects::CardEffect& passiveeffect() const;
-  ::Effects::CardEffect* release_passiveeffect();
-  ::Effects::CardEffect* mutable_passiveeffect();
-  void set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect);
-  private:
-  const ::Effects::CardEffect& _internal_passiveeffect() const;
-  ::Effects::CardEffect* _internal_mutable_passiveeffect();
-  public:
-  void unsafe_arena_set_allocated_passiveeffect(
-      ::Effects::CardEffect* passiveeffect);
-  ::Effects::CardEffect* unsafe_arena_release_passiveeffect();
-
-  // .Effects.CardEffect FeatEffect = 9;
-  bool has_feateffect() const;
-  private:
-  bool _internal_has_feateffect() const;
-  public:
-  void clear_feateffect();
-  const ::Effects::CardEffect& feateffect() const;
-  ::Effects::CardEffect* release_feateffect();
-  ::Effects::CardEffect* mutable_feateffect();
-  void set_allocated_feateffect(::Effects::CardEffect* feateffect);
-  private:
-  const ::Effects::CardEffect& _internal_feateffect() const;
-  ::Effects::CardEffect* _internal_mutable_feateffect();
-  public:
-  void unsafe_arena_set_allocated_feateffect(
-      ::Effects::CardEffect* feateffect);
-  ::Effects::CardEffect* unsafe_arena_release_feateffect();
-
-  // .Effects.CardEffect PlayEffect = 10;
-  bool has_playeffect() const;
-  private:
-  bool _internal_has_playeffect() const;
-  public:
-  void clear_playeffect();
-  const ::Effects::CardEffect& playeffect() const;
-  ::Effects::CardEffect* release_playeffect();
-  ::Effects::CardEffect* mutable_playeffect();
-  void set_allocated_playeffect(::Effects::CardEffect* playeffect);
-  private:
-  const ::Effects::CardEffect& _internal_playeffect() const;
-  ::Effects::CardEffect* _internal_mutable_playeffect();
-  public:
-  void unsafe_arena_set_allocated_playeffect(
-      ::Effects::CardEffect* playeffect);
-  ::Effects::CardEffect* unsafe_arena_release_playeffect();
-
-  // .Effects.CardEffect ResolveEffect = 11;
-  bool has_resolveeffect() const;
-  private:
-  bool _internal_has_resolveeffect() const;
-  public:
-  void clear_resolveeffect();
-  const ::Effects::CardEffect& resolveeffect() const;
-  ::Effects::CardEffect* release_resolveeffect();
-  ::Effects::CardEffect* mutable_resolveeffect();
-  void set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect);
-  private:
-  const ::Effects::CardEffect& _internal_resolveeffect() const;
-  ::Effects::CardEffect* _internal_mutable_resolveeffect();
-  public:
-  void unsafe_arena_set_allocated_resolveeffect(
-      ::Effects::CardEffect* resolveeffect);
-  ::Effects::CardEffect* unsafe_arena_release_resolveeffect();
-
-  // bool Ultimate = 3;
-  void clear_ultimate();
-  bool ultimate() const;
-  void set_ultimate(bool value);
-  private:
-  bool _internal_ultimate() const;
-  void _internal_set_ultimate(bool value);
-  public:
-
-  // bool Feat = 4;
-  void clear_feat();
-  bool feat() const;
-  void set_feat(bool value);
-  private:
-  bool _internal_feat() const;
-  void _internal_set_feat(bool value);
-  public:
-
-  // int32 Count = 6;
+  // int32 Count = 2;
   void clear_count();
   ::PROTOBUF_NAMESPACE_ID::int32 count() const;
   void set_count(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -382,170 +230,15 @@ class CardMetaData PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:NetworkIO.CardMetaData)
+  // @@protoc_insertion_point(class_scope:NetworkIO.CardInfo)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> colors_;
-  mutable std::atomic<int> _colors_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr archetype_;
-  ::Effects::CardEffect* omnipresenteffect_;
-  ::Effects::CardEffect* passiveeffect_;
-  ::Effects::CardEffect* feateffect_;
-  ::Effects::CardEffect* playeffect_;
-  ::Effects::CardEffect* resolveeffect_;
-  bool ultimate_;
-  bool feat_;
+  ::GameState::CardMetaData* metadata_;
   ::PROTOBUF_NAMESPACE_ID::int32 count_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameInfo_2eproto;
-};
-// -------------------------------------------------------------------
-
-class DeckList PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:NetworkIO.DeckList) */ {
- public:
-  inline DeckList() : DeckList(nullptr) {}
-  virtual ~DeckList();
-
-  DeckList(const DeckList& from);
-  DeckList(DeckList&& from) noexcept
-    : DeckList() {
-    *this = ::std::move(from);
-  }
-
-  inline DeckList& operator=(const DeckList& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DeckList& operator=(DeckList&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const DeckList& default_instance();
-
-  static inline const DeckList* internal_default_instance() {
-    return reinterpret_cast<const DeckList*>(
-               &_DeckList_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(DeckList& a, DeckList& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(DeckList* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DeckList* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline DeckList* New() const final {
-    return CreateMaybeMessage<DeckList>(nullptr);
-  }
-
-  DeckList* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DeckList>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DeckList& from);
-  void MergeFrom(const DeckList& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DeckList* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "NetworkIO.DeckList";
-  }
-  protected:
-  explicit DeckList(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameInfo_2eproto);
-    return ::descriptor_table_GameInfo_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kDeckFieldNumber = 3,
-  };
-  // repeated .NetworkIO.CardMetaData Deck = 3;
-  int deck_size() const;
-  private:
-  int _internal_deck_size() const;
-  public:
-  void clear_deck();
-  ::NetworkIO::CardMetaData* mutable_deck(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardMetaData >*
-      mutable_deck();
-  private:
-  const ::NetworkIO::CardMetaData& _internal_deck(int index) const;
-  ::NetworkIO::CardMetaData* _internal_add_deck();
-  public:
-  const ::NetworkIO::CardMetaData& deck(int index) const;
-  ::NetworkIO::CardMetaData* add_deck();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardMetaData >&
-      deck() const;
-
-  // @@protoc_insertion_point(class_scope:NetworkIO.DeckList)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardMetaData > deck_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameInfo_2eproto;
 };
@@ -592,7 +285,7 @@ class RandomAgent PROTOBUF_FINAL :
                &_RandomAgent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(RandomAgent& a, RandomAgent& b) {
     a.Swap(&b);
@@ -715,7 +408,7 @@ class AIAgent PROTOBUF_FINAL :
                &_AIAgent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(AIAgent& a, AIAgent& b) {
     a.Swap(&b);
@@ -838,7 +531,7 @@ class PlayerAgent PROTOBUF_FINAL :
                &_PlayerAgent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(PlayerAgent& a, PlayerAgent& b) {
     a.Swap(&b);
@@ -908,18 +601,6 @@ class PlayerAgent PROTOBUF_FINAL :
 
   // accessors -------------------------------------------------------
 
-  enum : int {
-    kPlayerUIDFieldNumber = 1,
-  };
-  // int32 PlayerUID = 1;
-  void clear_playeruid();
-  ::PROTOBUF_NAMESPACE_ID::int32 playeruid() const;
-  void set_playeruid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_playeruid() const;
-  void _internal_set_playeruid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // @@protoc_insertion_point(class_scope:NetworkIO.PlayerAgent)
  private:
   class _Internal;
@@ -927,7 +608,6 @@ class PlayerAgent PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 playeruid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameInfo_2eproto;
 };
@@ -981,7 +661,7 @@ class PlayerInfo PROTOBUF_FINAL :
                &_PlayerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(PlayerInfo& a, PlayerInfo& b) {
     a.Swap(&b);
@@ -1052,14 +732,32 @@ class PlayerInfo PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDeckFieldNumber = 3,
     kUsernameFieldNumber = 1,
     kUIDFieldNumber = 2,
-    kDeckFieldNumber = 3,
     kStartingPositionFieldNumber = 4,
     kAIAgentFieldNumber = 5,
     kRandomAgentFieldNumber = 6,
     kPlayerAgentFieldNumber = 7,
   };
+  // repeated .NetworkIO.CardInfo Deck = 3;
+  int deck_size() const;
+  private:
+  int _internal_deck_size() const;
+  public:
+  void clear_deck();
+  ::NetworkIO::CardInfo* mutable_deck(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardInfo >*
+      mutable_deck();
+  private:
+  const ::NetworkIO::CardInfo& _internal_deck(int index) const;
+  ::NetworkIO::CardInfo* _internal_add_deck();
+  public:
+  const ::NetworkIO::CardInfo& deck(int index) const;
+  ::NetworkIO::CardInfo* add_deck();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardInfo >&
+      deck() const;
+
   // string Username = 1;
   void clear_username();
   const std::string& username() const;
@@ -1091,24 +789,6 @@ class PlayerInfo PROTOBUF_FINAL :
   void _internal_set_uid(const std::string& value);
   std::string* _internal_mutable_uid();
   public:
-
-  // .NetworkIO.DeckList Deck = 3;
-  bool has_deck() const;
-  private:
-  bool _internal_has_deck() const;
-  public:
-  void clear_deck();
-  const ::NetworkIO::DeckList& deck() const;
-  ::NetworkIO::DeckList* release_deck();
-  ::NetworkIO::DeckList* mutable_deck();
-  void set_allocated_deck(::NetworkIO::DeckList* deck);
-  private:
-  const ::NetworkIO::DeckList& _internal_deck() const;
-  ::NetworkIO::DeckList* _internal_mutable_deck();
-  public:
-  void unsafe_arena_set_allocated_deck(
-      ::NetworkIO::DeckList* deck);
-  ::NetworkIO::DeckList* unsafe_arena_release_deck();
 
   // .Types.Vec2i StartingPosition = 4;
   bool has_startingposition() const;
@@ -1197,9 +877,9 @@ class PlayerInfo PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardInfo > deck_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr username_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
-  ::NetworkIO::DeckList* deck_;
   ::Types::Vec2i* startingposition_;
   union AgentInfoUnion {
     AgentInfoUnion() {}
@@ -1255,7 +935,7 @@ class GameInfo PROTOBUF_FINAL :
                &_GameInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(GameInfo& a, GameInfo& b) {
     a.Swap(&b);
@@ -1386,659 +1066,103 @@ class GameInfo PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// CardMetaData
+// CardInfo
 
-// string Name = 1;
-inline void CardMetaData::clear_name() {
-  name_.ClearToEmpty();
+// .GameState.CardMetaData metadata = 1;
+inline bool CardInfo::_internal_has_metadata() const {
+  return this != internal_default_instance() && metadata_ != nullptr;
 }
-inline const std::string& CardMetaData::name() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Name)
-  return _internal_name();
+inline bool CardInfo::has_metadata() const {
+  return _internal_has_metadata();
 }
-inline void CardMetaData::set_name(const std::string& value) {
-  _internal_set_name(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Name)
+inline const ::GameState::CardMetaData& CardInfo::_internal_metadata() const {
+  const ::GameState::CardMetaData* p = metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::GameState::CardMetaData&>(
+      ::GameState::_CardMetaData_default_instance_);
 }
-inline std::string* CardMetaData::mutable_name() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.Name)
-  return _internal_mutable_name();
+inline const ::GameState::CardMetaData& CardInfo::metadata() const {
+  // @@protoc_insertion_point(field_get:NetworkIO.CardInfo.metadata)
+  return _internal_metadata();
 }
-inline const std::string& CardMetaData::_internal_name() const {
-  return name_.Get();
-}
-inline void CardMetaData::_internal_set_name(const std::string& value) {
-  
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void CardMetaData::set_name(std::string&& value) {
-  
-  name_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:NetworkIO.CardMetaData.Name)
-}
-inline void CardMetaData::set_name(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:NetworkIO.CardMetaData.Name)
-}
-inline void CardMetaData::set_name(const char* value,
-    size_t size) {
-  
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:NetworkIO.CardMetaData.Name)
-}
-inline std::string* CardMetaData::_internal_mutable_name() {
-  
-  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CardMetaData::release_name() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.Name)
-  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CardMetaData::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void CardInfo::unsafe_arena_set_allocated_metadata(
+    ::GameState::CardMetaData* metadata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metadata_);
+  }
+  metadata_ = metadata;
+  if (metadata) {
     
   } else {
     
   }
-  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.Name)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardInfo.metadata)
 }
-
-// string Archetype = 2;
-inline void CardMetaData::clear_archetype() {
-  archetype_.ClearToEmpty();
-}
-inline const std::string& CardMetaData::archetype() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Archetype)
-  return _internal_archetype();
-}
-inline void CardMetaData::set_archetype(const std::string& value) {
-  _internal_set_archetype(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Archetype)
-}
-inline std::string* CardMetaData::mutable_archetype() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.Archetype)
-  return _internal_mutable_archetype();
-}
-inline const std::string& CardMetaData::_internal_archetype() const {
-  return archetype_.Get();
-}
-inline void CardMetaData::_internal_set_archetype(const std::string& value) {
+inline ::GameState::CardMetaData* CardInfo::release_metadata() {
   
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  ::GameState::CardMetaData* temp = metadata_;
+  metadata_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline void CardMetaData::set_archetype(std::string&& value) {
+inline ::GameState::CardMetaData* CardInfo::unsafe_arena_release_metadata() {
+  // @@protoc_insertion_point(field_release:NetworkIO.CardInfo.metadata)
   
-  archetype_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:NetworkIO.CardMetaData.Archetype)
+  ::GameState::CardMetaData* temp = metadata_;
+  metadata_ = nullptr;
+  return temp;
 }
-inline void CardMetaData::set_archetype(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
+inline ::GameState::CardMetaData* CardInfo::_internal_mutable_metadata() {
   
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:NetworkIO.CardMetaData.Archetype)
+  if (metadata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::GameState::CardMetaData>(GetArena());
+    metadata_ = p;
+  }
+  return metadata_;
 }
-inline void CardMetaData::set_archetype(const char* value,
-    size_t size) {
-  
-  archetype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:NetworkIO.CardMetaData.Archetype)
+inline ::GameState::CardMetaData* CardInfo::mutable_metadata() {
+  // @@protoc_insertion_point(field_mutable:NetworkIO.CardInfo.metadata)
+  return _internal_mutable_metadata();
 }
-inline std::string* CardMetaData::_internal_mutable_archetype() {
-  
-  return archetype_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* CardMetaData::release_archetype() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.Archetype)
-  return archetype_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void CardMetaData::set_allocated_archetype(std::string* archetype) {
-  if (archetype != nullptr) {
+inline void CardInfo::set_allocated_metadata(::GameState::CardMetaData* metadata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(metadata_);
+  }
+  if (metadata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(metadata)->GetArena();
+    if (message_arena != submessage_arena) {
+      metadata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, metadata, submessage_arena);
+    }
     
   } else {
     
   }
-  archetype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), archetype,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.Archetype)
+  metadata_ = metadata;
+  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardInfo.metadata)
 }
 
-// bool Ultimate = 3;
-inline void CardMetaData::clear_ultimate() {
-  ultimate_ = false;
-}
-inline bool CardMetaData::_internal_ultimate() const {
-  return ultimate_;
-}
-inline bool CardMetaData::ultimate() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Ultimate)
-  return _internal_ultimate();
-}
-inline void CardMetaData::_internal_set_ultimate(bool value) {
-  
-  ultimate_ = value;
-}
-inline void CardMetaData::set_ultimate(bool value) {
-  _internal_set_ultimate(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Ultimate)
-}
-
-// bool Feat = 4;
-inline void CardMetaData::clear_feat() {
-  feat_ = false;
-}
-inline bool CardMetaData::_internal_feat() const {
-  return feat_;
-}
-inline bool CardMetaData::feat() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Feat)
-  return _internal_feat();
-}
-inline void CardMetaData::_internal_set_feat(bool value) {
-  
-  feat_ = value;
-}
-inline void CardMetaData::set_feat(bool value) {
-  _internal_set_feat(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Feat)
-}
-
-// repeated .GameState.Card.Color Colors = 5;
-inline int CardMetaData::_internal_colors_size() const {
-  return colors_.size();
-}
-inline int CardMetaData::colors_size() const {
-  return _internal_colors_size();
-}
-inline void CardMetaData::clear_colors() {
-  colors_.Clear();
-}
-inline ::GameState::Card_Color CardMetaData::_internal_colors(int index) const {
-  return static_cast< ::GameState::Card_Color >(colors_.Get(index));
-}
-inline ::GameState::Card_Color CardMetaData::colors(int index) const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Colors)
-  return _internal_colors(index);
-}
-inline void CardMetaData::set_colors(int index, ::GameState::Card_Color value) {
-  colors_.Set(index, value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Colors)
-}
-inline void CardMetaData::_internal_add_colors(::GameState::Card_Color value) {
-  colors_.Add(value);
-}
-inline void CardMetaData::add_colors(::GameState::Card_Color value) {
-  // @@protoc_insertion_point(field_add:NetworkIO.CardMetaData.Colors)
-  _internal_add_colors(value);
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-CardMetaData::colors() const {
-  // @@protoc_insertion_point(field_list:NetworkIO.CardMetaData.Colors)
-  return colors_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-CardMetaData::_internal_mutable_colors() {
-  return &colors_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-CardMetaData::mutable_colors() {
-  // @@protoc_insertion_point(field_mutable_list:NetworkIO.CardMetaData.Colors)
-  return _internal_mutable_colors();
-}
-
-// int32 Count = 6;
-inline void CardMetaData::clear_count() {
+// int32 Count = 2;
+inline void CardInfo::clear_count() {
   count_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CardMetaData::_internal_count() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 CardInfo::_internal_count() const {
   return count_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 CardMetaData::count() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.Count)
+inline ::PROTOBUF_NAMESPACE_ID::int32 CardInfo::count() const {
+  // @@protoc_insertion_point(field_get:NetworkIO.CardInfo.Count)
   return _internal_count();
 }
-inline void CardMetaData::_internal_set_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void CardInfo::_internal_set_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   count_ = value;
 }
-inline void CardMetaData::set_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void CardInfo::set_count(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_count(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.CardMetaData.Count)
-}
-
-// .Effects.CardEffect OmniPresentEffect = 7;
-inline bool CardMetaData::_internal_has_omnipresenteffect() const {
-  return this != internal_default_instance() && omnipresenteffect_ != nullptr;
-}
-inline bool CardMetaData::has_omnipresenteffect() const {
-  return _internal_has_omnipresenteffect();
-}
-inline const ::Effects::CardEffect& CardMetaData::_internal_omnipresenteffect() const {
-  const ::Effects::CardEffect* p = omnipresenteffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& CardMetaData::omnipresenteffect() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.OmniPresentEffect)
-  return _internal_omnipresenteffect();
-}
-inline void CardMetaData::unsafe_arena_set_allocated_omnipresenteffect(
-    ::Effects::CardEffect* omnipresenteffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
-  }
-  omnipresenteffect_ = omnipresenteffect;
-  if (omnipresenteffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardMetaData.OmniPresentEffect)
-}
-inline ::Effects::CardEffect* CardMetaData::release_omnipresenteffect() {
-  
-  ::Effects::CardEffect* temp = omnipresenteffect_;
-  omnipresenteffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::unsafe_arena_release_omnipresenteffect() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.OmniPresentEffect)
-  
-  ::Effects::CardEffect* temp = omnipresenteffect_;
-  omnipresenteffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::_internal_mutable_omnipresenteffect() {
-  
-  if (omnipresenteffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    omnipresenteffect_ = p;
-  }
-  return omnipresenteffect_;
-}
-inline ::Effects::CardEffect* CardMetaData::mutable_omnipresenteffect() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.OmniPresentEffect)
-  return _internal_mutable_omnipresenteffect();
-}
-inline void CardMetaData::set_allocated_omnipresenteffect(::Effects::CardEffect* omnipresenteffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
-  }
-  if (omnipresenteffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      omnipresenteffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, omnipresenteffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  omnipresenteffect_ = omnipresenteffect;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.OmniPresentEffect)
-}
-
-// .Effects.CardEffect PassiveEffect = 8;
-inline bool CardMetaData::_internal_has_passiveeffect() const {
-  return this != internal_default_instance() && passiveeffect_ != nullptr;
-}
-inline bool CardMetaData::has_passiveeffect() const {
-  return _internal_has_passiveeffect();
-}
-inline const ::Effects::CardEffect& CardMetaData::_internal_passiveeffect() const {
-  const ::Effects::CardEffect* p = passiveeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& CardMetaData::passiveeffect() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.PassiveEffect)
-  return _internal_passiveeffect();
-}
-inline void CardMetaData::unsafe_arena_set_allocated_passiveeffect(
-    ::Effects::CardEffect* passiveeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
-  }
-  passiveeffect_ = passiveeffect;
-  if (passiveeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardMetaData.PassiveEffect)
-}
-inline ::Effects::CardEffect* CardMetaData::release_passiveeffect() {
-  
-  ::Effects::CardEffect* temp = passiveeffect_;
-  passiveeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::unsafe_arena_release_passiveeffect() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.PassiveEffect)
-  
-  ::Effects::CardEffect* temp = passiveeffect_;
-  passiveeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::_internal_mutable_passiveeffect() {
-  
-  if (passiveeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    passiveeffect_ = p;
-  }
-  return passiveeffect_;
-}
-inline ::Effects::CardEffect* CardMetaData::mutable_passiveeffect() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.PassiveEffect)
-  return _internal_mutable_passiveeffect();
-}
-inline void CardMetaData::set_allocated_passiveeffect(::Effects::CardEffect* passiveeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
-  }
-  if (passiveeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      passiveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, passiveeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  passiveeffect_ = passiveeffect;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.PassiveEffect)
-}
-
-// .Effects.CardEffect FeatEffect = 9;
-inline bool CardMetaData::_internal_has_feateffect() const {
-  return this != internal_default_instance() && feateffect_ != nullptr;
-}
-inline bool CardMetaData::has_feateffect() const {
-  return _internal_has_feateffect();
-}
-inline const ::Effects::CardEffect& CardMetaData::_internal_feateffect() const {
-  const ::Effects::CardEffect* p = feateffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& CardMetaData::feateffect() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.FeatEffect)
-  return _internal_feateffect();
-}
-inline void CardMetaData::unsafe_arena_set_allocated_feateffect(
-    ::Effects::CardEffect* feateffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
-  }
-  feateffect_ = feateffect;
-  if (feateffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardMetaData.FeatEffect)
-}
-inline ::Effects::CardEffect* CardMetaData::release_feateffect() {
-  
-  ::Effects::CardEffect* temp = feateffect_;
-  feateffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::unsafe_arena_release_feateffect() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.FeatEffect)
-  
-  ::Effects::CardEffect* temp = feateffect_;
-  feateffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::_internal_mutable_feateffect() {
-  
-  if (feateffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    feateffect_ = p;
-  }
-  return feateffect_;
-}
-inline ::Effects::CardEffect* CardMetaData::mutable_feateffect() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.FeatEffect)
-  return _internal_mutable_feateffect();
-}
-inline void CardMetaData::set_allocated_feateffect(::Effects::CardEffect* feateffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
-  }
-  if (feateffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      feateffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, feateffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  feateffect_ = feateffect;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.FeatEffect)
-}
-
-// .Effects.CardEffect PlayEffect = 10;
-inline bool CardMetaData::_internal_has_playeffect() const {
-  return this != internal_default_instance() && playeffect_ != nullptr;
-}
-inline bool CardMetaData::has_playeffect() const {
-  return _internal_has_playeffect();
-}
-inline const ::Effects::CardEffect& CardMetaData::_internal_playeffect() const {
-  const ::Effects::CardEffect* p = playeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& CardMetaData::playeffect() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.PlayEffect)
-  return _internal_playeffect();
-}
-inline void CardMetaData::unsafe_arena_set_allocated_playeffect(
-    ::Effects::CardEffect* playeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
-  }
-  playeffect_ = playeffect;
-  if (playeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardMetaData.PlayEffect)
-}
-inline ::Effects::CardEffect* CardMetaData::release_playeffect() {
-  
-  ::Effects::CardEffect* temp = playeffect_;
-  playeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::unsafe_arena_release_playeffect() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.PlayEffect)
-  
-  ::Effects::CardEffect* temp = playeffect_;
-  playeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::_internal_mutable_playeffect() {
-  
-  if (playeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    playeffect_ = p;
-  }
-  return playeffect_;
-}
-inline ::Effects::CardEffect* CardMetaData::mutable_playeffect() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.PlayEffect)
-  return _internal_mutable_playeffect();
-}
-inline void CardMetaData::set_allocated_playeffect(::Effects::CardEffect* playeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
-  }
-  if (playeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      playeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, playeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  playeffect_ = playeffect;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.PlayEffect)
-}
-
-// .Effects.CardEffect ResolveEffect = 11;
-inline bool CardMetaData::_internal_has_resolveeffect() const {
-  return this != internal_default_instance() && resolveeffect_ != nullptr;
-}
-inline bool CardMetaData::has_resolveeffect() const {
-  return _internal_has_resolveeffect();
-}
-inline const ::Effects::CardEffect& CardMetaData::_internal_resolveeffect() const {
-  const ::Effects::CardEffect* p = resolveeffect_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Effects::CardEffect&>(
-      ::Effects::_CardEffect_default_instance_);
-}
-inline const ::Effects::CardEffect& CardMetaData::resolveeffect() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.CardMetaData.ResolveEffect)
-  return _internal_resolveeffect();
-}
-inline void CardMetaData::unsafe_arena_set_allocated_resolveeffect(
-    ::Effects::CardEffect* resolveeffect) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
-  }
-  resolveeffect_ = resolveeffect;
-  if (resolveeffect) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.CardMetaData.ResolveEffect)
-}
-inline ::Effects::CardEffect* CardMetaData::release_resolveeffect() {
-  
-  ::Effects::CardEffect* temp = resolveeffect_;
-  resolveeffect_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::unsafe_arena_release_resolveeffect() {
-  // @@protoc_insertion_point(field_release:NetworkIO.CardMetaData.ResolveEffect)
-  
-  ::Effects::CardEffect* temp = resolveeffect_;
-  resolveeffect_ = nullptr;
-  return temp;
-}
-inline ::Effects::CardEffect* CardMetaData::_internal_mutable_resolveeffect() {
-  
-  if (resolveeffect_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Effects::CardEffect>(GetArena());
-    resolveeffect_ = p;
-  }
-  return resolveeffect_;
-}
-inline ::Effects::CardEffect* CardMetaData::mutable_resolveeffect() {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.CardMetaData.ResolveEffect)
-  return _internal_mutable_resolveeffect();
-}
-inline void CardMetaData::set_allocated_resolveeffect(::Effects::CardEffect* resolveeffect) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
-  }
-  if (resolveeffect) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect)->GetArena();
-    if (message_arena != submessage_arena) {
-      resolveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, resolveeffect, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  resolveeffect_ = resolveeffect;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.CardMetaData.ResolveEffect)
-}
-
-// -------------------------------------------------------------------
-
-// DeckList
-
-// repeated .NetworkIO.CardMetaData Deck = 3;
-inline int DeckList::_internal_deck_size() const {
-  return deck_.size();
-}
-inline int DeckList::deck_size() const {
-  return _internal_deck_size();
-}
-inline void DeckList::clear_deck() {
-  deck_.Clear();
-}
-inline ::NetworkIO::CardMetaData* DeckList::mutable_deck(int index) {
-  // @@protoc_insertion_point(field_mutable:NetworkIO.DeckList.Deck)
-  return deck_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardMetaData >*
-DeckList::mutable_deck() {
-  // @@protoc_insertion_point(field_mutable_list:NetworkIO.DeckList.Deck)
-  return &deck_;
-}
-inline const ::NetworkIO::CardMetaData& DeckList::_internal_deck(int index) const {
-  return deck_.Get(index);
-}
-inline const ::NetworkIO::CardMetaData& DeckList::deck(int index) const {
-  // @@protoc_insertion_point(field_get:NetworkIO.DeckList.Deck)
-  return _internal_deck(index);
-}
-inline ::NetworkIO::CardMetaData* DeckList::_internal_add_deck() {
-  return deck_.Add();
-}
-inline ::NetworkIO::CardMetaData* DeckList::add_deck() {
-  // @@protoc_insertion_point(field_add:NetworkIO.DeckList.Deck)
-  return _internal_add_deck();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardMetaData >&
-DeckList::deck() const {
-  // @@protoc_insertion_point(field_list:NetworkIO.DeckList.Deck)
-  return deck_;
+  // @@protoc_insertion_point(field_set:NetworkIO.CardInfo.Count)
 }
 
 // -------------------------------------------------------------------
@@ -2052,26 +1176,6 @@ DeckList::deck() const {
 // -------------------------------------------------------------------
 
 // PlayerAgent
-
-// int32 PlayerUID = 1;
-inline void PlayerAgent::clear_playeruid() {
-  playeruid_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerAgent::_internal_playeruid() const {
-  return playeruid_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerAgent::playeruid() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.PlayerAgent.PlayerUID)
-  return _internal_playeruid();
-}
-inline void PlayerAgent::_internal_set_playeruid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  playeruid_ = value;
-}
-inline void PlayerAgent::set_playeruid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_playeruid(value);
-  // @@protoc_insertion_point(field_set:NetworkIO.PlayerAgent.PlayerUID)
-}
 
 // -------------------------------------------------------------------
 
@@ -2199,87 +1303,43 @@ inline void PlayerInfo::set_allocated_uid(std::string* uid) {
   // @@protoc_insertion_point(field_set_allocated:NetworkIO.PlayerInfo.UID)
 }
 
-// .NetworkIO.DeckList Deck = 3;
-inline bool PlayerInfo::_internal_has_deck() const {
-  return this != internal_default_instance() && deck_ != nullptr;
+// repeated .NetworkIO.CardInfo Deck = 3;
+inline int PlayerInfo::_internal_deck_size() const {
+  return deck_.size();
 }
-inline bool PlayerInfo::has_deck() const {
-  return _internal_has_deck();
+inline int PlayerInfo::deck_size() const {
+  return _internal_deck_size();
 }
 inline void PlayerInfo::clear_deck() {
-  if (GetArena() == nullptr && deck_ != nullptr) {
-    delete deck_;
-  }
-  deck_ = nullptr;
+  deck_.Clear();
 }
-inline const ::NetworkIO::DeckList& PlayerInfo::_internal_deck() const {
-  const ::NetworkIO::DeckList* p = deck_;
-  return p != nullptr ? *p : reinterpret_cast<const ::NetworkIO::DeckList&>(
-      ::NetworkIO::_DeckList_default_instance_);
-}
-inline const ::NetworkIO::DeckList& PlayerInfo::deck() const {
-  // @@protoc_insertion_point(field_get:NetworkIO.PlayerInfo.Deck)
-  return _internal_deck();
-}
-inline void PlayerInfo::unsafe_arena_set_allocated_deck(
-    ::NetworkIO::DeckList* deck) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(deck_);
-  }
-  deck_ = deck;
-  if (deck) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:NetworkIO.PlayerInfo.Deck)
-}
-inline ::NetworkIO::DeckList* PlayerInfo::release_deck() {
-  
-  ::NetworkIO::DeckList* temp = deck_;
-  deck_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::NetworkIO::DeckList* PlayerInfo::unsafe_arena_release_deck() {
-  // @@protoc_insertion_point(field_release:NetworkIO.PlayerInfo.Deck)
-  
-  ::NetworkIO::DeckList* temp = deck_;
-  deck_ = nullptr;
-  return temp;
-}
-inline ::NetworkIO::DeckList* PlayerInfo::_internal_mutable_deck() {
-  
-  if (deck_ == nullptr) {
-    auto* p = CreateMaybeMessage<::NetworkIO::DeckList>(GetArena());
-    deck_ = p;
-  }
-  return deck_;
-}
-inline ::NetworkIO::DeckList* PlayerInfo::mutable_deck() {
+inline ::NetworkIO::CardInfo* PlayerInfo::mutable_deck(int index) {
   // @@protoc_insertion_point(field_mutable:NetworkIO.PlayerInfo.Deck)
-  return _internal_mutable_deck();
+  return deck_.Mutable(index);
 }
-inline void PlayerInfo::set_allocated_deck(::NetworkIO::DeckList* deck) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete deck_;
-  }
-  if (deck) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(deck);
-    if (message_arena != submessage_arena) {
-      deck = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, deck, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  deck_ = deck;
-  // @@protoc_insertion_point(field_set_allocated:NetworkIO.PlayerInfo.Deck)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardInfo >*
+PlayerInfo::mutable_deck() {
+  // @@protoc_insertion_point(field_mutable_list:NetworkIO.PlayerInfo.Deck)
+  return &deck_;
+}
+inline const ::NetworkIO::CardInfo& PlayerInfo::_internal_deck(int index) const {
+  return deck_.Get(index);
+}
+inline const ::NetworkIO::CardInfo& PlayerInfo::deck(int index) const {
+  // @@protoc_insertion_point(field_get:NetworkIO.PlayerInfo.Deck)
+  return _internal_deck(index);
+}
+inline ::NetworkIO::CardInfo* PlayerInfo::_internal_add_deck() {
+  return deck_.Add();
+}
+inline ::NetworkIO::CardInfo* PlayerInfo::add_deck() {
+  // @@protoc_insertion_point(field_add:NetworkIO.PlayerInfo.Deck)
+  return _internal_add_deck();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::NetworkIO::CardInfo >&
+PlayerInfo::deck() const {
+  // @@protoc_insertion_point(field_list:NetworkIO.PlayerInfo.Deck)
+  return deck_;
 }
 
 // .Types.Vec2i StartingPosition = 4;
@@ -2710,8 +1770,6 @@ inline void GameInfo::set_allocated_mapsize(::Types::Vec2i* mapsize) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
