@@ -37,14 +37,14 @@ message Constant {
 
 message Get {
     StackVar Result = 1;
-    Types.Path Source = 2;
+    Types.EntityRef Source = 2;
     string Name = 3;
 }
 
 message Filter_Distance {
-    Types.Path Source = 1;
-    Types.Path From = 2;
-    Types.Path Distance = 3;
+    StackVar Source = 1;
+    StackVar From = 2;
+    StackVar Distance = 3;
 
     enum CompType {
         COMP_TYPE_NONE = 0;
@@ -66,15 +66,15 @@ message Filter_Distance {
 }
 
 message Select {
-    Types.Path Source = 1;
-    Types.Path Number = 2;
+    StackVar Source = 1;
+    StackVar Number = 2;
     bool UpTo = 3;
     bool Targets = 4;
 }
 
 message Move {
-    Types.Path Destination = 1;
-    Types.Path Player = 2;
+    StackVar Destination = 1;
+    StackVar Player = 2;
 }
 
 message PassPriority {

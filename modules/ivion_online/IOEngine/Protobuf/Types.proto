@@ -64,20 +64,23 @@ message Vec2iValue {
 
 message EntityRef {
     oneof entity_ref {
-        PlayerRef Player = 1;
-        CardRef Card = 2;
-        TileRef Tile = 3;
+        IntegerRef Integer = 1;
+        Vec2iRef Vec2i = 2;
+        PlayerRef Player = 3;
+        CardRef Card = 4;
+        TileRef Tile = 5;
     }
 }
 
 message EntityValue {
     oneof entity_val {
-        PlayerRef Player = 1;
-        CardRef Card = 2;
-        TileRef Tile = 3;
-        IntegerRef Integer = 4;
-        int32 IntValue = 5;
-        Vec2i Vec2iValue = 6;
-        TerrainType TerrainValue = 7;
+        IntegerRef Integer = 1;
+        Vec2iRef Vec2i = 2;
+        PlayerRef Player = 3;
+        CardRef Card = 4;
+        TileRef Tile = 5;
+        int32 IntValue = 6;
+        Vec2i Vec2iValue = 7;
+        TerrainType TerrainValue = 8;
     }
 }

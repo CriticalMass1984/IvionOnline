@@ -174,6 +174,19 @@ Vec2i GameInstance::GetVec2i(const GameState::Card *card, const google::protobuf
 		const Types::Vec2iRef *vec = dynamic_cast<const Types::Vec2iRef *>(message);
 		assert(vec != nullptr);
 		return GetVec2i(card, ResolvePath(card, &vec->objectpath()));
+	} else if (typeName == "EntityRef") {
+		const Types::EntityRef *vec = dynamic_cast<const Types::EntityRef *>(message);
+		assert(vec != nullptr);
+		return GetVec2i(card, ResolvePath(card, &vec->integer().objectpath()));
+	} else if (typeName == "EntityValue") {
+		const Types::EntityValue *vec = dynamic_cast<const Types::EntityValue *>(message);
+		assert(vec != nullptr);
+		if (vec->has_vec2i()) {
+			return GetVec2i(card,
+					ResolvePath(card, &vec->vec2i().objectpath()));
+		} else {
+		    return Vec2i(vec->vec2ivalue());
+		}
 	} else {
 		assert(typeName == "Vec2i");
 		const Types::Vec2i *vec = dynamic_cast<const Types::Vec2i *>(message);
@@ -196,10 +209,44 @@ int GameInstance::GetInteger(const GameState::Card *card, const google::protobuf
 		const Types::IntegerRef *vec = dynamic_cast<const Types::IntegerRef *>(message);
 		assert(vec != nullptr);
 		return GetInteger(card, ResolvePath(card, &vec->objectpath()));
+	} else if (typeName == "EntityRef") {
+		const Types::EntityRef *vec = dynamic_cast<const Types::EntityRef *>(message);
+		assert(vec != nullptr);
+		return GetInteger(card, ResolvePath(card, &vec->integer().objectpath()));
+	} else if (typeName == "EntityValue") {
+		const Types::EntityValue *vec = dynamic_cast<const Types::EntityValue *>(message);
+		assert(vec != nullptr);
+		if (vec->has_integer()) {
+			return GetInteger(card,
+					ResolvePath(card, &vec->integer().objectpath()));
+		} else {
+			return int(vec->intvalue());
+		}
 	} else {
 		assert(typeName == "Integer");
 		const Types::Integer *vec = dynamic_cast<const Types::Integer *>(message);
 		assert(vec != nullptr);
 		return int(vec->value());
 	}
+}
+
+void GameInstance::ApplyMutation(GameState::Mutation *mutation) {
+	// if (mutation->has_set()) {
+	// 	auto *obj = mutation->mutable_set()->mutable_object();
+	// 	if (obj->has_in()) {
+	// 	} else if (obj->has_card()) {
+	// 	} else if (obj->has_tile()) {
+	// 	} else if (obj->has_()) {
+	// 	}
+	// 	mutation.set().newvalue();
+	// 	mutation.set().oldvalue();
+	// }
+}
+
+void GameInstance::RevertMutation(GameState::Mutation *mutation) {
+	// if (mutation.has_set()) {
+	// 	mutation.set().object();
+	// 	mutation.set().newvalue();
+	// 	mutation.set().oldvalue();
+	// }
 }

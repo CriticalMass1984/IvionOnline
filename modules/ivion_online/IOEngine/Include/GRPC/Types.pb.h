@@ -1866,9 +1866,11 @@ class EntityRef PROTOBUF_FINAL :
   static const EntityRef& default_instance();
 
   enum EntityRefCase {
-    kPlayer = 1,
-    kCard = 2,
-    kTile = 3,
+    kInteger = 1,
+    kVec2I = 2,
+    kPlayer = 3,
+    kCard = 4,
+    kTile = 5,
     ENTITY_REF_NOT_SET = 0,
   };
 
@@ -1948,11 +1950,49 @@ class EntityRef PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerFieldNumber = 1,
-    kCardFieldNumber = 2,
-    kTileFieldNumber = 3,
+    kIntegerFieldNumber = 1,
+    kVec2IFieldNumber = 2,
+    kPlayerFieldNumber = 3,
+    kCardFieldNumber = 4,
+    kTileFieldNumber = 5,
   };
-  // .Types.PlayerRef Player = 1;
+  // .Types.IntegerRef Integer = 1;
+  bool has_integer() const;
+  private:
+  bool _internal_has_integer() const;
+  public:
+  void clear_integer();
+  const ::Types::IntegerRef& integer() const;
+  ::Types::IntegerRef* release_integer();
+  ::Types::IntegerRef* mutable_integer();
+  void set_allocated_integer(::Types::IntegerRef* integer);
+  private:
+  const ::Types::IntegerRef& _internal_integer() const;
+  ::Types::IntegerRef* _internal_mutable_integer();
+  public:
+  void unsafe_arena_set_allocated_integer(
+      ::Types::IntegerRef* integer);
+  ::Types::IntegerRef* unsafe_arena_release_integer();
+
+  // .Types.Vec2iRef Vec2i = 2;
+  bool has_vec2i() const;
+  private:
+  bool _internal_has_vec2i() const;
+  public:
+  void clear_vec2i();
+  const ::Types::Vec2iRef& vec2i() const;
+  ::Types::Vec2iRef* release_vec2i();
+  ::Types::Vec2iRef* mutable_vec2i();
+  void set_allocated_vec2i(::Types::Vec2iRef* vec2i);
+  private:
+  const ::Types::Vec2iRef& _internal_vec2i() const;
+  ::Types::Vec2iRef* _internal_mutable_vec2i();
+  public:
+  void unsafe_arena_set_allocated_vec2i(
+      ::Types::Vec2iRef* vec2i);
+  ::Types::Vec2iRef* unsafe_arena_release_vec2i();
+
+  // .Types.PlayerRef Player = 3;
   bool has_player() const;
   private:
   bool _internal_has_player() const;
@@ -1970,7 +2010,7 @@ class EntityRef PROTOBUF_FINAL :
       ::Types::PlayerRef* player);
   ::Types::PlayerRef* unsafe_arena_release_player();
 
-  // .Types.CardRef Card = 2;
+  // .Types.CardRef Card = 4;
   bool has_card() const;
   private:
   bool _internal_has_card() const;
@@ -1988,7 +2028,7 @@ class EntityRef PROTOBUF_FINAL :
       ::Types::CardRef* card);
   ::Types::CardRef* unsafe_arena_release_card();
 
-  // .Types.TileRef Tile = 3;
+  // .Types.TileRef Tile = 5;
   bool has_tile() const;
   private:
   bool _internal_has_tile() const;
@@ -2011,6 +2051,8 @@ class EntityRef PROTOBUF_FINAL :
   // @@protoc_insertion_point(class_scope:Types.EntityRef)
  private:
   class _Internal;
+  void set_has_integer();
+  void set_has_vec2i();
   void set_has_player();
   void set_has_card();
   void set_has_tile();
@@ -2023,6 +2065,8 @@ class EntityRef PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   union EntityRefUnion {
     EntityRefUnion() {}
+    ::Types::IntegerRef* integer_;
+    ::Types::Vec2iRef* vec2i_;
     ::Types::PlayerRef* player_;
     ::Types::CardRef* card_;
     ::Types::TileRef* tile_;
@@ -2071,13 +2115,14 @@ class EntityValue PROTOBUF_FINAL :
   static const EntityValue& default_instance();
 
   enum EntityValCase {
-    kPlayer = 1,
-    kCard = 2,
-    kTile = 3,
-    kInteger = 4,
-    kIntValue = 5,
-    kVec2IValue = 6,
-    kTerrainValue = 7,
+    kInteger = 1,
+    kVec2I = 2,
+    kPlayer = 3,
+    kCard = 4,
+    kTile = 5,
+    kIntValue = 6,
+    kVec2IValue = 7,
+    kTerrainValue = 8,
     ENTITY_VAL_NOT_SET = 0,
   };
 
@@ -2157,69 +2202,16 @@ class EntityValue PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerFieldNumber = 1,
-    kCardFieldNumber = 2,
-    kTileFieldNumber = 3,
-    kIntegerFieldNumber = 4,
-    kIntValueFieldNumber = 5,
-    kVec2IValueFieldNumber = 6,
-    kTerrainValueFieldNumber = 7,
+    kIntegerFieldNumber = 1,
+    kVec2IFieldNumber = 2,
+    kPlayerFieldNumber = 3,
+    kCardFieldNumber = 4,
+    kTileFieldNumber = 5,
+    kIntValueFieldNumber = 6,
+    kVec2IValueFieldNumber = 7,
+    kTerrainValueFieldNumber = 8,
   };
-  // .Types.PlayerRef Player = 1;
-  bool has_player() const;
-  private:
-  bool _internal_has_player() const;
-  public:
-  void clear_player();
-  const ::Types::PlayerRef& player() const;
-  ::Types::PlayerRef* release_player();
-  ::Types::PlayerRef* mutable_player();
-  void set_allocated_player(::Types::PlayerRef* player);
-  private:
-  const ::Types::PlayerRef& _internal_player() const;
-  ::Types::PlayerRef* _internal_mutable_player();
-  public:
-  void unsafe_arena_set_allocated_player(
-      ::Types::PlayerRef* player);
-  ::Types::PlayerRef* unsafe_arena_release_player();
-
-  // .Types.CardRef Card = 2;
-  bool has_card() const;
-  private:
-  bool _internal_has_card() const;
-  public:
-  void clear_card();
-  const ::Types::CardRef& card() const;
-  ::Types::CardRef* release_card();
-  ::Types::CardRef* mutable_card();
-  void set_allocated_card(::Types::CardRef* card);
-  private:
-  const ::Types::CardRef& _internal_card() const;
-  ::Types::CardRef* _internal_mutable_card();
-  public:
-  void unsafe_arena_set_allocated_card(
-      ::Types::CardRef* card);
-  ::Types::CardRef* unsafe_arena_release_card();
-
-  // .Types.TileRef Tile = 3;
-  bool has_tile() const;
-  private:
-  bool _internal_has_tile() const;
-  public:
-  void clear_tile();
-  const ::Types::TileRef& tile() const;
-  ::Types::TileRef* release_tile();
-  ::Types::TileRef* mutable_tile();
-  void set_allocated_tile(::Types::TileRef* tile);
-  private:
-  const ::Types::TileRef& _internal_tile() const;
-  ::Types::TileRef* _internal_mutable_tile();
-  public:
-  void unsafe_arena_set_allocated_tile(
-      ::Types::TileRef* tile);
-  ::Types::TileRef* unsafe_arena_release_tile();
-
-  // .Types.IntegerRef Integer = 4;
+  // .Types.IntegerRef Integer = 1;
   bool has_integer() const;
   private:
   bool _internal_has_integer() const;
@@ -2237,7 +2229,79 @@ class EntityValue PROTOBUF_FINAL :
       ::Types::IntegerRef* integer);
   ::Types::IntegerRef* unsafe_arena_release_integer();
 
-  // int32 IntValue = 5;
+  // .Types.Vec2iRef Vec2i = 2;
+  bool has_vec2i() const;
+  private:
+  bool _internal_has_vec2i() const;
+  public:
+  void clear_vec2i();
+  const ::Types::Vec2iRef& vec2i() const;
+  ::Types::Vec2iRef* release_vec2i();
+  ::Types::Vec2iRef* mutable_vec2i();
+  void set_allocated_vec2i(::Types::Vec2iRef* vec2i);
+  private:
+  const ::Types::Vec2iRef& _internal_vec2i() const;
+  ::Types::Vec2iRef* _internal_mutable_vec2i();
+  public:
+  void unsafe_arena_set_allocated_vec2i(
+      ::Types::Vec2iRef* vec2i);
+  ::Types::Vec2iRef* unsafe_arena_release_vec2i();
+
+  // .Types.PlayerRef Player = 3;
+  bool has_player() const;
+  private:
+  bool _internal_has_player() const;
+  public:
+  void clear_player();
+  const ::Types::PlayerRef& player() const;
+  ::Types::PlayerRef* release_player();
+  ::Types::PlayerRef* mutable_player();
+  void set_allocated_player(::Types::PlayerRef* player);
+  private:
+  const ::Types::PlayerRef& _internal_player() const;
+  ::Types::PlayerRef* _internal_mutable_player();
+  public:
+  void unsafe_arena_set_allocated_player(
+      ::Types::PlayerRef* player);
+  ::Types::PlayerRef* unsafe_arena_release_player();
+
+  // .Types.CardRef Card = 4;
+  bool has_card() const;
+  private:
+  bool _internal_has_card() const;
+  public:
+  void clear_card();
+  const ::Types::CardRef& card() const;
+  ::Types::CardRef* release_card();
+  ::Types::CardRef* mutable_card();
+  void set_allocated_card(::Types::CardRef* card);
+  private:
+  const ::Types::CardRef& _internal_card() const;
+  ::Types::CardRef* _internal_mutable_card();
+  public:
+  void unsafe_arena_set_allocated_card(
+      ::Types::CardRef* card);
+  ::Types::CardRef* unsafe_arena_release_card();
+
+  // .Types.TileRef Tile = 5;
+  bool has_tile() const;
+  private:
+  bool _internal_has_tile() const;
+  public:
+  void clear_tile();
+  const ::Types::TileRef& tile() const;
+  ::Types::TileRef* release_tile();
+  ::Types::TileRef* mutable_tile();
+  void set_allocated_tile(::Types::TileRef* tile);
+  private:
+  const ::Types::TileRef& _internal_tile() const;
+  ::Types::TileRef* _internal_mutable_tile();
+  public:
+  void unsafe_arena_set_allocated_tile(
+      ::Types::TileRef* tile);
+  ::Types::TileRef* unsafe_arena_release_tile();
+
+  // int32 IntValue = 6;
   private:
   bool _internal_has_intvalue() const;
   public:
@@ -2249,7 +2313,7 @@ class EntityValue PROTOBUF_FINAL :
   void _internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // .Types.Vec2i Vec2iValue = 6;
+  // .Types.Vec2i Vec2iValue = 7;
   bool has_vec2ivalue() const;
   private:
   bool _internal_has_vec2ivalue() const;
@@ -2267,7 +2331,7 @@ class EntityValue PROTOBUF_FINAL :
       ::Types::Vec2i* vec2ivalue);
   ::Types::Vec2i* unsafe_arena_release_vec2ivalue();
 
-  // .Types.TerrainType TerrainValue = 7;
+  // .Types.TerrainType TerrainValue = 8;
   private:
   bool _internal_has_terrainvalue() const;
   public:
@@ -2284,10 +2348,11 @@ class EntityValue PROTOBUF_FINAL :
   // @@protoc_insertion_point(class_scope:Types.EntityValue)
  private:
   class _Internal;
+  void set_has_integer();
+  void set_has_vec2i();
   void set_has_player();
   void set_has_card();
   void set_has_tile();
-  void set_has_integer();
   void set_has_intvalue();
   void set_has_vec2ivalue();
   void set_has_terrainvalue();
@@ -2300,10 +2365,11 @@ class EntityValue PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   union EntityValUnion {
     EntityValUnion() {}
+    ::Types::IntegerRef* integer_;
+    ::Types::Vec2iRef* vec2i_;
     ::Types::PlayerRef* player_;
     ::Types::CardRef* card_;
     ::Types::TileRef* tile_;
-    ::Types::IntegerRef* integer_;
     ::PROTOBUF_NAMESPACE_ID::int32 intvalue_;
     ::Types::Vec2i* vec2ivalue_;
     int terrainvalue_;
@@ -3344,7 +3410,153 @@ inline Vec2iValue::Vec2IValueCase Vec2iValue::vec2i_value_case() const {
 
 // EntityRef
 
-// .Types.PlayerRef Player = 1;
+// .Types.IntegerRef Integer = 1;
+inline bool EntityRef::_internal_has_integer() const {
+  return entity_ref_case() == kInteger;
+}
+inline bool EntityRef::has_integer() const {
+  return _internal_has_integer();
+}
+inline void EntityRef::set_has_integer() {
+  _oneof_case_[0] = kInteger;
+}
+inline void EntityRef::clear_integer() {
+  if (_internal_has_integer()) {
+    if (GetArena() == nullptr) {
+      delete entity_ref_.integer_;
+    }
+    clear_has_entity_ref();
+  }
+}
+inline ::Types::IntegerRef* EntityRef::release_integer() {
+  // @@protoc_insertion_point(field_release:Types.EntityRef.Integer)
+  if (_internal_has_integer()) {
+    clear_has_entity_ref();
+      ::Types::IntegerRef* temp = entity_ref_.integer_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_ref_.integer_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::IntegerRef& EntityRef::_internal_integer() const {
+  return _internal_has_integer()
+      ? *entity_ref_.integer_
+      : reinterpret_cast< ::Types::IntegerRef&>(::Types::_IntegerRef_default_instance_);
+}
+inline const ::Types::IntegerRef& EntityRef::integer() const {
+  // @@protoc_insertion_point(field_get:Types.EntityRef.Integer)
+  return _internal_integer();
+}
+inline ::Types::IntegerRef* EntityRef::unsafe_arena_release_integer() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityRef.Integer)
+  if (_internal_has_integer()) {
+    clear_has_entity_ref();
+    ::Types::IntegerRef* temp = entity_ref_.integer_;
+    entity_ref_.integer_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityRef::unsafe_arena_set_allocated_integer(::Types::IntegerRef* integer) {
+  clear_entity_ref();
+  if (integer) {
+    set_has_integer();
+    entity_ref_.integer_ = integer;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityRef.Integer)
+}
+inline ::Types::IntegerRef* EntityRef::_internal_mutable_integer() {
+  if (!_internal_has_integer()) {
+    clear_entity_ref();
+    set_has_integer();
+    entity_ref_.integer_ = CreateMaybeMessage< ::Types::IntegerRef >(GetArena());
+  }
+  return entity_ref_.integer_;
+}
+inline ::Types::IntegerRef* EntityRef::mutable_integer() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityRef.Integer)
+  return _internal_mutable_integer();
+}
+
+// .Types.Vec2iRef Vec2i = 2;
+inline bool EntityRef::_internal_has_vec2i() const {
+  return entity_ref_case() == kVec2I;
+}
+inline bool EntityRef::has_vec2i() const {
+  return _internal_has_vec2i();
+}
+inline void EntityRef::set_has_vec2i() {
+  _oneof_case_[0] = kVec2I;
+}
+inline void EntityRef::clear_vec2i() {
+  if (_internal_has_vec2i()) {
+    if (GetArena() == nullptr) {
+      delete entity_ref_.vec2i_;
+    }
+    clear_has_entity_ref();
+  }
+}
+inline ::Types::Vec2iRef* EntityRef::release_vec2i() {
+  // @@protoc_insertion_point(field_release:Types.EntityRef.Vec2i)
+  if (_internal_has_vec2i()) {
+    clear_has_entity_ref();
+      ::Types::Vec2iRef* temp = entity_ref_.vec2i_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_ref_.vec2i_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::Vec2iRef& EntityRef::_internal_vec2i() const {
+  return _internal_has_vec2i()
+      ? *entity_ref_.vec2i_
+      : reinterpret_cast< ::Types::Vec2iRef&>(::Types::_Vec2iRef_default_instance_);
+}
+inline const ::Types::Vec2iRef& EntityRef::vec2i() const {
+  // @@protoc_insertion_point(field_get:Types.EntityRef.Vec2i)
+  return _internal_vec2i();
+}
+inline ::Types::Vec2iRef* EntityRef::unsafe_arena_release_vec2i() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityRef.Vec2i)
+  if (_internal_has_vec2i()) {
+    clear_has_entity_ref();
+    ::Types::Vec2iRef* temp = entity_ref_.vec2i_;
+    entity_ref_.vec2i_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityRef::unsafe_arena_set_allocated_vec2i(::Types::Vec2iRef* vec2i) {
+  clear_entity_ref();
+  if (vec2i) {
+    set_has_vec2i();
+    entity_ref_.vec2i_ = vec2i;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityRef.Vec2i)
+}
+inline ::Types::Vec2iRef* EntityRef::_internal_mutable_vec2i() {
+  if (!_internal_has_vec2i()) {
+    clear_entity_ref();
+    set_has_vec2i();
+    entity_ref_.vec2i_ = CreateMaybeMessage< ::Types::Vec2iRef >(GetArena());
+  }
+  return entity_ref_.vec2i_;
+}
+inline ::Types::Vec2iRef* EntityRef::mutable_vec2i() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityRef.Vec2i)
+  return _internal_mutable_vec2i();
+}
+
+// .Types.PlayerRef Player = 3;
 inline bool EntityRef::_internal_has_player() const {
   return entity_ref_case() == kPlayer;
 }
@@ -3417,7 +3629,7 @@ inline ::Types::PlayerRef* EntityRef::mutable_player() {
   return _internal_mutable_player();
 }
 
-// .Types.CardRef Card = 2;
+// .Types.CardRef Card = 4;
 inline bool EntityRef::_internal_has_card() const {
   return entity_ref_case() == kCard;
 }
@@ -3490,7 +3702,7 @@ inline ::Types::CardRef* EntityRef::mutable_card() {
   return _internal_mutable_card();
 }
 
-// .Types.TileRef Tile = 3;
+// .Types.TileRef Tile = 5;
 inline bool EntityRef::_internal_has_tile() const {
   return entity_ref_case() == kTile;
 }
@@ -3576,226 +3788,7 @@ inline EntityRef::EntityRefCase EntityRef::entity_ref_case() const {
 
 // EntityValue
 
-// .Types.PlayerRef Player = 1;
-inline bool EntityValue::_internal_has_player() const {
-  return entity_val_case() == kPlayer;
-}
-inline bool EntityValue::has_player() const {
-  return _internal_has_player();
-}
-inline void EntityValue::set_has_player() {
-  _oneof_case_[0] = kPlayer;
-}
-inline void EntityValue::clear_player() {
-  if (_internal_has_player()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.player_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::Types::PlayerRef* EntityValue::release_player() {
-  // @@protoc_insertion_point(field_release:Types.EntityValue.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_val();
-      ::Types::PlayerRef* temp = entity_val_.player_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::Types::PlayerRef& EntityValue::_internal_player() const {
-  return _internal_has_player()
-      ? *entity_val_.player_
-      : reinterpret_cast< ::Types::PlayerRef&>(::Types::_PlayerRef_default_instance_);
-}
-inline const ::Types::PlayerRef& EntityValue::player() const {
-  // @@protoc_insertion_point(field_get:Types.EntityValue.Player)
-  return _internal_player();
-}
-inline ::Types::PlayerRef* EntityValue::unsafe_arena_release_player() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Player)
-  if (_internal_has_player()) {
-    clear_has_entity_val();
-    ::Types::PlayerRef* temp = entity_val_.player_;
-    entity_val_.player_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_player(::Types::PlayerRef* player) {
-  clear_entity_val();
-  if (player) {
-    set_has_player();
-    entity_val_.player_ = player;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Player)
-}
-inline ::Types::PlayerRef* EntityValue::_internal_mutable_player() {
-  if (!_internal_has_player()) {
-    clear_entity_val();
-    set_has_player();
-    entity_val_.player_ = CreateMaybeMessage< ::Types::PlayerRef >(GetArena());
-  }
-  return entity_val_.player_;
-}
-inline ::Types::PlayerRef* EntityValue::mutable_player() {
-  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Player)
-  return _internal_mutable_player();
-}
-
-// .Types.CardRef Card = 2;
-inline bool EntityValue::_internal_has_card() const {
-  return entity_val_case() == kCard;
-}
-inline bool EntityValue::has_card() const {
-  return _internal_has_card();
-}
-inline void EntityValue::set_has_card() {
-  _oneof_case_[0] = kCard;
-}
-inline void EntityValue::clear_card() {
-  if (_internal_has_card()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.card_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::Types::CardRef* EntityValue::release_card() {
-  // @@protoc_insertion_point(field_release:Types.EntityValue.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_val();
-      ::Types::CardRef* temp = entity_val_.card_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::Types::CardRef& EntityValue::_internal_card() const {
-  return _internal_has_card()
-      ? *entity_val_.card_
-      : reinterpret_cast< ::Types::CardRef&>(::Types::_CardRef_default_instance_);
-}
-inline const ::Types::CardRef& EntityValue::card() const {
-  // @@protoc_insertion_point(field_get:Types.EntityValue.Card)
-  return _internal_card();
-}
-inline ::Types::CardRef* EntityValue::unsafe_arena_release_card() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Card)
-  if (_internal_has_card()) {
-    clear_has_entity_val();
-    ::Types::CardRef* temp = entity_val_.card_;
-    entity_val_.card_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_card(::Types::CardRef* card) {
-  clear_entity_val();
-  if (card) {
-    set_has_card();
-    entity_val_.card_ = card;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Card)
-}
-inline ::Types::CardRef* EntityValue::_internal_mutable_card() {
-  if (!_internal_has_card()) {
-    clear_entity_val();
-    set_has_card();
-    entity_val_.card_ = CreateMaybeMessage< ::Types::CardRef >(GetArena());
-  }
-  return entity_val_.card_;
-}
-inline ::Types::CardRef* EntityValue::mutable_card() {
-  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Card)
-  return _internal_mutable_card();
-}
-
-// .Types.TileRef Tile = 3;
-inline bool EntityValue::_internal_has_tile() const {
-  return entity_val_case() == kTile;
-}
-inline bool EntityValue::has_tile() const {
-  return _internal_has_tile();
-}
-inline void EntityValue::set_has_tile() {
-  _oneof_case_[0] = kTile;
-}
-inline void EntityValue::clear_tile() {
-  if (_internal_has_tile()) {
-    if (GetArena() == nullptr) {
-      delete entity_val_.tile_;
-    }
-    clear_has_entity_val();
-  }
-}
-inline ::Types::TileRef* EntityValue::release_tile() {
-  // @@protoc_insertion_point(field_release:Types.EntityValue.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_val();
-      ::Types::TileRef* temp = entity_val_.tile_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_val_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::Types::TileRef& EntityValue::_internal_tile() const {
-  return _internal_has_tile()
-      ? *entity_val_.tile_
-      : reinterpret_cast< ::Types::TileRef&>(::Types::_TileRef_default_instance_);
-}
-inline const ::Types::TileRef& EntityValue::tile() const {
-  // @@protoc_insertion_point(field_get:Types.EntityValue.Tile)
-  return _internal_tile();
-}
-inline ::Types::TileRef* EntityValue::unsafe_arena_release_tile() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Tile)
-  if (_internal_has_tile()) {
-    clear_has_entity_val();
-    ::Types::TileRef* temp = entity_val_.tile_;
-    entity_val_.tile_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void EntityValue::unsafe_arena_set_allocated_tile(::Types::TileRef* tile) {
-  clear_entity_val();
-  if (tile) {
-    set_has_tile();
-    entity_val_.tile_ = tile;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Tile)
-}
-inline ::Types::TileRef* EntityValue::_internal_mutable_tile() {
-  if (!_internal_has_tile()) {
-    clear_entity_val();
-    set_has_tile();
-    entity_val_.tile_ = CreateMaybeMessage< ::Types::TileRef >(GetArena());
-  }
-  return entity_val_.tile_;
-}
-inline ::Types::TileRef* EntityValue::mutable_tile() {
-  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Tile)
-  return _internal_mutable_tile();
-}
-
-// .Types.IntegerRef Integer = 4;
+// .Types.IntegerRef Integer = 1;
 inline bool EntityValue::_internal_has_integer() const {
   return entity_val_case() == kInteger;
 }
@@ -3868,7 +3861,299 @@ inline ::Types::IntegerRef* EntityValue::mutable_integer() {
   return _internal_mutable_integer();
 }
 
-// int32 IntValue = 5;
+// .Types.Vec2iRef Vec2i = 2;
+inline bool EntityValue::_internal_has_vec2i() const {
+  return entity_val_case() == kVec2I;
+}
+inline bool EntityValue::has_vec2i() const {
+  return _internal_has_vec2i();
+}
+inline void EntityValue::set_has_vec2i() {
+  _oneof_case_[0] = kVec2I;
+}
+inline void EntityValue::clear_vec2i() {
+  if (_internal_has_vec2i()) {
+    if (GetArena() == nullptr) {
+      delete entity_val_.vec2i_;
+    }
+    clear_has_entity_val();
+  }
+}
+inline ::Types::Vec2iRef* EntityValue::release_vec2i() {
+  // @@protoc_insertion_point(field_release:Types.EntityValue.Vec2i)
+  if (_internal_has_vec2i()) {
+    clear_has_entity_val();
+      ::Types::Vec2iRef* temp = entity_val_.vec2i_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_val_.vec2i_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::Vec2iRef& EntityValue::_internal_vec2i() const {
+  return _internal_has_vec2i()
+      ? *entity_val_.vec2i_
+      : reinterpret_cast< ::Types::Vec2iRef&>(::Types::_Vec2iRef_default_instance_);
+}
+inline const ::Types::Vec2iRef& EntityValue::vec2i() const {
+  // @@protoc_insertion_point(field_get:Types.EntityValue.Vec2i)
+  return _internal_vec2i();
+}
+inline ::Types::Vec2iRef* EntityValue::unsafe_arena_release_vec2i() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Vec2i)
+  if (_internal_has_vec2i()) {
+    clear_has_entity_val();
+    ::Types::Vec2iRef* temp = entity_val_.vec2i_;
+    entity_val_.vec2i_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityValue::unsafe_arena_set_allocated_vec2i(::Types::Vec2iRef* vec2i) {
+  clear_entity_val();
+  if (vec2i) {
+    set_has_vec2i();
+    entity_val_.vec2i_ = vec2i;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Vec2i)
+}
+inline ::Types::Vec2iRef* EntityValue::_internal_mutable_vec2i() {
+  if (!_internal_has_vec2i()) {
+    clear_entity_val();
+    set_has_vec2i();
+    entity_val_.vec2i_ = CreateMaybeMessage< ::Types::Vec2iRef >(GetArena());
+  }
+  return entity_val_.vec2i_;
+}
+inline ::Types::Vec2iRef* EntityValue::mutable_vec2i() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Vec2i)
+  return _internal_mutable_vec2i();
+}
+
+// .Types.PlayerRef Player = 3;
+inline bool EntityValue::_internal_has_player() const {
+  return entity_val_case() == kPlayer;
+}
+inline bool EntityValue::has_player() const {
+  return _internal_has_player();
+}
+inline void EntityValue::set_has_player() {
+  _oneof_case_[0] = kPlayer;
+}
+inline void EntityValue::clear_player() {
+  if (_internal_has_player()) {
+    if (GetArena() == nullptr) {
+      delete entity_val_.player_;
+    }
+    clear_has_entity_val();
+  }
+}
+inline ::Types::PlayerRef* EntityValue::release_player() {
+  // @@protoc_insertion_point(field_release:Types.EntityValue.Player)
+  if (_internal_has_player()) {
+    clear_has_entity_val();
+      ::Types::PlayerRef* temp = entity_val_.player_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_val_.player_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::PlayerRef& EntityValue::_internal_player() const {
+  return _internal_has_player()
+      ? *entity_val_.player_
+      : reinterpret_cast< ::Types::PlayerRef&>(::Types::_PlayerRef_default_instance_);
+}
+inline const ::Types::PlayerRef& EntityValue::player() const {
+  // @@protoc_insertion_point(field_get:Types.EntityValue.Player)
+  return _internal_player();
+}
+inline ::Types::PlayerRef* EntityValue::unsafe_arena_release_player() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Player)
+  if (_internal_has_player()) {
+    clear_has_entity_val();
+    ::Types::PlayerRef* temp = entity_val_.player_;
+    entity_val_.player_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityValue::unsafe_arena_set_allocated_player(::Types::PlayerRef* player) {
+  clear_entity_val();
+  if (player) {
+    set_has_player();
+    entity_val_.player_ = player;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Player)
+}
+inline ::Types::PlayerRef* EntityValue::_internal_mutable_player() {
+  if (!_internal_has_player()) {
+    clear_entity_val();
+    set_has_player();
+    entity_val_.player_ = CreateMaybeMessage< ::Types::PlayerRef >(GetArena());
+  }
+  return entity_val_.player_;
+}
+inline ::Types::PlayerRef* EntityValue::mutable_player() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Player)
+  return _internal_mutable_player();
+}
+
+// .Types.CardRef Card = 4;
+inline bool EntityValue::_internal_has_card() const {
+  return entity_val_case() == kCard;
+}
+inline bool EntityValue::has_card() const {
+  return _internal_has_card();
+}
+inline void EntityValue::set_has_card() {
+  _oneof_case_[0] = kCard;
+}
+inline void EntityValue::clear_card() {
+  if (_internal_has_card()) {
+    if (GetArena() == nullptr) {
+      delete entity_val_.card_;
+    }
+    clear_has_entity_val();
+  }
+}
+inline ::Types::CardRef* EntityValue::release_card() {
+  // @@protoc_insertion_point(field_release:Types.EntityValue.Card)
+  if (_internal_has_card()) {
+    clear_has_entity_val();
+      ::Types::CardRef* temp = entity_val_.card_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_val_.card_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::CardRef& EntityValue::_internal_card() const {
+  return _internal_has_card()
+      ? *entity_val_.card_
+      : reinterpret_cast< ::Types::CardRef&>(::Types::_CardRef_default_instance_);
+}
+inline const ::Types::CardRef& EntityValue::card() const {
+  // @@protoc_insertion_point(field_get:Types.EntityValue.Card)
+  return _internal_card();
+}
+inline ::Types::CardRef* EntityValue::unsafe_arena_release_card() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Card)
+  if (_internal_has_card()) {
+    clear_has_entity_val();
+    ::Types::CardRef* temp = entity_val_.card_;
+    entity_val_.card_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityValue::unsafe_arena_set_allocated_card(::Types::CardRef* card) {
+  clear_entity_val();
+  if (card) {
+    set_has_card();
+    entity_val_.card_ = card;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Card)
+}
+inline ::Types::CardRef* EntityValue::_internal_mutable_card() {
+  if (!_internal_has_card()) {
+    clear_entity_val();
+    set_has_card();
+    entity_val_.card_ = CreateMaybeMessage< ::Types::CardRef >(GetArena());
+  }
+  return entity_val_.card_;
+}
+inline ::Types::CardRef* EntityValue::mutable_card() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Card)
+  return _internal_mutable_card();
+}
+
+// .Types.TileRef Tile = 5;
+inline bool EntityValue::_internal_has_tile() const {
+  return entity_val_case() == kTile;
+}
+inline bool EntityValue::has_tile() const {
+  return _internal_has_tile();
+}
+inline void EntityValue::set_has_tile() {
+  _oneof_case_[0] = kTile;
+}
+inline void EntityValue::clear_tile() {
+  if (_internal_has_tile()) {
+    if (GetArena() == nullptr) {
+      delete entity_val_.tile_;
+    }
+    clear_has_entity_val();
+  }
+}
+inline ::Types::TileRef* EntityValue::release_tile() {
+  // @@protoc_insertion_point(field_release:Types.EntityValue.Tile)
+  if (_internal_has_tile()) {
+    clear_has_entity_val();
+      ::Types::TileRef* temp = entity_val_.tile_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    entity_val_.tile_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Types::TileRef& EntityValue::_internal_tile() const {
+  return _internal_has_tile()
+      ? *entity_val_.tile_
+      : reinterpret_cast< ::Types::TileRef&>(::Types::_TileRef_default_instance_);
+}
+inline const ::Types::TileRef& EntityValue::tile() const {
+  // @@protoc_insertion_point(field_get:Types.EntityValue.Tile)
+  return _internal_tile();
+}
+inline ::Types::TileRef* EntityValue::unsafe_arena_release_tile() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Types.EntityValue.Tile)
+  if (_internal_has_tile()) {
+    clear_has_entity_val();
+    ::Types::TileRef* temp = entity_val_.tile_;
+    entity_val_.tile_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void EntityValue::unsafe_arena_set_allocated_tile(::Types::TileRef* tile) {
+  clear_entity_val();
+  if (tile) {
+    set_has_tile();
+    entity_val_.tile_ = tile;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Types.EntityValue.Tile)
+}
+inline ::Types::TileRef* EntityValue::_internal_mutable_tile() {
+  if (!_internal_has_tile()) {
+    clear_entity_val();
+    set_has_tile();
+    entity_val_.tile_ = CreateMaybeMessage< ::Types::TileRef >(GetArena());
+  }
+  return entity_val_.tile_;
+}
+inline ::Types::TileRef* EntityValue::mutable_tile() {
+  // @@protoc_insertion_point(field_mutable:Types.EntityValue.Tile)
+  return _internal_mutable_tile();
+}
+
+// int32 IntValue = 6;
 inline bool EntityValue::_internal_has_intvalue() const {
   return entity_val_case() == kIntValue;
 }
@@ -3903,7 +4188,7 @@ inline void EntityValue::set_intvalue(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:Types.EntityValue.IntValue)
 }
 
-// .Types.Vec2i Vec2iValue = 6;
+// .Types.Vec2i Vec2iValue = 7;
 inline bool EntityValue::_internal_has_vec2ivalue() const {
   return entity_val_case() == kVec2IValue;
 }
@@ -3976,7 +4261,7 @@ inline ::Types::Vec2i* EntityValue::mutable_vec2ivalue() {
   return _internal_mutable_vec2ivalue();
 }
 
-// .Types.TerrainType TerrainValue = 7;
+// .Types.TerrainType TerrainValue = 8;
 inline bool EntityValue::_internal_has_terrainvalue() const {
   return entity_val_case() == kTerrainValue;
 }

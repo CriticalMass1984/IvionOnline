@@ -101,8 +101,10 @@ static void InitDefaultsscc_info_EntityRef_Types_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_EntityRef_Types_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_EntityRef_Types_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityRef_Types_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_EntityRef_Types_2eproto}, {
+      &scc_info_IntegerRef_Types_2eproto.base,
+      &scc_info_Vec2iRef_Types_2eproto.base,
       &scc_info_PlayerRef_Types_2eproto.base,
       &scc_info_CardRef_Types_2eproto.base,
       &scc_info_TileRef_Types_2eproto.base,}};
@@ -117,12 +119,13 @@ static void InitDefaultsscc_info_EntityValue_Types_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_Types_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_EntityValue_Types_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_EntityValue_Types_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_EntityValue_Types_2eproto}, {
+      &scc_info_IntegerRef_Types_2eproto.base,
+      &scc_info_Vec2iRef_Types_2eproto.base,
       &scc_info_PlayerRef_Types_2eproto.base,
       &scc_info_CardRef_Types_2eproto.base,
       &scc_info_TileRef_Types_2eproto.base,
-      &scc_info_IntegerRef_Types_2eproto.base,
       &scc_info_Vec2i_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Integer_Types_2eproto() {
@@ -349,12 +352,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Types_2eproto::offsets[] PROTO
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Types::EntityRef, entity_ref_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Types::EntityValue, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::Types::EntityValue, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -377,7 +383,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 56, -1, sizeof(::Types::IntegerValue)},
   { 64, -1, sizeof(::Types::Vec2iValue)},
   { 72, -1, sizeof(::Types::EntityRef)},
-  { 81, -1, sizeof(::Types::EntityValue)},
+  { 83, -1, sizeof(::Types::EntityValue)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -411,19 +417,22 @@ const char descriptor_table_protodef_Types_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   ".Types.IntegerH\000\022 \n\003Ref\030\002 \001(\0132\021.Types.In"
   "tegerRefH\000B\013\n\tint_value\"Z\n\nVec2iValue\022\035\n"
   "\005Value\030\001 \001(\0132\014.Types.Vec2iH\000\022\036\n\003Ref\030\002 \001("
-  "\0132\017.Types.Vec2iRefH\000B\r\n\013vec2i_value\"}\n\tE"
-  "ntityRef\022\"\n\006Player\030\001 \001(\0132\020.Types.PlayerR"
-  "efH\000\022\036\n\004Card\030\002 \001(\0132\016.Types.CardRefH\000\022\036\n\004"
-  "Tile\030\003 \001(\0132\016.Types.TileRefH\000B\014\n\nentity_r"
-  "ef\"\211\002\n\013EntityValue\022\"\n\006Player\030\001 \001(\0132\020.Typ"
-  "es.PlayerRefH\000\022\036\n\004Card\030\002 \001(\0132\016.Types.Car"
-  "dRefH\000\022\036\n\004Tile\030\003 \001(\0132\016.Types.TileRefH\000\022$"
-  "\n\007Integer\030\004 \001(\0132\021.Types.IntegerRefH\000\022\022\n\010"
-  "IntValue\030\005 \001(\005H\000\022\"\n\nVec2iValue\030\006 \001(\0132\014.T"
-  "ypes.Vec2iH\000\022*\n\014TerrainValue\030\007 \001(\0162\022.Typ"
-  "es.TerrainTypeH\000B\014\n\nentity_val*M\n\013Terrai"
-  "nType\022\020\n\014TERRAIN_NONE\020\000\022\025\n\021TERRAIN_DIFFI"
-  "CULT\020\001\022\025\n\021TERRAIN_ENCHANTED\020\002b\006proto3"
+  "\0132\017.Types.Vec2iRefH\000B\r\n\013vec2i_value\"\305\001\n\t"
+  "EntityRef\022$\n\007Integer\030\001 \001(\0132\021.Types.Integ"
+  "erRefH\000\022 \n\005Vec2i\030\002 \001(\0132\017.Types.Vec2iRefH"
+  "\000\022\"\n\006Player\030\003 \001(\0132\020.Types.PlayerRefH\000\022\036\n"
+  "\004Card\030\004 \001(\0132\016.Types.CardRefH\000\022\036\n\004Tile\030\005 "
+  "\001(\0132\016.Types.TileRefH\000B\014\n\nentity_ref\"\253\002\n\013"
+  "EntityValue\022$\n\007Integer\030\001 \001(\0132\021.Types.Int"
+  "egerRefH\000\022 \n\005Vec2i\030\002 \001(\0132\017.Types.Vec2iRe"
+  "fH\000\022\"\n\006Player\030\003 \001(\0132\020.Types.PlayerRefH\000\022"
+  "\036\n\004Card\030\004 \001(\0132\016.Types.CardRefH\000\022\036\n\004Tile\030"
+  "\005 \001(\0132\016.Types.TileRefH\000\022\022\n\010IntValue\030\006 \001("
+  "\005H\000\022\"\n\nVec2iValue\030\007 \001(\0132\014.Types.Vec2iH\000\022"
+  "*\n\014TerrainValue\030\010 \001(\0162\022.Types.TerrainTyp"
+  "eH\000B\014\n\nentity_val*M\n\013TerrainType\022\020\n\014TERR"
+  "AIN_NONE\020\000\022\025\n\021TERRAIN_DIFFICULT\020\001\022\025\n\021TER"
+  "RAIN_ENCHANTED\020\002b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Types_2eproto_deps[1] = {
 };
@@ -444,7 +453,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Typ
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Types_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Types_2eproto = {
-  false, false, descriptor_table_protodef_Types_2eproto, "Types.proto", 1077,
+  false, false, descriptor_table_protodef_Types_2eproto, "Types.proto", 1184,
   &descriptor_table_Types_2eproto_once, descriptor_table_Types_2eproto_sccs, descriptor_table_Types_2eproto_deps, 13, 0,
   schemas, file_default_instances, TableStruct_Types_2eproto::offsets,
   file_level_metadata_Types_2eproto, 13, file_level_enum_descriptors_Types_2eproto, file_level_service_descriptors_Types_2eproto,
@@ -3028,11 +3037,21 @@ void Vec2iValue::InternalSwap(Vec2iValue* other) {
 
 class EntityRef::_Internal {
  public:
+  static const ::Types::IntegerRef& integer(const EntityRef* msg);
+  static const ::Types::Vec2iRef& vec2i(const EntityRef* msg);
   static const ::Types::PlayerRef& player(const EntityRef* msg);
   static const ::Types::CardRef& card(const EntityRef* msg);
   static const ::Types::TileRef& tile(const EntityRef* msg);
 };
 
+const ::Types::IntegerRef&
+EntityRef::_Internal::integer(const EntityRef* msg) {
+  return *msg->entity_ref_.integer_;
+}
+const ::Types::Vec2iRef&
+EntityRef::_Internal::vec2i(const EntityRef* msg) {
+  return *msg->entity_ref_.vec2i_;
+}
 const ::Types::PlayerRef&
 EntityRef::_Internal::player(const EntityRef* msg) {
   return *msg->entity_ref_.player_;
@@ -3044,6 +3063,36 @@ EntityRef::_Internal::card(const EntityRef* msg) {
 const ::Types::TileRef&
 EntityRef::_Internal::tile(const EntityRef* msg) {
   return *msg->entity_ref_.tile_;
+}
+void EntityRef::set_allocated_integer(::Types::IntegerRef* integer) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_entity_ref();
+  if (integer) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(integer);
+    if (message_arena != submessage_arena) {
+      integer = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, integer, submessage_arena);
+    }
+    set_has_integer();
+    entity_ref_.integer_ = integer;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Types.EntityRef.Integer)
+}
+void EntityRef::set_allocated_vec2i(::Types::Vec2iRef* vec2i) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_entity_ref();
+  if (vec2i) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(vec2i);
+    if (message_arena != submessage_arena) {
+      vec2i = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, vec2i, submessage_arena);
+    }
+    set_has_vec2i();
+    entity_ref_.vec2i_ = vec2i;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Types.EntityRef.Vec2i)
 }
 void EntityRef::set_allocated_player(::Types::PlayerRef* player) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -3101,6 +3150,14 @@ EntityRef::EntityRef(const EntityRef& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_entity_ref();
   switch (from.entity_ref_case()) {
+    case kInteger: {
+      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      break;
+    }
+    case kVec2I: {
+      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      break;
+    }
     case kPlayer: {
       _internal_mutable_player()->::Types::PlayerRef::MergeFrom(from._internal_player());
       break;
@@ -3156,6 +3213,18 @@ const EntityRef& EntityRef::default_instance() {
 void EntityRef::clear_entity_ref() {
 // @@protoc_insertion_point(one_of_clear_start:Types.EntityRef)
   switch (entity_ref_case()) {
+    case kInteger: {
+      if (GetArena() == nullptr) {
+        delete entity_ref_.integer_;
+      }
+      break;
+    }
+    case kVec2I: {
+      if (GetArena() == nullptr) {
+        delete entity_ref_.vec2i_;
+      }
+      break;
+    }
     case kPlayer: {
       if (GetArena() == nullptr) {
         delete entity_ref_.player_;
@@ -3199,23 +3268,37 @@ const char* EntityRef::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.PlayerRef Player = 1;
+      // .Types.IntegerRef Integer = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_integer(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Types.Vec2iRef Vec2i = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_vec2i(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Types.PlayerRef Player = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.CardRef Card = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+      // .Types.CardRef Card = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.TileRef Tile = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // .Types.TileRef Tile = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_tile(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -3248,28 +3331,44 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.PlayerRef Player = 1;
+  // .Types.IntegerRef Integer = 1;
+  if (_internal_has_integer()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::integer(this), target, stream);
+  }
+
+  // .Types.Vec2iRef Vec2i = 2;
+  if (_internal_has_vec2i()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::vec2i(this), target, stream);
+  }
+
+  // .Types.PlayerRef Player = 3;
   if (_internal_has_player()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::player(this), target, stream);
+        3, _Internal::player(this), target, stream);
   }
 
-  // .Types.CardRef Card = 2;
+  // .Types.CardRef Card = 4;
   if (_internal_has_card()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::card(this), target, stream);
+        4, _Internal::card(this), target, stream);
   }
 
-  // .Types.TileRef Tile = 3;
+  // .Types.TileRef Tile = 5;
   if (_internal_has_tile()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::tile(this), target, stream);
+        5, _Internal::tile(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3289,21 +3388,35 @@ size_t EntityRef::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (entity_ref_case()) {
-    // .Types.PlayerRef Player = 1;
+    // .Types.IntegerRef Integer = 1;
+    case kInteger: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_ref_.integer_);
+      break;
+    }
+    // .Types.Vec2iRef Vec2i = 2;
+    case kVec2I: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_ref_.vec2i_);
+      break;
+    }
+    // .Types.PlayerRef Player = 3;
     case kPlayer: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_ref_.player_);
       break;
     }
-    // .Types.CardRef Card = 2;
+    // .Types.CardRef Card = 4;
     case kCard: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_ref_.card_);
       break;
     }
-    // .Types.TileRef Tile = 3;
+    // .Types.TileRef Tile = 5;
     case kTile: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3346,6 +3459,14 @@ void EntityRef::MergeFrom(const EntityRef& from) {
   (void) cached_has_bits;
 
   switch (from.entity_ref_case()) {
+    case kInteger: {
+      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      break;
+    }
+    case kVec2I: {
+      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      break;
+    }
     case kPlayer: {
       _internal_mutable_player()->::Types::PlayerRef::MergeFrom(from._internal_player());
       break;
@@ -3398,13 +3519,22 @@ void EntityRef::InternalSwap(EntityRef* other) {
 
 class EntityValue::_Internal {
  public:
+  static const ::Types::IntegerRef& integer(const EntityValue* msg);
+  static const ::Types::Vec2iRef& vec2i(const EntityValue* msg);
   static const ::Types::PlayerRef& player(const EntityValue* msg);
   static const ::Types::CardRef& card(const EntityValue* msg);
   static const ::Types::TileRef& tile(const EntityValue* msg);
-  static const ::Types::IntegerRef& integer(const EntityValue* msg);
   static const ::Types::Vec2i& vec2ivalue(const EntityValue* msg);
 };
 
+const ::Types::IntegerRef&
+EntityValue::_Internal::integer(const EntityValue* msg) {
+  return *msg->entity_val_.integer_;
+}
+const ::Types::Vec2iRef&
+EntityValue::_Internal::vec2i(const EntityValue* msg) {
+  return *msg->entity_val_.vec2i_;
+}
 const ::Types::PlayerRef&
 EntityValue::_Internal::player(const EntityValue* msg) {
   return *msg->entity_val_.player_;
@@ -3417,13 +3547,39 @@ const ::Types::TileRef&
 EntityValue::_Internal::tile(const EntityValue* msg) {
   return *msg->entity_val_.tile_;
 }
-const ::Types::IntegerRef&
-EntityValue::_Internal::integer(const EntityValue* msg) {
-  return *msg->entity_val_.integer_;
-}
 const ::Types::Vec2i&
 EntityValue::_Internal::vec2ivalue(const EntityValue* msg) {
   return *msg->entity_val_.vec2ivalue_;
+}
+void EntityValue::set_allocated_integer(::Types::IntegerRef* integer) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_entity_val();
+  if (integer) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(integer);
+    if (message_arena != submessage_arena) {
+      integer = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, integer, submessage_arena);
+    }
+    set_has_integer();
+    entity_val_.integer_ = integer;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Integer)
+}
+void EntityValue::set_allocated_vec2i(::Types::Vec2iRef* vec2i) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_entity_val();
+  if (vec2i) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(vec2i);
+    if (message_arena != submessage_arena) {
+      vec2i = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, vec2i, submessage_arena);
+    }
+    set_has_vec2i();
+    entity_val_.vec2i_ = vec2i;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Vec2i)
 }
 void EntityValue::set_allocated_player(::Types::PlayerRef* player) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -3470,21 +3626,6 @@ void EntityValue::set_allocated_tile(::Types::TileRef* tile) {
   }
   // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Tile)
 }
-void EntityValue::set_allocated_integer(::Types::IntegerRef* integer) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (integer) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(integer);
-    if (message_arena != submessage_arena) {
-      integer = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, integer, submessage_arena);
-    }
-    set_has_integer();
-    entity_val_.integer_ = integer;
-  }
-  // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Integer)
-}
 void EntityValue::set_allocated_vec2ivalue(::Types::Vec2i* vec2ivalue) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_entity_val();
@@ -3511,6 +3652,14 @@ EntityValue::EntityValue(const EntityValue& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_entity_val();
   switch (from.entity_val_case()) {
+    case kInteger: {
+      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      break;
+    }
+    case kVec2I: {
+      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      break;
+    }
     case kPlayer: {
       _internal_mutable_player()->::Types::PlayerRef::MergeFrom(from._internal_player());
       break;
@@ -3521,10 +3670,6 @@ EntityValue::EntityValue(const EntityValue& from)
     }
     case kTile: {
       _internal_mutable_tile()->::Types::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kInteger: {
-      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
       break;
     }
     case kIntValue: {
@@ -3582,6 +3727,18 @@ const EntityValue& EntityValue::default_instance() {
 void EntityValue::clear_entity_val() {
 // @@protoc_insertion_point(one_of_clear_start:Types.EntityValue)
   switch (entity_val_case()) {
+    case kInteger: {
+      if (GetArena() == nullptr) {
+        delete entity_val_.integer_;
+      }
+      break;
+    }
+    case kVec2I: {
+      if (GetArena() == nullptr) {
+        delete entity_val_.vec2i_;
+      }
+      break;
+    }
     case kPlayer: {
       if (GetArena() == nullptr) {
         delete entity_val_.player_;
@@ -3597,12 +3754,6 @@ void EntityValue::clear_entity_val() {
     case kTile: {
       if (GetArena() == nullptr) {
         delete entity_val_.tile_;
-      }
-      break;
-    }
-    case kInteger: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.integer_;
       }
       break;
     }
@@ -3645,51 +3796,58 @@ const char* EntityValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.PlayerRef Player = 1;
+      // .Types.IntegerRef Integer = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.CardRef Card = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.TileRef Tile = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_tile(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.IntegerRef Integer = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_integer(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 IntValue = 5;
+      // .Types.Vec2iRef Vec2i = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_vec2i(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Types.PlayerRef Player = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_player(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Types.CardRef Card = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Types.TileRef Tile = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_tile(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 IntValue = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.Vec2i Vec2iValue = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+      // .Types.Vec2i Vec2iValue = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_vec2ivalue(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.TerrainType TerrainValue = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+      // .Types.TerrainType TerrainValue = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_terrainvalue(static_cast<::Types::TerrainType>(val));
@@ -3723,57 +3881,65 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.PlayerRef Player = 1;
-  if (_internal_has_player()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::player(this), target, stream);
-  }
-
-  // .Types.CardRef Card = 2;
-  if (_internal_has_card()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::card(this), target, stream);
-  }
-
-  // .Types.TileRef Tile = 3;
-  if (_internal_has_tile()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::tile(this), target, stream);
-  }
-
-  // .Types.IntegerRef Integer = 4;
+  // .Types.IntegerRef Integer = 1;
   if (_internal_has_integer()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::integer(this), target, stream);
+        1, _Internal::integer(this), target, stream);
   }
 
-  // int32 IntValue = 5;
+  // .Types.Vec2iRef Vec2i = 2;
+  if (_internal_has_vec2i()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::vec2i(this), target, stream);
+  }
+
+  // .Types.PlayerRef Player = 3;
+  if (_internal_has_player()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::player(this), target, stream);
+  }
+
+  // .Types.CardRef Card = 4;
+  if (_internal_has_card()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::card(this), target, stream);
+  }
+
+  // .Types.TileRef Tile = 5;
+  if (_internal_has_tile()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::tile(this), target, stream);
+  }
+
+  // int32 IntValue = 6;
   if (_internal_has_intvalue()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_intvalue(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_intvalue(), target);
   }
 
-  // .Types.Vec2i Vec2iValue = 6;
+  // .Types.Vec2i Vec2iValue = 7;
   if (_internal_has_vec2ivalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::vec2ivalue(this), target, stream);
+        7, _Internal::vec2ivalue(this), target, stream);
   }
 
-  // .Types.TerrainType TerrainValue = 7;
+  // .Types.TerrainType TerrainValue = 8;
   if (_internal_has_terrainvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      7, this->_internal_terrainvalue(), target);
+      8, this->_internal_terrainvalue(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3793,49 +3959,56 @@ size_t EntityValue::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (entity_val_case()) {
-    // .Types.PlayerRef Player = 1;
-    case kPlayer: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.player_);
-      break;
-    }
-    // .Types.CardRef Card = 2;
-    case kCard: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.card_);
-      break;
-    }
-    // .Types.TileRef Tile = 3;
-    case kTile: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.tile_);
-      break;
-    }
-    // .Types.IntegerRef Integer = 4;
+    // .Types.IntegerRef Integer = 1;
     case kInteger: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_val_.integer_);
       break;
     }
-    // int32 IntValue = 5;
+    // .Types.Vec2iRef Vec2i = 2;
+    case kVec2I: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_val_.vec2i_);
+      break;
+    }
+    // .Types.PlayerRef Player = 3;
+    case kPlayer: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_val_.player_);
+      break;
+    }
+    // .Types.CardRef Card = 4;
+    case kCard: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_val_.card_);
+      break;
+    }
+    // .Types.TileRef Tile = 5;
+    case kTile: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *entity_val_.tile_);
+      break;
+    }
+    // int32 IntValue = 6;
     case kIntValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_intvalue());
       break;
     }
-    // .Types.Vec2i Vec2iValue = 6;
+    // .Types.Vec2i Vec2iValue = 7;
     case kVec2IValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_val_.vec2ivalue_);
       break;
     }
-    // .Types.TerrainType TerrainValue = 7;
+    // .Types.TerrainType TerrainValue = 8;
     case kTerrainValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_terrainvalue());
@@ -3877,6 +4050,14 @@ void EntityValue::MergeFrom(const EntityValue& from) {
   (void) cached_has_bits;
 
   switch (from.entity_val_case()) {
+    case kInteger: {
+      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      break;
+    }
+    case kVec2I: {
+      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      break;
+    }
     case kPlayer: {
       _internal_mutable_player()->::Types::PlayerRef::MergeFrom(from._internal_player());
       break;
@@ -3887,10 +4068,6 @@ void EntityValue::MergeFrom(const EntityValue& from) {
     }
     case kTile: {
       _internal_mutable_tile()->::Types::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kInteger: {
-      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
       break;
     }
     case kIntValue: {

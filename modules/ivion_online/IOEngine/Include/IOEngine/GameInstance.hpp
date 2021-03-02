@@ -24,6 +24,9 @@ public:
 	Vec2i GetVec2i(const GameState::Card *card, const google::protobuf::Message *message);
 	int GetInteger(const GameState::Card *card, const google::protobuf::Message *message);
 
+	void ApplyMutation(GameState::Mutation *mutation);
+	void RevertMutation(GameState::Mutation *mutation);
+
 	// generates the paths
 	void GenerateBranchingPaths();
 
