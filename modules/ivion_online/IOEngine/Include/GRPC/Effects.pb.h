@@ -48,7 +48,7 @@ struct TableStruct_Effects_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[13]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -77,6 +77,12 @@ extern GetDefaultTypeInternal _Get_default_instance_;
 class Move;
 class MoveDefaultTypeInternal;
 extern MoveDefaultTypeInternal _Move_default_instance_;
+class PassPriority;
+class PassPriorityDefaultTypeInternal;
+extern PassPriorityDefaultTypeInternal _PassPriority_default_instance_;
+class PassTurn;
+class PassTurnDefaultTypeInternal;
+extern PassTurnDefaultTypeInternal _PassTurn_default_instance_;
 class PlayerList;
 class PlayerListDefaultTypeInternal;
 extern PlayerListDefaultTypeInternal _PlayerList_default_instance_;
@@ -98,6 +104,8 @@ template<> ::Effects::Effect* Arena::CreateMaybeMessage<::Effects::Effect>(Arena
 template<> ::Effects::Filter_Distance* Arena::CreateMaybeMessage<::Effects::Filter_Distance>(Arena*);
 template<> ::Effects::Get* Arena::CreateMaybeMessage<::Effects::Get>(Arena*);
 template<> ::Effects::Move* Arena::CreateMaybeMessage<::Effects::Move>(Arena*);
+template<> ::Effects::PassPriority* Arena::CreateMaybeMessage<::Effects::PassPriority>(Arena*);
+template<> ::Effects::PassTurn* Arena::CreateMaybeMessage<::Effects::PassTurn>(Arena*);
 template<> ::Effects::PlayerList* Arena::CreateMaybeMessage<::Effects::PlayerList>(Arena*);
 template<> ::Effects::Select* Arena::CreateMaybeMessage<::Effects::Select>(Arena*);
 template<> ::Effects::StackVar* Arena::CreateMaybeMessage<::Effects::StackVar>(Arena*);
@@ -1868,6 +1876,252 @@ class Move PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class PassPriority PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Effects.PassPriority) */ {
+ public:
+  inline PassPriority() : PassPriority(nullptr) {}
+  virtual ~PassPriority();
+
+  PassPriority(const PassPriority& from);
+  PassPriority(PassPriority&& from) noexcept
+    : PassPriority() {
+    *this = ::std::move(from);
+  }
+
+  inline PassPriority& operator=(const PassPriority& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PassPriority& operator=(PassPriority&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PassPriority& default_instance();
+
+  static inline const PassPriority* internal_default_instance() {
+    return reinterpret_cast<const PassPriority*>(
+               &_PassPriority_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(PassPriority& a, PassPriority& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PassPriority* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PassPriority* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PassPriority* New() const final {
+    return CreateMaybeMessage<PassPriority>(nullptr);
+  }
+
+  PassPriority* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PassPriority>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PassPriority& from);
+  void MergeFrom(const PassPriority& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PassPriority* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Effects.PassPriority";
+  }
+  protected:
+  explicit PassPriority(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Effects_2eproto);
+    return ::descriptor_table_Effects_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:Effects.PassPriority)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Effects_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PassTurn PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Effects.PassTurn) */ {
+ public:
+  inline PassTurn() : PassTurn(nullptr) {}
+  virtual ~PassTurn();
+
+  PassTurn(const PassTurn& from);
+  PassTurn(PassTurn&& from) noexcept
+    : PassTurn() {
+    *this = ::std::move(from);
+  }
+
+  inline PassTurn& operator=(const PassTurn& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PassTurn& operator=(PassTurn&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const PassTurn& default_instance();
+
+  static inline const PassTurn* internal_default_instance() {
+    return reinterpret_cast<const PassTurn*>(
+               &_PassTurn_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(PassTurn& a, PassTurn& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PassTurn* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PassTurn* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline PassTurn* New() const final {
+    return CreateMaybeMessage<PassTurn>(nullptr);
+  }
+
+  PassTurn* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<PassTurn>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const PassTurn& from);
+  void MergeFrom(const PassTurn& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PassTurn* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Effects.PassTurn";
+  }
+  protected:
+  explicit PassTurn(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Effects_2eproto);
+    return ::descriptor_table_Effects_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:Effects.PassTurn)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Effects_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Effect PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Effects.Effect) */ {
  public:
@@ -1910,6 +2164,8 @@ class Effect PROTOBUF_FINAL :
     kFilterDistance = 3,
     kSelect = 4,
     kMove = 5,
+    kPassPriority = 6,
+    kPassTurn = 7,
     EFFECT_NOT_SET = 0,
   };
 
@@ -1918,7 +2174,7 @@ class Effect PROTOBUF_FINAL :
                &_Effect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(Effect& a, Effect& b) {
     a.Swap(&b);
@@ -1994,6 +2250,8 @@ class Effect PROTOBUF_FINAL :
     kFilterDistanceFieldNumber = 3,
     kSelectFieldNumber = 4,
     kMoveFieldNumber = 5,
+    kPassPriorityFieldNumber = 6,
+    kPassTurnFieldNumber = 7,
   };
   // .Effects.Get Get = 1;
   bool has_get() const;
@@ -2085,6 +2343,42 @@ class Effect PROTOBUF_FINAL :
       ::Effects::Move* move);
   ::Effects::Move* unsafe_arena_release_move();
 
+  // .Effects.PassPriority PassPriority = 6;
+  bool has_passpriority() const;
+  private:
+  bool _internal_has_passpriority() const;
+  public:
+  void clear_passpriority();
+  const ::Effects::PassPriority& passpriority() const;
+  ::Effects::PassPriority* release_passpriority();
+  ::Effects::PassPriority* mutable_passpriority();
+  void set_allocated_passpriority(::Effects::PassPriority* passpriority);
+  private:
+  const ::Effects::PassPriority& _internal_passpriority() const;
+  ::Effects::PassPriority* _internal_mutable_passpriority();
+  public:
+  void unsafe_arena_set_allocated_passpriority(
+      ::Effects::PassPriority* passpriority);
+  ::Effects::PassPriority* unsafe_arena_release_passpriority();
+
+  // .Effects.PassTurn PassTurn = 7;
+  bool has_passturn() const;
+  private:
+  bool _internal_has_passturn() const;
+  public:
+  void clear_passturn();
+  const ::Effects::PassTurn& passturn() const;
+  ::Effects::PassTurn* release_passturn();
+  ::Effects::PassTurn* mutable_passturn();
+  void set_allocated_passturn(::Effects::PassTurn* passturn);
+  private:
+  const ::Effects::PassTurn& _internal_passturn() const;
+  ::Effects::PassTurn* _internal_mutable_passturn();
+  public:
+  void unsafe_arena_set_allocated_passturn(
+      ::Effects::PassTurn* passturn);
+  ::Effects::PassTurn* unsafe_arena_release_passturn();
+
   void clear_effect();
   EffectCase effect_case() const;
   // @@protoc_insertion_point(class_scope:Effects.Effect)
@@ -2095,6 +2389,8 @@ class Effect PROTOBUF_FINAL :
   void set_has_filter_distance();
   void set_has_select();
   void set_has_move();
+  void set_has_passpriority();
+  void set_has_passturn();
 
   inline bool has_effect() const;
   inline void clear_has_effect();
@@ -2109,6 +2405,8 @@ class Effect PROTOBUF_FINAL :
     ::Effects::Filter_Distance* filter_distance_;
     ::Effects::Select* select_;
     ::Effects::Move* move_;
+    ::Effects::PassPriority* passpriority_;
+    ::Effects::PassTurn* passturn_;
   } effect_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -2158,7 +2456,7 @@ class CardEffect PROTOBUF_FINAL :
                &_CardEffect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(CardEffect& a, CardEffect& b) {
     a.Swap(&b);
@@ -3885,6 +4183,14 @@ inline void Move::set_allocated_player(::Types::Path* player) {
 
 // -------------------------------------------------------------------
 
+// PassPriority
+
+// -------------------------------------------------------------------
+
+// PassTurn
+
+// -------------------------------------------------------------------
+
 // Effect
 
 // .Effects.Get Get = 1;
@@ -4252,6 +4558,152 @@ inline ::Effects::Move* Effect::mutable_move() {
   return _internal_mutable_move();
 }
 
+// .Effects.PassPriority PassPriority = 6;
+inline bool Effect::_internal_has_passpriority() const {
+  return effect_case() == kPassPriority;
+}
+inline bool Effect::has_passpriority() const {
+  return _internal_has_passpriority();
+}
+inline void Effect::set_has_passpriority() {
+  _oneof_case_[0] = kPassPriority;
+}
+inline void Effect::clear_passpriority() {
+  if (_internal_has_passpriority()) {
+    if (GetArena() == nullptr) {
+      delete effect_.passpriority_;
+    }
+    clear_has_effect();
+  }
+}
+inline ::Effects::PassPriority* Effect::release_passpriority() {
+  // @@protoc_insertion_point(field_release:Effects.Effect.PassPriority)
+  if (_internal_has_passpriority()) {
+    clear_has_effect();
+      ::Effects::PassPriority* temp = effect_.passpriority_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    effect_.passpriority_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Effects::PassPriority& Effect::_internal_passpriority() const {
+  return _internal_has_passpriority()
+      ? *effect_.passpriority_
+      : reinterpret_cast< ::Effects::PassPriority&>(::Effects::_PassPriority_default_instance_);
+}
+inline const ::Effects::PassPriority& Effect::passpriority() const {
+  // @@protoc_insertion_point(field_get:Effects.Effect.PassPriority)
+  return _internal_passpriority();
+}
+inline ::Effects::PassPriority* Effect::unsafe_arena_release_passpriority() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Effects.Effect.PassPriority)
+  if (_internal_has_passpriority()) {
+    clear_has_effect();
+    ::Effects::PassPriority* temp = effect_.passpriority_;
+    effect_.passpriority_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Effect::unsafe_arena_set_allocated_passpriority(::Effects::PassPriority* passpriority) {
+  clear_effect();
+  if (passpriority) {
+    set_has_passpriority();
+    effect_.passpriority_ = passpriority;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Effect.PassPriority)
+}
+inline ::Effects::PassPriority* Effect::_internal_mutable_passpriority() {
+  if (!_internal_has_passpriority()) {
+    clear_effect();
+    set_has_passpriority();
+    effect_.passpriority_ = CreateMaybeMessage< ::Effects::PassPriority >(GetArena());
+  }
+  return effect_.passpriority_;
+}
+inline ::Effects::PassPriority* Effect::mutable_passpriority() {
+  // @@protoc_insertion_point(field_mutable:Effects.Effect.PassPriority)
+  return _internal_mutable_passpriority();
+}
+
+// .Effects.PassTurn PassTurn = 7;
+inline bool Effect::_internal_has_passturn() const {
+  return effect_case() == kPassTurn;
+}
+inline bool Effect::has_passturn() const {
+  return _internal_has_passturn();
+}
+inline void Effect::set_has_passturn() {
+  _oneof_case_[0] = kPassTurn;
+}
+inline void Effect::clear_passturn() {
+  if (_internal_has_passturn()) {
+    if (GetArena() == nullptr) {
+      delete effect_.passturn_;
+    }
+    clear_has_effect();
+  }
+}
+inline ::Effects::PassTurn* Effect::release_passturn() {
+  // @@protoc_insertion_point(field_release:Effects.Effect.PassTurn)
+  if (_internal_has_passturn()) {
+    clear_has_effect();
+      ::Effects::PassTurn* temp = effect_.passturn_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    effect_.passturn_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::Effects::PassTurn& Effect::_internal_passturn() const {
+  return _internal_has_passturn()
+      ? *effect_.passturn_
+      : reinterpret_cast< ::Effects::PassTurn&>(::Effects::_PassTurn_default_instance_);
+}
+inline const ::Effects::PassTurn& Effect::passturn() const {
+  // @@protoc_insertion_point(field_get:Effects.Effect.PassTurn)
+  return _internal_passturn();
+}
+inline ::Effects::PassTurn* Effect::unsafe_arena_release_passturn() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Effects.Effect.PassTurn)
+  if (_internal_has_passturn()) {
+    clear_has_effect();
+    ::Effects::PassTurn* temp = effect_.passturn_;
+    effect_.passturn_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Effect::unsafe_arena_set_allocated_passturn(::Effects::PassTurn* passturn) {
+  clear_effect();
+  if (passturn) {
+    set_has_passturn();
+    effect_.passturn_ = passturn;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.Effect.PassTurn)
+}
+inline ::Effects::PassTurn* Effect::_internal_mutable_passturn() {
+  if (!_internal_has_passturn()) {
+    clear_effect();
+    set_has_passturn();
+    effect_.passturn_ = CreateMaybeMessage< ::Effects::PassTurn >(GetArena());
+  }
+  return effect_.passturn_;
+}
+inline ::Effects::PassTurn* Effect::mutable_passturn() {
+  // @@protoc_insertion_point(field_mutable:Effects.Effect.PassTurn)
+  return _internal_mutable_passturn();
+}
+
 inline bool Effect::has_effect() const {
   return effect_case() != EFFECT_NOT_SET;
 }
@@ -4307,6 +4759,10 @@ CardEffect::effects() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

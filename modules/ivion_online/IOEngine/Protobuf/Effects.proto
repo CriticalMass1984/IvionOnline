@@ -77,6 +77,14 @@ message Move {
     Types.Path Player = 2;
 }
 
+message PassPriority {
+
+}
+
+message PassTurn {
+
+}
+
 message Effect {
     oneof effect {
         Get Get = 1;
@@ -84,6 +92,8 @@ message Effect {
         Filter_Distance Filter_Distance = 3;
         Select Select = 4;
         Move Move = 5;
+        PassPriority PassPriority = 6;
+        PassTurn PassTurn = 7;
     }
 }
 

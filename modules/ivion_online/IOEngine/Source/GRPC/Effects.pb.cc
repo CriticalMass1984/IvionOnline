@@ -16,10 +16,12 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Constant_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Effect_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_Effect_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Filter_Distance_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Get_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Move_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PassPriority_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PassTurn_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Select_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_StackVar_Effects_2eproto;
@@ -64,6 +66,14 @@ class MoveDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Move> _instance;
 } _Move_default_instance_;
+class PassPriorityDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PassPriority> _instance;
+} _PassPriority_default_instance_;
+class PassTurnDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PassTurn> _instance;
+} _PassTurn_default_instance_;
 class EffectDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Effect> _instance;
@@ -125,13 +135,15 @@ static void InitDefaultsscc_info_Effect_Effects_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_Effect_Effects_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_Effect_Effects_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_Effect_Effects_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 7, 0, InitDefaultsscc_info_Effect_Effects_2eproto}, {
       &scc_info_Get_Effects_2eproto.base,
       &scc_info_Constant_Effects_2eproto.base,
       &scc_info_Filter_Distance_Effects_2eproto.base,
       &scc_info_Select_Effects_2eproto.base,
-      &scc_info_Move_Effects_2eproto.base,}};
+      &scc_info_Move_Effects_2eproto.base,
+      &scc_info_PassPriority_Effects_2eproto.base,
+      &scc_info_PassTurn_Effects_2eproto.base,}};
 
 static void InitDefaultsscc_info_Filter_Distance_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -175,6 +187,32 @@ static void InitDefaultsscc_info_Move_Effects_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Move_Effects_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Move_Effects_2eproto}, {
       &scc_info_Path_Types_2eproto.base,}};
+
+static void InitDefaultsscc_info_PassPriority_Effects_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::Effects::_PassPriority_default_instance_;
+    new (ptr) ::Effects::PassPriority();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PassPriority_Effects_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_PassPriority_Effects_2eproto}, {}};
+
+static void InitDefaultsscc_info_PassTurn_Effects_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::Effects::_PassTurn_default_instance_;
+    new (ptr) ::Effects::PassTurn();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PassTurn_Effects_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_PassTurn_Effects_2eproto}, {}};
 
 static void InitDefaultsscc_info_PlayerList_Effects_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -237,7 +275,7 @@ static void InitDefaultsscc_info_TileList_Effects_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TileList_Effects_2eproto}, {
       &scc_info_Path_Types_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Effects_2eproto[11];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Effects_2eproto[13];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_Effects_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_Effects_2eproto = nullptr;
 
@@ -315,10 +353,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Effects_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::Effects::Move, destination_),
   PROTOBUF_FIELD_OFFSET(::Effects::Move, player_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Effects::PassPriority, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::Effects::PassTurn, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Effects::Effect, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::Effects::Effect, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -342,8 +392,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 46, -1, sizeof(::Effects::Filter_Distance)},
   { 56, -1, sizeof(::Effects::Select)},
   { 65, -1, sizeof(::Effects::Move)},
-  { 72, -1, sizeof(::Effects::Effect)},
-  { 83, -1, sizeof(::Effects::CardEffect)},
+  { 72, -1, sizeof(::Effects::PassPriority)},
+  { 77, -1, sizeof(::Effects::PassTurn)},
+  { 82, -1, sizeof(::Effects::Effect)},
+  { 95, -1, sizeof(::Effects::CardEffect)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -356,6 +408,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Filter_Distance_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Select_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Move_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_PassPriority_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_PassTurn_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_Effect_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Effects::_CardEffect_default_instance_),
 };
@@ -392,19 +446,21 @@ const char descriptor_table_protodef_Effects_2eproto[] PROTOBUF_SECTION_VARIABLE
   "ypes.Path\022\033\n\006Number\030\002 \001(\0132\013.Types.Path\022\014"
   "\n\004UpTo\030\003 \001(\010\022\017\n\007Targets\030\004 \001(\010\"E\n\004Move\022 \n"
   "\013Destination\030\001 \001(\0132\013.Types.Path\022\033\n\006Playe"
-  "r\030\002 \001(\0132\013.Types.Path\"\315\001\n\006Effect\022\033\n\003Get\030\001"
-  " \001(\0132\014.Effects.GetH\000\022%\n\010Constant\030\002 \001(\0132\021"
-  ".Effects.ConstantH\000\0223\n\017Filter_Distance\030\003"
-  " \001(\0132\030.Effects.Filter_DistanceH\000\022!\n\006Sele"
-  "ct\030\004 \001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\005 \001("
-  "\0132\r.Effects.MoveH\000B\010\n\006effect\".\n\nCardEffe"
-  "ct\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006pr"
-  "oto3"
+  "r\030\002 \001(\0132\013.Types.Path\"\016\n\014PassPriority\"\n\n\010"
+  "PassTurn\"\243\002\n\006Effect\022\033\n\003Get\030\001 \001(\0132\014.Effec"
+  "ts.GetH\000\022%\n\010Constant\030\002 \001(\0132\021.Effects.Con"
+  "stantH\000\0223\n\017Filter_Distance\030\003 \001(\0132\030.Effec"
+  "ts.Filter_DistanceH\000\022!\n\006Select\030\004 \001(\0132\017.E"
+  "ffects.SelectH\000\022\035\n\004Move\030\005 \001(\0132\r.Effects."
+  "MoveH\000\022-\n\014PassPriority\030\006 \001(\0132\025.Effects.P"
+  "assPriorityH\000\022%\n\010PassTurn\030\007 \001(\0132\021.Effect"
+  "s.PassTurnH\000B\010\n\006effect\".\n\nCardEffect\022 \n\007"
+  "Effects\030\001 \003(\0132\017.Effects.Effectb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Effects_2eproto_deps[1] = {
   &::descriptor_table_Types_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Effects_2eproto_sccs[11] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Effects_2eproto_sccs[13] = {
   &scc_info_CardEffect_Effects_2eproto.base,
   &scc_info_CardList_Effects_2eproto.base,
   &scc_info_Constant_Effects_2eproto.base,
@@ -412,6 +468,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Eff
   &scc_info_Filter_Distance_Effects_2eproto.base,
   &scc_info_Get_Effects_2eproto.base,
   &scc_info_Move_Effects_2eproto.base,
+  &scc_info_PassPriority_Effects_2eproto.base,
+  &scc_info_PassTurn_Effects_2eproto.base,
   &scc_info_PlayerList_Effects_2eproto.base,
   &scc_info_Select_Effects_2eproto.base,
   &scc_info_StackVar_Effects_2eproto.base,
@@ -419,10 +477,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Eff
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Effects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Effects_2eproto = {
-  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1524,
-  &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 11, 1,
+  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1638,
+  &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 13, 1,
   schemas, file_default_instances, TableStruct_Effects_2eproto::offsets,
-  file_level_metadata_Effects_2eproto, 11, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
+  file_level_metadata_Effects_2eproto, 13, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -3228,6 +3286,330 @@ void Move::InternalSwap(Move* other) {
 
 // ===================================================================
 
+class PassPriority::_Internal {
+ public:
+};
+
+PassPriority::PassPriority(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:Effects.PassPriority)
+}
+PassPriority::PassPriority(const PassPriority& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:Effects.PassPriority)
+}
+
+void PassPriority::SharedCtor() {
+}
+
+PassPriority::~PassPriority() {
+  // @@protoc_insertion_point(destructor:Effects.PassPriority)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void PassPriority::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void PassPriority::ArenaDtor(void* object) {
+  PassPriority* _this = reinterpret_cast< PassPriority* >(object);
+  (void)_this;
+}
+void PassPriority::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void PassPriority::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const PassPriority& PassPriority::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PassPriority_Effects_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void PassPriority::Clear() {
+// @@protoc_insertion_point(message_clear_start:Effects.PassPriority)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PassPriority::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* PassPriority::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Effects.PassPriority)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Effects.PassPriority)
+  return target;
+}
+
+size_t PassPriority::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Effects.PassPriority)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PassPriority::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Effects.PassPriority)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PassPriority* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PassPriority>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Effects.PassPriority)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Effects.PassPriority)
+    MergeFrom(*source);
+  }
+}
+
+void PassPriority::MergeFrom(const PassPriority& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Effects.PassPriority)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void PassPriority::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Effects.PassPriority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PassPriority::CopyFrom(const PassPriority& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Effects.PassPriority)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PassPriority::IsInitialized() const {
+  return true;
+}
+
+void PassPriority::InternalSwap(PassPriority* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PassPriority::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class PassTurn::_Internal {
+ public:
+};
+
+PassTurn::PassTurn(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:Effects.PassTurn)
+}
+PassTurn::PassTurn(const PassTurn& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:Effects.PassTurn)
+}
+
+void PassTurn::SharedCtor() {
+}
+
+PassTurn::~PassTurn() {
+  // @@protoc_insertion_point(destructor:Effects.PassTurn)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void PassTurn::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void PassTurn::ArenaDtor(void* object) {
+  PassTurn* _this = reinterpret_cast< PassTurn* >(object);
+  (void)_this;
+}
+void PassTurn::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void PassTurn::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const PassTurn& PassTurn::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PassTurn_Effects_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void PassTurn::Clear() {
+// @@protoc_insertion_point(message_clear_start:Effects.PassTurn)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PassTurn::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* PassTurn::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:Effects.PassTurn)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:Effects.PassTurn)
+  return target;
+}
+
+size_t PassTurn::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Effects.PassTurn)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PassTurn::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Effects.PassTurn)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PassTurn* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PassTurn>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Effects.PassTurn)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Effects.PassTurn)
+    MergeFrom(*source);
+  }
+}
+
+void PassTurn::MergeFrom(const PassTurn& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Effects.PassTurn)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void PassTurn::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Effects.PassTurn)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PassTurn::CopyFrom(const PassTurn& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Effects.PassTurn)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PassTurn::IsInitialized() const {
+  return true;
+}
+
+void PassTurn::InternalSwap(PassTurn* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PassTurn::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class Effect::_Internal {
  public:
   static const ::Effects::Get& get(const Effect* msg);
@@ -3235,6 +3617,8 @@ class Effect::_Internal {
   static const ::Effects::Filter_Distance& filter_distance(const Effect* msg);
   static const ::Effects::Select& select(const Effect* msg);
   static const ::Effects::Move& move(const Effect* msg);
+  static const ::Effects::PassPriority& passpriority(const Effect* msg);
+  static const ::Effects::PassTurn& passturn(const Effect* msg);
 };
 
 const ::Effects::Get&
@@ -3256,6 +3640,14 @@ Effect::_Internal::select(const Effect* msg) {
 const ::Effects::Move&
 Effect::_Internal::move(const Effect* msg) {
   return *msg->effect_.move_;
+}
+const ::Effects::PassPriority&
+Effect::_Internal::passpriority(const Effect* msg) {
+  return *msg->effect_.passpriority_;
+}
+const ::Effects::PassTurn&
+Effect::_Internal::passturn(const Effect* msg) {
+  return *msg->effect_.passturn_;
 }
 void Effect::set_allocated_get(::Effects::Get* get) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -3332,6 +3724,36 @@ void Effect::set_allocated_move(::Effects::Move* move) {
   }
   // @@protoc_insertion_point(field_set_allocated:Effects.Effect.Move)
 }
+void Effect::set_allocated_passpriority(::Effects::PassPriority* passpriority) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_effect();
+  if (passpriority) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(passpriority);
+    if (message_arena != submessage_arena) {
+      passpriority = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, passpriority, submessage_arena);
+    }
+    set_has_passpriority();
+    effect_.passpriority_ = passpriority;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Effects.Effect.PassPriority)
+}
+void Effect::set_allocated_passturn(::Effects::PassTurn* passturn) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_effect();
+  if (passturn) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(passturn);
+    if (message_arena != submessage_arena) {
+      passturn = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, passturn, submessage_arena);
+    }
+    set_has_passturn();
+    effect_.passturn_ = passturn;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Effects.Effect.PassTurn)
+}
 Effect::Effect(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -3361,6 +3783,14 @@ Effect::Effect(const Effect& from)
     }
     case kMove: {
       _internal_mutable_move()->::Effects::Move::MergeFrom(from._internal_move());
+      break;
+    }
+    case kPassPriority: {
+      _internal_mutable_passpriority()->::Effects::PassPriority::MergeFrom(from._internal_passpriority());
+      break;
+    }
+    case kPassTurn: {
+      _internal_mutable_passturn()->::Effects::PassTurn::MergeFrom(from._internal_passturn());
       break;
     }
     case EFFECT_NOT_SET: {
@@ -3436,6 +3866,18 @@ void Effect::clear_effect() {
       }
       break;
     }
+    case kPassPriority: {
+      if (GetArena() == nullptr) {
+        delete effect_.passpriority_;
+      }
+      break;
+    }
+    case kPassTurn: {
+      if (GetArena() == nullptr) {
+        delete effect_.passturn_;
+      }
+      break;
+    }
     case EFFECT_NOT_SET: {
       break;
     }
@@ -3493,6 +3935,20 @@ const char* Effect::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_move(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.PassPriority PassPriority = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_passpriority(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Effects.PassTurn PassTurn = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_passturn(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3564,6 +4020,22 @@ failure:
         5, _Internal::move(this), target, stream);
   }
 
+  // .Effects.PassPriority PassPriority = 6;
+  if (_internal_has_passpriority()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        6, _Internal::passpriority(this), target, stream);
+  }
+
+  // .Effects.PassTurn PassTurn = 7;
+  if (_internal_has_passturn()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::passturn(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3614,6 +4086,20 @@ size_t Effect::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *effect_.move_);
+      break;
+    }
+    // .Effects.PassPriority PassPriority = 6;
+    case kPassPriority: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *effect_.passpriority_);
+      break;
+    }
+    // .Effects.PassTurn PassTurn = 7;
+    case kPassTurn: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *effect_.passturn_);
       break;
     }
     case EFFECT_NOT_SET: {
@@ -3670,6 +4156,14 @@ void Effect::MergeFrom(const Effect& from) {
     }
     case kMove: {
       _internal_mutable_move()->::Effects::Move::MergeFrom(from._internal_move());
+      break;
+    }
+    case kPassPriority: {
+      _internal_mutable_passpriority()->::Effects::PassPriority::MergeFrom(from._internal_passpriority());
+      break;
+    }
+    case kPassTurn: {
+      _internal_mutable_passturn()->::Effects::PassTurn::MergeFrom(from._internal_passturn());
       break;
     }
     case EFFECT_NOT_SET: {
@@ -3937,6 +4431,12 @@ template<> PROTOBUF_NOINLINE ::Effects::Select* Arena::CreateMaybeMessage< ::Eff
 }
 template<> PROTOBUF_NOINLINE ::Effects::Move* Arena::CreateMaybeMessage< ::Effects::Move >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Effects::Move >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Effects::PassPriority* Arena::CreateMaybeMessage< ::Effects::PassPriority >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Effects::PassPriority >(arena);
+}
+template<> PROTOBUF_NOINLINE ::Effects::PassTurn* Arena::CreateMaybeMessage< ::Effects::PassTurn >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Effects::PassTurn >(arena);
 }
 template<> PROTOBUF_NOINLINE ::Effects::Effect* Arena::CreateMaybeMessage< ::Effects::Effect >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Effects::Effect >(arena);
