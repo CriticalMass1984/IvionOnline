@@ -1,3 +1,8 @@
-{PROTO_TYPE} {NAME} {{
+message {NAME} {{
 {MEMBERS}
+}}
+
+
+message List_{NAME} {{
+    repeated {NAME} element = 1;
 }}

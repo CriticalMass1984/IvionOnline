@@ -47,7 +47,7 @@ struct TableStruct_Type_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,25 +58,109 @@ namespace IvionOnline {
 class Boolean;
 class BooleanDefaultTypeInternal;
 extern BooleanDefaultTypeInternal _Boolean_default_instance_;
+class Color;
+class ColorDefaultTypeInternal;
+extern ColorDefaultTypeInternal _Color_default_instance_;
 class Integer;
 class IntegerDefaultTypeInternal;
 extern IntegerDefaultTypeInternal _Integer_default_instance_;
+class List_Boolean;
+class List_BooleanDefaultTypeInternal;
+extern List_BooleanDefaultTypeInternal _List_Boolean_default_instance_;
+class List_Color;
+class List_ColorDefaultTypeInternal;
+extern List_ColorDefaultTypeInternal _List_Color_default_instance_;
+class List_Integer;
+class List_IntegerDefaultTypeInternal;
+extern List_IntegerDefaultTypeInternal _List_Integer_default_instance_;
+class List_Terrain;
+class List_TerrainDefaultTypeInternal;
+extern List_TerrainDefaultTypeInternal _List_Terrain_default_instance_;
+class List_Vec2i;
+class List_Vec2iDefaultTypeInternal;
+extern List_Vec2iDefaultTypeInternal _List_Vec2i_default_instance_;
 class ObjectPath;
 class ObjectPathDefaultTypeInternal;
 extern ObjectPathDefaultTypeInternal _ObjectPath_default_instance_;
+class Terrain;
+class TerrainDefaultTypeInternal;
+extern TerrainDefaultTypeInternal _Terrain_default_instance_;
 class Vec2i;
 class Vec2iDefaultTypeInternal;
 extern Vec2iDefaultTypeInternal _Vec2i_default_instance_;
 }  // namespace IvionOnline
 PROTOBUF_NAMESPACE_OPEN
 template<> ::IvionOnline::Boolean* Arena::CreateMaybeMessage<::IvionOnline::Boolean>(Arena*);
+template<> ::IvionOnline::Color* Arena::CreateMaybeMessage<::IvionOnline::Color>(Arena*);
 template<> ::IvionOnline::Integer* Arena::CreateMaybeMessage<::IvionOnline::Integer>(Arena*);
+template<> ::IvionOnline::List_Boolean* Arena::CreateMaybeMessage<::IvionOnline::List_Boolean>(Arena*);
+template<> ::IvionOnline::List_Color* Arena::CreateMaybeMessage<::IvionOnline::List_Color>(Arena*);
+template<> ::IvionOnline::List_Integer* Arena::CreateMaybeMessage<::IvionOnline::List_Integer>(Arena*);
+template<> ::IvionOnline::List_Terrain* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain>(Arena*);
+template<> ::IvionOnline::List_Vec2i* Arena::CreateMaybeMessage<::IvionOnline::List_Vec2i>(Arena*);
 template<> ::IvionOnline::ObjectPath* Arena::CreateMaybeMessage<::IvionOnline::ObjectPath>(Arena*);
+template<> ::IvionOnline::Terrain* Arena::CreateMaybeMessage<::IvionOnline::Terrain>(Arena*);
 template<> ::IvionOnline::Vec2i* Arena::CreateMaybeMessage<::IvionOnline::Vec2i>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace IvionOnline {
 
-enum Type : int {
+enum Terrain_Terrain_Type : int {
+  Terrain_Terrain_Type_TERRAIN_TYPE_NONE = 0,
+  Terrain_Terrain_Type_TERRAIN_TYPE_DIFFICULT = 1,
+  Terrain_Terrain_Type_TERRAIN_TYPE_ENCHANTED = 2,
+  Terrain_Terrain_Type_Terrain_Terrain_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Terrain_Terrain_Type_Terrain_Terrain_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Terrain_Terrain_Type_IsValid(int value);
+constexpr Terrain_Terrain_Type Terrain_Terrain_Type_Terrain_Type_MIN = Terrain_Terrain_Type_TERRAIN_TYPE_NONE;
+constexpr Terrain_Terrain_Type Terrain_Terrain_Type_Terrain_Type_MAX = Terrain_Terrain_Type_TERRAIN_TYPE_ENCHANTED;
+constexpr int Terrain_Terrain_Type_Terrain_Type_ARRAYSIZE = Terrain_Terrain_Type_Terrain_Type_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Terrain_Terrain_Type_descriptor();
+template<typename T>
+inline const std::string& Terrain_Terrain_Type_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Terrain_Terrain_Type>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Terrain_Terrain_Type_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Terrain_Terrain_Type_descriptor(), enum_t_value);
+}
+inline bool Terrain_Terrain_Type_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Terrain_Terrain_Type* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Terrain_Terrain_Type>(
+    Terrain_Terrain_Type_descriptor(), name, value);
+}
+enum Color_Color_Type : int {
+  Color_Color_Type_COLOR_NONE = 0,
+  Color_Color_Type_COLOR_GRAY = 1,
+  Color_Color_Type_COLOR_BLACK = 2,
+  Color_Color_Type_COLOR_RED = 3,
+  Color_Color_Type_COLOR_GREEN = 4,
+  Color_Color_Type_COLOR_BLUE = 5,
+  Color_Color_Type_COLOR_WHITE = 6,
+  Color_Color_Type_Color_Color_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  Color_Color_Type_Color_Color_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool Color_Color_Type_IsValid(int value);
+constexpr Color_Color_Type Color_Color_Type_Color_Type_MIN = Color_Color_Type_COLOR_NONE;
+constexpr Color_Color_Type Color_Color_Type_Color_Type_MAX = Color_Color_Type_COLOR_WHITE;
+constexpr int Color_Color_Type_Color_Type_ARRAYSIZE = Color_Color_Type_Color_Type_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Color_Color_Type_descriptor();
+template<typename T>
+inline const std::string& Color_Color_Type_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Color_Color_Type>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Color_Color_Type_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Color_Color_Type_descriptor(), enum_t_value);
+}
+inline bool Color_Color_Type_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Color_Color_Type* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Color_Color_Type>(
+    Color_Color_Type_descriptor(), name, value);
+}
+enum ObjectType : int {
   TYPE_BOOLEAN = 0,
   TYPE_REF_BOOLEAN = 1,
   TYPE_LIST_BOOLEAN = 2,
@@ -92,93 +176,37 @@ enum Type : int {
   TYPE_LIST_VEC2I = 12,
   TYPE_LIST_REF_VEC2I = 13,
   TYPE_REF_LIST_REF_VEC2I = 14,
-  TYPE_TERRAIN_TYPE = 15,
-  TYPE_REF_TERRAIN_TYPE = 16,
-  TYPE_LIST_TERRAIN_TYPE = 17,
-  TYPE_LIST_REF_TERRAIN_TYPE = 18,
-  TYPE_REF_LIST_REF_TERRAIN_TYPE = 19,
+  TYPE_TERRAIN = 15,
+  TYPE_REF_TERRAIN = 16,
+  TYPE_LIST_TERRAIN = 17,
+  TYPE_LIST_REF_TERRAIN = 18,
+  TYPE_REF_LIST_REF_TERRAIN = 19,
   TYPE_COLOR = 20,
   TYPE_REF_COLOR = 21,
   TYPE_LIST_COLOR = 22,
   TYPE_LIST_REF_COLOR = 23,
   TYPE_REF_LIST_REF_COLOR = 24,
-  Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+  ObjectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ObjectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool Type_IsValid(int value);
-constexpr Type Type_MIN = TYPE_BOOLEAN;
-constexpr Type Type_MAX = TYPE_REF_LIST_REF_COLOR;
-constexpr int Type_ARRAYSIZE = Type_MAX + 1;
+bool ObjectType_IsValid(int value);
+constexpr ObjectType ObjectType_MIN = TYPE_BOOLEAN;
+constexpr ObjectType ObjectType_MAX = TYPE_REF_LIST_REF_COLOR;
+constexpr int ObjectType_ARRAYSIZE = ObjectType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Type_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ObjectType_descriptor();
 template<typename T>
-inline const std::string& Type_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Type>::value ||
+inline const std::string& ObjectType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ObjectType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function Type_Name.");
+    "Incorrect type passed to function ObjectType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Type_descriptor(), enum_t_value);
+    ObjectType_descriptor(), enum_t_value);
 }
-inline bool Type_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Type* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Type>(
-    Type_descriptor(), name, value);
-}
-enum Terrain_Type : int {
-  TERRAIN_TYPE_NONE = 0,
-  TERRAIN_TYPE_DIFFICULT = 1,
-  TERRAIN_TYPE_ENCHANTED = 2,
-  Terrain_Type_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  Terrain_Type_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
-};
-bool Terrain_Type_IsValid(int value);
-constexpr Terrain_Type Terrain_Type_MIN = TERRAIN_TYPE_NONE;
-constexpr Terrain_Type Terrain_Type_MAX = TERRAIN_TYPE_ENCHANTED;
-constexpr int Terrain_Type_ARRAYSIZE = Terrain_Type_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Terrain_Type_descriptor();
-template<typename T>
-inline const std::string& Terrain_Type_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Terrain_Type>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function Terrain_Type_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Terrain_Type_descriptor(), enum_t_value);
-}
-inline bool Terrain_Type_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Terrain_Type* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Terrain_Type>(
-    Terrain_Type_descriptor(), name, value);
-}
-enum Color : int {
-  COLOR_NONE = 0,
-  COLOR_GRAY = 1,
-  COLOR_BLACK = 2,
-  COLOR_RED = 3,
-  COLOR_GREEN = 4,
-  COLOR_BLUE = 5,
-  COLOR_WHITE = 6,
-  Color_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  Color_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
-};
-bool Color_IsValid(int value);
-constexpr Color Color_MIN = COLOR_NONE;
-constexpr Color Color_MAX = COLOR_WHITE;
-constexpr int Color_ARRAYSIZE = Color_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Color_descriptor();
-template<typename T>
-inline const std::string& Color_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Color>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function Color_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Color_descriptor(), enum_t_value);
-}
-inline bool Color_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Color* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Color>(
-    Color_descriptor(), name, value);
+inline bool ObjectType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ObjectType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ObjectType>(
+    ObjectType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -298,51 +326,51 @@ class ObjectPath PROTOBUF_FINAL :
     kFullPathFieldNumber = 2,
     kObjectTypeFieldNumber = 3,
   };
-  // repeated int32 FieldIndecies = 1;
-  int fieldindecies_size() const;
+  // repeated int32 Field_Indecies = 1;
+  int field_indecies_size() const;
   private:
-  int _internal_fieldindecies_size() const;
+  int _internal_field_indecies_size() const;
   public:
-  void clear_fieldindecies();
+  void clear_field_indecies();
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_fieldindecies(int index) const;
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_field_indecies(int index) const;
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_fieldindecies() const;
-  void _internal_add_fieldindecies(::PROTOBUF_NAMESPACE_ID::int32 value);
+      _internal_field_indecies() const;
+  void _internal_add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value);
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_fieldindecies();
+      _internal_mutable_field_indecies();
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 fieldindecies(int index) const;
-  void set_fieldindecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_fieldindecies(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 field_indecies(int index) const;
+  void set_field_indecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
+  void add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      fieldindecies() const;
+      field_indecies() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_fieldindecies();
+      mutable_field_indecies();
 
-  // string FullPath = 2;
-  void clear_fullpath();
-  const std::string& fullpath() const;
-  void set_fullpath(const std::string& value);
-  void set_fullpath(std::string&& value);
-  void set_fullpath(const char* value);
-  void set_fullpath(const char* value, size_t size);
-  std::string* mutable_fullpath();
-  std::string* release_fullpath();
-  void set_allocated_fullpath(std::string* fullpath);
+  // string Full_Path = 2;
+  void clear_full_path();
+  const std::string& full_path() const;
+  void set_full_path(const std::string& value);
+  void set_full_path(std::string&& value);
+  void set_full_path(const char* value);
+  void set_full_path(const char* value, size_t size);
+  std::string* mutable_full_path();
+  std::string* release_full_path();
+  void set_allocated_full_path(std::string* full_path);
   private:
-  const std::string& _internal_fullpath() const;
-  void _internal_set_fullpath(const std::string& value);
-  std::string* _internal_mutable_fullpath();
+  const std::string& _internal_full_path() const;
+  void _internal_set_full_path(const std::string& value);
+  std::string* _internal_mutable_full_path();
   public:
 
-  // .IvionOnline.Type Object_type = 3;
+  // .IvionOnline.ObjectType Object_Type = 3;
   void clear_object_type();
-  ::IvionOnline::Type object_type() const;
-  void set_object_type(::IvionOnline::Type value);
+  ::IvionOnline::ObjectType object_type() const;
+  void set_object_type(::IvionOnline::ObjectType value);
   private:
-  ::IvionOnline::Type _internal_object_type() const;
-  void _internal_set_object_type(::IvionOnline::Type value);
+  ::IvionOnline::ObjectType _internal_object_type() const;
+  void _internal_set_object_type(::IvionOnline::ObjectType value);
   public:
 
   // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath)
@@ -352,9 +380,9 @@ class ObjectPath PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > fieldindecies_;
-  mutable std::atomic<int> _fieldindecies_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fullpath_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > field_indecies_;
+  mutable std::atomic<int> _field_indecies_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr full_path_;
   int object_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Type_2eproto;
@@ -497,6 +525,151 @@ class Boolean PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class List_Boolean PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Boolean) */ {
+ public:
+  inline List_Boolean() : List_Boolean(nullptr) {}
+  virtual ~List_Boolean();
+
+  List_Boolean(const List_Boolean& from);
+  List_Boolean(List_Boolean&& from) noexcept
+    : List_Boolean() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Boolean& operator=(const List_Boolean& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Boolean& operator=(List_Boolean&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Boolean& default_instance();
+
+  static inline const List_Boolean* internal_default_instance() {
+    return reinterpret_cast<const List_Boolean*>(
+               &_List_Boolean_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(List_Boolean& a, List_Boolean& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Boolean* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Boolean* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Boolean* New() const final {
+    return CreateMaybeMessage<List_Boolean>(nullptr);
+  }
+
+  List_Boolean* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Boolean>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Boolean& from);
+  void MergeFrom(const List_Boolean& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Boolean* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Boolean";
+  }
+  protected:
+  explicit List_Boolean(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Boolean element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Boolean* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Boolean& _internal_element(int index) const;
+  ::IvionOnline::Boolean* _internal_add_element();
+  public:
+  const ::IvionOnline::Boolean& element(int index) const;
+  ::IvionOnline::Boolean* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Boolean)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Integer PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Integer) */ {
  public:
@@ -538,7 +711,7 @@ class Integer PROTOBUF_FINAL :
                &_Integer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Integer& a, Integer& b) {
     a.Swap(&b);
@@ -633,6 +806,151 @@ class Integer PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class List_Integer PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Integer) */ {
+ public:
+  inline List_Integer() : List_Integer(nullptr) {}
+  virtual ~List_Integer();
+
+  List_Integer(const List_Integer& from);
+  List_Integer(List_Integer&& from) noexcept
+    : List_Integer() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Integer& operator=(const List_Integer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Integer& operator=(List_Integer&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Integer& default_instance();
+
+  static inline const List_Integer* internal_default_instance() {
+    return reinterpret_cast<const List_Integer*>(
+               &_List_Integer_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(List_Integer& a, List_Integer& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Integer* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Integer* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Integer* New() const final {
+    return CreateMaybeMessage<List_Integer>(nullptr);
+  }
+
+  List_Integer* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Integer>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Integer& from);
+  void MergeFrom(const List_Integer& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Integer* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Integer";
+  }
+  protected:
+  explicit List_Integer(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Integer element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Integer* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Integer& _internal_element(int index) const;
+  ::IvionOnline::Integer* _internal_add_element();
+  public:
+  const ::IvionOnline::Integer& element(int index) const;
+  ::IvionOnline::Integer* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Integer)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Vec2i PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Vec2i) */ {
  public:
@@ -674,7 +992,7 @@ class Vec2i PROTOBUF_FINAL :
                &_Vec2i_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(Vec2i& a, Vec2i& b) {
     a.Swap(&b);
@@ -778,6 +1096,785 @@ class Vec2i PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Type_2eproto;
 };
+// -------------------------------------------------------------------
+
+class List_Vec2i PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Vec2i) */ {
+ public:
+  inline List_Vec2i() : List_Vec2i(nullptr) {}
+  virtual ~List_Vec2i();
+
+  List_Vec2i(const List_Vec2i& from);
+  List_Vec2i(List_Vec2i&& from) noexcept
+    : List_Vec2i() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Vec2i& operator=(const List_Vec2i& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Vec2i& operator=(List_Vec2i&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Vec2i& default_instance();
+
+  static inline const List_Vec2i* internal_default_instance() {
+    return reinterpret_cast<const List_Vec2i*>(
+               &_List_Vec2i_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(List_Vec2i& a, List_Vec2i& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Vec2i* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Vec2i* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Vec2i* New() const final {
+    return CreateMaybeMessage<List_Vec2i>(nullptr);
+  }
+
+  List_Vec2i* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Vec2i>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Vec2i& from);
+  void MergeFrom(const List_Vec2i& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Vec2i* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Vec2i";
+  }
+  protected:
+  explicit List_Vec2i(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Vec2i element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Vec2i* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Vec2i& _internal_element(int index) const;
+  ::IvionOnline::Vec2i* _internal_add_element();
+  public:
+  const ::IvionOnline::Vec2i& element(int index) const;
+  ::IvionOnline::Vec2i* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Vec2i)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Terrain PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Terrain) */ {
+ public:
+  inline Terrain() : Terrain(nullptr) {}
+  virtual ~Terrain();
+
+  Terrain(const Terrain& from);
+  Terrain(Terrain&& from) noexcept
+    : Terrain() {
+    *this = ::std::move(from);
+  }
+
+  inline Terrain& operator=(const Terrain& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Terrain& operator=(Terrain&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Terrain& default_instance();
+
+  static inline const Terrain* internal_default_instance() {
+    return reinterpret_cast<const Terrain*>(
+               &_Terrain_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(Terrain& a, Terrain& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Terrain* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Terrain* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Terrain* New() const final {
+    return CreateMaybeMessage<Terrain>(nullptr);
+  }
+
+  Terrain* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Terrain>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Terrain& from);
+  void MergeFrom(const Terrain& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Terrain* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.Terrain";
+  }
+  protected:
+  explicit Terrain(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef Terrain_Terrain_Type Terrain_Type;
+  static constexpr Terrain_Type TERRAIN_TYPE_NONE =
+    Terrain_Terrain_Type_TERRAIN_TYPE_NONE;
+  static constexpr Terrain_Type TERRAIN_TYPE_DIFFICULT =
+    Terrain_Terrain_Type_TERRAIN_TYPE_DIFFICULT;
+  static constexpr Terrain_Type TERRAIN_TYPE_ENCHANTED =
+    Terrain_Terrain_Type_TERRAIN_TYPE_ENCHANTED;
+  static inline bool Terrain_Type_IsValid(int value) {
+    return Terrain_Terrain_Type_IsValid(value);
+  }
+  static constexpr Terrain_Type Terrain_Type_MIN =
+    Terrain_Terrain_Type_Terrain_Type_MIN;
+  static constexpr Terrain_Type Terrain_Type_MAX =
+    Terrain_Terrain_Type_Terrain_Type_MAX;
+  static constexpr int Terrain_Type_ARRAYSIZE =
+    Terrain_Terrain_Type_Terrain_Type_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Terrain_Type_descriptor() {
+    return Terrain_Terrain_Type_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Terrain_Type_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Terrain_Type>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Terrain_Type_Name.");
+    return Terrain_Terrain_Type_Name(enum_t_value);
+  }
+  static inline bool Terrain_Type_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Terrain_Type* value) {
+    return Terrain_Terrain_Type_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // .IvionOnline.Terrain.Terrain_Type Value = 1;
+  void clear_value();
+  ::IvionOnline::Terrain_Terrain_Type value() const;
+  void set_value(::IvionOnline::Terrain_Terrain_Type value);
+  private:
+  ::IvionOnline::Terrain_Terrain_Type _internal_value() const;
+  void _internal_set_value(::IvionOnline::Terrain_Terrain_Type value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.Terrain)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
+class List_Terrain PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Terrain) */ {
+ public:
+  inline List_Terrain() : List_Terrain(nullptr) {}
+  virtual ~List_Terrain();
+
+  List_Terrain(const List_Terrain& from);
+  List_Terrain(List_Terrain&& from) noexcept
+    : List_Terrain() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Terrain& operator=(const List_Terrain& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Terrain& operator=(List_Terrain&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Terrain& default_instance();
+
+  static inline const List_Terrain* internal_default_instance() {
+    return reinterpret_cast<const List_Terrain*>(
+               &_List_Terrain_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(List_Terrain& a, List_Terrain& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Terrain* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Terrain* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Terrain* New() const final {
+    return CreateMaybeMessage<List_Terrain>(nullptr);
+  }
+
+  List_Terrain* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Terrain>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Terrain& from);
+  void MergeFrom(const List_Terrain& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Terrain* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Terrain";
+  }
+  protected:
+  explicit List_Terrain(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Terrain element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Terrain* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Terrain& _internal_element(int index) const;
+  ::IvionOnline::Terrain* _internal_add_element();
+  public:
+  const ::IvionOnline::Terrain& element(int index) const;
+  ::IvionOnline::Terrain* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Color PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Color) */ {
+ public:
+  inline Color() : Color(nullptr) {}
+  virtual ~Color();
+
+  Color(const Color& from);
+  Color(Color&& from) noexcept
+    : Color() {
+    *this = ::std::move(from);
+  }
+
+  inline Color& operator=(const Color& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Color& operator=(Color&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Color& default_instance();
+
+  static inline const Color* internal_default_instance() {
+    return reinterpret_cast<const Color*>(
+               &_Color_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(Color& a, Color& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Color* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Color* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Color* New() const final {
+    return CreateMaybeMessage<Color>(nullptr);
+  }
+
+  Color* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Color>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Color& from);
+  void MergeFrom(const Color& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Color* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.Color";
+  }
+  protected:
+  explicit Color(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef Color_Color_Type Color_Type;
+  static constexpr Color_Type COLOR_NONE =
+    Color_Color_Type_COLOR_NONE;
+  static constexpr Color_Type COLOR_GRAY =
+    Color_Color_Type_COLOR_GRAY;
+  static constexpr Color_Type COLOR_BLACK =
+    Color_Color_Type_COLOR_BLACK;
+  static constexpr Color_Type COLOR_RED =
+    Color_Color_Type_COLOR_RED;
+  static constexpr Color_Type COLOR_GREEN =
+    Color_Color_Type_COLOR_GREEN;
+  static constexpr Color_Type COLOR_BLUE =
+    Color_Color_Type_COLOR_BLUE;
+  static constexpr Color_Type COLOR_WHITE =
+    Color_Color_Type_COLOR_WHITE;
+  static inline bool Color_Type_IsValid(int value) {
+    return Color_Color_Type_IsValid(value);
+  }
+  static constexpr Color_Type Color_Type_MIN =
+    Color_Color_Type_Color_Type_MIN;
+  static constexpr Color_Type Color_Type_MAX =
+    Color_Color_Type_Color_Type_MAX;
+  static constexpr int Color_Type_ARRAYSIZE =
+    Color_Color_Type_Color_Type_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Color_Type_descriptor() {
+    return Color_Color_Type_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Color_Type_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Color_Type>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Color_Type_Name.");
+    return Color_Color_Type_Name(enum_t_value);
+  }
+  static inline bool Color_Type_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Color_Type* value) {
+    return Color_Color_Type_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // .IvionOnline.Color.Color_Type Value = 1;
+  void clear_value();
+  ::IvionOnline::Color_Color_Type value() const;
+  void set_value(::IvionOnline::Color_Color_Type value);
+  private:
+  ::IvionOnline::Color_Color_Type _internal_value() const;
+  void _internal_set_value(::IvionOnline::Color_Color_Type value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.Color)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
+class List_Color PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Color) */ {
+ public:
+  inline List_Color() : List_Color(nullptr) {}
+  virtual ~List_Color();
+
+  List_Color(const List_Color& from);
+  List_Color(List_Color&& from) noexcept
+    : List_Color() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Color& operator=(const List_Color& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Color& operator=(List_Color&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Color& default_instance();
+
+  static inline const List_Color* internal_default_instance() {
+    return reinterpret_cast<const List_Color*>(
+               &_List_Color_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(List_Color& a, List_Color& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Color* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Color* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Color* New() const final {
+    return CreateMaybeMessage<List_Color>(nullptr);
+  }
+
+  List_Color* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Color>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Color& from);
+  void MergeFrom(const List_Color& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Color* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Color";
+  }
+  protected:
+  explicit List_Color(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Color element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Color* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Color& _internal_element(int index) const;
+  ::IvionOnline::Color* _internal_add_element();
+  public:
+  const ::IvionOnline::Color& element(int index) const;
+  ::IvionOnline::Color* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Color)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
 // ===================================================================
 
 
@@ -789,132 +1886,132 @@ class Vec2i PROTOBUF_FINAL :
 #endif  // __GNUC__
 // ObjectPath
 
-// repeated int32 FieldIndecies = 1;
-inline int ObjectPath::_internal_fieldindecies_size() const {
-  return fieldindecies_.size();
+// repeated int32 Field_Indecies = 1;
+inline int ObjectPath::_internal_field_indecies_size() const {
+  return field_indecies_.size();
 }
-inline int ObjectPath::fieldindecies_size() const {
-  return _internal_fieldindecies_size();
+inline int ObjectPath::field_indecies_size() const {
+  return _internal_field_indecies_size();
 }
-inline void ObjectPath::clear_fieldindecies() {
-  fieldindecies_.Clear();
+inline void ObjectPath::clear_field_indecies() {
+  field_indecies_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::_internal_fieldindecies(int index) const {
-  return fieldindecies_.Get(index);
+inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::_internal_field_indecies(int index) const {
+  return field_indecies_.Get(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::fieldindecies(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.FieldIndecies)
-  return _internal_fieldindecies(index);
+inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::field_indecies(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Field_Indecies)
+  return _internal_field_indecies(index);
 }
-inline void ObjectPath::set_fieldindecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  fieldindecies_.Set(index, value);
-  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.FieldIndecies)
+inline void ObjectPath::set_field_indecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
+  field_indecies_.Set(index, value);
+  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Field_Indecies)
 }
-inline void ObjectPath::_internal_add_fieldindecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  fieldindecies_.Add(value);
+inline void ObjectPath::_internal_add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  field_indecies_.Add(value);
 }
-inline void ObjectPath::add_fieldindecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_fieldindecies(value);
-  // @@protoc_insertion_point(field_add:IvionOnline.ObjectPath.FieldIndecies)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-ObjectPath::_internal_fieldindecies() const {
-  return fieldindecies_;
+inline void ObjectPath::add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_add_field_indecies(value);
+  // @@protoc_insertion_point(field_add:IvionOnline.ObjectPath.Field_Indecies)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-ObjectPath::fieldindecies() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.ObjectPath.FieldIndecies)
-  return _internal_fieldindecies();
+ObjectPath::_internal_field_indecies() const {
+  return field_indecies_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
+ObjectPath::field_indecies() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.ObjectPath.Field_Indecies)
+  return _internal_field_indecies();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-ObjectPath::_internal_mutable_fieldindecies() {
-  return &fieldindecies_;
+ObjectPath::_internal_mutable_field_indecies() {
+  return &field_indecies_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-ObjectPath::mutable_fieldindecies() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.ObjectPath.FieldIndecies)
-  return _internal_mutable_fieldindecies();
+ObjectPath::mutable_field_indecies() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.ObjectPath.Field_Indecies)
+  return _internal_mutable_field_indecies();
 }
 
-// string FullPath = 2;
-inline void ObjectPath::clear_fullpath() {
-  fullpath_.ClearToEmpty();
+// string Full_Path = 2;
+inline void ObjectPath::clear_full_path() {
+  full_path_.ClearToEmpty();
 }
-inline const std::string& ObjectPath::fullpath() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.FullPath)
-  return _internal_fullpath();
+inline const std::string& ObjectPath::full_path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Full_Path)
+  return _internal_full_path();
 }
-inline void ObjectPath::set_fullpath(const std::string& value) {
-  _internal_set_fullpath(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.FullPath)
+inline void ObjectPath::set_full_path(const std::string& value) {
+  _internal_set_full_path(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Full_Path)
 }
-inline std::string* ObjectPath::mutable_fullpath() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath.FullPath)
-  return _internal_mutable_fullpath();
+inline std::string* ObjectPath::mutable_full_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath.Full_Path)
+  return _internal_mutable_full_path();
 }
-inline const std::string& ObjectPath::_internal_fullpath() const {
-  return fullpath_.Get();
+inline const std::string& ObjectPath::_internal_full_path() const {
+  return full_path_.Get();
 }
-inline void ObjectPath::_internal_set_fullpath(const std::string& value) {
+inline void ObjectPath::_internal_set_full_path(const std::string& value) {
   
-  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void ObjectPath::set_fullpath(std::string&& value) {
+inline void ObjectPath::set_full_path(std::string&& value) {
   
-  fullpath_.Set(
+  full_path_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.ObjectPath.FullPath)
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.ObjectPath.Full_Path)
 }
-inline void ObjectPath::set_fullpath(const char* value) {
+inline void ObjectPath::set_full_path(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:IvionOnline.ObjectPath.FullPath)
+  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.ObjectPath.Full_Path)
 }
-inline void ObjectPath::set_fullpath(const char* value,
+inline void ObjectPath::set_full_path(const char* value,
     size_t size) {
   
-  fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:IvionOnline.ObjectPath.FullPath)
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.ObjectPath.Full_Path)
 }
-inline std::string* ObjectPath::_internal_mutable_fullpath() {
+inline std::string* ObjectPath::_internal_mutable_full_path() {
   
-  return fullpath_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return full_path_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* ObjectPath::release_fullpath() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath.FullPath)
-  return fullpath_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* ObjectPath::release_full_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath.Full_Path)
+  return full_path_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void ObjectPath::set_allocated_fullpath(std::string* fullpath) {
-  if (fullpath != nullptr) {
+inline void ObjectPath::set_allocated_full_path(std::string* full_path) {
+  if (full_path != nullptr) {
     
   } else {
     
   }
-  fullpath_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), fullpath,
+  full_path_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), full_path,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath.FullPath)
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath.Full_Path)
 }
 
-// .IvionOnline.Type Object_type = 3;
+// .IvionOnline.ObjectType Object_Type = 3;
 inline void ObjectPath::clear_object_type() {
   object_type_ = 0;
 }
-inline ::IvionOnline::Type ObjectPath::_internal_object_type() const {
-  return static_cast< ::IvionOnline::Type >(object_type_);
+inline ::IvionOnline::ObjectType ObjectPath::_internal_object_type() const {
+  return static_cast< ::IvionOnline::ObjectType >(object_type_);
 }
-inline ::IvionOnline::Type ObjectPath::object_type() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Object_type)
+inline ::IvionOnline::ObjectType ObjectPath::object_type() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Object_Type)
   return _internal_object_type();
 }
-inline void ObjectPath::_internal_set_object_type(::IvionOnline::Type value) {
+inline void ObjectPath::_internal_set_object_type(::IvionOnline::ObjectType value) {
   
   object_type_ = value;
 }
-inline void ObjectPath::set_object_type(::IvionOnline::Type value) {
+inline void ObjectPath::set_object_type(::IvionOnline::ObjectType value) {
   _internal_set_object_type(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Object_type)
+  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Object_Type)
 }
 
 // -------------------------------------------------------------------
@@ -943,6 +2040,49 @@ inline void Boolean::set_value(bool value) {
 
 // -------------------------------------------------------------------
 
+// List_Boolean
+
+// repeated .IvionOnline.Boolean element = 1;
+inline int List_Boolean::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Boolean::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Boolean::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Boolean* List_Boolean::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Boolean.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >*
+List_Boolean::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Boolean.element)
+  return &element_;
+}
+inline const ::IvionOnline::Boolean& List_Boolean::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Boolean& List_Boolean::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Boolean.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Boolean* List_Boolean::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Boolean* List_Boolean::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Boolean.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >&
+List_Boolean::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Boolean.element)
+  return element_;
+}
+
+// -------------------------------------------------------------------
+
 // Integer
 
 // int32 Value = 1;
@@ -963,6 +2103,49 @@ inline void Integer::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
 inline void Integer::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_value(value);
   // @@protoc_insertion_point(field_set:IvionOnline.Integer.Value)
+}
+
+// -------------------------------------------------------------------
+
+// List_Integer
+
+// repeated .IvionOnline.Integer element = 1;
+inline int List_Integer::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Integer::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Integer::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Integer* List_Integer::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Integer.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >*
+List_Integer::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Integer.element)
+  return &element_;
+}
+inline const ::IvionOnline::Integer& List_Integer::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Integer& List_Integer::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Integer.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Integer* List_Integer::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Integer* List_Integer::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Integer.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >&
+List_Integer::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Integer.element)
+  return element_;
 }
 
 // -------------------------------------------------------------------
@@ -1009,9 +2192,200 @@ inline void Vec2i::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
   // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.y)
 }
 
+// -------------------------------------------------------------------
+
+// List_Vec2i
+
+// repeated .IvionOnline.Vec2i element = 1;
+inline int List_Vec2i::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Vec2i::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Vec2i::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Vec2i.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >*
+List_Vec2i::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Vec2i.element)
+  return &element_;
+}
+inline const ::IvionOnline::Vec2i& List_Vec2i::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Vec2i& List_Vec2i::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Vec2i.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Vec2i.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >&
+List_Vec2i::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Vec2i.element)
+  return element_;
+}
+
+// -------------------------------------------------------------------
+
+// Terrain
+
+// .IvionOnline.Terrain.Terrain_Type Value = 1;
+inline void Terrain::clear_value() {
+  value_ = 0;
+}
+inline ::IvionOnline::Terrain_Terrain_Type Terrain::_internal_value() const {
+  return static_cast< ::IvionOnline::Terrain_Terrain_Type >(value_);
+}
+inline ::IvionOnline::Terrain_Terrain_Type Terrain::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain.Value)
+  return _internal_value();
+}
+inline void Terrain::_internal_set_value(::IvionOnline::Terrain_Terrain_Type value) {
+  
+  value_ = value;
+}
+inline void Terrain::set_value(::IvionOnline::Terrain_Terrain_Type value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Terrain.Value)
+}
+
+// -------------------------------------------------------------------
+
+// List_Terrain
+
+// repeated .IvionOnline.Terrain element = 1;
+inline int List_Terrain::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Terrain::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Terrain::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Terrain* List_Terrain::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >*
+List_Terrain::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Terrain.element)
+  return &element_;
+}
+inline const ::IvionOnline::Terrain& List_Terrain::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Terrain& List_Terrain::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Terrain* List_Terrain::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Terrain* List_Terrain::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Terrain.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >&
+List_Terrain::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Terrain.element)
+  return element_;
+}
+
+// -------------------------------------------------------------------
+
+// Color
+
+// .IvionOnline.Color.Color_Type Value = 1;
+inline void Color::clear_value() {
+  value_ = 0;
+}
+inline ::IvionOnline::Color_Color_Type Color::_internal_value() const {
+  return static_cast< ::IvionOnline::Color_Color_Type >(value_);
+}
+inline ::IvionOnline::Color_Color_Type Color::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Color.Value)
+  return _internal_value();
+}
+inline void Color::_internal_set_value(::IvionOnline::Color_Color_Type value) {
+  
+  value_ = value;
+}
+inline void Color::set_value(::IvionOnline::Color_Color_Type value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Color.Value)
+}
+
+// -------------------------------------------------------------------
+
+// List_Color
+
+// repeated .IvionOnline.Color element = 1;
+inline int List_Color::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Color::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Color::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Color* List_Color::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >*
+List_Color::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Color.element)
+  return &element_;
+}
+inline const ::IvionOnline::Color& List_Color::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Color& List_Color::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Color.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Color* List_Color::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Color* List_Color::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Color.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >&
+List_Color::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Color.element)
+  return element_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1025,20 +2399,20 @@ inline void Vec2i::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::IvionOnline::Type> : ::std::true_type {};
+template <> struct is_proto_enum< ::IvionOnline::Terrain_Terrain_Type> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::Type>() {
-  return ::IvionOnline::Type_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::Terrain_Terrain_Type>() {
+  return ::IvionOnline::Terrain_Terrain_Type_descriptor();
 }
-template <> struct is_proto_enum< ::IvionOnline::Terrain_Type> : ::std::true_type {};
+template <> struct is_proto_enum< ::IvionOnline::Color_Color_Type> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::Terrain_Type>() {
-  return ::IvionOnline::Terrain_Type_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::Color_Color_Type>() {
+  return ::IvionOnline::Color_Color_Type_descriptor();
 }
-template <> struct is_proto_enum< ::IvionOnline::Color> : ::std::true_type {};
+template <> struct is_proto_enum< ::IvionOnline::ObjectType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::Color>() {
-  return ::IvionOnline::Color_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::IvionOnline::ObjectType>() {
+  return ::IvionOnline::ObjectType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

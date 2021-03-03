@@ -14,6 +14,11 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+extern PROTOBUF_INTERNAL_EXPORT_Type_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Boolean_Type_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Type_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_Type_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Type_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_Type_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Type_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Terrain_Type_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Type_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Type_2eproto;
 namespace IvionOnline {
 class ObjectPathDefaultTypeInternal {
  public:
@@ -23,14 +28,42 @@ class BooleanDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Boolean> _instance;
 } _Boolean_default_instance_;
+class List_BooleanDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Boolean> _instance;
+} _List_Boolean_default_instance_;
 class IntegerDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Integer> _instance;
 } _Integer_default_instance_;
+class List_IntegerDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Integer> _instance;
+} _List_Integer_default_instance_;
 class Vec2iDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Vec2i> _instance;
 } _Vec2i_default_instance_;
+class List_Vec2iDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Vec2i> _instance;
+} _List_Vec2i_default_instance_;
+class TerrainDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Terrain> _instance;
+} _Terrain_default_instance_;
+class List_TerrainDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Terrain> _instance;
+} _List_Terrain_default_instance_;
+class ColorDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Color> _instance;
+} _Color_default_instance_;
+class List_ColorDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Color> _instance;
+} _List_Color_default_instance_;
 }  // namespace IvionOnline
 static void InitDefaultsscc_info_Boolean_Type_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -45,6 +78,19 @@ static void InitDefaultsscc_info_Boolean_Type_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Boolean_Type_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Boolean_Type_2eproto}, {}};
 
+static void InitDefaultsscc_info_Color_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_Color_default_instance_;
+    new (ptr) ::IvionOnline::Color();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Color_Type_2eproto}, {}};
+
 static void InitDefaultsscc_info_Integer_Type_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -57,6 +103,76 @@ static void InitDefaultsscc_info_Integer_Type_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_Type_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Integer_Type_2eproto}, {}};
+
+static void InitDefaultsscc_info_List_Boolean_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Boolean_default_instance_;
+    new (ptr) ::IvionOnline::List_Boolean();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Boolean_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Boolean_Type_2eproto}, {
+      &scc_info_Boolean_Type_2eproto.base,}};
+
+static void InitDefaultsscc_info_List_Color_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Color_default_instance_;
+    new (ptr) ::IvionOnline::List_Color();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Color_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Color_Type_2eproto}, {
+      &scc_info_Color_Type_2eproto.base,}};
+
+static void InitDefaultsscc_info_List_Integer_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Integer_default_instance_;
+    new (ptr) ::IvionOnline::List_Integer();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Integer_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Integer_Type_2eproto}, {
+      &scc_info_Integer_Type_2eproto.base,}};
+
+static void InitDefaultsscc_info_List_Terrain_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Terrain_default_instance_;
+    new (ptr) ::IvionOnline::List_Terrain();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Terrain_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Terrain_Type_2eproto}, {
+      &scc_info_Terrain_Type_2eproto.base,}};
+
+static void InitDefaultsscc_info_List_Vec2i_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Vec2i_default_instance_;
+    new (ptr) ::IvionOnline::List_Vec2i();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Vec2i_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Vec2i_Type_2eproto}, {
+      &scc_info_Vec2i_Type_2eproto.base,}};
 
 static void InitDefaultsscc_info_ObjectPath_Type_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -71,6 +187,19 @@ static void InitDefaultsscc_info_ObjectPath_Type_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ObjectPath_Type_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ObjectPath_Type_2eproto}, {}};
 
+static void InitDefaultsscc_info_Terrain_Type_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_Terrain_default_instance_;
+    new (ptr) ::IvionOnline::Terrain();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Terrain_Type_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Terrain_Type_2eproto}, {}};
+
 static void InitDefaultsscc_info_Vec2i_Type_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -84,7 +213,7 @@ static void InitDefaultsscc_info_Vec2i_Type_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Type_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Vec2i_Type_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Type_2eproto[4];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_Type_2eproto[11];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_Type_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_Type_2eproto = nullptr;
 
@@ -94,8 +223,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Type_2eproto::offsets[] PROTOB
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, fieldindecies_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, fullpath_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, field_indecies_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, full_path_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, object_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Boolean, _internal_metadata_),
@@ -104,11 +233,23 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Type_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Boolean, value_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Boolean, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Boolean, element_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Integer, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Integer, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Integer, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Integer, element_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Vec2i, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -116,74 +257,188 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Type_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Vec2i, x_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Vec2i, y_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Vec2i, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Vec2i, element_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Terrain, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Terrain, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Terrain, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Terrain, element_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Color, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Color, value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Color, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Color, element_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::IvionOnline::ObjectPath)},
   { 8, -1, sizeof(::IvionOnline::Boolean)},
-  { 14, -1, sizeof(::IvionOnline::Integer)},
-  { 20, -1, sizeof(::IvionOnline::Vec2i)},
+  { 14, -1, sizeof(::IvionOnline::List_Boolean)},
+  { 20, -1, sizeof(::IvionOnline::Integer)},
+  { 26, -1, sizeof(::IvionOnline::List_Integer)},
+  { 32, -1, sizeof(::IvionOnline::Vec2i)},
+  { 39, -1, sizeof(::IvionOnline::List_Vec2i)},
+  { 45, -1, sizeof(::IvionOnline::Terrain)},
+  { 51, -1, sizeof(::IvionOnline::List_Terrain)},
+  { 57, -1, sizeof(::IvionOnline::Color)},
+  { 63, -1, sizeof(::IvionOnline::List_Color)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_ObjectPath_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Boolean_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Boolean_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Integer_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Integer_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Vec2i_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Vec2i_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Terrain_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Terrain_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Color_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Color_default_instance_),
 };
 
 const char descriptor_table_protodef_Type_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\nType.proto\022\013IvionOnline\"]\n\nObjectPath\022"
-  "\025\n\rFieldIndecies\030\001 \003(\005\022\020\n\010FullPath\030\002 \001(\t"
-  "\022&\n\013Object_type\030\003 \001(\0162\021.IvionOnline.Type"
-  "\"\030\n\007Boolean\022\r\n\005Value\030\001 \001(\010\"\030\n\007Integer\022\r\n"
-  "\005Value\030\001 \001(\005\"\035\n\005Vec2i\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 "
-  "\001(\005*\350\004\n\004Type\022\020\n\014TYPE_BOOLEAN\020\000\022\024\n\020TYPE_R"
-  "EF_BOOLEAN\020\001\022\025\n\021TYPE_LIST_BOOLEAN\020\002\022\031\n\025T"
-  "YPE_LIST_REF_BOOLEAN\020\003\022\035\n\031TYPE_REF_LIST_"
-  "REF_BOOLEAN\020\004\022\020\n\014TYPE_INTEGER\020\005\022\024\n\020TYPE_"
-  "REF_INTEGER\020\006\022\025\n\021TYPE_LIST_INTEGER\020\007\022\031\n\025"
-  "TYPE_LIST_REF_INTEGER\020\010\022\035\n\031TYPE_REF_LIST"
-  "_REF_INTEGER\020\t\022\016\n\nTYPE_VEC2I\020\n\022\022\n\016TYPE_R"
-  "EF_VEC2I\020\013\022\023\n\017TYPE_LIST_VEC2I\020\014\022\027\n\023TYPE_"
-  "LIST_REF_VEC2I\020\r\022\033\n\027TYPE_REF_LIST_REF_VE"
-  "C2I\020\016\022\025\n\021TYPE_TERRAIN_TYPE\020\017\022\031\n\025TYPE_REF"
-  "_TERRAIN_TYPE\020\020\022\032\n\026TYPE_LIST_TERRAIN_TYP"
-  "E\020\021\022\036\n\032TYPE_LIST_REF_TERRAIN_TYPE\020\022\022\"\n\036T"
-  "YPE_REF_LIST_REF_TERRAIN_TYPE\020\023\022\016\n\nTYPE_"
-  "COLOR\020\024\022\022\n\016TYPE_REF_COLOR\020\025\022\023\n\017TYPE_LIST"
-  "_COLOR\020\026\022\027\n\023TYPE_LIST_REF_COLOR\020\027\022\033\n\027TYP"
-  "E_REF_LIST_REF_COLOR\020\030*]\n\014Terrain_Type\022\025"
-  "\n\021TERRAIN_TYPE_NONE\020\000\022\032\n\026TERRAIN_TYPE_DI"
-  "FFICULT\020\001\022\032\n\026TERRAIN_TYPE_ENCHANTED\020\002*y\n"
-  "\005Color\022\016\n\nCOLOR_NONE\020\000\022\016\n\nCOLOR_GRAY\020\001\022\017"
-  "\n\013COLOR_BLACK\020\002\022\r\n\tCOLOR_RED\020\003\022\017\n\013COLOR_"
-  "GREEN\020\004\022\016\n\nCOLOR_BLUE\020\005\022\017\n\013COLOR_WHITE\020\006"
-  "b\006proto3"
+  "\n\nType.proto\022\013IvionOnline\"e\n\nObjectPath\022"
+  "\026\n\016Field_Indecies\030\001 \003(\005\022\021\n\tFull_Path\030\002 \001"
+  "(\t\022,\n\013Object_Type\030\003 \001(\0162\027.IvionOnline.Ob"
+  "jectType\"\030\n\007Boolean\022\r\n\005Value\030\001 \001(\010\"5\n\014Li"
+  "st_Boolean\022%\n\007element\030\001 \003(\0132\024.IvionOnlin"
+  "e.Boolean\"\030\n\007Integer\022\r\n\005Value\030\001 \001(\005\"5\n\014L"
+  "ist_Integer\022%\n\007element\030\001 \003(\0132\024.IvionOnli"
+  "ne.Integer\"\035\n\005Vec2i\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001("
+  "\005\"1\n\nList_Vec2i\022#\n\007element\030\001 \003(\0132\022.Ivion"
+  "Online.Vec2i\"\232\001\n\007Terrain\0220\n\005Value\030\001 \001(\0162"
+  "!.IvionOnline.Terrain.Terrain_Type\"]\n\014Te"
+  "rrain_Type\022\025\n\021TERRAIN_TYPE_NONE\020\000\022\032\n\026TER"
+  "RAIN_TYPE_DIFFICULT\020\001\022\032\n\026TERRAIN_TYPE_EN"
+  "CHANTED\020\002\"5\n\014List_Terrain\022%\n\007element\030\001 \003"
+  "(\0132\024.IvionOnline.Terrain\"\265\001\n\005Color\022,\n\005Va"
+  "lue\030\001 \001(\0162\035.IvionOnline.Color.Color_Type"
+  "\"~\n\nColor_Type\022\016\n\nCOLOR_NONE\020\000\022\016\n\nCOLOR_"
+  "GRAY\020\001\022\017\n\013COLOR_BLACK\020\002\022\r\n\tCOLOR_RED\020\003\022\017"
+  "\n\013COLOR_GREEN\020\004\022\016\n\nCOLOR_BLUE\020\005\022\017\n\013COLOR"
+  "_WHITE\020\006\"1\n\nList_Color\022#\n\007element\030\001 \003(\0132"
+  "\022.IvionOnline.Color*\325\004\n\nObjectType\022\020\n\014TY"
+  "PE_BOOLEAN\020\000\022\024\n\020TYPE_REF_BOOLEAN\020\001\022\025\n\021TY"
+  "PE_LIST_BOOLEAN\020\002\022\031\n\025TYPE_LIST_REF_BOOLE"
+  "AN\020\003\022\035\n\031TYPE_REF_LIST_REF_BOOLEAN\020\004\022\020\n\014T"
+  "YPE_INTEGER\020\005\022\024\n\020TYPE_REF_INTEGER\020\006\022\025\n\021T"
+  "YPE_LIST_INTEGER\020\007\022\031\n\025TYPE_LIST_REF_INTE"
+  "GER\020\010\022\035\n\031TYPE_REF_LIST_REF_INTEGER\020\t\022\016\n\n"
+  "TYPE_VEC2I\020\n\022\022\n\016TYPE_REF_VEC2I\020\013\022\023\n\017TYPE"
+  "_LIST_VEC2I\020\014\022\027\n\023TYPE_LIST_REF_VEC2I\020\r\022\033"
+  "\n\027TYPE_REF_LIST_REF_VEC2I\020\016\022\020\n\014TYPE_TERR"
+  "AIN\020\017\022\024\n\020TYPE_REF_TERRAIN\020\020\022\025\n\021TYPE_LIST"
+  "_TERRAIN\020\021\022\031\n\025TYPE_LIST_REF_TERRAIN\020\022\022\035\n"
+  "\031TYPE_REF_LIST_REF_TERRAIN\020\023\022\016\n\nTYPE_COL"
+  "OR\020\024\022\022\n\016TYPE_REF_COLOR\020\025\022\023\n\017TYPE_LIST_CO"
+  "LOR\020\026\022\027\n\023TYPE_LIST_REF_COLOR\020\027\022\033\n\027TYPE_R"
+  "EF_LIST_REF_COLOR\020\030b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Type_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Type_2eproto_sccs[4] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Type_2eproto_sccs[11] = {
   &scc_info_Boolean_Type_2eproto.base,
+  &scc_info_Color_Type_2eproto.base,
   &scc_info_Integer_Type_2eproto.base,
+  &scc_info_List_Boolean_Type_2eproto.base,
+  &scc_info_List_Color_Type_2eproto.base,
+  &scc_info_List_Integer_Type_2eproto.base,
+  &scc_info_List_Terrain_Type_2eproto.base,
+  &scc_info_List_Vec2i_Type_2eproto.base,
   &scc_info_ObjectPath_Type_2eproto.base,
+  &scc_info_Terrain_Type_2eproto.base,
   &scc_info_Vec2i_Type_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Type_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Type_2eproto = {
-  false, false, descriptor_table_protodef_Type_2eproto, "Type.proto", 1048,
-  &descriptor_table_Type_2eproto_once, descriptor_table_Type_2eproto_sccs, descriptor_table_Type_2eproto_deps, 4, 0,
+  false, false, descriptor_table_protodef_Type_2eproto, "Type.proto", 1427,
+  &descriptor_table_Type_2eproto_once, descriptor_table_Type_2eproto_sccs, descriptor_table_Type_2eproto_deps, 11, 0,
   schemas, file_default_instances, TableStruct_Type_2eproto::offsets,
-  file_level_metadata_Type_2eproto, 4, file_level_enum_descriptors_Type_2eproto, file_level_service_descriptors_Type_2eproto,
+  file_level_metadata_Type_2eproto, 11, file_level_enum_descriptors_Type_2eproto, file_level_service_descriptors_Type_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_Type_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_Type_2eproto)), true);
 namespace IvionOnline {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Type_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Terrain_Terrain_Type_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Type_2eproto);
   return file_level_enum_descriptors_Type_2eproto[0];
 }
-bool Type_IsValid(int value) {
+bool Terrain_Terrain_Type_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Terrain_Terrain_Type Terrain::TERRAIN_TYPE_NONE;
+constexpr Terrain_Terrain_Type Terrain::TERRAIN_TYPE_DIFFICULT;
+constexpr Terrain_Terrain_Type Terrain::TERRAIN_TYPE_ENCHANTED;
+constexpr Terrain_Terrain_Type Terrain::Terrain_Type_MIN;
+constexpr Terrain_Terrain_Type Terrain::Terrain_Type_MAX;
+constexpr int Terrain::Terrain_Type_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Color_Color_Type_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Type_2eproto);
+  return file_level_enum_descriptors_Type_2eproto[1];
+}
+bool Color_Color_Type_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr Color_Color_Type Color::COLOR_NONE;
+constexpr Color_Color_Type Color::COLOR_GRAY;
+constexpr Color_Color_Type Color::COLOR_BLACK;
+constexpr Color_Color_Type Color::COLOR_RED;
+constexpr Color_Color_Type Color::COLOR_GREEN;
+constexpr Color_Color_Type Color::COLOR_BLUE;
+constexpr Color_Color_Type Color::COLOR_WHITE;
+constexpr Color_Color_Type Color::Color_Type_MIN;
+constexpr Color_Color_Type Color::Color_Type_MAX;
+constexpr int Color::Color_Type_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ObjectType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Type_2eproto);
+  return file_level_enum_descriptors_Type_2eproto[2];
+}
+bool ObjectType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -216,40 +471,6 @@ bool Type_IsValid(int value) {
   }
 }
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Terrain_Type_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Type_2eproto);
-  return file_level_enum_descriptors_Type_2eproto[1];
-}
-bool Terrain_Type_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Color_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Type_2eproto);
-  return file_level_enum_descriptors_Type_2eproto[2];
-}
-bool Color_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
@@ -259,18 +480,18 @@ class ObjectPath::_Internal {
 
 ObjectPath::ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  fieldindecies_(arena) {
+  field_indecies_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.ObjectPath)
 }
 ObjectPath::ObjectPath(const ObjectPath& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      fieldindecies_(from.fieldindecies_) {
+      field_indecies_(from.field_indecies_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_fullpath().empty()) {
-    fullpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_fullpath(), 
+  full_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_full_path().empty()) {
+    full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_full_path(), 
       GetArena());
   }
   object_type_ = from.object_type_;
@@ -279,7 +500,7 @@ ObjectPath::ObjectPath(const ObjectPath& from)
 
 void ObjectPath::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ObjectPath_Type_2eproto.base);
-  fullpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  full_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   object_type_ = 0;
 }
 
@@ -291,7 +512,7 @@ ObjectPath::~ObjectPath() {
 
 void ObjectPath::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  fullpath_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  full_path_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ObjectPath::ArenaDtor(void* object) {
@@ -315,8 +536,8 @@ void ObjectPath::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  fieldindecies_.Clear();
-  fullpath_.ClearToEmpty();
+  field_indecies_.Clear();
+  full_path_.ClearToEmpty();
   object_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -328,31 +549,31 @@ const char* ObjectPath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated int32 FieldIndecies = 1;
+      // repeated int32 Field_Indecies = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_fieldindecies(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_field_indecies(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
-          _internal_add_fieldindecies(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          _internal_add_field_indecies(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string FullPath = 2;
+      // string Full_Path = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_fullpath();
+          auto str = _internal_mutable_full_path();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.ObjectPath.FullPath"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.ObjectPath.Full_Path"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Type Object_type = 3;
+      // .IvionOnline.ObjectType Object_Type = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_object_type(static_cast<::IvionOnline::Type>(val));
+          _internal_set_object_type(static_cast<::IvionOnline::ObjectType>(val));
         } else goto handle_unusual;
         continue;
       default: {
@@ -383,26 +604,26 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int32 FieldIndecies = 1;
+  // repeated int32 Field_Indecies = 1;
   {
-    int byte_size = _fieldindecies_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _field_indecies_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteInt32Packed(
-          1, _internal_fieldindecies(), byte_size, target);
+          1, _internal_field_indecies(), byte_size, target);
     }
   }
 
-  // string FullPath = 2;
-  if (this->fullpath().size() > 0) {
+  // string Full_Path = 2;
+  if (this->full_path().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_fullpath().data(), static_cast<int>(this->_internal_fullpath().length()),
+      this->_internal_full_path().data(), static_cast<int>(this->_internal_full_path().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "IvionOnline.ObjectPath.FullPath");
+      "IvionOnline.ObjectPath.Full_Path");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_fullpath(), target);
+        2, this->_internal_full_path(), target);
   }
 
-  // .IvionOnline.Type Object_type = 3;
+  // .IvionOnline.ObjectType Object_Type = 3;
   if (this->object_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -425,29 +646,29 @@ size_t ObjectPath::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated int32 FieldIndecies = 1;
+  // repeated int32 Field_Indecies = 1;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      Int32Size(this->fieldindecies_);
+      Int32Size(this->field_indecies_);
     if (data_size > 0) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
             static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
     }
     int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _fieldindecies_cached_byte_size_.store(cached_size,
+    _field_indecies_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  // string FullPath = 2;
-  if (this->fullpath().size() > 0) {
+  // string Full_Path = 2;
+  if (this->full_path().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_fullpath());
+        this->_internal_full_path());
   }
 
-  // .IvionOnline.Type Object_type = 3;
+  // .IvionOnline.ObjectType Object_Type = 3;
   if (this->object_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_object_type());
@@ -484,9 +705,9 @@ void ObjectPath::MergeFrom(const ObjectPath& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  fieldindecies_.MergeFrom(from.fieldindecies_);
-  if (from.fullpath().size() > 0) {
-    _internal_set_fullpath(from._internal_fullpath());
+  field_indecies_.MergeFrom(from.field_indecies_);
+  if (from.full_path().size() > 0) {
+    _internal_set_full_path(from._internal_full_path());
   }
   if (from.object_type() != 0) {
     _internal_set_object_type(from._internal_object_type());
@@ -514,8 +735,8 @@ bool ObjectPath::IsInitialized() const {
 void ObjectPath::InternalSwap(ObjectPath* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  fieldindecies_.InternalSwap(&other->fieldindecies_);
-  fullpath_.Swap(&other->fullpath_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  field_indecies_.InternalSwap(&other->field_indecies_);
+  full_path_.Swap(&other->full_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(object_type_, other->object_type_);
 }
 
@@ -718,6 +939,206 @@ void Boolean::InternalSwap(Boolean* other) {
 
 // ===================================================================
 
+class List_Boolean::_Internal {
+ public:
+};
+
+List_Boolean::List_Boolean(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Boolean)
+}
+List_Boolean::List_Boolean(const List_Boolean& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Boolean)
+}
+
+void List_Boolean::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Boolean_Type_2eproto.base);
+}
+
+List_Boolean::~List_Boolean() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Boolean)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Boolean::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Boolean::ArenaDtor(void* object) {
+  List_Boolean* _this = reinterpret_cast< List_Boolean* >(object);
+  (void)_this;
+}
+void List_Boolean::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Boolean::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Boolean& List_Boolean::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Boolean_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Boolean::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Boolean)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Boolean::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Boolean element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Boolean::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Boolean)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Boolean element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Boolean)
+  return target;
+}
+
+size_t List_Boolean::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Boolean)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Boolean element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Boolean::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Boolean)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Boolean* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Boolean>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Boolean)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Boolean)
+    MergeFrom(*source);
+  }
+}
+
+void List_Boolean::MergeFrom(const List_Boolean& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Boolean)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Boolean::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Boolean)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Boolean::CopyFrom(const List_Boolean& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Boolean)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Boolean::IsInitialized() const {
+  return true;
+}
+
+void List_Boolean::InternalSwap(List_Boolean* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Boolean::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class Integer::_Internal {
  public:
 };
@@ -906,6 +1327,206 @@ void Integer::InternalSwap(Integer* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Integer::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class List_Integer::_Internal {
+ public:
+};
+
+List_Integer::List_Integer(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Integer)
+}
+List_Integer::List_Integer(const List_Integer& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Integer)
+}
+
+void List_Integer::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Integer_Type_2eproto.base);
+}
+
+List_Integer::~List_Integer() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Integer)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Integer::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Integer::ArenaDtor(void* object) {
+  List_Integer* _this = reinterpret_cast< List_Integer* >(object);
+  (void)_this;
+}
+void List_Integer::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Integer::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Integer& List_Integer::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Integer_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Integer::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Integer)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Integer::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Integer element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Integer::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Integer)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Integer element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Integer)
+  return target;
+}
+
+size_t List_Integer::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Integer)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Integer element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Integer::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Integer)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Integer* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Integer>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Integer)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Integer)
+    MergeFrom(*source);
+  }
+}
+
+void List_Integer::MergeFrom(const List_Integer& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Integer)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Integer::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Integer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Integer::CopyFrom(const List_Integer& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Integer)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Integer::IsInitialized() const {
+  return true;
+}
+
+void List_Integer::InternalSwap(List_Integer* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Integer::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1139,6 +1760,996 @@ void Vec2i::InternalSwap(Vec2i* other) {
 }
 
 
+// ===================================================================
+
+class List_Vec2i::_Internal {
+ public:
+};
+
+List_Vec2i::List_Vec2i(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Vec2i)
+}
+List_Vec2i::List_Vec2i(const List_Vec2i& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Vec2i)
+}
+
+void List_Vec2i::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Vec2i_Type_2eproto.base);
+}
+
+List_Vec2i::~List_Vec2i() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Vec2i)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Vec2i::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Vec2i::ArenaDtor(void* object) {
+  List_Vec2i* _this = reinterpret_cast< List_Vec2i* >(object);
+  (void)_this;
+}
+void List_Vec2i::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Vec2i::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Vec2i& List_Vec2i::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Vec2i_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Vec2i::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Vec2i)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Vec2i::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Vec2i element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Vec2i::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Vec2i)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Vec2i element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Vec2i)
+  return target;
+}
+
+size_t List_Vec2i::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Vec2i)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Vec2i element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Vec2i::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Vec2i)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Vec2i* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Vec2i>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Vec2i)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Vec2i)
+    MergeFrom(*source);
+  }
+}
+
+void List_Vec2i::MergeFrom(const List_Vec2i& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Vec2i)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Vec2i::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Vec2i)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Vec2i::CopyFrom(const List_Vec2i& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Vec2i)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Vec2i::IsInitialized() const {
+  return true;
+}
+
+void List_Vec2i::InternalSwap(List_Vec2i* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Vec2i::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Terrain::_Internal {
+ public:
+};
+
+Terrain::Terrain(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.Terrain)
+}
+Terrain::Terrain(const Terrain& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  value_ = from.value_;
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.Terrain)
+}
+
+void Terrain::SharedCtor() {
+  value_ = 0;
+}
+
+Terrain::~Terrain() {
+  // @@protoc_insertion_point(destructor:IvionOnline.Terrain)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Terrain::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Terrain::ArenaDtor(void* object) {
+  Terrain* _this = reinterpret_cast< Terrain* >(object);
+  (void)_this;
+}
+void Terrain::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Terrain::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Terrain& Terrain::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Terrain_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Terrain::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.Terrain)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  value_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Terrain::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .IvionOnline.Terrain.Terrain_Type Value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_value(static_cast<::IvionOnline::Terrain_Terrain_Type>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Terrain::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.Terrain)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .IvionOnline.Terrain.Terrain_Type Value = 1;
+  if (this->value() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.Terrain)
+  return target;
+}
+
+size_t Terrain::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.Terrain)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .IvionOnline.Terrain.Terrain_Type Value = 1;
+  if (this->value() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_value());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Terrain::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.Terrain)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Terrain* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Terrain>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.Terrain)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.Terrain)
+    MergeFrom(*source);
+  }
+}
+
+void Terrain::MergeFrom(const Terrain& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.Terrain)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.value() != 0) {
+    _internal_set_value(from._internal_value());
+  }
+}
+
+void Terrain::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.Terrain)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Terrain::CopyFrom(const Terrain& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.Terrain)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Terrain::IsInitialized() const {
+  return true;
+}
+
+void Terrain::InternalSwap(Terrain* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(value_, other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Terrain::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class List_Terrain::_Internal {
+ public:
+};
+
+List_Terrain::List_Terrain(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Terrain)
+}
+List_Terrain::List_Terrain(const List_Terrain& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Terrain)
+}
+
+void List_Terrain::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Terrain_Type_2eproto.base);
+}
+
+List_Terrain::~List_Terrain() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Terrain)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Terrain::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Terrain::ArenaDtor(void* object) {
+  List_Terrain* _this = reinterpret_cast< List_Terrain* >(object);
+  (void)_this;
+}
+void List_Terrain::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Terrain::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Terrain& List_Terrain::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Terrain_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Terrain::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Terrain)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Terrain::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Terrain element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Terrain::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Terrain)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Terrain element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Terrain)
+  return target;
+}
+
+size_t List_Terrain::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Terrain)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Terrain element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Terrain::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Terrain)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Terrain* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Terrain>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Terrain)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Terrain)
+    MergeFrom(*source);
+  }
+}
+
+void List_Terrain::MergeFrom(const List_Terrain& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Terrain)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Terrain::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Terrain)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Terrain::CopyFrom(const List_Terrain& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Terrain)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Terrain::IsInitialized() const {
+  return true;
+}
+
+void List_Terrain::InternalSwap(List_Terrain* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Terrain::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class Color::_Internal {
+ public:
+};
+
+Color::Color(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.Color)
+}
+Color::Color(const Color& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  value_ = from.value_;
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.Color)
+}
+
+void Color::SharedCtor() {
+  value_ = 0;
+}
+
+Color::~Color() {
+  // @@protoc_insertion_point(destructor:IvionOnline.Color)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void Color::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void Color::ArenaDtor(void* object) {
+  Color* _this = reinterpret_cast< Color* >(object);
+  (void)_this;
+}
+void Color::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Color::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const Color& Color::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Color_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void Color::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  value_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Color::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .IvionOnline.Color.Color_Type Value = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_value(static_cast<::IvionOnline::Color_Color_Type>(val));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Color::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .IvionOnline.Color.Color_Type Value = 1;
+  if (this->value() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_value(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.Color)
+  return target;
+}
+
+size_t Color::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.Color)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .IvionOnline.Color.Color_Type Value = 1;
+  if (this->value() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_value());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void Color::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Color* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Color>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.Color)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.Color)
+    MergeFrom(*source);
+  }
+}
+
+void Color::MergeFrom(const Color& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.value() != 0) {
+    _internal_set_value(from._internal_value());
+  }
+}
+
+void Color::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Color::CopyFrom(const Color& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Color::IsInitialized() const {
+  return true;
+}
+
+void Color::InternalSwap(Color* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(value_, other->value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Color::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class List_Color::_Internal {
+ public:
+};
+
+List_Color::List_Color(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Color)
+}
+List_Color::List_Color(const List_Color& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Color)
+}
+
+void List_Color::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Color_Type_2eproto.base);
+}
+
+List_Color::~List_Color() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Color)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Color::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Color::ArenaDtor(void* object) {
+  List_Color* _this = reinterpret_cast< List_Color* >(object);
+  (void)_this;
+}
+void List_Color::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Color::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Color& List_Color::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Color_Type_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Color::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Color::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Color element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Color::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Color)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Color element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Color)
+  return target;
+}
+
+size_t List_Color::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Color)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Color element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Color::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Color* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Color>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Color)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Color)
+    MergeFrom(*source);
+  }
+}
+
+void List_Color::MergeFrom(const List_Color& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Color)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Color::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Color::CopyFrom(const List_Color& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Color)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Color::IsInitialized() const {
+  return true;
+}
+
+void List_Color::InternalSwap(List_Color* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Color::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace IvionOnline
 PROTOBUF_NAMESPACE_OPEN
@@ -1148,11 +2759,32 @@ template<> PROTOBUF_NOINLINE ::IvionOnline::ObjectPath* Arena::CreateMaybeMessag
 template<> PROTOBUF_NOINLINE ::IvionOnline::Boolean* Arena::CreateMaybeMessage< ::IvionOnline::Boolean >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::Boolean >(arena);
 }
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Boolean* Arena::CreateMaybeMessage< ::IvionOnline::List_Boolean >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Boolean >(arena);
+}
 template<> PROTOBUF_NOINLINE ::IvionOnline::Integer* Arena::CreateMaybeMessage< ::IvionOnline::Integer >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::Integer >(arena);
 }
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Integer* Arena::CreateMaybeMessage< ::IvionOnline::List_Integer >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Integer >(arena);
+}
 template<> PROTOBUF_NOINLINE ::IvionOnline::Vec2i* Arena::CreateMaybeMessage< ::IvionOnline::Vec2i >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::Vec2i >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Vec2i* Arena::CreateMaybeMessage< ::IvionOnline::List_Vec2i >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Vec2i >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::Terrain* Arena::CreateMaybeMessage< ::IvionOnline::Terrain >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::Terrain >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Terrain* Arena::CreateMaybeMessage< ::IvionOnline::List_Terrain >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Terrain >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::Color* Arena::CreateMaybeMessage< ::IvionOnline::Color >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::Color >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Color* Arena::CreateMaybeMessage< ::IvionOnline::List_Color >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Color >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

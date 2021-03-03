@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package IvionOnline;
 
-enum Type {
+enum ObjectType {
 	TYPE_BOOLEAN = 0;
 	TYPE_REF_BOOLEAN = 1;
 	TYPE_LIST_BOOLEAN = 2;
@@ -18,11 +18,11 @@ enum Type {
 	TYPE_LIST_VEC2I = 12;
 	TYPE_LIST_REF_VEC2I = 13;
 	TYPE_REF_LIST_REF_VEC2I = 14;
-	TYPE_TERRAIN_TYPE = 15;
-	TYPE_REF_TERRAIN_TYPE = 16;
-	TYPE_LIST_TERRAIN_TYPE = 17;
-	TYPE_LIST_REF_TERRAIN_TYPE = 18;
-	TYPE_REF_LIST_REF_TERRAIN_TYPE = 19;
+	TYPE_TERRAIN = 15;
+	TYPE_REF_TERRAIN = 16;
+	TYPE_LIST_TERRAIN = 17;
+	TYPE_LIST_REF_TERRAIN = 18;
+	TYPE_REF_LIST_REF_TERRAIN = 19;
 	TYPE_COLOR = 20;
 	TYPE_REF_COLOR = 21;
 	TYPE_LIST_COLOR = 22;
@@ -31,32 +31,63 @@ enum Type {
 }
 
 message ObjectPath {
-    repeated int32 FieldIndecies = 1;
-    string FullPath = 2;
-    Type Object_type = 3;
+    repeated int32 Field_Indecies = 1;
+    string Full_Path = 2;
+    ObjectType Object_Type = 3;
 }
 
 message Boolean {
 	bool Value = 1;
 }
+
+
+message List_Boolean {
+    repeated Boolean element = 1;
+}
 message Integer {
 	int32 Value = 1;
+}
+
+
+message List_Integer {
+    repeated Integer element = 1;
 }
 message Vec2i {
 	int32 x = 1;
 	int32 y = 2;
 }
-enum Terrain_Type {
-	TERRAIN_TYPE_NONE = 0;
-	TERRAIN_TYPE_DIFFICULT = 1;
-	TERRAIN_TYPE_ENCHANTED = 2;
+
+
+message List_Vec2i {
+    repeated Vec2i element = 1;
 }
-enum Color {
-	COLOR_NONE = 0;
-	COLOR_GRAY = 1;
-	COLOR_BLACK = 2;
-	COLOR_RED = 3;
-	COLOR_GREEN = 4;
-	COLOR_BLUE = 5;
-	COLOR_WHITE = 6;
+message Terrain {
+	enum Terrain_Type {
+		TERRAIN_TYPE_NONE = 0;
+		TERRAIN_TYPE_DIFFICULT = 1;
+		TERRAIN_TYPE_ENCHANTED = 2;
+	}
+	Terrain_Type Value = 1;
+}
+
+
+message List_Terrain {
+    repeated Terrain element = 1;
+}
+message Color {
+	enum Color_Type {
+		COLOR_NONE = 0;
+		COLOR_GRAY = 1;
+		COLOR_BLACK = 2;
+		COLOR_RED = 3;
+		COLOR_GREEN = 4;
+		COLOR_BLUE = 5;
+		COLOR_WHITE = 6;
+	}
+	Color_Type Value = 1;
+}
+
+
+message List_Color {
+    repeated Color element = 1;
 }

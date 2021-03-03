@@ -65,24 +65,24 @@ message List_Vec2i_Remove_Mutation
     Vec2i OldValue = 2;
     int32 Index = 3;
 }
-message Terrain_Type_Set_Mutation
+message Terrain_Set_Mutation
 {
     ObjectPath Path = 1;
-    Terrain_Type NewValue = 2;
-    Terrain_Type OldValue = 3;
+    Terrain NewValue = 2;
+    Terrain OldValue = 3;
 }
 
-message List_Terrain_Type_Insert_Mutation
+message List_Terrain_Insert_Mutation
 {
     ObjectPath Path = 1;
-    Terrain_Type NewValue = 2;
+    Terrain NewValue = 2;
     int32 Index = 3;
 }
 
-message List_Terrain_Type_Remove_Mutation
+message List_Terrain_Remove_Mutation
 {
     ObjectPath Path = 1;
-    Terrain_Type OldValue = 2;
+    Terrain OldValue = 2;
     int32 Index = 3;
 }
 message Color_Set_Mutation
@@ -118,9 +118,9 @@ message Mutation
 		Vec2i_Set_Mutation Vec2i_Set_Mutation = 7;
 		List_Vec2i_Insert_Mutation List_Vec2i_Insert_Mutation = 8;
 		List_Vec2i_Remove_Mutation List_Vec2i_Remove_Mutation = 9;
-		Terrain_Type_Set_Mutation Terrain_Type_Set_Mutation = 10;
-		List_Terrain_Type_Insert_Mutation List_Terrain_Type_Insert_Mutation = 11;
-		List_Terrain_Type_Remove_Mutation List_Terrain_Type_Remove_Mutation = 12;
+		Terrain_Set_Mutation Terrain_Set_Mutation = 10;
+		List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 11;
+		List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 12;
 		Color_Set_Mutation Color_Set_Mutation = 13;
 		List_Color_Insert_Mutation List_Color_Insert_Mutation = 14;
 		List_Color_Remove_Mutation List_Color_Remove_Mutation = 15;

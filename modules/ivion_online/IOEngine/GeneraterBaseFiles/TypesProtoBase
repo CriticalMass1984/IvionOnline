@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package {PACKAGE_NAME};
 
-enum Type {{
+enum ObjectType {{
 {TYPES}
 }}
 
 message ObjectPath {{
-    repeated int32 FieldIndecies = 1;
-    string FullPath = 2;
-    Type Object_type = 3;
+    repeated int32 Field_Indecies = 1;
+    string Full_Path = 2;
+    ObjectType Object_Type = 3;
 }}
 

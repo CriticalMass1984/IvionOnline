@@ -1,8 +1,0 @@
-void Apply_{NAME}_Set_Mutation(const {PACKAGE_NAME}::{NAME}_Set_Mutation& mutation){{
-    auto* obj = dynamic_cast<{PACKAGE_NAME}::{NAME}*>();
-}}
-void Apply_List_{NAME}_Insert_Mutation(const {PACKAGE_NAME}::{NAME}_Insert_Mutation& mutation){{{APPLY_INSERT_SOURCE}}}
-void Apply_List_{NAME}_Remove_Mutation(const {PACKAGE_NAME}::{NAME}_Remove_Mutation& mutation){{{APPLY_REMOVE_SOURCE}}}
-void Revert_{NAME}_Set_Mutation(const {PACKAGE_NAME}::{NAME}_Set_Mutation& mutation){{{REVERT_SET_SOURCE}}}
-void Revert_List_{NAME}_Insert_Mutation(const {PACKAGE_NAME}::{NAME}_Insert_Mutation& mutation){{{REVERT_INSERT_SOURCE}}}
-void Revert_List_{NAME}_Remove_Mutation(const {PACKAGE_NAME}::{NAME}_Remove_Mutation& mutation){{{REVERT_REMOVE_SOURCE}}}

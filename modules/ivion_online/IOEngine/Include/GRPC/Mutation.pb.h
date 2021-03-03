@@ -83,12 +83,12 @@ extern List_Integer_Insert_MutationDefaultTypeInternal _List_Integer_Insert_Muta
 class List_Integer_Remove_Mutation;
 class List_Integer_Remove_MutationDefaultTypeInternal;
 extern List_Integer_Remove_MutationDefaultTypeInternal _List_Integer_Remove_Mutation_default_instance_;
-class List_Terrain_Type_Insert_Mutation;
-class List_Terrain_Type_Insert_MutationDefaultTypeInternal;
-extern List_Terrain_Type_Insert_MutationDefaultTypeInternal _List_Terrain_Type_Insert_Mutation_default_instance_;
-class List_Terrain_Type_Remove_Mutation;
-class List_Terrain_Type_Remove_MutationDefaultTypeInternal;
-extern List_Terrain_Type_Remove_MutationDefaultTypeInternal _List_Terrain_Type_Remove_Mutation_default_instance_;
+class List_Terrain_Insert_Mutation;
+class List_Terrain_Insert_MutationDefaultTypeInternal;
+extern List_Terrain_Insert_MutationDefaultTypeInternal _List_Terrain_Insert_Mutation_default_instance_;
+class List_Terrain_Remove_Mutation;
+class List_Terrain_Remove_MutationDefaultTypeInternal;
+extern List_Terrain_Remove_MutationDefaultTypeInternal _List_Terrain_Remove_Mutation_default_instance_;
 class List_Vec2i_Insert_Mutation;
 class List_Vec2i_Insert_MutationDefaultTypeInternal;
 extern List_Vec2i_Insert_MutationDefaultTypeInternal _List_Vec2i_Insert_Mutation_default_instance_;
@@ -98,9 +98,9 @@ extern List_Vec2i_Remove_MutationDefaultTypeInternal _List_Vec2i_Remove_Mutation
 class Mutation;
 class MutationDefaultTypeInternal;
 extern MutationDefaultTypeInternal _Mutation_default_instance_;
-class Terrain_Type_Set_Mutation;
-class Terrain_Type_Set_MutationDefaultTypeInternal;
-extern Terrain_Type_Set_MutationDefaultTypeInternal _Terrain_Type_Set_Mutation_default_instance_;
+class Terrain_Set_Mutation;
+class Terrain_Set_MutationDefaultTypeInternal;
+extern Terrain_Set_MutationDefaultTypeInternal _Terrain_Set_Mutation_default_instance_;
 class Vec2i_Set_Mutation;
 class Vec2i_Set_MutationDefaultTypeInternal;
 extern Vec2i_Set_MutationDefaultTypeInternal _Vec2i_Set_Mutation_default_instance_;
@@ -115,12 +115,12 @@ template<> ::IvionOnline::List_Color_Insert_Mutation* Arena::CreateMaybeMessage<
 template<> ::IvionOnline::List_Color_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Color_Remove_Mutation>(Arena*);
 template<> ::IvionOnline::List_Integer_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Integer_Insert_Mutation>(Arena*);
 template<> ::IvionOnline::List_Integer_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Integer_Remove_Mutation>(Arena*);
-template<> ::IvionOnline::List_Terrain_Type_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain_Type_Insert_Mutation>(Arena*);
-template<> ::IvionOnline::List_Terrain_Type_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain_Type_Remove_Mutation>(Arena*);
+template<> ::IvionOnline::List_Terrain_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain_Insert_Mutation>(Arena*);
+template<> ::IvionOnline::List_Terrain_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain_Remove_Mutation>(Arena*);
 template<> ::IvionOnline::List_Vec2i_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Vec2i_Insert_Mutation>(Arena*);
 template<> ::IvionOnline::List_Vec2i_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Vec2i_Remove_Mutation>(Arena*);
 template<> ::IvionOnline::Mutation* Arena::CreateMaybeMessage<::IvionOnline::Mutation>(Arena*);
-template<> ::IvionOnline::Terrain_Type_Set_Mutation* Arena::CreateMaybeMessage<::IvionOnline::Terrain_Type_Set_Mutation>(Arena*);
+template<> ::IvionOnline::Terrain_Set_Mutation* Arena::CreateMaybeMessage<::IvionOnline::Terrain_Set_Mutation>(Arena*);
 template<> ::IvionOnline::Vec2i_Set_Mutation* Arena::CreateMaybeMessage<::IvionOnline::Vec2i_Set_Mutation>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace IvionOnline {
@@ -1738,23 +1738,23 @@ class List_Vec2i_Remove_Mutation PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Terrain_Type_Set_Mutation) */ {
+class Terrain_Set_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Terrain_Set_Mutation) */ {
  public:
-  inline Terrain_Type_Set_Mutation() : Terrain_Type_Set_Mutation(nullptr) {}
-  virtual ~Terrain_Type_Set_Mutation();
+  inline Terrain_Set_Mutation() : Terrain_Set_Mutation(nullptr) {}
+  virtual ~Terrain_Set_Mutation();
 
-  Terrain_Type_Set_Mutation(const Terrain_Type_Set_Mutation& from);
-  Terrain_Type_Set_Mutation(Terrain_Type_Set_Mutation&& from) noexcept
-    : Terrain_Type_Set_Mutation() {
+  Terrain_Set_Mutation(const Terrain_Set_Mutation& from);
+  Terrain_Set_Mutation(Terrain_Set_Mutation&& from) noexcept
+    : Terrain_Set_Mutation() {
     *this = ::std::move(from);
   }
 
-  inline Terrain_Type_Set_Mutation& operator=(const Terrain_Type_Set_Mutation& from) {
+  inline Terrain_Set_Mutation& operator=(const Terrain_Set_Mutation& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Terrain_Type_Set_Mutation& operator=(Terrain_Type_Set_Mutation&& from) noexcept {
+  inline Terrain_Set_Mutation& operator=(Terrain_Set_Mutation&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1772,19 +1772,19 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Terrain_Type_Set_Mutation& default_instance();
+  static const Terrain_Set_Mutation& default_instance();
 
-  static inline const Terrain_Type_Set_Mutation* internal_default_instance() {
-    return reinterpret_cast<const Terrain_Type_Set_Mutation*>(
-               &_Terrain_Type_Set_Mutation_default_instance_);
+  static inline const Terrain_Set_Mutation* internal_default_instance() {
+    return reinterpret_cast<const Terrain_Set_Mutation*>(
+               &_Terrain_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     9;
 
-  friend void swap(Terrain_Type_Set_Mutation& a, Terrain_Type_Set_Mutation& b) {
+  friend void swap(Terrain_Set_Mutation& a, Terrain_Set_Mutation& b) {
     a.Swap(&b);
   }
-  inline void Swap(Terrain_Type_Set_Mutation* other) {
+  inline void Swap(Terrain_Set_Mutation* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1792,7 +1792,7 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Terrain_Type_Set_Mutation* other) {
+  void UnsafeArenaSwap(Terrain_Set_Mutation* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1800,17 +1800,17 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline Terrain_Type_Set_Mutation* New() const final {
-    return CreateMaybeMessage<Terrain_Type_Set_Mutation>(nullptr);
+  inline Terrain_Set_Mutation* New() const final {
+    return CreateMaybeMessage<Terrain_Set_Mutation>(nullptr);
   }
 
-  Terrain_Type_Set_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Terrain_Type_Set_Mutation>(arena);
+  Terrain_Set_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Terrain_Set_Mutation>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Terrain_Type_Set_Mutation& from);
-  void MergeFrom(const Terrain_Type_Set_Mutation& from);
+  void CopyFrom(const Terrain_Set_Mutation& from);
+  void MergeFrom(const Terrain_Set_Mutation& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1824,13 +1824,13 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Terrain_Type_Set_Mutation* other);
+  void InternalSwap(Terrain_Set_Mutation* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.Terrain_Type_Set_Mutation";
+    return "IvionOnline.Terrain_Set_Mutation";
   }
   protected:
-  explicit Terrain_Type_Set_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit Terrain_Set_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -1872,25 +1872,43 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* path);
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
-  // .IvionOnline.Terrain_Type NewValue = 2;
+  // .IvionOnline.Terrain NewValue = 2;
+  bool has_newvalue() const;
+  private:
+  bool _internal_has_newvalue() const;
+  public:
   void clear_newvalue();
-  ::IvionOnline::Terrain_Type newvalue() const;
-  void set_newvalue(::IvionOnline::Terrain_Type value);
+  const ::IvionOnline::Terrain& newvalue() const;
+  ::IvionOnline::Terrain* release_newvalue();
+  ::IvionOnline::Terrain* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::Terrain* newvalue);
   private:
-  ::IvionOnline::Terrain_Type _internal_newvalue() const;
-  void _internal_set_newvalue(::IvionOnline::Terrain_Type value);
+  const ::IvionOnline::Terrain& _internal_newvalue() const;
+  ::IvionOnline::Terrain* _internal_mutable_newvalue();
   public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::Terrain* newvalue);
+  ::IvionOnline::Terrain* unsafe_arena_release_newvalue();
 
-  // .IvionOnline.Terrain_Type OldValue = 3;
+  // .IvionOnline.Terrain OldValue = 3;
+  bool has_oldvalue() const;
+  private:
+  bool _internal_has_oldvalue() const;
+  public:
   void clear_oldvalue();
-  ::IvionOnline::Terrain_Type oldvalue() const;
-  void set_oldvalue(::IvionOnline::Terrain_Type value);
+  const ::IvionOnline::Terrain& oldvalue() const;
+  ::IvionOnline::Terrain* release_oldvalue();
+  ::IvionOnline::Terrain* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::Terrain* oldvalue);
   private:
-  ::IvionOnline::Terrain_Type _internal_oldvalue() const;
-  void _internal_set_oldvalue(::IvionOnline::Terrain_Type value);
+  const ::IvionOnline::Terrain& _internal_oldvalue() const;
+  ::IvionOnline::Terrain* _internal_mutable_oldvalue();
   public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::Terrain* oldvalue);
+  ::IvionOnline::Terrain* unsafe_arena_release_oldvalue();
 
-  // @@protoc_insertion_point(class_scope:IvionOnline.Terrain_Type_Set_Mutation)
+  // @@protoc_insertion_point(class_scope:IvionOnline.Terrain_Set_Mutation)
  private:
   class _Internal;
 
@@ -1898,30 +1916,30 @@ class Terrain_Type_Set_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int newvalue_;
-  int oldvalue_;
+  ::IvionOnline::Terrain* newvalue_;
+  ::IvionOnline::Terrain* oldvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
 };
 // -------------------------------------------------------------------
 
-class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Terrain_Type_Insert_Mutation) */ {
+class List_Terrain_Insert_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Terrain_Insert_Mutation) */ {
  public:
-  inline List_Terrain_Type_Insert_Mutation() : List_Terrain_Type_Insert_Mutation(nullptr) {}
-  virtual ~List_Terrain_Type_Insert_Mutation();
+  inline List_Terrain_Insert_Mutation() : List_Terrain_Insert_Mutation(nullptr) {}
+  virtual ~List_Terrain_Insert_Mutation();
 
-  List_Terrain_Type_Insert_Mutation(const List_Terrain_Type_Insert_Mutation& from);
-  List_Terrain_Type_Insert_Mutation(List_Terrain_Type_Insert_Mutation&& from) noexcept
-    : List_Terrain_Type_Insert_Mutation() {
+  List_Terrain_Insert_Mutation(const List_Terrain_Insert_Mutation& from);
+  List_Terrain_Insert_Mutation(List_Terrain_Insert_Mutation&& from) noexcept
+    : List_Terrain_Insert_Mutation() {
     *this = ::std::move(from);
   }
 
-  inline List_Terrain_Type_Insert_Mutation& operator=(const List_Terrain_Type_Insert_Mutation& from) {
+  inline List_Terrain_Insert_Mutation& operator=(const List_Terrain_Insert_Mutation& from) {
     CopyFrom(from);
     return *this;
   }
-  inline List_Terrain_Type_Insert_Mutation& operator=(List_Terrain_Type_Insert_Mutation&& from) noexcept {
+  inline List_Terrain_Insert_Mutation& operator=(List_Terrain_Insert_Mutation&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -1939,19 +1957,19 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const List_Terrain_Type_Insert_Mutation& default_instance();
+  static const List_Terrain_Insert_Mutation& default_instance();
 
-  static inline const List_Terrain_Type_Insert_Mutation* internal_default_instance() {
-    return reinterpret_cast<const List_Terrain_Type_Insert_Mutation*>(
-               &_List_Terrain_Type_Insert_Mutation_default_instance_);
+  static inline const List_Terrain_Insert_Mutation* internal_default_instance() {
+    return reinterpret_cast<const List_Terrain_Insert_Mutation*>(
+               &_List_Terrain_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     10;
 
-  friend void swap(List_Terrain_Type_Insert_Mutation& a, List_Terrain_Type_Insert_Mutation& b) {
+  friend void swap(List_Terrain_Insert_Mutation& a, List_Terrain_Insert_Mutation& b) {
     a.Swap(&b);
   }
-  inline void Swap(List_Terrain_Type_Insert_Mutation* other) {
+  inline void Swap(List_Terrain_Insert_Mutation* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -1959,7 +1977,7 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(List_Terrain_Type_Insert_Mutation* other) {
+  void UnsafeArenaSwap(List_Terrain_Insert_Mutation* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1967,17 +1985,17 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline List_Terrain_Type_Insert_Mutation* New() const final {
-    return CreateMaybeMessage<List_Terrain_Type_Insert_Mutation>(nullptr);
+  inline List_Terrain_Insert_Mutation* New() const final {
+    return CreateMaybeMessage<List_Terrain_Insert_Mutation>(nullptr);
   }
 
-  List_Terrain_Type_Insert_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<List_Terrain_Type_Insert_Mutation>(arena);
+  List_Terrain_Insert_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Terrain_Insert_Mutation>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const List_Terrain_Type_Insert_Mutation& from);
-  void MergeFrom(const List_Terrain_Type_Insert_Mutation& from);
+  void CopyFrom(const List_Terrain_Insert_Mutation& from);
+  void MergeFrom(const List_Terrain_Insert_Mutation& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -1991,13 +2009,13 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(List_Terrain_Type_Insert_Mutation* other);
+  void InternalSwap(List_Terrain_Insert_Mutation* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.List_Terrain_Type_Insert_Mutation";
+    return "IvionOnline.List_Terrain_Insert_Mutation";
   }
   protected:
-  explicit List_Terrain_Type_Insert_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit List_Terrain_Insert_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2039,14 +2057,23 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* path);
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
-  // .IvionOnline.Terrain_Type NewValue = 2;
-  void clear_newvalue();
-  ::IvionOnline::Terrain_Type newvalue() const;
-  void set_newvalue(::IvionOnline::Terrain_Type value);
+  // .IvionOnline.Terrain NewValue = 2;
+  bool has_newvalue() const;
   private:
-  ::IvionOnline::Terrain_Type _internal_newvalue() const;
-  void _internal_set_newvalue(::IvionOnline::Terrain_Type value);
+  bool _internal_has_newvalue() const;
   public:
+  void clear_newvalue();
+  const ::IvionOnline::Terrain& newvalue() const;
+  ::IvionOnline::Terrain* release_newvalue();
+  ::IvionOnline::Terrain* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::Terrain* newvalue);
+  private:
+  const ::IvionOnline::Terrain& _internal_newvalue() const;
+  ::IvionOnline::Terrain* _internal_mutable_newvalue();
+  public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::Terrain* newvalue);
+  ::IvionOnline::Terrain* unsafe_arena_release_newvalue();
 
   // int32 Index = 3;
   void clear_index();
@@ -2057,7 +2084,7 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
   void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain_Type_Insert_Mutation)
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain_Insert_Mutation)
  private:
   class _Internal;
 
@@ -2065,30 +2092,30 @@ class List_Terrain_Type_Insert_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int newvalue_;
+  ::IvionOnline::Terrain* newvalue_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
 };
 // -------------------------------------------------------------------
 
-class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Terrain_Type_Remove_Mutation) */ {
+class List_Terrain_Remove_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Terrain_Remove_Mutation) */ {
  public:
-  inline List_Terrain_Type_Remove_Mutation() : List_Terrain_Type_Remove_Mutation(nullptr) {}
-  virtual ~List_Terrain_Type_Remove_Mutation();
+  inline List_Terrain_Remove_Mutation() : List_Terrain_Remove_Mutation(nullptr) {}
+  virtual ~List_Terrain_Remove_Mutation();
 
-  List_Terrain_Type_Remove_Mutation(const List_Terrain_Type_Remove_Mutation& from);
-  List_Terrain_Type_Remove_Mutation(List_Terrain_Type_Remove_Mutation&& from) noexcept
-    : List_Terrain_Type_Remove_Mutation() {
+  List_Terrain_Remove_Mutation(const List_Terrain_Remove_Mutation& from);
+  List_Terrain_Remove_Mutation(List_Terrain_Remove_Mutation&& from) noexcept
+    : List_Terrain_Remove_Mutation() {
     *this = ::std::move(from);
   }
 
-  inline List_Terrain_Type_Remove_Mutation& operator=(const List_Terrain_Type_Remove_Mutation& from) {
+  inline List_Terrain_Remove_Mutation& operator=(const List_Terrain_Remove_Mutation& from) {
     CopyFrom(from);
     return *this;
   }
-  inline List_Terrain_Type_Remove_Mutation& operator=(List_Terrain_Type_Remove_Mutation&& from) noexcept {
+  inline List_Terrain_Remove_Mutation& operator=(List_Terrain_Remove_Mutation&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2106,19 +2133,19 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const List_Terrain_Type_Remove_Mutation& default_instance();
+  static const List_Terrain_Remove_Mutation& default_instance();
 
-  static inline const List_Terrain_Type_Remove_Mutation* internal_default_instance() {
-    return reinterpret_cast<const List_Terrain_Type_Remove_Mutation*>(
-               &_List_Terrain_Type_Remove_Mutation_default_instance_);
+  static inline const List_Terrain_Remove_Mutation* internal_default_instance() {
+    return reinterpret_cast<const List_Terrain_Remove_Mutation*>(
+               &_List_Terrain_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     11;
 
-  friend void swap(List_Terrain_Type_Remove_Mutation& a, List_Terrain_Type_Remove_Mutation& b) {
+  friend void swap(List_Terrain_Remove_Mutation& a, List_Terrain_Remove_Mutation& b) {
     a.Swap(&b);
   }
-  inline void Swap(List_Terrain_Type_Remove_Mutation* other) {
+  inline void Swap(List_Terrain_Remove_Mutation* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -2126,7 +2153,7 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(List_Terrain_Type_Remove_Mutation* other) {
+  void UnsafeArenaSwap(List_Terrain_Remove_Mutation* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2134,17 +2161,17 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline List_Terrain_Type_Remove_Mutation* New() const final {
-    return CreateMaybeMessage<List_Terrain_Type_Remove_Mutation>(nullptr);
+  inline List_Terrain_Remove_Mutation* New() const final {
+    return CreateMaybeMessage<List_Terrain_Remove_Mutation>(nullptr);
   }
 
-  List_Terrain_Type_Remove_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<List_Terrain_Type_Remove_Mutation>(arena);
+  List_Terrain_Remove_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Terrain_Remove_Mutation>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const List_Terrain_Type_Remove_Mutation& from);
-  void MergeFrom(const List_Terrain_Type_Remove_Mutation& from);
+  void CopyFrom(const List_Terrain_Remove_Mutation& from);
+  void MergeFrom(const List_Terrain_Remove_Mutation& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -2158,13 +2185,13 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(List_Terrain_Type_Remove_Mutation* other);
+  void InternalSwap(List_Terrain_Remove_Mutation* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.List_Terrain_Type_Remove_Mutation";
+    return "IvionOnline.List_Terrain_Remove_Mutation";
   }
   protected:
-  explicit List_Terrain_Type_Remove_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit List_Terrain_Remove_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -2206,14 +2233,23 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* path);
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
-  // .IvionOnline.Terrain_Type OldValue = 2;
-  void clear_oldvalue();
-  ::IvionOnline::Terrain_Type oldvalue() const;
-  void set_oldvalue(::IvionOnline::Terrain_Type value);
+  // .IvionOnline.Terrain OldValue = 2;
+  bool has_oldvalue() const;
   private:
-  ::IvionOnline::Terrain_Type _internal_oldvalue() const;
-  void _internal_set_oldvalue(::IvionOnline::Terrain_Type value);
+  bool _internal_has_oldvalue() const;
   public:
+  void clear_oldvalue();
+  const ::IvionOnline::Terrain& oldvalue() const;
+  ::IvionOnline::Terrain* release_oldvalue();
+  ::IvionOnline::Terrain* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::Terrain* oldvalue);
+  private:
+  const ::IvionOnline::Terrain& _internal_oldvalue() const;
+  ::IvionOnline::Terrain* _internal_mutable_oldvalue();
+  public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::Terrain* oldvalue);
+  ::IvionOnline::Terrain* unsafe_arena_release_oldvalue();
 
   // int32 Index = 3;
   void clear_index();
@@ -2224,7 +2260,7 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
   void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain_Type_Remove_Mutation)
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain_Remove_Mutation)
  private:
   class _Internal;
 
@@ -2232,7 +2268,7 @@ class List_Terrain_Type_Remove_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int oldvalue_;
+  ::IvionOnline::Terrain* oldvalue_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
@@ -2374,22 +2410,40 @@ class Color_Set_Mutation PROTOBUF_FINAL :
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
   // .IvionOnline.Color NewValue = 2;
-  void clear_newvalue();
-  ::IvionOnline::Color newvalue() const;
-  void set_newvalue(::IvionOnline::Color value);
+  bool has_newvalue() const;
   private:
-  ::IvionOnline::Color _internal_newvalue() const;
-  void _internal_set_newvalue(::IvionOnline::Color value);
+  bool _internal_has_newvalue() const;
   public:
+  void clear_newvalue();
+  const ::IvionOnline::Color& newvalue() const;
+  ::IvionOnline::Color* release_newvalue();
+  ::IvionOnline::Color* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::Color* newvalue);
+  private:
+  const ::IvionOnline::Color& _internal_newvalue() const;
+  ::IvionOnline::Color* _internal_mutable_newvalue();
+  public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::Color* newvalue);
+  ::IvionOnline::Color* unsafe_arena_release_newvalue();
 
   // .IvionOnline.Color OldValue = 3;
-  void clear_oldvalue();
-  ::IvionOnline::Color oldvalue() const;
-  void set_oldvalue(::IvionOnline::Color value);
+  bool has_oldvalue() const;
   private:
-  ::IvionOnline::Color _internal_oldvalue() const;
-  void _internal_set_oldvalue(::IvionOnline::Color value);
+  bool _internal_has_oldvalue() const;
   public:
+  void clear_oldvalue();
+  const ::IvionOnline::Color& oldvalue() const;
+  ::IvionOnline::Color* release_oldvalue();
+  ::IvionOnline::Color* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::Color* oldvalue);
+  private:
+  const ::IvionOnline::Color& _internal_oldvalue() const;
+  ::IvionOnline::Color* _internal_mutable_oldvalue();
+  public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::Color* oldvalue);
+  ::IvionOnline::Color* unsafe_arena_release_oldvalue();
 
   // @@protoc_insertion_point(class_scope:IvionOnline.Color_Set_Mutation)
  private:
@@ -2399,8 +2453,8 @@ class Color_Set_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int newvalue_;
-  int oldvalue_;
+  ::IvionOnline::Color* newvalue_;
+  ::IvionOnline::Color* oldvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
 };
@@ -2541,13 +2595,22 @@ class List_Color_Insert_Mutation PROTOBUF_FINAL :
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
   // .IvionOnline.Color NewValue = 2;
-  void clear_newvalue();
-  ::IvionOnline::Color newvalue() const;
-  void set_newvalue(::IvionOnline::Color value);
+  bool has_newvalue() const;
   private:
-  ::IvionOnline::Color _internal_newvalue() const;
-  void _internal_set_newvalue(::IvionOnline::Color value);
+  bool _internal_has_newvalue() const;
   public:
+  void clear_newvalue();
+  const ::IvionOnline::Color& newvalue() const;
+  ::IvionOnline::Color* release_newvalue();
+  ::IvionOnline::Color* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::Color* newvalue);
+  private:
+  const ::IvionOnline::Color& _internal_newvalue() const;
+  ::IvionOnline::Color* _internal_mutable_newvalue();
+  public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::Color* newvalue);
+  ::IvionOnline::Color* unsafe_arena_release_newvalue();
 
   // int32 Index = 3;
   void clear_index();
@@ -2566,7 +2629,7 @@ class List_Color_Insert_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int newvalue_;
+  ::IvionOnline::Color* newvalue_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
@@ -2708,13 +2771,22 @@ class List_Color_Remove_Mutation PROTOBUF_FINAL :
   ::IvionOnline::ObjectPath* unsafe_arena_release_path();
 
   // .IvionOnline.Color OldValue = 2;
-  void clear_oldvalue();
-  ::IvionOnline::Color oldvalue() const;
-  void set_oldvalue(::IvionOnline::Color value);
+  bool has_oldvalue() const;
   private:
-  ::IvionOnline::Color _internal_oldvalue() const;
-  void _internal_set_oldvalue(::IvionOnline::Color value);
+  bool _internal_has_oldvalue() const;
   public:
+  void clear_oldvalue();
+  const ::IvionOnline::Color& oldvalue() const;
+  ::IvionOnline::Color* release_oldvalue();
+  ::IvionOnline::Color* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::Color* oldvalue);
+  private:
+  const ::IvionOnline::Color& _internal_oldvalue() const;
+  ::IvionOnline::Color* _internal_mutable_oldvalue();
+  public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::Color* oldvalue);
+  ::IvionOnline::Color* unsafe_arena_release_oldvalue();
 
   // int32 Index = 3;
   void clear_index();
@@ -2733,7 +2805,7 @@ class List_Color_Remove_Mutation PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* path_;
-  int oldvalue_;
+  ::IvionOnline::Color* oldvalue_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_Mutation_2eproto;
@@ -2786,9 +2858,9 @@ class Mutation PROTOBUF_FINAL :
     kVec2ISetMutation = 7,
     kListVec2IInsertMutation = 8,
     kListVec2IRemoveMutation = 9,
-    kTerrainTypeSetMutation = 10,
-    kListTerrainTypeInsertMutation = 11,
-    kListTerrainTypeRemoveMutation = 12,
+    kTerrainSetMutation = 10,
+    kListTerrainInsertMutation = 11,
+    kListTerrainRemoveMutation = 12,
     kColorSetMutation = 13,
     kListColorInsertMutation = 14,
     kListColorRemoveMutation = 15,
@@ -2880,9 +2952,9 @@ class Mutation PROTOBUF_FINAL :
     kVec2ISetMutationFieldNumber = 7,
     kListVec2IInsertMutationFieldNumber = 8,
     kListVec2IRemoveMutationFieldNumber = 9,
-    kTerrainTypeSetMutationFieldNumber = 10,
-    kListTerrainTypeInsertMutationFieldNumber = 11,
-    kListTerrainTypeRemoveMutationFieldNumber = 12,
+    kTerrainSetMutationFieldNumber = 10,
+    kListTerrainInsertMutationFieldNumber = 11,
+    kListTerrainRemoveMutationFieldNumber = 12,
     kColorSetMutationFieldNumber = 13,
     kListColorInsertMutationFieldNumber = 14,
     kListColorRemoveMutationFieldNumber = 15,
@@ -3049,59 +3121,59 @@ class Mutation PROTOBUF_FINAL :
       ::IvionOnline::List_Vec2i_Remove_Mutation* list_vec2i_remove_mutation);
   ::IvionOnline::List_Vec2i_Remove_Mutation* unsafe_arena_release_list_vec2i_remove_mutation();
 
-  // .IvionOnline.Terrain_Type_Set_Mutation Terrain_Type_Set_Mutation = 10;
-  bool has_terrain_type_set_mutation() const;
+  // .IvionOnline.Terrain_Set_Mutation Terrain_Set_Mutation = 10;
+  bool has_terrain_set_mutation() const;
   private:
-  bool _internal_has_terrain_type_set_mutation() const;
+  bool _internal_has_terrain_set_mutation() const;
   public:
-  void clear_terrain_type_set_mutation();
-  const ::IvionOnline::Terrain_Type_Set_Mutation& terrain_type_set_mutation() const;
-  ::IvionOnline::Terrain_Type_Set_Mutation* release_terrain_type_set_mutation();
-  ::IvionOnline::Terrain_Type_Set_Mutation* mutable_terrain_type_set_mutation();
-  void set_allocated_terrain_type_set_mutation(::IvionOnline::Terrain_Type_Set_Mutation* terrain_type_set_mutation);
+  void clear_terrain_set_mutation();
+  const ::IvionOnline::Terrain_Set_Mutation& terrain_set_mutation() const;
+  ::IvionOnline::Terrain_Set_Mutation* release_terrain_set_mutation();
+  ::IvionOnline::Terrain_Set_Mutation* mutable_terrain_set_mutation();
+  void set_allocated_terrain_set_mutation(::IvionOnline::Terrain_Set_Mutation* terrain_set_mutation);
   private:
-  const ::IvionOnline::Terrain_Type_Set_Mutation& _internal_terrain_type_set_mutation() const;
-  ::IvionOnline::Terrain_Type_Set_Mutation* _internal_mutable_terrain_type_set_mutation();
+  const ::IvionOnline::Terrain_Set_Mutation& _internal_terrain_set_mutation() const;
+  ::IvionOnline::Terrain_Set_Mutation* _internal_mutable_terrain_set_mutation();
   public:
-  void unsafe_arena_set_allocated_terrain_type_set_mutation(
-      ::IvionOnline::Terrain_Type_Set_Mutation* terrain_type_set_mutation);
-  ::IvionOnline::Terrain_Type_Set_Mutation* unsafe_arena_release_terrain_type_set_mutation();
+  void unsafe_arena_set_allocated_terrain_set_mutation(
+      ::IvionOnline::Terrain_Set_Mutation* terrain_set_mutation);
+  ::IvionOnline::Terrain_Set_Mutation* unsafe_arena_release_terrain_set_mutation();
 
-  // .IvionOnline.List_Terrain_Type_Insert_Mutation List_Terrain_Type_Insert_Mutation = 11;
-  bool has_list_terrain_type_insert_mutation() const;
+  // .IvionOnline.List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 11;
+  bool has_list_terrain_insert_mutation() const;
   private:
-  bool _internal_has_list_terrain_type_insert_mutation() const;
+  bool _internal_has_list_terrain_insert_mutation() const;
   public:
-  void clear_list_terrain_type_insert_mutation();
-  const ::IvionOnline::List_Terrain_Type_Insert_Mutation& list_terrain_type_insert_mutation() const;
-  ::IvionOnline::List_Terrain_Type_Insert_Mutation* release_list_terrain_type_insert_mutation();
-  ::IvionOnline::List_Terrain_Type_Insert_Mutation* mutable_list_terrain_type_insert_mutation();
-  void set_allocated_list_terrain_type_insert_mutation(::IvionOnline::List_Terrain_Type_Insert_Mutation* list_terrain_type_insert_mutation);
+  void clear_list_terrain_insert_mutation();
+  const ::IvionOnline::List_Terrain_Insert_Mutation& list_terrain_insert_mutation() const;
+  ::IvionOnline::List_Terrain_Insert_Mutation* release_list_terrain_insert_mutation();
+  ::IvionOnline::List_Terrain_Insert_Mutation* mutable_list_terrain_insert_mutation();
+  void set_allocated_list_terrain_insert_mutation(::IvionOnline::List_Terrain_Insert_Mutation* list_terrain_insert_mutation);
   private:
-  const ::IvionOnline::List_Terrain_Type_Insert_Mutation& _internal_list_terrain_type_insert_mutation() const;
-  ::IvionOnline::List_Terrain_Type_Insert_Mutation* _internal_mutable_list_terrain_type_insert_mutation();
+  const ::IvionOnline::List_Terrain_Insert_Mutation& _internal_list_terrain_insert_mutation() const;
+  ::IvionOnline::List_Terrain_Insert_Mutation* _internal_mutable_list_terrain_insert_mutation();
   public:
-  void unsafe_arena_set_allocated_list_terrain_type_insert_mutation(
-      ::IvionOnline::List_Terrain_Type_Insert_Mutation* list_terrain_type_insert_mutation);
-  ::IvionOnline::List_Terrain_Type_Insert_Mutation* unsafe_arena_release_list_terrain_type_insert_mutation();
+  void unsafe_arena_set_allocated_list_terrain_insert_mutation(
+      ::IvionOnline::List_Terrain_Insert_Mutation* list_terrain_insert_mutation);
+  ::IvionOnline::List_Terrain_Insert_Mutation* unsafe_arena_release_list_terrain_insert_mutation();
 
-  // .IvionOnline.List_Terrain_Type_Remove_Mutation List_Terrain_Type_Remove_Mutation = 12;
-  bool has_list_terrain_type_remove_mutation() const;
+  // .IvionOnline.List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 12;
+  bool has_list_terrain_remove_mutation() const;
   private:
-  bool _internal_has_list_terrain_type_remove_mutation() const;
+  bool _internal_has_list_terrain_remove_mutation() const;
   public:
-  void clear_list_terrain_type_remove_mutation();
-  const ::IvionOnline::List_Terrain_Type_Remove_Mutation& list_terrain_type_remove_mutation() const;
-  ::IvionOnline::List_Terrain_Type_Remove_Mutation* release_list_terrain_type_remove_mutation();
-  ::IvionOnline::List_Terrain_Type_Remove_Mutation* mutable_list_terrain_type_remove_mutation();
-  void set_allocated_list_terrain_type_remove_mutation(::IvionOnline::List_Terrain_Type_Remove_Mutation* list_terrain_type_remove_mutation);
+  void clear_list_terrain_remove_mutation();
+  const ::IvionOnline::List_Terrain_Remove_Mutation& list_terrain_remove_mutation() const;
+  ::IvionOnline::List_Terrain_Remove_Mutation* release_list_terrain_remove_mutation();
+  ::IvionOnline::List_Terrain_Remove_Mutation* mutable_list_terrain_remove_mutation();
+  void set_allocated_list_terrain_remove_mutation(::IvionOnline::List_Terrain_Remove_Mutation* list_terrain_remove_mutation);
   private:
-  const ::IvionOnline::List_Terrain_Type_Remove_Mutation& _internal_list_terrain_type_remove_mutation() const;
-  ::IvionOnline::List_Terrain_Type_Remove_Mutation* _internal_mutable_list_terrain_type_remove_mutation();
+  const ::IvionOnline::List_Terrain_Remove_Mutation& _internal_list_terrain_remove_mutation() const;
+  ::IvionOnline::List_Terrain_Remove_Mutation* _internal_mutable_list_terrain_remove_mutation();
   public:
-  void unsafe_arena_set_allocated_list_terrain_type_remove_mutation(
-      ::IvionOnline::List_Terrain_Type_Remove_Mutation* list_terrain_type_remove_mutation);
-  ::IvionOnline::List_Terrain_Type_Remove_Mutation* unsafe_arena_release_list_terrain_type_remove_mutation();
+  void unsafe_arena_set_allocated_list_terrain_remove_mutation(
+      ::IvionOnline::List_Terrain_Remove_Mutation* list_terrain_remove_mutation);
+  ::IvionOnline::List_Terrain_Remove_Mutation* unsafe_arena_release_list_terrain_remove_mutation();
 
   // .IvionOnline.Color_Set_Mutation Color_Set_Mutation = 13;
   bool has_color_set_mutation() const;
@@ -3171,9 +3243,9 @@ class Mutation PROTOBUF_FINAL :
   void set_has_vec2i_set_mutation();
   void set_has_list_vec2i_insert_mutation();
   void set_has_list_vec2i_remove_mutation();
-  void set_has_terrain_type_set_mutation();
-  void set_has_list_terrain_type_insert_mutation();
-  void set_has_list_terrain_type_remove_mutation();
+  void set_has_terrain_set_mutation();
+  void set_has_list_terrain_insert_mutation();
+  void set_has_list_terrain_remove_mutation();
   void set_has_color_set_mutation();
   void set_has_list_color_insert_mutation();
   void set_has_list_color_remove_mutation();
@@ -3195,9 +3267,9 @@ class Mutation PROTOBUF_FINAL :
     ::IvionOnline::Vec2i_Set_Mutation* vec2i_set_mutation_;
     ::IvionOnline::List_Vec2i_Insert_Mutation* list_vec2i_insert_mutation_;
     ::IvionOnline::List_Vec2i_Remove_Mutation* list_vec2i_remove_mutation_;
-    ::IvionOnline::Terrain_Type_Set_Mutation* terrain_type_set_mutation_;
-    ::IvionOnline::List_Terrain_Type_Insert_Mutation* list_terrain_type_insert_mutation_;
-    ::IvionOnline::List_Terrain_Type_Remove_Mutation* list_terrain_type_remove_mutation_;
+    ::IvionOnline::Terrain_Set_Mutation* terrain_set_mutation_;
+    ::IvionOnline::List_Terrain_Insert_Mutation* list_terrain_insert_mutation_;
+    ::IvionOnline::List_Terrain_Remove_Mutation* list_terrain_remove_mutation_;
     ::IvionOnline::Color_Set_Mutation* color_set_mutation_;
     ::IvionOnline::List_Color_Insert_Mutation* list_color_insert_mutation_;
     ::IvionOnline::List_Color_Remove_Mutation* list_color_remove_mutation_;
@@ -4989,25 +5061,25 @@ inline void List_Vec2i_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32
 
 // -------------------------------------------------------------------
 
-// Terrain_Type_Set_Mutation
+// Terrain_Set_Mutation
 
 // .IvionOnline.ObjectPath Path = 1;
-inline bool Terrain_Type_Set_Mutation::_internal_has_path() const {
+inline bool Terrain_Set_Mutation::_internal_has_path() const {
   return this != internal_default_instance() && path_ != nullptr;
 }
-inline bool Terrain_Type_Set_Mutation::has_path() const {
+inline bool Terrain_Set_Mutation::has_path() const {
   return _internal_has_path();
 }
-inline const ::IvionOnline::ObjectPath& Terrain_Type_Set_Mutation::_internal_path() const {
+inline const ::IvionOnline::ObjectPath& Terrain_Set_Mutation::_internal_path() const {
   const ::IvionOnline::ObjectPath* p = path_;
   return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
       ::IvionOnline::_ObjectPath_default_instance_);
 }
-inline const ::IvionOnline::ObjectPath& Terrain_Type_Set_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Type_Set_Mutation.Path)
+inline const ::IvionOnline::ObjectPath& Terrain_Set_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Set_Mutation.Path)
   return _internal_path();
 }
-inline void Terrain_Type_Set_Mutation::unsafe_arena_set_allocated_path(
+inline void Terrain_Set_Mutation::unsafe_arena_set_allocated_path(
     ::IvionOnline::ObjectPath* path) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5018,9 +5090,9 @@ inline void Terrain_Type_Set_Mutation::unsafe_arena_set_allocated_path(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Terrain_Type_Set_Mutation.Path)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Terrain_Set_Mutation.Path)
 }
-inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::release_path() {
+inline ::IvionOnline::ObjectPath* Terrain_Set_Mutation::release_path() {
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
@@ -5029,14 +5101,14 @@ inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::release_path() {
   }
   return temp;
 }
-inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Terrain_Type_Set_Mutation.Path)
+inline ::IvionOnline::ObjectPath* Terrain_Set_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Terrain_Set_Mutation.Path)
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
   return temp;
 }
-inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::_internal_mutable_path() {
+inline ::IvionOnline::ObjectPath* Terrain_Set_Mutation::_internal_mutable_path() {
   
   if (path_ == nullptr) {
     auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
@@ -5044,11 +5116,11 @@ inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::_internal_mutable_p
   }
   return path_;
 }
-inline ::IvionOnline::ObjectPath* Terrain_Type_Set_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain_Type_Set_Mutation.Path)
+inline ::IvionOnline::ObjectPath* Terrain_Set_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain_Set_Mutation.Path)
   return _internal_mutable_path();
 }
-inline void Terrain_Type_Set_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+inline void Terrain_Set_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5065,70 +5137,184 @@ inline void Terrain_Type_Set_Mutation::set_allocated_path(::IvionOnline::ObjectP
     
   }
   path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain_Type_Set_Mutation.Path)
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain_Set_Mutation.Path)
 }
 
-// .IvionOnline.Terrain_Type NewValue = 2;
-inline void Terrain_Type_Set_Mutation::clear_newvalue() {
-  newvalue_ = 0;
+// .IvionOnline.Terrain NewValue = 2;
+inline bool Terrain_Set_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
 }
-inline ::IvionOnline::Terrain_Type Terrain_Type_Set_Mutation::_internal_newvalue() const {
-  return static_cast< ::IvionOnline::Terrain_Type >(newvalue_);
+inline bool Terrain_Set_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
 }
-inline ::IvionOnline::Terrain_Type Terrain_Type_Set_Mutation::newvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Type_Set_Mutation.NewValue)
+inline const ::IvionOnline::Terrain& Terrain_Set_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::Terrain* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Terrain&>(
+      ::IvionOnline::_Terrain_default_instance_);
+}
+inline const ::IvionOnline::Terrain& Terrain_Set_Mutation::newvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Set_Mutation.NewValue)
   return _internal_newvalue();
 }
-inline void Terrain_Type_Set_Mutation::_internal_set_newvalue(::IvionOnline::Terrain_Type value) {
-  
-  newvalue_ = value;
+inline void Terrain_Set_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::Terrain* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Terrain_Set_Mutation.NewValue)
 }
-inline void Terrain_Type_Set_Mutation::set_newvalue(::IvionOnline::Terrain_Type value) {
-  _internal_set_newvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Terrain_Type_Set_Mutation.NewValue)
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::release_newvalue() {
+  
+  ::IvionOnline::Terrain* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Terrain_Set_Mutation.NewValue)
+  
+  ::IvionOnline::Terrain* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Terrain>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain_Set_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void Terrain_Set_Mutation::set_allocated_newvalue(::IvionOnline::Terrain* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain_Set_Mutation.NewValue)
 }
 
-// .IvionOnline.Terrain_Type OldValue = 3;
-inline void Terrain_Type_Set_Mutation::clear_oldvalue() {
-  oldvalue_ = 0;
+// .IvionOnline.Terrain OldValue = 3;
+inline bool Terrain_Set_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
 }
-inline ::IvionOnline::Terrain_Type Terrain_Type_Set_Mutation::_internal_oldvalue() const {
-  return static_cast< ::IvionOnline::Terrain_Type >(oldvalue_);
+inline bool Terrain_Set_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
 }
-inline ::IvionOnline::Terrain_Type Terrain_Type_Set_Mutation::oldvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Type_Set_Mutation.OldValue)
+inline const ::IvionOnline::Terrain& Terrain_Set_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::Terrain* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Terrain&>(
+      ::IvionOnline::_Terrain_default_instance_);
+}
+inline const ::IvionOnline::Terrain& Terrain_Set_Mutation::oldvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain_Set_Mutation.OldValue)
   return _internal_oldvalue();
 }
-inline void Terrain_Type_Set_Mutation::_internal_set_oldvalue(::IvionOnline::Terrain_Type value) {
-  
-  oldvalue_ = value;
+inline void Terrain_Set_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::Terrain* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Terrain_Set_Mutation.OldValue)
 }
-inline void Terrain_Type_Set_Mutation::set_oldvalue(::IvionOnline::Terrain_Type value) {
-  _internal_set_oldvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Terrain_Type_Set_Mutation.OldValue)
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::Terrain* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Terrain_Set_Mutation.OldValue)
+  
+  ::IvionOnline::Terrain* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Terrain>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::Terrain* Terrain_Set_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain_Set_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void Terrain_Set_Mutation::set_allocated_oldvalue(::IvionOnline::Terrain* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain_Set_Mutation.OldValue)
 }
 
 // -------------------------------------------------------------------
 
-// List_Terrain_Type_Insert_Mutation
+// List_Terrain_Insert_Mutation
 
 // .IvionOnline.ObjectPath Path = 1;
-inline bool List_Terrain_Type_Insert_Mutation::_internal_has_path() const {
+inline bool List_Terrain_Insert_Mutation::_internal_has_path() const {
   return this != internal_default_instance() && path_ != nullptr;
 }
-inline bool List_Terrain_Type_Insert_Mutation::has_path() const {
+inline bool List_Terrain_Insert_Mutation::has_path() const {
   return _internal_has_path();
 }
-inline const ::IvionOnline::ObjectPath& List_Terrain_Type_Insert_Mutation::_internal_path() const {
+inline const ::IvionOnline::ObjectPath& List_Terrain_Insert_Mutation::_internal_path() const {
   const ::IvionOnline::ObjectPath* p = path_;
   return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
       ::IvionOnline::_ObjectPath_default_instance_);
 }
-inline const ::IvionOnline::ObjectPath& List_Terrain_Type_Insert_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Insert_Mutation.Path)
+inline const ::IvionOnline::ObjectPath& List_Terrain_Insert_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Insert_Mutation.Path)
   return _internal_path();
 }
-inline void List_Terrain_Type_Insert_Mutation::unsafe_arena_set_allocated_path(
+inline void List_Terrain_Insert_Mutation::unsafe_arena_set_allocated_path(
     ::IvionOnline::ObjectPath* path) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5139,9 +5325,9 @@ inline void List_Terrain_Type_Insert_Mutation::unsafe_arena_set_allocated_path(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Type_Insert_Mutation.Path)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Insert_Mutation.Path)
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::release_path() {
+inline ::IvionOnline::ObjectPath* List_Terrain_Insert_Mutation::release_path() {
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
@@ -5150,14 +5336,14 @@ inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::release_pat
   }
   return temp;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Type_Insert_Mutation.Path)
+inline ::IvionOnline::ObjectPath* List_Terrain_Insert_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Insert_Mutation.Path)
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
   return temp;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::_internal_mutable_path() {
+inline ::IvionOnline::ObjectPath* List_Terrain_Insert_Mutation::_internal_mutable_path() {
   
   if (path_ == nullptr) {
     auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
@@ -5165,11 +5351,11 @@ inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::_internal_m
   }
   return path_;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Insert_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Type_Insert_Mutation.Path)
+inline ::IvionOnline::ObjectPath* List_Terrain_Insert_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Insert_Mutation.Path)
   return _internal_mutable_path();
 }
-inline void List_Terrain_Type_Insert_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+inline void List_Terrain_Insert_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5186,70 +5372,127 @@ inline void List_Terrain_Type_Insert_Mutation::set_allocated_path(::IvionOnline:
     
   }
   path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Type_Insert_Mutation.Path)
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Insert_Mutation.Path)
 }
 
-// .IvionOnline.Terrain_Type NewValue = 2;
-inline void List_Terrain_Type_Insert_Mutation::clear_newvalue() {
-  newvalue_ = 0;
+// .IvionOnline.Terrain NewValue = 2;
+inline bool List_Terrain_Insert_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
 }
-inline ::IvionOnline::Terrain_Type List_Terrain_Type_Insert_Mutation::_internal_newvalue() const {
-  return static_cast< ::IvionOnline::Terrain_Type >(newvalue_);
+inline bool List_Terrain_Insert_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
 }
-inline ::IvionOnline::Terrain_Type List_Terrain_Type_Insert_Mutation::newvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Insert_Mutation.NewValue)
+inline const ::IvionOnline::Terrain& List_Terrain_Insert_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::Terrain* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Terrain&>(
+      ::IvionOnline::_Terrain_default_instance_);
+}
+inline const ::IvionOnline::Terrain& List_Terrain_Insert_Mutation::newvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Insert_Mutation.NewValue)
   return _internal_newvalue();
 }
-inline void List_Terrain_Type_Insert_Mutation::_internal_set_newvalue(::IvionOnline::Terrain_Type value) {
-  
-  newvalue_ = value;
+inline void List_Terrain_Insert_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::Terrain* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Insert_Mutation.NewValue)
 }
-inline void List_Terrain_Type_Insert_Mutation::set_newvalue(::IvionOnline::Terrain_Type value) {
-  _internal_set_newvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Type_Insert_Mutation.NewValue)
+inline ::IvionOnline::Terrain* List_Terrain_Insert_Mutation::release_newvalue() {
+  
+  ::IvionOnline::Terrain* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Insert_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Insert_Mutation.NewValue)
+  
+  ::IvionOnline::Terrain* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Insert_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Terrain>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Insert_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Insert_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void List_Terrain_Insert_Mutation::set_allocated_newvalue(::IvionOnline::Terrain* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Insert_Mutation.NewValue)
 }
 
 // int32 Index = 3;
-inline void List_Terrain_Type_Insert_Mutation::clear_index() {
+inline void List_Terrain_Insert_Mutation::clear_index() {
   index_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Type_Insert_Mutation::_internal_index() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Insert_Mutation::_internal_index() const {
   return index_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Type_Insert_Mutation::index() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Insert_Mutation.Index)
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Insert_Mutation::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Insert_Mutation.Index)
   return _internal_index();
 }
-inline void List_Terrain_Type_Insert_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void List_Terrain_Insert_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   index_ = value;
 }
-inline void List_Terrain_Type_Insert_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void List_Terrain_Insert_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_index(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Type_Insert_Mutation.Index)
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Insert_Mutation.Index)
 }
 
 // -------------------------------------------------------------------
 
-// List_Terrain_Type_Remove_Mutation
+// List_Terrain_Remove_Mutation
 
 // .IvionOnline.ObjectPath Path = 1;
-inline bool List_Terrain_Type_Remove_Mutation::_internal_has_path() const {
+inline bool List_Terrain_Remove_Mutation::_internal_has_path() const {
   return this != internal_default_instance() && path_ != nullptr;
 }
-inline bool List_Terrain_Type_Remove_Mutation::has_path() const {
+inline bool List_Terrain_Remove_Mutation::has_path() const {
   return _internal_has_path();
 }
-inline const ::IvionOnline::ObjectPath& List_Terrain_Type_Remove_Mutation::_internal_path() const {
+inline const ::IvionOnline::ObjectPath& List_Terrain_Remove_Mutation::_internal_path() const {
   const ::IvionOnline::ObjectPath* p = path_;
   return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
       ::IvionOnline::_ObjectPath_default_instance_);
 }
-inline const ::IvionOnline::ObjectPath& List_Terrain_Type_Remove_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Remove_Mutation.Path)
+inline const ::IvionOnline::ObjectPath& List_Terrain_Remove_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Remove_Mutation.Path)
   return _internal_path();
 }
-inline void List_Terrain_Type_Remove_Mutation::unsafe_arena_set_allocated_path(
+inline void List_Terrain_Remove_Mutation::unsafe_arena_set_allocated_path(
     ::IvionOnline::ObjectPath* path) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5260,9 +5503,9 @@ inline void List_Terrain_Type_Remove_Mutation::unsafe_arena_set_allocated_path(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Type_Remove_Mutation.Path)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Remove_Mutation.Path)
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::release_path() {
+inline ::IvionOnline::ObjectPath* List_Terrain_Remove_Mutation::release_path() {
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
@@ -5271,14 +5514,14 @@ inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::release_pat
   }
   return temp;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Type_Remove_Mutation.Path)
+inline ::IvionOnline::ObjectPath* List_Terrain_Remove_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Remove_Mutation.Path)
   
   ::IvionOnline::ObjectPath* temp = path_;
   path_ = nullptr;
   return temp;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::_internal_mutable_path() {
+inline ::IvionOnline::ObjectPath* List_Terrain_Remove_Mutation::_internal_mutable_path() {
   
   if (path_ == nullptr) {
     auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
@@ -5286,11 +5529,11 @@ inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::_internal_m
   }
   return path_;
 }
-inline ::IvionOnline::ObjectPath* List_Terrain_Type_Remove_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Type_Remove_Mutation.Path)
+inline ::IvionOnline::ObjectPath* List_Terrain_Remove_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Remove_Mutation.Path)
   return _internal_mutable_path();
 }
-inline void List_Terrain_Type_Remove_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+inline void List_Terrain_Remove_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
@@ -5307,47 +5550,104 @@ inline void List_Terrain_Type_Remove_Mutation::set_allocated_path(::IvionOnline:
     
   }
   path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Type_Remove_Mutation.Path)
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Remove_Mutation.Path)
 }
 
-// .IvionOnline.Terrain_Type OldValue = 2;
-inline void List_Terrain_Type_Remove_Mutation::clear_oldvalue() {
-  oldvalue_ = 0;
+// .IvionOnline.Terrain OldValue = 2;
+inline bool List_Terrain_Remove_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
 }
-inline ::IvionOnline::Terrain_Type List_Terrain_Type_Remove_Mutation::_internal_oldvalue() const {
-  return static_cast< ::IvionOnline::Terrain_Type >(oldvalue_);
+inline bool List_Terrain_Remove_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
 }
-inline ::IvionOnline::Terrain_Type List_Terrain_Type_Remove_Mutation::oldvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Remove_Mutation.OldValue)
+inline const ::IvionOnline::Terrain& List_Terrain_Remove_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::Terrain* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Terrain&>(
+      ::IvionOnline::_Terrain_default_instance_);
+}
+inline const ::IvionOnline::Terrain& List_Terrain_Remove_Mutation::oldvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Remove_Mutation.OldValue)
   return _internal_oldvalue();
 }
-inline void List_Terrain_Type_Remove_Mutation::_internal_set_oldvalue(::IvionOnline::Terrain_Type value) {
-  
-  oldvalue_ = value;
+inline void List_Terrain_Remove_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::Terrain* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain_Remove_Mutation.OldValue)
 }
-inline void List_Terrain_Type_Remove_Mutation::set_oldvalue(::IvionOnline::Terrain_Type value) {
-  _internal_set_oldvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Type_Remove_Mutation.OldValue)
+inline ::IvionOnline::Terrain* List_Terrain_Remove_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::Terrain* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Remove_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain_Remove_Mutation.OldValue)
+  
+  ::IvionOnline::Terrain* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Remove_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Terrain>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::Terrain* List_Terrain_Remove_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain_Remove_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void List_Terrain_Remove_Mutation::set_allocated_oldvalue(::IvionOnline::Terrain* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain_Remove_Mutation.OldValue)
 }
 
 // int32 Index = 3;
-inline void List_Terrain_Type_Remove_Mutation::clear_index() {
+inline void List_Terrain_Remove_Mutation::clear_index() {
   index_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Type_Remove_Mutation::_internal_index() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Remove_Mutation::_internal_index() const {
   return index_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Type_Remove_Mutation::index() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Type_Remove_Mutation.Index)
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_Terrain_Remove_Mutation::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain_Remove_Mutation.Index)
   return _internal_index();
 }
-inline void List_Terrain_Type_Remove_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void List_Terrain_Remove_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   index_ = value;
 }
-inline void List_Terrain_Type_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void List_Terrain_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_index(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Type_Remove_Mutation.Index)
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain_Remove_Mutation.Index)
 }
 
 // -------------------------------------------------------------------
@@ -5432,43 +5732,157 @@ inline void Color_Set_Mutation::set_allocated_path(::IvionOnline::ObjectPath* pa
 }
 
 // .IvionOnline.Color NewValue = 2;
-inline void Color_Set_Mutation::clear_newvalue() {
-  newvalue_ = 0;
+inline bool Color_Set_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
 }
-inline ::IvionOnline::Color Color_Set_Mutation::_internal_newvalue() const {
-  return static_cast< ::IvionOnline::Color >(newvalue_);
+inline bool Color_Set_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
 }
-inline ::IvionOnline::Color Color_Set_Mutation::newvalue() const {
+inline const ::IvionOnline::Color& Color_Set_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::Color* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Color&>(
+      ::IvionOnline::_Color_default_instance_);
+}
+inline const ::IvionOnline::Color& Color_Set_Mutation::newvalue() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Color_Set_Mutation.NewValue)
   return _internal_newvalue();
 }
-inline void Color_Set_Mutation::_internal_set_newvalue(::IvionOnline::Color value) {
-  
-  newvalue_ = value;
+inline void Color_Set_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::Color* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Color_Set_Mutation.NewValue)
 }
-inline void Color_Set_Mutation::set_newvalue(::IvionOnline::Color value) {
-  _internal_set_newvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Color_Set_Mutation.NewValue)
+inline ::IvionOnline::Color* Color_Set_Mutation::release_newvalue() {
+  
+  ::IvionOnline::Color* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Color_Set_Mutation.NewValue)
+  
+  ::IvionOnline::Color* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Color>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Color_Set_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void Color_Set_Mutation::set_allocated_newvalue(::IvionOnline::Color* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Color_Set_Mutation.NewValue)
 }
 
 // .IvionOnline.Color OldValue = 3;
-inline void Color_Set_Mutation::clear_oldvalue() {
-  oldvalue_ = 0;
+inline bool Color_Set_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
 }
-inline ::IvionOnline::Color Color_Set_Mutation::_internal_oldvalue() const {
-  return static_cast< ::IvionOnline::Color >(oldvalue_);
+inline bool Color_Set_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
 }
-inline ::IvionOnline::Color Color_Set_Mutation::oldvalue() const {
+inline const ::IvionOnline::Color& Color_Set_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::Color* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Color&>(
+      ::IvionOnline::_Color_default_instance_);
+}
+inline const ::IvionOnline::Color& Color_Set_Mutation::oldvalue() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Color_Set_Mutation.OldValue)
   return _internal_oldvalue();
 }
-inline void Color_Set_Mutation::_internal_set_oldvalue(::IvionOnline::Color value) {
-  
-  oldvalue_ = value;
+inline void Color_Set_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::Color* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Color_Set_Mutation.OldValue)
 }
-inline void Color_Set_Mutation::set_oldvalue(::IvionOnline::Color value) {
-  _internal_set_oldvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Color_Set_Mutation.OldValue)
+inline ::IvionOnline::Color* Color_Set_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::Color* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Color_Set_Mutation.OldValue)
+  
+  ::IvionOnline::Color* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Color>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::Color* Color_Set_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Color_Set_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void Color_Set_Mutation::set_allocated_oldvalue(::IvionOnline::Color* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Color_Set_Mutation.OldValue)
 }
 
 // -------------------------------------------------------------------
@@ -5553,23 +5967,80 @@ inline void List_Color_Insert_Mutation::set_allocated_path(::IvionOnline::Object
 }
 
 // .IvionOnline.Color NewValue = 2;
-inline void List_Color_Insert_Mutation::clear_newvalue() {
-  newvalue_ = 0;
+inline bool List_Color_Insert_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
 }
-inline ::IvionOnline::Color List_Color_Insert_Mutation::_internal_newvalue() const {
-  return static_cast< ::IvionOnline::Color >(newvalue_);
+inline bool List_Color_Insert_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
 }
-inline ::IvionOnline::Color List_Color_Insert_Mutation::newvalue() const {
+inline const ::IvionOnline::Color& List_Color_Insert_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::Color* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Color&>(
+      ::IvionOnline::_Color_default_instance_);
+}
+inline const ::IvionOnline::Color& List_Color_Insert_Mutation::newvalue() const {
   // @@protoc_insertion_point(field_get:IvionOnline.List_Color_Insert_Mutation.NewValue)
   return _internal_newvalue();
 }
-inline void List_Color_Insert_Mutation::_internal_set_newvalue(::IvionOnline::Color value) {
-  
-  newvalue_ = value;
+inline void List_Color_Insert_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::Color* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Color_Insert_Mutation.NewValue)
 }
-inline void List_Color_Insert_Mutation::set_newvalue(::IvionOnline::Color value) {
-  _internal_set_newvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Color_Insert_Mutation.NewValue)
+inline ::IvionOnline::Color* List_Color_Insert_Mutation::release_newvalue() {
+  
+  ::IvionOnline::Color* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Color* List_Color_Insert_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Color_Insert_Mutation.NewValue)
+  
+  ::IvionOnline::Color* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Color* List_Color_Insert_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Color>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::Color* List_Color_Insert_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color_Insert_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void List_Color_Insert_Mutation::set_allocated_newvalue(::IvionOnline::Color* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Color_Insert_Mutation.NewValue)
 }
 
 // int32 Index = 3;
@@ -5674,23 +6145,80 @@ inline void List_Color_Remove_Mutation::set_allocated_path(::IvionOnline::Object
 }
 
 // .IvionOnline.Color OldValue = 2;
-inline void List_Color_Remove_Mutation::clear_oldvalue() {
-  oldvalue_ = 0;
+inline bool List_Color_Remove_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
 }
-inline ::IvionOnline::Color List_Color_Remove_Mutation::_internal_oldvalue() const {
-  return static_cast< ::IvionOnline::Color >(oldvalue_);
+inline bool List_Color_Remove_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
 }
-inline ::IvionOnline::Color List_Color_Remove_Mutation::oldvalue() const {
+inline const ::IvionOnline::Color& List_Color_Remove_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::Color* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Color&>(
+      ::IvionOnline::_Color_default_instance_);
+}
+inline const ::IvionOnline::Color& List_Color_Remove_Mutation::oldvalue() const {
   // @@protoc_insertion_point(field_get:IvionOnline.List_Color_Remove_Mutation.OldValue)
   return _internal_oldvalue();
 }
-inline void List_Color_Remove_Mutation::_internal_set_oldvalue(::IvionOnline::Color value) {
-  
-  oldvalue_ = value;
+inline void List_Color_Remove_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::Color* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Color_Remove_Mutation.OldValue)
 }
-inline void List_Color_Remove_Mutation::set_oldvalue(::IvionOnline::Color value) {
-  _internal_set_oldvalue(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_Color_Remove_Mutation.OldValue)
+inline ::IvionOnline::Color* List_Color_Remove_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::Color* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Color* List_Color_Remove_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Color_Remove_Mutation.OldValue)
+  
+  ::IvionOnline::Color* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Color* List_Color_Remove_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Color>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::Color* List_Color_Remove_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color_Remove_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void List_Color_Remove_Mutation::set_allocated_oldvalue(::IvionOnline::Color* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue)->GetArena();
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Color_Remove_Mutation.OldValue)
 }
 
 // int32 Index = 3;
@@ -6374,223 +6902,223 @@ inline ::IvionOnline::List_Vec2i_Remove_Mutation* Mutation::mutable_list_vec2i_r
   return _internal_mutable_list_vec2i_remove_mutation();
 }
 
-// .IvionOnline.Terrain_Type_Set_Mutation Terrain_Type_Set_Mutation = 10;
-inline bool Mutation::_internal_has_terrain_type_set_mutation() const {
-  return mut_case() == kTerrainTypeSetMutation;
+// .IvionOnline.Terrain_Set_Mutation Terrain_Set_Mutation = 10;
+inline bool Mutation::_internal_has_terrain_set_mutation() const {
+  return mut_case() == kTerrainSetMutation;
 }
-inline bool Mutation::has_terrain_type_set_mutation() const {
-  return _internal_has_terrain_type_set_mutation();
+inline bool Mutation::has_terrain_set_mutation() const {
+  return _internal_has_terrain_set_mutation();
 }
-inline void Mutation::set_has_terrain_type_set_mutation() {
-  _oneof_case_[0] = kTerrainTypeSetMutation;
+inline void Mutation::set_has_terrain_set_mutation() {
+  _oneof_case_[0] = kTerrainSetMutation;
 }
-inline void Mutation::clear_terrain_type_set_mutation() {
-  if (_internal_has_terrain_type_set_mutation()) {
+inline void Mutation::clear_terrain_set_mutation() {
+  if (_internal_has_terrain_set_mutation()) {
     if (GetArena() == nullptr) {
-      delete mut_.terrain_type_set_mutation_;
+      delete mut_.terrain_set_mutation_;
     }
     clear_has_mut();
   }
 }
-inline ::IvionOnline::Terrain_Type_Set_Mutation* Mutation::release_terrain_type_set_mutation() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.Terrain_Type_Set_Mutation)
-  if (_internal_has_terrain_type_set_mutation()) {
+inline ::IvionOnline::Terrain_Set_Mutation* Mutation::release_terrain_set_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.Terrain_Set_Mutation)
+  if (_internal_has_terrain_set_mutation()) {
     clear_has_mut();
-      ::IvionOnline::Terrain_Type_Set_Mutation* temp = mut_.terrain_type_set_mutation_;
+      ::IvionOnline::Terrain_Set_Mutation* temp = mut_.terrain_set_mutation_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    mut_.terrain_type_set_mutation_ = nullptr;
+    mut_.terrain_set_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::IvionOnline::Terrain_Type_Set_Mutation& Mutation::_internal_terrain_type_set_mutation() const {
-  return _internal_has_terrain_type_set_mutation()
-      ? *mut_.terrain_type_set_mutation_
-      : reinterpret_cast< ::IvionOnline::Terrain_Type_Set_Mutation&>(::IvionOnline::_Terrain_Type_Set_Mutation_default_instance_);
+inline const ::IvionOnline::Terrain_Set_Mutation& Mutation::_internal_terrain_set_mutation() const {
+  return _internal_has_terrain_set_mutation()
+      ? *mut_.terrain_set_mutation_
+      : reinterpret_cast< ::IvionOnline::Terrain_Set_Mutation&>(::IvionOnline::_Terrain_Set_Mutation_default_instance_);
 }
-inline const ::IvionOnline::Terrain_Type_Set_Mutation& Mutation::terrain_type_set_mutation() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.Terrain_Type_Set_Mutation)
-  return _internal_terrain_type_set_mutation();
+inline const ::IvionOnline::Terrain_Set_Mutation& Mutation::terrain_set_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.Terrain_Set_Mutation)
+  return _internal_terrain_set_mutation();
 }
-inline ::IvionOnline::Terrain_Type_Set_Mutation* Mutation::unsafe_arena_release_terrain_type_set_mutation() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.Terrain_Type_Set_Mutation)
-  if (_internal_has_terrain_type_set_mutation()) {
+inline ::IvionOnline::Terrain_Set_Mutation* Mutation::unsafe_arena_release_terrain_set_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.Terrain_Set_Mutation)
+  if (_internal_has_terrain_set_mutation()) {
     clear_has_mut();
-    ::IvionOnline::Terrain_Type_Set_Mutation* temp = mut_.terrain_type_set_mutation_;
-    mut_.terrain_type_set_mutation_ = nullptr;
+    ::IvionOnline::Terrain_Set_Mutation* temp = mut_.terrain_set_mutation_;
+    mut_.terrain_set_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void Mutation::unsafe_arena_set_allocated_terrain_type_set_mutation(::IvionOnline::Terrain_Type_Set_Mutation* terrain_type_set_mutation) {
+inline void Mutation::unsafe_arena_set_allocated_terrain_set_mutation(::IvionOnline::Terrain_Set_Mutation* terrain_set_mutation) {
   clear_mut();
-  if (terrain_type_set_mutation) {
-    set_has_terrain_type_set_mutation();
-    mut_.terrain_type_set_mutation_ = terrain_type_set_mutation;
+  if (terrain_set_mutation) {
+    set_has_terrain_set_mutation();
+    mut_.terrain_set_mutation_ = terrain_set_mutation;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.Terrain_Type_Set_Mutation)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.Terrain_Set_Mutation)
 }
-inline ::IvionOnline::Terrain_Type_Set_Mutation* Mutation::_internal_mutable_terrain_type_set_mutation() {
-  if (!_internal_has_terrain_type_set_mutation()) {
+inline ::IvionOnline::Terrain_Set_Mutation* Mutation::_internal_mutable_terrain_set_mutation() {
+  if (!_internal_has_terrain_set_mutation()) {
     clear_mut();
-    set_has_terrain_type_set_mutation();
-    mut_.terrain_type_set_mutation_ = CreateMaybeMessage< ::IvionOnline::Terrain_Type_Set_Mutation >(GetArena());
+    set_has_terrain_set_mutation();
+    mut_.terrain_set_mutation_ = CreateMaybeMessage< ::IvionOnline::Terrain_Set_Mutation >(GetArena());
   }
-  return mut_.terrain_type_set_mutation_;
+  return mut_.terrain_set_mutation_;
 }
-inline ::IvionOnline::Terrain_Type_Set_Mutation* Mutation::mutable_terrain_type_set_mutation() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.Terrain_Type_Set_Mutation)
-  return _internal_mutable_terrain_type_set_mutation();
+inline ::IvionOnline::Terrain_Set_Mutation* Mutation::mutable_terrain_set_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.Terrain_Set_Mutation)
+  return _internal_mutable_terrain_set_mutation();
 }
 
-// .IvionOnline.List_Terrain_Type_Insert_Mutation List_Terrain_Type_Insert_Mutation = 11;
-inline bool Mutation::_internal_has_list_terrain_type_insert_mutation() const {
-  return mut_case() == kListTerrainTypeInsertMutation;
+// .IvionOnline.List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 11;
+inline bool Mutation::_internal_has_list_terrain_insert_mutation() const {
+  return mut_case() == kListTerrainInsertMutation;
 }
-inline bool Mutation::has_list_terrain_type_insert_mutation() const {
-  return _internal_has_list_terrain_type_insert_mutation();
+inline bool Mutation::has_list_terrain_insert_mutation() const {
+  return _internal_has_list_terrain_insert_mutation();
 }
-inline void Mutation::set_has_list_terrain_type_insert_mutation() {
-  _oneof_case_[0] = kListTerrainTypeInsertMutation;
+inline void Mutation::set_has_list_terrain_insert_mutation() {
+  _oneof_case_[0] = kListTerrainInsertMutation;
 }
-inline void Mutation::clear_list_terrain_type_insert_mutation() {
-  if (_internal_has_list_terrain_type_insert_mutation()) {
+inline void Mutation::clear_list_terrain_insert_mutation() {
+  if (_internal_has_list_terrain_insert_mutation()) {
     if (GetArena() == nullptr) {
-      delete mut_.list_terrain_type_insert_mutation_;
+      delete mut_.list_terrain_insert_mutation_;
     }
     clear_has_mut();
   }
 }
-inline ::IvionOnline::List_Terrain_Type_Insert_Mutation* Mutation::release_list_terrain_type_insert_mutation() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_Terrain_Type_Insert_Mutation)
-  if (_internal_has_list_terrain_type_insert_mutation()) {
+inline ::IvionOnline::List_Terrain_Insert_Mutation* Mutation::release_list_terrain_insert_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_Terrain_Insert_Mutation)
+  if (_internal_has_list_terrain_insert_mutation()) {
     clear_has_mut();
-      ::IvionOnline::List_Terrain_Type_Insert_Mutation* temp = mut_.list_terrain_type_insert_mutation_;
+      ::IvionOnline::List_Terrain_Insert_Mutation* temp = mut_.list_terrain_insert_mutation_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    mut_.list_terrain_type_insert_mutation_ = nullptr;
+    mut_.list_terrain_insert_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::IvionOnline::List_Terrain_Type_Insert_Mutation& Mutation::_internal_list_terrain_type_insert_mutation() const {
-  return _internal_has_list_terrain_type_insert_mutation()
-      ? *mut_.list_terrain_type_insert_mutation_
-      : reinterpret_cast< ::IvionOnline::List_Terrain_Type_Insert_Mutation&>(::IvionOnline::_List_Terrain_Type_Insert_Mutation_default_instance_);
+inline const ::IvionOnline::List_Terrain_Insert_Mutation& Mutation::_internal_list_terrain_insert_mutation() const {
+  return _internal_has_list_terrain_insert_mutation()
+      ? *mut_.list_terrain_insert_mutation_
+      : reinterpret_cast< ::IvionOnline::List_Terrain_Insert_Mutation&>(::IvionOnline::_List_Terrain_Insert_Mutation_default_instance_);
 }
-inline const ::IvionOnline::List_Terrain_Type_Insert_Mutation& Mutation::list_terrain_type_insert_mutation() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_Terrain_Type_Insert_Mutation)
-  return _internal_list_terrain_type_insert_mutation();
+inline const ::IvionOnline::List_Terrain_Insert_Mutation& Mutation::list_terrain_insert_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_Terrain_Insert_Mutation)
+  return _internal_list_terrain_insert_mutation();
 }
-inline ::IvionOnline::List_Terrain_Type_Insert_Mutation* Mutation::unsafe_arena_release_list_terrain_type_insert_mutation() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_Terrain_Type_Insert_Mutation)
-  if (_internal_has_list_terrain_type_insert_mutation()) {
+inline ::IvionOnline::List_Terrain_Insert_Mutation* Mutation::unsafe_arena_release_list_terrain_insert_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_Terrain_Insert_Mutation)
+  if (_internal_has_list_terrain_insert_mutation()) {
     clear_has_mut();
-    ::IvionOnline::List_Terrain_Type_Insert_Mutation* temp = mut_.list_terrain_type_insert_mutation_;
-    mut_.list_terrain_type_insert_mutation_ = nullptr;
+    ::IvionOnline::List_Terrain_Insert_Mutation* temp = mut_.list_terrain_insert_mutation_;
+    mut_.list_terrain_insert_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void Mutation::unsafe_arena_set_allocated_list_terrain_type_insert_mutation(::IvionOnline::List_Terrain_Type_Insert_Mutation* list_terrain_type_insert_mutation) {
+inline void Mutation::unsafe_arena_set_allocated_list_terrain_insert_mutation(::IvionOnline::List_Terrain_Insert_Mutation* list_terrain_insert_mutation) {
   clear_mut();
-  if (list_terrain_type_insert_mutation) {
-    set_has_list_terrain_type_insert_mutation();
-    mut_.list_terrain_type_insert_mutation_ = list_terrain_type_insert_mutation;
+  if (list_terrain_insert_mutation) {
+    set_has_list_terrain_insert_mutation();
+    mut_.list_terrain_insert_mutation_ = list_terrain_insert_mutation;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_Terrain_Type_Insert_Mutation)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_Terrain_Insert_Mutation)
 }
-inline ::IvionOnline::List_Terrain_Type_Insert_Mutation* Mutation::_internal_mutable_list_terrain_type_insert_mutation() {
-  if (!_internal_has_list_terrain_type_insert_mutation()) {
+inline ::IvionOnline::List_Terrain_Insert_Mutation* Mutation::_internal_mutable_list_terrain_insert_mutation() {
+  if (!_internal_has_list_terrain_insert_mutation()) {
     clear_mut();
-    set_has_list_terrain_type_insert_mutation();
-    mut_.list_terrain_type_insert_mutation_ = CreateMaybeMessage< ::IvionOnline::List_Terrain_Type_Insert_Mutation >(GetArena());
+    set_has_list_terrain_insert_mutation();
+    mut_.list_terrain_insert_mutation_ = CreateMaybeMessage< ::IvionOnline::List_Terrain_Insert_Mutation >(GetArena());
   }
-  return mut_.list_terrain_type_insert_mutation_;
+  return mut_.list_terrain_insert_mutation_;
 }
-inline ::IvionOnline::List_Terrain_Type_Insert_Mutation* Mutation::mutable_list_terrain_type_insert_mutation() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_Terrain_Type_Insert_Mutation)
-  return _internal_mutable_list_terrain_type_insert_mutation();
+inline ::IvionOnline::List_Terrain_Insert_Mutation* Mutation::mutable_list_terrain_insert_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_Terrain_Insert_Mutation)
+  return _internal_mutable_list_terrain_insert_mutation();
 }
 
-// .IvionOnline.List_Terrain_Type_Remove_Mutation List_Terrain_Type_Remove_Mutation = 12;
-inline bool Mutation::_internal_has_list_terrain_type_remove_mutation() const {
-  return mut_case() == kListTerrainTypeRemoveMutation;
+// .IvionOnline.List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 12;
+inline bool Mutation::_internal_has_list_terrain_remove_mutation() const {
+  return mut_case() == kListTerrainRemoveMutation;
 }
-inline bool Mutation::has_list_terrain_type_remove_mutation() const {
-  return _internal_has_list_terrain_type_remove_mutation();
+inline bool Mutation::has_list_terrain_remove_mutation() const {
+  return _internal_has_list_terrain_remove_mutation();
 }
-inline void Mutation::set_has_list_terrain_type_remove_mutation() {
-  _oneof_case_[0] = kListTerrainTypeRemoveMutation;
+inline void Mutation::set_has_list_terrain_remove_mutation() {
+  _oneof_case_[0] = kListTerrainRemoveMutation;
 }
-inline void Mutation::clear_list_terrain_type_remove_mutation() {
-  if (_internal_has_list_terrain_type_remove_mutation()) {
+inline void Mutation::clear_list_terrain_remove_mutation() {
+  if (_internal_has_list_terrain_remove_mutation()) {
     if (GetArena() == nullptr) {
-      delete mut_.list_terrain_type_remove_mutation_;
+      delete mut_.list_terrain_remove_mutation_;
     }
     clear_has_mut();
   }
 }
-inline ::IvionOnline::List_Terrain_Type_Remove_Mutation* Mutation::release_list_terrain_type_remove_mutation() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_Terrain_Type_Remove_Mutation)
-  if (_internal_has_list_terrain_type_remove_mutation()) {
+inline ::IvionOnline::List_Terrain_Remove_Mutation* Mutation::release_list_terrain_remove_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_Terrain_Remove_Mutation)
+  if (_internal_has_list_terrain_remove_mutation()) {
     clear_has_mut();
-      ::IvionOnline::List_Terrain_Type_Remove_Mutation* temp = mut_.list_terrain_type_remove_mutation_;
+      ::IvionOnline::List_Terrain_Remove_Mutation* temp = mut_.list_terrain_remove_mutation_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    mut_.list_terrain_type_remove_mutation_ = nullptr;
+    mut_.list_terrain_remove_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::IvionOnline::List_Terrain_Type_Remove_Mutation& Mutation::_internal_list_terrain_type_remove_mutation() const {
-  return _internal_has_list_terrain_type_remove_mutation()
-      ? *mut_.list_terrain_type_remove_mutation_
-      : reinterpret_cast< ::IvionOnline::List_Terrain_Type_Remove_Mutation&>(::IvionOnline::_List_Terrain_Type_Remove_Mutation_default_instance_);
+inline const ::IvionOnline::List_Terrain_Remove_Mutation& Mutation::_internal_list_terrain_remove_mutation() const {
+  return _internal_has_list_terrain_remove_mutation()
+      ? *mut_.list_terrain_remove_mutation_
+      : reinterpret_cast< ::IvionOnline::List_Terrain_Remove_Mutation&>(::IvionOnline::_List_Terrain_Remove_Mutation_default_instance_);
 }
-inline const ::IvionOnline::List_Terrain_Type_Remove_Mutation& Mutation::list_terrain_type_remove_mutation() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_Terrain_Type_Remove_Mutation)
-  return _internal_list_terrain_type_remove_mutation();
+inline const ::IvionOnline::List_Terrain_Remove_Mutation& Mutation::list_terrain_remove_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_Terrain_Remove_Mutation)
+  return _internal_list_terrain_remove_mutation();
 }
-inline ::IvionOnline::List_Terrain_Type_Remove_Mutation* Mutation::unsafe_arena_release_list_terrain_type_remove_mutation() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_Terrain_Type_Remove_Mutation)
-  if (_internal_has_list_terrain_type_remove_mutation()) {
+inline ::IvionOnline::List_Terrain_Remove_Mutation* Mutation::unsafe_arena_release_list_terrain_remove_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_Terrain_Remove_Mutation)
+  if (_internal_has_list_terrain_remove_mutation()) {
     clear_has_mut();
-    ::IvionOnline::List_Terrain_Type_Remove_Mutation* temp = mut_.list_terrain_type_remove_mutation_;
-    mut_.list_terrain_type_remove_mutation_ = nullptr;
+    ::IvionOnline::List_Terrain_Remove_Mutation* temp = mut_.list_terrain_remove_mutation_;
+    mut_.list_terrain_remove_mutation_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void Mutation::unsafe_arena_set_allocated_list_terrain_type_remove_mutation(::IvionOnline::List_Terrain_Type_Remove_Mutation* list_terrain_type_remove_mutation) {
+inline void Mutation::unsafe_arena_set_allocated_list_terrain_remove_mutation(::IvionOnline::List_Terrain_Remove_Mutation* list_terrain_remove_mutation) {
   clear_mut();
-  if (list_terrain_type_remove_mutation) {
-    set_has_list_terrain_type_remove_mutation();
-    mut_.list_terrain_type_remove_mutation_ = list_terrain_type_remove_mutation;
+  if (list_terrain_remove_mutation) {
+    set_has_list_terrain_remove_mutation();
+    mut_.list_terrain_remove_mutation_ = list_terrain_remove_mutation;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_Terrain_Type_Remove_Mutation)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_Terrain_Remove_Mutation)
 }
-inline ::IvionOnline::List_Terrain_Type_Remove_Mutation* Mutation::_internal_mutable_list_terrain_type_remove_mutation() {
-  if (!_internal_has_list_terrain_type_remove_mutation()) {
+inline ::IvionOnline::List_Terrain_Remove_Mutation* Mutation::_internal_mutable_list_terrain_remove_mutation() {
+  if (!_internal_has_list_terrain_remove_mutation()) {
     clear_mut();
-    set_has_list_terrain_type_remove_mutation();
-    mut_.list_terrain_type_remove_mutation_ = CreateMaybeMessage< ::IvionOnline::List_Terrain_Type_Remove_Mutation >(GetArena());
+    set_has_list_terrain_remove_mutation();
+    mut_.list_terrain_remove_mutation_ = CreateMaybeMessage< ::IvionOnline::List_Terrain_Remove_Mutation >(GetArena());
   }
-  return mut_.list_terrain_type_remove_mutation_;
+  return mut_.list_terrain_remove_mutation_;
 }
-inline ::IvionOnline::List_Terrain_Type_Remove_Mutation* Mutation::mutable_list_terrain_type_remove_mutation() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_Terrain_Type_Remove_Mutation)
-  return _internal_mutable_list_terrain_type_remove_mutation();
+inline ::IvionOnline::List_Terrain_Remove_Mutation* Mutation::mutable_list_terrain_remove_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_Terrain_Remove_Mutation)
+  return _internal_mutable_list_terrain_remove_mutation();
 }
 
 // .IvionOnline.Color_Set_Mutation Color_Set_Mutation = 13;

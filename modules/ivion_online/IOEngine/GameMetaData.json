@@ -1,0 +1,171 @@
+{
+    "ValueTypes": {
+        "Boolean": "bool",
+        "Integer": "int32",
+        "Vec2i": {
+            "x": "int32",
+            "y": "int32"
+        },
+        "Terrain": [
+            "TERRAIN_TYPE_NONE",
+            "TERRAIN_TYPE_DIFFICULT",
+            "TERRAIN_TYPE_ENCHANTED"
+        ],
+        "Color": [
+            "COLOR_NONE",
+            "COLOR_GRAY",
+            "COLOR_BLACK",
+            "COLOR_RED",
+            "COLOR_GREEN",
+            "COLOR_BLUE",
+            "COLOR_WHITE"
+        ]
+    },
+    "Classes": {
+        "Player": {
+            "UID": "string",
+            "Name": "string",
+            "Health": "Integer",
+            "Actions": "Integer",
+            "Power": "Integer",
+            "Initiative": "Integer",
+            "Slow": "Integer",
+            "Silence": "Integer",
+            "Disarm": "Integer",
+            "Position": "Vec2i",
+            "Hand": "List<Ref<Card>>",
+            "Deck": "List<Ref<Card>>",
+            "Discard": "List<Ref<Card>>",
+            "Feats": "List<Ref<Card>>",
+            "MaxHealth": "Integer",
+            "MaxActions": "Integer",
+            "MaxPower": "Integer",
+            "MaxSlow": "Integer",
+            "MaxSilence": "Integer",
+            "MaxDisarm": "Integer"
+        },
+        "Card": {
+            "CardStats": "Ref<CardData>"
+        },
+        "CardData": {
+            "Owner": "Ref<Player>",
+            "Controller": "Ref<Player>",
+            "ActionCost": "Integer",
+            "PowerCost": "Integer",
+            "Range": "Integer",
+            "AffectedBySlow": "Boolean",
+            "AffectedBySilence": "Boolean",
+            "AffectedByDisarm": "Boolean",
+            "OmniPresentEffect": "List<Method>",
+            "PassiveEffect": "List<Method>",
+            "FeatEffect": "List<Method>",
+            "PlayEffect": "List<Method>",
+            "ResolveEffect": "List<Method>"
+        },
+        "Tile": {
+            "Position": "Vec2i",
+            "Terrain": "Terrain_Type",
+            "Players": "List<Ref<Player>>",
+            "Cards": "List<Ref<Card>>"
+        },
+        "GameState": {
+            "Players": "List<Player>",
+            "Cards": "List<Card>",
+            "CardData": "List<CardData>",
+            "Tiles": "List<Tile>",
+            "Field": "List<Ref<Card>>",
+            "TurnNumber": "Integer"
+        }
+    },
+    "Methods": {
+        "GetList<Type>": {
+            "Args": [
+                "Ref<List<Ref<Type>>> Source"
+            ],
+            "Return": [
+                "List<Ref<Type>> Result"
+            ]
+        },
+        "Get<Type>": {
+            "Args": [
+                "Ref<Type> Source"
+            ],
+            "Return": [
+                "Type Result"
+            ]
+        },
+        "SelectMultiple<Type>": {
+            "Args": [
+                "Ref<List<Ref<Type>>> Source",
+                "Ref<Integer> Number",
+                "Boolean UpTo"
+            ],
+            "Return": [
+                "List<Ref<Type>> Result"
+            ]
+        },
+        "SelectExactlyOne<Type>": {
+            "Args": [
+                "Ref<List<Ref<Type>>> Source"
+            ],
+            "Return": [
+                "Ref<Type> Result"
+            ]
+        },
+        "AssertControlOrHeroic": {},
+        "AssertControllerHasPriority": {},
+        "AssertStackEmptyOrInstant": {},
+        "PayCost": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Card> Card",
+                "Value<Integer> ActionCostReduction",
+                "Value<Integer> PowerCostReduction",
+                "Value<Integer> CostReduction",
+                "Value<Boolean> Free"
+            ]
+        },
+        "PlayGainResources": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Card> Card"
+            ]
+        },
+        "RefundCost": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Card> Card"
+            ]
+        },
+        "GainActions": {
+            "Args": [
+                "Ref<Player> Player",
+                "Value<Integer> Value"
+            ]
+        },
+        "GainPower": {
+            "Args": [
+                "Ref<Player> Player",
+                "Value<Integer> Value"
+            ]
+        },
+        "Move": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Tile> Destination"
+            ]
+        },
+        "Travel": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Tile> Destination"
+            ]
+        },
+        "Damage": {
+            "Args": [
+                "Ref<Player> Player",
+                "Value<Integer> Amount"
+            ]
+        }
+    }
+}

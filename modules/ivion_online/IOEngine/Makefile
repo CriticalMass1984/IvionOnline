@@ -55,15 +55,15 @@ protobuf:
 	--plugin=protoc-gen-grpc_cpp=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_cpp_plugin \
 	--cpp_out=${ROOT_DIR}/Source/GRPC \
 	--grpc_cpp_out=${ROOT_DIR}/Source/GRPC \
-	Effects.proto GameState.proto GameInfo.proto Types.proto
+	Type.proto Class.proto Mutation.proto Effect.proto
 	sed -i \
-		-e 's|"GameInfo.pb.h"|<GRPC/GameInfo.pb.h>|g' \
-		-e 's|"GameInfo.grpc.pb.h"|<GRPC/GameInfo.grpc.pb.h>|g' \
-		-e 's|"GameState.pb.h"|<GRPC/GameState.pb.h>|g' \
-		-e 's|"GameState.grpc.pb.h"|<GRPC/GameState.grpc.pb.h>|g' \
-		-e 's|"Effects.pb.h"|<GRPC/Effects.pb.h>|g' \
-		-e 's|"Effects.grpc.pb.h"|<GRPC/Effects.grpc.pb.h>|g' \
-		-e 's|"Types.pb.h"|<GRPC/Types.pb.h>|g' \
-		-e 's|"Types.grpc.pb.h"|<GRPC/Types.grpc.pb.h>|g' \
+		-e 's|"Type.pb.h"|<GRPC/Type.pb.h>|g' \
+		-e 's|"Type.grpc.pb.h"|<GRPC/Type.grpc.pb.h>|g' \
+		-e 's|"Class.pb.h"|<GRPC/Class.pb.h>|g' \
+		-e 's|"Class.grpc.pb.h"|<GRPC/Class.grpc.pb.h>|g' \
+		-e 's|"Mutation.pb.h"|<GRPC/Mutation.pb.h>|g' \
+		-e 's|"Mutation.grpc.pb.h"|<GRPC/Mutation.grpc.pb.h>|g' \
+		-e 's|"Effect.pb.h"|<GRPC/Effect.pb.h>|g' \
+		-e 's|"Effect.grpc.pb.h"|<GRPC/Effect.grpc.pb.h>|g' \
 		${ROOT_DIR}/Source/GRPC/*
 	mv ${ROOT_DIR}/Source/GRPC/*.h ${ROOT_DIR}/Include/GRPC/

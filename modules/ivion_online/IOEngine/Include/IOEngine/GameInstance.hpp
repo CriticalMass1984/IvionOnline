@@ -5,30 +5,28 @@
 #include <unordered_map>
 #include <vector>
 
-#include <IOEngine/Vec2i.hpp>
+#include <GRPC/Class.pb.h>
+#include <GRPC/Effect.pb.h>
+#include <GRPC/Mutation.pb.h>
+#include <GRPC/Type.pb.h>
 
-#include <GRPC/Effects.pb.h>
-#include <GRPC/GameState.pb.h>
-#include <GRPC/Types.pb.h>
+namespace IO {
 
 class GameInstance {
-	GameState::GameInstance instance_;
+	// IvionOnline::GameState instance_;
 
 public:
 	GameInstance();
 
-	google::protobuf::Message *ResolvePath(
-			GameState::Card *card,
-			Types::Path *path);
+	google::protobuf::Message *ResolvePath(IvionOnline::ObjectPath *path);
 
-	Vec2i GetVec2i(const GameState::Card *card, const google::protobuf::Message *message);
-	int GetInteger(const GameState::Card *card, const google::protobuf::Message *message);
-
-	void ApplyMutation(GameState::Mutation *mutation);
-	void RevertMutation(GameState::Mutation *mutation);
+	void ApplyMutation(IvionOnline::Mutation *mutation);
+	void RevertMutation(IvionOnline::Mutation *mutation);
 
 	// generates the paths
 	void GenerateBranchingPaths();
 
 	void MakeChoice();
 };
+
+} // namespace IO
