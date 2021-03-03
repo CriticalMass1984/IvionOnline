@@ -1,0 +1,444 @@
+syntax = "proto3";
+
+package IvionOnline;
+
+enum ObjectType {
+	TYPE_BOOLEAN = 0;
+	TYPE_REF_BOOLEAN = 1;
+	TYPE_LIST_BOOLEAN = 2;
+	TYPE_LIST_REF_BOOLEAN = 3;
+	TYPE_INTEGER = 4;
+	TYPE_REF_INTEGER = 5;
+	TYPE_LIST_INTEGER = 6;
+	TYPE_LIST_REF_INTEGER = 7;
+	TYPE_VEC2I = 8;
+	TYPE_REF_VEC2I = 9;
+	TYPE_LIST_VEC2I = 10;
+	TYPE_LIST_REF_VEC2I = 11;
+	TYPE_TERRAIN = 12;
+	TYPE_REF_TERRAIN = 13;
+	TYPE_LIST_TERRAIN = 14;
+	TYPE_LIST_REF_TERRAIN = 15;
+	TYPE_COLOR = 16;
+	TYPE_REF_COLOR = 17;
+	TYPE_LIST_COLOR = 18;
+	TYPE_LIST_REF_COLOR = 19;
+	TYPE_PLAYER = 20;
+	TYPE_LIST_PLAYER = 21;
+	TYPE_LIST_REF_PLAYER = 22;
+	TYPE_CARD = 23;
+	TYPE_LIST_CARD = 24;
+	TYPE_LIST_REF_CARD = 25;
+	TYPE_CARDDATA = 26;
+	TYPE_LIST_CARDDATA = 27;
+	TYPE_LIST_REF_CARDDATA = 28;
+	TYPE_TILE = 29;
+	TYPE_LIST_TILE = 30;
+	TYPE_LIST_REF_TILE = 31;
+	TYPE_GAMESTATE = 32;
+	TYPE_LIST_GAMESTATE = 33;
+	TYPE_LIST_REF_GAMESTATE = 34;
+}
+
+message ObjectPath {
+	repeated int32 Field_Indecies = 1;
+	string Full_Path = 2;
+	ObjectType Object_Type = 3;
+}
+
+
+message List_ObjectPath {
+    repeated ObjectPath element = 1;
+}
+message Boolean {
+	bool Value = 1;
+}
+
+
+message List_Boolean {
+    repeated Boolean element = 1;
+}
+message Integer {
+	int32 Value = 1;
+}
+
+
+message List_Integer {
+    repeated Integer element = 1;
+}
+message Vec2i {
+	int32 x = 1;
+	int32 y = 2;
+}
+
+
+message List_Vec2i {
+    repeated Vec2i element = 1;
+}
+message Terrain {
+	enum Terrain_Type {
+		TERRAIN_TYPE_NONE = 0;
+		TERRAIN_TYPE_DIFFICULT = 1;
+		TERRAIN_TYPE_ENCHANTED = 2;
+	}
+	Terrain_Type Value = 1;
+}
+
+
+message List_Terrain {
+    repeated Terrain element = 1;
+}
+message Color {
+	enum Color_Type {
+		COLOR_NONE = 0;
+		COLOR_GRAY = 1;
+		COLOR_BLACK = 2;
+		COLOR_RED = 3;
+		COLOR_GREEN = 4;
+		COLOR_BLUE = 5;
+		COLOR_WHITE = 6;
+	}
+	Color_Type Value = 1;
+}
+
+
+message List_Color {
+    repeated Color element = 1;
+}
+message Player {
+	string UID = 1;
+	string Name = 2;
+	Integer Health = 3;
+	Integer Actions = 4;
+	Integer Power = 5;
+	Integer Initiative = 6;
+	Integer Slow = 7;
+	Integer Silence = 8;
+	Integer Disarm = 9;
+	Vec2i Position = 10;
+	repeated ObjectPath Hand = 11;
+	repeated ObjectPath Deck = 12;
+	repeated ObjectPath Discard = 13;
+	repeated ObjectPath Feats = 14;
+	Integer MaxHealth = 15;
+	Integer MaxActions = 16;
+	Integer MaxPower = 17;
+	Integer MaxSlow = 18;
+	Integer MaxSilence = 19;
+	Integer MaxDisarm = 20;
+}
+
+
+message List_Player {
+    repeated Player element = 1;
+}
+message Card {
+	ObjectPath CardStats = 1;
+}
+
+
+message List_Card {
+    repeated Card element = 1;
+}
+message CardData {
+	ObjectPath Owner = 1;
+	ObjectPath Controller = 2;
+	Integer ActionCost = 3;
+	Integer PowerCost = 4;
+	Integer Range = 5;
+	Boolean AffectedBySlow = 6;
+	Boolean AffectedBySilence = 7;
+	Boolean AffectedByDisarm = 8;
+	repeated Method OmniPresentEffect = 9;
+	repeated Method PassiveEffect = 10;
+	repeated Method FeatEffect = 11;
+	repeated Method PlayEffect = 12;
+	repeated Method ResolveEffect = 13;
+}
+
+
+message List_CardData {
+    repeated CardData element = 1;
+}
+message Tile {
+	Vec2i Position = 1;
+	Terrain Terrain = 2;
+	repeated ObjectPath Players = 3;
+	repeated ObjectPath Cards = 4;
+}
+
+
+message List_Tile {
+    repeated Tile element = 1;
+}
+message GameState {
+	repeated Player Players = 1;
+	repeated Card Cards = 2;
+	repeated CardData CardData = 3;
+	repeated Tile Tiles = 4;
+	repeated ObjectPath Field = 5;
+	Integer TurnNumber = 6;
+}
+
+
+message List_GameState {
+    repeated GameState element = 1;
+}
+message ObjectPath_Set_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath NewValue = 2;
+    ObjectPath OldValue = 3;
+}
+
+message List_ObjectPath_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_ObjectPath_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath OldValue = 2;
+    int32 Index = 3;
+}
+message Boolean_Set_Mutation
+{
+    ObjectPath Path = 1;
+    Boolean NewValue = 2;
+    Boolean OldValue = 3;
+}
+
+message List_Boolean_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    Boolean NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_Boolean_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    Boolean OldValue = 2;
+    int32 Index = 3;
+}
+message Integer_Set_Mutation
+{
+    ObjectPath Path = 1;
+    Integer NewValue = 2;
+    Integer OldValue = 3;
+}
+
+message List_Integer_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    Integer NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_Integer_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    Integer OldValue = 2;
+    int32 Index = 3;
+}
+message Vec2i_Set_Mutation
+{
+    ObjectPath Path = 1;
+    Vec2i NewValue = 2;
+    Vec2i OldValue = 3;
+}
+
+message List_Vec2i_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    Vec2i NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_Vec2i_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    Vec2i OldValue = 2;
+    int32 Index = 3;
+}
+message Terrain_Set_Mutation
+{
+    ObjectPath Path = 1;
+    Terrain NewValue = 2;
+    Terrain OldValue = 3;
+}
+
+message List_Terrain_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    Terrain NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_Terrain_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    Terrain OldValue = 2;
+    int32 Index = 3;
+}
+message Color_Set_Mutation
+{
+    ObjectPath Path = 1;
+    Color NewValue = 2;
+    Color OldValue = 3;
+}
+
+message List_Color_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    Color NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_Color_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    Color OldValue = 2;
+    int32 Index = 3;
+}
+
+message Mutation
+{
+	oneof mut{
+		Boolean_Set_Mutation Boolean_Set_Mutation = 1;
+		List_Boolean_Insert_Mutation List_Boolean_Insert_Mutation = 2;
+		List_Boolean_Remove_Mutation List_Boolean_Remove_Mutation = 3;
+		Integer_Set_Mutation Integer_Set_Mutation = 4;
+		List_Integer_Insert_Mutation List_Integer_Insert_Mutation = 5;
+		List_Integer_Remove_Mutation List_Integer_Remove_Mutation = 6;
+		Vec2i_Set_Mutation Vec2i_Set_Mutation = 7;
+		List_Vec2i_Insert_Mutation List_Vec2i_Insert_Mutation = 8;
+		List_Vec2i_Remove_Mutation List_Vec2i_Remove_Mutation = 9;
+		Terrain_Set_Mutation Terrain_Set_Mutation = 10;
+		List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 11;
+		List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 12;
+		Color_Set_Mutation Color_Set_Mutation = 13;
+		List_Color_Insert_Mutation List_Color_Insert_Mutation = 14;
+		List_Color_Remove_Mutation List_Color_Remove_Mutation = 15;
+	}
+}
+message GetList {
+	ObjectPath Source = 1;
+	repeated ObjectPath Result = 2;
+}
+
+message SelectMultiple {
+	ObjectPath Source = 1;
+	ObjectPath Number = 2;
+	ObjectPath UpTo = 3;
+}
+
+message SelectExactlyOne {
+	ObjectPath Source = 1;
+}
+
+message AssertControlOrHeroic {
+}
+
+message AssertControllerHasPriority {
+}
+
+message AssertStackEmptyOrInstant {
+}
+
+message PayCost {
+	ObjectPath Player = 1;
+	ObjectPath Card = 2;
+	ObjectPath ActionCostReduction = 3;
+	ObjectPath PowerCostReduction = 4;
+	ObjectPath CostReduction = 5;
+	ObjectPath Free = 6;
+}
+
+message PlayGainResources {
+	ObjectPath Player = 1;
+	ObjectPath Card = 2;
+}
+
+message RefundCost {
+	ObjectPath Player = 1;
+	ObjectPath Card = 2;
+}
+
+message GainActions {
+	ObjectPath Player = 1;
+	ObjectPath Value = 2;
+}
+
+message GainPower {
+	ObjectPath Player = 1;
+	ObjectPath Value = 2;
+}
+
+message Move {
+	ObjectPath Player = 1;
+	ObjectPath Destination = 2;
+}
+
+message Travel {
+	ObjectPath Player = 1;
+	ObjectPath Destination = 2;
+}
+
+message Damage {
+	ObjectPath Player = 1;
+	ObjectPath Amount = 2;
+}
+
+message ObjectPath_Constant {
+	ObjectPath Result = 1;
+}
+
+message Boolean_Constant {
+	Boolean Result = 1;
+}
+
+message Integer_Constant {
+	Integer Result = 1;
+}
+
+message Vec2i_Constant {
+	Vec2i Result = 1;
+}
+
+message Terrain_Constant {
+	Terrain Result = 1;
+}
+
+message Color_Constant {
+	Color Result = 1;
+}
+
+message Method {
+	oneof methods {
+		GetList GetList = 1;
+		SelectMultiple SelectMultiple = 2;
+		SelectExactlyOne SelectExactlyOne = 3;
+		AssertControlOrHeroic AssertControlOrHeroic = 4;
+		AssertControllerHasPriority AssertControllerHasPriority = 5;
+		AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
+		PayCost PayCost = 7;
+		PlayGainResources PlayGainResources = 8;
+		RefundCost RefundCost = 9;
+		GainActions GainActions = 10;
+		GainPower GainPower = 11;
+		Move Move = 12;
+		Travel Travel = 13;
+		Damage Damage = 14;
+		ObjectPath_Constant ObjectPath_Constant = 15;
+		Boolean_Constant Boolean_Constant = 16;
+		Integer_Constant Integer_Constant = 17;
+		Vec2i_Constant Vec2i_Constant = 18;
+		Terrain_Constant Terrain_Constant = 19;
+		Color_Constant Color_Constant = 20;
+	}
+}
+

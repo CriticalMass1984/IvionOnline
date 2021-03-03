@@ -64,7 +64,7 @@
         },
         "Tile": {
             "Position": "Vec2i",
-            "Terrain": "Terrain_Type",
+            "Terrain": "Terrain",
             "Players": "List<Ref<Player>>",
             "Cards": "List<Ref<Card>>"
         },
@@ -78,38 +78,29 @@
         }
     },
     "Methods": {
-        "GetList<Type>": {
+        "GetList": {
             "Args": [
-                "Ref<List<Ref<Type>>> Source"
+                "ObjectPath Source"
             ],
             "Return": [
-                "List<Ref<Type>> Result"
+                "List<ObjectPath> Result"
             ]
         },
-        "Get<Type>": {
-            "Args": [
-                "Ref<Type> Source"
-            ],
+        "<Type>_Constant": {
             "Return": [
-                "Type Result"
+                "<Type> Result"
             ]
         },
-        "SelectMultiple<Type>": {
+        "SelectMultiple": {
             "Args": [
-                "Ref<List<Ref<Type>>> Source",
+                "Ref<List<ObjectPath>> Source",
                 "Ref<Integer> Number",
-                "Boolean UpTo"
-            ],
-            "Return": [
-                "List<Ref<Type>> Result"
+                "Ref<Boolean> UpTo"
             ]
         },
-        "SelectExactlyOne<Type>": {
+        "SelectExactlyOne": {
             "Args": [
-                "Ref<List<Ref<Type>>> Source"
-            ],
-            "Return": [
-                "Ref<Type> Result"
+                "Ref<List<ObjectPath>> Source"
             ]
         },
         "AssertControlOrHeroic": {},
@@ -119,10 +110,10 @@
             "Args": [
                 "Ref<Player> Player",
                 "Ref<Card> Card",
-                "Value<Integer> ActionCostReduction",
-                "Value<Integer> PowerCostReduction",
-                "Value<Integer> CostReduction",
-                "Value<Boolean> Free"
+                "Ref<Integer> ActionCostReduction",
+                "Ref<Integer> PowerCostReduction",
+                "Ref<Integer> CostReduction",
+                "Ref<Boolean> Free"
             ]
         },
         "PlayGainResources": {
@@ -140,13 +131,13 @@
         "GainActions": {
             "Args": [
                 "Ref<Player> Player",
-                "Value<Integer> Value"
+                "Ref<Integer> Value"
             ]
         },
         "GainPower": {
             "Args": [
                 "Ref<Player> Player",
-                "Value<Integer> Value"
+                "Ref<Integer> Value"
             ]
         },
         "Move": {
@@ -164,7 +155,7 @@
         "Damage": {
             "Args": [
                 "Ref<Player> Player",
-                "Value<Integer> Amount"
+                "Ref<Integer> Amount"
             ]
         }
     }

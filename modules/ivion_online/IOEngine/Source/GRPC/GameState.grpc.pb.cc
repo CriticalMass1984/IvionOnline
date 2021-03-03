@@ -2,8 +2,8 @@
 // If you make any local change, they will be lost.
 // source: GameState.proto
 
-#include <GRPC/GameState.pb.h>
-#include <GRPC/GameState.grpc.pb.h>
+#include "GameState.pb.h"
+#include "GameState.grpc.pb.h"
 
 #include <functional>
 #include <grpcpp/impl/codegen/async_stream.h>
@@ -19,7 +19,7 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace GameState {
+namespace IvionOnline {
 
-}  // namespace GameState
+}  // namespace IvionOnline
 

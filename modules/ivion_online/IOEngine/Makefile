@@ -55,7 +55,7 @@ protobuf:
 	--plugin=protoc-gen-grpc_cpp=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_cpp_plugin \
 	--cpp_out=${ROOT_DIR}/Source/GRPC \
 	--grpc_cpp_out=${ROOT_DIR}/Source/GRPC \
-	Type.proto Class.proto Mutation.proto Effect.proto
+	GameState.proto
 	sed -i \
 		-e 's|"Type.pb.h"|<GRPC/Type.pb.h>|g' \
 		-e 's|"Type.grpc.pb.h"|<GRPC/Type.grpc.pb.h>|g' \
