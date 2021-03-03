@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package {PACKAGE_NAME};
+
+enum Type {{
+{TYPES}
+}}
+
+message ObjectPath {{
+    repeated int32 FieldIndecies = 1;
+    string FullPath = 2;
+    Type Object_type = 3;
+}}
+

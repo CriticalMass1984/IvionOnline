@@ -1,0 +1,20 @@
+message {NAME}_Set_Mutation
+{{
+    ObjectPath Path = 1;
+    {NAME} NewValue = 2;
+    {NAME} OldValue = 3;
+}}
+
+message List_{NAME}_Insert_Mutation
+{{
+    ObjectPath Path = 1;
+    {NAME} NewValue = 2;
+    int32 Index = 3;
+}}
+
+message List_{NAME}_Remove_Mutation
+{{
+    ObjectPath Path = 1;
+    {NAME} OldValue = 2;
+    int32 Index = 3;
+}}
