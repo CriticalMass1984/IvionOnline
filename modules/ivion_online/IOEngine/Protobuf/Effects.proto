@@ -22,10 +22,8 @@ message StackVar {
         PlayerList Players = 1;
         CardList Cards = 2;
         TileList Tiles = 3;
-        Types.Path IntegerRef = 4;
-        Types.Path Vec2iRef = 5;
-        Types.IntegerValue Integer = 6;
-        Types.Vec2iValue Vec2i = 7;
+        Types.IntegerValue Integer = 4;
+        Types.Vec2iValue Vec2i = 5;
     }
 }
 

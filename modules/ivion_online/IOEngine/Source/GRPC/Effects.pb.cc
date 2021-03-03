@@ -24,7 +24,7 @@ extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::interna
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PassTurn_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Select_Effects_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_StackVar_Effects_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_StackVar_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Effects_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileList_Effects_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_IntegerValue_Types_2eproto;
@@ -253,12 +253,11 @@ static void InitDefaultsscc_info_StackVar_Effects_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_StackVar_Effects_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_StackVar_Effects_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_StackVar_Effects_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_StackVar_Effects_2eproto}, {
       &scc_info_PlayerList_Effects_2eproto.base,
       &scc_info_CardList_Effects_2eproto.base,
       &scc_info_TileList_Effects_2eproto.base,
-      &scc_info_Path_Types_2eproto.base,
       &scc_info_IntegerValue_Types_2eproto.base,
       &scc_info_Vec2iValue_Types_2eproto.base,}};
 
@@ -304,8 +303,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Effects_2eproto::offsets[] PRO
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::Effects::StackVar, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
@@ -388,15 +385,15 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::Effects::CardList)},
   { 12, -1, sizeof(::Effects::TileList)},
   { 18, -1, sizeof(::Effects::StackVar)},
-  { 31, -1, sizeof(::Effects::Constant)},
-  { 38, -1, sizeof(::Effects::Get)},
-  { 46, -1, sizeof(::Effects::Filter_Distance)},
-  { 56, -1, sizeof(::Effects::Select)},
-  { 65, -1, sizeof(::Effects::Move)},
-  { 72, -1, sizeof(::Effects::PassPriority)},
-  { 77, -1, sizeof(::Effects::PassTurn)},
-  { 82, -1, sizeof(::Effects::Effect)},
-  { 95, -1, sizeof(::Effects::CardEffect)},
+  { 29, -1, sizeof(::Effects::Constant)},
+  { 36, -1, sizeof(::Effects::Get)},
+  { 44, -1, sizeof(::Effects::Filter_Distance)},
+  { 54, -1, sizeof(::Effects::Select)},
+  { 63, -1, sizeof(::Effects::Move)},
+  { 70, -1, sizeof(::Effects::PassPriority)},
+  { 75, -1, sizeof(::Effects::PassTurn)},
+  { 80, -1, sizeof(::Effects::Effect)},
+  { 93, -1, sizeof(::Effects::CardEffect)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -420,45 +417,43 @@ const char descriptor_table_protodef_Effects_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\nPlayerList\022\034\n\007Players\030\001 \003(\0132\013.Types.Pat"
   "h\"&\n\010CardList\022\032\n\005Cards\030\001 \003(\0132\013.Types.Pat"
   "h\"&\n\010TileList\022\032\n\005Tiles\030\001 \003(\0132\013.Types.Pat"
-  "h\"\224\002\n\010StackVar\022&\n\007Players\030\001 \001(\0132\023.Effect"
+  "h\"\320\001\n\010StackVar\022&\n\007Players\030\001 \001(\0132\023.Effect"
   "s.PlayerListH\000\022\"\n\005Cards\030\002 \001(\0132\021.Effects."
   "CardListH\000\022\"\n\005Tiles\030\003 \001(\0132\021.Effects.Tile"
-  "ListH\000\022!\n\nIntegerRef\030\004 \001(\0132\013.Types.PathH"
-  "\000\022\037\n\010Vec2iRef\030\005 \001(\0132\013.Types.PathH\000\022&\n\007In"
-  "teger\030\006 \001(\0132\023.Types.IntegerValueH\000\022\"\n\005Ve"
-  "c2i\030\007 \001(\0132\021.Types.Vec2iValueH\000B\010\n\006entity"
-  "\";\n\010Constant\022!\n\006Result\030\001 \001(\0132\021.Effects.S"
-  "tackVar\022\014\n\004Name\030\002 \001(\t\"X\n\003Get\022!\n\006Result\030\001"
-  " \001(\0132\021.Effects.StackVar\022 \n\006Source\030\002 \001(\0132"
-  "\020.Types.EntityRef\022\014\n\004Name\030\003 \001(\t\"\207\004\n\017Filt"
-  "er_Distance\022!\n\006Source\030\001 \001(\0132\021.Effects.St"
-  "ackVar\022\037\n\004From\030\002 \001(\0132\021.Effects.StackVar\022"
-  "#\n\010Distance\030\003 \001(\0132\021.Effects.StackVar\0225\n\n"
-  "Comparison\030\004 \001(\0162!.Effects.Filter_Distan"
-  "ce.CompType\0228\n\014LogicalUnion\030\005 \001(\0162\".Effe"
-  "cts.Filter_Distance.GroupType\"\251\001\n\010CompTy"
-  "pe\022\022\n\016COMP_TYPE_NONE\020\000\022\023\n\017COMP_TYPE_EQUA"
-  "L\020\001\022\027\n\023COMP_TYPE_LESS_THAN\020\002\022\035\n\031COMP_TYP"
-  "E_LESS_THAN_EQUAL\020\003\022\032\n\026COMP_TYPE_GREATER"
-  "_THAN\020\004\022 \n\034COMP_TYPE_GREATER_THAN_EQUAL\020"
-  "\005\"n\n\tGroupType\022\023\n\017GROUP_TYPE_NONE\020\000\022\022\n\016G"
-  "ROUP_TYPE_ALL\020\001\022\033\n\027GROUP_TYPE_AT_LEAST_O"
-  "NE\020\002\022\033\n\027GROUP_TYPE_AT_MOST_NONE\020\003\"m\n\006Sel"
-  "ect\022!\n\006Source\030\001 \001(\0132\021.Effects.StackVar\022!"
-  "\n\006Number\030\002 \001(\0132\021.Effects.StackVar\022\014\n\004UpT"
-  "o\030\003 \001(\010\022\017\n\007Targets\030\004 \001(\010\"Q\n\004Move\022&\n\013Dest"
-  "ination\030\001 \001(\0132\021.Effects.StackVar\022!\n\006Play"
-  "er\030\002 \001(\0132\021.Effects.StackVar\"\016\n\014PassPrior"
-  "ity\"\n\n\010PassTurn\"\243\002\n\006Effect\022\033\n\003Get\030\001 \001(\0132"
-  "\014.Effects.GetH\000\022%\n\010Constant\030\002 \001(\0132\021.Effe"
-  "cts.ConstantH\000\0223\n\017Filter_Distance\030\003 \001(\0132"
-  "\030.Effects.Filter_DistanceH\000\022!\n\006Select\030\004 "
-  "\001(\0132\017.Effects.SelectH\000\022\035\n\004Move\030\005 \001(\0132\r.E"
-  "ffects.MoveH\000\022-\n\014PassPriority\030\006 \001(\0132\025.Ef"
-  "fects.PassPriorityH\000\022%\n\010PassTurn\030\007 \001(\0132\021"
-  ".Effects.PassTurnH\000B\010\n\006effect\".\n\nCardEff"
-  "ect\022 \n\007Effects\030\001 \003(\0132\017.Effects.Effectb\006p"
-  "roto3"
+  "ListH\000\022&\n\007Integer\030\004 \001(\0132\023.Types.IntegerV"
+  "alueH\000\022\"\n\005Vec2i\030\005 \001(\0132\021.Types.Vec2iValue"
+  "H\000B\010\n\006entity\";\n\010Constant\022!\n\006Result\030\001 \001(\013"
+  "2\021.Effects.StackVar\022\014\n\004Name\030\002 \001(\t\"X\n\003Get"
+  "\022!\n\006Result\030\001 \001(\0132\021.Effects.StackVar\022 \n\006S"
+  "ource\030\002 \001(\0132\020.Types.EntityRef\022\014\n\004Name\030\003 "
+  "\001(\t\"\207\004\n\017Filter_Distance\022!\n\006Source\030\001 \001(\0132"
+  "\021.Effects.StackVar\022\037\n\004From\030\002 \001(\0132\021.Effec"
+  "ts.StackVar\022#\n\010Distance\030\003 \001(\0132\021.Effects."
+  "StackVar\0225\n\nComparison\030\004 \001(\0162!.Effects.F"
+  "ilter_Distance.CompType\0228\n\014LogicalUnion\030"
+  "\005 \001(\0162\".Effects.Filter_Distance.GroupTyp"
+  "e\"\251\001\n\010CompType\022\022\n\016COMP_TYPE_NONE\020\000\022\023\n\017CO"
+  "MP_TYPE_EQUAL\020\001\022\027\n\023COMP_TYPE_LESS_THAN\020\002"
+  "\022\035\n\031COMP_TYPE_LESS_THAN_EQUAL\020\003\022\032\n\026COMP_"
+  "TYPE_GREATER_THAN\020\004\022 \n\034COMP_TYPE_GREATER"
+  "_THAN_EQUAL\020\005\"n\n\tGroupType\022\023\n\017GROUP_TYPE"
+  "_NONE\020\000\022\022\n\016GROUP_TYPE_ALL\020\001\022\033\n\027GROUP_TYP"
+  "E_AT_LEAST_ONE\020\002\022\033\n\027GROUP_TYPE_AT_MOST_N"
+  "ONE\020\003\"m\n\006Select\022!\n\006Source\030\001 \001(\0132\021.Effect"
+  "s.StackVar\022!\n\006Number\030\002 \001(\0132\021.Effects.Sta"
+  "ckVar\022\014\n\004UpTo\030\003 \001(\010\022\017\n\007Targets\030\004 \001(\010\"Q\n\004"
+  "Move\022&\n\013Destination\030\001 \001(\0132\021.Effects.Stac"
+  "kVar\022!\n\006Player\030\002 \001(\0132\021.Effects.StackVar\""
+  "\016\n\014PassPriority\"\n\n\010PassTurn\"\243\002\n\006Effect\022\033"
+  "\n\003Get\030\001 \001(\0132\014.Effects.GetH\000\022%\n\010Constant\030"
+  "\002 \001(\0132\021.Effects.ConstantH\000\0223\n\017Filter_Dis"
+  "tance\030\003 \001(\0132\030.Effects.Filter_DistanceH\000\022"
+  "!\n\006Select\030\004 \001(\0132\017.Effects.SelectH\000\022\035\n\004Mo"
+  "ve\030\005 \001(\0132\r.Effects.MoveH\000\022-\n\014PassPriorit"
+  "y\030\006 \001(\0132\025.Effects.PassPriorityH\000\022%\n\010Pass"
+  "Turn\030\007 \001(\0132\021.Effects.PassTurnH\000B\010\n\006effec"
+  "t\".\n\nCardEffect\022 \n\007Effects\030\001 \003(\0132\017.Effec"
+  "ts.Effectb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Effects_2eproto_deps[1] = {
   &::descriptor_table_Types_2eproto,
@@ -480,7 +475,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Eff
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Effects_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Effects_2eproto = {
-  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1685,
+  false, false, descriptor_table_protodef_Effects_2eproto, "Effects.proto", 1617,
   &descriptor_table_Effects_2eproto_once, descriptor_table_Effects_2eproto_sccs, descriptor_table_Effects_2eproto_deps, 13, 1,
   schemas, file_default_instances, TableStruct_Effects_2eproto::offsets,
   file_level_metadata_Effects_2eproto, 13, file_level_enum_descriptors_Effects_2eproto, file_level_service_descriptors_Effects_2eproto,
@@ -1160,8 +1155,6 @@ class StackVar::_Internal {
   static const ::Effects::PlayerList& players(const StackVar* msg);
   static const ::Effects::CardList& cards(const StackVar* msg);
   static const ::Effects::TileList& tiles(const StackVar* msg);
-  static const ::Types::Path& integerref(const StackVar* msg);
-  static const ::Types::Path& vec2iref(const StackVar* msg);
   static const ::Types::IntegerValue& integer(const StackVar* msg);
   static const ::Types::Vec2iValue& vec2i(const StackVar* msg);
 };
@@ -1177,14 +1170,6 @@ StackVar::_Internal::cards(const StackVar* msg) {
 const ::Effects::TileList&
 StackVar::_Internal::tiles(const StackVar* msg) {
   return *msg->entity_.tiles_;
-}
-const ::Types::Path&
-StackVar::_Internal::integerref(const StackVar* msg) {
-  return *msg->entity_.integerref_;
-}
-const ::Types::Path&
-StackVar::_Internal::vec2iref(const StackVar* msg) {
-  return *msg->entity_.vec2iref_;
 }
 const ::Types::IntegerValue&
 StackVar::_Internal::integer(const StackVar* msg) {
@@ -1238,52 +1223,6 @@ void StackVar::set_allocated_tiles(::Effects::TileList* tiles) {
     entity_.tiles_ = tiles;
   }
   // @@protoc_insertion_point(field_set_allocated:Effects.StackVar.Tiles)
-}
-void StackVar::set_allocated_integerref(::Types::Path* integerref) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity();
-  if (integerref) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(integerref)->GetArena();
-    if (message_arena != submessage_arena) {
-      integerref = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, integerref, submessage_arena);
-    }
-    set_has_integerref();
-    entity_.integerref_ = integerref;
-  }
-  // @@protoc_insertion_point(field_set_allocated:Effects.StackVar.IntegerRef)
-}
-void StackVar::clear_integerref() {
-  if (_internal_has_integerref()) {
-    if (GetArena() == nullptr) {
-      delete entity_.integerref_;
-    }
-    clear_has_entity();
-  }
-}
-void StackVar::set_allocated_vec2iref(::Types::Path* vec2iref) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity();
-  if (vec2iref) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(vec2iref)->GetArena();
-    if (message_arena != submessage_arena) {
-      vec2iref = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, vec2iref, submessage_arena);
-    }
-    set_has_vec2iref();
-    entity_.vec2iref_ = vec2iref;
-  }
-  // @@protoc_insertion_point(field_set_allocated:Effects.StackVar.Vec2iRef)
-}
-void StackVar::clear_vec2iref() {
-  if (_internal_has_vec2iref()) {
-    if (GetArena() == nullptr) {
-      delete entity_.vec2iref_;
-    }
-    clear_has_entity();
-  }
 }
 void StackVar::set_allocated_integer(::Types::IntegerValue* integer) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -1352,14 +1291,6 @@ StackVar::StackVar(const StackVar& from)
     }
     case kTiles: {
       _internal_mutable_tiles()->::Effects::TileList::MergeFrom(from._internal_tiles());
-      break;
-    }
-    case kIntegerRef: {
-      _internal_mutable_integerref()->::Types::Path::MergeFrom(from._internal_integerref());
-      break;
-    }
-    case kVec2IRef: {
-      _internal_mutable_vec2iref()->::Types::Path::MergeFrom(from._internal_vec2iref());
       break;
     }
     case kInteger: {
@@ -1431,18 +1362,6 @@ void StackVar::clear_entity() {
       }
       break;
     }
-    case kIntegerRef: {
-      if (GetArena() == nullptr) {
-        delete entity_.integerref_;
-      }
-      break;
-    }
-    case kVec2IRef: {
-      if (GetArena() == nullptr) {
-        delete entity_.vec2iref_;
-      }
-      break;
-    }
     case kInteger: {
       if (GetArena() == nullptr) {
         delete entity_.integer_;
@@ -1501,30 +1420,16 @@ const char* StackVar::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.Path IntegerRef = 4;
+      // .Types.IntegerValue Integer = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_integerref(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.Path Vec2iRef = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_vec2iref(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.IntegerValue Integer = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_integer(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.Vec2iValue Vec2i = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+      // .Types.Vec2iValue Vec2i = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_vec2i(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -1581,36 +1486,20 @@ failure:
         3, _Internal::tiles(this), target, stream);
   }
 
-  // .Types.Path IntegerRef = 4;
-  if (_internal_has_integerref()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::integerref(this), target, stream);
-  }
-
-  // .Types.Path Vec2iRef = 5;
-  if (_internal_has_vec2iref()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::vec2iref(this), target, stream);
-  }
-
-  // .Types.IntegerValue Integer = 6;
+  // .Types.IntegerValue Integer = 4;
   if (_internal_has_integer()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::integer(this), target, stream);
+        4, _Internal::integer(this), target, stream);
   }
 
-  // .Types.Vec2iValue Vec2i = 7;
+  // .Types.Vec2iValue Vec2i = 5;
   if (_internal_has_vec2i()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        7, _Internal::vec2i(this), target, stream);
+        5, _Internal::vec2i(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1651,28 +1540,14 @@ size_t StackVar::ByteSizeLong() const {
           *entity_.tiles_);
       break;
     }
-    // .Types.Path IntegerRef = 4;
-    case kIntegerRef: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_.integerref_);
-      break;
-    }
-    // .Types.Path Vec2iRef = 5;
-    case kVec2IRef: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_.vec2iref_);
-      break;
-    }
-    // .Types.IntegerValue Integer = 6;
+    // .Types.IntegerValue Integer = 4;
     case kInteger: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_.integer_);
       break;
     }
-    // .Types.Vec2iValue Vec2i = 7;
+    // .Types.Vec2iValue Vec2i = 5;
     case kVec2I: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1725,14 +1600,6 @@ void StackVar::MergeFrom(const StackVar& from) {
     }
     case kTiles: {
       _internal_mutable_tiles()->::Effects::TileList::MergeFrom(from._internal_tiles());
-      break;
-    }
-    case kIntegerRef: {
-      _internal_mutable_integerref()->::Types::Path::MergeFrom(from._internal_integerref());
-      break;
-    }
-    case kVec2IRef: {
-      _internal_mutable_vec2iref()->::Types::Path::MergeFrom(from._internal_vec2iref());
       break;
     }
     case kInteger: {

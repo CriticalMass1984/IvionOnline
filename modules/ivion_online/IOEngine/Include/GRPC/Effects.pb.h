@@ -646,10 +646,8 @@ class StackVar PROTOBUF_FINAL :
     kPlayers = 1,
     kCards = 2,
     kTiles = 3,
-    kIntegerRef = 4,
-    kVec2IRef = 5,
-    kInteger = 6,
-    kVec2I = 7,
+    kInteger = 4,
+    kVec2I = 5,
     ENTITY_NOT_SET = 0,
   };
 
@@ -732,10 +730,8 @@ class StackVar PROTOBUF_FINAL :
     kPlayersFieldNumber = 1,
     kCardsFieldNumber = 2,
     kTilesFieldNumber = 3,
-    kIntegerRefFieldNumber = 4,
-    kVec2IRefFieldNumber = 5,
-    kIntegerFieldNumber = 6,
-    kVec2IFieldNumber = 7,
+    kIntegerFieldNumber = 4,
+    kVec2IFieldNumber = 5,
   };
   // .Effects.PlayerList Players = 1;
   bool has_players() const;
@@ -791,43 +787,7 @@ class StackVar PROTOBUF_FINAL :
       ::Effects::TileList* tiles);
   ::Effects::TileList* unsafe_arena_release_tiles();
 
-  // .Types.Path IntegerRef = 4;
-  bool has_integerref() const;
-  private:
-  bool _internal_has_integerref() const;
-  public:
-  void clear_integerref();
-  const ::Types::Path& integerref() const;
-  ::Types::Path* release_integerref();
-  ::Types::Path* mutable_integerref();
-  void set_allocated_integerref(::Types::Path* integerref);
-  private:
-  const ::Types::Path& _internal_integerref() const;
-  ::Types::Path* _internal_mutable_integerref();
-  public:
-  void unsafe_arena_set_allocated_integerref(
-      ::Types::Path* integerref);
-  ::Types::Path* unsafe_arena_release_integerref();
-
-  // .Types.Path Vec2iRef = 5;
-  bool has_vec2iref() const;
-  private:
-  bool _internal_has_vec2iref() const;
-  public:
-  void clear_vec2iref();
-  const ::Types::Path& vec2iref() const;
-  ::Types::Path* release_vec2iref();
-  ::Types::Path* mutable_vec2iref();
-  void set_allocated_vec2iref(::Types::Path* vec2iref);
-  private:
-  const ::Types::Path& _internal_vec2iref() const;
-  ::Types::Path* _internal_mutable_vec2iref();
-  public:
-  void unsafe_arena_set_allocated_vec2iref(
-      ::Types::Path* vec2iref);
-  ::Types::Path* unsafe_arena_release_vec2iref();
-
-  // .Types.IntegerValue Integer = 6;
+  // .Types.IntegerValue Integer = 4;
   bool has_integer() const;
   private:
   bool _internal_has_integer() const;
@@ -845,7 +805,7 @@ class StackVar PROTOBUF_FINAL :
       ::Types::IntegerValue* integer);
   ::Types::IntegerValue* unsafe_arena_release_integer();
 
-  // .Types.Vec2iValue Vec2i = 7;
+  // .Types.Vec2iValue Vec2i = 5;
   bool has_vec2i() const;
   private:
   bool _internal_has_vec2i() const;
@@ -871,8 +831,6 @@ class StackVar PROTOBUF_FINAL :
   void set_has_players();
   void set_has_cards();
   void set_has_tiles();
-  void set_has_integerref();
-  void set_has_vec2iref();
   void set_has_integer();
   void set_has_vec2i();
 
@@ -887,8 +845,6 @@ class StackVar PROTOBUF_FINAL :
     ::Effects::PlayerList* players_;
     ::Effects::CardList* cards_;
     ::Effects::TileList* tiles_;
-    ::Types::Path* integerref_;
-    ::Types::Path* vec2iref_;
     ::Types::IntegerValue* integer_;
     ::Types::Vec2iValue* vec2i_;
   } entity_;
@@ -2908,137 +2864,7 @@ inline ::Effects::TileList* StackVar::mutable_tiles() {
   return _internal_mutable_tiles();
 }
 
-// .Types.Path IntegerRef = 4;
-inline bool StackVar::_internal_has_integerref() const {
-  return entity_case() == kIntegerRef;
-}
-inline bool StackVar::has_integerref() const {
-  return _internal_has_integerref();
-}
-inline void StackVar::set_has_integerref() {
-  _oneof_case_[0] = kIntegerRef;
-}
-inline ::Types::Path* StackVar::release_integerref() {
-  // @@protoc_insertion_point(field_release:Effects.StackVar.IntegerRef)
-  if (_internal_has_integerref()) {
-    clear_has_entity();
-      ::Types::Path* temp = entity_.integerref_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_.integerref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::Types::Path& StackVar::_internal_integerref() const {
-  return _internal_has_integerref()
-      ? *entity_.integerref_
-      : reinterpret_cast< ::Types::Path&>(::Types::_Path_default_instance_);
-}
-inline const ::Types::Path& StackVar::integerref() const {
-  // @@protoc_insertion_point(field_get:Effects.StackVar.IntegerRef)
-  return _internal_integerref();
-}
-inline ::Types::Path* StackVar::unsafe_arena_release_integerref() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Effects.StackVar.IntegerRef)
-  if (_internal_has_integerref()) {
-    clear_has_entity();
-    ::Types::Path* temp = entity_.integerref_;
-    entity_.integerref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void StackVar::unsafe_arena_set_allocated_integerref(::Types::Path* integerref) {
-  clear_entity();
-  if (integerref) {
-    set_has_integerref();
-    entity_.integerref_ = integerref;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.StackVar.IntegerRef)
-}
-inline ::Types::Path* StackVar::_internal_mutable_integerref() {
-  if (!_internal_has_integerref()) {
-    clear_entity();
-    set_has_integerref();
-    entity_.integerref_ = CreateMaybeMessage< ::Types::Path >(GetArena());
-  }
-  return entity_.integerref_;
-}
-inline ::Types::Path* StackVar::mutable_integerref() {
-  // @@protoc_insertion_point(field_mutable:Effects.StackVar.IntegerRef)
-  return _internal_mutable_integerref();
-}
-
-// .Types.Path Vec2iRef = 5;
-inline bool StackVar::_internal_has_vec2iref() const {
-  return entity_case() == kVec2IRef;
-}
-inline bool StackVar::has_vec2iref() const {
-  return _internal_has_vec2iref();
-}
-inline void StackVar::set_has_vec2iref() {
-  _oneof_case_[0] = kVec2IRef;
-}
-inline ::Types::Path* StackVar::release_vec2iref() {
-  // @@protoc_insertion_point(field_release:Effects.StackVar.Vec2iRef)
-  if (_internal_has_vec2iref()) {
-    clear_has_entity();
-      ::Types::Path* temp = entity_.vec2iref_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    entity_.vec2iref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::Types::Path& StackVar::_internal_vec2iref() const {
-  return _internal_has_vec2iref()
-      ? *entity_.vec2iref_
-      : reinterpret_cast< ::Types::Path&>(::Types::_Path_default_instance_);
-}
-inline const ::Types::Path& StackVar::vec2iref() const {
-  // @@protoc_insertion_point(field_get:Effects.StackVar.Vec2iRef)
-  return _internal_vec2iref();
-}
-inline ::Types::Path* StackVar::unsafe_arena_release_vec2iref() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:Effects.StackVar.Vec2iRef)
-  if (_internal_has_vec2iref()) {
-    clear_has_entity();
-    ::Types::Path* temp = entity_.vec2iref_;
-    entity_.vec2iref_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void StackVar::unsafe_arena_set_allocated_vec2iref(::Types::Path* vec2iref) {
-  clear_entity();
-  if (vec2iref) {
-    set_has_vec2iref();
-    entity_.vec2iref_ = vec2iref;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Effects.StackVar.Vec2iRef)
-}
-inline ::Types::Path* StackVar::_internal_mutable_vec2iref() {
-  if (!_internal_has_vec2iref()) {
-    clear_entity();
-    set_has_vec2iref();
-    entity_.vec2iref_ = CreateMaybeMessage< ::Types::Path >(GetArena());
-  }
-  return entity_.vec2iref_;
-}
-inline ::Types::Path* StackVar::mutable_vec2iref() {
-  // @@protoc_insertion_point(field_mutable:Effects.StackVar.Vec2iRef)
-  return _internal_mutable_vec2iref();
-}
-
-// .Types.IntegerValue Integer = 6;
+// .Types.IntegerValue Integer = 4;
 inline bool StackVar::_internal_has_integer() const {
   return entity_case() == kInteger;
 }
@@ -3103,7 +2929,7 @@ inline ::Types::IntegerValue* StackVar::mutable_integer() {
   return _internal_mutable_integer();
 }
 
-// .Types.Vec2iValue Vec2i = 7;
+// .Types.Vec2iValue Vec2i = 5;
 inline bool StackVar::_internal_has_vec2i() const {
   return entity_case() == kVec2I;
 }
