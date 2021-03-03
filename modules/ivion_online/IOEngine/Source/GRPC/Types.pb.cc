@@ -17,12 +17,14 @@
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_IntegerRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_IntegerValue_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Path_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Path_FieldIndecies_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TileRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2iRef_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Vec2iValue_Types_2eproto;
 namespace Types {
 class Path_FieldIndeciesDefaultTypeInternal {
  public:
@@ -119,14 +121,13 @@ static void InitDefaultsscc_info_EntityValue_Types_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_EntityValue_Types_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_EntityValue_Types_2eproto}, {
-      &scc_info_IntegerRef_Types_2eproto.base,
-      &scc_info_Vec2iRef_Types_2eproto.base,
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_Types_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 5, 0, InitDefaultsscc_info_EntityValue_Types_2eproto}, {
+      &scc_info_IntegerValue_Types_2eproto.base,
+      &scc_info_Vec2iValue_Types_2eproto.base,
       &scc_info_PlayerRef_Types_2eproto.base,
       &scc_info_CardRef_Types_2eproto.base,
-      &scc_info_TileRef_Types_2eproto.base,
-      &scc_info_Vec2i_Types_2eproto.base,}};
+      &scc_info_TileRef_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Integer_Types_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -366,8 +367,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_Types_2eproto::offsets[] PROTO
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::Types::EntityValue, entity_val_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -422,17 +421,16 @@ const char descriptor_table_protodef_Types_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "erRefH\000\022 \n\005Vec2i\030\002 \001(\0132\017.Types.Vec2iRefH"
   "\000\022\"\n\006Player\030\003 \001(\0132\020.Types.PlayerRefH\000\022\036\n"
   "\004Card\030\004 \001(\0132\016.Types.CardRefH\000\022\036\n\004Tile\030\005 "
-  "\001(\0132\016.Types.TileRefH\000B\014\n\nentity_ref\"\253\002\n\013"
-  "EntityValue\022$\n\007Integer\030\001 \001(\0132\021.Types.Int"
-  "egerRefH\000\022 \n\005Vec2i\030\002 \001(\0132\017.Types.Vec2iRe"
-  "fH\000\022\"\n\006Player\030\003 \001(\0132\020.Types.PlayerRefH\000\022"
-  "\036\n\004Card\030\004 \001(\0132\016.Types.CardRefH\000\022\036\n\004Tile\030"
-  "\005 \001(\0132\016.Types.TileRefH\000\022\022\n\010IntValue\030\006 \001("
-  "\005H\000\022\"\n\nVec2iValue\030\007 \001(\0132\014.Types.Vec2iH\000\022"
-  "*\n\014TerrainValue\030\010 \001(\0162\022.Types.TerrainTyp"
-  "eH\000B\014\n\nentity_val*M\n\013TerrainType\022\020\n\014TERR"
-  "AIN_NONE\020\000\022\025\n\021TERRAIN_DIFFICULT\020\001\022\025\n\021TER"
-  "RAIN_ENCHANTED\020\002b\006proto3"
+  "\001(\0132\016.Types.TileRefH\000B\014\n\nentity_ref\"\367\001\n\013"
+  "EntityValue\022&\n\007Integer\030\001 \001(\0132\023.Types.Int"
+  "egerValueH\000\022\"\n\005Vec2i\030\002 \001(\0132\021.Types.Vec2i"
+  "ValueH\000\022\"\n\006Player\030\003 \001(\0132\020.Types.PlayerRe"
+  "fH\000\022\036\n\004Card\030\004 \001(\0132\016.Types.CardRefH\000\022\036\n\004T"
+  "ile\030\005 \001(\0132\016.Types.TileRefH\000\022*\n\014TerrainVa"
+  "lue\030\006 \001(\0162\022.Types.TerrainTypeH\000B\014\n\nentit"
+  "y_val*M\n\013TerrainType\022\020\n\014TERRAIN_NONE\020\000\022\025"
+  "\n\021TERRAIN_DIFFICULT\020\001\022\025\n\021TERRAIN_ENCHANT"
+  "ED\020\002b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_Types_2eproto_deps[1] = {
 };
@@ -453,7 +451,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Typ
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_Types_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_Types_2eproto = {
-  false, false, descriptor_table_protodef_Types_2eproto, "Types.proto", 1184,
+  false, false, descriptor_table_protodef_Types_2eproto, "Types.proto", 1132,
   &descriptor_table_Types_2eproto_once, descriptor_table_Types_2eproto_sccs, descriptor_table_Types_2eproto_deps, 13, 0,
   schemas, file_default_instances, TableStruct_Types_2eproto::offsets,
   file_level_metadata_Types_2eproto, 13, file_level_enum_descriptors_Types_2eproto, file_level_service_descriptors_Types_2eproto,
@@ -3519,19 +3517,18 @@ void EntityRef::InternalSwap(EntityRef* other) {
 
 class EntityValue::_Internal {
  public:
-  static const ::Types::IntegerRef& integer(const EntityValue* msg);
-  static const ::Types::Vec2iRef& vec2i(const EntityValue* msg);
+  static const ::Types::IntegerValue& integer(const EntityValue* msg);
+  static const ::Types::Vec2iValue& vec2i(const EntityValue* msg);
   static const ::Types::PlayerRef& player(const EntityValue* msg);
   static const ::Types::CardRef& card(const EntityValue* msg);
   static const ::Types::TileRef& tile(const EntityValue* msg);
-  static const ::Types::Vec2i& vec2ivalue(const EntityValue* msg);
 };
 
-const ::Types::IntegerRef&
+const ::Types::IntegerValue&
 EntityValue::_Internal::integer(const EntityValue* msg) {
   return *msg->entity_val_.integer_;
 }
-const ::Types::Vec2iRef&
+const ::Types::Vec2iValue&
 EntityValue::_Internal::vec2i(const EntityValue* msg) {
   return *msg->entity_val_.vec2i_;
 }
@@ -3547,11 +3544,7 @@ const ::Types::TileRef&
 EntityValue::_Internal::tile(const EntityValue* msg) {
   return *msg->entity_val_.tile_;
 }
-const ::Types::Vec2i&
-EntityValue::_Internal::vec2ivalue(const EntityValue* msg) {
-  return *msg->entity_val_.vec2ivalue_;
-}
-void EntityValue::set_allocated_integer(::Types::IntegerRef* integer) {
+void EntityValue::set_allocated_integer(::Types::IntegerValue* integer) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_entity_val();
   if (integer) {
@@ -3566,7 +3559,7 @@ void EntityValue::set_allocated_integer(::Types::IntegerRef* integer) {
   }
   // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Integer)
 }
-void EntityValue::set_allocated_vec2i(::Types::Vec2iRef* vec2i) {
+void EntityValue::set_allocated_vec2i(::Types::Vec2iValue* vec2i) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   clear_entity_val();
   if (vec2i) {
@@ -3626,21 +3619,6 @@ void EntityValue::set_allocated_tile(::Types::TileRef* tile) {
   }
   // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Tile)
 }
-void EntityValue::set_allocated_vec2ivalue(::Types::Vec2i* vec2ivalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  clear_entity_val();
-  if (vec2ivalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(vec2ivalue);
-    if (message_arena != submessage_arena) {
-      vec2ivalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, vec2ivalue, submessage_arena);
-    }
-    set_has_vec2ivalue();
-    entity_val_.vec2ivalue_ = vec2ivalue;
-  }
-  // @@protoc_insertion_point(field_set_allocated:Types.EntityValue.Vec2iValue)
-}
 EntityValue::EntityValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -3653,11 +3631,11 @@ EntityValue::EntityValue(const EntityValue& from)
   clear_has_entity_val();
   switch (from.entity_val_case()) {
     case kInteger: {
-      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      _internal_mutable_integer()->::Types::IntegerValue::MergeFrom(from._internal_integer());
       break;
     }
     case kVec2I: {
-      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      _internal_mutable_vec2i()->::Types::Vec2iValue::MergeFrom(from._internal_vec2i());
       break;
     }
     case kPlayer: {
@@ -3670,14 +3648,6 @@ EntityValue::EntityValue(const EntityValue& from)
     }
     case kTile: {
       _internal_mutable_tile()->::Types::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kIntValue: {
-      _internal_set_intvalue(from._internal_intvalue());
-      break;
-    }
-    case kVec2IValue: {
-      _internal_mutable_vec2ivalue()->::Types::Vec2i::MergeFrom(from._internal_vec2ivalue());
       break;
     }
     case kTerrainValue: {
@@ -3757,16 +3727,6 @@ void EntityValue::clear_entity_val() {
       }
       break;
     }
-    case kIntValue: {
-      // No need to clear
-      break;
-    }
-    case kVec2IValue: {
-      if (GetArena() == nullptr) {
-        delete entity_val_.vec2ivalue_;
-      }
-      break;
-    }
     case kTerrainValue: {
       // No need to clear
       break;
@@ -3796,14 +3756,14 @@ const char* EntityValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.IntegerRef Integer = 1;
+      // .Types.IntegerValue Integer = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_integer(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .Types.Vec2iRef Vec2i = 2;
+      // .Types.Vec2iValue Vec2i = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_vec2i(), ptr);
@@ -3831,23 +3791,9 @@ const char* EntityValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 IntValue = 6;
+      // .Types.TerrainType TerrainValue = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          _internal_set_intvalue(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.Vec2i Vec2iValue = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ctx->ParseMessage(_internal_mutable_vec2ivalue(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .Types.TerrainType TerrainValue = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_terrainvalue(static_cast<::Types::TerrainType>(val));
@@ -3881,7 +3827,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.IntegerRef Integer = 1;
+  // .Types.IntegerValue Integer = 1;
   if (_internal_has_integer()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3889,7 +3835,7 @@ failure:
         1, _Internal::integer(this), target, stream);
   }
 
-  // .Types.Vec2iRef Vec2i = 2;
+  // .Types.Vec2iValue Vec2i = 2;
   if (_internal_has_vec2i()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3921,25 +3867,11 @@ failure:
         5, _Internal::tile(this), target, stream);
   }
 
-  // int32 IntValue = 6;
-  if (_internal_has_intvalue()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_intvalue(), target);
-  }
-
-  // .Types.Vec2i Vec2iValue = 7;
-  if (_internal_has_vec2ivalue()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        7, _Internal::vec2ivalue(this), target, stream);
-  }
-
-  // .Types.TerrainType TerrainValue = 8;
+  // .Types.TerrainType TerrainValue = 6;
   if (_internal_has_terrainvalue()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      8, this->_internal_terrainvalue(), target);
+      6, this->_internal_terrainvalue(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3959,14 +3891,14 @@ size_t EntityValue::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (entity_val_case()) {
-    // .Types.IntegerRef Integer = 1;
+    // .Types.IntegerValue Integer = 1;
     case kInteger: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *entity_val_.integer_);
       break;
     }
-    // .Types.Vec2iRef Vec2i = 2;
+    // .Types.Vec2iValue Vec2i = 2;
     case kVec2I: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3994,21 +3926,7 @@ size_t EntityValue::ByteSizeLong() const {
           *entity_val_.tile_);
       break;
     }
-    // int32 IntValue = 6;
-    case kIntValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_intvalue());
-      break;
-    }
-    // .Types.Vec2i Vec2iValue = 7;
-    case kVec2IValue: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *entity_val_.vec2ivalue_);
-      break;
-    }
-    // .Types.TerrainType TerrainValue = 8;
+    // .Types.TerrainType TerrainValue = 6;
     case kTerrainValue: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_terrainvalue());
@@ -4051,11 +3969,11 @@ void EntityValue::MergeFrom(const EntityValue& from) {
 
   switch (from.entity_val_case()) {
     case kInteger: {
-      _internal_mutable_integer()->::Types::IntegerRef::MergeFrom(from._internal_integer());
+      _internal_mutable_integer()->::Types::IntegerValue::MergeFrom(from._internal_integer());
       break;
     }
     case kVec2I: {
-      _internal_mutable_vec2i()->::Types::Vec2iRef::MergeFrom(from._internal_vec2i());
+      _internal_mutable_vec2i()->::Types::Vec2iValue::MergeFrom(from._internal_vec2i());
       break;
     }
     case kPlayer: {
@@ -4068,14 +3986,6 @@ void EntityValue::MergeFrom(const EntityValue& from) {
     }
     case kTile: {
       _internal_mutable_tile()->::Types::TileRef::MergeFrom(from._internal_tile());
-      break;
-    }
-    case kIntValue: {
-      _internal_set_intvalue(from._internal_intvalue());
-      break;
-    }
-    case kVec2IValue: {
-      _internal_mutable_vec2ivalue()->::Types::Vec2i::MergeFrom(from._internal_vec2ivalue());
       break;
     }
     case kTerrainValue: {

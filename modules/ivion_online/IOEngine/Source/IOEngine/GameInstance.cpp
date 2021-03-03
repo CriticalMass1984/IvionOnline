@@ -69,9 +69,9 @@ std::optional<int> TryParse(const std::string &str) {
 	return value;
 }
 
-const google::protobuf::Message *GameInstance::ResolvePath(
-		const GameState::Card *card,
-		const Types::Path *path) {
+google::protobuf::Message *GameInstance::ResolvePath(
+		GameState::Card *card,
+		Types::Path *path) {
 	//
 	auto GetRepeatedItemByName = [](
 										 const google::protobuf::Message &message,
@@ -93,7 +93,7 @@ const google::protobuf::Message *GameInstance::ResolvePath(
 		return -1;
 	};
 	//
-	const google::protobuf::Message *message = &this->instance_.gamestate();
+	google::protobuf::Message *message = this->instance_.mutable_gamestate();
 
 	//
 	if (path->has_fields()) {
@@ -113,9 +113,11 @@ const google::protobuf::Message *GameInstance::ResolvePath(
 			descriptor = fieldDesc->message_type();
 			if (fieldDesc->is_repeated()) {
 				const int idx = *(++it);
-				message = &message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx);
+				message = const_cast<google::protobuf::Message *>(
+						&message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx));
 			} else {
-				message = &message->GetReflection()->GetMessage(*message, fieldDesc);
+				message = const_cast<google::protobuf::Message *>(
+						&message->GetReflection()->GetMessage(*message, fieldDesc));
 			}
 		}
 	} else {
@@ -125,7 +127,7 @@ const google::protobuf::Message *GameInstance::ResolvePath(
 		const auto pathParts = Split(path->fullpath());
 
 		// this will clear the full path
-		const_cast<Types::Path *>(path)->mutable_fields()->clear_indecies();
+		path->mutable_fields()->clear_indecies();
 		auto fieldName = pathParts.begin();
 		if (pathParts.front() == ".") {
 			assert(card);
@@ -139,21 +141,24 @@ const google::protobuf::Message *GameInstance::ResolvePath(
 
 			printf("Found Field Match: %s\n", fieldDesc->name().c_str());
 			descriptor = fieldDesc->message_type();
-			const_cast<Types::Path *>(path)->mutable_fields()->add_indecies(fieldDesc->index());
+			path->mutable_fields()->add_indecies(fieldDesc->index());
 			if (fieldDesc->is_repeated()) {
 				const std::string &indexName = *(++fieldName);
 				// index given by
 				if (auto optIndex = TryParse(indexName); optIndex.has_value()) {
 					const int idx = optIndex.value();
-					message = &message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx);
-					const_cast<Types::Path *>(path)->mutable_fields()->add_indecies(idx);
+					message = const_cast<google::protobuf::Message *>(
+							&message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx));
+					path->mutable_fields()->add_indecies(idx);
 				} else {
 					const int idx = GetRepeatedItemByName(*message, fieldDesc, message->GetReflection(), indexName);
-					message = &message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx);
-					const_cast<Types::Path *>(path)->mutable_fields()->add_indecies(idx);
+					message = const_cast<google::protobuf::Message *>(
+							&message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx));
+					path->mutable_fields()->add_indecies(idx);
 				}
 			} else {
-				message = &message->GetReflection()->GetMessage(*message, fieldDesc);
+				message = const_cast<google::protobuf::Message *>(
+						&message->GetReflection()->GetMessage(*message, fieldDesc));
 			}
 		}
 	}
@@ -185,7 +190,7 @@ Vec2i GameInstance::GetVec2i(const GameState::Card *card, const google::protobuf
 			return GetVec2i(card,
 					ResolvePath(card, &vec->vec2i().objectpath()));
 		} else {
-		    return Vec2i(vec->vec2ivalue());
+			return Vec2i(vec->vec2ivalue());
 		}
 	} else {
 		assert(typeName == "Vec2i");
@@ -230,23 +235,129 @@ int GameInstance::GetInteger(const GameState::Card *card, const google::protobuf
 	}
 }
 
+void ApplySetMutation(GameInstance &instance, GameState::SetMutation *setMut) {
+	auto *obj = instance.ResolvePath(nullptr, setMut->mutable_object());
+
+	if (setMut->newvalue().has_integer()) {
+		// everything should be ints
+		Types::Integer *integer = dynamic_cast<Types::Integer *>(obj);
+		assert(integer);
+
+		int newValue = instance.GetInteger(nullptr, setMut->mutable_newvalue());
+		integer->set_value(newValue);
+	} else if (setMut->newvalue().has_vec2i()) {
+		// everything should be vec2i
+		Types::Vec2i *vec = dynamic_cast<Types::Vec2i *>(obj);
+		assert(vec);
+
+		Vec2i newValue = instance.GetVec2i(nullptr, setMut->mutable_newvalue());
+		newValue.Fill(vec);
+	}
+}
+
+void RevertSetMutation(GameInstance &instance, GameState::SetMutation *setMut) {
+	auto *obj = instance.ResolvePath(nullptr, setMut->mutable_object());
+
+	if (setMut->oldvalue().has_integer()) {
+		// everything should be ints
+		Types::Integer *integer = dynamic_cast<Types::Integer *>(obj);
+		assert(integer);
+
+		int newValue = instance.GetInteger(nullptr, setMut->mutable_oldvalue());
+		integer->set_value(newValue);
+	} else if (setMut->oldvalue().has_vec2i()) {
+		// everything should be vec2i
+		Types::Vec2i *vec = dynamic_cast<Types::Vec2i *>(obj);
+		assert(vec);
+
+		Vec2i newValue = instance.GetVec2i(nullptr, setMut->mutable_oldvalue());
+		newValue.Fill(vec);
+	}
+}
+
+void ApplyInsertMutation(GameInstance &instance, GameState::InsertMutation *insMut) {
+    auto *obj = instance.ResolvePath(nullptr, insMut->mutable_object());
+    assert(!insMut->newvalue().has_integer());
+    assert(!insMut->newvalue().has_vec2i());
+    if(insMut->newvalue().has_player()) {
+        auto* players = dynamic_cast<google::protobuf::RepeatedField<Types::PlayerRef>*>(obj);
+        players->Add()->CopyFrom(insMut->newvalue().tile());
+        const int lastIdx = players->size() - 1;
+        if(lastIdx != insMut->index())
+        {
+            players->SwapElements(lastIdx, insMut->index());
+        }
+    }else if(insMut->newvalue().has_card()) {
+        auto* cards = dynamic_cast<google::protobuf::RepeatedField<Types::CardRef>* >(obj);
+        cards->Add()->CopyFrom(insMut->newvalue().tile());
+        const int lastIdx = cards->size() - 1;
+        if(lastIdx != insMut->index())
+        {
+            cards->SwapElements(lastIdx, insMut->index());
+        }
+    }else if(insMut->newvalue().has_tile()) {
+        auto* tiles = dynamic_cast<google::protobuf::RepeatedField<Types::TileRef>* >(obj);
+        tiles->Add()->CopyFrom(insMut->newvalue().tile());
+        const int lastIdx = tiles->size() - 1;
+        if(lastIdx != insMut->index())
+        {
+            tiles->SwapElements(lastIdx, insMut->index());
+        }
+    }
+}
+
+void ApplyRemoveMutation(GameInstance &instance, GameState::RemoveMutation *remMut) {
+    auto *obj = instance.ResolvePath(nullptr, remMut->mutable_object());
+    assert(!remMut->oldvalue().has_integer());
+    assert(!remMut->oldvalue().has_vec2i());
+
+    if(remMut->oldvalue().has_player()) {
+        auto* players = dynamic_cast<google::protobuf::RepeatedField<Types::PlayerRef>*>(obj);
+        players->SwapElements(remMut->index(), players->size() - 1);
+        players->RemoveLast();
+    }else if(remMut->oldvalue().has_card()) {
+        auto* cards = dynamic_cast<google::protobuf::RepeatedField<Types::CardRef>* >(obj);
+        cards->SwapElements(remMut->index(), cards->size() - 1);
+        cards->RemoveLast();
+    }else if(remMut->oldvalue().has_tile()) {
+        auto* tiles = dynamic_cast<google::protobuf::RepeatedField<Types::TileRef>* >(obj);
+        tiles->SwapElements(remMut->index(), tiles->size() - 1);
+        tiles->RemoveLast();
+    }
+}
+
+void RevertRemoveMutation(GameInstance &instance, GameState::RemoveMutation *remMut) {
+    GameState::InsertMutation insert;
+    insert.mutable_object()->CopyFrom(remMut->object());
+    insert.mutable_newvalue()->CopyFrom(remMut->oldvalue());
+    insert.set_index(remMut->index());
+    ApplyInsertMutation(instance, &insert);
+}
+
+void RevertInsertMutation(GameInstance &instance, GameState::InsertMutation *remMut) {
+    GameState::RemoveMutation remove;
+    remove.mutable_object()->CopyFrom(remMut->object());
+    remove.mutable_oldvalue()->CopyFrom(remMut->newvalue());
+    remove.set_index(remMut->index());
+    ApplyRemoveMutation(instance, &remove);
+}
+
 void GameInstance::ApplyMutation(GameState::Mutation *mutation) {
-	// if (mutation->has_set()) {
-	// 	auto *obj = mutation->mutable_set()->mutable_object();
-	// 	if (obj->has_in()) {
-	// 	} else if (obj->has_card()) {
-	// 	} else if (obj->has_tile()) {
-	// 	} else if (obj->has_()) {
-	// 	}
-	// 	mutation.set().newvalue();
-	// 	mutation.set().oldvalue();
-	// }
+	if (mutation->has_set()) {
+        ApplySetMutation(*this, mutation->mutable_set());
+	}else if (mutation->has_insert()) {
+        ApplyInsertMutation(*this, mutation->mutable_insert());
+	}else if (mutation->has_remove()) {
+        ApplyRemoveMutation(*this, mutation->mutable_remove());
+	}
 }
 
 void GameInstance::RevertMutation(GameState::Mutation *mutation) {
-	// if (mutation.has_set()) {
-	// 	mutation.set().object();
-	// 	mutation.set().newvalue();
-	// 	mutation.set().oldvalue();
-	// }
+	if (mutation->has_set()) {
+        RevertSetMutation(*this, mutation->mutable_set());
+	}else if (mutation->has_insert()) {
+        RevertInsertMutation(*this, mutation->mutable_insert());
+	}else if (mutation->has_remove()) {
+        RevertRemoveMutation(*this, mutation->mutable_remove());
+	}
 }

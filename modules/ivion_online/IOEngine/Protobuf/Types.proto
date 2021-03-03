@@ -74,13 +74,11 @@ message EntityRef {
 
 message EntityValue {
     oneof entity_val {
-        IntegerRef Integer = 1;
-        Vec2iRef Vec2i = 2;
+        IntegerValue Integer = 1;
+        Vec2iValue Vec2i = 2;
         PlayerRef Player = 3;
         CardRef Card = 4;
         TileRef Tile = 5;
-        int32 IntValue = 6;
-        Vec2i Vec2iValue = 7;
-        TerrainType TerrainValue = 8;
+        TerrainType TerrainValue = 6;
     }
 }

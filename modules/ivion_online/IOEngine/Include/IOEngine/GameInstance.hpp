@@ -17,9 +17,9 @@ class GameInstance {
 public:
 	GameInstance();
 
-	const google::protobuf::Message *ResolvePath(
-			const GameState::Card *card,
-			const Types::Path *path);
+	google::protobuf::Message *ResolvePath(
+			GameState::Card *card,
+			Types::Path *path);
 
 	Vec2i GetVec2i(const GameState::Card *card, const google::protobuf::Message *message);
 	int GetInteger(const GameState::Card *card, const google::protobuf::Message *message);

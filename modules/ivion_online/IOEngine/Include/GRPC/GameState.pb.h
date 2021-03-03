@@ -1999,23 +1999,23 @@ class SetMutation PROTOBUF_FINAL :
     kNewValueFieldNumber = 2,
     kOldValueFieldNumber = 3,
   };
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::Types::EntityRef& object() const;
-  ::Types::EntityRef* release_object();
-  ::Types::EntityRef* mutable_object();
-  void set_allocated_object(::Types::EntityRef* object);
+  const ::Types::Path& object() const;
+  ::Types::Path* release_object();
+  ::Types::Path* mutable_object();
+  void set_allocated_object(::Types::Path* object);
   private:
-  const ::Types::EntityRef& _internal_object() const;
-  ::Types::EntityRef* _internal_mutable_object();
+  const ::Types::Path& _internal_object() const;
+  ::Types::Path* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::Types::EntityRef* object);
-  ::Types::EntityRef* unsafe_arena_release_object();
+      ::Types::Path* object);
+  ::Types::Path* unsafe_arena_release_object();
 
   // .Types.EntityValue NewValue = 2;
   bool has_newvalue() const;
@@ -2060,7 +2060,7 @@ class SetMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Types::EntityRef* object_;
+  ::Types::Path* object_;
   ::Types::EntityValue* newvalue_;
   ::Types::EntityValue* oldvalue_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2182,24 +2182,25 @@ class RemoveMutation PROTOBUF_FINAL :
   enum : int {
     kObjectFieldNumber = 1,
     kOldValueFieldNumber = 2,
+    kIndexFieldNumber = 3,
   };
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::Types::EntityRef& object() const;
-  ::Types::EntityRef* release_object();
-  ::Types::EntityRef* mutable_object();
-  void set_allocated_object(::Types::EntityRef* object);
+  const ::Types::Path& object() const;
+  ::Types::Path* release_object();
+  ::Types::Path* mutable_object();
+  void set_allocated_object(::Types::Path* object);
   private:
-  const ::Types::EntityRef& _internal_object() const;
-  ::Types::EntityRef* _internal_mutable_object();
+  const ::Types::Path& _internal_object() const;
+  ::Types::Path* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::Types::EntityRef* object);
-  ::Types::EntityRef* unsafe_arena_release_object();
+      ::Types::Path* object);
+  ::Types::Path* unsafe_arena_release_object();
 
   // .Types.EntityValue OldValue = 2;
   bool has_oldvalue() const;
@@ -2219,6 +2220,15 @@ class RemoveMutation PROTOBUF_FINAL :
       ::Types::EntityValue* oldvalue);
   ::Types::EntityValue* unsafe_arena_release_oldvalue();
 
+  // int32 Index = 3;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:GameState.RemoveMutation)
  private:
   class _Internal;
@@ -2226,8 +2236,9 @@ class RemoveMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Types::EntityRef* object_;
+  ::Types::Path* object_;
   ::Types::EntityValue* oldvalue_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2347,24 +2358,25 @@ class InsertMutation PROTOBUF_FINAL :
   enum : int {
     kObjectFieldNumber = 1,
     kNewValueFieldNumber = 2,
+    kIndexFieldNumber = 3,
   };
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   bool has_object() const;
   private:
   bool _internal_has_object() const;
   public:
   void clear_object();
-  const ::Types::EntityRef& object() const;
-  ::Types::EntityRef* release_object();
-  ::Types::EntityRef* mutable_object();
-  void set_allocated_object(::Types::EntityRef* object);
+  const ::Types::Path& object() const;
+  ::Types::Path* release_object();
+  ::Types::Path* mutable_object();
+  void set_allocated_object(::Types::Path* object);
   private:
-  const ::Types::EntityRef& _internal_object() const;
-  ::Types::EntityRef* _internal_mutable_object();
+  const ::Types::Path& _internal_object() const;
+  ::Types::Path* _internal_mutable_object();
   public:
   void unsafe_arena_set_allocated_object(
-      ::Types::EntityRef* object);
-  ::Types::EntityRef* unsafe_arena_release_object();
+      ::Types::Path* object);
+  ::Types::Path* unsafe_arena_release_object();
 
   // .Types.EntityValue NewValue = 2;
   bool has_newvalue() const;
@@ -2384,6 +2396,15 @@ class InsertMutation PROTOBUF_FINAL :
       ::Types::EntityValue* newvalue);
   ::Types::EntityValue* unsafe_arena_release_newvalue();
 
+  // int32 Index = 3;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:GameState.InsertMutation)
  private:
   class _Internal;
@@ -2391,8 +2412,9 @@ class InsertMutation PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::Types::EntityRef* object_;
+  ::Types::Path* object_;
   ::Types::EntityValue* newvalue_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -6238,24 +6260,24 @@ Team::players() const {
 
 // SetMutation
 
-// .Types.EntityRef Object = 1;
+// .Types.Path Object = 1;
 inline bool SetMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool SetMutation::has_object() const {
   return _internal_has_object();
 }
-inline const ::Types::EntityRef& SetMutation::_internal_object() const {
-  const ::Types::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
-      ::Types::_EntityRef_default_instance_);
+inline const ::Types::Path& SetMutation::_internal_object() const {
+  const ::Types::Path* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Types::EntityRef& SetMutation::object() const {
+inline const ::Types::Path& SetMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.SetMutation.Object)
   return _internal_object();
 }
 inline void SetMutation::unsafe_arena_set_allocated_object(
-    ::Types::EntityRef* object) {
+    ::Types::Path* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -6267,35 +6289,35 @@ inline void SetMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.SetMutation.Object)
 }
-inline ::Types::EntityRef* SetMutation::release_object() {
+inline ::Types::Path* SetMutation::release_object() {
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Types::EntityRef* SetMutation::unsafe_arena_release_object() {
+inline ::Types::Path* SetMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.SetMutation.Object)
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::Types::EntityRef* SetMutation::_internal_mutable_object() {
+inline ::Types::Path* SetMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::Types::EntityRef* SetMutation::mutable_object() {
+inline ::Types::Path* SetMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.SetMutation.Object)
   return _internal_mutable_object();
 }
-inline void SetMutation::set_allocated_object(::Types::EntityRef* object) {
+inline void SetMutation::set_allocated_object(::Types::Path* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
@@ -6473,24 +6495,24 @@ inline void SetMutation::set_allocated_oldvalue(::Types::EntityValue* oldvalue) 
 
 // RemoveMutation
 
-// .Types.EntityRef Object = 1;
+// .Types.Path Object = 1;
 inline bool RemoveMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool RemoveMutation::has_object() const {
   return _internal_has_object();
 }
-inline const ::Types::EntityRef& RemoveMutation::_internal_object() const {
-  const ::Types::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
-      ::Types::_EntityRef_default_instance_);
+inline const ::Types::Path& RemoveMutation::_internal_object() const {
+  const ::Types::Path* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Types::EntityRef& RemoveMutation::object() const {
+inline const ::Types::Path& RemoveMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.RemoveMutation.Object)
   return _internal_object();
 }
 inline void RemoveMutation::unsafe_arena_set_allocated_object(
-    ::Types::EntityRef* object) {
+    ::Types::Path* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -6502,35 +6524,35 @@ inline void RemoveMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.RemoveMutation.Object)
 }
-inline ::Types::EntityRef* RemoveMutation::release_object() {
+inline ::Types::Path* RemoveMutation::release_object() {
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Types::EntityRef* RemoveMutation::unsafe_arena_release_object() {
+inline ::Types::Path* RemoveMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.RemoveMutation.Object)
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::Types::EntityRef* RemoveMutation::_internal_mutable_object() {
+inline ::Types::Path* RemoveMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::Types::EntityRef* RemoveMutation::mutable_object() {
+inline ::Types::Path* RemoveMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.RemoveMutation.Object)
   return _internal_mutable_object();
 }
-inline void RemoveMutation::set_allocated_object(::Types::EntityRef* object) {
+inline void RemoveMutation::set_allocated_object(::Types::Path* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
@@ -6627,28 +6649,48 @@ inline void RemoveMutation::set_allocated_oldvalue(::Types::EntityValue* oldvalu
   // @@protoc_insertion_point(field_set_allocated:GameState.RemoveMutation.OldValue)
 }
 
+// int32 Index = 3;
+inline void RemoveMutation::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RemoveMutation::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RemoveMutation::index() const {
+  // @@protoc_insertion_point(field_get:GameState.RemoveMutation.Index)
+  return _internal_index();
+}
+inline void RemoveMutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void RemoveMutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:GameState.RemoveMutation.Index)
+}
+
 // -------------------------------------------------------------------
 
 // InsertMutation
 
-// .Types.EntityRef Object = 1;
+// .Types.Path Object = 1;
 inline bool InsertMutation::_internal_has_object() const {
   return this != internal_default_instance() && object_ != nullptr;
 }
 inline bool InsertMutation::has_object() const {
   return _internal_has_object();
 }
-inline const ::Types::EntityRef& InsertMutation::_internal_object() const {
-  const ::Types::EntityRef* p = object_;
-  return p != nullptr ? *p : reinterpret_cast<const ::Types::EntityRef&>(
-      ::Types::_EntityRef_default_instance_);
+inline const ::Types::Path& InsertMutation::_internal_object() const {
+  const ::Types::Path* p = object_;
+  return p != nullptr ? *p : reinterpret_cast<const ::Types::Path&>(
+      ::Types::_Path_default_instance_);
 }
-inline const ::Types::EntityRef& InsertMutation::object() const {
+inline const ::Types::Path& InsertMutation::object() const {
   // @@protoc_insertion_point(field_get:GameState.InsertMutation.Object)
   return _internal_object();
 }
 inline void InsertMutation::unsafe_arena_set_allocated_object(
-    ::Types::EntityRef* object) {
+    ::Types::Path* object) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
   }
@@ -6660,35 +6702,35 @@ inline void InsertMutation::unsafe_arena_set_allocated_object(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:GameState.InsertMutation.Object)
 }
-inline ::Types::EntityRef* InsertMutation::release_object() {
+inline ::Types::Path* InsertMutation::release_object() {
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::Types::EntityRef* InsertMutation::unsafe_arena_release_object() {
+inline ::Types::Path* InsertMutation::unsafe_arena_release_object() {
   // @@protoc_insertion_point(field_release:GameState.InsertMutation.Object)
   
-  ::Types::EntityRef* temp = object_;
+  ::Types::Path* temp = object_;
   object_ = nullptr;
   return temp;
 }
-inline ::Types::EntityRef* InsertMutation::_internal_mutable_object() {
+inline ::Types::Path* InsertMutation::_internal_mutable_object() {
   
   if (object_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Types::EntityRef>(GetArena());
+    auto* p = CreateMaybeMessage<::Types::Path>(GetArena());
     object_ = p;
   }
   return object_;
 }
-inline ::Types::EntityRef* InsertMutation::mutable_object() {
+inline ::Types::Path* InsertMutation::mutable_object() {
   // @@protoc_insertion_point(field_mutable:GameState.InsertMutation.Object)
   return _internal_mutable_object();
 }
-inline void InsertMutation::set_allocated_object(::Types::EntityRef* object) {
+inline void InsertMutation::set_allocated_object(::Types::Path* object) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(object_);
@@ -6783,6 +6825,26 @@ inline void InsertMutation::set_allocated_newvalue(::Types::EntityValue* newvalu
   }
   newvalue_ = newvalue;
   // @@protoc_insertion_point(field_set_allocated:GameState.InsertMutation.NewValue)
+}
+
+// int32 Index = 3;
+inline void InsertMutation::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 InsertMutation::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 InsertMutation::index() const {
+  // @@protoc_insertion_point(field_get:GameState.InsertMutation.Index)
+  return _internal_index();
+}
+inline void InsertMutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void InsertMutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:GameState.InsertMutation.Index)
 }
 
 // -------------------------------------------------------------------

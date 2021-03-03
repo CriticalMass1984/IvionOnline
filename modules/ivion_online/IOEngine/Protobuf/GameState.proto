@@ -91,22 +91,24 @@ message Team {
 }
 
 message SetMutation {
-    Types.EntityRef Object = 1;
+    Types.Path Object = 1;
 
     Types.EntityValue NewValue = 2;
     Types.EntityValue OldValue = 3;
 }
 
 message RemoveMutation {
-    Types.EntityRef Object = 1;
+    Types.Path Object = 1;
 
     Types.EntityValue OldValue = 2;
+    int32 Index = 3;
 }
 
 message InsertMutation {
-    Types.EntityRef Object = 1;
+    Types.Path Object = 1;
 
     Types.EntityValue NewValue = 2;
+    int32 Index = 3;
 }
 
 message Mutation {

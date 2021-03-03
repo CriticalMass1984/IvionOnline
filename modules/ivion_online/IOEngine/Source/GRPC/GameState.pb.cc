@@ -28,8 +28,9 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Tile_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CardRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityRef_Types_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_EntityValue_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<5> scc_info_EntityValue_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_Types_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Path_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerRef_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Vec2i_Types_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_Types_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2iRef_Types_2eproto;
@@ -173,7 +174,7 @@ static void InitDefaultsscc_info_InsertMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_InsertMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_InsertMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_Path_Types_2eproto.base,
       &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Mutation_GameState_2eproto() {
@@ -220,7 +221,7 @@ static void InitDefaultsscc_info_RemoveMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_RemoveMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_RemoveMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_Path_Types_2eproto.base,
       &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_SetMutation_GameState_2eproto() {
@@ -235,7 +236,7 @@ static void InitDefaultsscc_info_SetMutation_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SetMutation_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_SetMutation_GameState_2eproto}, {
-      &scc_info_EntityRef_Types_2eproto.base,
+      &scc_info_Path_Types_2eproto.base,
       &scc_info_EntityValue_Types_2eproto.base,}};
 
 static void InitDefaultsscc_info_Team_GameState_2eproto() {
@@ -368,6 +369,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::GameState::RemoveMutation, object_),
   PROTOBUF_FIELD_OFFSET(::GameState::RemoveMutation, oldvalue_),
+  PROTOBUF_FIELD_OFFSET(::GameState::RemoveMutation, index_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::GameState::InsertMutation, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -375,6 +377,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::GameState::InsertMutation, object_),
   PROTOBUF_FIELD_OFFSET(::GameState::InsertMutation, newvalue_),
+  PROTOBUF_FIELD_OFFSET(::GameState::InsertMutation, index_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::GameState::Mutation, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -412,10 +415,10 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 74, -1, sizeof(::GameState::Team)},
   { 80, -1, sizeof(::GameState::SetMutation)},
   { 88, -1, sizeof(::GameState::RemoveMutation)},
-  { 95, -1, sizeof(::GameState::InsertMutation)},
-  { 102, -1, sizeof(::GameState::Mutation)},
-  { 111, -1, sizeof(::GameState::GameState)},
-  { 122, -1, sizeof(::GameState::GameInstance)},
+  { 96, -1, sizeof(::GameState::InsertMutation)},
+  { 104, -1, sizeof(::GameState::Mutation)},
+  { 113, -1, sizeof(::GameState::GameState)},
+  { 124, -1, sizeof(::GameState::GameInstance)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -480,26 +483,26 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "rRef\022\"\n\010Attached\030\005 \001(\0132\020.Types.EntityRef"
   "\022#\n\005Stats\030\006 \001(\0132\024.GameState.CardStats\")\n"
   "\004Team\022!\n\007Players\030\001 \003(\0132\020.Types.PlayerRef"
-  "\"{\n\013SetMutation\022 \n\006Object\030\001 \001(\0132\020.Types."
-  "EntityRef\022$\n\010NewValue\030\002 \001(\0132\022.Types.Enti"
-  "tyValue\022$\n\010OldValue\030\003 \001(\0132\022.Types.Entity"
-  "Value\"X\n\016RemoveMutation\022 \n\006Object\030\001 \001(\0132"
-  "\020.Types.EntityRef\022$\n\010OldValue\030\002 \001(\0132\022.Ty"
-  "pes.EntityValue\"X\n\016InsertMutation\022 \n\006Obj"
-  "ect\030\001 \001(\0132\020.Types.EntityRef\022$\n\010NewValue\030"
-  "\002 \001(\0132\022.Types.EntityValue\"\227\001\n\010Mutation\022%"
-  "\n\003Set\030\001 \001(\0132\026.GameState.SetMutationH\000\022+\n"
-  "\006Remove\030\002 \001(\0132\031.GameState.RemoveMutation"
-  "H\000\022+\n\006Insert\030\003 \001(\0132\031.GameState.InsertMut"
-  "ationH\000B\n\n\010mutation\"\323\001\n\tGameState\022\"\n\007Pla"
-  "yers\030\001 \003(\0132\021.GameState.Player\022\036\n\005Cards\030\002"
-  " \003(\0132\017.GameState.Card\022\036\n\005Tiles\030\003 \003(\0132\017.G"
-  "ameState.Tile\022\036\n\005Teams\030\004 \003(\0132\017.GameState"
-  ".Team\022\"\n\nTurnNumber\030\006 \001(\0132\016.Types.Intege"
-  "r\022\036\n\005Stack\030\007 \003(\0132\017.GameState.Card\"]\n\014Gam"
-  "eInstance\022\'\n\tGameState\030\001 \001(\0132\024.GameState"
-  ".GameState\022$\n\007History\030\002 \003(\0132\023.GameState."
-  "Mutationb\006proto3"
+  "\"v\n\013SetMutation\022\033\n\006Object\030\001 \001(\0132\013.Types."
+  "Path\022$\n\010NewValue\030\002 \001(\0132\022.Types.EntityVal"
+  "ue\022$\n\010OldValue\030\003 \001(\0132\022.Types.EntityValue"
+  "\"b\n\016RemoveMutation\022\033\n\006Object\030\001 \001(\0132\013.Typ"
+  "es.Path\022$\n\010OldValue\030\002 \001(\0132\022.Types.Entity"
+  "Value\022\r\n\005Index\030\003 \001(\005\"b\n\016InsertMutation\022\033"
+  "\n\006Object\030\001 \001(\0132\013.Types.Path\022$\n\010NewValue\030"
+  "\002 \001(\0132\022.Types.EntityValue\022\r\n\005Index\030\003 \001(\005"
+  "\"\227\001\n\010Mutation\022%\n\003Set\030\001 \001(\0132\026.GameState.S"
+  "etMutationH\000\022+\n\006Remove\030\002 \001(\0132\031.GameState"
+  ".RemoveMutationH\000\022+\n\006Insert\030\003 \001(\0132\031.Game"
+  "State.InsertMutationH\000B\n\n\010mutation\"\323\001\n\tG"
+  "ameState\022\"\n\007Players\030\001 \003(\0132\021.GameState.Pl"
+  "ayer\022\036\n\005Cards\030\002 \003(\0132\017.GameState.Card\022\036\n\005"
+  "Tiles\030\003 \003(\0132\017.GameState.Tile\022\036\n\005Teams\030\004 "
+  "\003(\0132\017.GameState.Team\022\"\n\nTurnNumber\030\006 \001(\013"
+  "2\016.Types.Integer\022\036\n\005Stack\030\007 \003(\0132\017.GameSt"
+  "ate.Card\"]\n\014GameInstance\022\'\n\tGameState\030\001 "
+  "\001(\0132\024.GameState.GameState\022$\n\007History\030\002 \003"
+  "(\0132\023.GameState.Mutationb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[2] = {
   &::descriptor_table_Effects_2eproto,
@@ -521,7 +524,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 2616,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 2631,
   &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 12, 2,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
   file_level_metadata_GameState_2eproto, 12, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
@@ -3690,12 +3693,12 @@ void Team::InternalSwap(Team* other) {
 
 class SetMutation::_Internal {
  public:
-  static const ::Types::EntityRef& object(const SetMutation* msg);
+  static const ::Types::Path& object(const SetMutation* msg);
   static const ::Types::EntityValue& newvalue(const SetMutation* msg);
   static const ::Types::EntityValue& oldvalue(const SetMutation* msg);
 };
 
-const ::Types::EntityRef&
+const ::Types::Path&
 SetMutation::_Internal::object(const SetMutation* msg) {
   return *msg->object_;
 }
@@ -3735,7 +3738,7 @@ SetMutation::SetMutation(const SetMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::Types::EntityRef(*from.object_);
+    object_ = new ::Types::Path(*from.object_);
   } else {
     object_ = nullptr;
   }
@@ -3816,7 +3819,7 @@ const char* SetMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.EntityRef Object = 1;
+      // .Types.Path Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
@@ -3865,7 +3868,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3905,7 +3908,7 @@ size_t SetMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3958,7 +3961,7 @@ void SetMutation::MergeFrom(const SetMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::Path::MergeFrom(from._internal_object());
   }
   if (from.has_newvalue()) {
     _internal_mutable_newvalue()->::Types::EntityValue::MergeFrom(from._internal_newvalue());
@@ -4006,11 +4009,11 @@ void SetMutation::InternalSwap(SetMutation* other) {
 
 class RemoveMutation::_Internal {
  public:
-  static const ::Types::EntityRef& object(const RemoveMutation* msg);
+  static const ::Types::Path& object(const RemoveMutation* msg);
   static const ::Types::EntityValue& oldvalue(const RemoveMutation* msg);
 };
 
-const ::Types::EntityRef&
+const ::Types::Path&
 RemoveMutation::_Internal::object(const RemoveMutation* msg) {
   return *msg->object_;
 }
@@ -4040,7 +4043,7 @@ RemoveMutation::RemoveMutation(const RemoveMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::Types::EntityRef(*from.object_);
+    object_ = new ::Types::Path(*from.object_);
   } else {
     object_ = nullptr;
   }
@@ -4049,6 +4052,7 @@ RemoveMutation::RemoveMutation(const RemoveMutation& from)
   } else {
     oldvalue_ = nullptr;
   }
+  index_ = from.index_;
   // @@protoc_insertion_point(copy_constructor:GameState.RemoveMutation)
 }
 
@@ -4056,8 +4060,8 @@ void RemoveMutation::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RemoveMutation_GameState_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&object_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&oldvalue_) -
-      reinterpret_cast<char*>(&object_)) + sizeof(oldvalue_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&index_) -
+      reinterpret_cast<char*>(&object_)) + sizeof(index_));
 }
 
 RemoveMutation::~RemoveMutation() {
@@ -4101,6 +4105,7 @@ void RemoveMutation::Clear() {
     delete oldvalue_;
   }
   oldvalue_ = nullptr;
+  index_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4111,7 +4116,7 @@ const char* RemoveMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.EntityRef Object = 1;
+      // .Types.Path Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
@@ -4122,6 +4127,13 @@ const char* RemoveMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_oldvalue(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 Index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4153,7 +4165,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4167,6 +4179,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         2, _Internal::oldvalue(this), target, stream);
+  }
+
+  // int32 Index = 3;
+  if (this->index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_index(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4185,7 +4203,7 @@ size_t RemoveMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -4197,6 +4215,13 @@ size_t RemoveMutation::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *oldvalue_);
+  }
+
+  // int32 Index = 3;
+  if (this->index() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_index());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4231,10 +4256,13 @@ void RemoveMutation::MergeFrom(const RemoveMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::Path::MergeFrom(from._internal_object());
   }
   if (from.has_oldvalue()) {
     _internal_mutable_oldvalue()->::Types::EntityValue::MergeFrom(from._internal_oldvalue());
+  }
+  if (from.index() != 0) {
+    _internal_set_index(from._internal_index());
   }
 }
 
@@ -4260,8 +4288,8 @@ void RemoveMutation::InternalSwap(RemoveMutation* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RemoveMutation, oldvalue_)
-      + sizeof(RemoveMutation::oldvalue_)
+      PROTOBUF_FIELD_OFFSET(RemoveMutation, index_)
+      + sizeof(RemoveMutation::index_)
       - PROTOBUF_FIELD_OFFSET(RemoveMutation, object_)>(
           reinterpret_cast<char*>(&object_),
           reinterpret_cast<char*>(&other->object_));
@@ -4276,11 +4304,11 @@ void RemoveMutation::InternalSwap(RemoveMutation* other) {
 
 class InsertMutation::_Internal {
  public:
-  static const ::Types::EntityRef& object(const InsertMutation* msg);
+  static const ::Types::Path& object(const InsertMutation* msg);
   static const ::Types::EntityValue& newvalue(const InsertMutation* msg);
 };
 
-const ::Types::EntityRef&
+const ::Types::Path&
 InsertMutation::_Internal::object(const InsertMutation* msg) {
   return *msg->object_;
 }
@@ -4310,7 +4338,7 @@ InsertMutation::InsertMutation(const InsertMutation& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_object()) {
-    object_ = new ::Types::EntityRef(*from.object_);
+    object_ = new ::Types::Path(*from.object_);
   } else {
     object_ = nullptr;
   }
@@ -4319,6 +4347,7 @@ InsertMutation::InsertMutation(const InsertMutation& from)
   } else {
     newvalue_ = nullptr;
   }
+  index_ = from.index_;
   // @@protoc_insertion_point(copy_constructor:GameState.InsertMutation)
 }
 
@@ -4326,8 +4355,8 @@ void InsertMutation::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InsertMutation_GameState_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&object_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&newvalue_) -
-      reinterpret_cast<char*>(&object_)) + sizeof(newvalue_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&index_) -
+      reinterpret_cast<char*>(&object_)) + sizeof(index_));
 }
 
 InsertMutation::~InsertMutation() {
@@ -4371,6 +4400,7 @@ void InsertMutation::Clear() {
     delete newvalue_;
   }
   newvalue_ = nullptr;
+  index_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4381,7 +4411,7 @@ const char* InsertMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // .Types.EntityRef Object = 1;
+      // .Types.Path Object = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
@@ -4392,6 +4422,13 @@ const char* InsertMutation::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_newvalue(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 Index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4423,7 +4460,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4437,6 +4474,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
         2, _Internal::newvalue(this), target, stream);
+  }
+
+  // int32 Index = 3;
+  if (this->index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_index(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4455,7 +4498,7 @@ size_t InsertMutation::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .Types.EntityRef Object = 1;
+  // .Types.Path Object = 1;
   if (this->has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -4467,6 +4510,13 @@ size_t InsertMutation::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *newvalue_);
+  }
+
+  // int32 Index = 3;
+  if (this->index() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_index());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4501,10 +4551,13 @@ void InsertMutation::MergeFrom(const InsertMutation& from) {
   (void) cached_has_bits;
 
   if (from.has_object()) {
-    _internal_mutable_object()->::Types::EntityRef::MergeFrom(from._internal_object());
+    _internal_mutable_object()->::Types::Path::MergeFrom(from._internal_object());
   }
   if (from.has_newvalue()) {
     _internal_mutable_newvalue()->::Types::EntityValue::MergeFrom(from._internal_newvalue());
+  }
+  if (from.index() != 0) {
+    _internal_set_index(from._internal_index());
   }
 }
 
@@ -4530,8 +4583,8 @@ void InsertMutation::InternalSwap(InsertMutation* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(InsertMutation, newvalue_)
-      + sizeof(InsertMutation::newvalue_)
+      PROTOBUF_FIELD_OFFSET(InsertMutation, index_)
+      + sizeof(InsertMutation::index_)
       - PROTOBUF_FIELD_OFFSET(InsertMutation, object_)>(
           reinterpret_cast<char*>(&object_),
           reinterpret_cast<char*>(&other->object_));
