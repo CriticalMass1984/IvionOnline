@@ -31,11 +31,15 @@ enum ObjectType {
 }
 
 message ObjectPath {
-    repeated int32 Field_Indecies = 1;
-    string Full_Path = 2;
-    ObjectType Object_Type = 3;
+	repeated int32 Field_Indecies = 1;
+	string Full_Path = 2;
+	ObjectType Object_Type = 3;
 }
 
+
+message List_ObjectPath {
+    repeated ObjectPath element = 1;
+}
 message Boolean {
 	bool Value = 1;
 }

@@ -58,16 +58,65 @@ class ValueType:
         })
 
 
-class ObjectType:
-    def __init__(self):
-        pass
+class ClassType:
+    headerBase = open("GeneraterBaseFiles/ValueTypeHeader").read()
+    protoBase = open("GeneraterBaseFiles/ValueTypeProtoBase").read()
+    mutationProtoBase = open(
+        "GeneraterBaseFiles/ValueTypeMutationProtoBase").read()
+    mutationSourceBase = open(
+        "GeneraterBaseFiles/ValueTypeMutatationSourceBase").read()
+
+    def __init__(self, name: str, cType):
+        self.Name = name
+        if isinstance(cType, list):
+            enumType = "\tenum {}_Type {{\n{}\n\t}}".format(self.Name, "\n".join(["\t\t{} = {};".format(
+                name, value) for name, value in zip(cType, range(len(cType)))]))
+            self.ProtoMembers = [
+                enumType, "\t{}_Type Value = 1;".format(self.Name)]
+        elif isinstance(cType, dict):
+            self.ProtoMembers = ["\t{} {} = {};".format(T, name, i + 1) for (
+                name, T), i in zip(cType.items(), range(len(cType)))]
+        else:
+            assert(isinstance(cType, str))
+            self.ProtoMembers = ["\t{} Value = 1;".format(cType)]
+        self.Proto = ValueType.protoBase.format(**{
+            "NAME": self.Name,
+            "MEMBERS": "\n".join(self.ProtoMembers)
+        })
+        self.MutationProto = ValueType.mutationProtoBase.format(**{
+            "NAME": self.Name,
+        })
+        self.Mutators = [x.format(self.Name) for x in [
+            "{}_Set_Mutation",
+            "List_{}_Insert_Mutation",
+            "List_{}_Remove_Mutation"
+        ]]
+        self.Types = [x.format(self.Name).upper() for x in [
+            "TYPE_{}",
+            "TYPE_Ref_{}",
+            "TYPE_List_{}",
+            "TYPE_List_Ref_{}",
+            "TYPE_Ref_List_Ref_{}"
+        ]]
+        self.MutatorSource = ValueType.mutationSourceBase.format(**{
+            "NAME": self.Name,
+            "PACKAGE_NAME": PackageName,
+        })
 
 
 Types = list()
-Mutators = list()
+Mutators = [
+    "ObjectPath_Set_Mutation",
+    "List_ObjectPath_Insert_Mutation",
+    "List_ObjectPath_Remove_Mutation"
+]
 
 # read value types
-ValueTypes = dict()
+ValueTypes = {"ObjectPath": ValueType("ObjectPath", {
+    "Field_Indecies": "repeated int32",
+    "Full_Path": "string",
+    "Object_Type": "ObjectType"
+})}
 for name, value in GameMetaData["ValueTypes"].items():
     VT = ValueType(name, value)
     ValueTypes[name] = VT
@@ -117,7 +166,8 @@ with open("Source/IOEngine/GameInstance_Generated.cpp", 'w') as sourceFile:
     })
     sourceFile.write(baseProto)
     sourceFile.write("\nnamespace IO {\n")
-    sourceFile.write("\n\n".join(vt.MutatorSource for name, vt in ValueTypes.items()))
+    sourceFile.write("\n\n".join(
+        vt.MutatorSource for name, vt in ValueTypes.items()))
 
     switch = "\nvoid GameInstance::ApplyMutation({}::Mutation* mutation){{\n\t{}}}\n}}\n".format(
         PackageName, "} else ".join([

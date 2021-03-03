@@ -47,7 +47,7 @@ struct TableStruct_Type_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -73,6 +73,9 @@ extern List_ColorDefaultTypeInternal _List_Color_default_instance_;
 class List_Integer;
 class List_IntegerDefaultTypeInternal;
 extern List_IntegerDefaultTypeInternal _List_Integer_default_instance_;
+class List_ObjectPath;
+class List_ObjectPathDefaultTypeInternal;
+extern List_ObjectPathDefaultTypeInternal _List_ObjectPath_default_instance_;
 class List_Terrain;
 class List_TerrainDefaultTypeInternal;
 extern List_TerrainDefaultTypeInternal _List_Terrain_default_instance_;
@@ -96,6 +99,7 @@ template<> ::IvionOnline::Integer* Arena::CreateMaybeMessage<::IvionOnline::Inte
 template<> ::IvionOnline::List_Boolean* Arena::CreateMaybeMessage<::IvionOnline::List_Boolean>(Arena*);
 template<> ::IvionOnline::List_Color* Arena::CreateMaybeMessage<::IvionOnline::List_Color>(Arena*);
 template<> ::IvionOnline::List_Integer* Arena::CreateMaybeMessage<::IvionOnline::List_Integer>(Arena*);
+template<> ::IvionOnline::List_ObjectPath* Arena::CreateMaybeMessage<::IvionOnline::List_ObjectPath>(Arena*);
 template<> ::IvionOnline::List_Terrain* Arena::CreateMaybeMessage<::IvionOnline::List_Terrain>(Arena*);
 template<> ::IvionOnline::List_Vec2i* Arena::CreateMaybeMessage<::IvionOnline::List_Vec2i>(Arena*);
 template<> ::IvionOnline::ObjectPath* Arena::CreateMaybeMessage<::IvionOnline::ObjectPath>(Arena*);
@@ -389,6 +393,151 @@ class ObjectPath PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class List_ObjectPath PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath) */ {
+ public:
+  inline List_ObjectPath() : List_ObjectPath(nullptr) {}
+  virtual ~List_ObjectPath();
+
+  List_ObjectPath(const List_ObjectPath& from);
+  List_ObjectPath(List_ObjectPath&& from) noexcept
+    : List_ObjectPath() {
+    *this = ::std::move(from);
+  }
+
+  inline List_ObjectPath& operator=(const List_ObjectPath& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_ObjectPath& operator=(List_ObjectPath&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_ObjectPath& default_instance();
+
+  static inline const List_ObjectPath* internal_default_instance() {
+    return reinterpret_cast<const List_ObjectPath*>(
+               &_List_ObjectPath_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(List_ObjectPath& a, List_ObjectPath& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_ObjectPath* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_ObjectPath* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_ObjectPath* New() const final {
+    return CreateMaybeMessage<List_ObjectPath>(nullptr);
+  }
+
+  List_ObjectPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_ObjectPath>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_ObjectPath& from);
+  void MergeFrom(const List_ObjectPath& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_ObjectPath* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_ObjectPath";
+  }
+  protected:
+  explicit List_ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_Type_2eproto);
+    return ::descriptor_table_Type_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.ObjectPath element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::ObjectPath* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
+      mutable_element();
+  private:
+  const ::IvionOnline::ObjectPath& _internal_element(int index) const;
+  ::IvionOnline::ObjectPath* _internal_add_element();
+  public:
+  const ::IvionOnline::ObjectPath& element(int index) const;
+  ::IvionOnline::ObjectPath* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_Type_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Boolean PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Boolean) */ {
  public:
@@ -430,7 +579,7 @@ class Boolean PROTOBUF_FINAL :
                &_Boolean_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Boolean& a, Boolean& b) {
     a.Swap(&b);
@@ -566,7 +715,7 @@ class List_Boolean PROTOBUF_FINAL :
                &_List_Boolean_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(List_Boolean& a, List_Boolean& b) {
     a.Swap(&b);
@@ -711,7 +860,7 @@ class Integer PROTOBUF_FINAL :
                &_Integer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Integer& a, Integer& b) {
     a.Swap(&b);
@@ -847,7 +996,7 @@ class List_Integer PROTOBUF_FINAL :
                &_List_Integer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(List_Integer& a, List_Integer& b) {
     a.Swap(&b);
@@ -992,7 +1141,7 @@ class Vec2i PROTOBUF_FINAL :
                &_Vec2i_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(Vec2i& a, Vec2i& b) {
     a.Swap(&b);
@@ -1139,7 +1288,7 @@ class List_Vec2i PROTOBUF_FINAL :
                &_List_Vec2i_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(List_Vec2i& a, List_Vec2i& b) {
     a.Swap(&b);
@@ -1284,7 +1433,7 @@ class Terrain PROTOBUF_FINAL :
                &_Terrain_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(Terrain& a, Terrain& b) {
     a.Swap(&b);
@@ -1452,7 +1601,7 @@ class List_Terrain PROTOBUF_FINAL :
                &_List_Terrain_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(List_Terrain& a, List_Terrain& b) {
     a.Swap(&b);
@@ -1597,7 +1746,7 @@ class Color PROTOBUF_FINAL :
                &_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(Color& a, Color& b) {
     a.Swap(&b);
@@ -1773,7 +1922,7 @@ class List_Color PROTOBUF_FINAL :
                &_List_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(List_Color& a, List_Color& b) {
     a.Swap(&b);
@@ -2012,6 +2161,49 @@ inline void ObjectPath::_internal_set_object_type(::IvionOnline::ObjectType valu
 inline void ObjectPath::set_object_type(::IvionOnline::ObjectType value) {
   _internal_set_object_type(value);
   // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Object_Type)
+}
+
+// -------------------------------------------------------------------
+
+// List_ObjectPath
+
+// repeated .IvionOnline.ObjectPath element = 1;
+inline int List_ObjectPath::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_ObjectPath::element_size() const {
+  return _internal_element_size();
+}
+inline void List_ObjectPath::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
+List_ObjectPath::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_ObjectPath.element)
+  return &element_;
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_ObjectPath.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
+List_ObjectPath::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_ObjectPath.element)
+  return element_;
 }
 
 // -------------------------------------------------------------------
@@ -2372,6 +2564,8 @@ List_Color::element() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

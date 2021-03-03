@@ -4,7 +4,26 @@ package IvionOnline;
 
 import "Type.proto";
 import "Class.proto";
+message ObjectPath_Set_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath NewValue = 2;
+    ObjectPath OldValue = 3;
+}
 
+message List_ObjectPath_Insert_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath NewValue = 2;
+    int32 Index = 3;
+}
+
+message List_ObjectPath_Remove_Mutation
+{
+    ObjectPath Path = 1;
+    ObjectPath OldValue = 2;
+    int32 Index = 3;
+}
 message Boolean_Set_Mutation
 {
     ObjectPath Path = 1;
@@ -109,20 +128,23 @@ message List_Color_Remove_Mutation
 message Mutation
 {
 	oneof mut{
-		Boolean_Set_Mutation Boolean_Set_Mutation = 1;
-		List_Boolean_Insert_Mutation List_Boolean_Insert_Mutation = 2;
-		List_Boolean_Remove_Mutation List_Boolean_Remove_Mutation = 3;
-		Integer_Set_Mutation Integer_Set_Mutation = 4;
-		List_Integer_Insert_Mutation List_Integer_Insert_Mutation = 5;
-		List_Integer_Remove_Mutation List_Integer_Remove_Mutation = 6;
-		Vec2i_Set_Mutation Vec2i_Set_Mutation = 7;
-		List_Vec2i_Insert_Mutation List_Vec2i_Insert_Mutation = 8;
-		List_Vec2i_Remove_Mutation List_Vec2i_Remove_Mutation = 9;
-		Terrain_Set_Mutation Terrain_Set_Mutation = 10;
-		List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 11;
-		List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 12;
-		Color_Set_Mutation Color_Set_Mutation = 13;
-		List_Color_Insert_Mutation List_Color_Insert_Mutation = 14;
-		List_Color_Remove_Mutation List_Color_Remove_Mutation = 15;
+		ObjectPath_Set_Mutation ObjectPath_Set_Mutation = 1;
+		List_ObjectPath_Insert_Mutation List_ObjectPath_Insert_Mutation = 2;
+		List_ObjectPath_Remove_Mutation List_ObjectPath_Remove_Mutation = 3;
+		Boolean_Set_Mutation Boolean_Set_Mutation = 4;
+		List_Boolean_Insert_Mutation List_Boolean_Insert_Mutation = 5;
+		List_Boolean_Remove_Mutation List_Boolean_Remove_Mutation = 6;
+		Integer_Set_Mutation Integer_Set_Mutation = 7;
+		List_Integer_Insert_Mutation List_Integer_Insert_Mutation = 8;
+		List_Integer_Remove_Mutation List_Integer_Remove_Mutation = 9;
+		Vec2i_Set_Mutation Vec2i_Set_Mutation = 10;
+		List_Vec2i_Insert_Mutation List_Vec2i_Insert_Mutation = 11;
+		List_Vec2i_Remove_Mutation List_Vec2i_Remove_Mutation = 12;
+		Terrain_Set_Mutation Terrain_Set_Mutation = 13;
+		List_Terrain_Insert_Mutation List_Terrain_Insert_Mutation = 14;
+		List_Terrain_Remove_Mutation List_Terrain_Remove_Mutation = 15;
+		Color_Set_Mutation Color_Set_Mutation = 16;
+		List_Color_Insert_Mutation List_Color_Insert_Mutation = 17;
+		List_Color_Remove_Mutation List_Color_Remove_Mutation = 18;
 	}
 }

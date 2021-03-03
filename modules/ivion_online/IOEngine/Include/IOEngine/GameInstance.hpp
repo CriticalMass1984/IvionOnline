@@ -20,6 +20,7 @@ public:
 
 	google::protobuf::Message *ResolvePath(IvionOnline::ObjectPath *path);
 
+	// the generate code contains the source for this
 	void ApplyMutation(IvionOnline::Mutation *mutation);
 	void RevertMutation(IvionOnline::Mutation *mutation);
 
