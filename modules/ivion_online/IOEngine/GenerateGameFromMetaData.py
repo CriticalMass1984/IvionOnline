@@ -70,7 +70,7 @@ def ProtoType(mdType: str):
         if T == "Ref":
             Type = "ObjectPath"
         elif T == "List":
-            Type = "repeated " + Type
+            Type = "List_" + Type
         else:
             raise RuntimeError("BAD TYPE! {} - {}".format(T, Type))
     return Type
@@ -83,13 +83,12 @@ def CppType(mdType: str):
     protoType.reverse()
     for T in protoType:
         if T == "Ref":
-            Type = "{}*".format(Type)
+            pass
         elif T == "List":
             Type = "google::protobuf::RepeatedPtrField<{}>".format(Type)
         else:
             raise RuntimeError("BAD TYPE! {} - {}".format(T, Type))
-    return Type
-
+    return "{}*".format(Type)
 
 class ClassType:
     headerBase = open("GeneraterBaseFiles/ValueTypeHeader").read()
@@ -122,6 +121,7 @@ ValueTypes = {"ObjectPath": ValueType("ObjectPath", {
     "Full_Path": "string",
     "Object_Type": "ObjectType"
 })}
+
 ClassTypes = dict()
 for name, value in GameMetaData["ValueTypes"].items():
     VT = ValueType(name, value)
@@ -183,7 +183,6 @@ with open("Protobuf/GameState.proto", 'w') as protoFile:
     # })
     # protoFile.write(baseProto)
 
-
     def WriteMethodProto(name: str, args: dict, returns: dict):
         index = 1
         protoFile.write("message {} {{\n".format(name))
@@ -201,11 +200,18 @@ with open("Protobuf/GameState.proto", 'w') as protoFile:
 
     for methodName, details in GameMetaData["Methods"].items():
         WriteMethodProto(methodName, details["Args"], details["Return"])
+
+    #
     protoFile.write("message Method {\n")
     protoFile.write("\toneof methods {\n")
     protoFile.write("\n".join(["\t\t{} {} = {};".format(x, x, i+1) for x, i in zip(
         GameMetaData["Methods"].keys(), range(len(GameMetaData["Methods"].keys())))]))
     protoFile.write("\n\t}\n")
+    protoFile.write("}\n\n")
+
+    #
+    protoFile.write("message List_Method {\n")
+    protoFile.write("\trepeated Method element = 1;\n")
     protoFile.write("}\n\n")
 
 
@@ -215,23 +221,50 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
     }))
     headerFile.write("\nnamespace IO {\n")
 
-    def WriteMethodCppWrapper(name: str, args: dict, returns: dict):
-        print("WriteMethodCppWrapper({}, {}, {})".format(name, args, returns))
+    def ResolveType(argType:str, argName: str):
+        protoType = [x for x in TypeRegex.split(argType) if x != ""]
+        assert(len(protoType) <= 3)
+        if len(protoType) == 1:
+            return "message->mutable_{}()".format(argName.lower())
+        elif len(protoType) == 2:
+            if protoType[0] == "Ref":
+                return "dynamic_cast<{}::{}*>(instance->ResolvePath(message->mutable_{}()))".format(PackageName, protoType[1], argName.lower())
+            if protoType[0] == "List":
+                return "message->mutable_{}()->mutable_element()".format(argName.lower())
+        elif len(protoType) == 3:
+            assert(protoType[0] == "Ref")
+            assert(protoType[1] == "List")
+            assert(protoType[2] == "ObjectPath")
+            return "dynamic_cast<{}::List_ObjectPath*>(instance->ResolvePath(message->mutable_{}()))->mutable_element()".format(PackageName, argName.lower())
+
+
+    def WriteMethodCpp(name: str, arguments: list):
+        headerFile.write("bool __{}(GameInstance* instance".format(name))
+        headerFile.write("".join([", {} {}".format(CppType(arg), argName) for (arg, argName) in arguments]))
+        headerFile.write(");\n")
+
+    def WriteMethodCppWrapper(name: str, arguments: list):
         headerFile.write(
-            "inline bool {}({}::{}* message) {{\n".format(name, PackageName, name))
-        headerFile.write("\treturn true\n")
-        # for arg, i in zip(args, range(len(args))):
-        #     arg, argName = arg.split(" ")
-        #     headerFile.write("\t{} {} = {};\n".format(ProtoType(arg), argName, i))
-        # for arg, i in zip(returns, range(len(returns))):
-        #     arg, argName = arg.split(" ")
-        #     headerFile.write("\t{} {} = {};\n".format(ProtoType(arg), argName, i))
+            "\ninline bool {}(\n\t\tGameInstance* instance, {}::{}* message) {{\n".format(name, PackageName, name))
+        headerFile.write("\treturn __{}(\n\t\tinstance".format(name))
+        headerFile.write("".join([",\n\t\t"+ResolveType(arg, argName) for (arg, argName) in arguments]))
+        headerFile.write(");\n")
         headerFile.write("}\n\n")
 
     for methodName, details in GameMetaData["Methods"].items():
-        WriteMethodCppWrapper(methodName, details["Args"], details["Return"])
+        arguments = [(arg.split(" "))for arg in details["Return"]]
+        arguments.extend([(arg.split(" "))for arg in details["Args"]])
+        WriteMethodCpp(methodName, arguments)
+
+    headerFile.write("\n")
+
+    for methodName, details in GameMetaData["Methods"].items():
+        arguments = [(arg.split(" "))for arg in details["Return"]]
+        arguments.extend([(arg.split(" "))for arg in details["Args"]])
+        WriteMethodCppWrapper(methodName, arguments)
 
     headerFile.write("\n} // namespace IO")
+
 
 with open("Source/IOEngine/GameInstance_Generated.cpp", 'w') as sourceFile:
     baseProto = open("GeneraterBaseFiles/GameInstanceSourceBase").read().format(**{

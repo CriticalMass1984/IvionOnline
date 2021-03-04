@@ -116,10 +116,10 @@ message Player {
 	Integer Silence = 8;
 	Integer Disarm = 9;
 	Vec2i Position = 10;
-	repeated ObjectPath Hand = 11;
-	repeated ObjectPath Deck = 12;
-	repeated ObjectPath Discard = 13;
-	repeated ObjectPath Feats = 14;
+	List_ObjectPath Hand = 11;
+	List_ObjectPath Deck = 12;
+	List_ObjectPath Discard = 13;
+	List_ObjectPath Feats = 14;
 	Integer MaxHealth = 15;
 	Integer MaxActions = 16;
 	Integer MaxPower = 17;
@@ -149,11 +149,11 @@ message CardData {
 	Boolean AffectedBySlow = 6;
 	Boolean AffectedBySilence = 7;
 	Boolean AffectedByDisarm = 8;
-	repeated Method OmniPresentEffect = 9;
-	repeated Method PassiveEffect = 10;
-	repeated Method FeatEffect = 11;
-	repeated Method PlayEffect = 12;
-	repeated Method ResolveEffect = 13;
+	List_Method OmniPresentEffect = 9;
+	List_Method PassiveEffect = 10;
+	List_Method FeatEffect = 11;
+	List_Method PlayEffect = 12;
+	List_Method ResolveEffect = 13;
 }
 
 
@@ -163,8 +163,8 @@ message List_CardData {
 message Tile {
 	Vec2i Position = 1;
 	Terrain Terrain = 2;
-	repeated ObjectPath Players = 3;
-	repeated ObjectPath Cards = 4;
+	List_ObjectPath Players = 3;
+	List_ObjectPath Cards = 4;
 }
 
 
@@ -172,11 +172,11 @@ message List_Tile {
     repeated Tile element = 1;
 }
 message GameState {
-	repeated Player Players = 1;
-	repeated Card Cards = 2;
-	repeated CardData CardData = 3;
-	repeated Tile Tiles = 4;
-	repeated ObjectPath Field = 5;
+	List_Player Players = 1;
+	List_Card Cards = 2;
+	List_CardData CardData = 3;
+	List_Tile Tiles = 4;
+	List_ObjectPath Field = 5;
 	Integer TurnNumber = 6;
 }
 
@@ -327,7 +327,7 @@ message Mutation
 }
 message GetList {
 	ObjectPath Source = 1;
-	repeated ObjectPath Result = 2;
+	List_ObjectPath Result = 2;
 }
 
 message SelectMultiple {
@@ -440,5 +440,9 @@ message Method {
 		Terrain_Constant Terrain_Constant = 19;
 		Color_Constant Color_Constant = 20;
 	}
+}
+
+message List_Method {
+	repeated Method element = 1;
 }
 

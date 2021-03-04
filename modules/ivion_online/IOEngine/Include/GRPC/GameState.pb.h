@@ -47,7 +47,7 @@ struct TableStruct_GameState_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[62]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[63]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -148,6 +148,9 @@ extern List_Integer_Insert_MutationDefaultTypeInternal _List_Integer_Insert_Muta
 class List_Integer_Remove_Mutation;
 class List_Integer_Remove_MutationDefaultTypeInternal;
 extern List_Integer_Remove_MutationDefaultTypeInternal _List_Integer_Remove_Mutation_default_instance_;
+class List_Method;
+class List_MethodDefaultTypeInternal;
+extern List_MethodDefaultTypeInternal _List_Method_default_instance_;
 class List_ObjectPath;
 class List_ObjectPathDefaultTypeInternal;
 extern List_ObjectPathDefaultTypeInternal _List_ObjectPath_default_instance_;
@@ -274,6 +277,7 @@ template<> ::IvionOnline::List_GameState* Arena::CreateMaybeMessage<::IvionOnlin
 template<> ::IvionOnline::List_Integer* Arena::CreateMaybeMessage<::IvionOnline::List_Integer>(Arena*);
 template<> ::IvionOnline::List_Integer_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Integer_Insert_Mutation>(Arena*);
 template<> ::IvionOnline::List_Integer_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_Integer_Remove_Mutation>(Arena*);
+template<> ::IvionOnline::List_Method* Arena::CreateMaybeMessage<::IvionOnline::List_Method>(Arena*);
 template<> ::IvionOnline::List_ObjectPath* Arena::CreateMaybeMessage<::IvionOnline::List_ObjectPath>(Arena*);
 template<> ::IvionOnline::List_ObjectPath_Insert_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_ObjectPath_Insert_Mutation>(Arena*);
 template<> ::IvionOnline::List_ObjectPath_Remove_Mutation* Arena::CreateMaybeMessage<::IvionOnline::List_ObjectPath_Remove_Mutation>(Arena*);
@@ -2348,10 +2352,6 @@ class Player PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kHandFieldNumber = 11,
-    kDeckFieldNumber = 12,
-    kDiscardFieldNumber = 13,
-    kFeatsFieldNumber = 14,
     kUIDFieldNumber = 1,
     kNameFieldNumber = 2,
     kHealthFieldNumber = 3,
@@ -2362,6 +2362,10 @@ class Player PROTOBUF_FINAL :
     kSilenceFieldNumber = 8,
     kDisarmFieldNumber = 9,
     kPositionFieldNumber = 10,
+    kHandFieldNumber = 11,
+    kDeckFieldNumber = 12,
+    kDiscardFieldNumber = 13,
+    kFeatsFieldNumber = 14,
     kMaxHealthFieldNumber = 15,
     kMaxActionsFieldNumber = 16,
     kMaxPowerFieldNumber = 17,
@@ -2369,78 +2373,6 @@ class Player PROTOBUF_FINAL :
     kMaxSilenceFieldNumber = 19,
     kMaxDisarmFieldNumber = 20,
   };
-  // repeated .IvionOnline.ObjectPath Hand = 11;
-  int hand_size() const;
-  private:
-  int _internal_hand_size() const;
-  public:
-  void clear_hand();
-  ::IvionOnline::ObjectPath* mutable_hand(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_hand();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_hand(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_hand();
-  public:
-  const ::IvionOnline::ObjectPath& hand(int index) const;
-  ::IvionOnline::ObjectPath* add_hand();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      hand() const;
-
-  // repeated .IvionOnline.ObjectPath Deck = 12;
-  int deck_size() const;
-  private:
-  int _internal_deck_size() const;
-  public:
-  void clear_deck();
-  ::IvionOnline::ObjectPath* mutable_deck(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_deck();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_deck(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_deck();
-  public:
-  const ::IvionOnline::ObjectPath& deck(int index) const;
-  ::IvionOnline::ObjectPath* add_deck();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      deck() const;
-
-  // repeated .IvionOnline.ObjectPath Discard = 13;
-  int discard_size() const;
-  private:
-  int _internal_discard_size() const;
-  public:
-  void clear_discard();
-  ::IvionOnline::ObjectPath* mutable_discard(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_discard();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_discard(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_discard();
-  public:
-  const ::IvionOnline::ObjectPath& discard(int index) const;
-  ::IvionOnline::ObjectPath* add_discard();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      discard() const;
-
-  // repeated .IvionOnline.ObjectPath Feats = 14;
-  int feats_size() const;
-  private:
-  int _internal_feats_size() const;
-  public:
-  void clear_feats();
-  ::IvionOnline::ObjectPath* mutable_feats(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_feats();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_feats(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_feats();
-  public:
-  const ::IvionOnline::ObjectPath& feats(int index) const;
-  ::IvionOnline::ObjectPath* add_feats();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      feats() const;
-
   // string UID = 1;
   void clear_uid();
   const std::string& uid() const;
@@ -2617,6 +2549,78 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Vec2i* position);
   ::IvionOnline::Vec2i* unsafe_arena_release_position();
 
+  // .IvionOnline.List_ObjectPath Hand = 11;
+  bool has_hand() const;
+  private:
+  bool _internal_has_hand() const;
+  public:
+  void clear_hand();
+  const ::IvionOnline::List_ObjectPath& hand() const;
+  ::IvionOnline::List_ObjectPath* release_hand();
+  ::IvionOnline::List_ObjectPath* mutable_hand();
+  void set_allocated_hand(::IvionOnline::List_ObjectPath* hand);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_hand() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_hand();
+  public:
+  void unsafe_arena_set_allocated_hand(
+      ::IvionOnline::List_ObjectPath* hand);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_hand();
+
+  // .IvionOnline.List_ObjectPath Deck = 12;
+  bool has_deck() const;
+  private:
+  bool _internal_has_deck() const;
+  public:
+  void clear_deck();
+  const ::IvionOnline::List_ObjectPath& deck() const;
+  ::IvionOnline::List_ObjectPath* release_deck();
+  ::IvionOnline::List_ObjectPath* mutable_deck();
+  void set_allocated_deck(::IvionOnline::List_ObjectPath* deck);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_deck() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_deck();
+  public:
+  void unsafe_arena_set_allocated_deck(
+      ::IvionOnline::List_ObjectPath* deck);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_deck();
+
+  // .IvionOnline.List_ObjectPath Discard = 13;
+  bool has_discard() const;
+  private:
+  bool _internal_has_discard() const;
+  public:
+  void clear_discard();
+  const ::IvionOnline::List_ObjectPath& discard() const;
+  ::IvionOnline::List_ObjectPath* release_discard();
+  ::IvionOnline::List_ObjectPath* mutable_discard();
+  void set_allocated_discard(::IvionOnline::List_ObjectPath* discard);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_discard() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_discard();
+  public:
+  void unsafe_arena_set_allocated_discard(
+      ::IvionOnline::List_ObjectPath* discard);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_discard();
+
+  // .IvionOnline.List_ObjectPath Feats = 14;
+  bool has_feats() const;
+  private:
+  bool _internal_has_feats() const;
+  public:
+  void clear_feats();
+  const ::IvionOnline::List_ObjectPath& feats() const;
+  ::IvionOnline::List_ObjectPath* release_feats();
+  ::IvionOnline::List_ObjectPath* mutable_feats();
+  void set_allocated_feats(::IvionOnline::List_ObjectPath* feats);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_feats() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_feats();
+  public:
+  void unsafe_arena_set_allocated_feats(
+      ::IvionOnline::List_ObjectPath* feats);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_feats();
+
   // .IvionOnline.Integer MaxHealth = 15;
   bool has_maxhealth() const;
   private:
@@ -2732,10 +2736,6 @@ class Player PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > hand_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > deck_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > discard_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > feats_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::Integer* health_;
@@ -2746,6 +2746,10 @@ class Player PROTOBUF_FINAL :
   ::IvionOnline::Integer* silence_;
   ::IvionOnline::Integer* disarm_;
   ::IvionOnline::Vec2i* position_;
+  ::IvionOnline::List_ObjectPath* hand_;
+  ::IvionOnline::List_ObjectPath* deck_;
+  ::IvionOnline::List_ObjectPath* discard_;
+  ::IvionOnline::List_ObjectPath* feats_;
   ::IvionOnline::Integer* maxhealth_;
   ::IvionOnline::Integer* maxactions_;
   ::IvionOnline::Integer* maxpower_;
@@ -3304,11 +3308,6 @@ class CardData PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kOmniPresentEffectFieldNumber = 9,
-    kPassiveEffectFieldNumber = 10,
-    kFeatEffectFieldNumber = 11,
-    kPlayEffectFieldNumber = 12,
-    kResolveEffectFieldNumber = 13,
     kOwnerFieldNumber = 1,
     kControllerFieldNumber = 2,
     kActionCostFieldNumber = 3,
@@ -3317,97 +3316,12 @@ class CardData PROTOBUF_FINAL :
     kAffectedBySlowFieldNumber = 6,
     kAffectedBySilenceFieldNumber = 7,
     kAffectedByDisarmFieldNumber = 8,
+    kOmniPresentEffectFieldNumber = 9,
+    kPassiveEffectFieldNumber = 10,
+    kFeatEffectFieldNumber = 11,
+    kPlayEffectFieldNumber = 12,
+    kResolveEffectFieldNumber = 13,
   };
-  // repeated .IvionOnline.Method OmniPresentEffect = 9;
-  int omnipresenteffect_size() const;
-  private:
-  int _internal_omnipresenteffect_size() const;
-  public:
-  void clear_omnipresenteffect();
-  ::IvionOnline::Method* mutable_omnipresenteffect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-      mutable_omnipresenteffect();
-  private:
-  const ::IvionOnline::Method& _internal_omnipresenteffect(int index) const;
-  ::IvionOnline::Method* _internal_add_omnipresenteffect();
-  public:
-  const ::IvionOnline::Method& omnipresenteffect(int index) const;
-  ::IvionOnline::Method* add_omnipresenteffect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-      omnipresenteffect() const;
-
-  // repeated .IvionOnline.Method PassiveEffect = 10;
-  int passiveeffect_size() const;
-  private:
-  int _internal_passiveeffect_size() const;
-  public:
-  void clear_passiveeffect();
-  ::IvionOnline::Method* mutable_passiveeffect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-      mutable_passiveeffect();
-  private:
-  const ::IvionOnline::Method& _internal_passiveeffect(int index) const;
-  ::IvionOnline::Method* _internal_add_passiveeffect();
-  public:
-  const ::IvionOnline::Method& passiveeffect(int index) const;
-  ::IvionOnline::Method* add_passiveeffect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-      passiveeffect() const;
-
-  // repeated .IvionOnline.Method FeatEffect = 11;
-  int feateffect_size() const;
-  private:
-  int _internal_feateffect_size() const;
-  public:
-  void clear_feateffect();
-  ::IvionOnline::Method* mutable_feateffect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-      mutable_feateffect();
-  private:
-  const ::IvionOnline::Method& _internal_feateffect(int index) const;
-  ::IvionOnline::Method* _internal_add_feateffect();
-  public:
-  const ::IvionOnline::Method& feateffect(int index) const;
-  ::IvionOnline::Method* add_feateffect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-      feateffect() const;
-
-  // repeated .IvionOnline.Method PlayEffect = 12;
-  int playeffect_size() const;
-  private:
-  int _internal_playeffect_size() const;
-  public:
-  void clear_playeffect();
-  ::IvionOnline::Method* mutable_playeffect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-      mutable_playeffect();
-  private:
-  const ::IvionOnline::Method& _internal_playeffect(int index) const;
-  ::IvionOnline::Method* _internal_add_playeffect();
-  public:
-  const ::IvionOnline::Method& playeffect(int index) const;
-  ::IvionOnline::Method* add_playeffect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-      playeffect() const;
-
-  // repeated .IvionOnline.Method ResolveEffect = 13;
-  int resolveeffect_size() const;
-  private:
-  int _internal_resolveeffect_size() const;
-  public:
-  void clear_resolveeffect();
-  ::IvionOnline::Method* mutable_resolveeffect(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-      mutable_resolveeffect();
-  private:
-  const ::IvionOnline::Method& _internal_resolveeffect(int index) const;
-  ::IvionOnline::Method* _internal_add_resolveeffect();
-  public:
-  const ::IvionOnline::Method& resolveeffect(int index) const;
-  ::IvionOnline::Method* add_resolveeffect();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-      resolveeffect() const;
-
   // .IvionOnline.ObjectPath Owner = 1;
   bool has_owner() const;
   private:
@@ -3552,6 +3466,96 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::Boolean* affectedbydisarm);
   ::IvionOnline::Boolean* unsafe_arena_release_affectedbydisarm();
 
+  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  bool has_omnipresenteffect() const;
+  private:
+  bool _internal_has_omnipresenteffect() const;
+  public:
+  void clear_omnipresenteffect();
+  const ::IvionOnline::List_Method& omnipresenteffect() const;
+  ::IvionOnline::List_Method* release_omnipresenteffect();
+  ::IvionOnline::List_Method* mutable_omnipresenteffect();
+  void set_allocated_omnipresenteffect(::IvionOnline::List_Method* omnipresenteffect);
+  private:
+  const ::IvionOnline::List_Method& _internal_omnipresenteffect() const;
+  ::IvionOnline::List_Method* _internal_mutable_omnipresenteffect();
+  public:
+  void unsafe_arena_set_allocated_omnipresenteffect(
+      ::IvionOnline::List_Method* omnipresenteffect);
+  ::IvionOnline::List_Method* unsafe_arena_release_omnipresenteffect();
+
+  // .IvionOnline.List_Method PassiveEffect = 10;
+  bool has_passiveeffect() const;
+  private:
+  bool _internal_has_passiveeffect() const;
+  public:
+  void clear_passiveeffect();
+  const ::IvionOnline::List_Method& passiveeffect() const;
+  ::IvionOnline::List_Method* release_passiveeffect();
+  ::IvionOnline::List_Method* mutable_passiveeffect();
+  void set_allocated_passiveeffect(::IvionOnline::List_Method* passiveeffect);
+  private:
+  const ::IvionOnline::List_Method& _internal_passiveeffect() const;
+  ::IvionOnline::List_Method* _internal_mutable_passiveeffect();
+  public:
+  void unsafe_arena_set_allocated_passiveeffect(
+      ::IvionOnline::List_Method* passiveeffect);
+  ::IvionOnline::List_Method* unsafe_arena_release_passiveeffect();
+
+  // .IvionOnline.List_Method FeatEffect = 11;
+  bool has_feateffect() const;
+  private:
+  bool _internal_has_feateffect() const;
+  public:
+  void clear_feateffect();
+  const ::IvionOnline::List_Method& feateffect() const;
+  ::IvionOnline::List_Method* release_feateffect();
+  ::IvionOnline::List_Method* mutable_feateffect();
+  void set_allocated_feateffect(::IvionOnline::List_Method* feateffect);
+  private:
+  const ::IvionOnline::List_Method& _internal_feateffect() const;
+  ::IvionOnline::List_Method* _internal_mutable_feateffect();
+  public:
+  void unsafe_arena_set_allocated_feateffect(
+      ::IvionOnline::List_Method* feateffect);
+  ::IvionOnline::List_Method* unsafe_arena_release_feateffect();
+
+  // .IvionOnline.List_Method PlayEffect = 12;
+  bool has_playeffect() const;
+  private:
+  bool _internal_has_playeffect() const;
+  public:
+  void clear_playeffect();
+  const ::IvionOnline::List_Method& playeffect() const;
+  ::IvionOnline::List_Method* release_playeffect();
+  ::IvionOnline::List_Method* mutable_playeffect();
+  void set_allocated_playeffect(::IvionOnline::List_Method* playeffect);
+  private:
+  const ::IvionOnline::List_Method& _internal_playeffect() const;
+  ::IvionOnline::List_Method* _internal_mutable_playeffect();
+  public:
+  void unsafe_arena_set_allocated_playeffect(
+      ::IvionOnline::List_Method* playeffect);
+  ::IvionOnline::List_Method* unsafe_arena_release_playeffect();
+
+  // .IvionOnline.List_Method ResolveEffect = 13;
+  bool has_resolveeffect() const;
+  private:
+  bool _internal_has_resolveeffect() const;
+  public:
+  void clear_resolveeffect();
+  const ::IvionOnline::List_Method& resolveeffect() const;
+  ::IvionOnline::List_Method* release_resolveeffect();
+  ::IvionOnline::List_Method* mutable_resolveeffect();
+  void set_allocated_resolveeffect(::IvionOnline::List_Method* resolveeffect);
+  private:
+  const ::IvionOnline::List_Method& _internal_resolveeffect() const;
+  ::IvionOnline::List_Method* _internal_mutable_resolveeffect();
+  public:
+  void unsafe_arena_set_allocated_resolveeffect(
+      ::IvionOnline::List_Method* resolveeffect);
+  ::IvionOnline::List_Method* unsafe_arena_release_resolveeffect();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.CardData)
  private:
   class _Internal;
@@ -3559,11 +3563,6 @@ class CardData PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > omnipresenteffect_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > passiveeffect_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > feateffect_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > playeffect_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > resolveeffect_;
   ::IvionOnline::ObjectPath* owner_;
   ::IvionOnline::ObjectPath* controller_;
   ::IvionOnline::Integer* actioncost_;
@@ -3572,6 +3571,11 @@ class CardData PROTOBUF_FINAL :
   ::IvionOnline::Boolean* affectedbyslow_;
   ::IvionOnline::Boolean* affectedbysilence_;
   ::IvionOnline::Boolean* affectedbydisarm_;
+  ::IvionOnline::List_Method* omnipresenteffect_;
+  ::IvionOnline::List_Method* passiveeffect_;
+  ::IvionOnline::List_Method* feateffect_;
+  ::IvionOnline::List_Method* playeffect_;
+  ::IvionOnline::List_Method* resolveeffect_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3834,47 +3838,11 @@ class Tile PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayersFieldNumber = 3,
-    kCardsFieldNumber = 4,
     kPositionFieldNumber = 1,
     kTerrainFieldNumber = 2,
+    kPlayersFieldNumber = 3,
+    kCardsFieldNumber = 4,
   };
-  // repeated .IvionOnline.ObjectPath Players = 3;
-  int players_size() const;
-  private:
-  int _internal_players_size() const;
-  public:
-  void clear_players();
-  ::IvionOnline::ObjectPath* mutable_players(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_players();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_players(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_players();
-  public:
-  const ::IvionOnline::ObjectPath& players(int index) const;
-  ::IvionOnline::ObjectPath* add_players();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      players() const;
-
-  // repeated .IvionOnline.ObjectPath Cards = 4;
-  int cards_size() const;
-  private:
-  int _internal_cards_size() const;
-  public:
-  void clear_cards();
-  ::IvionOnline::ObjectPath* mutable_cards(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_cards();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_cards(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_cards();
-  public:
-  const ::IvionOnline::ObjectPath& cards(int index) const;
-  ::IvionOnline::ObjectPath* add_cards();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      cards() const;
-
   // .IvionOnline.Vec2i Position = 1;
   bool has_position() const;
   private:
@@ -3911,6 +3879,42 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::Terrain* terrain);
   ::IvionOnline::Terrain* unsafe_arena_release_terrain();
 
+  // .IvionOnline.List_ObjectPath Players = 3;
+  bool has_players() const;
+  private:
+  bool _internal_has_players() const;
+  public:
+  void clear_players();
+  const ::IvionOnline::List_ObjectPath& players() const;
+  ::IvionOnline::List_ObjectPath* release_players();
+  ::IvionOnline::List_ObjectPath* mutable_players();
+  void set_allocated_players(::IvionOnline::List_ObjectPath* players);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_players() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_players();
+  public:
+  void unsafe_arena_set_allocated_players(
+      ::IvionOnline::List_ObjectPath* players);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_players();
+
+  // .IvionOnline.List_ObjectPath Cards = 4;
+  bool has_cards() const;
+  private:
+  bool _internal_has_cards() const;
+  public:
+  void clear_cards();
+  const ::IvionOnline::List_ObjectPath& cards() const;
+  ::IvionOnline::List_ObjectPath* release_cards();
+  ::IvionOnline::List_ObjectPath* mutable_cards();
+  void set_allocated_cards(::IvionOnline::List_ObjectPath* cards);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_cards() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_cards();
+  public:
+  void unsafe_arena_set_allocated_cards(
+      ::IvionOnline::List_ObjectPath* cards);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_cards();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.Tile)
  private:
   class _Internal;
@@ -3918,10 +3922,10 @@ class Tile PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > players_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > cards_;
   ::IvionOnline::Vec2i* position_;
   ::IvionOnline::Terrain* terrain_;
+  ::IvionOnline::List_ObjectPath* players_;
+  ::IvionOnline::List_ObjectPath* cards_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4191,95 +4195,95 @@ class GameState PROTOBUF_FINAL :
     kFieldFieldNumber = 5,
     kTurnNumberFieldNumber = 6,
   };
-  // repeated .IvionOnline.Player Players = 1;
-  int players_size() const;
+  // .IvionOnline.List_Player Players = 1;
+  bool has_players() const;
   private:
-  int _internal_players_size() const;
+  bool _internal_has_players() const;
   public:
   void clear_players();
-  ::IvionOnline::Player* mutable_players(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >*
-      mutable_players();
+  const ::IvionOnline::List_Player& players() const;
+  ::IvionOnline::List_Player* release_players();
+  ::IvionOnline::List_Player* mutable_players();
+  void set_allocated_players(::IvionOnline::List_Player* players);
   private:
-  const ::IvionOnline::Player& _internal_players(int index) const;
-  ::IvionOnline::Player* _internal_add_players();
+  const ::IvionOnline::List_Player& _internal_players() const;
+  ::IvionOnline::List_Player* _internal_mutable_players();
   public:
-  const ::IvionOnline::Player& players(int index) const;
-  ::IvionOnline::Player* add_players();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >&
-      players() const;
+  void unsafe_arena_set_allocated_players(
+      ::IvionOnline::List_Player* players);
+  ::IvionOnline::List_Player* unsafe_arena_release_players();
 
-  // repeated .IvionOnline.Card Cards = 2;
-  int cards_size() const;
+  // .IvionOnline.List_Card Cards = 2;
+  bool has_cards() const;
   private:
-  int _internal_cards_size() const;
+  bool _internal_has_cards() const;
   public:
   void clear_cards();
-  ::IvionOnline::Card* mutable_cards(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >*
-      mutable_cards();
+  const ::IvionOnline::List_Card& cards() const;
+  ::IvionOnline::List_Card* release_cards();
+  ::IvionOnline::List_Card* mutable_cards();
+  void set_allocated_cards(::IvionOnline::List_Card* cards);
   private:
-  const ::IvionOnline::Card& _internal_cards(int index) const;
-  ::IvionOnline::Card* _internal_add_cards();
+  const ::IvionOnline::List_Card& _internal_cards() const;
+  ::IvionOnline::List_Card* _internal_mutable_cards();
   public:
-  const ::IvionOnline::Card& cards(int index) const;
-  ::IvionOnline::Card* add_cards();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >&
-      cards() const;
+  void unsafe_arena_set_allocated_cards(
+      ::IvionOnline::List_Card* cards);
+  ::IvionOnline::List_Card* unsafe_arena_release_cards();
 
-  // repeated .IvionOnline.CardData CardData = 3;
-  int carddata_size() const;
+  // .IvionOnline.List_CardData CardData = 3;
+  bool has_carddata() const;
   private:
-  int _internal_carddata_size() const;
+  bool _internal_has_carddata() const;
   public:
   void clear_carddata();
-  ::IvionOnline::CardData* mutable_carddata(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData >*
-      mutable_carddata();
+  const ::IvionOnline::List_CardData& carddata() const;
+  ::IvionOnline::List_CardData* release_carddata();
+  ::IvionOnline::List_CardData* mutable_carddata();
+  void set_allocated_carddata(::IvionOnline::List_CardData* carddata);
   private:
-  const ::IvionOnline::CardData& _internal_carddata(int index) const;
-  ::IvionOnline::CardData* _internal_add_carddata();
+  const ::IvionOnline::List_CardData& _internal_carddata() const;
+  ::IvionOnline::List_CardData* _internal_mutable_carddata();
   public:
-  const ::IvionOnline::CardData& carddata(int index) const;
-  ::IvionOnline::CardData* add_carddata();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData >&
-      carddata() const;
+  void unsafe_arena_set_allocated_carddata(
+      ::IvionOnline::List_CardData* carddata);
+  ::IvionOnline::List_CardData* unsafe_arena_release_carddata();
 
-  // repeated .IvionOnline.Tile Tiles = 4;
-  int tiles_size() const;
+  // .IvionOnline.List_Tile Tiles = 4;
+  bool has_tiles() const;
   private:
-  int _internal_tiles_size() const;
+  bool _internal_has_tiles() const;
   public:
   void clear_tiles();
-  ::IvionOnline::Tile* mutable_tiles(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >*
-      mutable_tiles();
+  const ::IvionOnline::List_Tile& tiles() const;
+  ::IvionOnline::List_Tile* release_tiles();
+  ::IvionOnline::List_Tile* mutable_tiles();
+  void set_allocated_tiles(::IvionOnline::List_Tile* tiles);
   private:
-  const ::IvionOnline::Tile& _internal_tiles(int index) const;
-  ::IvionOnline::Tile* _internal_add_tiles();
+  const ::IvionOnline::List_Tile& _internal_tiles() const;
+  ::IvionOnline::List_Tile* _internal_mutable_tiles();
   public:
-  const ::IvionOnline::Tile& tiles(int index) const;
-  ::IvionOnline::Tile* add_tiles();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >&
-      tiles() const;
+  void unsafe_arena_set_allocated_tiles(
+      ::IvionOnline::List_Tile* tiles);
+  ::IvionOnline::List_Tile* unsafe_arena_release_tiles();
 
-  // repeated .IvionOnline.ObjectPath Field = 5;
-  int field_size() const;
+  // .IvionOnline.List_ObjectPath Field = 5;
+  bool has_field() const;
   private:
-  int _internal_field_size() const;
+  bool _internal_has_field() const;
   public:
   void clear_field();
-  ::IvionOnline::ObjectPath* mutable_field(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_field();
+  const ::IvionOnline::List_ObjectPath& field() const;
+  ::IvionOnline::List_ObjectPath* release_field();
+  ::IvionOnline::List_ObjectPath* mutable_field();
+  void set_allocated_field(::IvionOnline::List_ObjectPath* field);
   private:
-  const ::IvionOnline::ObjectPath& _internal_field(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_field();
+  const ::IvionOnline::List_ObjectPath& _internal_field() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_field();
   public:
-  const ::IvionOnline::ObjectPath& field(int index) const;
-  ::IvionOnline::ObjectPath* add_field();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      field() const;
+  void unsafe_arena_set_allocated_field(
+      ::IvionOnline::List_ObjectPath* field);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_field();
 
   // .IvionOnline.Integer TurnNumber = 6;
   bool has_turnnumber() const;
@@ -4306,11 +4310,11 @@ class GameState PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player > players_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card > cards_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData > carddata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile > tiles_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > field_;
+  ::IvionOnline::List_Player* players_;
+  ::IvionOnline::List_Card* cards_;
+  ::IvionOnline::List_CardData* carddata_;
+  ::IvionOnline::List_Tile* tiles_;
+  ::IvionOnline::List_ObjectPath* field_;
   ::IvionOnline::Integer* turnnumber_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -8265,27 +8269,9 @@ class GetList PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kResultFieldNumber = 2,
     kSourceFieldNumber = 1,
+    kResultFieldNumber = 2,
   };
-  // repeated .IvionOnline.ObjectPath Result = 2;
-  int result_size() const;
-  private:
-  int _internal_result_size() const;
-  public:
-  void clear_result();
-  ::IvionOnline::ObjectPath* mutable_result(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_result();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_result(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_result();
-  public:
-  const ::IvionOnline::ObjectPath& result(int index) const;
-  ::IvionOnline::ObjectPath* add_result();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      result() const;
-
   // .IvionOnline.ObjectPath Source = 1;
   bool has_source() const;
   private:
@@ -8304,6 +8290,24 @@ class GetList PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* source);
   ::IvionOnline::ObjectPath* unsafe_arena_release_source();
 
+  // .IvionOnline.List_ObjectPath Result = 2;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  const ::IvionOnline::List_ObjectPath& result() const;
+  ::IvionOnline::List_ObjectPath* release_result();
+  ::IvionOnline::List_ObjectPath* mutable_result();
+  void set_allocated_result(::IvionOnline::List_ObjectPath* result);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_result() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_result();
+  public:
+  void unsafe_arena_set_allocated_result(
+      ::IvionOnline::List_ObjectPath* result);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_result();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.GetList)
  private:
   class _Internal;
@@ -8311,8 +8315,8 @@ class GetList PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > result_;
   ::IvionOnline::ObjectPath* source_;
+  ::IvionOnline::List_ObjectPath* result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -11864,6 +11868,151 @@ class Method PROTOBUF_FINAL :
 
   friend struct ::TableStruct_GameState_2eproto;
 };
+// -------------------------------------------------------------------
+
+class List_Method PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_Method) */ {
+ public:
+  inline List_Method() : List_Method(nullptr) {}
+  virtual ~List_Method();
+
+  List_Method(const List_Method& from);
+  List_Method(List_Method&& from) noexcept
+    : List_Method() {
+    *this = ::std::move(from);
+  }
+
+  inline List_Method& operator=(const List_Method& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_Method& operator=(List_Method&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_Method& default_instance();
+
+  static inline const List_Method* internal_default_instance() {
+    return reinterpret_cast<const List_Method*>(
+               &_List_Method_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    62;
+
+  friend void swap(List_Method& a, List_Method& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_Method* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_Method* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_Method* New() const final {
+    return CreateMaybeMessage<List_Method>(nullptr);
+  }
+
+  List_Method* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_Method>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_Method& from);
+  void MergeFrom(const List_Method& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_Method* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_Method";
+  }
+  protected:
+  explicit List_Method(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+  };
+  // repeated .IvionOnline.Method element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::Method* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
+      mutable_element();
+  private:
+  const ::IvionOnline::Method& _internal_element(int index) const;
+  ::IvionOnline::Method* _internal_add_element();
+  public:
+  const ::IvionOnline::Method& element(int index) const;
+  ::IvionOnline::Method* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
+      element() const;
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_Method)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > element_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
 // ===================================================================
 
 
@@ -13191,160 +13340,336 @@ inline void Player::set_allocated_position(::IvionOnline::Vec2i* position) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Position)
 }
 
-// repeated .IvionOnline.ObjectPath Hand = 11;
-inline int Player::_internal_hand_size() const {
-  return hand_.size();
+// .IvionOnline.List_ObjectPath Hand = 11;
+inline bool Player::_internal_has_hand() const {
+  return this != internal_default_instance() && hand_ != nullptr;
 }
-inline int Player::hand_size() const {
-  return _internal_hand_size();
+inline bool Player::has_hand() const {
+  return _internal_has_hand();
 }
 inline void Player::clear_hand() {
-  hand_.Clear();
+  if (GetArena() == nullptr && hand_ != nullptr) {
+    delete hand_;
+  }
+  hand_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Player::mutable_hand(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Hand)
-  return hand_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Player::_internal_hand() const {
+  const ::IvionOnline::List_ObjectPath* p = hand_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Player::mutable_hand() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Player.Hand)
-  return &hand_;
-}
-inline const ::IvionOnline::ObjectPath& Player::_internal_hand(int index) const {
-  return hand_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Player::hand(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Player::hand() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Player.Hand)
-  return _internal_hand(index);
+  return _internal_hand();
 }
-inline ::IvionOnline::ObjectPath* Player::_internal_add_hand() {
-  return hand_.Add();
+inline void Player::unsafe_arena_set_allocated_hand(
+    ::IvionOnline::List_ObjectPath* hand) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(hand_);
+  }
+  hand_ = hand;
+  if (hand) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.Hand)
 }
-inline ::IvionOnline::ObjectPath* Player::add_hand() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Player.Hand)
-  return _internal_add_hand();
+inline ::IvionOnline::List_ObjectPath* Player::release_hand() {
+  
+  ::IvionOnline::List_ObjectPath* temp = hand_;
+  hand_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Player::hand() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Player.Hand)
+inline ::IvionOnline::List_ObjectPath* Player::unsafe_arena_release_hand() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Hand)
+  
+  ::IvionOnline::List_ObjectPath* temp = hand_;
+  hand_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Player::_internal_mutable_hand() {
+  
+  if (hand_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    hand_ = p;
+  }
   return hand_;
 }
-
-// repeated .IvionOnline.ObjectPath Deck = 12;
-inline int Player::_internal_deck_size() const {
-  return deck_.size();
+inline ::IvionOnline::List_ObjectPath* Player::mutable_hand() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Hand)
+  return _internal_mutable_hand();
 }
-inline int Player::deck_size() const {
-  return _internal_deck_size();
+inline void Player::set_allocated_hand(::IvionOnline::List_ObjectPath* hand) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete hand_;
+  }
+  if (hand) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(hand);
+    if (message_arena != submessage_arena) {
+      hand = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, hand, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  hand_ = hand;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Hand)
+}
+
+// .IvionOnline.List_ObjectPath Deck = 12;
+inline bool Player::_internal_has_deck() const {
+  return this != internal_default_instance() && deck_ != nullptr;
+}
+inline bool Player::has_deck() const {
+  return _internal_has_deck();
 }
 inline void Player::clear_deck() {
-  deck_.Clear();
+  if (GetArena() == nullptr && deck_ != nullptr) {
+    delete deck_;
+  }
+  deck_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Player::mutable_deck(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Deck)
-  return deck_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Player::_internal_deck() const {
+  const ::IvionOnline::List_ObjectPath* p = deck_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Player::mutable_deck() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Player.Deck)
-  return &deck_;
-}
-inline const ::IvionOnline::ObjectPath& Player::_internal_deck(int index) const {
-  return deck_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Player::deck(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Player::deck() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Player.Deck)
-  return _internal_deck(index);
+  return _internal_deck();
 }
-inline ::IvionOnline::ObjectPath* Player::_internal_add_deck() {
-  return deck_.Add();
+inline void Player::unsafe_arena_set_allocated_deck(
+    ::IvionOnline::List_ObjectPath* deck) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(deck_);
+  }
+  deck_ = deck;
+  if (deck) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.Deck)
 }
-inline ::IvionOnline::ObjectPath* Player::add_deck() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Player.Deck)
-  return _internal_add_deck();
+inline ::IvionOnline::List_ObjectPath* Player::release_deck() {
+  
+  ::IvionOnline::List_ObjectPath* temp = deck_;
+  deck_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Player::deck() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Player.Deck)
+inline ::IvionOnline::List_ObjectPath* Player::unsafe_arena_release_deck() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Deck)
+  
+  ::IvionOnline::List_ObjectPath* temp = deck_;
+  deck_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Player::_internal_mutable_deck() {
+  
+  if (deck_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    deck_ = p;
+  }
   return deck_;
 }
-
-// repeated .IvionOnline.ObjectPath Discard = 13;
-inline int Player::_internal_discard_size() const {
-  return discard_.size();
+inline ::IvionOnline::List_ObjectPath* Player::mutable_deck() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Deck)
+  return _internal_mutable_deck();
 }
-inline int Player::discard_size() const {
-  return _internal_discard_size();
+inline void Player::set_allocated_deck(::IvionOnline::List_ObjectPath* deck) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete deck_;
+  }
+  if (deck) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(deck);
+    if (message_arena != submessage_arena) {
+      deck = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, deck, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  deck_ = deck;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Deck)
+}
+
+// .IvionOnline.List_ObjectPath Discard = 13;
+inline bool Player::_internal_has_discard() const {
+  return this != internal_default_instance() && discard_ != nullptr;
+}
+inline bool Player::has_discard() const {
+  return _internal_has_discard();
 }
 inline void Player::clear_discard() {
-  discard_.Clear();
+  if (GetArena() == nullptr && discard_ != nullptr) {
+    delete discard_;
+  }
+  discard_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Player::mutable_discard(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Discard)
-  return discard_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Player::_internal_discard() const {
+  const ::IvionOnline::List_ObjectPath* p = discard_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Player::mutable_discard() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Player.Discard)
-  return &discard_;
-}
-inline const ::IvionOnline::ObjectPath& Player::_internal_discard(int index) const {
-  return discard_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Player::discard(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Player::discard() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Player.Discard)
-  return _internal_discard(index);
+  return _internal_discard();
 }
-inline ::IvionOnline::ObjectPath* Player::_internal_add_discard() {
-  return discard_.Add();
+inline void Player::unsafe_arena_set_allocated_discard(
+    ::IvionOnline::List_ObjectPath* discard) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(discard_);
+  }
+  discard_ = discard;
+  if (discard) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.Discard)
 }
-inline ::IvionOnline::ObjectPath* Player::add_discard() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Player.Discard)
-  return _internal_add_discard();
+inline ::IvionOnline::List_ObjectPath* Player::release_discard() {
+  
+  ::IvionOnline::List_ObjectPath* temp = discard_;
+  discard_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Player::discard() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Player.Discard)
+inline ::IvionOnline::List_ObjectPath* Player::unsafe_arena_release_discard() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Discard)
+  
+  ::IvionOnline::List_ObjectPath* temp = discard_;
+  discard_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Player::_internal_mutable_discard() {
+  
+  if (discard_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    discard_ = p;
+  }
   return discard_;
 }
-
-// repeated .IvionOnline.ObjectPath Feats = 14;
-inline int Player::_internal_feats_size() const {
-  return feats_.size();
+inline ::IvionOnline::List_ObjectPath* Player::mutable_discard() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Discard)
+  return _internal_mutable_discard();
 }
-inline int Player::feats_size() const {
-  return _internal_feats_size();
+inline void Player::set_allocated_discard(::IvionOnline::List_ObjectPath* discard) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete discard_;
+  }
+  if (discard) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(discard);
+    if (message_arena != submessage_arena) {
+      discard = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, discard, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  discard_ = discard;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Discard)
+}
+
+// .IvionOnline.List_ObjectPath Feats = 14;
+inline bool Player::_internal_has_feats() const {
+  return this != internal_default_instance() && feats_ != nullptr;
+}
+inline bool Player::has_feats() const {
+  return _internal_has_feats();
 }
 inline void Player::clear_feats() {
-  feats_.Clear();
+  if (GetArena() == nullptr && feats_ != nullptr) {
+    delete feats_;
+  }
+  feats_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Player::mutable_feats(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Feats)
-  return feats_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Player::_internal_feats() const {
+  const ::IvionOnline::List_ObjectPath* p = feats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Player::mutable_feats() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Player.Feats)
-  return &feats_;
-}
-inline const ::IvionOnline::ObjectPath& Player::_internal_feats(int index) const {
-  return feats_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Player::feats(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Player::feats() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Player.Feats)
-  return _internal_feats(index);
+  return _internal_feats();
 }
-inline ::IvionOnline::ObjectPath* Player::_internal_add_feats() {
-  return feats_.Add();
+inline void Player::unsafe_arena_set_allocated_feats(
+    ::IvionOnline::List_ObjectPath* feats) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feats_);
+  }
+  feats_ = feats;
+  if (feats) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.Feats)
 }
-inline ::IvionOnline::ObjectPath* Player::add_feats() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Player.Feats)
-  return _internal_add_feats();
+inline ::IvionOnline::List_ObjectPath* Player::release_feats() {
+  
+  ::IvionOnline::List_ObjectPath* temp = feats_;
+  feats_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Player::feats() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Player.Feats)
+inline ::IvionOnline::List_ObjectPath* Player::unsafe_arena_release_feats() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Feats)
+  
+  ::IvionOnline::List_ObjectPath* temp = feats_;
+  feats_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Player::_internal_mutable_feats() {
+  
+  if (feats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    feats_ = p;
+  }
   return feats_;
+}
+inline ::IvionOnline::List_ObjectPath* Player::mutable_feats() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Feats)
+  return _internal_mutable_feats();
+}
+inline void Player::set_allocated_feats(::IvionOnline::List_ObjectPath* feats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete feats_;
+  }
+  if (feats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(feats);
+    if (message_arena != submessage_arena) {
+      feats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, feats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  feats_ = feats;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Feats)
 }
 
 // .IvionOnline.Integer MaxHealth = 15;
@@ -14686,199 +15011,419 @@ inline void CardData::set_allocated_affectedbydisarm(::IvionOnline::Boolean* aff
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.AffectedByDisarm)
 }
 
-// repeated .IvionOnline.Method OmniPresentEffect = 9;
-inline int CardData::_internal_omnipresenteffect_size() const {
-  return omnipresenteffect_.size();
+// .IvionOnline.List_Method OmniPresentEffect = 9;
+inline bool CardData::_internal_has_omnipresenteffect() const {
+  return this != internal_default_instance() && omnipresenteffect_ != nullptr;
 }
-inline int CardData::omnipresenteffect_size() const {
-  return _internal_omnipresenteffect_size();
+inline bool CardData::has_omnipresenteffect() const {
+  return _internal_has_omnipresenteffect();
 }
 inline void CardData::clear_omnipresenteffect() {
-  omnipresenteffect_.Clear();
+  if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
+    delete omnipresenteffect_;
+  }
+  omnipresenteffect_ = nullptr;
 }
-inline ::IvionOnline::Method* CardData::mutable_omnipresenteffect(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.OmniPresentEffect)
-  return omnipresenteffect_.Mutable(index);
+inline const ::IvionOnline::List_Method& CardData::_internal_omnipresenteffect() const {
+  const ::IvionOnline::List_Method* p = omnipresenteffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Method&>(
+      ::IvionOnline::_List_Method_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-CardData::mutable_omnipresenteffect() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.CardData.OmniPresentEffect)
-  return &omnipresenteffect_;
-}
-inline const ::IvionOnline::Method& CardData::_internal_omnipresenteffect(int index) const {
-  return omnipresenteffect_.Get(index);
-}
-inline const ::IvionOnline::Method& CardData::omnipresenteffect(int index) const {
+inline const ::IvionOnline::List_Method& CardData::omnipresenteffect() const {
   // @@protoc_insertion_point(field_get:IvionOnline.CardData.OmniPresentEffect)
-  return _internal_omnipresenteffect(index);
+  return _internal_omnipresenteffect();
 }
-inline ::IvionOnline::Method* CardData::_internal_add_omnipresenteffect() {
-  return omnipresenteffect_.Add();
+inline void CardData::unsafe_arena_set_allocated_omnipresenteffect(
+    ::IvionOnline::List_Method* omnipresenteffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(omnipresenteffect_);
+  }
+  omnipresenteffect_ = omnipresenteffect;
+  if (omnipresenteffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.OmniPresentEffect)
 }
-inline ::IvionOnline::Method* CardData::add_omnipresenteffect() {
-  // @@protoc_insertion_point(field_add:IvionOnline.CardData.OmniPresentEffect)
-  return _internal_add_omnipresenteffect();
+inline ::IvionOnline::List_Method* CardData::release_omnipresenteffect() {
+  
+  ::IvionOnline::List_Method* temp = omnipresenteffect_;
+  omnipresenteffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-CardData::omnipresenteffect() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.CardData.OmniPresentEffect)
+inline ::IvionOnline::List_Method* CardData::unsafe_arena_release_omnipresenteffect() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.OmniPresentEffect)
+  
+  ::IvionOnline::List_Method* temp = omnipresenteffect_;
+  omnipresenteffect_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Method* CardData::_internal_mutable_omnipresenteffect() {
+  
+  if (omnipresenteffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Method>(GetArena());
+    omnipresenteffect_ = p;
+  }
   return omnipresenteffect_;
 }
-
-// repeated .IvionOnline.Method PassiveEffect = 10;
-inline int CardData::_internal_passiveeffect_size() const {
-  return passiveeffect_.size();
+inline ::IvionOnline::List_Method* CardData::mutable_omnipresenteffect() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.OmniPresentEffect)
+  return _internal_mutable_omnipresenteffect();
 }
-inline int CardData::passiveeffect_size() const {
-  return _internal_passiveeffect_size();
+inline void CardData::set_allocated_omnipresenteffect(::IvionOnline::List_Method* omnipresenteffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete omnipresenteffect_;
+  }
+  if (omnipresenteffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(omnipresenteffect);
+    if (message_arena != submessage_arena) {
+      omnipresenteffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, omnipresenteffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  omnipresenteffect_ = omnipresenteffect;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.OmniPresentEffect)
+}
+
+// .IvionOnline.List_Method PassiveEffect = 10;
+inline bool CardData::_internal_has_passiveeffect() const {
+  return this != internal_default_instance() && passiveeffect_ != nullptr;
+}
+inline bool CardData::has_passiveeffect() const {
+  return _internal_has_passiveeffect();
 }
 inline void CardData::clear_passiveeffect() {
-  passiveeffect_.Clear();
+  if (GetArena() == nullptr && passiveeffect_ != nullptr) {
+    delete passiveeffect_;
+  }
+  passiveeffect_ = nullptr;
 }
-inline ::IvionOnline::Method* CardData::mutable_passiveeffect(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.PassiveEffect)
-  return passiveeffect_.Mutable(index);
+inline const ::IvionOnline::List_Method& CardData::_internal_passiveeffect() const {
+  const ::IvionOnline::List_Method* p = passiveeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Method&>(
+      ::IvionOnline::_List_Method_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-CardData::mutable_passiveeffect() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.CardData.PassiveEffect)
-  return &passiveeffect_;
-}
-inline const ::IvionOnline::Method& CardData::_internal_passiveeffect(int index) const {
-  return passiveeffect_.Get(index);
-}
-inline const ::IvionOnline::Method& CardData::passiveeffect(int index) const {
+inline const ::IvionOnline::List_Method& CardData::passiveeffect() const {
   // @@protoc_insertion_point(field_get:IvionOnline.CardData.PassiveEffect)
-  return _internal_passiveeffect(index);
+  return _internal_passiveeffect();
 }
-inline ::IvionOnline::Method* CardData::_internal_add_passiveeffect() {
-  return passiveeffect_.Add();
+inline void CardData::unsafe_arena_set_allocated_passiveeffect(
+    ::IvionOnline::List_Method* passiveeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(passiveeffect_);
+  }
+  passiveeffect_ = passiveeffect;
+  if (passiveeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.PassiveEffect)
 }
-inline ::IvionOnline::Method* CardData::add_passiveeffect() {
-  // @@protoc_insertion_point(field_add:IvionOnline.CardData.PassiveEffect)
-  return _internal_add_passiveeffect();
+inline ::IvionOnline::List_Method* CardData::release_passiveeffect() {
+  
+  ::IvionOnline::List_Method* temp = passiveeffect_;
+  passiveeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-CardData::passiveeffect() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.CardData.PassiveEffect)
+inline ::IvionOnline::List_Method* CardData::unsafe_arena_release_passiveeffect() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.PassiveEffect)
+  
+  ::IvionOnline::List_Method* temp = passiveeffect_;
+  passiveeffect_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Method* CardData::_internal_mutable_passiveeffect() {
+  
+  if (passiveeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Method>(GetArena());
+    passiveeffect_ = p;
+  }
   return passiveeffect_;
 }
-
-// repeated .IvionOnline.Method FeatEffect = 11;
-inline int CardData::_internal_feateffect_size() const {
-  return feateffect_.size();
+inline ::IvionOnline::List_Method* CardData::mutable_passiveeffect() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.PassiveEffect)
+  return _internal_mutable_passiveeffect();
 }
-inline int CardData::feateffect_size() const {
-  return _internal_feateffect_size();
+inline void CardData::set_allocated_passiveeffect(::IvionOnline::List_Method* passiveeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete passiveeffect_;
+  }
+  if (passiveeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(passiveeffect);
+    if (message_arena != submessage_arena) {
+      passiveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, passiveeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  passiveeffect_ = passiveeffect;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.PassiveEffect)
+}
+
+// .IvionOnline.List_Method FeatEffect = 11;
+inline bool CardData::_internal_has_feateffect() const {
+  return this != internal_default_instance() && feateffect_ != nullptr;
+}
+inline bool CardData::has_feateffect() const {
+  return _internal_has_feateffect();
 }
 inline void CardData::clear_feateffect() {
-  feateffect_.Clear();
+  if (GetArena() == nullptr && feateffect_ != nullptr) {
+    delete feateffect_;
+  }
+  feateffect_ = nullptr;
 }
-inline ::IvionOnline::Method* CardData::mutable_feateffect(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.FeatEffect)
-  return feateffect_.Mutable(index);
+inline const ::IvionOnline::List_Method& CardData::_internal_feateffect() const {
+  const ::IvionOnline::List_Method* p = feateffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Method&>(
+      ::IvionOnline::_List_Method_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-CardData::mutable_feateffect() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.CardData.FeatEffect)
-  return &feateffect_;
-}
-inline const ::IvionOnline::Method& CardData::_internal_feateffect(int index) const {
-  return feateffect_.Get(index);
-}
-inline const ::IvionOnline::Method& CardData::feateffect(int index) const {
+inline const ::IvionOnline::List_Method& CardData::feateffect() const {
   // @@protoc_insertion_point(field_get:IvionOnline.CardData.FeatEffect)
-  return _internal_feateffect(index);
+  return _internal_feateffect();
 }
-inline ::IvionOnline::Method* CardData::_internal_add_feateffect() {
-  return feateffect_.Add();
+inline void CardData::unsafe_arena_set_allocated_feateffect(
+    ::IvionOnline::List_Method* feateffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(feateffect_);
+  }
+  feateffect_ = feateffect;
+  if (feateffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.FeatEffect)
 }
-inline ::IvionOnline::Method* CardData::add_feateffect() {
-  // @@protoc_insertion_point(field_add:IvionOnline.CardData.FeatEffect)
-  return _internal_add_feateffect();
+inline ::IvionOnline::List_Method* CardData::release_feateffect() {
+  
+  ::IvionOnline::List_Method* temp = feateffect_;
+  feateffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-CardData::feateffect() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.CardData.FeatEffect)
+inline ::IvionOnline::List_Method* CardData::unsafe_arena_release_feateffect() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.FeatEffect)
+  
+  ::IvionOnline::List_Method* temp = feateffect_;
+  feateffect_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Method* CardData::_internal_mutable_feateffect() {
+  
+  if (feateffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Method>(GetArena());
+    feateffect_ = p;
+  }
   return feateffect_;
 }
-
-// repeated .IvionOnline.Method PlayEffect = 12;
-inline int CardData::_internal_playeffect_size() const {
-  return playeffect_.size();
+inline ::IvionOnline::List_Method* CardData::mutable_feateffect() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.FeatEffect)
+  return _internal_mutable_feateffect();
 }
-inline int CardData::playeffect_size() const {
-  return _internal_playeffect_size();
+inline void CardData::set_allocated_feateffect(::IvionOnline::List_Method* feateffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete feateffect_;
+  }
+  if (feateffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(feateffect);
+    if (message_arena != submessage_arena) {
+      feateffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, feateffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  feateffect_ = feateffect;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.FeatEffect)
+}
+
+// .IvionOnline.List_Method PlayEffect = 12;
+inline bool CardData::_internal_has_playeffect() const {
+  return this != internal_default_instance() && playeffect_ != nullptr;
+}
+inline bool CardData::has_playeffect() const {
+  return _internal_has_playeffect();
 }
 inline void CardData::clear_playeffect() {
-  playeffect_.Clear();
+  if (GetArena() == nullptr && playeffect_ != nullptr) {
+    delete playeffect_;
+  }
+  playeffect_ = nullptr;
 }
-inline ::IvionOnline::Method* CardData::mutable_playeffect(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.PlayEffect)
-  return playeffect_.Mutable(index);
+inline const ::IvionOnline::List_Method& CardData::_internal_playeffect() const {
+  const ::IvionOnline::List_Method* p = playeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Method&>(
+      ::IvionOnline::_List_Method_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-CardData::mutable_playeffect() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.CardData.PlayEffect)
-  return &playeffect_;
-}
-inline const ::IvionOnline::Method& CardData::_internal_playeffect(int index) const {
-  return playeffect_.Get(index);
-}
-inline const ::IvionOnline::Method& CardData::playeffect(int index) const {
+inline const ::IvionOnline::List_Method& CardData::playeffect() const {
   // @@protoc_insertion_point(field_get:IvionOnline.CardData.PlayEffect)
-  return _internal_playeffect(index);
+  return _internal_playeffect();
 }
-inline ::IvionOnline::Method* CardData::_internal_add_playeffect() {
-  return playeffect_.Add();
+inline void CardData::unsafe_arena_set_allocated_playeffect(
+    ::IvionOnline::List_Method* playeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(playeffect_);
+  }
+  playeffect_ = playeffect;
+  if (playeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.PlayEffect)
 }
-inline ::IvionOnline::Method* CardData::add_playeffect() {
-  // @@protoc_insertion_point(field_add:IvionOnline.CardData.PlayEffect)
-  return _internal_add_playeffect();
+inline ::IvionOnline::List_Method* CardData::release_playeffect() {
+  
+  ::IvionOnline::List_Method* temp = playeffect_;
+  playeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-CardData::playeffect() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.CardData.PlayEffect)
+inline ::IvionOnline::List_Method* CardData::unsafe_arena_release_playeffect() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.PlayEffect)
+  
+  ::IvionOnline::List_Method* temp = playeffect_;
+  playeffect_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Method* CardData::_internal_mutable_playeffect() {
+  
+  if (playeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Method>(GetArena());
+    playeffect_ = p;
+  }
   return playeffect_;
 }
-
-// repeated .IvionOnline.Method ResolveEffect = 13;
-inline int CardData::_internal_resolveeffect_size() const {
-  return resolveeffect_.size();
+inline ::IvionOnline::List_Method* CardData::mutable_playeffect() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.PlayEffect)
+  return _internal_mutable_playeffect();
 }
-inline int CardData::resolveeffect_size() const {
-  return _internal_resolveeffect_size();
+inline void CardData::set_allocated_playeffect(::IvionOnline::List_Method* playeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete playeffect_;
+  }
+  if (playeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(playeffect);
+    if (message_arena != submessage_arena) {
+      playeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, playeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  playeffect_ = playeffect;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.PlayEffect)
+}
+
+// .IvionOnline.List_Method ResolveEffect = 13;
+inline bool CardData::_internal_has_resolveeffect() const {
+  return this != internal_default_instance() && resolveeffect_ != nullptr;
+}
+inline bool CardData::has_resolveeffect() const {
+  return _internal_has_resolveeffect();
 }
 inline void CardData::clear_resolveeffect() {
-  resolveeffect_.Clear();
+  if (GetArena() == nullptr && resolveeffect_ != nullptr) {
+    delete resolveeffect_;
+  }
+  resolveeffect_ = nullptr;
 }
-inline ::IvionOnline::Method* CardData::mutable_resolveeffect(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.ResolveEffect)
-  return resolveeffect_.Mutable(index);
+inline const ::IvionOnline::List_Method& CardData::_internal_resolveeffect() const {
+  const ::IvionOnline::List_Method* p = resolveeffect_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Method&>(
+      ::IvionOnline::_List_Method_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
-CardData::mutable_resolveeffect() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.CardData.ResolveEffect)
-  return &resolveeffect_;
-}
-inline const ::IvionOnline::Method& CardData::_internal_resolveeffect(int index) const {
-  return resolveeffect_.Get(index);
-}
-inline const ::IvionOnline::Method& CardData::resolveeffect(int index) const {
+inline const ::IvionOnline::List_Method& CardData::resolveeffect() const {
   // @@protoc_insertion_point(field_get:IvionOnline.CardData.ResolveEffect)
-  return _internal_resolveeffect(index);
+  return _internal_resolveeffect();
 }
-inline ::IvionOnline::Method* CardData::_internal_add_resolveeffect() {
-  return resolveeffect_.Add();
+inline void CardData::unsafe_arena_set_allocated_resolveeffect(
+    ::IvionOnline::List_Method* resolveeffect) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(resolveeffect_);
+  }
+  resolveeffect_ = resolveeffect;
+  if (resolveeffect) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.ResolveEffect)
 }
-inline ::IvionOnline::Method* CardData::add_resolveeffect() {
-  // @@protoc_insertion_point(field_add:IvionOnline.CardData.ResolveEffect)
-  return _internal_add_resolveeffect();
+inline ::IvionOnline::List_Method* CardData::release_resolveeffect() {
+  
+  ::IvionOnline::List_Method* temp = resolveeffect_;
+  resolveeffect_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
-CardData::resolveeffect() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.CardData.ResolveEffect)
+inline ::IvionOnline::List_Method* CardData::unsafe_arena_release_resolveeffect() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.ResolveEffect)
+  
+  ::IvionOnline::List_Method* temp = resolveeffect_;
+  resolveeffect_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Method* CardData::_internal_mutable_resolveeffect() {
+  
+  if (resolveeffect_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Method>(GetArena());
+    resolveeffect_ = p;
+  }
   return resolveeffect_;
+}
+inline ::IvionOnline::List_Method* CardData::mutable_resolveeffect() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.ResolveEffect)
+  return _internal_mutable_resolveeffect();
+}
+inline void CardData::set_allocated_resolveeffect(::IvionOnline::List_Method* resolveeffect) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete resolveeffect_;
+  }
+  if (resolveeffect) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(resolveeffect);
+    if (message_arena != submessage_arena) {
+      resolveeffect = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, resolveeffect, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  resolveeffect_ = resolveeffect;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.ResolveEffect)
 }
 
 // -------------------------------------------------------------------
@@ -15094,82 +15639,170 @@ inline void Tile::set_allocated_terrain(::IvionOnline::Terrain* terrain) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Terrain)
 }
 
-// repeated .IvionOnline.ObjectPath Players = 3;
-inline int Tile::_internal_players_size() const {
-  return players_.size();
+// .IvionOnline.List_ObjectPath Players = 3;
+inline bool Tile::_internal_has_players() const {
+  return this != internal_default_instance() && players_ != nullptr;
 }
-inline int Tile::players_size() const {
-  return _internal_players_size();
+inline bool Tile::has_players() const {
+  return _internal_has_players();
 }
 inline void Tile::clear_players() {
-  players_.Clear();
+  if (GetArena() == nullptr && players_ != nullptr) {
+    delete players_;
+  }
+  players_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Tile::mutable_players(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Players)
-  return players_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Tile::_internal_players() const {
+  const ::IvionOnline::List_ObjectPath* p = players_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Tile::mutable_players() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Tile.Players)
-  return &players_;
-}
-inline const ::IvionOnline::ObjectPath& Tile::_internal_players(int index) const {
-  return players_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Tile::players(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Tile::players() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Tile.Players)
-  return _internal_players(index);
+  return _internal_players();
 }
-inline ::IvionOnline::ObjectPath* Tile::_internal_add_players() {
-  return players_.Add();
+inline void Tile::unsafe_arena_set_allocated_players(
+    ::IvionOnline::List_ObjectPath* players) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(players_);
+  }
+  players_ = players;
+  if (players) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Tile.Players)
 }
-inline ::IvionOnline::ObjectPath* Tile::add_players() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Tile.Players)
-  return _internal_add_players();
+inline ::IvionOnline::List_ObjectPath* Tile::release_players() {
+  
+  ::IvionOnline::List_ObjectPath* temp = players_;
+  players_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Tile::players() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Tile.Players)
+inline ::IvionOnline::List_ObjectPath* Tile::unsafe_arena_release_players() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Tile.Players)
+  
+  ::IvionOnline::List_ObjectPath* temp = players_;
+  players_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Tile::_internal_mutable_players() {
+  
+  if (players_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    players_ = p;
+  }
   return players_;
 }
-
-// repeated .IvionOnline.ObjectPath Cards = 4;
-inline int Tile::_internal_cards_size() const {
-  return cards_.size();
+inline ::IvionOnline::List_ObjectPath* Tile::mutable_players() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Players)
+  return _internal_mutable_players();
 }
-inline int Tile::cards_size() const {
-  return _internal_cards_size();
+inline void Tile::set_allocated_players(::IvionOnline::List_ObjectPath* players) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete players_;
+  }
+  if (players) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(players);
+    if (message_arena != submessage_arena) {
+      players = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, players, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  players_ = players;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Players)
+}
+
+// .IvionOnline.List_ObjectPath Cards = 4;
+inline bool Tile::_internal_has_cards() const {
+  return this != internal_default_instance() && cards_ != nullptr;
+}
+inline bool Tile::has_cards() const {
+  return _internal_has_cards();
 }
 inline void Tile::clear_cards() {
-  cards_.Clear();
+  if (GetArena() == nullptr && cards_ != nullptr) {
+    delete cards_;
+  }
+  cards_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* Tile::mutable_cards(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Cards)
-  return cards_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& Tile::_internal_cards() const {
+  const ::IvionOnline::List_ObjectPath* p = cards_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-Tile::mutable_cards() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.Tile.Cards)
-  return &cards_;
-}
-inline const ::IvionOnline::ObjectPath& Tile::_internal_cards(int index) const {
-  return cards_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& Tile::cards(int index) const {
+inline const ::IvionOnline::List_ObjectPath& Tile::cards() const {
   // @@protoc_insertion_point(field_get:IvionOnline.Tile.Cards)
-  return _internal_cards(index);
+  return _internal_cards();
 }
-inline ::IvionOnline::ObjectPath* Tile::_internal_add_cards() {
-  return cards_.Add();
+inline void Tile::unsafe_arena_set_allocated_cards(
+    ::IvionOnline::List_ObjectPath* cards) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(cards_);
+  }
+  cards_ = cards;
+  if (cards) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Tile.Cards)
 }
-inline ::IvionOnline::ObjectPath* Tile::add_cards() {
-  // @@protoc_insertion_point(field_add:IvionOnline.Tile.Cards)
-  return _internal_add_cards();
+inline ::IvionOnline::List_ObjectPath* Tile::release_cards() {
+  
+  ::IvionOnline::List_ObjectPath* temp = cards_;
+  cards_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-Tile::cards() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.Tile.Cards)
+inline ::IvionOnline::List_ObjectPath* Tile::unsafe_arena_release_cards() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Tile.Cards)
+  
+  ::IvionOnline::List_ObjectPath* temp = cards_;
+  cards_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* Tile::_internal_mutable_cards() {
+  
+  if (cards_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    cards_ = p;
+  }
   return cards_;
+}
+inline ::IvionOnline::List_ObjectPath* Tile::mutable_cards() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Cards)
+  return _internal_mutable_cards();
+}
+inline void Tile::set_allocated_cards(::IvionOnline::List_ObjectPath* cards) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete cards_;
+  }
+  if (cards) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(cards);
+    if (message_arena != submessage_arena) {
+      cards = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, cards, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  cards_ = cards;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Cards)
 }
 
 // -------------------------------------------------------------------
@@ -15219,199 +15852,419 @@ List_Tile::element() const {
 
 // GameState
 
-// repeated .IvionOnline.Player Players = 1;
-inline int GameState::_internal_players_size() const {
-  return players_.size();
+// .IvionOnline.List_Player Players = 1;
+inline bool GameState::_internal_has_players() const {
+  return this != internal_default_instance() && players_ != nullptr;
 }
-inline int GameState::players_size() const {
-  return _internal_players_size();
+inline bool GameState::has_players() const {
+  return _internal_has_players();
 }
 inline void GameState::clear_players() {
-  players_.Clear();
+  if (GetArena() == nullptr && players_ != nullptr) {
+    delete players_;
+  }
+  players_ = nullptr;
 }
-inline ::IvionOnline::Player* GameState::mutable_players(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Players)
-  return players_.Mutable(index);
+inline const ::IvionOnline::List_Player& GameState::_internal_players() const {
+  const ::IvionOnline::List_Player* p = players_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Player&>(
+      ::IvionOnline::_List_Player_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >*
-GameState::mutable_players() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GameState.Players)
-  return &players_;
-}
-inline const ::IvionOnline::Player& GameState::_internal_players(int index) const {
-  return players_.Get(index);
-}
-inline const ::IvionOnline::Player& GameState::players(int index) const {
+inline const ::IvionOnline::List_Player& GameState::players() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GameState.Players)
-  return _internal_players(index);
+  return _internal_players();
 }
-inline ::IvionOnline::Player* GameState::_internal_add_players() {
-  return players_.Add();
+inline void GameState::unsafe_arena_set_allocated_players(
+    ::IvionOnline::List_Player* players) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(players_);
+  }
+  players_ = players;
+  if (players) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.Players)
 }
-inline ::IvionOnline::Player* GameState::add_players() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GameState.Players)
-  return _internal_add_players();
+inline ::IvionOnline::List_Player* GameState::release_players() {
+  
+  ::IvionOnline::List_Player* temp = players_;
+  players_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >&
-GameState::players() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GameState.Players)
+inline ::IvionOnline::List_Player* GameState::unsafe_arena_release_players() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.Players)
+  
+  ::IvionOnline::List_Player* temp = players_;
+  players_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Player* GameState::_internal_mutable_players() {
+  
+  if (players_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Player>(GetArena());
+    players_ = p;
+  }
   return players_;
 }
-
-// repeated .IvionOnline.Card Cards = 2;
-inline int GameState::_internal_cards_size() const {
-  return cards_.size();
+inline ::IvionOnline::List_Player* GameState::mutable_players() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Players)
+  return _internal_mutable_players();
 }
-inline int GameState::cards_size() const {
-  return _internal_cards_size();
+inline void GameState::set_allocated_players(::IvionOnline::List_Player* players) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete players_;
+  }
+  if (players) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(players);
+    if (message_arena != submessage_arena) {
+      players = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, players, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  players_ = players;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.Players)
+}
+
+// .IvionOnline.List_Card Cards = 2;
+inline bool GameState::_internal_has_cards() const {
+  return this != internal_default_instance() && cards_ != nullptr;
+}
+inline bool GameState::has_cards() const {
+  return _internal_has_cards();
 }
 inline void GameState::clear_cards() {
-  cards_.Clear();
+  if (GetArena() == nullptr && cards_ != nullptr) {
+    delete cards_;
+  }
+  cards_ = nullptr;
 }
-inline ::IvionOnline::Card* GameState::mutable_cards(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Cards)
-  return cards_.Mutable(index);
+inline const ::IvionOnline::List_Card& GameState::_internal_cards() const {
+  const ::IvionOnline::List_Card* p = cards_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Card&>(
+      ::IvionOnline::_List_Card_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >*
-GameState::mutable_cards() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GameState.Cards)
-  return &cards_;
-}
-inline const ::IvionOnline::Card& GameState::_internal_cards(int index) const {
-  return cards_.Get(index);
-}
-inline const ::IvionOnline::Card& GameState::cards(int index) const {
+inline const ::IvionOnline::List_Card& GameState::cards() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GameState.Cards)
-  return _internal_cards(index);
+  return _internal_cards();
 }
-inline ::IvionOnline::Card* GameState::_internal_add_cards() {
-  return cards_.Add();
+inline void GameState::unsafe_arena_set_allocated_cards(
+    ::IvionOnline::List_Card* cards) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(cards_);
+  }
+  cards_ = cards;
+  if (cards) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.Cards)
 }
-inline ::IvionOnline::Card* GameState::add_cards() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GameState.Cards)
-  return _internal_add_cards();
+inline ::IvionOnline::List_Card* GameState::release_cards() {
+  
+  ::IvionOnline::List_Card* temp = cards_;
+  cards_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >&
-GameState::cards() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GameState.Cards)
+inline ::IvionOnline::List_Card* GameState::unsafe_arena_release_cards() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.Cards)
+  
+  ::IvionOnline::List_Card* temp = cards_;
+  cards_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Card* GameState::_internal_mutable_cards() {
+  
+  if (cards_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Card>(GetArena());
+    cards_ = p;
+  }
   return cards_;
 }
-
-// repeated .IvionOnline.CardData CardData = 3;
-inline int GameState::_internal_carddata_size() const {
-  return carddata_.size();
+inline ::IvionOnline::List_Card* GameState::mutable_cards() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Cards)
+  return _internal_mutable_cards();
 }
-inline int GameState::carddata_size() const {
-  return _internal_carddata_size();
+inline void GameState::set_allocated_cards(::IvionOnline::List_Card* cards) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete cards_;
+  }
+  if (cards) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(cards);
+    if (message_arena != submessage_arena) {
+      cards = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, cards, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  cards_ = cards;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.Cards)
+}
+
+// .IvionOnline.List_CardData CardData = 3;
+inline bool GameState::_internal_has_carddata() const {
+  return this != internal_default_instance() && carddata_ != nullptr;
+}
+inline bool GameState::has_carddata() const {
+  return _internal_has_carddata();
 }
 inline void GameState::clear_carddata() {
-  carddata_.Clear();
+  if (GetArena() == nullptr && carddata_ != nullptr) {
+    delete carddata_;
+  }
+  carddata_ = nullptr;
 }
-inline ::IvionOnline::CardData* GameState::mutable_carddata(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.CardData)
-  return carddata_.Mutable(index);
+inline const ::IvionOnline::List_CardData& GameState::_internal_carddata() const {
+  const ::IvionOnline::List_CardData* p = carddata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_CardData&>(
+      ::IvionOnline::_List_CardData_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData >*
-GameState::mutable_carddata() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GameState.CardData)
-  return &carddata_;
-}
-inline const ::IvionOnline::CardData& GameState::_internal_carddata(int index) const {
-  return carddata_.Get(index);
-}
-inline const ::IvionOnline::CardData& GameState::carddata(int index) const {
+inline const ::IvionOnline::List_CardData& GameState::carddata() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GameState.CardData)
-  return _internal_carddata(index);
+  return _internal_carddata();
 }
-inline ::IvionOnline::CardData* GameState::_internal_add_carddata() {
-  return carddata_.Add();
+inline void GameState::unsafe_arena_set_allocated_carddata(
+    ::IvionOnline::List_CardData* carddata) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(carddata_);
+  }
+  carddata_ = carddata;
+  if (carddata) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.CardData)
 }
-inline ::IvionOnline::CardData* GameState::add_carddata() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GameState.CardData)
-  return _internal_add_carddata();
+inline ::IvionOnline::List_CardData* GameState::release_carddata() {
+  
+  ::IvionOnline::List_CardData* temp = carddata_;
+  carddata_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData >&
-GameState::carddata() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GameState.CardData)
+inline ::IvionOnline::List_CardData* GameState::unsafe_arena_release_carddata() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.CardData)
+  
+  ::IvionOnline::List_CardData* temp = carddata_;
+  carddata_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_CardData* GameState::_internal_mutable_carddata() {
+  
+  if (carddata_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_CardData>(GetArena());
+    carddata_ = p;
+  }
   return carddata_;
 }
-
-// repeated .IvionOnline.Tile Tiles = 4;
-inline int GameState::_internal_tiles_size() const {
-  return tiles_.size();
+inline ::IvionOnline::List_CardData* GameState::mutable_carddata() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.CardData)
+  return _internal_mutable_carddata();
 }
-inline int GameState::tiles_size() const {
-  return _internal_tiles_size();
+inline void GameState::set_allocated_carddata(::IvionOnline::List_CardData* carddata) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete carddata_;
+  }
+  if (carddata) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(carddata);
+    if (message_arena != submessage_arena) {
+      carddata = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, carddata, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  carddata_ = carddata;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.CardData)
+}
+
+// .IvionOnline.List_Tile Tiles = 4;
+inline bool GameState::_internal_has_tiles() const {
+  return this != internal_default_instance() && tiles_ != nullptr;
+}
+inline bool GameState::has_tiles() const {
+  return _internal_has_tiles();
 }
 inline void GameState::clear_tiles() {
-  tiles_.Clear();
+  if (GetArena() == nullptr && tiles_ != nullptr) {
+    delete tiles_;
+  }
+  tiles_ = nullptr;
 }
-inline ::IvionOnline::Tile* GameState::mutable_tiles(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Tiles)
-  return tiles_.Mutable(index);
+inline const ::IvionOnline::List_Tile& GameState::_internal_tiles() const {
+  const ::IvionOnline::List_Tile* p = tiles_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_Tile&>(
+      ::IvionOnline::_List_Tile_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >*
-GameState::mutable_tiles() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GameState.Tiles)
-  return &tiles_;
-}
-inline const ::IvionOnline::Tile& GameState::_internal_tiles(int index) const {
-  return tiles_.Get(index);
-}
-inline const ::IvionOnline::Tile& GameState::tiles(int index) const {
+inline const ::IvionOnline::List_Tile& GameState::tiles() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GameState.Tiles)
-  return _internal_tiles(index);
+  return _internal_tiles();
 }
-inline ::IvionOnline::Tile* GameState::_internal_add_tiles() {
-  return tiles_.Add();
+inline void GameState::unsafe_arena_set_allocated_tiles(
+    ::IvionOnline::List_Tile* tiles) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(tiles_);
+  }
+  tiles_ = tiles;
+  if (tiles) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.Tiles)
 }
-inline ::IvionOnline::Tile* GameState::add_tiles() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GameState.Tiles)
-  return _internal_add_tiles();
+inline ::IvionOnline::List_Tile* GameState::release_tiles() {
+  
+  ::IvionOnline::List_Tile* temp = tiles_;
+  tiles_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >&
-GameState::tiles() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GameState.Tiles)
+inline ::IvionOnline::List_Tile* GameState::unsafe_arena_release_tiles() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.Tiles)
+  
+  ::IvionOnline::List_Tile* temp = tiles_;
+  tiles_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_Tile* GameState::_internal_mutable_tiles() {
+  
+  if (tiles_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_Tile>(GetArena());
+    tiles_ = p;
+  }
   return tiles_;
 }
-
-// repeated .IvionOnline.ObjectPath Field = 5;
-inline int GameState::_internal_field_size() const {
-  return field_.size();
+inline ::IvionOnline::List_Tile* GameState::mutable_tiles() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Tiles)
+  return _internal_mutable_tiles();
 }
-inline int GameState::field_size() const {
-  return _internal_field_size();
+inline void GameState::set_allocated_tiles(::IvionOnline::List_Tile* tiles) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete tiles_;
+  }
+  if (tiles) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(tiles);
+    if (message_arena != submessage_arena) {
+      tiles = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, tiles, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  tiles_ = tiles;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.Tiles)
+}
+
+// .IvionOnline.List_ObjectPath Field = 5;
+inline bool GameState::_internal_has_field() const {
+  return this != internal_default_instance() && field_ != nullptr;
+}
+inline bool GameState::has_field() const {
+  return _internal_has_field();
 }
 inline void GameState::clear_field() {
-  field_.Clear();
+  if (GetArena() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* GameState::mutable_field(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Field)
-  return field_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& GameState::_internal_field() const {
+  const ::IvionOnline::List_ObjectPath* p = field_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-GameState::mutable_field() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GameState.Field)
-  return &field_;
-}
-inline const ::IvionOnline::ObjectPath& GameState::_internal_field(int index) const {
-  return field_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& GameState::field(int index) const {
+inline const ::IvionOnline::List_ObjectPath& GameState::field() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GameState.Field)
-  return _internal_field(index);
+  return _internal_field();
 }
-inline ::IvionOnline::ObjectPath* GameState::_internal_add_field() {
-  return field_.Add();
+inline void GameState::unsafe_arena_set_allocated_field(
+    ::IvionOnline::List_ObjectPath* field) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(field_);
+  }
+  field_ = field;
+  if (field) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.Field)
 }
-inline ::IvionOnline::ObjectPath* GameState::add_field() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GameState.Field)
-  return _internal_add_field();
+inline ::IvionOnline::List_ObjectPath* GameState::release_field() {
+  
+  ::IvionOnline::List_ObjectPath* temp = field_;
+  field_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-GameState::field() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GameState.Field)
+inline ::IvionOnline::List_ObjectPath* GameState::unsafe_arena_release_field() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.Field)
+  
+  ::IvionOnline::List_ObjectPath* temp = field_;
+  field_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* GameState::_internal_mutable_field() {
+  
+  if (field_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    field_ = p;
+  }
   return field_;
+}
+inline ::IvionOnline::List_ObjectPath* GameState::mutable_field() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Field)
+  return _internal_mutable_field();
+}
+inline void GameState::set_allocated_field(::IvionOnline::List_ObjectPath* field) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete field_;
+  }
+  if (field) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(field);
+    if (message_arena != submessage_arena) {
+      field = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, field, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  field_ = field;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.Field)
 }
 
 // .IvionOnline.Integer TurnNumber = 6;
@@ -20533,43 +21386,87 @@ inline void GetList::set_allocated_source(::IvionOnline::ObjectPath* source) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.GetList.Source)
 }
 
-// repeated .IvionOnline.ObjectPath Result = 2;
-inline int GetList::_internal_result_size() const {
-  return result_.size();
+// .IvionOnline.List_ObjectPath Result = 2;
+inline bool GetList::_internal_has_result() const {
+  return this != internal_default_instance() && result_ != nullptr;
 }
-inline int GetList::result_size() const {
-  return _internal_result_size();
+inline bool GetList::has_result() const {
+  return _internal_has_result();
 }
 inline void GetList::clear_result() {
-  result_.Clear();
+  if (GetArena() == nullptr && result_ != nullptr) {
+    delete result_;
+  }
+  result_ = nullptr;
 }
-inline ::IvionOnline::ObjectPath* GetList::mutable_result(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.GetList.Result)
-  return result_.Mutable(index);
+inline const ::IvionOnline::List_ObjectPath& GetList::_internal_result() const {
+  const ::IvionOnline::List_ObjectPath* p = result_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-GetList::mutable_result() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.GetList.Result)
-  return &result_;
-}
-inline const ::IvionOnline::ObjectPath& GetList::_internal_result(int index) const {
-  return result_.Get(index);
-}
-inline const ::IvionOnline::ObjectPath& GetList::result(int index) const {
+inline const ::IvionOnline::List_ObjectPath& GetList::result() const {
   // @@protoc_insertion_point(field_get:IvionOnline.GetList.Result)
-  return _internal_result(index);
+  return _internal_result();
 }
-inline ::IvionOnline::ObjectPath* GetList::_internal_add_result() {
-  return result_.Add();
+inline void GetList::unsafe_arena_set_allocated_result(
+    ::IvionOnline::List_ObjectPath* result) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(result_);
+  }
+  result_ = result;
+  if (result) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GetList.Result)
 }
-inline ::IvionOnline::ObjectPath* GetList::add_result() {
-  // @@protoc_insertion_point(field_add:IvionOnline.GetList.Result)
-  return _internal_add_result();
+inline ::IvionOnline::List_ObjectPath* GetList::release_result() {
+  
+  ::IvionOnline::List_ObjectPath* temp = result_;
+  result_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-GetList::result() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.GetList.Result)
+inline ::IvionOnline::List_ObjectPath* GetList::unsafe_arena_release_result() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GetList.Result)
+  
+  ::IvionOnline::List_ObjectPath* temp = result_;
+  result_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* GetList::_internal_mutable_result() {
+  
+  if (result_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    result_ = p;
+  }
   return result_;
+}
+inline ::IvionOnline::List_ObjectPath* GetList::mutable_result() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GetList.Result)
+  return _internal_mutable_result();
+}
+inline void GetList::set_allocated_result(::IvionOnline::List_ObjectPath* result) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete result_;
+  }
+  if (result) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(result);
+    if (message_arena != submessage_arena) {
+      result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, result, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  result_ = result;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GetList.Result)
 }
 
 // -------------------------------------------------------------------
@@ -24611,9 +25508,54 @@ inline void Method::clear_has_methods() {
 inline Method::MethodsCase Method::methods_case() const {
   return Method::MethodsCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// List_Method
+
+// repeated .IvionOnline.Method element = 1;
+inline int List_Method::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Method::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Method::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Method* List_Method::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Method.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >*
+List_Method::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Method.element)
+  return &element_;
+}
+inline const ::IvionOnline::Method& List_Method::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Method& List_Method::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Method.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Method* List_Method::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Method* List_Method::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Method.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
+List_Method::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Method.element)
+  return element_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

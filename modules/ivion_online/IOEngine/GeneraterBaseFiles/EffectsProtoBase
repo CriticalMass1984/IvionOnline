@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package {PACKAGE_NAME};
+
+import "Type.proto";
+import "Mutation.proto";

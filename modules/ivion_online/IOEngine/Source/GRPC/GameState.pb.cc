@@ -29,18 +29,24 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GainActions_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GainPower_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_GameState_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetList_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_GetList_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Integer_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Integer_Constant_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Integer_Set_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Boolean_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Boolean_Remove_Mutation_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Card_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_CardData_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Color_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Color_Remove_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Integer_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Integer_Remove_Mutation_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Method_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_ObjectPath_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Player_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Terrain_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Terrain_Remove_Mutation_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Tile_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Vec2i_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Vec2i_Remove_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<20> scc_info_Method_GameState_2eproto;
@@ -310,6 +316,10 @@ class MethodDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Method> _instance;
 } _Method_default_instance_;
+class List_MethodDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<List_Method> _instance;
+} _List_Method_default_instance_;
 }  // namespace IvionOnline
 static void InitDefaultsscc_info_AssertControlOrHeroic_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -421,7 +431,7 @@ static void InitDefaultsscc_info_CardData_GameState_2eproto() {
       &scc_info_ObjectPath_GameState_2eproto.base,
       &scc_info_Integer_GameState_2eproto.base,
       &scc_info_Boolean_GameState_2eproto.base,
-      &scc_info_Method_GameState_2eproto.base,}};
+      &scc_info_List_Method_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_Color_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -519,11 +529,11 @@ static void InitDefaultsscc_info_GameState_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<6> scc_info_GameState_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 6, 0, InitDefaultsscc_info_GameState_GameState_2eproto}, {
-      &scc_info_Player_GameState_2eproto.base,
-      &scc_info_Card_GameState_2eproto.base,
-      &scc_info_CardData_GameState_2eproto.base,
-      &scc_info_Tile_GameState_2eproto.base,
-      &scc_info_ObjectPath_GameState_2eproto.base,
+      &scc_info_List_Player_GameState_2eproto.base,
+      &scc_info_List_Card_GameState_2eproto.base,
+      &scc_info_List_CardData_GameState_2eproto.base,
+      &scc_info_List_Tile_GameState_2eproto.base,
+      &scc_info_List_ObjectPath_GameState_2eproto.base,
       &scc_info_Integer_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_GetList_GameState_2eproto() {
@@ -536,9 +546,10 @@ static void InitDefaultsscc_info_GetList_GameState_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetList_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GetList_GameState_2eproto}, {
-      &scc_info_ObjectPath_GameState_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_GetList_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_GetList_GameState_2eproto}, {
+      &scc_info_ObjectPath_GameState_2eproto.base,
+      &scc_info_List_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_Integer_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -755,6 +766,20 @@ static void InitDefaultsscc_info_List_Integer_Remove_Mutation_GameState_2eproto(
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_List_Integer_Remove_Mutation_GameState_2eproto}, {
       &scc_info_ObjectPath_GameState_2eproto.base,
       &scc_info_Integer_GameState_2eproto.base,}};
+
+static void InitDefaultsscc_info_List_Method_GameState_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_List_Method_default_instance_;
+    new (ptr) ::IvionOnline::List_Method();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Method_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Method_GameState_2eproto}, {
+      &scc_info_Method_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_List_ObjectPath_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1072,7 +1097,7 @@ static void InitDefaultsscc_info_Player_GameState_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Player_GameState_2eproto}, {
       &scc_info_Integer_GameState_2eproto.base,
       &scc_info_Vec2i_GameState_2eproto.base,
-      &scc_info_ObjectPath_GameState_2eproto.base,}};
+      &scc_info_List_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_RefundCost_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1172,7 +1197,7 @@ static void InitDefaultsscc_info_Tile_GameState_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Tile_GameState_2eproto}, {
       &scc_info_Vec2i_GameState_2eproto.base,
       &scc_info_Terrain_GameState_2eproto.base,
-      &scc_info_ObjectPath_GameState_2eproto.base,}};
+      &scc_info_List_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_Travel_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1230,7 +1255,7 @@ static void InitDefaultsscc_info_Vec2i_Set_Mutation_GameState_2eproto() {
       &scc_info_ObjectPath_GameState_2eproto.base,
       &scc_info_Vec2i_GameState_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[62];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[63];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameState_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_GameState_2eproto = nullptr;
 
@@ -1732,6 +1757,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Method, methods_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, element_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::IvionOnline::ObjectPath)},
@@ -1796,6 +1827,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 459, -1, sizeof(::IvionOnline::Terrain_Constant)},
   { 465, -1, sizeof(::IvionOnline::Color_Constant)},
   { 471, -1, sizeof(::IvionOnline::Method)},
+  { 497, -1, sizeof(::IvionOnline::List_Method)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1861,6 +1893,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Terrain_Constant_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Color_Constant_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Method_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_Method_default_instance_),
 };
 
 const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1886,7 +1919,7 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "R_BLACK\020\002\022\r\n\tCOLOR_RED\020\003\022\017\n\013COLOR_GREEN\020"
   "\004\022\016\n\nCOLOR_BLUE\020\005\022\017\n\013COLOR_WHITE\020\006\"1\n\nLi"
   "st_Color\022#\n\007element\030\001 \003(\0132\022.IvionOnline."
-  "Color\"\353\005\n\006Player\022\013\n\003UID\030\001 \001(\t\022\014\n\004Name\030\002 "
+  "Color\"\377\005\n\006Player\022\013\n\003UID\030\001 \001(\t\022\014\n\004Name\030\002 "
   "\001(\t\022$\n\006Health\030\003 \001(\0132\024.IvionOnline.Intege"
   "r\022%\n\007Actions\030\004 \001(\0132\024.IvionOnline.Integer"
   "\022#\n\005Power\030\005 \001(\0132\024.IvionOnline.Integer\022(\n"
@@ -1894,47 +1927,49 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "\"\n\004Slow\030\007 \001(\0132\024.IvionOnline.Integer\022%\n\007S"
   "ilence\030\010 \001(\0132\024.IvionOnline.Integer\022$\n\006Di"
   "sarm\030\t \001(\0132\024.IvionOnline.Integer\022$\n\010Posi"
-  "tion\030\n \001(\0132\022.IvionOnline.Vec2i\022%\n\004Hand\030\013"
-  " \003(\0132\027.IvionOnline.ObjectPath\022%\n\004Deck\030\014 "
-  "\003(\0132\027.IvionOnline.ObjectPath\022(\n\007Discard\030"
-  "\r \003(\0132\027.IvionOnline.ObjectPath\022&\n\005Feats\030"
-  "\016 \003(\0132\027.IvionOnline.ObjectPath\022\'\n\tMaxHea"
-  "lth\030\017 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxAc"
-  "tions\030\020 \001(\0132\024.IvionOnline.Integer\022&\n\010Max"
-  "Power\030\021 \001(\0132\024.IvionOnline.Integer\022%\n\007Max"
-  "Slow\030\022 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxS"
-  "ilence\030\023 \001(\0132\024.IvionOnline.Integer\022\'\n\tMa"
-  "xDisarm\030\024 \001(\0132\024.IvionOnline.Integer\"3\n\013L"
-  "ist_Player\022$\n\007element\030\001 \003(\0132\023.IvionOnlin"
-  "e.Player\"2\n\004Card\022*\n\tCardStats\030\001 \001(\0132\027.Iv"
-  "ionOnline.ObjectPath\"/\n\tList_Card\022\"\n\007ele"
-  "ment\030\001 \003(\0132\021.IvionOnline.Card\"\300\004\n\010CardDa"
-  "ta\022&\n\005Owner\030\001 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\022+\n\nController\030\002 \001(\0132\027.IvionOnline.Obj"
-  "ectPath\022(\n\nActionCost\030\003 \001(\0132\024.IvionOnlin"
-  "e.Integer\022\'\n\tPowerCost\030\004 \001(\0132\024.IvionOnli"
-  "ne.Integer\022#\n\005Range\030\005 \001(\0132\024.IvionOnline."
-  "Integer\022,\n\016AffectedBySlow\030\006 \001(\0132\024.IvionO"
-  "nline.Boolean\022/\n\021AffectedBySilence\030\007 \001(\013"
-  "2\024.IvionOnline.Boolean\022.\n\020AffectedByDisa"
-  "rm\030\010 \001(\0132\024.IvionOnline.Boolean\022.\n\021OmniPr"
-  "esentEffect\030\t \003(\0132\023.IvionOnline.Method\022*"
-  "\n\rPassiveEffect\030\n \003(\0132\023.IvionOnline.Meth"
-  "od\022\'\n\nFeatEffect\030\013 \003(\0132\023.IvionOnline.Met"
-  "hod\022\'\n\nPlayEffect\030\014 \003(\0132\023.IvionOnline.Me"
-  "thod\022*\n\rResolveEffect\030\r \003(\0132\023.IvionOnlin"
-  "e.Method\"7\n\rList_CardData\022&\n\007element\030\001 \003"
-  "(\0132\025.IvionOnline.CardData\"\245\001\n\004Tile\022$\n\010Po"
-  "sition\030\001 \001(\0132\022.IvionOnline.Vec2i\022%\n\007Terr"
-  "ain\030\002 \001(\0132\024.IvionOnline.Terrain\022(\n\007Playe"
-  "rs\030\003 \003(\0132\027.IvionOnline.ObjectPath\022&\n\005Car"
-  "ds\030\004 \003(\0132\027.IvionOnline.ObjectPath\"/\n\tLis"
-  "t_Tile\022\"\n\007element\030\001 \003(\0132\021.IvionOnline.Ti"
-  "le\"\360\001\n\tGameState\022$\n\007Players\030\001 \003(\0132\023.Ivio"
-  "nOnline.Player\022 \n\005Cards\030\002 \003(\0132\021.IvionOnl"
-  "ine.Card\022\'\n\010CardData\030\003 \003(\0132\025.IvionOnline"
-  ".CardData\022 \n\005Tiles\030\004 \003(\0132\021.IvionOnline.T"
-  "ile\022&\n\005Field\030\005 \003(\0132\027.IvionOnline.ObjectP"
+  "tion\030\n \001(\0132\022.IvionOnline.Vec2i\022*\n\004Hand\030\013"
+  " \001(\0132\034.IvionOnline.List_ObjectPath\022*\n\004De"
+  "ck\030\014 \001(\0132\034.IvionOnline.List_ObjectPath\022-"
+  "\n\007Discard\030\r \001(\0132\034.IvionOnline.List_Objec"
+  "tPath\022+\n\005Feats\030\016 \001(\0132\034.IvionOnline.List_"
+  "ObjectPath\022\'\n\tMaxHealth\030\017 \001(\0132\024.IvionOnl"
+  "ine.Integer\022(\n\nMaxActions\030\020 \001(\0132\024.IvionO"
+  "nline.Integer\022&\n\010MaxPower\030\021 \001(\0132\024.IvionO"
+  "nline.Integer\022%\n\007MaxSlow\030\022 \001(\0132\024.IvionOn"
+  "line.Integer\022(\n\nMaxSilence\030\023 \001(\0132\024.Ivion"
+  "Online.Integer\022\'\n\tMaxDisarm\030\024 \001(\0132\024.Ivio"
+  "nOnline.Integer\"3\n\013List_Player\022$\n\007elemen"
+  "t\030\001 \003(\0132\023.IvionOnline.Player\"2\n\004Card\022*\n\t"
+  "CardStats\030\001 \001(\0132\027.IvionOnline.ObjectPath"
+  "\"/\n\tList_Card\022\"\n\007element\030\001 \003(\0132\021.IvionOn"
+  "line.Card\"\331\004\n\010CardData\022&\n\005Owner\030\001 \001(\0132\027."
+  "IvionOnline.ObjectPath\022+\n\nController\030\002 \001"
+  "(\0132\027.IvionOnline.ObjectPath\022(\n\nActionCos"
+  "t\030\003 \001(\0132\024.IvionOnline.Integer\022\'\n\tPowerCo"
+  "st\030\004 \001(\0132\024.IvionOnline.Integer\022#\n\005Range\030"
+  "\005 \001(\0132\024.IvionOnline.Integer\022,\n\016AffectedB"
+  "ySlow\030\006 \001(\0132\024.IvionOnline.Boolean\022/\n\021Aff"
+  "ectedBySilence\030\007 \001(\0132\024.IvionOnline.Boole"
+  "an\022.\n\020AffectedByDisarm\030\010 \001(\0132\024.IvionOnli"
+  "ne.Boolean\0223\n\021OmniPresentEffect\030\t \001(\0132\030."
+  "IvionOnline.List_Method\022/\n\rPassiveEffect"
+  "\030\n \001(\0132\030.IvionOnline.List_Method\022,\n\nFeat"
+  "Effect\030\013 \001(\0132\030.IvionOnline.List_Method\022,"
+  "\n\nPlayEffect\030\014 \001(\0132\030.IvionOnline.List_Me"
+  "thod\022/\n\rResolveEffect\030\r \001(\0132\030.IvionOnlin"
+  "e.List_Method\"7\n\rList_CardData\022&\n\007elemen"
+  "t\030\001 \003(\0132\025.IvionOnline.CardData\"\257\001\n\004Tile\022"
+  "$\n\010Position\030\001 \001(\0132\022.IvionOnline.Vec2i\022%\n"
+  "\007Terrain\030\002 \001(\0132\024.IvionOnline.Terrain\022-\n\007"
+  "Players\030\003 \001(\0132\034.IvionOnline.List_ObjectP"
+  "ath\022+\n\005Cards\030\004 \001(\0132\034.IvionOnline.List_Ob"
+  "jectPath\"/\n\tList_Tile\022\"\n\007element\030\001 \003(\0132\021"
+  ".IvionOnline.Tile\"\211\002\n\tGameState\022)\n\007Playe"
+  "rs\030\001 \001(\0132\030.IvionOnline.List_Player\022%\n\005Ca"
+  "rds\030\002 \001(\0132\026.IvionOnline.List_Card\022,\n\010Car"
+  "dData\030\003 \001(\0132\032.IvionOnline.List_CardData\022"
+  "%\n\005Tiles\030\004 \001(\0132\026.IvionOnline.List_Tile\022+"
+  "\n\005Field\030\005 \001(\0132\034.IvionOnline.List_ObjectP"
   "ath\022(\n\nTurnNumber\030\006 \001(\0132\024.IvionOnline.In"
   "teger\"9\n\016List_GameState\022\'\n\007element\030\001 \003(\013"
   "2\026.IvionOnline.GameState\"\226\001\n\027ObjectPath_"
@@ -2025,101 +2060,102 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "Color_Insert_Mutation\030\016 \001(\0132\'.IvionOnlin"
   "e.List_Color_Insert_MutationH\000\022M\n\032List_C"
   "olor_Remove_Mutation\030\017 \001(\0132\'.IvionOnline"
-  ".List_Color_Remove_MutationH\000B\005\n\003mut\"[\n\007"
+  ".List_Color_Remove_MutationH\000B\005\n\003mut\"`\n\007"
   "GetList\022\'\n\006Source\030\001 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022\'\n\006Result\030\002 \003(\0132\027.IvionOnline.O"
-  "bjectPath\"\211\001\n\016SelectMultiple\022\'\n\006Source\030\001"
-  " \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006Number\030"
-  "\002 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004UpTo\030\003"
-  " \001(\0132\027.IvionOnline.ObjectPath\";\n\020SelectE"
-  "xactlyOne\022\'\n\006Source\030\001 \001(\0132\027.IvionOnline."
-  "ObjectPath\"\027\n\025AssertControlOrHeroic\"\035\n\033A"
-  "ssertControllerHasPriority\"\033\n\031AssertStac"
-  "kEmptyOrInstant\"\233\002\n\007PayCost\022\'\n\006Player\030\001 "
-  "\001(\0132\027.IvionOnline.ObjectPath\022%\n\004Card\030\002 \001"
-  "(\0132\027.IvionOnline.ObjectPath\0224\n\023ActionCos"
-  "tReduction\030\003 \001(\0132\027.IvionOnline.ObjectPat"
-  "h\0223\n\022PowerCostReduction\030\004 \001(\0132\027.IvionOnl"
-  "ine.ObjectPath\022.\n\rCostReduction\030\005 \001(\0132\027."
-  "IvionOnline.ObjectPath\022%\n\004Free\030\006 \001(\0132\027.I"
-  "vionOnline.ObjectPath\"c\n\021PlayGainResourc"
-  "es\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\"\\\n\nRefundCost\022\'\n\006Player\030\001 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022%\n\004Card\030\002 \001(\0132\027.IvionO"
-  "nline.ObjectPath\"^\n\013GainActions\022\'\n\006Playe"
-  "r\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\005Valu"
-  "e\030\002 \001(\0132\027.IvionOnline.ObjectPath\"\\\n\tGain"
-  "Power\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\022&\n\005Value\030\002 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\"]\n\004Move\022\'\n\006Player\030\001 \001(\0132\027.IvionOn"
-  "line.ObjectPath\022,\n\013Destination\030\002 \001(\0132\027.I"
-  "vionOnline.ObjectPath\"_\n\006Travel\022\'\n\006Playe"
-  "r\030\001 \001(\0132\027.IvionOnline.ObjectPath\022,\n\013Dest"
-  "ination\030\002 \001(\0132\027.IvionOnline.ObjectPath\"Z"
-  "\n\006Damage\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.O"
-  "bjectPath\022\'\n\006Amount\030\002 \001(\0132\027.IvionOnline."
-  "ObjectPath\">\n\023ObjectPath_Constant\022\'\n\006Res"
-  "ult\030\001 \001(\0132\027.IvionOnline.ObjectPath\"8\n\020Bo"
-  "olean_Constant\022$\n\006Result\030\001 \001(\0132\024.IvionOn"
-  "line.Boolean\"8\n\020Integer_Constant\022$\n\006Resu"
-  "lt\030\001 \001(\0132\024.IvionOnline.Integer\"4\n\016Vec2i_"
-  "Constant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnline.V"
-  "ec2i\"8\n\020Terrain_Constant\022$\n\006Result\030\001 \001(\013"
-  "2\024.IvionOnline.Terrain\"4\n\016Color_Constant"
-  "\022\"\n\006Result\030\001 \001(\0132\022.IvionOnline.Color\"\325\010\n"
-  "\006Method\022\'\n\007GetList\030\001 \001(\0132\024.IvionOnline.G"
-  "etListH\000\0225\n\016SelectMultiple\030\002 \001(\0132\033.Ivion"
-  "Online.SelectMultipleH\000\0229\n\020SelectExactly"
-  "One\030\003 \001(\0132\035.IvionOnline.SelectExactlyOne"
-  "H\000\022C\n\025AssertControlOrHeroic\030\004 \001(\0132\".Ivio"
-  "nOnline.AssertControlOrHeroicH\000\022O\n\033Asser"
-  "tControllerHasPriority\030\005 \001(\0132(.IvionOnli"
-  "ne.AssertControllerHasPriorityH\000\022K\n\031Asse"
-  "rtStackEmptyOrInstant\030\006 \001(\0132&.IvionOnlin"
-  "e.AssertStackEmptyOrInstantH\000\022\'\n\007PayCost"
-  "\030\007 \001(\0132\024.IvionOnline.PayCostH\000\022;\n\021PlayGa"
-  "inResources\030\010 \001(\0132\036.IvionOnline.PlayGain"
-  "ResourcesH\000\022-\n\nRefundCost\030\t \001(\0132\027.IvionO"
-  "nline.RefundCostH\000\022/\n\013GainActions\030\n \001(\0132"
-  "\030.IvionOnline.GainActionsH\000\022+\n\tGainPower"
-  "\030\013 \001(\0132\026.IvionOnline.GainPowerH\000\022!\n\004Move"
-  "\030\014 \001(\0132\021.IvionOnline.MoveH\000\022%\n\006Travel\030\r "
-  "\001(\0132\023.IvionOnline.TravelH\000\022%\n\006Damage\030\016 \001"
-  "(\0132\023.IvionOnline.DamageH\000\022\?\n\023ObjectPath_"
-  "Constant\030\017 \001(\0132 .IvionOnline.ObjectPath_"
-  "ConstantH\000\0229\n\020Boolean_Constant\030\020 \001(\0132\035.I"
-  "vionOnline.Boolean_ConstantH\000\0229\n\020Integer"
-  "_Constant\030\021 \001(\0132\035.IvionOnline.Integer_Co"
-  "nstantH\000\0225\n\016Vec2i_Constant\030\022 \001(\0132\033.Ivion"
-  "Online.Vec2i_ConstantH\000\0229\n\020Terrain_Const"
-  "ant\030\023 \001(\0132\035.IvionOnline.Terrain_Constant"
-  "H\000\0225\n\016Color_Constant\030\024 \001(\0132\033.IvionOnline"
-  ".Color_ConstantH\000B\t\n\007methods*\206\006\n\nObjectT"
-  "ype\022\020\n\014TYPE_BOOLEAN\020\000\022\024\n\020TYPE_REF_BOOLEA"
-  "N\020\001\022\025\n\021TYPE_LIST_BOOLEAN\020\002\022\031\n\025TYPE_LIST_"
-  "REF_BOOLEAN\020\003\022\020\n\014TYPE_INTEGER\020\004\022\024\n\020TYPE_"
-  "REF_INTEGER\020\005\022\025\n\021TYPE_LIST_INTEGER\020\006\022\031\n\025"
-  "TYPE_LIST_REF_INTEGER\020\007\022\016\n\nTYPE_VEC2I\020\010\022"
-  "\022\n\016TYPE_REF_VEC2I\020\t\022\023\n\017TYPE_LIST_VEC2I\020\n"
-  "\022\027\n\023TYPE_LIST_REF_VEC2I\020\013\022\020\n\014TYPE_TERRAI"
-  "N\020\014\022\024\n\020TYPE_REF_TERRAIN\020\r\022\025\n\021TYPE_LIST_T"
-  "ERRAIN\020\016\022\031\n\025TYPE_LIST_REF_TERRAIN\020\017\022\016\n\nT"
-  "YPE_COLOR\020\020\022\022\n\016TYPE_REF_COLOR\020\021\022\023\n\017TYPE_"
-  "LIST_COLOR\020\022\022\027\n\023TYPE_LIST_REF_COLOR\020\023\022\017\n"
-  "\013TYPE_PLAYER\020\024\022\024\n\020TYPE_LIST_PLAYER\020\025\022\030\n\024"
-  "TYPE_LIST_REF_PLAYER\020\026\022\r\n\tTYPE_CARD\020\027\022\022\n"
-  "\016TYPE_LIST_CARD\020\030\022\026\n\022TYPE_LIST_REF_CARD\020"
-  "\031\022\021\n\rTYPE_CARDDATA\020\032\022\026\n\022TYPE_LIST_CARDDA"
-  "TA\020\033\022\032\n\026TYPE_LIST_REF_CARDDATA\020\034\022\r\n\tTYPE"
-  "_TILE\020\035\022\022\n\016TYPE_LIST_TILE\020\036\022\026\n\022TYPE_LIST"
-  "_REF_TILE\020\037\022\022\n\016TYPE_GAMESTATE\020 \022\027\n\023TYPE_"
-  "LIST_GAMESTATE\020!\022\033\n\027TYPE_LIST_REF_GAMEST"
-  "ATE\020\"b\006proto3"
+  "jectPath\022,\n\006Result\030\002 \001(\0132\034.IvionOnline.L"
+  "ist_ObjectPath\"\211\001\n\016SelectMultiple\022\'\n\006Sou"
+  "rce\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006Nu"
+  "mber\030\002 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004U"
+  "pTo\030\003 \001(\0132\027.IvionOnline.ObjectPath\";\n\020Se"
+  "lectExactlyOne\022\'\n\006Source\030\001 \001(\0132\027.IvionOn"
+  "line.ObjectPath\"\027\n\025AssertControlOrHeroic"
+  "\"\035\n\033AssertControllerHasPriority\"\033\n\031Asser"
+  "tStackEmptyOrInstant\"\233\002\n\007PayCost\022\'\n\006Play"
+  "er\030\001 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004Car"
+  "d\030\002 \001(\0132\027.IvionOnline.ObjectPath\0224\n\023Acti"
+  "onCostReduction\030\003 \001(\0132\027.IvionOnline.Obje"
+  "ctPath\0223\n\022PowerCostReduction\030\004 \001(\0132\027.Ivi"
+  "onOnline.ObjectPath\022.\n\rCostReduction\030\005 \001"
+  "(\0132\027.IvionOnline.ObjectPath\022%\n\004Free\030\006 \001("
+  "\0132\027.IvionOnline.ObjectPath\"c\n\021PlayGainRe"
+  "sources\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Ob"
+  "jectPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.Obj"
+  "ectPath\"\\\n\nRefundCost\022\'\n\006Player\030\001 \001(\0132\027."
+  "IvionOnline.ObjectPath\022%\n\004Card\030\002 \001(\0132\027.I"
+  "vionOnline.ObjectPath\"^\n\013GainActions\022\'\n\006"
+  "Player\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n"
+  "\005Value\030\002 \001(\0132\027.IvionOnline.ObjectPath\"\\\n"
+  "\tGainPower\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline"
+  ".ObjectPath\022&\n\005Value\030\002 \001(\0132\027.IvionOnline"
+  ".ObjectPath\"]\n\004Move\022\'\n\006Player\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022,\n\013Destination\030\002 \001("
+  "\0132\027.IvionOnline.ObjectPath\"_\n\006Travel\022\'\n\006"
+  "Player\030\001 \001(\0132\027.IvionOnline.ObjectPath\022,\n"
+  "\013Destination\030\002 \001(\0132\027.IvionOnline.ObjectP"
+  "ath\"Z\n\006Damage\022\'\n\006Player\030\001 \001(\0132\027.IvionOnl"
+  "ine.ObjectPath\022\'\n\006Amount\030\002 \001(\0132\027.IvionOn"
+  "line.ObjectPath\">\n\023ObjectPath_Constant\022\'"
+  "\n\006Result\030\001 \001(\0132\027.IvionOnline.ObjectPath\""
+  "8\n\020Boolean_Constant\022$\n\006Result\030\001 \001(\0132\024.Iv"
+  "ionOnline.Boolean\"8\n\020Integer_Constant\022$\n"
+  "\006Result\030\001 \001(\0132\024.IvionOnline.Integer\"4\n\016V"
+  "ec2i_Constant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnl"
+  "ine.Vec2i\"8\n\020Terrain_Constant\022$\n\006Result\030"
+  "\001 \001(\0132\024.IvionOnline.Terrain\"4\n\016Color_Con"
+  "stant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnline.Colo"
+  "r\"\325\010\n\006Method\022\'\n\007GetList\030\001 \001(\0132\024.IvionOnl"
+  "ine.GetListH\000\0225\n\016SelectMultiple\030\002 \001(\0132\033."
+  "IvionOnline.SelectMultipleH\000\0229\n\020SelectEx"
+  "actlyOne\030\003 \001(\0132\035.IvionOnline.SelectExact"
+  "lyOneH\000\022C\n\025AssertControlOrHeroic\030\004 \001(\0132\""
+  ".IvionOnline.AssertControlOrHeroicH\000\022O\n\033"
+  "AssertControllerHasPriority\030\005 \001(\0132(.Ivio"
+  "nOnline.AssertControllerHasPriorityH\000\022K\n"
+  "\031AssertStackEmptyOrInstant\030\006 \001(\0132&.Ivion"
+  "Online.AssertStackEmptyOrInstantH\000\022\'\n\007Pa"
+  "yCost\030\007 \001(\0132\024.IvionOnline.PayCostH\000\022;\n\021P"
+  "layGainResources\030\010 \001(\0132\036.IvionOnline.Pla"
+  "yGainResourcesH\000\022-\n\nRefundCost\030\t \001(\0132\027.I"
+  "vionOnline.RefundCostH\000\022/\n\013GainActions\030\n"
+  " \001(\0132\030.IvionOnline.GainActionsH\000\022+\n\tGain"
+  "Power\030\013 \001(\0132\026.IvionOnline.GainPowerH\000\022!\n"
+  "\004Move\030\014 \001(\0132\021.IvionOnline.MoveH\000\022%\n\006Trav"
+  "el\030\r \001(\0132\023.IvionOnline.TravelH\000\022%\n\006Damag"
+  "e\030\016 \001(\0132\023.IvionOnline.DamageH\000\022\?\n\023Object"
+  "Path_Constant\030\017 \001(\0132 .IvionOnline.Object"
+  "Path_ConstantH\000\0229\n\020Boolean_Constant\030\020 \001("
+  "\0132\035.IvionOnline.Boolean_ConstantH\000\0229\n\020In"
+  "teger_Constant\030\021 \001(\0132\035.IvionOnline.Integ"
+  "er_ConstantH\000\0225\n\016Vec2i_Constant\030\022 \001(\0132\033."
+  "IvionOnline.Vec2i_ConstantH\000\0229\n\020Terrain_"
+  "Constant\030\023 \001(\0132\035.IvionOnline.Terrain_Con"
+  "stantH\000\0225\n\016Color_Constant\030\024 \001(\0132\033.IvionO"
+  "nline.Color_ConstantH\000B\t\n\007methods\"3\n\013Lis"
+  "t_Method\022$\n\007element\030\001 \003(\0132\023.IvionOnline."
+  "Method*\206\006\n\nObjectType\022\020\n\014TYPE_BOOLEAN\020\000\022"
+  "\024\n\020TYPE_REF_BOOLEAN\020\001\022\025\n\021TYPE_LIST_BOOLE"
+  "AN\020\002\022\031\n\025TYPE_LIST_REF_BOOLEAN\020\003\022\020\n\014TYPE_"
+  "INTEGER\020\004\022\024\n\020TYPE_REF_INTEGER\020\005\022\025\n\021TYPE_"
+  "LIST_INTEGER\020\006\022\031\n\025TYPE_LIST_REF_INTEGER\020"
+  "\007\022\016\n\nTYPE_VEC2I\020\010\022\022\n\016TYPE_REF_VEC2I\020\t\022\023\n"
+  "\017TYPE_LIST_VEC2I\020\n\022\027\n\023TYPE_LIST_REF_VEC2"
+  "I\020\013\022\020\n\014TYPE_TERRAIN\020\014\022\024\n\020TYPE_REF_TERRAI"
+  "N\020\r\022\025\n\021TYPE_LIST_TERRAIN\020\016\022\031\n\025TYPE_LIST_"
+  "REF_TERRAIN\020\017\022\016\n\nTYPE_COLOR\020\020\022\022\n\016TYPE_RE"
+  "F_COLOR\020\021\022\023\n\017TYPE_LIST_COLOR\020\022\022\027\n\023TYPE_L"
+  "IST_REF_COLOR\020\023\022\017\n\013TYPE_PLAYER\020\024\022\024\n\020TYPE"
+  "_LIST_PLAYER\020\025\022\030\n\024TYPE_LIST_REF_PLAYER\020\026"
+  "\022\r\n\tTYPE_CARD\020\027\022\022\n\016TYPE_LIST_CARD\020\030\022\026\n\022T"
+  "YPE_LIST_REF_CARD\020\031\022\021\n\rTYPE_CARDDATA\020\032\022\026"
+  "\n\022TYPE_LIST_CARDDATA\020\033\022\032\n\026TYPE_LIST_REF_"
+  "CARDDATA\020\034\022\r\n\tTYPE_TILE\020\035\022\022\n\016TYPE_LIST_T"
+  "ILE\020\036\022\026\n\022TYPE_LIST_REF_TILE\020\037\022\022\n\016TYPE_GA"
+  "MESTATE\020 \022\027\n\023TYPE_LIST_GAMESTATE\020!\022\033\n\027TY"
+  "PE_LIST_REF_GAMESTATE\020\"b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[62] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[63] = {
   &scc_info_AssertControlOrHeroic_GameState_2eproto.base,
   &scc_info_AssertControllerHasPriority_GameState_2eproto.base,
   &scc_info_AssertStackEmptyOrInstant_GameState_2eproto.base,
@@ -2151,6 +2187,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
   &scc_info_List_Integer_GameState_2eproto.base,
   &scc_info_List_Integer_Insert_Mutation_GameState_2eproto.base,
   &scc_info_List_Integer_Remove_Mutation_GameState_2eproto.base,
+  &scc_info_List_Method_GameState_2eproto.base,
   &scc_info_List_ObjectPath_GameState_2eproto.base,
   &scc_info_List_ObjectPath_Insert_Mutation_GameState_2eproto.base,
   &scc_info_List_ObjectPath_Remove_Mutation_GameState_2eproto.base,
@@ -2185,10 +2222,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 10053,
-  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 62, 0,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 10191,
+  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 63, 0,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
-  file_level_metadata_GameState_2eproto, 62, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
+  file_level_metadata_GameState_2eproto, 63, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -4786,6 +4823,10 @@ class Player::_Internal {
   static const ::IvionOnline::Integer& silence(const Player* msg);
   static const ::IvionOnline::Integer& disarm(const Player* msg);
   static const ::IvionOnline::Vec2i& position(const Player* msg);
+  static const ::IvionOnline::List_ObjectPath& hand(const Player* msg);
+  static const ::IvionOnline::List_ObjectPath& deck(const Player* msg);
+  static const ::IvionOnline::List_ObjectPath& discard(const Player* msg);
+  static const ::IvionOnline::List_ObjectPath& feats(const Player* msg);
   static const ::IvionOnline::Integer& maxhealth(const Player* msg);
   static const ::IvionOnline::Integer& maxactions(const Player* msg);
   static const ::IvionOnline::Integer& maxpower(const Player* msg);
@@ -4826,6 +4867,22 @@ const ::IvionOnline::Vec2i&
 Player::_Internal::position(const Player* msg) {
   return *msg->position_;
 }
+const ::IvionOnline::List_ObjectPath&
+Player::_Internal::hand(const Player* msg) {
+  return *msg->hand_;
+}
+const ::IvionOnline::List_ObjectPath&
+Player::_Internal::deck(const Player* msg) {
+  return *msg->deck_;
+}
+const ::IvionOnline::List_ObjectPath&
+Player::_Internal::discard(const Player* msg) {
+  return *msg->discard_;
+}
+const ::IvionOnline::List_ObjectPath&
+Player::_Internal::feats(const Player* msg) {
+  return *msg->feats_;
+}
 const ::IvionOnline::Integer&
 Player::_Internal::maxhealth(const Player* msg) {
   return *msg->maxhealth_;
@@ -4851,21 +4908,13 @@ Player::_Internal::maxdisarm(const Player* msg) {
   return *msg->maxdisarm_;
 }
 Player::Player(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  hand_(arena),
-  deck_(arena),
-  discard_(arena),
-  feats_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.Player)
 }
 Player::Player(const Player& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      hand_(from.hand_),
-      deck_(from.deck_),
-      discard_(from.discard_),
-      feats_(from.feats_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   uid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_uid().empty()) {
@@ -4916,6 +4965,26 @@ Player::Player(const Player& from)
     position_ = new ::IvionOnline::Vec2i(*from.position_);
   } else {
     position_ = nullptr;
+  }
+  if (from._internal_has_hand()) {
+    hand_ = new ::IvionOnline::List_ObjectPath(*from.hand_);
+  } else {
+    hand_ = nullptr;
+  }
+  if (from._internal_has_deck()) {
+    deck_ = new ::IvionOnline::List_ObjectPath(*from.deck_);
+  } else {
+    deck_ = nullptr;
+  }
+  if (from._internal_has_discard()) {
+    discard_ = new ::IvionOnline::List_ObjectPath(*from.discard_);
+  } else {
+    discard_ = nullptr;
+  }
+  if (from._internal_has_feats()) {
+    feats_ = new ::IvionOnline::List_ObjectPath(*from.feats_);
+  } else {
+    feats_ = nullptr;
   }
   if (from._internal_has_maxhealth()) {
     maxhealth_ = new ::IvionOnline::Integer(*from.maxhealth_);
@@ -4978,6 +5047,10 @@ void Player::SharedDtor() {
   if (this != internal_default_instance()) delete silence_;
   if (this != internal_default_instance()) delete disarm_;
   if (this != internal_default_instance()) delete position_;
+  if (this != internal_default_instance()) delete hand_;
+  if (this != internal_default_instance()) delete deck_;
+  if (this != internal_default_instance()) delete discard_;
+  if (this != internal_default_instance()) delete feats_;
   if (this != internal_default_instance()) delete maxhealth_;
   if (this != internal_default_instance()) delete maxactions_;
   if (this != internal_default_instance()) delete maxpower_;
@@ -5007,10 +5080,6 @@ void Player::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  hand_.Clear();
-  deck_.Clear();
-  discard_.Clear();
-  feats_.Clear();
   uid_.ClearToEmpty();
   name_.ClearToEmpty();
   if (GetArena() == nullptr && health_ != nullptr) {
@@ -5045,6 +5114,22 @@ void Player::Clear() {
     delete position_;
   }
   position_ = nullptr;
+  if (GetArena() == nullptr && hand_ != nullptr) {
+    delete hand_;
+  }
+  hand_ = nullptr;
+  if (GetArena() == nullptr && deck_ != nullptr) {
+    delete deck_;
+  }
+  deck_ = nullptr;
+  if (GetArena() == nullptr && discard_ != nullptr) {
+    delete discard_;
+  }
+  discard_ = nullptr;
+  if (GetArena() == nullptr && feats_ != nullptr) {
+    delete feats_;
+  }
+  feats_ = nullptr;
   if (GetArena() == nullptr && maxhealth_ != nullptr) {
     delete maxhealth_;
   }
@@ -5153,52 +5238,32 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Hand = 11;
+      // .IvionOnline.List_ObjectPath Hand = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_hand(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_hand(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Deck = 12;
+      // .IvionOnline.List_ObjectPath Deck = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_deck(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_deck(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Discard = 13;
+      // .IvionOnline.List_ObjectPath Discard = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_discard(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<106>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_discard(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Feats = 14;
+      // .IvionOnline.List_ObjectPath Feats = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_feats(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_feats(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // .IvionOnline.Integer MaxHealth = 15;
@@ -5355,36 +5420,36 @@ failure:
         10, _Internal::position(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Hand = 11;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_hand_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Hand = 11;
+  if (this->has_hand()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(11, this->_internal_hand(i), target, stream);
+      InternalWriteMessage(
+        11, _Internal::hand(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Deck = 12;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_deck_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Deck = 12;
+  if (this->has_deck()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(12, this->_internal_deck(i), target, stream);
+      InternalWriteMessage(
+        12, _Internal::deck(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Discard = 13;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_discard_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Discard = 13;
+  if (this->has_discard()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(13, this->_internal_discard(i), target, stream);
+      InternalWriteMessage(
+        13, _Internal::discard(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Feats = 14;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_feats_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Feats = 14;
+  if (this->has_feats()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(14, this->_internal_feats(i), target, stream);
+      InternalWriteMessage(
+        14, _Internal::feats(this), target, stream);
   }
 
   // .IvionOnline.Integer MaxHealth = 15;
@@ -5450,34 +5515,6 @@ size_t Player::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated .IvionOnline.ObjectPath Hand = 11;
-  total_size += 1UL * this->_internal_hand_size();
-  for (const auto& msg : this->hand_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.ObjectPath Deck = 12;
-  total_size += 1UL * this->_internal_deck_size();
-  for (const auto& msg : this->deck_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.ObjectPath Discard = 13;
-  total_size += 1UL * this->_internal_discard_size();
-  for (const auto& msg : this->discard_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.ObjectPath Feats = 14;
-  total_size += 1UL * this->_internal_feats_size();
-  for (const auto& msg : this->feats_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
 
   // string UID = 1;
   if (this->uid().size() > 0) {
@@ -5547,6 +5584,34 @@ size_t Player::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *position_);
+  }
+
+  // .IvionOnline.List_ObjectPath Hand = 11;
+  if (this->has_hand()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *hand_);
+  }
+
+  // .IvionOnline.List_ObjectPath Deck = 12;
+  if (this->has_deck()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *deck_);
+  }
+
+  // .IvionOnline.List_ObjectPath Discard = 13;
+  if (this->has_discard()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *discard_);
+  }
+
+  // .IvionOnline.List_ObjectPath Feats = 14;
+  if (this->has_feats()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *feats_);
   }
 
   // .IvionOnline.Integer MaxHealth = 15;
@@ -5622,10 +5687,6 @@ void Player::MergeFrom(const Player& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  hand_.MergeFrom(from.hand_);
-  deck_.MergeFrom(from.deck_);
-  discard_.MergeFrom(from.discard_);
-  feats_.MergeFrom(from.feats_);
   if (from.uid().size() > 0) {
     _internal_set_uid(from._internal_uid());
   }
@@ -5655,6 +5716,18 @@ void Player::MergeFrom(const Player& from) {
   }
   if (from.has_position()) {
     _internal_mutable_position()->::IvionOnline::Vec2i::MergeFrom(from._internal_position());
+  }
+  if (from.has_hand()) {
+    _internal_mutable_hand()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_hand());
+  }
+  if (from.has_deck()) {
+    _internal_mutable_deck()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_deck());
+  }
+  if (from.has_discard()) {
+    _internal_mutable_discard()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_discard());
+  }
+  if (from.has_feats()) {
+    _internal_mutable_feats()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_feats());
   }
   if (from.has_maxhealth()) {
     _internal_mutable_maxhealth()->::IvionOnline::Integer::MergeFrom(from._internal_maxhealth());
@@ -5697,10 +5770,6 @@ bool Player::IsInitialized() const {
 void Player::InternalSwap(Player* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  hand_.InternalSwap(&other->hand_);
-  deck_.InternalSwap(&other->deck_);
-  discard_.InternalSwap(&other->discard_);
-  feats_.InternalSwap(&other->feats_);
   uid_.Swap(&other->uid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
@@ -6338,6 +6407,11 @@ class CardData::_Internal {
   static const ::IvionOnline::Boolean& affectedbyslow(const CardData* msg);
   static const ::IvionOnline::Boolean& affectedbysilence(const CardData* msg);
   static const ::IvionOnline::Boolean& affectedbydisarm(const CardData* msg);
+  static const ::IvionOnline::List_Method& omnipresenteffect(const CardData* msg);
+  static const ::IvionOnline::List_Method& passiveeffect(const CardData* msg);
+  static const ::IvionOnline::List_Method& feateffect(const CardData* msg);
+  static const ::IvionOnline::List_Method& playeffect(const CardData* msg);
+  static const ::IvionOnline::List_Method& resolveeffect(const CardData* msg);
 };
 
 const ::IvionOnline::ObjectPath&
@@ -6372,24 +6446,34 @@ const ::IvionOnline::Boolean&
 CardData::_Internal::affectedbydisarm(const CardData* msg) {
   return *msg->affectedbydisarm_;
 }
+const ::IvionOnline::List_Method&
+CardData::_Internal::omnipresenteffect(const CardData* msg) {
+  return *msg->omnipresenteffect_;
+}
+const ::IvionOnline::List_Method&
+CardData::_Internal::passiveeffect(const CardData* msg) {
+  return *msg->passiveeffect_;
+}
+const ::IvionOnline::List_Method&
+CardData::_Internal::feateffect(const CardData* msg) {
+  return *msg->feateffect_;
+}
+const ::IvionOnline::List_Method&
+CardData::_Internal::playeffect(const CardData* msg) {
+  return *msg->playeffect_;
+}
+const ::IvionOnline::List_Method&
+CardData::_Internal::resolveeffect(const CardData* msg) {
+  return *msg->resolveeffect_;
+}
 CardData::CardData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  omnipresenteffect_(arena),
-  passiveeffect_(arena),
-  feateffect_(arena),
-  playeffect_(arena),
-  resolveeffect_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.CardData)
 }
 CardData::CardData(const CardData& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      omnipresenteffect_(from.omnipresenteffect_),
-      passiveeffect_(from.passiveeffect_),
-      feateffect_(from.feateffect_),
-      playeffect_(from.playeffect_),
-      resolveeffect_(from.resolveeffect_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_owner()) {
     owner_ = new ::IvionOnline::ObjectPath(*from.owner_);
@@ -6431,6 +6515,31 @@ CardData::CardData(const CardData& from)
   } else {
     affectedbydisarm_ = nullptr;
   }
+  if (from._internal_has_omnipresenteffect()) {
+    omnipresenteffect_ = new ::IvionOnline::List_Method(*from.omnipresenteffect_);
+  } else {
+    omnipresenteffect_ = nullptr;
+  }
+  if (from._internal_has_passiveeffect()) {
+    passiveeffect_ = new ::IvionOnline::List_Method(*from.passiveeffect_);
+  } else {
+    passiveeffect_ = nullptr;
+  }
+  if (from._internal_has_feateffect()) {
+    feateffect_ = new ::IvionOnline::List_Method(*from.feateffect_);
+  } else {
+    feateffect_ = nullptr;
+  }
+  if (from._internal_has_playeffect()) {
+    playeffect_ = new ::IvionOnline::List_Method(*from.playeffect_);
+  } else {
+    playeffect_ = nullptr;
+  }
+  if (from._internal_has_resolveeffect()) {
+    resolveeffect_ = new ::IvionOnline::List_Method(*from.resolveeffect_);
+  } else {
+    resolveeffect_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.CardData)
 }
 
@@ -6438,8 +6547,8 @@ void CardData::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CardData_GameState_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&owner_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&affectedbydisarm_) -
-      reinterpret_cast<char*>(&owner_)) + sizeof(affectedbydisarm_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&resolveeffect_) -
+      reinterpret_cast<char*>(&owner_)) + sizeof(resolveeffect_));
 }
 
 CardData::~CardData() {
@@ -6458,6 +6567,11 @@ void CardData::SharedDtor() {
   if (this != internal_default_instance()) delete affectedbyslow_;
   if (this != internal_default_instance()) delete affectedbysilence_;
   if (this != internal_default_instance()) delete affectedbydisarm_;
+  if (this != internal_default_instance()) delete omnipresenteffect_;
+  if (this != internal_default_instance()) delete passiveeffect_;
+  if (this != internal_default_instance()) delete feateffect_;
+  if (this != internal_default_instance()) delete playeffect_;
+  if (this != internal_default_instance()) delete resolveeffect_;
 }
 
 void CardData::ArenaDtor(void* object) {
@@ -6481,11 +6595,6 @@ void CardData::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  omnipresenteffect_.Clear();
-  passiveeffect_.Clear();
-  feateffect_.Clear();
-  playeffect_.Clear();
-  resolveeffect_.Clear();
   if (GetArena() == nullptr && owner_ != nullptr) {
     delete owner_;
   }
@@ -6518,6 +6627,26 @@ void CardData::Clear() {
     delete affectedbydisarm_;
   }
   affectedbydisarm_ = nullptr;
+  if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
+    delete omnipresenteffect_;
+  }
+  omnipresenteffect_ = nullptr;
+  if (GetArena() == nullptr && passiveeffect_ != nullptr) {
+    delete passiveeffect_;
+  }
+  passiveeffect_ = nullptr;
+  if (GetArena() == nullptr && feateffect_ != nullptr) {
+    delete feateffect_;
+  }
+  feateffect_ = nullptr;
+  if (GetArena() == nullptr && playeffect_ != nullptr) {
+    delete playeffect_;
+  }
+  playeffect_ = nullptr;
+  if (GetArena() == nullptr && resolveeffect_ != nullptr) {
+    delete resolveeffect_;
+  }
+  resolveeffect_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6584,64 +6713,39 @@ const char* CardData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Method OmniPresentEffect = 9;
+      // .IvionOnline.List_Method OmniPresentEffect = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_omnipresenteffect(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_omnipresenteffect(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Method PassiveEffect = 10;
+      // .IvionOnline.List_Method PassiveEffect = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_passiveeffect(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_passiveeffect(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Method FeatEffect = 11;
+      // .IvionOnline.List_Method FeatEffect = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_feateffect(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_feateffect(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Method PlayEffect = 12;
+      // .IvionOnline.List_Method PlayEffect = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_playeffect(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_playeffect(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Method ResolveEffect = 13;
+      // .IvionOnline.List_Method ResolveEffect = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_resolveeffect(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<106>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_resolveeffect(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -6736,44 +6840,44 @@ failure:
         8, _Internal::affectedbydisarm(this), target, stream);
   }
 
-  // repeated .IvionOnline.Method OmniPresentEffect = 9;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_omnipresenteffect_size()); i < n; i++) {
+  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  if (this->has_omnipresenteffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(9, this->_internal_omnipresenteffect(i), target, stream);
+      InternalWriteMessage(
+        9, _Internal::omnipresenteffect(this), target, stream);
   }
 
-  // repeated .IvionOnline.Method PassiveEffect = 10;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_passiveeffect_size()); i < n; i++) {
+  // .IvionOnline.List_Method PassiveEffect = 10;
+  if (this->has_passiveeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, this->_internal_passiveeffect(i), target, stream);
+      InternalWriteMessage(
+        10, _Internal::passiveeffect(this), target, stream);
   }
 
-  // repeated .IvionOnline.Method FeatEffect = 11;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_feateffect_size()); i < n; i++) {
+  // .IvionOnline.List_Method FeatEffect = 11;
+  if (this->has_feateffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(11, this->_internal_feateffect(i), target, stream);
+      InternalWriteMessage(
+        11, _Internal::feateffect(this), target, stream);
   }
 
-  // repeated .IvionOnline.Method PlayEffect = 12;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_playeffect_size()); i < n; i++) {
+  // .IvionOnline.List_Method PlayEffect = 12;
+  if (this->has_playeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(12, this->_internal_playeffect(i), target, stream);
+      InternalWriteMessage(
+        12, _Internal::playeffect(this), target, stream);
   }
 
-  // repeated .IvionOnline.Method ResolveEffect = 13;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_resolveeffect_size()); i < n; i++) {
+  // .IvionOnline.List_Method ResolveEffect = 13;
+  if (this->has_resolveeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(13, this->_internal_resolveeffect(i), target, stream);
+      InternalWriteMessage(
+        13, _Internal::resolveeffect(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6791,41 +6895,6 @@ size_t CardData::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated .IvionOnline.Method OmniPresentEffect = 9;
-  total_size += 1UL * this->_internal_omnipresenteffect_size();
-  for (const auto& msg : this->omnipresenteffect_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.Method PassiveEffect = 10;
-  total_size += 1UL * this->_internal_passiveeffect_size();
-  for (const auto& msg : this->passiveeffect_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.Method FeatEffect = 11;
-  total_size += 1UL * this->_internal_feateffect_size();
-  for (const auto& msg : this->feateffect_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.Method PlayEffect = 12;
-  total_size += 1UL * this->_internal_playeffect_size();
-  for (const auto& msg : this->playeffect_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.Method ResolveEffect = 13;
-  total_size += 1UL * this->_internal_resolveeffect_size();
-  for (const auto& msg : this->resolveeffect_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
 
   // .IvionOnline.ObjectPath Owner = 1;
   if (this->has_owner()) {
@@ -6883,6 +6952,41 @@ size_t CardData::ByteSizeLong() const {
         *affectedbydisarm_);
   }
 
+  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  if (this->has_omnipresenteffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *omnipresenteffect_);
+  }
+
+  // .IvionOnline.List_Method PassiveEffect = 10;
+  if (this->has_passiveeffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *passiveeffect_);
+  }
+
+  // .IvionOnline.List_Method FeatEffect = 11;
+  if (this->has_feateffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *feateffect_);
+  }
+
+  // .IvionOnline.List_Method PlayEffect = 12;
+  if (this->has_playeffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *playeffect_);
+  }
+
+  // .IvionOnline.List_Method ResolveEffect = 13;
+  if (this->has_resolveeffect()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *resolveeffect_);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -6914,11 +7018,6 @@ void CardData::MergeFrom(const CardData& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  omnipresenteffect_.MergeFrom(from.omnipresenteffect_);
-  passiveeffect_.MergeFrom(from.passiveeffect_);
-  feateffect_.MergeFrom(from.feateffect_);
-  playeffect_.MergeFrom(from.playeffect_);
-  resolveeffect_.MergeFrom(from.resolveeffect_);
   if (from.has_owner()) {
     _internal_mutable_owner()->::IvionOnline::ObjectPath::MergeFrom(from._internal_owner());
   }
@@ -6943,6 +7042,21 @@ void CardData::MergeFrom(const CardData& from) {
   if (from.has_affectedbydisarm()) {
     _internal_mutable_affectedbydisarm()->::IvionOnline::Boolean::MergeFrom(from._internal_affectedbydisarm());
   }
+  if (from.has_omnipresenteffect()) {
+    _internal_mutable_omnipresenteffect()->::IvionOnline::List_Method::MergeFrom(from._internal_omnipresenteffect());
+  }
+  if (from.has_passiveeffect()) {
+    _internal_mutable_passiveeffect()->::IvionOnline::List_Method::MergeFrom(from._internal_passiveeffect());
+  }
+  if (from.has_feateffect()) {
+    _internal_mutable_feateffect()->::IvionOnline::List_Method::MergeFrom(from._internal_feateffect());
+  }
+  if (from.has_playeffect()) {
+    _internal_mutable_playeffect()->::IvionOnline::List_Method::MergeFrom(from._internal_playeffect());
+  }
+  if (from.has_resolveeffect()) {
+    _internal_mutable_resolveeffect()->::IvionOnline::List_Method::MergeFrom(from._internal_resolveeffect());
+  }
 }
 
 void CardData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -6966,14 +7080,9 @@ bool CardData::IsInitialized() const {
 void CardData::InternalSwap(CardData* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  omnipresenteffect_.InternalSwap(&other->omnipresenteffect_);
-  passiveeffect_.InternalSwap(&other->passiveeffect_);
-  feateffect_.InternalSwap(&other->feateffect_);
-  playeffect_.InternalSwap(&other->playeffect_);
-  resolveeffect_.InternalSwap(&other->resolveeffect_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CardData, affectedbydisarm_)
-      + sizeof(CardData::affectedbydisarm_)
+      PROTOBUF_FIELD_OFFSET(CardData, resolveeffect_)
+      + sizeof(CardData::resolveeffect_)
       - PROTOBUF_FIELD_OFFSET(CardData, owner_)>(
           reinterpret_cast<char*>(&owner_),
           reinterpret_cast<char*>(&other->owner_));
@@ -7190,6 +7299,8 @@ class Tile::_Internal {
  public:
   static const ::IvionOnline::Vec2i& position(const Tile* msg);
   static const ::IvionOnline::Terrain& terrain(const Tile* msg);
+  static const ::IvionOnline::List_ObjectPath& players(const Tile* msg);
+  static const ::IvionOnline::List_ObjectPath& cards(const Tile* msg);
 };
 
 const ::IvionOnline::Vec2i&
@@ -7200,18 +7311,22 @@ const ::IvionOnline::Terrain&
 Tile::_Internal::terrain(const Tile* msg) {
   return *msg->terrain_;
 }
+const ::IvionOnline::List_ObjectPath&
+Tile::_Internal::players(const Tile* msg) {
+  return *msg->players_;
+}
+const ::IvionOnline::List_ObjectPath&
+Tile::_Internal::cards(const Tile* msg) {
+  return *msg->cards_;
+}
 Tile::Tile(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  players_(arena),
-  cards_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.Tile)
 }
 Tile::Tile(const Tile& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      players_(from.players_),
-      cards_(from.cards_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_position()) {
     position_ = new ::IvionOnline::Vec2i(*from.position_);
@@ -7223,6 +7338,16 @@ Tile::Tile(const Tile& from)
   } else {
     terrain_ = nullptr;
   }
+  if (from._internal_has_players()) {
+    players_ = new ::IvionOnline::List_ObjectPath(*from.players_);
+  } else {
+    players_ = nullptr;
+  }
+  if (from._internal_has_cards()) {
+    cards_ = new ::IvionOnline::List_ObjectPath(*from.cards_);
+  } else {
+    cards_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.Tile)
 }
 
@@ -7230,8 +7355,8 @@ void Tile::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Tile_GameState_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&position_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&terrain_) -
-      reinterpret_cast<char*>(&position_)) + sizeof(terrain_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&cards_) -
+      reinterpret_cast<char*>(&position_)) + sizeof(cards_));
 }
 
 Tile::~Tile() {
@@ -7244,6 +7369,8 @@ void Tile::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete position_;
   if (this != internal_default_instance()) delete terrain_;
+  if (this != internal_default_instance()) delete players_;
+  if (this != internal_default_instance()) delete cards_;
 }
 
 void Tile::ArenaDtor(void* object) {
@@ -7267,8 +7394,6 @@ void Tile::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  players_.Clear();
-  cards_.Clear();
   if (GetArena() == nullptr && position_ != nullptr) {
     delete position_;
   }
@@ -7277,6 +7402,14 @@ void Tile::Clear() {
     delete terrain_;
   }
   terrain_ = nullptr;
+  if (GetArena() == nullptr && players_ != nullptr) {
+    delete players_;
+  }
+  players_ = nullptr;
+  if (GetArena() == nullptr && cards_ != nullptr) {
+    delete cards_;
+  }
+  cards_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -7301,28 +7434,18 @@ const char* Tile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Players = 3;
+      // .IvionOnline.List_ObjectPath Players = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_players(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_players(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Cards = 4;
+      // .IvionOnline.List_ObjectPath Cards = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_cards(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_cards(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -7369,20 +7492,20 @@ failure:
         2, _Internal::terrain(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Players = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_players_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Players = 3;
+  if (this->has_players()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_players(i), target, stream);
+      InternalWriteMessage(
+        3, _Internal::players(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Cards = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_cards_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Cards = 4;
+  if (this->has_cards()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_cards(i), target, stream);
+      InternalWriteMessage(
+        4, _Internal::cards(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7401,20 +7524,6 @@ size_t Tile::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .IvionOnline.ObjectPath Players = 3;
-  total_size += 1UL * this->_internal_players_size();
-  for (const auto& msg : this->players_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  // repeated .IvionOnline.ObjectPath Cards = 4;
-  total_size += 1UL * this->_internal_cards_size();
-  for (const auto& msg : this->cards_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
   // .IvionOnline.Vec2i Position = 1;
   if (this->has_position()) {
     total_size += 1 +
@@ -7427,6 +7536,20 @@ size_t Tile::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *terrain_);
+  }
+
+  // .IvionOnline.List_ObjectPath Players = 3;
+  if (this->has_players()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *players_);
+  }
+
+  // .IvionOnline.List_ObjectPath Cards = 4;
+  if (this->has_cards()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *cards_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7460,13 +7583,17 @@ void Tile::MergeFrom(const Tile& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  players_.MergeFrom(from.players_);
-  cards_.MergeFrom(from.cards_);
   if (from.has_position()) {
     _internal_mutable_position()->::IvionOnline::Vec2i::MergeFrom(from._internal_position());
   }
   if (from.has_terrain()) {
     _internal_mutable_terrain()->::IvionOnline::Terrain::MergeFrom(from._internal_terrain());
+  }
+  if (from.has_players()) {
+    _internal_mutable_players()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_players());
+  }
+  if (from.has_cards()) {
+    _internal_mutable_cards()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_cards());
   }
 }
 
@@ -7491,11 +7618,9 @@ bool Tile::IsInitialized() const {
 void Tile::InternalSwap(Tile* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  players_.InternalSwap(&other->players_);
-  cards_.InternalSwap(&other->cards_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Tile, terrain_)
-      + sizeof(Tile::terrain_)
+      PROTOBUF_FIELD_OFFSET(Tile, cards_)
+      + sizeof(Tile::cards_)
       - PROTOBUF_FIELD_OFFSET(Tile, position_)>(
           reinterpret_cast<char*>(&position_),
           reinterpret_cast<char*>(&other->position_));
@@ -7710,32 +7835,72 @@ void List_Tile::InternalSwap(List_Tile* other) {
 
 class GameState::_Internal {
  public:
+  static const ::IvionOnline::List_Player& players(const GameState* msg);
+  static const ::IvionOnline::List_Card& cards(const GameState* msg);
+  static const ::IvionOnline::List_CardData& carddata(const GameState* msg);
+  static const ::IvionOnline::List_Tile& tiles(const GameState* msg);
+  static const ::IvionOnline::List_ObjectPath& field(const GameState* msg);
   static const ::IvionOnline::Integer& turnnumber(const GameState* msg);
 };
 
+const ::IvionOnline::List_Player&
+GameState::_Internal::players(const GameState* msg) {
+  return *msg->players_;
+}
+const ::IvionOnline::List_Card&
+GameState::_Internal::cards(const GameState* msg) {
+  return *msg->cards_;
+}
+const ::IvionOnline::List_CardData&
+GameState::_Internal::carddata(const GameState* msg) {
+  return *msg->carddata_;
+}
+const ::IvionOnline::List_Tile&
+GameState::_Internal::tiles(const GameState* msg) {
+  return *msg->tiles_;
+}
+const ::IvionOnline::List_ObjectPath&
+GameState::_Internal::field(const GameState* msg) {
+  return *msg->field_;
+}
 const ::IvionOnline::Integer&
 GameState::_Internal::turnnumber(const GameState* msg) {
   return *msg->turnnumber_;
 }
 GameState::GameState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  players_(arena),
-  cards_(arena),
-  carddata_(arena),
-  tiles_(arena),
-  field_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.GameState)
 }
 GameState::GameState(const GameState& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      players_(from.players_),
-      cards_(from.cards_),
-      carddata_(from.carddata_),
-      tiles_(from.tiles_),
-      field_(from.field_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_players()) {
+    players_ = new ::IvionOnline::List_Player(*from.players_);
+  } else {
+    players_ = nullptr;
+  }
+  if (from._internal_has_cards()) {
+    cards_ = new ::IvionOnline::List_Card(*from.cards_);
+  } else {
+    cards_ = nullptr;
+  }
+  if (from._internal_has_carddata()) {
+    carddata_ = new ::IvionOnline::List_CardData(*from.carddata_);
+  } else {
+    carddata_ = nullptr;
+  }
+  if (from._internal_has_tiles()) {
+    tiles_ = new ::IvionOnline::List_Tile(*from.tiles_);
+  } else {
+    tiles_ = nullptr;
+  }
+  if (from._internal_has_field()) {
+    field_ = new ::IvionOnline::List_ObjectPath(*from.field_);
+  } else {
+    field_ = nullptr;
+  }
   if (from._internal_has_turnnumber()) {
     turnnumber_ = new ::IvionOnline::Integer(*from.turnnumber_);
   } else {
@@ -7746,7 +7911,10 @@ GameState::GameState(const GameState& from)
 
 void GameState::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GameState_GameState_2eproto.base);
-  turnnumber_ = nullptr;
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&players_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&turnnumber_) -
+      reinterpret_cast<char*>(&players_)) + sizeof(turnnumber_));
 }
 
 GameState::~GameState() {
@@ -7757,6 +7925,11 @@ GameState::~GameState() {
 
 void GameState::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete players_;
+  if (this != internal_default_instance()) delete cards_;
+  if (this != internal_default_instance()) delete carddata_;
+  if (this != internal_default_instance()) delete tiles_;
+  if (this != internal_default_instance()) delete field_;
   if (this != internal_default_instance()) delete turnnumber_;
 }
 
@@ -7781,11 +7954,26 @@ void GameState::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  players_.Clear();
-  cards_.Clear();
-  carddata_.Clear();
-  tiles_.Clear();
-  field_.Clear();
+  if (GetArena() == nullptr && players_ != nullptr) {
+    delete players_;
+  }
+  players_ = nullptr;
+  if (GetArena() == nullptr && cards_ != nullptr) {
+    delete cards_;
+  }
+  cards_ = nullptr;
+  if (GetArena() == nullptr && carddata_ != nullptr) {
+    delete carddata_;
+  }
+  carddata_ = nullptr;
+  if (GetArena() == nullptr && tiles_ != nullptr) {
+    delete tiles_;
+  }
+  tiles_ = nullptr;
+  if (GetArena() == nullptr && field_ != nullptr) {
+    delete field_;
+  }
+  field_ = nullptr;
   if (GetArena() == nullptr && turnnumber_ != nullptr) {
     delete turnnumber_;
   }
@@ -7800,64 +7988,39 @@ const char* GameState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .IvionOnline.Player Players = 1;
+      // .IvionOnline.List_Player Players = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_players(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_players(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Card Cards = 2;
+      // .IvionOnline.List_Card Cards = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_cards(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_cards(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.CardData CardData = 3;
+      // .IvionOnline.List_CardData CardData = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_carddata(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_carddata(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.Tile Tiles = 4;
+      // .IvionOnline.List_Tile Tiles = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_tiles(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_tiles(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Field = 5;
+      // .IvionOnline.List_ObjectPath Field = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_field(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_field(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // .IvionOnline.Integer TurnNumber = 6;
@@ -7895,44 +8058,44 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .IvionOnline.Player Players = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_players_size()); i < n; i++) {
+  // .IvionOnline.List_Player Players = 1;
+  if (this->has_players()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_players(i), target, stream);
+      InternalWriteMessage(
+        1, _Internal::players(this), target, stream);
   }
 
-  // repeated .IvionOnline.Card Cards = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_cards_size()); i < n; i++) {
+  // .IvionOnline.List_Card Cards = 2;
+  if (this->has_cards()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_cards(i), target, stream);
+      InternalWriteMessage(
+        2, _Internal::cards(this), target, stream);
   }
 
-  // repeated .IvionOnline.CardData CardData = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_carddata_size()); i < n; i++) {
+  // .IvionOnline.List_CardData CardData = 3;
+  if (this->has_carddata()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_carddata(i), target, stream);
+      InternalWriteMessage(
+        3, _Internal::carddata(this), target, stream);
   }
 
-  // repeated .IvionOnline.Tile Tiles = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_tiles_size()); i < n; i++) {
+  // .IvionOnline.List_Tile Tiles = 4;
+  if (this->has_tiles()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_tiles(i), target, stream);
+      InternalWriteMessage(
+        4, _Internal::tiles(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Field = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_field_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Field = 5;
+  if (this->has_field()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_field(i), target, stream);
+      InternalWriteMessage(
+        5, _Internal::field(this), target, stream);
   }
 
   // .IvionOnline.Integer TurnNumber = 6;
@@ -7959,39 +8122,39 @@ size_t GameState::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .IvionOnline.Player Players = 1;
-  total_size += 1UL * this->_internal_players_size();
-  for (const auto& msg : this->players_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // .IvionOnline.List_Player Players = 1;
+  if (this->has_players()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *players_);
   }
 
-  // repeated .IvionOnline.Card Cards = 2;
-  total_size += 1UL * this->_internal_cards_size();
-  for (const auto& msg : this->cards_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // .IvionOnline.List_Card Cards = 2;
+  if (this->has_cards()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *cards_);
   }
 
-  // repeated .IvionOnline.CardData CardData = 3;
-  total_size += 1UL * this->_internal_carddata_size();
-  for (const auto& msg : this->carddata_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // .IvionOnline.List_CardData CardData = 3;
+  if (this->has_carddata()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *carddata_);
   }
 
-  // repeated .IvionOnline.Tile Tiles = 4;
-  total_size += 1UL * this->_internal_tiles_size();
-  for (const auto& msg : this->tiles_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // .IvionOnline.List_Tile Tiles = 4;
+  if (this->has_tiles()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *tiles_);
   }
 
-  // repeated .IvionOnline.ObjectPath Field = 5;
-  total_size += 1UL * this->_internal_field_size();
-  for (const auto& msg : this->field_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // .IvionOnline.List_ObjectPath Field = 5;
+  if (this->has_field()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *field_);
   }
 
   // .IvionOnline.Integer TurnNumber = 6;
@@ -8032,11 +8195,21 @@ void GameState::MergeFrom(const GameState& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  players_.MergeFrom(from.players_);
-  cards_.MergeFrom(from.cards_);
-  carddata_.MergeFrom(from.carddata_);
-  tiles_.MergeFrom(from.tiles_);
-  field_.MergeFrom(from.field_);
+  if (from.has_players()) {
+    _internal_mutable_players()->::IvionOnline::List_Player::MergeFrom(from._internal_players());
+  }
+  if (from.has_cards()) {
+    _internal_mutable_cards()->::IvionOnline::List_Card::MergeFrom(from._internal_cards());
+  }
+  if (from.has_carddata()) {
+    _internal_mutable_carddata()->::IvionOnline::List_CardData::MergeFrom(from._internal_carddata());
+  }
+  if (from.has_tiles()) {
+    _internal_mutable_tiles()->::IvionOnline::List_Tile::MergeFrom(from._internal_tiles());
+  }
+  if (from.has_field()) {
+    _internal_mutable_field()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_field());
+  }
   if (from.has_turnnumber()) {
     _internal_mutable_turnnumber()->::IvionOnline::Integer::MergeFrom(from._internal_turnnumber());
   }
@@ -8063,12 +8236,12 @@ bool GameState::IsInitialized() const {
 void GameState::InternalSwap(GameState* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  players_.InternalSwap(&other->players_);
-  cards_.InternalSwap(&other->cards_);
-  carddata_.InternalSwap(&other->carddata_);
-  tiles_.InternalSwap(&other->tiles_);
-  field_.InternalSwap(&other->field_);
-  swap(turnnumber_, other->turnnumber_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GameState, turnnumber_)
+      + sizeof(GameState::turnnumber_)
+      - PROTOBUF_FIELD_OFFSET(GameState, players_)>(
+          reinterpret_cast<char*>(&players_),
+          reinterpret_cast<char*>(&other->players_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GameState::GetMetadata() const {
@@ -14507,34 +14680,45 @@ void Mutation::InternalSwap(Mutation* other) {
 class GetList::_Internal {
  public:
   static const ::IvionOnline::ObjectPath& source(const GetList* msg);
+  static const ::IvionOnline::List_ObjectPath& result(const GetList* msg);
 };
 
 const ::IvionOnline::ObjectPath&
 GetList::_Internal::source(const GetList* msg) {
   return *msg->source_;
 }
+const ::IvionOnline::List_ObjectPath&
+GetList::_Internal::result(const GetList* msg) {
+  return *msg->result_;
+}
 GetList::GetList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  result_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:IvionOnline.GetList)
 }
 GetList::GetList(const GetList& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      result_(from.result_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_source()) {
     source_ = new ::IvionOnline::ObjectPath(*from.source_);
   } else {
     source_ = nullptr;
   }
+  if (from._internal_has_result()) {
+    result_ = new ::IvionOnline::List_ObjectPath(*from.result_);
+  } else {
+    result_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.GetList)
 }
 
 void GetList::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetList_GameState_2eproto.base);
-  source_ = nullptr;
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&source_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&source_)) + sizeof(result_));
 }
 
 GetList::~GetList() {
@@ -14546,6 +14730,7 @@ GetList::~GetList() {
 void GetList::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete source_;
+  if (this != internal_default_instance()) delete result_;
 }
 
 void GetList::ArenaDtor(void* object) {
@@ -14569,11 +14754,14 @@ void GetList::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  result_.Clear();
   if (GetArena() == nullptr && source_ != nullptr) {
     delete source_;
   }
   source_ = nullptr;
+  if (GetArena() == nullptr && result_ != nullptr) {
+    delete result_;
+  }
+  result_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -14591,16 +14779,11 @@ const char* GetList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .IvionOnline.ObjectPath Result = 2;
+      // .IvionOnline.List_ObjectPath Result = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_result(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          ptr = ctx->ParseMessage(_internal_mutable_result(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -14639,12 +14822,12 @@ failure:
         1, _Internal::source(this), target, stream);
   }
 
-  // repeated .IvionOnline.ObjectPath Result = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_result_size()); i < n; i++) {
+  // .IvionOnline.List_ObjectPath Result = 2;
+  if (this->has_result()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_result(i), target, stream);
+      InternalWriteMessage(
+        2, _Internal::result(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -14663,18 +14846,18 @@ size_t GetList::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .IvionOnline.ObjectPath Result = 2;
-  total_size += 1UL * this->_internal_result_size();
-  for (const auto& msg : this->result_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
   // .IvionOnline.ObjectPath Source = 1;
   if (this->has_source()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *source_);
+  }
+
+  // .IvionOnline.List_ObjectPath Result = 2;
+  if (this->has_result()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *result_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -14708,9 +14891,11 @@ void GetList::MergeFrom(const GetList& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  result_.MergeFrom(from.result_);
   if (from.has_source()) {
     _internal_mutable_source()->::IvionOnline::ObjectPath::MergeFrom(from._internal_source());
+  }
+  if (from.has_result()) {
+    _internal_mutable_result()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_result());
   }
 }
 
@@ -14735,8 +14920,12 @@ bool GetList::IsInitialized() const {
 void GetList::InternalSwap(GetList* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  result_.InternalSwap(&other->result_);
-  swap(source_, other->source_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GetList, result_)
+      + sizeof(GetList::result_)
+      - PROTOBUF_FIELD_OFFSET(GetList, source_)>(
+          reinterpret_cast<char*>(&source_),
+          reinterpret_cast<char*>(&other->source_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GetList::GetMetadata() const {
@@ -20544,6 +20733,206 @@ void Method::InternalSwap(Method* other) {
 }
 
 
+// ===================================================================
+
+class List_Method::_Internal {
+ public:
+};
+
+List_Method::List_Method(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  element_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.List_Method)
+}
+List_Method::List_Method(const List_Method& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      element_(from.element_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Method)
+}
+
+void List_Method::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Method_GameState_2eproto.base);
+}
+
+List_Method::~List_Method() {
+  // @@protoc_insertion_point(destructor:IvionOnline.List_Method)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void List_Method::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void List_Method::ArenaDtor(void* object) {
+  List_Method* _this = reinterpret_cast< List_Method* >(object);
+  (void)_this;
+}
+void List_Method::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void List_Method::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const List_Method& List_Method::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_List_Method_GameState_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void List_Method::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.List_Method)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  element_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* List_Method::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .IvionOnline.Method element = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_element(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* List_Method::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.List_Method)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Method element = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_element_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_element(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.List_Method)
+  return target;
+}
+
+size_t List_Method::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.List_Method)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .IvionOnline.Method element = 1;
+  total_size += 1UL * this->_internal_element_size();
+  for (const auto& msg : this->element_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void List_Method::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.List_Method)
+  GOOGLE_DCHECK_NE(&from, this);
+  const List_Method* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<List_Method>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.List_Method)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.List_Method)
+    MergeFrom(*source);
+  }
+}
+
+void List_Method::MergeFrom(const List_Method& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.List_Method)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  element_.MergeFrom(from.element_);
+}
+
+void List_Method::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.List_Method)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void List_Method::CopyFrom(const List_Method& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.List_Method)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool List_Method::IsInitialized() const {
+  return true;
+}
+
+void List_Method::InternalSwap(List_Method* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  element_.InternalSwap(&other->element_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata List_Method::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace IvionOnline
 PROTOBUF_NAMESPACE_OPEN
@@ -20732,6 +21121,9 @@ template<> PROTOBUF_NOINLINE ::IvionOnline::Color_Constant* Arena::CreateMaybeMe
 }
 template<> PROTOBUF_NOINLINE ::IvionOnline::Method* Arena::CreateMaybeMessage< ::IvionOnline::Method >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::Method >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::List_Method* Arena::CreateMaybeMessage< ::IvionOnline::List_Method >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::List_Method >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

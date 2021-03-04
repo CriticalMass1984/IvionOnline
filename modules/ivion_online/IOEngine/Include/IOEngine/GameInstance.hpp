@@ -5,10 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <GRPC/Class.pb.h>
-#include <GRPC/Effect.pb.h>
-#include <GRPC/Mutation.pb.h>
-#include <GRPC/Type.pb.h>
+#include <GRPC/GameState.pb.h>
 
 namespace IO {
 
