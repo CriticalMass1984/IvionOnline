@@ -90,6 +90,7 @@ def CppType(mdType: str):
             raise RuntimeError("BAD TYPE! {} - {}".format(T, Type))
     return "{}*".format(Type)
 
+
 class ClassType:
     headerBase = open("GeneraterBaseFiles/ValueTypeHeader").read()
     protoBase = open("GeneraterBaseFiles/ValueTypeProtoBase").read()
@@ -183,6 +184,7 @@ with open("Protobuf/GameState.proto", 'w') as protoFile:
     # })
     # protoFile.write(baseProto)
 
+
     def WriteMethodProto(name: str, args: dict, returns: dict):
         index = 1
         protoFile.write("message {} {{\n".format(name))
@@ -221,7 +223,7 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
     }))
     headerFile.write("\nnamespace IO {\n")
 
-    def ResolveType(argType:str, argName: str):
+    def ResolveType(argType: str, argName: str):
         protoType = [x for x in TypeRegex.split(argType) if x != ""]
         assert(len(protoType) <= 3)
         if len(protoType) == 1:
@@ -237,17 +239,18 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
             assert(protoType[2] == "ObjectPath")
             return "dynamic_cast<{}::List_ObjectPath*>(instance->ResolvePath(message->mutable_{}()))->mutable_element()".format(PackageName, argName.lower())
 
-
     def WriteMethodCpp(name: str, arguments: list):
         headerFile.write("bool __{}(GameInstance* instance".format(name))
-        headerFile.write("".join([", {} {}".format(CppType(arg), argName) for (arg, argName) in arguments]))
+        headerFile.write("".join(
+            [", {} {}".format(CppType(arg), argName) for (arg, argName) in arguments]))
         headerFile.write(");\n")
 
     def WriteMethodCppWrapper(name: str, arguments: list):
         headerFile.write(
             "\ninline bool {}(\n\t\tGameInstance* instance, {}::{}* message) {{\n".format(name, PackageName, name))
         headerFile.write("\treturn __{}(\n\t\tinstance".format(name))
-        headerFile.write("".join([",\n\t\t"+ResolveType(arg, argName) for (arg, argName) in arguments]))
+        headerFile.write(
+            "".join([",\n\t\t"+ResolveType(arg, argName) for (arg, argName) in arguments]))
         headerFile.write(");\n")
         headerFile.write("}\n\n")
 
@@ -263,6 +266,12 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
         arguments.extend([(arg.split(" "))for arg in details["Args"]])
         WriteMethodCppWrapper(methodName, arguments)
 
+    headerFile.write("\ninline bool ApplyMethod(GameInstance* instance, {}::Method* effect){{\n\t{}}}\n\treturn false;\n}}\n".format(
+        PackageName, "} else ".join([
+            "if(effect->has_{}()){{\n\t\treturn {}(instance, effect->mutable_{}());\n\t".format(methodName.lower(), methodName, methodName.lower()) for methodName in GameMetaData["Methods"].keys()
+        ]
+        ))
+    )
     headerFile.write("\n} // namespace IO")
 
 
