@@ -356,19 +356,31 @@ void Revert_List_ObjectPath_Remove_Mutation(GameInstance* instance, IvionOnline:
 		list->mutable_element()->SwapElements(mutation->index(), size);
 	}
 }
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::ObjectPath* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
+	mutation->mutable_newvalue()->CopyFrom(*value);
+	mutation->set_index(object->element_size());
+	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
+}
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::ObjectPath* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
+	mutation->mutable_oldvalue()->CopyFrom(*value);
+	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	Apply_List_ObjectPath_Remove_Mutation(instance, mutation);
+}
 void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Boolean* target) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(target->abspath());
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_ObjectPath_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Boolean* value) {
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Boolean* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(value->abspath());
 	mutation->set_index(object->element_size());
 	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Boolean* value) {
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Boolean* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
@@ -380,13 +392,13 @@ void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnl
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_ObjectPath_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Integer* value) {
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Integer* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(value->abspath());
 	mutation->set_index(object->element_size());
 	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Integer* value) {
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Integer* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
@@ -398,13 +410,13 @@ void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnl
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_ObjectPath_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Vec2i* value) {
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Vec2i* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(value->abspath());
 	mutation->set_index(object->element_size());
 	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Vec2i* value) {
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Vec2i* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
@@ -416,13 +428,13 @@ void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnl
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_ObjectPath_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Terrain* value) {
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Terrain* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(value->abspath());
 	mutation->set_index(object->element_size());
 	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Terrain* value) {
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Terrain* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
@@ -434,13 +446,85 @@ void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnl
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_ObjectPath_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Color* value) {
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Color* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(value->abspath());
 	mutation->set_index(object->element_size());
 	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, IvionOnline::Color* value) {
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Color* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
+	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
+	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	Apply_List_ObjectPath_Remove_Mutation(instance, mutation);
+}
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Player* target) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();
+	mutation->mutable_newvalue()->CopyFrom(target->abspath());
+	mutation->mutable_oldvalue()->CopyFrom(*object);
+	Apply_ObjectPath_Set_Mutation(instance, mutation);
+}
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Player* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
+	mutation->mutable_newvalue()->CopyFrom(value->abspath());
+	mutation->set_index(object->element_size());
+	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
+}
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Player* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
+	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
+	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	Apply_List_ObjectPath_Remove_Mutation(instance, mutation);
+}
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Card* target) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();
+	mutation->mutable_newvalue()->CopyFrom(target->abspath());
+	mutation->mutable_oldvalue()->CopyFrom(*object);
+	Apply_ObjectPath_Set_Mutation(instance, mutation);
+}
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Card* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
+	mutation->mutable_newvalue()->CopyFrom(value->abspath());
+	mutation->set_index(object->element_size());
+	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
+}
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Card* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
+	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
+	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	Apply_List_ObjectPath_Remove_Mutation(instance, mutation);
+}
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::CardData* target) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();
+	mutation->mutable_newvalue()->CopyFrom(target->abspath());
+	mutation->mutable_oldvalue()->CopyFrom(*object);
+	Apply_ObjectPath_Set_Mutation(instance, mutation);
+}
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::CardData* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
+	mutation->mutable_newvalue()->CopyFrom(value->abspath());
+	mutation->set_index(object->element_size());
+	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
+}
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::CardData* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
+	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
+	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	Apply_List_ObjectPath_Remove_Mutation(instance, mutation);
+}
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Tile* target) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();
+	mutation->mutable_newvalue()->CopyFrom(target->abspath());
+	mutation->mutable_oldvalue()->CopyFrom(*object);
+	Apply_ObjectPath_Set_Mutation(instance, mutation);
+}
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Tile* value) {
+	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();
+	mutation->mutable_newvalue()->CopyFrom(value->abspath());
+	mutation->set_index(object->element_size());
+	Apply_List_ObjectPath_Insert_Mutation(instance, mutation);
+}
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Tile* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(value->abspath());
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
@@ -475,13 +559,13 @@ void Set(GameInstance* instance, IvionOnline::Terrain* object, IvionOnline::Terr
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Terrain_Set_Mutation(instance, mutation);
 }
-void Set(GameInstance* instance, IvionOnline::Boolean* object, IvionOnline::Boolean* value) {
+void Set(GameInstance* instance, IvionOnline::Boolean* object, const IvionOnline::Boolean* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_boolean_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Boolean_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_Boolean* object, IvionOnline::Boolean* value) {
+void Append(GameInstance* instance, IvionOnline::List_Boolean* object, const IvionOnline::Boolean* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_boolean_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());
@@ -489,19 +573,19 @@ void Append(GameInstance* instance, IvionOnline::List_Boolean* object, IvionOnli
 	mutation->set_index(object->element_size());
 	Apply_List_Boolean_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_Boolean* object, IvionOnline::Boolean* value) {
+void Remove(GameInstance* instance, IvionOnline::List_Boolean* object, const IvionOnline::Boolean* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_boolean_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(*value);
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
 	Apply_List_Boolean_Remove_Mutation(instance, mutation);
 }
-void Set(GameInstance* instance, IvionOnline::Integer* object, IvionOnline::Integer* value) {
+void Set(GameInstance* instance, IvionOnline::Integer* object, const IvionOnline::Integer* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_integer_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Integer_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_Integer* object, IvionOnline::Integer* value) {
+void Append(GameInstance* instance, IvionOnline::List_Integer* object, const IvionOnline::Integer* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_integer_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());
@@ -509,19 +593,19 @@ void Append(GameInstance* instance, IvionOnline::List_Integer* object, IvionOnli
 	mutation->set_index(object->element_size());
 	Apply_List_Integer_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_Integer* object, IvionOnline::Integer* value) {
+void Remove(GameInstance* instance, IvionOnline::List_Integer* object, const IvionOnline::Integer* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_integer_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(*value);
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
 	Apply_List_Integer_Remove_Mutation(instance, mutation);
 }
-void Set(GameInstance* instance, IvionOnline::Vec2i* object, IvionOnline::Vec2i* value) {
+void Set(GameInstance* instance, IvionOnline::Vec2i* object, const IvionOnline::Vec2i* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_vec2i_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Vec2i_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_Vec2i* object, IvionOnline::Vec2i* value) {
+void Append(GameInstance* instance, IvionOnline::List_Vec2i* object, const IvionOnline::Vec2i* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_vec2i_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());
@@ -529,19 +613,19 @@ void Append(GameInstance* instance, IvionOnline::List_Vec2i* object, IvionOnline
 	mutation->set_index(object->element_size());
 	Apply_List_Vec2i_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_Vec2i* object, IvionOnline::Vec2i* value) {
+void Remove(GameInstance* instance, IvionOnline::List_Vec2i* object, const IvionOnline::Vec2i* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_vec2i_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(*value);
-	mutation->set_index(GetElementIndex(object->mutable_element(), value));
+	mutation->set_index(GetElementIndex<IvionOnline::Vec2i>(object->mutable_element(), value));
 	Apply_List_Vec2i_Remove_Mutation(instance, mutation);
 }
-void Set(GameInstance* instance, IvionOnline::Terrain* object, IvionOnline::Terrain* value) {
+void Set(GameInstance* instance, IvionOnline::Terrain* object, const IvionOnline::Terrain* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_terrain_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Terrain_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_Terrain* object, IvionOnline::Terrain* value) {
+void Append(GameInstance* instance, IvionOnline::List_Terrain* object, const IvionOnline::Terrain* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_terrain_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());
@@ -549,19 +633,19 @@ void Append(GameInstance* instance, IvionOnline::List_Terrain* object, IvionOnli
 	mutation->set_index(object->element_size());
 	Apply_List_Terrain_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_Terrain* object, IvionOnline::Terrain* value) {
+void Remove(GameInstance* instance, IvionOnline::List_Terrain* object, const IvionOnline::Terrain* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_terrain_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(*value);
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));
 	Apply_List_Terrain_Remove_Mutation(instance, mutation);
 }
-void Set(GameInstance* instance, IvionOnline::Color* object, IvionOnline::Color* value) {
+void Set(GameInstance* instance, IvionOnline::Color* object, const IvionOnline::Color* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_color_set_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_oldvalue()->CopyFrom(*object);
 	Apply_Color_Set_Mutation(instance, mutation);
 }
-void Append(GameInstance* instance, IvionOnline::List_Color* object, IvionOnline::Color* value) {
+void Append(GameInstance* instance, IvionOnline::List_Color* object, const IvionOnline::Color* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_color_insert_mutation();
 	mutation->mutable_newvalue()->CopyFrom(*value);
 	mutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());
@@ -569,7 +653,7 @@ void Append(GameInstance* instance, IvionOnline::List_Color* object, IvionOnline
 	mutation->set_index(object->element_size());
 	Apply_List_Color_Insert_Mutation(instance, mutation);
 }
-void Remove(GameInstance* instance, IvionOnline::List_Color* object, IvionOnline::Color* value) {
+void Remove(GameInstance* instance, IvionOnline::List_Color* object, const IvionOnline::Color* value) {
 	auto* mutation = instance->currentHistory_->add_mutations()->mutable_list_color_remove_mutation();
 	mutation->mutable_oldvalue()->CopyFrom(*value);
 	mutation->set_index(GetElementIndex(object->mutable_element(), value));

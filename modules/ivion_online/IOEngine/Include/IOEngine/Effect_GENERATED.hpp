@@ -5,9 +5,10 @@
 
 namespace IO {
 using MethodIter = google::protobuf::internal::RepeatedPtrIterator<IvionOnline::Method>;
-bool __GetList(GameInstance* instance, MethodIter begin, const MethodIter& end, google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath>* Result, IvionOnline::ObjectPath* Source);
-bool __SelectMultiple(GameInstance* instance, MethodIter begin, const MethodIter& end, google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath>* Result, google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath>* Source, IvionOnline::Integer* Number, IvionOnline::Boolean* UpTo);
-bool __SelectExactlyOne(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ObjectPath* Result, google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath>* Source);
+
+bool __GetList(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::ObjectPath* Source);
+bool __SelectMultiple(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::List_ObjectPath* Source, IvionOnline::Integer* Number, IvionOnline::Boolean* UpTo);
+bool __SelectExactlyOne(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ObjectPath* Result, IvionOnline::List_ObjectPath* Source);
 bool __AssertControlOrHeroic(GameInstance* instance, MethodIter begin, const MethodIter& end);
 bool __AssertControllerHasPriority(GameInstance* instance, MethodIter begin, const MethodIter& end);
 bool __AssertStackEmptyOrInstant(GameInstance* instance, MethodIter begin, const MethodIter& end);
@@ -31,7 +32,7 @@ inline bool GetList(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GetList* message) {
 	return __GetList(
 		instance, begin, end,
-		message->mutable_result()->mutable_element(),
+		message->mutable_result(),
 		message->mutable_source());
 }
 
@@ -40,8 +41,8 @@ inline bool SelectMultiple(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::SelectMultiple* message) {
 	return __SelectMultiple(
 		instance, begin, end,
-		message->mutable_result()->mutable_element(),
-		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source()))->mutable_element(),
+		message->mutable_result(),
+		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source())),
 		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_number())),
 		dynamic_cast<IvionOnline::Boolean*>(instance->ResolvePath(message->mutable_upto())));
 }
@@ -52,7 +53,7 @@ inline bool SelectExactlyOne(
 	return __SelectExactlyOne(
 		instance, begin, end,
 		message->mutable_result(),
-		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source()))->mutable_element());
+		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source())));
 }
 
 
