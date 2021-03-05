@@ -2,6 +2,12 @@ syntax = "proto3";
 
 package {PACKAGE_NAME};
 
+message History {{
+    repeated Mutation Mutations = 1;
+    repeated History Branches = 2;
+    bool Is_Good = 3;
+}}
+
 enum ObjectType {{
 {TYPES}
 }}

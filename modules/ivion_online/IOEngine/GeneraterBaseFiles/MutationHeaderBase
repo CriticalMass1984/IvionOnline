@@ -1,0 +1,8 @@
+#pragma once
+
+#include <GRPC/GameState.pb.h>
+#include <IOEngine/Vec2i.hpp>
+#include <IOEngine/GameInstance.hpp>
+
+namespace IO {{
+

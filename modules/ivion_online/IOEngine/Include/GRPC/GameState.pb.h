@@ -47,7 +47,7 @@ struct TableStruct_GameState_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[63]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[64]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -103,6 +103,9 @@ extern GameStateDefaultTypeInternal _GameState_default_instance_;
 class GetList;
 class GetListDefaultTypeInternal;
 extern GetListDefaultTypeInternal _GetList_default_instance_;
+class History;
+class HistoryDefaultTypeInternal;
+extern HistoryDefaultTypeInternal _History_default_instance_;
 class Integer;
 class IntegerDefaultTypeInternal;
 extern IntegerDefaultTypeInternal _Integer_default_instance_;
@@ -262,6 +265,7 @@ template<> ::IvionOnline::GainActions* Arena::CreateMaybeMessage<::IvionOnline::
 template<> ::IvionOnline::GainPower* Arena::CreateMaybeMessage<::IvionOnline::GainPower>(Arena*);
 template<> ::IvionOnline::GameState* Arena::CreateMaybeMessage<::IvionOnline::GameState>(Arena*);
 template<> ::IvionOnline::GetList* Arena::CreateMaybeMessage<::IvionOnline::GetList>(Arena*);
+template<> ::IvionOnline::History* Arena::CreateMaybeMessage<::IvionOnline::History>(Arena*);
 template<> ::IvionOnline::Integer* Arena::CreateMaybeMessage<::IvionOnline::Integer>(Arena*);
 template<> ::IvionOnline::Integer_Constant* Arena::CreateMaybeMessage<::IvionOnline::Integer_Constant>(Arena*);
 template<> ::IvionOnline::Integer_Set_Mutation* Arena::CreateMaybeMessage<::IvionOnline::Integer_Set_Mutation>(Arena*);
@@ -370,40 +374,38 @@ inline bool Color_Color_Type_Parse(
 }
 enum ObjectType : int {
   TYPE_BOOLEAN = 0,
-  TYPE_REF_BOOLEAN = 1,
-  TYPE_LIST_BOOLEAN = 2,
-  TYPE_LIST_REF_BOOLEAN = 3,
-  TYPE_INTEGER = 4,
-  TYPE_REF_INTEGER = 5,
-  TYPE_LIST_INTEGER = 6,
-  TYPE_LIST_REF_INTEGER = 7,
-  TYPE_VEC2I = 8,
-  TYPE_REF_VEC2I = 9,
-  TYPE_LIST_VEC2I = 10,
-  TYPE_LIST_REF_VEC2I = 11,
-  TYPE_TERRAIN = 12,
-  TYPE_REF_TERRAIN = 13,
-  TYPE_LIST_TERRAIN = 14,
-  TYPE_LIST_REF_TERRAIN = 15,
-  TYPE_COLOR = 16,
-  TYPE_REF_COLOR = 17,
-  TYPE_LIST_COLOR = 18,
-  TYPE_LIST_REF_COLOR = 19,
-  TYPE_PLAYER = 20,
-  TYPE_LIST_PLAYER = 21,
-  TYPE_LIST_REF_PLAYER = 22,
-  TYPE_CARD = 23,
-  TYPE_LIST_CARD = 24,
-  TYPE_LIST_REF_CARD = 25,
-  TYPE_CARDDATA = 26,
-  TYPE_LIST_CARDDATA = 27,
-  TYPE_LIST_REF_CARDDATA = 28,
-  TYPE_TILE = 29,
-  TYPE_LIST_TILE = 30,
-  TYPE_LIST_REF_TILE = 31,
-  TYPE_GAMESTATE = 32,
-  TYPE_LIST_GAMESTATE = 33,
-  TYPE_LIST_REF_GAMESTATE = 34,
+  TYPE_LIST_BOOLEAN = 1,
+  TYPE_LIST_REF_BOOLEAN = 2,
+  TYPE_INTEGER = 3,
+  TYPE_LIST_INTEGER = 4,
+  TYPE_LIST_REF_INTEGER = 5,
+  TYPE_VEC2I = 6,
+  TYPE_LIST_VEC2I = 7,
+  TYPE_LIST_REF_VEC2I = 8,
+  TYPE_TERRAIN = 9,
+  TYPE_LIST_TERRAIN = 10,
+  TYPE_LIST_REF_TERRAIN = 11,
+  TYPE_COLOR = 12,
+  TYPE_LIST_COLOR = 13,
+  TYPE_LIST_REF_COLOR = 14,
+  TYPE_OBJECTPATH = 15,
+  TYPE_LIST_OBJECTPATH = 16,
+  TYPE_LIST_REF_OBJECTPATH = 17,
+  TYPE_PLAYER = 18,
+  TYPE_LIST_PLAYER = 19,
+  TYPE_LIST_REF_PLAYER = 20,
+  TYPE_CARD = 21,
+  TYPE_LIST_CARD = 22,
+  TYPE_LIST_REF_CARD = 23,
+  TYPE_CARDDATA = 24,
+  TYPE_LIST_CARDDATA = 25,
+  TYPE_LIST_REF_CARDDATA = 26,
+  TYPE_TILE = 27,
+  TYPE_LIST_TILE = 28,
+  TYPE_LIST_REF_TILE = 29,
+  TYPE_GAMESTATE = 30,
+  TYPE_LIST_GAMESTATE = 31,
+  TYPE_LIST_REF_GAMESTATE = 32,
   ObjectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   ObjectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
@@ -428,23 +430,23 @@ inline bool ObjectType_Parse(
 }
 // ===================================================================
 
-class ObjectPath PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath) */ {
+class History PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.History) */ {
  public:
-  inline ObjectPath() : ObjectPath(nullptr) {}
-  virtual ~ObjectPath();
+  inline History() : History(nullptr) {}
+  virtual ~History();
 
-  ObjectPath(const ObjectPath& from);
-  ObjectPath(ObjectPath&& from) noexcept
-    : ObjectPath() {
+  History(const History& from);
+  History(History&& from) noexcept
+    : History() {
     *this = ::std::move(from);
   }
 
-  inline ObjectPath& operator=(const ObjectPath& from) {
+  inline History& operator=(const History& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ObjectPath& operator=(ObjectPath&& from) noexcept {
+  inline History& operator=(History&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -462,19 +464,19 @@ class ObjectPath PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const ObjectPath& default_instance();
+  static const History& default_instance();
 
-  static inline const ObjectPath* internal_default_instance() {
-    return reinterpret_cast<const ObjectPath*>(
-               &_ObjectPath_default_instance_);
+  static inline const History* internal_default_instance() {
+    return reinterpret_cast<const History*>(
+               &_History_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(ObjectPath& a, ObjectPath& b) {
+  friend void swap(History& a, History& b) {
     a.Swap(&b);
   }
-  inline void Swap(ObjectPath* other) {
+  inline void Swap(History* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -482,7 +484,7 @@ class ObjectPath PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ObjectPath* other) {
+  void UnsafeArenaSwap(History* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -490,17 +492,17 @@ class ObjectPath PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline ObjectPath* New() const final {
-    return CreateMaybeMessage<ObjectPath>(nullptr);
+  inline History* New() const final {
+    return CreateMaybeMessage<History>(nullptr);
   }
 
-  ObjectPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<ObjectPath>(arena);
+  History* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<History>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const ObjectPath& from);
-  void MergeFrom(const ObjectPath& from);
+  void CopyFrom(const History& from);
+  void MergeFrom(const History& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -514,13 +516,13 @@ class ObjectPath PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(ObjectPath* other);
+  void InternalSwap(History* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.ObjectPath";
+    return "IvionOnline.History";
   }
   protected:
-  explicit ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit History(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -540,213 +542,65 @@ class ObjectPath PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFieldIndeciesFieldNumber = 1,
-    kFullPathFieldNumber = 2,
-    kObjectTypeFieldNumber = 3,
+    kMutationsFieldNumber = 1,
+    kBranchesFieldNumber = 2,
+    kIsGoodFieldNumber = 3,
   };
-  // repeated int32 Field_Indecies = 1;
-  int field_indecies_size() const;
+  // repeated .IvionOnline.Mutation Mutations = 1;
+  int mutations_size() const;
   private:
-  int _internal_field_indecies_size() const;
+  int _internal_mutations_size() const;
   public:
-  void clear_field_indecies();
+  void clear_mutations();
+  ::IvionOnline::Mutation* mutable_mutations(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Mutation >*
+      mutable_mutations();
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_field_indecies(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      _internal_field_indecies() const;
-  void _internal_add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      _internal_mutable_field_indecies();
+  const ::IvionOnline::Mutation& _internal_mutations(int index) const;
+  ::IvionOnline::Mutation* _internal_add_mutations();
   public:
-  ::PROTOBUF_NAMESPACE_ID::int32 field_indecies(int index) const;
-  void set_field_indecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value);
-  void add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-      field_indecies() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-      mutable_field_indecies();
+  const ::IvionOnline::Mutation& mutations(int index) const;
+  ::IvionOnline::Mutation* add_mutations();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Mutation >&
+      mutations() const;
 
-  // string Full_Path = 2;
-  void clear_full_path();
-  const std::string& full_path() const;
-  void set_full_path(const std::string& value);
-  void set_full_path(std::string&& value);
-  void set_full_path(const char* value);
-  void set_full_path(const char* value, size_t size);
-  std::string* mutable_full_path();
-  std::string* release_full_path();
-  void set_allocated_full_path(std::string* full_path);
+  // repeated .IvionOnline.History Branches = 2;
+  int branches_size() const;
   private:
-  const std::string& _internal_full_path() const;
-  void _internal_set_full_path(const std::string& value);
-  std::string* _internal_mutable_full_path();
+  int _internal_branches_size() const;
   public:
-
-  // .IvionOnline.ObjectType Object_Type = 3;
-  void clear_object_type();
-  ::IvionOnline::ObjectType object_type() const;
-  void set_object_type(::IvionOnline::ObjectType value);
+  void clear_branches();
+  ::IvionOnline::History* mutable_branches(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::History >*
+      mutable_branches();
   private:
-  ::IvionOnline::ObjectType _internal_object_type() const;
-  void _internal_set_object_type(::IvionOnline::ObjectType value);
+  const ::IvionOnline::History& _internal_branches(int index) const;
+  ::IvionOnline::History* _internal_add_branches();
+  public:
+  const ::IvionOnline::History& branches(int index) const;
+  ::IvionOnline::History* add_branches();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::History >&
+      branches() const;
+
+  // bool Is_Good = 3;
+  void clear_is_good();
+  bool is_good() const;
+  void set_is_good(bool value);
+  private:
+  bool _internal_is_good() const;
+  void _internal_set_is_good(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath)
+  // @@protoc_insertion_point(class_scope:IvionOnline.History)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 > field_indecies_;
-  mutable std::atomic<int> _field_indecies_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr full_path_;
-  int object_type_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class List_ObjectPath PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath) */ {
- public:
-  inline List_ObjectPath() : List_ObjectPath(nullptr) {}
-  virtual ~List_ObjectPath();
-
-  List_ObjectPath(const List_ObjectPath& from);
-  List_ObjectPath(List_ObjectPath&& from) noexcept
-    : List_ObjectPath() {
-    *this = ::std::move(from);
-  }
-
-  inline List_ObjectPath& operator=(const List_ObjectPath& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline List_ObjectPath& operator=(List_ObjectPath&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const List_ObjectPath& default_instance();
-
-  static inline const List_ObjectPath* internal_default_instance() {
-    return reinterpret_cast<const List_ObjectPath*>(
-               &_List_ObjectPath_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(List_ObjectPath& a, List_ObjectPath& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(List_ObjectPath* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(List_ObjectPath* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline List_ObjectPath* New() const final {
-    return CreateMaybeMessage<List_ObjectPath>(nullptr);
-  }
-
-  List_ObjectPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<List_ObjectPath>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const List_ObjectPath& from);
-  void MergeFrom(const List_ObjectPath& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(List_ObjectPath* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.List_ObjectPath";
-  }
-  protected:
-  explicit List_ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kElementFieldNumber = 1,
-  };
-  // repeated .IvionOnline.ObjectPath element = 1;
-  int element_size() const;
-  private:
-  int _internal_element_size() const;
-  public:
-  void clear_element();
-  ::IvionOnline::ObjectPath* mutable_element(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
-      mutable_element();
-  private:
-  const ::IvionOnline::ObjectPath& _internal_element(int index) const;
-  ::IvionOnline::ObjectPath* _internal_add_element();
-  public:
-  const ::IvionOnline::ObjectPath& element(int index) const;
-  ::IvionOnline::ObjectPath* add_element();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
-      element() const;
-
-  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > element_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Mutation > mutations_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::History > branches_;
+  bool is_good_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -793,7 +647,7 @@ class Boolean PROTOBUF_FINAL :
                &_Boolean_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    1;
 
   friend void swap(Boolean& a, Boolean& b) {
     a.Swap(&b);
@@ -864,8 +718,44 @@ class Boolean PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
     kValueFieldNumber = 1,
   };
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // bool Value = 1;
   void clear_value();
   bool value() const;
@@ -882,6 +772,8 @@ class Boolean PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   bool value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -929,7 +821,7 @@ class List_Boolean PROTOBUF_FINAL :
                &_List_Boolean_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    2;
 
   friend void swap(List_Boolean& a, List_Boolean& b) {
     a.Swap(&b);
@@ -1001,6 +893,8 @@ class List_Boolean PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Boolean element = 1;
   int element_size() const;
@@ -1020,6 +914,40 @@ class List_Boolean PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Boolean)
  private:
   class _Internal;
@@ -1028,6 +956,8 @@ class List_Boolean PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -1074,7 +1004,7 @@ class Integer PROTOBUF_FINAL :
                &_Integer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    3;
 
   friend void swap(Integer& a, Integer& b) {
     a.Swap(&b);
@@ -1145,8 +1075,44 @@ class Integer PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
     kValueFieldNumber = 1,
   };
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // int32 Value = 1;
   void clear_value();
   ::PROTOBUF_NAMESPACE_ID::int32 value() const;
@@ -1163,6 +1129,8 @@ class Integer PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   ::PROTOBUF_NAMESPACE_ID::int32 value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -1210,7 +1178,7 @@ class List_Integer PROTOBUF_FINAL :
                &_List_Integer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    4;
 
   friend void swap(List_Integer& a, List_Integer& b) {
     a.Swap(&b);
@@ -1282,6 +1250,8 @@ class List_Integer PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Integer element = 1;
   int element_size() const;
@@ -1301,6 +1271,40 @@ class List_Integer PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Integer)
  private:
   class _Internal;
@@ -1309,6 +1313,8 @@ class List_Integer PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -1355,7 +1361,7 @@ class Vec2i PROTOBUF_FINAL :
                &_Vec2i_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    5;
 
   friend void swap(Vec2i& a, Vec2i& b) {
     a.Swap(&b);
@@ -1426,9 +1432,45 @@ class Vec2i PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 4,
+    kAbsPathFieldNumber = 3,
     kXFieldNumber = 1,
     kYFieldNumber = 2,
   };
+  // string Name = 4;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // int32 x = 1;
   void clear_x();
   ::PROTOBUF_NAMESPACE_ID::int32 x() const;
@@ -1454,6 +1496,8 @@ class Vec2i PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   ::PROTOBUF_NAMESPACE_ID::int32 x_;
   ::PROTOBUF_NAMESPACE_ID::int32 y_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1502,7 +1546,7 @@ class List_Vec2i PROTOBUF_FINAL :
                &_List_Vec2i_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    6;
 
   friend void swap(List_Vec2i& a, List_Vec2i& b) {
     a.Swap(&b);
@@ -1574,6 +1618,8 @@ class List_Vec2i PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Vec2i element = 1;
   int element_size() const;
@@ -1593,6 +1639,40 @@ class List_Vec2i PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Vec2i)
  private:
   class _Internal;
@@ -1601,6 +1681,8 @@ class List_Vec2i PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -1647,7 +1729,7 @@ class Terrain PROTOBUF_FINAL :
                &_Terrain_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    7;
 
   friend void swap(Terrain& a, Terrain& b) {
     a.Swap(&b);
@@ -1750,8 +1832,44 @@ class Terrain PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 4,
+    kAbsPathFieldNumber = 3,
     kValueFieldNumber = 1,
   };
+  // string Name = 4;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // .IvionOnline.Terrain.Terrain_Type Value = 1;
   void clear_value();
   ::IvionOnline::Terrain_Terrain_Type value() const;
@@ -1768,6 +1886,8 @@ class Terrain PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   int value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -1815,7 +1935,7 @@ class List_Terrain PROTOBUF_FINAL :
                &_List_Terrain_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    8;
 
   friend void swap(List_Terrain& a, List_Terrain& b) {
     a.Swap(&b);
@@ -1887,6 +2007,8 @@ class List_Terrain PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Terrain element = 1;
   int element_size() const;
@@ -1906,6 +2028,40 @@ class List_Terrain PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Terrain)
  private:
   class _Internal;
@@ -1914,6 +2070,8 @@ class List_Terrain PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -1960,7 +2118,7 @@ class Color PROTOBUF_FINAL :
                &_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    9;
 
   friend void swap(Color& a, Color& b) {
     a.Swap(&b);
@@ -2071,8 +2229,44 @@ class Color PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 4,
+    kAbsPathFieldNumber = 3,
     kValueFieldNumber = 1,
   };
+  // string Name = 4;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // .IvionOnline.Color.Color_Type Value = 1;
   void clear_value();
   ::IvionOnline::Color_Color_Type value() const;
@@ -2089,6 +2283,8 @@ class Color PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   int value_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
@@ -2136,7 +2332,7 @@ class List_Color PROTOBUF_FINAL :
                &_List_Color_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    10;
 
   friend void swap(List_Color& a, List_Color& b) {
     a.Swap(&b);
@@ -2208,6 +2404,8 @@ class List_Color PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Color element = 1;
   int element_size() const;
@@ -2227,6 +2425,40 @@ class List_Color PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Color)
  private:
   class _Internal;
@@ -2235,6 +2467,353 @@ class List_Color PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ObjectPath PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath) */ {
+ public:
+  inline ObjectPath() : ObjectPath(nullptr) {}
+  virtual ~ObjectPath();
+
+  ObjectPath(const ObjectPath& from);
+  ObjectPath(ObjectPath&& from) noexcept
+    : ObjectPath() {
+    *this = ::std::move(from);
+  }
+
+  inline ObjectPath& operator=(const ObjectPath& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ObjectPath& operator=(ObjectPath&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ObjectPath& default_instance();
+
+  static inline const ObjectPath* internal_default_instance() {
+    return reinterpret_cast<const ObjectPath*>(
+               &_ObjectPath_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(ObjectPath& a, ObjectPath& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ObjectPath* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ObjectPath* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ObjectPath* New() const final {
+    return CreateMaybeMessage<ObjectPath>(nullptr);
+  }
+
+  ObjectPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ObjectPath>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ObjectPath& from);
+  void MergeFrom(const ObjectPath& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ObjectPath* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.ObjectPath";
+  }
+  protected:
+  explicit ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+    kObjectTypeFieldNumber = 2,
+  };
+  // repeated string Path = 1;
+  int path_size() const;
+  private:
+  int _internal_path_size() const;
+  public:
+  void clear_path();
+  const std::string& path(int index) const;
+  std::string* mutable_path(int index);
+  void set_path(int index, const std::string& value);
+  void set_path(int index, std::string&& value);
+  void set_path(int index, const char* value);
+  void set_path(int index, const char* value, size_t size);
+  std::string* add_path();
+  void add_path(const std::string& value);
+  void add_path(std::string&& value);
+  void add_path(const char* value);
+  void add_path(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& path() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_path();
+  private:
+  const std::string& _internal_path(int index) const;
+  std::string* _internal_add_path();
+  public:
+
+  // .IvionOnline.ObjectType Object_Type = 2;
+  void clear_object_type();
+  ::IvionOnline::ObjectType object_type() const;
+  void set_object_type(::IvionOnline::ObjectType value);
+  private:
+  ::IvionOnline::ObjectType _internal_object_type() const;
+  void _internal_set_object_type(::IvionOnline::ObjectType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> path_;
+  int object_type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
+class List_ObjectPath PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath) */ {
+ public:
+  inline List_ObjectPath() : List_ObjectPath(nullptr) {}
+  virtual ~List_ObjectPath();
+
+  List_ObjectPath(const List_ObjectPath& from);
+  List_ObjectPath(List_ObjectPath&& from) noexcept
+    : List_ObjectPath() {
+    *this = ::std::move(from);
+  }
+
+  inline List_ObjectPath& operator=(const List_ObjectPath& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_ObjectPath& operator=(List_ObjectPath&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_ObjectPath& default_instance();
+
+  static inline const List_ObjectPath* internal_default_instance() {
+    return reinterpret_cast<const List_ObjectPath*>(
+               &_List_ObjectPath_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(List_ObjectPath& a, List_ObjectPath& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_ObjectPath* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_ObjectPath* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_ObjectPath* New() const final {
+    return CreateMaybeMessage<List_ObjectPath>(nullptr);
+  }
+
+  List_ObjectPath* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_ObjectPath>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_ObjectPath& from);
+  void MergeFrom(const List_ObjectPath& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_ObjectPath* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_ObjectPath";
+  }
+  protected:
+  explicit List_ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
+  };
+  // repeated .IvionOnline.ObjectPath element = 1;
+  int element_size() const;
+  private:
+  int _internal_element_size() const;
+  public:
+  void clear_element();
+  ::IvionOnline::ObjectPath* mutable_element(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >*
+      mutable_element();
+  private:
+  const ::IvionOnline::ObjectPath& _internal_element(int index) const;
+  ::IvionOnline::ObjectPath* _internal_add_element();
+  public:
+  const ::IvionOnline::ObjectPath& element(int index) const;
+  ::IvionOnline::ObjectPath* add_element();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath >&
+      element() const;
+
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::ObjectPath > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2281,7 +2860,7 @@ class Player PROTOBUF_FINAL :
                &_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(Player& a, Player& b) {
     a.Swap(&b);
@@ -2353,25 +2932,29 @@ class Player PROTOBUF_FINAL :
 
   enum : int {
     kUIDFieldNumber = 1,
-    kNameFieldNumber = 2,
-    kHealthFieldNumber = 3,
-    kActionsFieldNumber = 4,
-    kPowerFieldNumber = 5,
-    kInitiativeFieldNumber = 6,
-    kSlowFieldNumber = 7,
-    kSilenceFieldNumber = 8,
-    kDisarmFieldNumber = 9,
-    kPositionFieldNumber = 10,
-    kHandFieldNumber = 11,
-    kDeckFieldNumber = 12,
-    kDiscardFieldNumber = 13,
-    kFeatsFieldNumber = 14,
-    kMaxHealthFieldNumber = 15,
-    kMaxActionsFieldNumber = 16,
-    kMaxPowerFieldNumber = 17,
-    kMaxSlowFieldNumber = 18,
-    kMaxSilenceFieldNumber = 19,
-    kMaxDisarmFieldNumber = 20,
+    kIndexStrFieldNumber = 3,
+    kDisplayNameFieldNumber = 4,
+    kNameFieldNumber = 24,
+    kHealthFieldNumber = 5,
+    kActionsFieldNumber = 6,
+    kPowerFieldNumber = 7,
+    kInitiativeFieldNumber = 8,
+    kSlowFieldNumber = 9,
+    kSilenceFieldNumber = 10,
+    kDisarmFieldNumber = 11,
+    kPositionFieldNumber = 12,
+    kHandFieldNumber = 13,
+    kDeckFieldNumber = 14,
+    kDiscardFieldNumber = 15,
+    kFeatsFieldNumber = 16,
+    kMaxHealthFieldNumber = 17,
+    kMaxActionsFieldNumber = 18,
+    kMaxPowerFieldNumber = 19,
+    kMaxSlowFieldNumber = 20,
+    kMaxSilenceFieldNumber = 21,
+    kMaxDisarmFieldNumber = 22,
+    kAbsPathFieldNumber = 23,
+    kIndexFieldNumber = 2,
   };
   // string UID = 1;
   void clear_uid();
@@ -2389,7 +2972,39 @@ class Player PROTOBUF_FINAL :
   std::string* _internal_mutable_uid();
   public:
 
-  // string Name = 2;
+  // string IndexStr = 3;
+  void clear_indexstr();
+  const std::string& indexstr() const;
+  void set_indexstr(const std::string& value);
+  void set_indexstr(std::string&& value);
+  void set_indexstr(const char* value);
+  void set_indexstr(const char* value, size_t size);
+  std::string* mutable_indexstr();
+  std::string* release_indexstr();
+  void set_allocated_indexstr(std::string* indexstr);
+  private:
+  const std::string& _internal_indexstr() const;
+  void _internal_set_indexstr(const std::string& value);
+  std::string* _internal_mutable_indexstr();
+  public:
+
+  // string DisplayName = 4;
+  void clear_displayname();
+  const std::string& displayname() const;
+  void set_displayname(const std::string& value);
+  void set_displayname(std::string&& value);
+  void set_displayname(const char* value);
+  void set_displayname(const char* value, size_t size);
+  std::string* mutable_displayname();
+  std::string* release_displayname();
+  void set_allocated_displayname(std::string* displayname);
+  private:
+  const std::string& _internal_displayname() const;
+  void _internal_set_displayname(const std::string& value);
+  std::string* _internal_mutable_displayname();
+  public:
+
+  // string Name = 24;
   void clear_name();
   const std::string& name() const;
   void set_name(const std::string& value);
@@ -2405,7 +3020,7 @@ class Player PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // .IvionOnline.Integer Health = 3;
+  // .IvionOnline.Integer Health = 5;
   bool has_health() const;
   private:
   bool _internal_has_health() const;
@@ -2423,7 +3038,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* health);
   ::IvionOnline::Integer* unsafe_arena_release_health();
 
-  // .IvionOnline.Integer Actions = 4;
+  // .IvionOnline.Integer Actions = 6;
   bool has_actions() const;
   private:
   bool _internal_has_actions() const;
@@ -2441,7 +3056,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* actions);
   ::IvionOnline::Integer* unsafe_arena_release_actions();
 
-  // .IvionOnline.Integer Power = 5;
+  // .IvionOnline.Integer Power = 7;
   bool has_power() const;
   private:
   bool _internal_has_power() const;
@@ -2459,7 +3074,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* power);
   ::IvionOnline::Integer* unsafe_arena_release_power();
 
-  // .IvionOnline.Integer Initiative = 6;
+  // .IvionOnline.Integer Initiative = 8;
   bool has_initiative() const;
   private:
   bool _internal_has_initiative() const;
@@ -2477,7 +3092,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* initiative);
   ::IvionOnline::Integer* unsafe_arena_release_initiative();
 
-  // .IvionOnline.Integer Slow = 7;
+  // .IvionOnline.Integer Slow = 9;
   bool has_slow() const;
   private:
   bool _internal_has_slow() const;
@@ -2495,7 +3110,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* slow);
   ::IvionOnline::Integer* unsafe_arena_release_slow();
 
-  // .IvionOnline.Integer Silence = 8;
+  // .IvionOnline.Integer Silence = 10;
   bool has_silence() const;
   private:
   bool _internal_has_silence() const;
@@ -2513,7 +3128,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* silence);
   ::IvionOnline::Integer* unsafe_arena_release_silence();
 
-  // .IvionOnline.Integer Disarm = 9;
+  // .IvionOnline.Integer Disarm = 11;
   bool has_disarm() const;
   private:
   bool _internal_has_disarm() const;
@@ -2531,7 +3146,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* disarm);
   ::IvionOnline::Integer* unsafe_arena_release_disarm();
 
-  // .IvionOnline.Vec2i Position = 10;
+  // .IvionOnline.Vec2i Position = 12;
   bool has_position() const;
   private:
   bool _internal_has_position() const;
@@ -2549,7 +3164,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Vec2i* position);
   ::IvionOnline::Vec2i* unsafe_arena_release_position();
 
-  // .IvionOnline.List_ObjectPath Hand = 11;
+  // .IvionOnline.List_ObjectPath Hand = 13;
   bool has_hand() const;
   private:
   bool _internal_has_hand() const;
@@ -2567,7 +3182,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* hand);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_hand();
 
-  // .IvionOnline.List_ObjectPath Deck = 12;
+  // .IvionOnline.List_ObjectPath Deck = 14;
   bool has_deck() const;
   private:
   bool _internal_has_deck() const;
@@ -2585,7 +3200,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* deck);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_deck();
 
-  // .IvionOnline.List_ObjectPath Discard = 13;
+  // .IvionOnline.List_ObjectPath Discard = 15;
   bool has_discard() const;
   private:
   bool _internal_has_discard() const;
@@ -2603,7 +3218,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* discard);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_discard();
 
-  // .IvionOnline.List_ObjectPath Feats = 14;
+  // .IvionOnline.List_ObjectPath Feats = 16;
   bool has_feats() const;
   private:
   bool _internal_has_feats() const;
@@ -2621,7 +3236,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* feats);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_feats();
 
-  // .IvionOnline.Integer MaxHealth = 15;
+  // .IvionOnline.Integer MaxHealth = 17;
   bool has_maxhealth() const;
   private:
   bool _internal_has_maxhealth() const;
@@ -2639,7 +3254,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxhealth);
   ::IvionOnline::Integer* unsafe_arena_release_maxhealth();
 
-  // .IvionOnline.Integer MaxActions = 16;
+  // .IvionOnline.Integer MaxActions = 18;
   bool has_maxactions() const;
   private:
   bool _internal_has_maxactions() const;
@@ -2657,7 +3272,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxactions);
   ::IvionOnline::Integer* unsafe_arena_release_maxactions();
 
-  // .IvionOnline.Integer MaxPower = 17;
+  // .IvionOnline.Integer MaxPower = 19;
   bool has_maxpower() const;
   private:
   bool _internal_has_maxpower() const;
@@ -2675,7 +3290,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxpower);
   ::IvionOnline::Integer* unsafe_arena_release_maxpower();
 
-  // .IvionOnline.Integer MaxSlow = 18;
+  // .IvionOnline.Integer MaxSlow = 20;
   bool has_maxslow() const;
   private:
   bool _internal_has_maxslow() const;
@@ -2693,7 +3308,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxslow);
   ::IvionOnline::Integer* unsafe_arena_release_maxslow();
 
-  // .IvionOnline.Integer MaxSilence = 19;
+  // .IvionOnline.Integer MaxSilence = 21;
   bool has_maxsilence() const;
   private:
   bool _internal_has_maxsilence() const;
@@ -2711,7 +3326,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxsilence);
   ::IvionOnline::Integer* unsafe_arena_release_maxsilence();
 
-  // .IvionOnline.Integer MaxDisarm = 20;
+  // .IvionOnline.Integer MaxDisarm = 22;
   bool has_maxdisarm() const;
   private:
   bool _internal_has_maxdisarm() const;
@@ -2729,6 +3344,33 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxdisarm);
   ::IvionOnline::Integer* unsafe_arena_release_maxdisarm();
 
+  // .IvionOnline.ObjectPath AbsPath = 23;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
+  // int32 Index = 2;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IvionOnline.Player)
  private:
   class _Internal;
@@ -2737,6 +3379,8 @@ class Player PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr indexstr_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr displayname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::Integer* health_;
   ::IvionOnline::Integer* actions_;
@@ -2756,6 +3400,8 @@ class Player PROTOBUF_FINAL :
   ::IvionOnline::Integer* maxslow_;
   ::IvionOnline::Integer* maxsilence_;
   ::IvionOnline::Integer* maxdisarm_;
+  ::IvionOnline::ObjectPath* abspath_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2802,7 +3448,7 @@ class List_Player PROTOBUF_FINAL :
                &_List_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(List_Player& a, List_Player& b) {
     a.Swap(&b);
@@ -2874,6 +3520,8 @@ class List_Player PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Player element = 1;
   int element_size() const;
@@ -2893,6 +3541,40 @@ class List_Player PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Player)
  private:
   class _Internal;
@@ -2901,6 +3583,8 @@ class List_Player PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -2947,7 +3631,7 @@ class Card PROTOBUF_FINAL :
                &_Card_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(Card& a, Card& b) {
     a.Swap(&b);
@@ -3018,8 +3702,44 @@ class Card PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kIndexStrFieldNumber = 3,
+    kNameFieldNumber = 5,
     kCardStatsFieldNumber = 1,
+    kAbsPathFieldNumber = 4,
+    kIndexFieldNumber = 2,
   };
+  // string IndexStr = 3;
+  void clear_indexstr();
+  const std::string& indexstr() const;
+  void set_indexstr(const std::string& value);
+  void set_indexstr(std::string&& value);
+  void set_indexstr(const char* value);
+  void set_indexstr(const char* value, size_t size);
+  std::string* mutable_indexstr();
+  std::string* release_indexstr();
+  void set_allocated_indexstr(std::string* indexstr);
+  private:
+  const std::string& _internal_indexstr() const;
+  void _internal_set_indexstr(const std::string& value);
+  std::string* _internal_mutable_indexstr();
+  public:
+
+  // string Name = 5;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .IvionOnline.ObjectPath CardStats = 1;
   bool has_cardstats() const;
   private:
@@ -3038,6 +3758,33 @@ class Card PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* cardstats);
   ::IvionOnline::ObjectPath* unsafe_arena_release_cardstats();
 
+  // .IvionOnline.ObjectPath AbsPath = 4;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
+  // int32 Index = 2;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IvionOnline.Card)
  private:
   class _Internal;
@@ -3045,7 +3792,11 @@ class Card PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr indexstr_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::ObjectPath* cardstats_;
+  ::IvionOnline::ObjectPath* abspath_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3092,7 +3843,7 @@ class List_Card PROTOBUF_FINAL :
                &_List_Card_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(List_Card& a, List_Card& b) {
     a.Swap(&b);
@@ -3164,6 +3915,8 @@ class List_Card PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Card element = 1;
   int element_size() const;
@@ -3183,6 +3936,40 @@ class List_Card PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Card)
  private:
   class _Internal;
@@ -3191,6 +3978,8 @@ class List_Card PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3237,7 +4026,7 @@ class CardData PROTOBUF_FINAL :
                &_CardData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CardData& a, CardData& b) {
     a.Swap(&b);
@@ -3308,6 +4097,7 @@ class CardData PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 15,
     kOwnerFieldNumber = 1,
     kControllerFieldNumber = 2,
     kActionCostFieldNumber = 3,
@@ -3321,7 +4111,24 @@ class CardData PROTOBUF_FINAL :
     kFeatEffectFieldNumber = 11,
     kPlayEffectFieldNumber = 12,
     kResolveEffectFieldNumber = 13,
+    kAbsPathFieldNumber = 14,
   };
+  // string Name = 15;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .IvionOnline.ObjectPath Owner = 1;
   bool has_owner() const;
   private:
@@ -3556,6 +4363,24 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* resolveeffect);
   ::IvionOnline::List_Method* unsafe_arena_release_resolveeffect();
 
+  // .IvionOnline.ObjectPath AbsPath = 14;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.CardData)
  private:
   class _Internal;
@@ -3563,6 +4388,7 @@ class CardData PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::ObjectPath* owner_;
   ::IvionOnline::ObjectPath* controller_;
   ::IvionOnline::Integer* actioncost_;
@@ -3576,6 +4402,7 @@ class CardData PROTOBUF_FINAL :
   ::IvionOnline::List_Method* feateffect_;
   ::IvionOnline::List_Method* playeffect_;
   ::IvionOnline::List_Method* resolveeffect_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3622,7 +4449,7 @@ class List_CardData PROTOBUF_FINAL :
                &_List_CardData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(List_CardData& a, List_CardData& b) {
     a.Swap(&b);
@@ -3694,6 +4521,8 @@ class List_CardData PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.CardData element = 1;
   int element_size() const;
@@ -3713,6 +4542,40 @@ class List_CardData PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_CardData)
  private:
   class _Internal;
@@ -3721,6 +4584,8 @@ class List_CardData PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3767,7 +4632,7 @@ class Tile PROTOBUF_FINAL :
                &_Tile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(Tile& a, Tile& b) {
     a.Swap(&b);
@@ -3838,11 +4703,47 @@ class Tile PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kIndexStrFieldNumber = 3,
+    kNameFieldNumber = 8,
     kPositionFieldNumber = 1,
-    kTerrainFieldNumber = 2,
-    kPlayersFieldNumber = 3,
-    kCardsFieldNumber = 4,
+    kTerrainFieldNumber = 4,
+    kPlayersFieldNumber = 5,
+    kCardsFieldNumber = 6,
+    kAbsPathFieldNumber = 7,
+    kIndexFieldNumber = 2,
   };
+  // string IndexStr = 3;
+  void clear_indexstr();
+  const std::string& indexstr() const;
+  void set_indexstr(const std::string& value);
+  void set_indexstr(std::string&& value);
+  void set_indexstr(const char* value);
+  void set_indexstr(const char* value, size_t size);
+  std::string* mutable_indexstr();
+  std::string* release_indexstr();
+  void set_allocated_indexstr(std::string* indexstr);
+  private:
+  const std::string& _internal_indexstr() const;
+  void _internal_set_indexstr(const std::string& value);
+  std::string* _internal_mutable_indexstr();
+  public:
+
+  // string Name = 8;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .IvionOnline.Vec2i Position = 1;
   bool has_position() const;
   private:
@@ -3861,7 +4762,7 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::Vec2i* position);
   ::IvionOnline::Vec2i* unsafe_arena_release_position();
 
-  // .IvionOnline.Terrain Terrain = 2;
+  // .IvionOnline.Terrain Terrain = 4;
   bool has_terrain() const;
   private:
   bool _internal_has_terrain() const;
@@ -3879,7 +4780,7 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::Terrain* terrain);
   ::IvionOnline::Terrain* unsafe_arena_release_terrain();
 
-  // .IvionOnline.List_ObjectPath Players = 3;
+  // .IvionOnline.List_ObjectPath Players = 5;
   bool has_players() const;
   private:
   bool _internal_has_players() const;
@@ -3897,7 +4798,7 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* players);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_players();
 
-  // .IvionOnline.List_ObjectPath Cards = 4;
+  // .IvionOnline.List_ObjectPath Cards = 6;
   bool has_cards() const;
   private:
   bool _internal_has_cards() const;
@@ -3915,6 +4816,33 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* cards);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_cards();
 
+  // .IvionOnline.ObjectPath AbsPath = 7;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
+  // int32 Index = 2;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IvionOnline.Tile)
  private:
   class _Internal;
@@ -3922,10 +4850,14 @@ class Tile PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr indexstr_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::Vec2i* position_;
   ::IvionOnline::Terrain* terrain_;
   ::IvionOnline::List_ObjectPath* players_;
   ::IvionOnline::List_ObjectPath* cards_;
+  ::IvionOnline::ObjectPath* abspath_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -3972,7 +4904,7 @@ class List_Tile PROTOBUF_FINAL :
                &_List_Tile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(List_Tile& a, List_Tile& b) {
     a.Swap(&b);
@@ -4044,6 +4976,8 @@ class List_Tile PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.Tile element = 1;
   int element_size() const;
@@ -4063,6 +4997,40 @@ class List_Tile PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Tile)
  private:
   class _Internal;
@@ -4071,6 +5039,8 @@ class List_Tile PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4117,7 +5087,7 @@ class GameState PROTOBUF_FINAL :
                &_GameState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(GameState& a, GameState& b) {
     a.Swap(&b);
@@ -4188,13 +5158,31 @@ class GameState PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kNameFieldNumber = 8,
     kPlayersFieldNumber = 1,
     kCardsFieldNumber = 2,
     kCardDataFieldNumber = 3,
     kTilesFieldNumber = 4,
     kFieldFieldNumber = 5,
     kTurnNumberFieldNumber = 6,
+    kAbsPathFieldNumber = 7,
   };
+  // string Name = 8;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
   // .IvionOnline.List_Player Players = 1;
   bool has_players() const;
   private:
@@ -4303,6 +5291,24 @@ class GameState PROTOBUF_FINAL :
       ::IvionOnline::Integer* turnnumber);
   ::IvionOnline::Integer* unsafe_arena_release_turnnumber();
 
+  // .IvionOnline.ObjectPath AbsPath = 7;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.GameState)
  private:
   class _Internal;
@@ -4310,12 +5316,14 @@ class GameState PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::List_Player* players_;
   ::IvionOnline::List_Card* cards_;
   ::IvionOnline::List_CardData* carddata_;
   ::IvionOnline::List_Tile* tiles_;
   ::IvionOnline::List_ObjectPath* field_;
   ::IvionOnline::Integer* turnnumber_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -4362,7 +5370,7 @@ class List_GameState PROTOBUF_FINAL :
                &_List_GameState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(List_GameState& a, List_GameState& b) {
     a.Swap(&b);
@@ -4434,6 +5442,8 @@ class List_GameState PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 3,
+    kAbsPathFieldNumber = 2,
   };
   // repeated .IvionOnline.GameState element = 1;
   int element_size() const;
@@ -4453,6 +5463,40 @@ class List_GameState PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::GameState >&
       element() const;
 
+  // string Name = 3;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 2;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_GameState)
  private:
   class _Internal;
@@ -4461,543 +5505,8 @@ class List_GameState PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::GameState > element_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class ObjectPath_Set_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath_Set_Mutation) */ {
- public:
-  inline ObjectPath_Set_Mutation() : ObjectPath_Set_Mutation(nullptr) {}
-  virtual ~ObjectPath_Set_Mutation();
-
-  ObjectPath_Set_Mutation(const ObjectPath_Set_Mutation& from);
-  ObjectPath_Set_Mutation(ObjectPath_Set_Mutation&& from) noexcept
-    : ObjectPath_Set_Mutation() {
-    *this = ::std::move(from);
-  }
-
-  inline ObjectPath_Set_Mutation& operator=(const ObjectPath_Set_Mutation& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ObjectPath_Set_Mutation& operator=(ObjectPath_Set_Mutation&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const ObjectPath_Set_Mutation& default_instance();
-
-  static inline const ObjectPath_Set_Mutation* internal_default_instance() {
-    return reinterpret_cast<const ObjectPath_Set_Mutation*>(
-               &_ObjectPath_Set_Mutation_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    22;
-
-  friend void swap(ObjectPath_Set_Mutation& a, ObjectPath_Set_Mutation& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ObjectPath_Set_Mutation* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ObjectPath_Set_Mutation* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ObjectPath_Set_Mutation* New() const final {
-    return CreateMaybeMessage<ObjectPath_Set_Mutation>(nullptr);
-  }
-
-  ObjectPath_Set_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<ObjectPath_Set_Mutation>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const ObjectPath_Set_Mutation& from);
-  void MergeFrom(const ObjectPath_Set_Mutation& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ObjectPath_Set_Mutation* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.ObjectPath_Set_Mutation";
-  }
-  protected:
-  explicit ObjectPath_Set_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPathFieldNumber = 1,
-    kNewValueFieldNumber = 2,
-    kOldValueFieldNumber = 3,
-  };
-  // .IvionOnline.ObjectPath Path = 1;
-  bool has_path() const;
-  private:
-  bool _internal_has_path() const;
-  public:
-  void clear_path();
-  const ::IvionOnline::ObjectPath& path() const;
-  ::IvionOnline::ObjectPath* release_path();
-  ::IvionOnline::ObjectPath* mutable_path();
-  void set_allocated_path(::IvionOnline::ObjectPath* path);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_path() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_path();
-  public:
-  void unsafe_arena_set_allocated_path(
-      ::IvionOnline::ObjectPath* path);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
-
-  // .IvionOnline.ObjectPath NewValue = 2;
-  bool has_newvalue() const;
-  private:
-  bool _internal_has_newvalue() const;
-  public:
-  void clear_newvalue();
-  const ::IvionOnline::ObjectPath& newvalue() const;
-  ::IvionOnline::ObjectPath* release_newvalue();
-  ::IvionOnline::ObjectPath* mutable_newvalue();
-  void set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_newvalue() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_newvalue();
-  public:
-  void unsafe_arena_set_allocated_newvalue(
-      ::IvionOnline::ObjectPath* newvalue);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_newvalue();
-
-  // .IvionOnline.ObjectPath OldValue = 3;
-  bool has_oldvalue() const;
-  private:
-  bool _internal_has_oldvalue() const;
-  public:
-  void clear_oldvalue();
-  const ::IvionOnline::ObjectPath& oldvalue() const;
-  ::IvionOnline::ObjectPath* release_oldvalue();
-  ::IvionOnline::ObjectPath* mutable_oldvalue();
-  void set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_oldvalue() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_oldvalue();
-  public:
-  void unsafe_arena_set_allocated_oldvalue(
-      ::IvionOnline::ObjectPath* oldvalue);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_oldvalue();
-
-  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath_Set_Mutation)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::IvionOnline::ObjectPath* path_;
-  ::IvionOnline::ObjectPath* newvalue_;
-  ::IvionOnline::ObjectPath* oldvalue_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class List_ObjectPath_Insert_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath_Insert_Mutation) */ {
- public:
-  inline List_ObjectPath_Insert_Mutation() : List_ObjectPath_Insert_Mutation(nullptr) {}
-  virtual ~List_ObjectPath_Insert_Mutation();
-
-  List_ObjectPath_Insert_Mutation(const List_ObjectPath_Insert_Mutation& from);
-  List_ObjectPath_Insert_Mutation(List_ObjectPath_Insert_Mutation&& from) noexcept
-    : List_ObjectPath_Insert_Mutation() {
-    *this = ::std::move(from);
-  }
-
-  inline List_ObjectPath_Insert_Mutation& operator=(const List_ObjectPath_Insert_Mutation& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline List_ObjectPath_Insert_Mutation& operator=(List_ObjectPath_Insert_Mutation&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const List_ObjectPath_Insert_Mutation& default_instance();
-
-  static inline const List_ObjectPath_Insert_Mutation* internal_default_instance() {
-    return reinterpret_cast<const List_ObjectPath_Insert_Mutation*>(
-               &_List_ObjectPath_Insert_Mutation_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    23;
-
-  friend void swap(List_ObjectPath_Insert_Mutation& a, List_ObjectPath_Insert_Mutation& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(List_ObjectPath_Insert_Mutation* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(List_ObjectPath_Insert_Mutation* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline List_ObjectPath_Insert_Mutation* New() const final {
-    return CreateMaybeMessage<List_ObjectPath_Insert_Mutation>(nullptr);
-  }
-
-  List_ObjectPath_Insert_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<List_ObjectPath_Insert_Mutation>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const List_ObjectPath_Insert_Mutation& from);
-  void MergeFrom(const List_ObjectPath_Insert_Mutation& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(List_ObjectPath_Insert_Mutation* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.List_ObjectPath_Insert_Mutation";
-  }
-  protected:
-  explicit List_ObjectPath_Insert_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPathFieldNumber = 1,
-    kNewValueFieldNumber = 2,
-    kIndexFieldNumber = 3,
-  };
-  // .IvionOnline.ObjectPath Path = 1;
-  bool has_path() const;
-  private:
-  bool _internal_has_path() const;
-  public:
-  void clear_path();
-  const ::IvionOnline::ObjectPath& path() const;
-  ::IvionOnline::ObjectPath* release_path();
-  ::IvionOnline::ObjectPath* mutable_path();
-  void set_allocated_path(::IvionOnline::ObjectPath* path);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_path() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_path();
-  public:
-  void unsafe_arena_set_allocated_path(
-      ::IvionOnline::ObjectPath* path);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
-
-  // .IvionOnline.ObjectPath NewValue = 2;
-  bool has_newvalue() const;
-  private:
-  bool _internal_has_newvalue() const;
-  public:
-  void clear_newvalue();
-  const ::IvionOnline::ObjectPath& newvalue() const;
-  ::IvionOnline::ObjectPath* release_newvalue();
-  ::IvionOnline::ObjectPath* mutable_newvalue();
-  void set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_newvalue() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_newvalue();
-  public:
-  void unsafe_arena_set_allocated_newvalue(
-      ::IvionOnline::ObjectPath* newvalue);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_newvalue();
-
-  // int32 Index = 3;
-  void clear_index();
-  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
-  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
-  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath_Insert_Mutation)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::IvionOnline::ObjectPath* path_;
-  ::IvionOnline::ObjectPath* newvalue_;
-  ::PROTOBUF_NAMESPACE_ID::int32 index_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class List_ObjectPath_Remove_Mutation PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath_Remove_Mutation) */ {
- public:
-  inline List_ObjectPath_Remove_Mutation() : List_ObjectPath_Remove_Mutation(nullptr) {}
-  virtual ~List_ObjectPath_Remove_Mutation();
-
-  List_ObjectPath_Remove_Mutation(const List_ObjectPath_Remove_Mutation& from);
-  List_ObjectPath_Remove_Mutation(List_ObjectPath_Remove_Mutation&& from) noexcept
-    : List_ObjectPath_Remove_Mutation() {
-    *this = ::std::move(from);
-  }
-
-  inline List_ObjectPath_Remove_Mutation& operator=(const List_ObjectPath_Remove_Mutation& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline List_ObjectPath_Remove_Mutation& operator=(List_ObjectPath_Remove_Mutation&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const List_ObjectPath_Remove_Mutation& default_instance();
-
-  static inline const List_ObjectPath_Remove_Mutation* internal_default_instance() {
-    return reinterpret_cast<const List_ObjectPath_Remove_Mutation*>(
-               &_List_ObjectPath_Remove_Mutation_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    24;
-
-  friend void swap(List_ObjectPath_Remove_Mutation& a, List_ObjectPath_Remove_Mutation& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(List_ObjectPath_Remove_Mutation* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(List_ObjectPath_Remove_Mutation* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline List_ObjectPath_Remove_Mutation* New() const final {
-    return CreateMaybeMessage<List_ObjectPath_Remove_Mutation>(nullptr);
-  }
-
-  List_ObjectPath_Remove_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<List_ObjectPath_Remove_Mutation>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const List_ObjectPath_Remove_Mutation& from);
-  void MergeFrom(const List_ObjectPath_Remove_Mutation& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(List_ObjectPath_Remove_Mutation* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.List_ObjectPath_Remove_Mutation";
-  }
-  protected:
-  explicit List_ObjectPath_Remove_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kPathFieldNumber = 1,
-    kOldValueFieldNumber = 2,
-    kIndexFieldNumber = 3,
-  };
-  // .IvionOnline.ObjectPath Path = 1;
-  bool has_path() const;
-  private:
-  bool _internal_has_path() const;
-  public:
-  void clear_path();
-  const ::IvionOnline::ObjectPath& path() const;
-  ::IvionOnline::ObjectPath* release_path();
-  ::IvionOnline::ObjectPath* mutable_path();
-  void set_allocated_path(::IvionOnline::ObjectPath* path);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_path() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_path();
-  public:
-  void unsafe_arena_set_allocated_path(
-      ::IvionOnline::ObjectPath* path);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
-
-  // .IvionOnline.ObjectPath OldValue = 2;
-  bool has_oldvalue() const;
-  private:
-  bool _internal_has_oldvalue() const;
-  public:
-  void clear_oldvalue();
-  const ::IvionOnline::ObjectPath& oldvalue() const;
-  ::IvionOnline::ObjectPath* release_oldvalue();
-  ::IvionOnline::ObjectPath* mutable_oldvalue();
-  void set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_oldvalue() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_oldvalue();
-  public:
-  void unsafe_arena_set_allocated_oldvalue(
-      ::IvionOnline::ObjectPath* oldvalue);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_oldvalue();
-
-  // int32 Index = 3;
-  void clear_index();
-  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
-  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
-  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath_Remove_Mutation)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::IvionOnline::ObjectPath* path_;
-  ::IvionOnline::ObjectPath* oldvalue_;
-  ::PROTOBUF_NAMESPACE_ID::int32 index_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -5044,7 +5553,7 @@ class Boolean_Set_Mutation PROTOBUF_FINAL :
                &_Boolean_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    23;
 
   friend void swap(Boolean_Set_Mutation& a, Boolean_Set_Mutation& b) {
     a.Swap(&b);
@@ -5229,7 +5738,7 @@ class List_Boolean_Insert_Mutation PROTOBUF_FINAL :
                &_List_Boolean_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    24;
 
   friend void swap(List_Boolean_Insert_Mutation& a, List_Boolean_Insert_Mutation& b) {
     a.Swap(&b);
@@ -5405,7 +5914,7 @@ class List_Boolean_Remove_Mutation PROTOBUF_FINAL :
                &_List_Boolean_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    25;
 
   friend void swap(List_Boolean_Remove_Mutation& a, List_Boolean_Remove_Mutation& b) {
     a.Swap(&b);
@@ -5581,7 +6090,7 @@ class Integer_Set_Mutation PROTOBUF_FINAL :
                &_Integer_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    26;
 
   friend void swap(Integer_Set_Mutation& a, Integer_Set_Mutation& b) {
     a.Swap(&b);
@@ -5766,7 +6275,7 @@ class List_Integer_Insert_Mutation PROTOBUF_FINAL :
                &_List_Integer_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    27;
 
   friend void swap(List_Integer_Insert_Mutation& a, List_Integer_Insert_Mutation& b) {
     a.Swap(&b);
@@ -5942,7 +6451,7 @@ class List_Integer_Remove_Mutation PROTOBUF_FINAL :
                &_List_Integer_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    28;
 
   friend void swap(List_Integer_Remove_Mutation& a, List_Integer_Remove_Mutation& b) {
     a.Swap(&b);
@@ -6118,7 +6627,7 @@ class Vec2i_Set_Mutation PROTOBUF_FINAL :
                &_Vec2i_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    29;
 
   friend void swap(Vec2i_Set_Mutation& a, Vec2i_Set_Mutation& b) {
     a.Swap(&b);
@@ -6303,7 +6812,7 @@ class List_Vec2i_Insert_Mutation PROTOBUF_FINAL :
                &_List_Vec2i_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    30;
 
   friend void swap(List_Vec2i_Insert_Mutation& a, List_Vec2i_Insert_Mutation& b) {
     a.Swap(&b);
@@ -6479,7 +6988,7 @@ class List_Vec2i_Remove_Mutation PROTOBUF_FINAL :
                &_List_Vec2i_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    31;
 
   friend void swap(List_Vec2i_Remove_Mutation& a, List_Vec2i_Remove_Mutation& b) {
     a.Swap(&b);
@@ -6655,7 +7164,7 @@ class Terrain_Set_Mutation PROTOBUF_FINAL :
                &_Terrain_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    32;
 
   friend void swap(Terrain_Set_Mutation& a, Terrain_Set_Mutation& b) {
     a.Swap(&b);
@@ -6840,7 +7349,7 @@ class List_Terrain_Insert_Mutation PROTOBUF_FINAL :
                &_List_Terrain_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    33;
 
   friend void swap(List_Terrain_Insert_Mutation& a, List_Terrain_Insert_Mutation& b) {
     a.Swap(&b);
@@ -7016,7 +7525,7 @@ class List_Terrain_Remove_Mutation PROTOBUF_FINAL :
                &_List_Terrain_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    34;
 
   friend void swap(List_Terrain_Remove_Mutation& a, List_Terrain_Remove_Mutation& b) {
     a.Swap(&b);
@@ -7192,7 +7701,7 @@ class Color_Set_Mutation PROTOBUF_FINAL :
                &_Color_Set_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    35;
 
   friend void swap(Color_Set_Mutation& a, Color_Set_Mutation& b) {
     a.Swap(&b);
@@ -7377,7 +7886,7 @@ class List_Color_Insert_Mutation PROTOBUF_FINAL :
                &_List_Color_Insert_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    36;
 
   friend void swap(List_Color_Insert_Mutation& a, List_Color_Insert_Mutation& b) {
     a.Swap(&b);
@@ -7553,7 +8062,7 @@ class List_Color_Remove_Mutation PROTOBUF_FINAL :
                &_List_Color_Remove_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    37;
 
   friend void swap(List_Color_Remove_Mutation& a, List_Color_Remove_Mutation& b) {
     a.Swap(&b);
@@ -7688,6 +8197,543 @@ class List_Color_Remove_Mutation PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class ObjectPath_Set_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath_Set_Mutation) */ {
+ public:
+  inline ObjectPath_Set_Mutation() : ObjectPath_Set_Mutation(nullptr) {}
+  virtual ~ObjectPath_Set_Mutation();
+
+  ObjectPath_Set_Mutation(const ObjectPath_Set_Mutation& from);
+  ObjectPath_Set_Mutation(ObjectPath_Set_Mutation&& from) noexcept
+    : ObjectPath_Set_Mutation() {
+    *this = ::std::move(from);
+  }
+
+  inline ObjectPath_Set_Mutation& operator=(const ObjectPath_Set_Mutation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ObjectPath_Set_Mutation& operator=(ObjectPath_Set_Mutation&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ObjectPath_Set_Mutation& default_instance();
+
+  static inline const ObjectPath_Set_Mutation* internal_default_instance() {
+    return reinterpret_cast<const ObjectPath_Set_Mutation*>(
+               &_ObjectPath_Set_Mutation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(ObjectPath_Set_Mutation& a, ObjectPath_Set_Mutation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ObjectPath_Set_Mutation* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ObjectPath_Set_Mutation* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ObjectPath_Set_Mutation* New() const final {
+    return CreateMaybeMessage<ObjectPath_Set_Mutation>(nullptr);
+  }
+
+  ObjectPath_Set_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ObjectPath_Set_Mutation>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ObjectPath_Set_Mutation& from);
+  void MergeFrom(const ObjectPath_Set_Mutation& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ObjectPath_Set_Mutation* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.ObjectPath_Set_Mutation";
+  }
+  protected:
+  explicit ObjectPath_Set_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+    kNewValueFieldNumber = 2,
+    kOldValueFieldNumber = 3,
+  };
+  // .IvionOnline.ObjectPath Path = 1;
+  bool has_path() const;
+  private:
+  bool _internal_has_path() const;
+  public:
+  void clear_path();
+  const ::IvionOnline::ObjectPath& path() const;
+  ::IvionOnline::ObjectPath* release_path();
+  ::IvionOnline::ObjectPath* mutable_path();
+  void set_allocated_path(::IvionOnline::ObjectPath* path);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_path() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_path();
+  public:
+  void unsafe_arena_set_allocated_path(
+      ::IvionOnline::ObjectPath* path);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
+
+  // .IvionOnline.ObjectPath NewValue = 2;
+  bool has_newvalue() const;
+  private:
+  bool _internal_has_newvalue() const;
+  public:
+  void clear_newvalue();
+  const ::IvionOnline::ObjectPath& newvalue() const;
+  ::IvionOnline::ObjectPath* release_newvalue();
+  ::IvionOnline::ObjectPath* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_newvalue() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_newvalue();
+  public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::ObjectPath* newvalue);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_newvalue();
+
+  // .IvionOnline.ObjectPath OldValue = 3;
+  bool has_oldvalue() const;
+  private:
+  bool _internal_has_oldvalue() const;
+  public:
+  void clear_oldvalue();
+  const ::IvionOnline::ObjectPath& oldvalue() const;
+  ::IvionOnline::ObjectPath* release_oldvalue();
+  ::IvionOnline::ObjectPath* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_oldvalue() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_oldvalue();
+  public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::ObjectPath* oldvalue);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_oldvalue();
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath_Set_Mutation)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* path_;
+  ::IvionOnline::ObjectPath* newvalue_;
+  ::IvionOnline::ObjectPath* oldvalue_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
+class List_ObjectPath_Insert_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath_Insert_Mutation) */ {
+ public:
+  inline List_ObjectPath_Insert_Mutation() : List_ObjectPath_Insert_Mutation(nullptr) {}
+  virtual ~List_ObjectPath_Insert_Mutation();
+
+  List_ObjectPath_Insert_Mutation(const List_ObjectPath_Insert_Mutation& from);
+  List_ObjectPath_Insert_Mutation(List_ObjectPath_Insert_Mutation&& from) noexcept
+    : List_ObjectPath_Insert_Mutation() {
+    *this = ::std::move(from);
+  }
+
+  inline List_ObjectPath_Insert_Mutation& operator=(const List_ObjectPath_Insert_Mutation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_ObjectPath_Insert_Mutation& operator=(List_ObjectPath_Insert_Mutation&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_ObjectPath_Insert_Mutation& default_instance();
+
+  static inline const List_ObjectPath_Insert_Mutation* internal_default_instance() {
+    return reinterpret_cast<const List_ObjectPath_Insert_Mutation*>(
+               &_List_ObjectPath_Insert_Mutation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    39;
+
+  friend void swap(List_ObjectPath_Insert_Mutation& a, List_ObjectPath_Insert_Mutation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_ObjectPath_Insert_Mutation* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_ObjectPath_Insert_Mutation* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_ObjectPath_Insert_Mutation* New() const final {
+    return CreateMaybeMessage<List_ObjectPath_Insert_Mutation>(nullptr);
+  }
+
+  List_ObjectPath_Insert_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_ObjectPath_Insert_Mutation>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_ObjectPath_Insert_Mutation& from);
+  void MergeFrom(const List_ObjectPath_Insert_Mutation& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_ObjectPath_Insert_Mutation* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_ObjectPath_Insert_Mutation";
+  }
+  protected:
+  explicit List_ObjectPath_Insert_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+    kNewValueFieldNumber = 2,
+    kIndexFieldNumber = 3,
+  };
+  // .IvionOnline.ObjectPath Path = 1;
+  bool has_path() const;
+  private:
+  bool _internal_has_path() const;
+  public:
+  void clear_path();
+  const ::IvionOnline::ObjectPath& path() const;
+  ::IvionOnline::ObjectPath* release_path();
+  ::IvionOnline::ObjectPath* mutable_path();
+  void set_allocated_path(::IvionOnline::ObjectPath* path);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_path() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_path();
+  public:
+  void unsafe_arena_set_allocated_path(
+      ::IvionOnline::ObjectPath* path);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
+
+  // .IvionOnline.ObjectPath NewValue = 2;
+  bool has_newvalue() const;
+  private:
+  bool _internal_has_newvalue() const;
+  public:
+  void clear_newvalue();
+  const ::IvionOnline::ObjectPath& newvalue() const;
+  ::IvionOnline::ObjectPath* release_newvalue();
+  ::IvionOnline::ObjectPath* mutable_newvalue();
+  void set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_newvalue() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_newvalue();
+  public:
+  void unsafe_arena_set_allocated_newvalue(
+      ::IvionOnline::ObjectPath* newvalue);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_newvalue();
+
+  // int32 Index = 3;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath_Insert_Mutation)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* path_;
+  ::IvionOnline::ObjectPath* newvalue_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
+class List_ObjectPath_Remove_Mutation PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.List_ObjectPath_Remove_Mutation) */ {
+ public:
+  inline List_ObjectPath_Remove_Mutation() : List_ObjectPath_Remove_Mutation(nullptr) {}
+  virtual ~List_ObjectPath_Remove_Mutation();
+
+  List_ObjectPath_Remove_Mutation(const List_ObjectPath_Remove_Mutation& from);
+  List_ObjectPath_Remove_Mutation(List_ObjectPath_Remove_Mutation&& from) noexcept
+    : List_ObjectPath_Remove_Mutation() {
+    *this = ::std::move(from);
+  }
+
+  inline List_ObjectPath_Remove_Mutation& operator=(const List_ObjectPath_Remove_Mutation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline List_ObjectPath_Remove_Mutation& operator=(List_ObjectPath_Remove_Mutation&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const List_ObjectPath_Remove_Mutation& default_instance();
+
+  static inline const List_ObjectPath_Remove_Mutation* internal_default_instance() {
+    return reinterpret_cast<const List_ObjectPath_Remove_Mutation*>(
+               &_List_ObjectPath_Remove_Mutation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(List_ObjectPath_Remove_Mutation& a, List_ObjectPath_Remove_Mutation& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(List_ObjectPath_Remove_Mutation* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(List_ObjectPath_Remove_Mutation* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline List_ObjectPath_Remove_Mutation* New() const final {
+    return CreateMaybeMessage<List_ObjectPath_Remove_Mutation>(nullptr);
+  }
+
+  List_ObjectPath_Remove_Mutation* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<List_ObjectPath_Remove_Mutation>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const List_ObjectPath_Remove_Mutation& from);
+  void MergeFrom(const List_ObjectPath_Remove_Mutation& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(List_ObjectPath_Remove_Mutation* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.List_ObjectPath_Remove_Mutation";
+  }
+  protected:
+  explicit List_ObjectPath_Remove_Mutation(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 1,
+    kOldValueFieldNumber = 2,
+    kIndexFieldNumber = 3,
+  };
+  // .IvionOnline.ObjectPath Path = 1;
+  bool has_path() const;
+  private:
+  bool _internal_has_path() const;
+  public:
+  void clear_path();
+  const ::IvionOnline::ObjectPath& path() const;
+  ::IvionOnline::ObjectPath* release_path();
+  ::IvionOnline::ObjectPath* mutable_path();
+  void set_allocated_path(::IvionOnline::ObjectPath* path);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_path() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_path();
+  public:
+  void unsafe_arena_set_allocated_path(
+      ::IvionOnline::ObjectPath* path);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_path();
+
+  // .IvionOnline.ObjectPath OldValue = 2;
+  bool has_oldvalue() const;
+  private:
+  bool _internal_has_oldvalue() const;
+  public:
+  void clear_oldvalue();
+  const ::IvionOnline::ObjectPath& oldvalue() const;
+  ::IvionOnline::ObjectPath* release_oldvalue();
+  ::IvionOnline::ObjectPath* mutable_oldvalue();
+  void set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_oldvalue() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_oldvalue();
+  public:
+  void unsafe_arena_set_allocated_oldvalue(
+      ::IvionOnline::ObjectPath* oldvalue);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_oldvalue();
+
+  // int32 Index = 3;
+  void clear_index();
+  ::PROTOBUF_NAMESPACE_ID::int32 index() const;
+  void set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_index() const;
+  void _internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.List_ObjectPath_Remove_Mutation)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* path_;
+  ::IvionOnline::ObjectPath* oldvalue_;
+  ::PROTOBUF_NAMESPACE_ID::int32 index_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Mutation PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Mutation) */ {
  public:
@@ -7740,6 +8786,9 @@ class Mutation PROTOBUF_FINAL :
     kColorSetMutation = 13,
     kListColorInsertMutation = 14,
     kListColorRemoveMutation = 15,
+    kObjectPathSetMutation = 16,
+    kListObjectPathInsertMutation = 17,
+    kListObjectPathRemoveMutation = 18,
     MUT_NOT_SET = 0,
   };
 
@@ -7748,7 +8797,7 @@ class Mutation PROTOBUF_FINAL :
                &_Mutation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(Mutation& a, Mutation& b) {
     a.Swap(&b);
@@ -7834,6 +8883,9 @@ class Mutation PROTOBUF_FINAL :
     kColorSetMutationFieldNumber = 13,
     kListColorInsertMutationFieldNumber = 14,
     kListColorRemoveMutationFieldNumber = 15,
+    kObjectPathSetMutationFieldNumber = 16,
+    kListObjectPathInsertMutationFieldNumber = 17,
+    kListObjectPathRemoveMutationFieldNumber = 18,
   };
   // .IvionOnline.Boolean_Set_Mutation Boolean_Set_Mutation = 1;
   bool has_boolean_set_mutation() const;
@@ -8105,6 +9157,60 @@ class Mutation PROTOBUF_FINAL :
       ::IvionOnline::List_Color_Remove_Mutation* list_color_remove_mutation);
   ::IvionOnline::List_Color_Remove_Mutation* unsafe_arena_release_list_color_remove_mutation();
 
+  // .IvionOnline.ObjectPath_Set_Mutation ObjectPath_Set_Mutation = 16;
+  bool has_objectpath_set_mutation() const;
+  private:
+  bool _internal_has_objectpath_set_mutation() const;
+  public:
+  void clear_objectpath_set_mutation();
+  const ::IvionOnline::ObjectPath_Set_Mutation& objectpath_set_mutation() const;
+  ::IvionOnline::ObjectPath_Set_Mutation* release_objectpath_set_mutation();
+  ::IvionOnline::ObjectPath_Set_Mutation* mutable_objectpath_set_mutation();
+  void set_allocated_objectpath_set_mutation(::IvionOnline::ObjectPath_Set_Mutation* objectpath_set_mutation);
+  private:
+  const ::IvionOnline::ObjectPath_Set_Mutation& _internal_objectpath_set_mutation() const;
+  ::IvionOnline::ObjectPath_Set_Mutation* _internal_mutable_objectpath_set_mutation();
+  public:
+  void unsafe_arena_set_allocated_objectpath_set_mutation(
+      ::IvionOnline::ObjectPath_Set_Mutation* objectpath_set_mutation);
+  ::IvionOnline::ObjectPath_Set_Mutation* unsafe_arena_release_objectpath_set_mutation();
+
+  // .IvionOnline.List_ObjectPath_Insert_Mutation List_ObjectPath_Insert_Mutation = 17;
+  bool has_list_objectpath_insert_mutation() const;
+  private:
+  bool _internal_has_list_objectpath_insert_mutation() const;
+  public:
+  void clear_list_objectpath_insert_mutation();
+  const ::IvionOnline::List_ObjectPath_Insert_Mutation& list_objectpath_insert_mutation() const;
+  ::IvionOnline::List_ObjectPath_Insert_Mutation* release_list_objectpath_insert_mutation();
+  ::IvionOnline::List_ObjectPath_Insert_Mutation* mutable_list_objectpath_insert_mutation();
+  void set_allocated_list_objectpath_insert_mutation(::IvionOnline::List_ObjectPath_Insert_Mutation* list_objectpath_insert_mutation);
+  private:
+  const ::IvionOnline::List_ObjectPath_Insert_Mutation& _internal_list_objectpath_insert_mutation() const;
+  ::IvionOnline::List_ObjectPath_Insert_Mutation* _internal_mutable_list_objectpath_insert_mutation();
+  public:
+  void unsafe_arena_set_allocated_list_objectpath_insert_mutation(
+      ::IvionOnline::List_ObjectPath_Insert_Mutation* list_objectpath_insert_mutation);
+  ::IvionOnline::List_ObjectPath_Insert_Mutation* unsafe_arena_release_list_objectpath_insert_mutation();
+
+  // .IvionOnline.List_ObjectPath_Remove_Mutation List_ObjectPath_Remove_Mutation = 18;
+  bool has_list_objectpath_remove_mutation() const;
+  private:
+  bool _internal_has_list_objectpath_remove_mutation() const;
+  public:
+  void clear_list_objectpath_remove_mutation();
+  const ::IvionOnline::List_ObjectPath_Remove_Mutation& list_objectpath_remove_mutation() const;
+  ::IvionOnline::List_ObjectPath_Remove_Mutation* release_list_objectpath_remove_mutation();
+  ::IvionOnline::List_ObjectPath_Remove_Mutation* mutable_list_objectpath_remove_mutation();
+  void set_allocated_list_objectpath_remove_mutation(::IvionOnline::List_ObjectPath_Remove_Mutation* list_objectpath_remove_mutation);
+  private:
+  const ::IvionOnline::List_ObjectPath_Remove_Mutation& _internal_list_objectpath_remove_mutation() const;
+  ::IvionOnline::List_ObjectPath_Remove_Mutation* _internal_mutable_list_objectpath_remove_mutation();
+  public:
+  void unsafe_arena_set_allocated_list_objectpath_remove_mutation(
+      ::IvionOnline::List_ObjectPath_Remove_Mutation* list_objectpath_remove_mutation);
+  ::IvionOnline::List_ObjectPath_Remove_Mutation* unsafe_arena_release_list_objectpath_remove_mutation();
+
   void clear_mut();
   MutCase mut_case() const;
   // @@protoc_insertion_point(class_scope:IvionOnline.Mutation)
@@ -8125,6 +9231,9 @@ class Mutation PROTOBUF_FINAL :
   void set_has_color_set_mutation();
   void set_has_list_color_insert_mutation();
   void set_has_list_color_remove_mutation();
+  void set_has_objectpath_set_mutation();
+  void set_has_list_objectpath_insert_mutation();
+  void set_has_list_objectpath_remove_mutation();
 
   inline bool has_mut() const;
   inline void clear_has_mut();
@@ -8149,6 +9258,9 @@ class Mutation PROTOBUF_FINAL :
     ::IvionOnline::Color_Set_Mutation* color_set_mutation_;
     ::IvionOnline::List_Color_Insert_Mutation* list_color_insert_mutation_;
     ::IvionOnline::List_Color_Remove_Mutation* list_color_remove_mutation_;
+    ::IvionOnline::ObjectPath_Set_Mutation* objectpath_set_mutation_;
+    ::IvionOnline::List_ObjectPath_Insert_Mutation* list_objectpath_insert_mutation_;
+    ::IvionOnline::List_ObjectPath_Remove_Mutation* list_objectpath_remove_mutation_;
   } mut_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -8198,7 +9310,7 @@ class GetList PROTOBUF_FINAL :
                &_GetList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(GetList& a, GetList& b) {
     a.Swap(&b);
@@ -8363,7 +9475,7 @@ class SelectMultiple PROTOBUF_FINAL :
                &_SelectMultiple_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(SelectMultiple& a, SelectMultiple& b) {
     a.Swap(&b);
@@ -8437,6 +9549,7 @@ class SelectMultiple PROTOBUF_FINAL :
     kSourceFieldNumber = 1,
     kNumberFieldNumber = 2,
     kUpToFieldNumber = 3,
+    kResultFieldNumber = 4,
   };
   // .IvionOnline.ObjectPath Source = 1;
   bool has_source() const;
@@ -8492,6 +9605,24 @@ class SelectMultiple PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* upto);
   ::IvionOnline::ObjectPath* unsafe_arena_release_upto();
 
+  // .IvionOnline.List_ObjectPath Result = 4;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  const ::IvionOnline::List_ObjectPath& result() const;
+  ::IvionOnline::List_ObjectPath* release_result();
+  ::IvionOnline::List_ObjectPath* mutable_result();
+  void set_allocated_result(::IvionOnline::List_ObjectPath* result);
+  private:
+  const ::IvionOnline::List_ObjectPath& _internal_result() const;
+  ::IvionOnline::List_ObjectPath* _internal_mutable_result();
+  public:
+  void unsafe_arena_set_allocated_result(
+      ::IvionOnline::List_ObjectPath* result);
+  ::IvionOnline::List_ObjectPath* unsafe_arena_release_result();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.SelectMultiple)
  private:
   class _Internal;
@@ -8502,6 +9633,7 @@ class SelectMultiple PROTOBUF_FINAL :
   ::IvionOnline::ObjectPath* source_;
   ::IvionOnline::ObjectPath* number_;
   ::IvionOnline::ObjectPath* upto_;
+  ::IvionOnline::List_ObjectPath* result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -8548,7 +9680,7 @@ class SelectExactlyOne PROTOBUF_FINAL :
                &_SelectExactlyOne_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(SelectExactlyOne& a, SelectExactlyOne& b) {
     a.Swap(&b);
@@ -8620,6 +9752,7 @@ class SelectExactlyOne PROTOBUF_FINAL :
 
   enum : int {
     kSourceFieldNumber = 1,
+    kResultFieldNumber = 2,
   };
   // .IvionOnline.ObjectPath Source = 1;
   bool has_source() const;
@@ -8639,6 +9772,24 @@ class SelectExactlyOne PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* source);
   ::IvionOnline::ObjectPath* unsafe_arena_release_source();
 
+  // .IvionOnline.ObjectPath Result = 2;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  const ::IvionOnline::ObjectPath& result() const;
+  ::IvionOnline::ObjectPath* release_result();
+  ::IvionOnline::ObjectPath* mutable_result();
+  void set_allocated_result(::IvionOnline::ObjectPath* result);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_result() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_result();
+  public:
+  void unsafe_arena_set_allocated_result(
+      ::IvionOnline::ObjectPath* result);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_result();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.SelectExactlyOne)
  private:
   class _Internal;
@@ -8647,6 +9798,7 @@ class SelectExactlyOne PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* source_;
+  ::IvionOnline::ObjectPath* result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -8693,7 +9845,7 @@ class AssertControlOrHeroic PROTOBUF_FINAL :
                &_AssertControlOrHeroic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(AssertControlOrHeroic& a, AssertControlOrHeroic& b) {
     a.Swap(&b);
@@ -8816,7 +9968,7 @@ class AssertControllerHasPriority PROTOBUF_FINAL :
                &_AssertControllerHasPriority_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(AssertControllerHasPriority& a, AssertControllerHasPriority& b) {
     a.Swap(&b);
@@ -8939,7 +10091,7 @@ class AssertStackEmptyOrInstant PROTOBUF_FINAL :
                &_AssertStackEmptyOrInstant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(AssertStackEmptyOrInstant& a, AssertStackEmptyOrInstant& b) {
     a.Swap(&b);
@@ -9062,7 +10214,7 @@ class PayCost PROTOBUF_FINAL :
                &_PayCost_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(PayCost& a, PayCost& b) {
     a.Swap(&b);
@@ -9307,7 +10459,7 @@ class PlayGainResources PROTOBUF_FINAL :
                &_PlayGainResources_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(PlayGainResources& a, PlayGainResources& b) {
     a.Swap(&b);
@@ -9472,7 +10624,7 @@ class RefundCost PROTOBUF_FINAL :
                &_RefundCost_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(RefundCost& a, RefundCost& b) {
     a.Swap(&b);
@@ -9637,7 +10789,7 @@ class GainActions PROTOBUF_FINAL :
                &_GainActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(GainActions& a, GainActions& b) {
     a.Swap(&b);
@@ -9802,7 +10954,7 @@ class GainPower PROTOBUF_FINAL :
                &_GainPower_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(GainPower& a, GainPower& b) {
     a.Swap(&b);
@@ -9967,7 +11119,7 @@ class Move PROTOBUF_FINAL :
                &_Move_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(Move& a, Move& b) {
     a.Swap(&b);
@@ -10132,7 +11284,7 @@ class Travel PROTOBUF_FINAL :
                &_Travel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    54;
 
   friend void swap(Travel& a, Travel& b) {
     a.Swap(&b);
@@ -10297,7 +11449,7 @@ class Damage PROTOBUF_FINAL :
                &_Damage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    55;
 
   friend void swap(Damage& a, Damage& b) {
     a.Swap(&b);
@@ -10416,151 +11568,6 @@ class Damage PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* player_;
   ::IvionOnline::ObjectPath* amount_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_GameState_2eproto;
-};
-// -------------------------------------------------------------------
-
-class ObjectPath_Constant PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath_Constant) */ {
- public:
-  inline ObjectPath_Constant() : ObjectPath_Constant(nullptr) {}
-  virtual ~ObjectPath_Constant();
-
-  ObjectPath_Constant(const ObjectPath_Constant& from);
-  ObjectPath_Constant(ObjectPath_Constant&& from) noexcept
-    : ObjectPath_Constant() {
-    *this = ::std::move(from);
-  }
-
-  inline ObjectPath_Constant& operator=(const ObjectPath_Constant& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ObjectPath_Constant& operator=(ObjectPath_Constant&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const ObjectPath_Constant& default_instance();
-
-  static inline const ObjectPath_Constant* internal_default_instance() {
-    return reinterpret_cast<const ObjectPath_Constant*>(
-               &_ObjectPath_Constant_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    55;
-
-  friend void swap(ObjectPath_Constant& a, ObjectPath_Constant& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(ObjectPath_Constant* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ObjectPath_Constant* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ObjectPath_Constant* New() const final {
-    return CreateMaybeMessage<ObjectPath_Constant>(nullptr);
-  }
-
-  ObjectPath_Constant* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<ObjectPath_Constant>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const ObjectPath_Constant& from);
-  void MergeFrom(const ObjectPath_Constant& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ObjectPath_Constant* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "IvionOnline.ObjectPath_Constant";
-  }
-  protected:
-  explicit ObjectPath_Constant(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
-    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kResultFieldNumber = 1,
-  };
-  // .IvionOnline.ObjectPath Result = 1;
-  bool has_result() const;
-  private:
-  bool _internal_has_result() const;
-  public:
-  void clear_result();
-  const ::IvionOnline::ObjectPath& result() const;
-  ::IvionOnline::ObjectPath* release_result();
-  ::IvionOnline::ObjectPath* mutable_result();
-  void set_allocated_result(::IvionOnline::ObjectPath* result);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_result() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_result();
-  public:
-  void unsafe_arena_set_allocated_result(
-      ::IvionOnline::ObjectPath* result);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_result();
-
-  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath_Constant)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::IvionOnline::ObjectPath* result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -11291,6 +12298,151 @@ class Color_Constant PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class ObjectPath_Constant PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ObjectPath_Constant) */ {
+ public:
+  inline ObjectPath_Constant() : ObjectPath_Constant(nullptr) {}
+  virtual ~ObjectPath_Constant();
+
+  ObjectPath_Constant(const ObjectPath_Constant& from);
+  ObjectPath_Constant(ObjectPath_Constant&& from) noexcept
+    : ObjectPath_Constant() {
+    *this = ::std::move(from);
+  }
+
+  inline ObjectPath_Constant& operator=(const ObjectPath_Constant& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ObjectPath_Constant& operator=(ObjectPath_Constant&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ObjectPath_Constant& default_instance();
+
+  static inline const ObjectPath_Constant* internal_default_instance() {
+    return reinterpret_cast<const ObjectPath_Constant*>(
+               &_ObjectPath_Constant_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    61;
+
+  friend void swap(ObjectPath_Constant& a, ObjectPath_Constant& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ObjectPath_Constant* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ObjectPath_Constant* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ObjectPath_Constant* New() const final {
+    return CreateMaybeMessage<ObjectPath_Constant>(nullptr);
+  }
+
+  ObjectPath_Constant* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ObjectPath_Constant>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ObjectPath_Constant& from);
+  void MergeFrom(const ObjectPath_Constant& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ObjectPath_Constant* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.ObjectPath_Constant";
+  }
+  protected:
+  explicit ObjectPath_Constant(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // .IvionOnline.ObjectPath Result = 1;
+  bool has_result() const;
+  private:
+  bool _internal_has_result() const;
+  public:
+  void clear_result();
+  const ::IvionOnline::ObjectPath& result() const;
+  ::IvionOnline::ObjectPath* release_result();
+  ::IvionOnline::ObjectPath* mutable_result();
+  void set_allocated_result(::IvionOnline::ObjectPath* result);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_result() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_result();
+  public:
+  void unsafe_arena_set_allocated_result(
+      ::IvionOnline::ObjectPath* result);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_result();
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.ObjectPath_Constant)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Method PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.Method) */ {
  public:
@@ -11342,12 +12494,12 @@ class Method PROTOBUF_FINAL :
     kMove = 12,
     kTravel = 13,
     kDamage = 14,
-    kObjectPathConstant = 15,
-    kBooleanConstant = 16,
-    kIntegerConstant = 17,
-    kVec2IConstant = 18,
-    kTerrainConstant = 19,
-    kColorConstant = 20,
+    kBooleanConstant = 15,
+    kIntegerConstant = 16,
+    kVec2IConstant = 17,
+    kTerrainConstant = 18,
+    kColorConstant = 19,
+    kObjectPathConstant = 20,
     METHODS_NOT_SET = 0,
   };
 
@@ -11356,7 +12508,7 @@ class Method PROTOBUF_FINAL :
                &_Method_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    62;
 
   friend void swap(Method& a, Method& b) {
     a.Swap(&b);
@@ -11441,12 +12593,12 @@ class Method PROTOBUF_FINAL :
     kMoveFieldNumber = 12,
     kTravelFieldNumber = 13,
     kDamageFieldNumber = 14,
-    kObjectPathConstantFieldNumber = 15,
-    kBooleanConstantFieldNumber = 16,
-    kIntegerConstantFieldNumber = 17,
-    kVec2IConstantFieldNumber = 18,
-    kTerrainConstantFieldNumber = 19,
-    kColorConstantFieldNumber = 20,
+    kBooleanConstantFieldNumber = 15,
+    kIntegerConstantFieldNumber = 16,
+    kVec2IConstantFieldNumber = 17,
+    kTerrainConstantFieldNumber = 18,
+    kColorConstantFieldNumber = 19,
+    kObjectPathConstantFieldNumber = 20,
   };
   // .IvionOnline.GetList GetList = 1;
   bool has_getlist() const;
@@ -11700,25 +12852,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Damage* damage);
   ::IvionOnline::Damage* unsafe_arena_release_damage();
 
-  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 15;
-  bool has_objectpath_constant() const;
-  private:
-  bool _internal_has_objectpath_constant() const;
-  public:
-  void clear_objectpath_constant();
-  const ::IvionOnline::ObjectPath_Constant& objectpath_constant() const;
-  ::IvionOnline::ObjectPath_Constant* release_objectpath_constant();
-  ::IvionOnline::ObjectPath_Constant* mutable_objectpath_constant();
-  void set_allocated_objectpath_constant(::IvionOnline::ObjectPath_Constant* objectpath_constant);
-  private:
-  const ::IvionOnline::ObjectPath_Constant& _internal_objectpath_constant() const;
-  ::IvionOnline::ObjectPath_Constant* _internal_mutable_objectpath_constant();
-  public:
-  void unsafe_arena_set_allocated_objectpath_constant(
-      ::IvionOnline::ObjectPath_Constant* objectpath_constant);
-  ::IvionOnline::ObjectPath_Constant* unsafe_arena_release_objectpath_constant();
-
-  // .IvionOnline.Boolean_Constant Boolean_Constant = 16;
+  // .IvionOnline.Boolean_Constant Boolean_Constant = 15;
   bool has_boolean_constant() const;
   private:
   bool _internal_has_boolean_constant() const;
@@ -11736,7 +12870,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Boolean_Constant* boolean_constant);
   ::IvionOnline::Boolean_Constant* unsafe_arena_release_boolean_constant();
 
-  // .IvionOnline.Integer_Constant Integer_Constant = 17;
+  // .IvionOnline.Integer_Constant Integer_Constant = 16;
   bool has_integer_constant() const;
   private:
   bool _internal_has_integer_constant() const;
@@ -11754,7 +12888,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Integer_Constant* integer_constant);
   ::IvionOnline::Integer_Constant* unsafe_arena_release_integer_constant();
 
-  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 18;
+  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
   bool has_vec2i_constant() const;
   private:
   bool _internal_has_vec2i_constant() const;
@@ -11772,7 +12906,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Vec2i_Constant* vec2i_constant);
   ::IvionOnline::Vec2i_Constant* unsafe_arena_release_vec2i_constant();
 
-  // .IvionOnline.Terrain_Constant Terrain_Constant = 19;
+  // .IvionOnline.Terrain_Constant Terrain_Constant = 18;
   bool has_terrain_constant() const;
   private:
   bool _internal_has_terrain_constant() const;
@@ -11790,7 +12924,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Terrain_Constant* terrain_constant);
   ::IvionOnline::Terrain_Constant* unsafe_arena_release_terrain_constant();
 
-  // .IvionOnline.Color_Constant Color_Constant = 20;
+  // .IvionOnline.Color_Constant Color_Constant = 19;
   bool has_color_constant() const;
   private:
   bool _internal_has_color_constant() const;
@@ -11807,6 +12941,24 @@ class Method PROTOBUF_FINAL :
   void unsafe_arena_set_allocated_color_constant(
       ::IvionOnline::Color_Constant* color_constant);
   ::IvionOnline::Color_Constant* unsafe_arena_release_color_constant();
+
+  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+  bool has_objectpath_constant() const;
+  private:
+  bool _internal_has_objectpath_constant() const;
+  public:
+  void clear_objectpath_constant();
+  const ::IvionOnline::ObjectPath_Constant& objectpath_constant() const;
+  ::IvionOnline::ObjectPath_Constant* release_objectpath_constant();
+  ::IvionOnline::ObjectPath_Constant* mutable_objectpath_constant();
+  void set_allocated_objectpath_constant(::IvionOnline::ObjectPath_Constant* objectpath_constant);
+  private:
+  const ::IvionOnline::ObjectPath_Constant& _internal_objectpath_constant() const;
+  ::IvionOnline::ObjectPath_Constant* _internal_mutable_objectpath_constant();
+  public:
+  void unsafe_arena_set_allocated_objectpath_constant(
+      ::IvionOnline::ObjectPath_Constant* objectpath_constant);
+  ::IvionOnline::ObjectPath_Constant* unsafe_arena_release_objectpath_constant();
 
   void clear_methods();
   MethodsCase methods_case() const;
@@ -11827,12 +12979,12 @@ class Method PROTOBUF_FINAL :
   void set_has_move();
   void set_has_travel();
   void set_has_damage();
-  void set_has_objectpath_constant();
   void set_has_boolean_constant();
   void set_has_integer_constant();
   void set_has_vec2i_constant();
   void set_has_terrain_constant();
   void set_has_color_constant();
+  void set_has_objectpath_constant();
 
   inline bool has_methods() const;
   inline void clear_has_methods();
@@ -11856,12 +13008,12 @@ class Method PROTOBUF_FINAL :
     ::IvionOnline::Move* move_;
     ::IvionOnline::Travel* travel_;
     ::IvionOnline::Damage* damage_;
-    ::IvionOnline::ObjectPath_Constant* objectpath_constant_;
     ::IvionOnline::Boolean_Constant* boolean_constant_;
     ::IvionOnline::Integer_Constant* integer_constant_;
     ::IvionOnline::Vec2i_Constant* vec2i_constant_;
     ::IvionOnline::Terrain_Constant* terrain_constant_;
     ::IvionOnline::Color_Constant* color_constant_;
+    ::IvionOnline::ObjectPath_Constant* objectpath_constant_;
   } methods_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -11911,7 +13063,7 @@ class List_Method PROTOBUF_FINAL :
                &_List_Method_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    63;
 
   friend void swap(List_Method& a, List_Method& b) {
     a.Swap(&b);
@@ -12022,117 +13174,1980 @@ class List_Method PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// ObjectPath
+// History
 
-// repeated int32 Field_Indecies = 1;
-inline int ObjectPath::_internal_field_indecies_size() const {
-  return field_indecies_.size();
+// repeated .IvionOnline.Mutation Mutations = 1;
+inline int History::_internal_mutations_size() const {
+  return mutations_.size();
 }
-inline int ObjectPath::field_indecies_size() const {
-  return _internal_field_indecies_size();
+inline int History::mutations_size() const {
+  return _internal_mutations_size();
 }
-inline void ObjectPath::clear_field_indecies() {
-  field_indecies_.Clear();
+inline void History::clear_mutations() {
+  mutations_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::_internal_field_indecies(int index) const {
-  return field_indecies_.Get(index);
+inline ::IvionOnline::Mutation* History::mutable_mutations(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.History.Mutations)
+  return mutations_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 ObjectPath::field_indecies(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Field_Indecies)
-  return _internal_field_indecies(index);
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Mutation >*
+History::mutable_mutations() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.History.Mutations)
+  return &mutations_;
 }
-inline void ObjectPath::set_field_indecies(int index, ::PROTOBUF_NAMESPACE_ID::int32 value) {
-  field_indecies_.Set(index, value);
-  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Field_Indecies)
+inline const ::IvionOnline::Mutation& History::_internal_mutations(int index) const {
+  return mutations_.Get(index);
 }
-inline void ObjectPath::_internal_add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  field_indecies_.Add(value);
+inline const ::IvionOnline::Mutation& History::mutations(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.History.Mutations)
+  return _internal_mutations(index);
 }
-inline void ObjectPath::add_field_indecies(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_add_field_indecies(value);
-  // @@protoc_insertion_point(field_add:IvionOnline.ObjectPath.Field_Indecies)
+inline ::IvionOnline::Mutation* History::_internal_add_mutations() {
+  return mutations_.Add();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-ObjectPath::_internal_field_indecies() const {
-  return field_indecies_;
+inline ::IvionOnline::Mutation* History::add_mutations() {
+  // @@protoc_insertion_point(field_add:IvionOnline.History.Mutations)
+  return _internal_add_mutations();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >&
-ObjectPath::field_indecies() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.ObjectPath.Field_Indecies)
-  return _internal_field_indecies();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-ObjectPath::_internal_mutable_field_indecies() {
-  return &field_indecies_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
-ObjectPath::mutable_field_indecies() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.ObjectPath.Field_Indecies)
-  return _internal_mutable_field_indecies();
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Mutation >&
+History::mutations() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.History.Mutations)
+  return mutations_;
 }
 
-// string Full_Path = 2;
-inline void ObjectPath::clear_full_path() {
-  full_path_.ClearToEmpty();
+// repeated .IvionOnline.History Branches = 2;
+inline int History::_internal_branches_size() const {
+  return branches_.size();
 }
-inline const std::string& ObjectPath::full_path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Full_Path)
-  return _internal_full_path();
+inline int History::branches_size() const {
+  return _internal_branches_size();
 }
-inline void ObjectPath::set_full_path(const std::string& value) {
-  _internal_set_full_path(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Full_Path)
+inline void History::clear_branches() {
+  branches_.Clear();
 }
-inline std::string* ObjectPath::mutable_full_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath.Full_Path)
-  return _internal_mutable_full_path();
+inline ::IvionOnline::History* History::mutable_branches(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.History.Branches)
+  return branches_.Mutable(index);
 }
-inline const std::string& ObjectPath::_internal_full_path() const {
-  return full_path_.Get();
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::History >*
+History::mutable_branches() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.History.Branches)
+  return &branches_;
 }
-inline void ObjectPath::_internal_set_full_path(const std::string& value) {
+inline const ::IvionOnline::History& History::_internal_branches(int index) const {
+  return branches_.Get(index);
+}
+inline const ::IvionOnline::History& History::branches(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.History.Branches)
+  return _internal_branches(index);
+}
+inline ::IvionOnline::History* History::_internal_add_branches() {
+  return branches_.Add();
+}
+inline ::IvionOnline::History* History::add_branches() {
+  // @@protoc_insertion_point(field_add:IvionOnline.History.Branches)
+  return _internal_add_branches();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::History >&
+History::branches() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.History.Branches)
+  return branches_;
+}
+
+// bool Is_Good = 3;
+inline void History::clear_is_good() {
+  is_good_ = false;
+}
+inline bool History::_internal_is_good() const {
+  return is_good_;
+}
+inline bool History::is_good() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.History.Is_Good)
+  return _internal_is_good();
+}
+inline void History::_internal_set_is_good(bool value) {
   
-  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  is_good_ = value;
 }
-inline void ObjectPath::set_full_path(std::string&& value) {
+inline void History::set_is_good(bool value) {
+  _internal_set_is_good(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.History.Is_Good)
+}
+
+// -------------------------------------------------------------------
+
+// Boolean
+
+// bool Value = 1;
+inline void Boolean::clear_value() {
+  value_ = false;
+}
+inline bool Boolean::_internal_value() const {
+  return value_;
+}
+inline bool Boolean::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Boolean.Value)
+  return _internal_value();
+}
+inline void Boolean::_internal_set_value(bool value) {
   
-  full_path_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.ObjectPath.Full_Path)
+  value_ = value;
 }
-inline void ObjectPath::set_full_path(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:IvionOnline.ObjectPath.Full_Path)
+inline void Boolean::set_value(bool value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Boolean.Value)
 }
-inline void ObjectPath::set_full_path(const char* value,
-    size_t size) {
-  
-  full_path_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:IvionOnline.ObjectPath.Full_Path)
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool Boolean::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
 }
-inline std::string* ObjectPath::_internal_mutable_full_path() {
-  
-  return full_path_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+inline bool Boolean::has_abspath() const {
+  return _internal_has_abspath();
 }
-inline std::string* ObjectPath::release_full_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath.Full_Path)
-  return full_path_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline void Boolean::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
 }
-inline void ObjectPath::set_allocated_full_path(std::string* full_path) {
-  if (full_path != nullptr) {
+inline const ::IvionOnline::ObjectPath& Boolean::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Boolean::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Boolean.AbsPath)
+  return _internal_abspath();
+}
+inline void Boolean::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
     
   } else {
     
   }
-  full_path_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), full_path,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath.Full_Path)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Boolean.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Boolean::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Boolean::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Boolean.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Boolean::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Boolean::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Boolean.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Boolean::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Boolean.AbsPath)
 }
 
-// .IvionOnline.ObjectType Object_Type = 3;
+// string Name = 3;
+inline void Boolean::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Boolean::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Boolean.Name)
+  return _internal_name();
+}
+inline void Boolean::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Boolean.Name)
+}
+inline std::string* Boolean::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Boolean.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Boolean::_internal_name() const {
+  return name_.Get();
+}
+inline void Boolean::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Boolean::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Boolean.Name)
+}
+inline void Boolean::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Boolean.Name)
+}
+inline void Boolean::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Boolean.Name)
+}
+inline std::string* Boolean::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Boolean::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Boolean.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Boolean::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Boolean.Name)
+}
+
+// -------------------------------------------------------------------
+
+// List_Boolean
+
+// repeated .IvionOnline.Boolean element = 1;
+inline int List_Boolean::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Boolean::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Boolean::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Boolean* List_Boolean::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Boolean.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >*
+List_Boolean::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Boolean.element)
+  return &element_;
+}
+inline const ::IvionOnline::Boolean& List_Boolean::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Boolean& List_Boolean::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Boolean.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Boolean* List_Boolean::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Boolean* List_Boolean::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Boolean.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >&
+List_Boolean::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Boolean.element)
+  return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Boolean::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Boolean::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Boolean::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Boolean::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Boolean::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Boolean.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Boolean::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Boolean.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Boolean::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Boolean::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Boolean.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Boolean::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Boolean::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Boolean.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Boolean::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Boolean.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Boolean::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Boolean::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Boolean.Name)
+  return _internal_name();
+}
+inline void List_Boolean::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Boolean.Name)
+}
+inline std::string* List_Boolean::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Boolean.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Boolean::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Boolean::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Boolean::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Boolean.Name)
+}
+inline void List_Boolean::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Boolean.Name)
+}
+inline void List_Boolean::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Boolean.Name)
+}
+inline std::string* List_Boolean::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Boolean::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Boolean.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Boolean::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Boolean.Name)
+}
+
+// -------------------------------------------------------------------
+
+// Integer
+
+// int32 Value = 1;
+inline void Integer::clear_value() {
+  value_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::_internal_value() const {
+  return value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Integer.Value)
+  return _internal_value();
+}
+inline void Integer::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  value_ = value;
+}
+inline void Integer::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Integer.Value)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool Integer::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Integer::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Integer::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Integer::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Integer::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Integer.AbsPath)
+  return _internal_abspath();
+}
+inline void Integer::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Integer.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Integer::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Integer::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Integer.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Integer::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Integer::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Integer.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Integer::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Integer.AbsPath)
+}
+
+// string Name = 3;
+inline void Integer::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Integer::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Integer.Name)
+  return _internal_name();
+}
+inline void Integer::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Integer.Name)
+}
+inline std::string* Integer::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Integer.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Integer::_internal_name() const {
+  return name_.Get();
+}
+inline void Integer::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Integer::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Integer.Name)
+}
+inline void Integer::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Integer.Name)
+}
+inline void Integer::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Integer.Name)
+}
+inline std::string* Integer::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Integer::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Integer.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Integer::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Integer.Name)
+}
+
+// -------------------------------------------------------------------
+
+// List_Integer
+
+// repeated .IvionOnline.Integer element = 1;
+inline int List_Integer::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Integer::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Integer::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Integer* List_Integer::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Integer.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >*
+List_Integer::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Integer.element)
+  return &element_;
+}
+inline const ::IvionOnline::Integer& List_Integer::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Integer& List_Integer::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Integer.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Integer* List_Integer::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Integer* List_Integer::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Integer.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >&
+List_Integer::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Integer.element)
+  return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Integer::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Integer::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Integer::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Integer::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Integer::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Integer.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Integer::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Integer.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Integer::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Integer::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Integer.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Integer::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Integer::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Integer.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Integer::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Integer.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Integer::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Integer::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Integer.Name)
+  return _internal_name();
+}
+inline void List_Integer::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Integer.Name)
+}
+inline std::string* List_Integer::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Integer.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Integer::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Integer::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Integer::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Integer.Name)
+}
+inline void List_Integer::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Integer.Name)
+}
+inline void List_Integer::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Integer.Name)
+}
+inline std::string* List_Integer::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Integer::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Integer.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Integer::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Integer.Name)
+}
+
+// -------------------------------------------------------------------
+
+// Vec2i
+
+// int32 x = 1;
+inline void Vec2i::clear_x() {
+  x_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_x() const {
+  return x_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::x() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.x)
+  return _internal_x();
+}
+inline void Vec2i::_internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  x_ = value;
+}
+inline void Vec2i::set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.x)
+}
+
+// int32 y = 2;
+inline void Vec2i::clear_y() {
+  y_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_y() const {
+  return y_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::y() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.y)
+  return _internal_y();
+}
+inline void Vec2i::_internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  y_ = value;
+}
+inline void Vec2i::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.y)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 3;
+inline bool Vec2i::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Vec2i::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Vec2i::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Vec2i::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Vec2i::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.AbsPath)
+  return _internal_abspath();
+}
+inline void Vec2i::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Vec2i.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Vec2i::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Vec2i::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Vec2i.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Vec2i::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Vec2i::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Vec2i.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Vec2i::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Vec2i.AbsPath)
+}
+
+// string Name = 4;
+inline void Vec2i::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Vec2i::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.Name)
+  return _internal_name();
+}
+inline void Vec2i::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.Name)
+}
+inline std::string* Vec2i::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Vec2i.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Vec2i::_internal_name() const {
+  return name_.Get();
+}
+inline void Vec2i::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Vec2i::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Vec2i.Name)
+}
+inline void Vec2i::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Vec2i.Name)
+}
+inline void Vec2i::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Vec2i.Name)
+}
+inline std::string* Vec2i::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Vec2i::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Vec2i.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Vec2i::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Vec2i.Name)
+}
+
+// -------------------------------------------------------------------
+
+// List_Vec2i
+
+// repeated .IvionOnline.Vec2i element = 1;
+inline int List_Vec2i::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Vec2i::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Vec2i::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Vec2i.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >*
+List_Vec2i::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Vec2i.element)
+  return &element_;
+}
+inline const ::IvionOnline::Vec2i& List_Vec2i::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Vec2i& List_Vec2i::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Vec2i.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Vec2i* List_Vec2i::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Vec2i.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >&
+List_Vec2i::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Vec2i.element)
+  return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Vec2i::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Vec2i::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Vec2i::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Vec2i::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Vec2i::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Vec2i.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Vec2i::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Vec2i.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Vec2i::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Vec2i::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Vec2i.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Vec2i::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Vec2i::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Vec2i.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Vec2i::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Vec2i.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Vec2i::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Vec2i::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Vec2i.Name)
+  return _internal_name();
+}
+inline void List_Vec2i::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Vec2i.Name)
+}
+inline std::string* List_Vec2i::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Vec2i.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Vec2i::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Vec2i::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Vec2i::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Vec2i.Name)
+}
+inline void List_Vec2i::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Vec2i.Name)
+}
+inline void List_Vec2i::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Vec2i.Name)
+}
+inline std::string* List_Vec2i::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Vec2i::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Vec2i.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Vec2i::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Vec2i.Name)
+}
+
+// -------------------------------------------------------------------
+
+// Terrain
+
+// .IvionOnline.Terrain.Terrain_Type Value = 1;
+inline void Terrain::clear_value() {
+  value_ = 0;
+}
+inline ::IvionOnline::Terrain_Terrain_Type Terrain::_internal_value() const {
+  return static_cast< ::IvionOnline::Terrain_Terrain_Type >(value_);
+}
+inline ::IvionOnline::Terrain_Terrain_Type Terrain::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain.Value)
+  return _internal_value();
+}
+inline void Terrain::_internal_set_value(::IvionOnline::Terrain_Terrain_Type value) {
+  
+  value_ = value;
+}
+inline void Terrain::set_value(::IvionOnline::Terrain_Terrain_Type value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Terrain.Value)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 3;
+inline bool Terrain::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Terrain::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Terrain::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Terrain::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Terrain::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain.AbsPath)
+  return _internal_abspath();
+}
+inline void Terrain::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Terrain.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Terrain::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Terrain::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Terrain.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Terrain::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Terrain::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Terrain::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain.AbsPath)
+}
+
+// string Name = 4;
+inline void Terrain::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Terrain::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Terrain.Name)
+  return _internal_name();
+}
+inline void Terrain::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Terrain.Name)
+}
+inline std::string* Terrain::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Terrain.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Terrain::_internal_name() const {
+  return name_.Get();
+}
+inline void Terrain::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Terrain::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Terrain.Name)
+}
+inline void Terrain::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Terrain.Name)
+}
+inline void Terrain::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Terrain.Name)
+}
+inline std::string* Terrain::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Terrain::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Terrain.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Terrain::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Terrain.Name)
+}
+
+// -------------------------------------------------------------------
+
+// List_Terrain
+
+// repeated .IvionOnline.Terrain element = 1;
+inline int List_Terrain::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Terrain::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Terrain::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Terrain* List_Terrain::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >*
+List_Terrain::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Terrain.element)
+  return &element_;
+}
+inline const ::IvionOnline::Terrain& List_Terrain::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Terrain& List_Terrain::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Terrain* List_Terrain::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Terrain* List_Terrain::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Terrain.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >&
+List_Terrain::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Terrain.element)
+  return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Terrain::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Terrain::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Terrain::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Terrain::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Terrain::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Terrain::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Terrain.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Terrain::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Terrain::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Terrain::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Terrain::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Terrain::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Terrain::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Terrain::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain.Name)
+  return _internal_name();
+}
+inline void List_Terrain::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Terrain.Name)
+}
+inline std::string* List_Terrain::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Terrain::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Terrain::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Terrain::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Terrain.Name)
+}
+inline void List_Terrain::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Terrain.Name)
+}
+inline void List_Terrain::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Terrain.Name)
+}
+inline std::string* List_Terrain::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Terrain::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Terrain.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Terrain::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Terrain.Name)
+}
+
+// -------------------------------------------------------------------
+
+// Color
+
+// .IvionOnline.Color.Color_Type Value = 1;
+inline void Color::clear_value() {
+  value_ = 0;
+}
+inline ::IvionOnline::Color_Color_Type Color::_internal_value() const {
+  return static_cast< ::IvionOnline::Color_Color_Type >(value_);
+}
+inline ::IvionOnline::Color_Color_Type Color::value() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Color.Value)
+  return _internal_value();
+}
+inline void Color::_internal_set_value(::IvionOnline::Color_Color_Type value) {
+  
+  value_ = value;
+}
+inline void Color::set_value(::IvionOnline::Color_Color_Type value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Color.Value)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 3;
+inline bool Color::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Color::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Color::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Color::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Color::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Color.AbsPath)
+  return _internal_abspath();
+}
+inline void Color::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Color.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Color::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Color::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Color.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Color::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Color::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Color.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Color::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Color.AbsPath)
+}
+
+// string Name = 4;
+inline void Color::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Color::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Color.Name)
+  return _internal_name();
+}
+inline void Color::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Color.Name)
+}
+inline std::string* Color::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Color.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Color::_internal_name() const {
+  return name_.Get();
+}
+inline void Color::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Color::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Color.Name)
+}
+inline void Color::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Color.Name)
+}
+inline void Color::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Color.Name)
+}
+inline std::string* Color::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Color::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Color.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Color::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Color.Name)
+}
+
+// -------------------------------------------------------------------
+
+// List_Color
+
+// repeated .IvionOnline.Color element = 1;
+inline int List_Color::_internal_element_size() const {
+  return element_.size();
+}
+inline int List_Color::element_size() const {
+  return _internal_element_size();
+}
+inline void List_Color::clear_element() {
+  element_.Clear();
+}
+inline ::IvionOnline::Color* List_Color::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color.element)
+  return element_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >*
+List_Color::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Color.element)
+  return &element_;
+}
+inline const ::IvionOnline::Color& List_Color::_internal_element(int index) const {
+  return element_.Get(index);
+}
+inline const ::IvionOnline::Color& List_Color::element(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Color.element)
+  return _internal_element(index);
+}
+inline ::IvionOnline::Color* List_Color::_internal_add_element() {
+  return element_.Add();
+}
+inline ::IvionOnline::Color* List_Color::add_element() {
+  // @@protoc_insertion_point(field_add:IvionOnline.List_Color.element)
+  return _internal_add_element();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >&
+List_Color::element() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.List_Color.element)
+  return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Color::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Color::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Color::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Color::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Color::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Color.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Color::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Color.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Color::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Color::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Color.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Color::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Color::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Color::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Color.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Color::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Color::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Color.Name)
+  return _internal_name();
+}
+inline void List_Color::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Color.Name)
+}
+inline std::string* List_Color::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Color::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Color::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Color::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Color.Name)
+}
+inline void List_Color::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Color.Name)
+}
+inline void List_Color::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Color.Name)
+}
+inline std::string* List_Color::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Color::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Color.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Color::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Color.Name)
+}
+
+// -------------------------------------------------------------------
+
+// ObjectPath
+
+// repeated string Path = 1;
+inline int ObjectPath::_internal_path_size() const {
+  return path_.size();
+}
+inline int ObjectPath::path_size() const {
+  return _internal_path_size();
+}
+inline void ObjectPath::clear_path() {
+  path_.Clear();
+}
+inline std::string* ObjectPath::add_path() {
+  // @@protoc_insertion_point(field_add_mutable:IvionOnline.ObjectPath.Path)
+  return _internal_add_path();
+}
+inline const std::string& ObjectPath::_internal_path(int index) const {
+  return path_.Get(index);
+}
+inline const std::string& ObjectPath::path(int index) const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath.Path)
+  return _internal_path(index);
+}
+inline std::string* ObjectPath::mutable_path(int index) {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath.Path)
+  return path_.Mutable(index);
+}
+inline void ObjectPath::set_path(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Path)
+  path_.Mutable(index)->assign(value);
+}
+inline void ObjectPath::set_path(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:IvionOnline.ObjectPath.Path)
+  path_.Mutable(index)->assign(std::move(value));
+}
+inline void ObjectPath::set_path(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  path_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:IvionOnline.ObjectPath.Path)
+}
+inline void ObjectPath::set_path(int index, const char* value, size_t size) {
+  path_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.ObjectPath.Path)
+}
+inline std::string* ObjectPath::_internal_add_path() {
+  return path_.Add();
+}
+inline void ObjectPath::add_path(const std::string& value) {
+  path_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:IvionOnline.ObjectPath.Path)
+}
+inline void ObjectPath::add_path(std::string&& value) {
+  path_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:IvionOnline.ObjectPath.Path)
+}
+inline void ObjectPath::add_path(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  path_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:IvionOnline.ObjectPath.Path)
+}
+inline void ObjectPath::add_path(const char* value, size_t size) {
+  path_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:IvionOnline.ObjectPath.Path)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ObjectPath::path() const {
+  // @@protoc_insertion_point(field_list:IvionOnline.ObjectPath.Path)
+  return path_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ObjectPath::mutable_path() {
+  // @@protoc_insertion_point(field_mutable_list:IvionOnline.ObjectPath.Path)
+  return &path_;
+}
+
+// .IvionOnline.ObjectType Object_Type = 2;
 inline void ObjectPath::clear_object_type() {
   object_type_ = 0;
 }
@@ -12195,359 +15210,148 @@ List_ObjectPath::element() const {
   return element_;
 }
 
-// -------------------------------------------------------------------
-
-// Boolean
-
-// bool Value = 1;
-inline void Boolean::clear_value() {
-  value_ = false;
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_ObjectPath::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
 }
-inline bool Boolean::_internal_value() const {
-  return value_;
+inline bool List_ObjectPath::has_abspath() const {
+  return _internal_has_abspath();
 }
-inline bool Boolean::value() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Boolean.Value)
-  return _internal_value();
+inline void List_ObjectPath::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
 }
-inline void Boolean::_internal_set_value(bool value) {
+inline const ::IvionOnline::ObjectPath& List_ObjectPath::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath.AbsPath)
+  return _internal_abspath();
+}
+inline void List_ObjectPath::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath::release_abspath() {
   
-  value_ = value;
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
 }
-inline void Boolean::set_value(bool value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Boolean.Value)
-}
-
-// -------------------------------------------------------------------
-
-// List_Boolean
-
-// repeated .IvionOnline.Boolean element = 1;
-inline int List_Boolean::_internal_element_size() const {
-  return element_.size();
-}
-inline int List_Boolean::element_size() const {
-  return _internal_element_size();
-}
-inline void List_Boolean::clear_element() {
-  element_.Clear();
-}
-inline ::IvionOnline::Boolean* List_Boolean::mutable_element(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Boolean.element)
-  return element_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >*
-List_Boolean::mutable_element() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Boolean.element)
-  return &element_;
-}
-inline const ::IvionOnline::Boolean& List_Boolean::_internal_element(int index) const {
-  return element_.Get(index);
-}
-inline const ::IvionOnline::Boolean& List_Boolean::element(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Boolean.element)
-  return _internal_element(index);
-}
-inline ::IvionOnline::Boolean* List_Boolean::_internal_add_element() {
-  return element_.Add();
-}
-inline ::IvionOnline::Boolean* List_Boolean::add_element() {
-  // @@protoc_insertion_point(field_add:IvionOnline.List_Boolean.element)
-  return _internal_add_element();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Boolean >&
-List_Boolean::element() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.List_Boolean.element)
-  return element_;
-}
-
-// -------------------------------------------------------------------
-
-// Integer
-
-// int32 Value = 1;
-inline void Integer::clear_value() {
-  value_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::_internal_value() const {
-  return value_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Integer::value() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Integer.Value)
-  return _internal_value();
-}
-inline void Integer::_internal_set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline ::IvionOnline::ObjectPath* List_ObjectPath::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath.AbsPath)
   
-  value_ = value;
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
 }
-inline void Integer::set_value(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Integer.Value)
-}
-
-// -------------------------------------------------------------------
-
-// List_Integer
-
-// repeated .IvionOnline.Integer element = 1;
-inline int List_Integer::_internal_element_size() const {
-  return element_.size();
-}
-inline int List_Integer::element_size() const {
-  return _internal_element_size();
-}
-inline void List_Integer::clear_element() {
-  element_.Clear();
-}
-inline ::IvionOnline::Integer* List_Integer::mutable_element(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Integer.element)
-  return element_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >*
-List_Integer::mutable_element() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Integer.element)
-  return &element_;
-}
-inline const ::IvionOnline::Integer& List_Integer::_internal_element(int index) const {
-  return element_.Get(index);
-}
-inline const ::IvionOnline::Integer& List_Integer::element(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Integer.element)
-  return _internal_element(index);
-}
-inline ::IvionOnline::Integer* List_Integer::_internal_add_element() {
-  return element_.Add();
-}
-inline ::IvionOnline::Integer* List_Integer::add_element() {
-  // @@protoc_insertion_point(field_add:IvionOnline.List_Integer.element)
-  return _internal_add_element();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Integer >&
-List_Integer::element() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.List_Integer.element)
-  return element_;
-}
-
-// -------------------------------------------------------------------
-
-// Vec2i
-
-// int32 x = 1;
-inline void Vec2i::clear_x() {
-  x_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_x() const {
-  return x_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::x() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.x)
-  return _internal_x();
-}
-inline void Vec2i::_internal_set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline ::IvionOnline::ObjectPath* List_ObjectPath::_internal_mutable_abspath() {
   
-  x_ = value;
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
 }
-inline void Vec2i::set_x(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_x(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.x)
+inline ::IvionOnline::ObjectPath* List_ObjectPath::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_ObjectPath::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath.AbsPath)
 }
 
-// int32 y = 2;
-inline void Vec2i::clear_y() {
-  y_ = 0;
+// string Name = 3;
+inline void List_ObjectPath::clear_name() {
+  name_.ClearToEmpty();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::_internal_y() const {
-  return y_;
+inline const std::string& List_ObjectPath::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath.Name)
+  return _internal_name();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Vec2i::y() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Vec2i.y)
-  return _internal_y();
+inline void List_ObjectPath::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_ObjectPath.Name)
 }
-inline void Vec2i::_internal_set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline std::string* List_ObjectPath::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_ObjectPath::_internal_name() const {
+  return name_.Get();
+}
+inline void List_ObjectPath::_internal_set_name(const std::string& value) {
   
-  y_ = value;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Vec2i::set_y(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_y(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Vec2i.y)
-}
-
-// -------------------------------------------------------------------
-
-// List_Vec2i
-
-// repeated .IvionOnline.Vec2i element = 1;
-inline int List_Vec2i::_internal_element_size() const {
-  return element_.size();
-}
-inline int List_Vec2i::element_size() const {
-  return _internal_element_size();
-}
-inline void List_Vec2i::clear_element() {
-  element_.Clear();
-}
-inline ::IvionOnline::Vec2i* List_Vec2i::mutable_element(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Vec2i.element)
-  return element_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >*
-List_Vec2i::mutable_element() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Vec2i.element)
-  return &element_;
-}
-inline const ::IvionOnline::Vec2i& List_Vec2i::_internal_element(int index) const {
-  return element_.Get(index);
-}
-inline const ::IvionOnline::Vec2i& List_Vec2i::element(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Vec2i.element)
-  return _internal_element(index);
-}
-inline ::IvionOnline::Vec2i* List_Vec2i::_internal_add_element() {
-  return element_.Add();
-}
-inline ::IvionOnline::Vec2i* List_Vec2i::add_element() {
-  // @@protoc_insertion_point(field_add:IvionOnline.List_Vec2i.element)
-  return _internal_add_element();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Vec2i >&
-List_Vec2i::element() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.List_Vec2i.element)
-  return element_;
-}
-
-// -------------------------------------------------------------------
-
-// Terrain
-
-// .IvionOnline.Terrain.Terrain_Type Value = 1;
-inline void Terrain::clear_value() {
-  value_ = 0;
-}
-inline ::IvionOnline::Terrain_Terrain_Type Terrain::_internal_value() const {
-  return static_cast< ::IvionOnline::Terrain_Terrain_Type >(value_);
-}
-inline ::IvionOnline::Terrain_Terrain_Type Terrain::value() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Terrain.Value)
-  return _internal_value();
-}
-inline void Terrain::_internal_set_value(::IvionOnline::Terrain_Terrain_Type value) {
+inline void List_ObjectPath::set_name(std::string&& value) {
   
-  value_ = value;
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_ObjectPath.Name)
 }
-inline void Terrain::set_value(::IvionOnline::Terrain_Terrain_Type value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Terrain.Value)
-}
-
-// -------------------------------------------------------------------
-
-// List_Terrain
-
-// repeated .IvionOnline.Terrain element = 1;
-inline int List_Terrain::_internal_element_size() const {
-  return element_.size();
-}
-inline int List_Terrain::element_size() const {
-  return _internal_element_size();
-}
-inline void List_Terrain::clear_element() {
-  element_.Clear();
-}
-inline ::IvionOnline::Terrain* List_Terrain::mutable_element(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Terrain.element)
-  return element_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >*
-List_Terrain::mutable_element() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Terrain.element)
-  return &element_;
-}
-inline const ::IvionOnline::Terrain& List_Terrain::_internal_element(int index) const {
-  return element_.Get(index);
-}
-inline const ::IvionOnline::Terrain& List_Terrain::element(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Terrain.element)
-  return _internal_element(index);
-}
-inline ::IvionOnline::Terrain* List_Terrain::_internal_add_element() {
-  return element_.Add();
-}
-inline ::IvionOnline::Terrain* List_Terrain::add_element() {
-  // @@protoc_insertion_point(field_add:IvionOnline.List_Terrain.element)
-  return _internal_add_element();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Terrain >&
-List_Terrain::element() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.List_Terrain.element)
-  return element_;
-}
-
-// -------------------------------------------------------------------
-
-// Color
-
-// .IvionOnline.Color.Color_Type Value = 1;
-inline void Color::clear_value() {
-  value_ = 0;
-}
-inline ::IvionOnline::Color_Color_Type Color::_internal_value() const {
-  return static_cast< ::IvionOnline::Color_Color_Type >(value_);
-}
-inline ::IvionOnline::Color_Color_Type Color::value() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Color.Value)
-  return _internal_value();
-}
-inline void Color::_internal_set_value(::IvionOnline::Color_Color_Type value) {
+inline void List_ObjectPath::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
   
-  value_ = value;
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_ObjectPath.Name)
 }
-inline void Color::set_value(::IvionOnline::Color_Color_Type value) {
-  _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Color.Value)
+inline void List_ObjectPath::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_ObjectPath.Name)
 }
-
-// -------------------------------------------------------------------
-
-// List_Color
-
-// repeated .IvionOnline.Color element = 1;
-inline int List_Color::_internal_element_size() const {
-  return element_.size();
+inline std::string* List_ObjectPath::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline int List_Color::element_size() const {
-  return _internal_element_size();
+inline std::string* List_ObjectPath::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void List_Color::clear_element() {
-  element_.Clear();
-}
-inline ::IvionOnline::Color* List_Color::mutable_element(int index) {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Color.element)
-  return element_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >*
-List_Color::mutable_element() {
-  // @@protoc_insertion_point(field_mutable_list:IvionOnline.List_Color.element)
-  return &element_;
-}
-inline const ::IvionOnline::Color& List_Color::_internal_element(int index) const {
-  return element_.Get(index);
-}
-inline const ::IvionOnline::Color& List_Color::element(int index) const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_Color.element)
-  return _internal_element(index);
-}
-inline ::IvionOnline::Color* List_Color::_internal_add_element() {
-  return element_.Add();
-}
-inline ::IvionOnline::Color* List_Color::add_element() {
-  // @@protoc_insertion_point(field_add:IvionOnline.List_Color.element)
-  return _internal_add_element();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Color >&
-List_Color::element() const {
-  // @@protoc_insertion_point(field_list:IvionOnline.List_Color.element)
-  return element_;
+inline void List_ObjectPath::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath.Name)
 }
 
 // -------------------------------------------------------------------
@@ -12615,68 +15419,149 @@ inline void Player::set_allocated_uid(std::string* uid) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.UID)
 }
 
-// string Name = 2;
-inline void Player::clear_name() {
-  name_.ClearToEmpty();
+// int32 Index = 2;
+inline void Player::clear_index() {
+  index_ = 0;
 }
-inline const std::string& Player::name() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Player.Name)
-  return _internal_name();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Player::_internal_index() const {
+  return index_;
 }
-inline void Player::set_name(const std::string& value) {
-  _internal_set_name(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.Player.Name)
+inline ::PROTOBUF_NAMESPACE_ID::int32 Player::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.Index)
+  return _internal_index();
 }
-inline std::string* Player::mutable_name() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Name)
-  return _internal_mutable_name();
-}
-inline const std::string& Player::_internal_name() const {
-  return name_.Get();
-}
-inline void Player::_internal_set_name(const std::string& value) {
+inline void Player::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  index_ = value;
 }
-inline void Player::set_name(std::string&& value) {
+inline void Player::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Player.Index)
+}
+
+// string IndexStr = 3;
+inline void Player::clear_indexstr() {
+  indexstr_.ClearToEmpty();
+}
+inline const std::string& Player::indexstr() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.IndexStr)
+  return _internal_indexstr();
+}
+inline void Player::set_indexstr(const std::string& value) {
+  _internal_set_indexstr(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Player.IndexStr)
+}
+inline std::string* Player::mutable_indexstr() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.IndexStr)
+  return _internal_mutable_indexstr();
+}
+inline const std::string& Player::_internal_indexstr() const {
+  return indexstr_.Get();
+}
+inline void Player::_internal_set_indexstr(const std::string& value) {
   
-  name_.Set(
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Player::set_indexstr(std::string&& value) {
+  
+  indexstr_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Player.Name)
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Player.IndexStr)
 }
-inline void Player::set_name(const char* value) {
+inline void Player::set_indexstr(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:IvionOnline.Player.Name)
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Player.IndexStr)
 }
-inline void Player::set_name(const char* value,
+inline void Player::set_indexstr(const char* value,
     size_t size) {
   
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Player.Name)
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Player.IndexStr)
 }
-inline std::string* Player::_internal_mutable_name() {
+inline std::string* Player::_internal_mutable_indexstr() {
   
-  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return indexstr_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Player::release_name() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Player.Name)
-  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* Player::release_indexstr() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.IndexStr)
+  return indexstr_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Player::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void Player::set_allocated_indexstr(std::string* indexstr) {
+  if (indexstr != nullptr) {
     
   } else {
     
   }
-  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+  indexstr_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), indexstr,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Name)
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.IndexStr)
 }
 
-// .IvionOnline.Integer Health = 3;
+// string DisplayName = 4;
+inline void Player::clear_displayname() {
+  displayname_.ClearToEmpty();
+}
+inline const std::string& Player::displayname() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.DisplayName)
+  return _internal_displayname();
+}
+inline void Player::set_displayname(const std::string& value) {
+  _internal_set_displayname(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Player.DisplayName)
+}
+inline std::string* Player::mutable_displayname() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.DisplayName)
+  return _internal_mutable_displayname();
+}
+inline const std::string& Player::_internal_displayname() const {
+  return displayname_.Get();
+}
+inline void Player::_internal_set_displayname(const std::string& value) {
+  
+  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Player::set_displayname(std::string&& value) {
+  
+  displayname_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Player.DisplayName)
+}
+inline void Player::set_displayname(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Player.DisplayName)
+}
+inline void Player::set_displayname(const char* value,
+    size_t size) {
+  
+  displayname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Player.DisplayName)
+}
+inline std::string* Player::_internal_mutable_displayname() {
+  
+  return displayname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Player::release_displayname() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.DisplayName)
+  return displayname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Player::set_allocated_displayname(std::string* displayname) {
+  if (displayname != nullptr) {
+    
+  } else {
+    
+  }
+  displayname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), displayname,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.DisplayName)
+}
+
+// .IvionOnline.Integer Health = 5;
 inline bool Player::_internal_has_health() const {
   return this != internal_default_instance() && health_ != nullptr;
 }
@@ -12759,7 +15644,7 @@ inline void Player::set_allocated_health(::IvionOnline::Integer* health) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Health)
 }
 
-// .IvionOnline.Integer Actions = 4;
+// .IvionOnline.Integer Actions = 6;
 inline bool Player::_internal_has_actions() const {
   return this != internal_default_instance() && actions_ != nullptr;
 }
@@ -12842,7 +15727,7 @@ inline void Player::set_allocated_actions(::IvionOnline::Integer* actions) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Actions)
 }
 
-// .IvionOnline.Integer Power = 5;
+// .IvionOnline.Integer Power = 7;
 inline bool Player::_internal_has_power() const {
   return this != internal_default_instance() && power_ != nullptr;
 }
@@ -12925,7 +15810,7 @@ inline void Player::set_allocated_power(::IvionOnline::Integer* power) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Power)
 }
 
-// .IvionOnline.Integer Initiative = 6;
+// .IvionOnline.Integer Initiative = 8;
 inline bool Player::_internal_has_initiative() const {
   return this != internal_default_instance() && initiative_ != nullptr;
 }
@@ -13008,7 +15893,7 @@ inline void Player::set_allocated_initiative(::IvionOnline::Integer* initiative)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Initiative)
 }
 
-// .IvionOnline.Integer Slow = 7;
+// .IvionOnline.Integer Slow = 9;
 inline bool Player::_internal_has_slow() const {
   return this != internal_default_instance() && slow_ != nullptr;
 }
@@ -13091,7 +15976,7 @@ inline void Player::set_allocated_slow(::IvionOnline::Integer* slow) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Slow)
 }
 
-// .IvionOnline.Integer Silence = 8;
+// .IvionOnline.Integer Silence = 10;
 inline bool Player::_internal_has_silence() const {
   return this != internal_default_instance() && silence_ != nullptr;
 }
@@ -13174,7 +16059,7 @@ inline void Player::set_allocated_silence(::IvionOnline::Integer* silence) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Silence)
 }
 
-// .IvionOnline.Integer Disarm = 9;
+// .IvionOnline.Integer Disarm = 11;
 inline bool Player::_internal_has_disarm() const {
   return this != internal_default_instance() && disarm_ != nullptr;
 }
@@ -13257,7 +16142,7 @@ inline void Player::set_allocated_disarm(::IvionOnline::Integer* disarm) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Disarm)
 }
 
-// .IvionOnline.Vec2i Position = 10;
+// .IvionOnline.Vec2i Position = 12;
 inline bool Player::_internal_has_position() const {
   return this != internal_default_instance() && position_ != nullptr;
 }
@@ -13340,7 +16225,7 @@ inline void Player::set_allocated_position(::IvionOnline::Vec2i* position) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Position)
 }
 
-// .IvionOnline.List_ObjectPath Hand = 11;
+// .IvionOnline.List_ObjectPath Hand = 13;
 inline bool Player::_internal_has_hand() const {
   return this != internal_default_instance() && hand_ != nullptr;
 }
@@ -13423,7 +16308,7 @@ inline void Player::set_allocated_hand(::IvionOnline::List_ObjectPath* hand) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Hand)
 }
 
-// .IvionOnline.List_ObjectPath Deck = 12;
+// .IvionOnline.List_ObjectPath Deck = 14;
 inline bool Player::_internal_has_deck() const {
   return this != internal_default_instance() && deck_ != nullptr;
 }
@@ -13506,7 +16391,7 @@ inline void Player::set_allocated_deck(::IvionOnline::List_ObjectPath* deck) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Deck)
 }
 
-// .IvionOnline.List_ObjectPath Discard = 13;
+// .IvionOnline.List_ObjectPath Discard = 15;
 inline bool Player::_internal_has_discard() const {
   return this != internal_default_instance() && discard_ != nullptr;
 }
@@ -13589,7 +16474,7 @@ inline void Player::set_allocated_discard(::IvionOnline::List_ObjectPath* discar
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Discard)
 }
 
-// .IvionOnline.List_ObjectPath Feats = 14;
+// .IvionOnline.List_ObjectPath Feats = 16;
 inline bool Player::_internal_has_feats() const {
   return this != internal_default_instance() && feats_ != nullptr;
 }
@@ -13672,7 +16557,7 @@ inline void Player::set_allocated_feats(::IvionOnline::List_ObjectPath* feats) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Feats)
 }
 
-// .IvionOnline.Integer MaxHealth = 15;
+// .IvionOnline.Integer MaxHealth = 17;
 inline bool Player::_internal_has_maxhealth() const {
   return this != internal_default_instance() && maxhealth_ != nullptr;
 }
@@ -13755,7 +16640,7 @@ inline void Player::set_allocated_maxhealth(::IvionOnline::Integer* maxhealth) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxHealth)
 }
 
-// .IvionOnline.Integer MaxActions = 16;
+// .IvionOnline.Integer MaxActions = 18;
 inline bool Player::_internal_has_maxactions() const {
   return this != internal_default_instance() && maxactions_ != nullptr;
 }
@@ -13838,7 +16723,7 @@ inline void Player::set_allocated_maxactions(::IvionOnline::Integer* maxactions)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxActions)
 }
 
-// .IvionOnline.Integer MaxPower = 17;
+// .IvionOnline.Integer MaxPower = 19;
 inline bool Player::_internal_has_maxpower() const {
   return this != internal_default_instance() && maxpower_ != nullptr;
 }
@@ -13921,7 +16806,7 @@ inline void Player::set_allocated_maxpower(::IvionOnline::Integer* maxpower) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxPower)
 }
 
-// .IvionOnline.Integer MaxSlow = 18;
+// .IvionOnline.Integer MaxSlow = 20;
 inline bool Player::_internal_has_maxslow() const {
   return this != internal_default_instance() && maxslow_ != nullptr;
 }
@@ -14004,7 +16889,7 @@ inline void Player::set_allocated_maxslow(::IvionOnline::Integer* maxslow) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxSlow)
 }
 
-// .IvionOnline.Integer MaxSilence = 19;
+// .IvionOnline.Integer MaxSilence = 21;
 inline bool Player::_internal_has_maxsilence() const {
   return this != internal_default_instance() && maxsilence_ != nullptr;
 }
@@ -14087,7 +16972,7 @@ inline void Player::set_allocated_maxsilence(::IvionOnline::Integer* maxsilence)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxSilence)
 }
 
-// .IvionOnline.Integer MaxDisarm = 20;
+// .IvionOnline.Integer MaxDisarm = 22;
 inline bool Player::_internal_has_maxdisarm() const {
   return this != internal_default_instance() && maxdisarm_ != nullptr;
 }
@@ -14170,6 +17055,150 @@ inline void Player::set_allocated_maxdisarm(::IvionOnline::Integer* maxdisarm) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxDisarm)
 }
 
+// .IvionOnline.ObjectPath AbsPath = 23;
+inline bool Player::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Player::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Player::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Player::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Player::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.AbsPath)
+  return _internal_abspath();
+}
+inline void Player::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Player::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Player::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Player::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Player::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Player::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.AbsPath)
+}
+
+// string Name = 24;
+inline void Player::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Player::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.Name)
+  return _internal_name();
+}
+inline void Player::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Player.Name)
+}
+inline std::string* Player::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Player::_internal_name() const {
+  return name_.Get();
+}
+inline void Player::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Player::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Player.Name)
+}
+inline void Player::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Player.Name)
+}
+inline void Player::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Player.Name)
+}
+inline std::string* Player::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Player::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Player::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Name)
+}
+
 // -------------------------------------------------------------------
 
 // List_Player
@@ -14211,6 +17240,150 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Player >&
 List_Player::element() const {
   // @@protoc_insertion_point(field_list:IvionOnline.List_Player.element)
   return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Player::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Player::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Player::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Player::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Player::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Player.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Player::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Player.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Player::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Player::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Player.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Player::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Player::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Player.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Player::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Player.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Player::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Player::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Player.Name)
+  return _internal_name();
+}
+inline void List_Player::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Player.Name)
+}
+inline std::string* List_Player::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Player.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Player::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Player::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Player::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Player.Name)
+}
+inline void List_Player::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Player.Name)
+}
+inline void List_Player::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Player.Name)
+}
+inline std::string* List_Player::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Player::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Player.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Player::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Player.Name)
 }
 
 // -------------------------------------------------------------------
@@ -14300,6 +17473,231 @@ inline void Card::set_allocated_cardstats(::IvionOnline::ObjectPath* cardstats) 
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Card.CardStats)
 }
 
+// int32 Index = 2;
+inline void Card::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Card::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Card::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Card.Index)
+  return _internal_index();
+}
+inline void Card::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void Card::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Card.Index)
+}
+
+// string IndexStr = 3;
+inline void Card::clear_indexstr() {
+  indexstr_.ClearToEmpty();
+}
+inline const std::string& Card::indexstr() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Card.IndexStr)
+  return _internal_indexstr();
+}
+inline void Card::set_indexstr(const std::string& value) {
+  _internal_set_indexstr(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Card.IndexStr)
+}
+inline std::string* Card::mutable_indexstr() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Card.IndexStr)
+  return _internal_mutable_indexstr();
+}
+inline const std::string& Card::_internal_indexstr() const {
+  return indexstr_.Get();
+}
+inline void Card::_internal_set_indexstr(const std::string& value) {
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Card::set_indexstr(std::string&& value) {
+  
+  indexstr_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Card.IndexStr)
+}
+inline void Card::set_indexstr(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Card.IndexStr)
+}
+inline void Card::set_indexstr(const char* value,
+    size_t size) {
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Card.IndexStr)
+}
+inline std::string* Card::_internal_mutable_indexstr() {
+  
+  return indexstr_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Card::release_indexstr() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Card.IndexStr)
+  return indexstr_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Card::set_allocated_indexstr(std::string* indexstr) {
+  if (indexstr != nullptr) {
+    
+  } else {
+    
+  }
+  indexstr_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), indexstr,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Card.IndexStr)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 4;
+inline bool Card::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Card::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Card::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Card::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Card::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Card.AbsPath)
+  return _internal_abspath();
+}
+inline void Card::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Card.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Card::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Card::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Card.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Card::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Card::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Card.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Card::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Card.AbsPath)
+}
+
+// string Name = 5;
+inline void Card::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Card::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Card.Name)
+  return _internal_name();
+}
+inline void Card::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Card.Name)
+}
+inline std::string* Card::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Card.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Card::_internal_name() const {
+  return name_.Get();
+}
+inline void Card::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Card::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Card.Name)
+}
+inline void Card::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Card.Name)
+}
+inline void Card::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Card.Name)
+}
+inline std::string* Card::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Card::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Card.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Card::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Card.Name)
+}
+
 // -------------------------------------------------------------------
 
 // List_Card
@@ -14341,6 +17739,150 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Card >&
 List_Card::element() const {
   // @@protoc_insertion_point(field_list:IvionOnline.List_Card.element)
   return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Card::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Card::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Card::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Card::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Card::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Card.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Card::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Card.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Card::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Card::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Card.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Card::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Card::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Card.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Card::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Card.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Card::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Card::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Card.Name)
+  return _internal_name();
+}
+inline void List_Card::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Card.Name)
+}
+inline std::string* List_Card::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Card.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Card::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Card::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Card::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Card.Name)
+}
+inline void List_Card::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Card.Name)
+}
+inline void List_Card::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Card.Name)
+}
+inline std::string* List_Card::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Card::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Card.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Card::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Card.Name)
 }
 
 // -------------------------------------------------------------------
@@ -15426,6 +18968,150 @@ inline void CardData::set_allocated_resolveeffect(::IvionOnline::List_Method* re
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.ResolveEffect)
 }
 
+// .IvionOnline.ObjectPath AbsPath = 14;
+inline bool CardData::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool CardData::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void CardData::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& CardData::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& CardData::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.CardData.AbsPath)
+  return _internal_abspath();
+}
+inline void CardData::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* CardData::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* CardData::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* CardData::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* CardData::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void CardData::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.AbsPath)
+}
+
+// string Name = 15;
+inline void CardData::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& CardData::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.CardData.Name)
+  return _internal_name();
+}
+inline void CardData::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.CardData.Name)
+}
+inline std::string* CardData::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& CardData::_internal_name() const {
+  return name_.Get();
+}
+inline void CardData::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CardData::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.CardData.Name)
+}
+inline void CardData::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.CardData.Name)
+}
+inline void CardData::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.CardData.Name)
+}
+inline std::string* CardData::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CardData::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CardData::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.Name)
+}
+
 // -------------------------------------------------------------------
 
 // List_CardData
@@ -15467,6 +19153,150 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::CardData 
 List_CardData::element() const {
   // @@protoc_insertion_point(field_list:IvionOnline.List_CardData.element)
   return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_CardData::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_CardData::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_CardData::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_CardData::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_CardData::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_CardData.AbsPath)
+  return _internal_abspath();
+}
+inline void List_CardData::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_CardData.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_CardData::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_CardData::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_CardData.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_CardData::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_CardData::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_CardData.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_CardData::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_CardData.AbsPath)
+}
+
+// string Name = 3;
+inline void List_CardData::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_CardData::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_CardData.Name)
+  return _internal_name();
+}
+inline void List_CardData::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_CardData.Name)
+}
+inline std::string* List_CardData::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_CardData.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_CardData::_internal_name() const {
+  return name_.Get();
+}
+inline void List_CardData::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_CardData::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_CardData.Name)
+}
+inline void List_CardData::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_CardData.Name)
+}
+inline void List_CardData::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_CardData.Name)
+}
+inline std::string* List_CardData::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_CardData::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_CardData.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_CardData::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_CardData.Name)
 }
 
 // -------------------------------------------------------------------
@@ -15556,7 +19386,88 @@ inline void Tile::set_allocated_position(::IvionOnline::Vec2i* position) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Position)
 }
 
-// .IvionOnline.Terrain Terrain = 2;
+// int32 Index = 2;
+inline void Tile::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Tile::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 Tile::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Tile.Index)
+  return _internal_index();
+}
+inline void Tile::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void Tile::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Tile.Index)
+}
+
+// string IndexStr = 3;
+inline void Tile::clear_indexstr() {
+  indexstr_.ClearToEmpty();
+}
+inline const std::string& Tile::indexstr() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Tile.IndexStr)
+  return _internal_indexstr();
+}
+inline void Tile::set_indexstr(const std::string& value) {
+  _internal_set_indexstr(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Tile.IndexStr)
+}
+inline std::string* Tile::mutable_indexstr() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.IndexStr)
+  return _internal_mutable_indexstr();
+}
+inline const std::string& Tile::_internal_indexstr() const {
+  return indexstr_.Get();
+}
+inline void Tile::_internal_set_indexstr(const std::string& value) {
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Tile::set_indexstr(std::string&& value) {
+  
+  indexstr_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Tile.IndexStr)
+}
+inline void Tile::set_indexstr(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Tile.IndexStr)
+}
+inline void Tile::set_indexstr(const char* value,
+    size_t size) {
+  
+  indexstr_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Tile.IndexStr)
+}
+inline std::string* Tile::_internal_mutable_indexstr() {
+  
+  return indexstr_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Tile::release_indexstr() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Tile.IndexStr)
+  return indexstr_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Tile::set_allocated_indexstr(std::string* indexstr) {
+  if (indexstr != nullptr) {
+    
+  } else {
+    
+  }
+  indexstr_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), indexstr,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.IndexStr)
+}
+
+// .IvionOnline.Terrain Terrain = 4;
 inline bool Tile::_internal_has_terrain() const {
   return this != internal_default_instance() && terrain_ != nullptr;
 }
@@ -15639,7 +19550,7 @@ inline void Tile::set_allocated_terrain(::IvionOnline::Terrain* terrain) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Terrain)
 }
 
-// .IvionOnline.List_ObjectPath Players = 3;
+// .IvionOnline.List_ObjectPath Players = 5;
 inline bool Tile::_internal_has_players() const {
   return this != internal_default_instance() && players_ != nullptr;
 }
@@ -15722,7 +19633,7 @@ inline void Tile::set_allocated_players(::IvionOnline::List_ObjectPath* players)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Players)
 }
 
-// .IvionOnline.List_ObjectPath Cards = 4;
+// .IvionOnline.List_ObjectPath Cards = 6;
 inline bool Tile::_internal_has_cards() const {
   return this != internal_default_instance() && cards_ != nullptr;
 }
@@ -15805,6 +19716,150 @@ inline void Tile::set_allocated_cards(::IvionOnline::List_ObjectPath* cards) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Cards)
 }
 
+// .IvionOnline.ObjectPath AbsPath = 7;
+inline bool Tile::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool Tile::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void Tile::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& Tile::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& Tile::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Tile.AbsPath)
+  return _internal_abspath();
+}
+inline void Tile::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Tile.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* Tile::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Tile::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Tile.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* Tile::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* Tile::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void Tile::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.AbsPath)
+}
+
+// string Name = 8;
+inline void Tile::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& Tile::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Tile.Name)
+  return _internal_name();
+}
+inline void Tile::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.Tile.Name)
+}
+inline std::string* Tile::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& Tile::_internal_name() const {
+  return name_.Get();
+}
+inline void Tile::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Tile::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.Tile.Name)
+}
+inline void Tile::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.Tile.Name)
+}
+inline void Tile::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.Tile.Name)
+}
+inline std::string* Tile::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Tile::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Tile.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Tile::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Name)
+}
+
 // -------------------------------------------------------------------
 
 // List_Tile
@@ -15846,6 +19901,150 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Tile >&
 List_Tile::element() const {
   // @@protoc_insertion_point(field_list:IvionOnline.List_Tile.element)
   return element_;
+}
+
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_Tile::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Tile::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Tile::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Tile::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Tile::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Tile.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Tile::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Tile.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Tile::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Tile::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Tile.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Tile::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Tile::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Tile.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Tile::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Tile.AbsPath)
+}
+
+// string Name = 3;
+inline void List_Tile::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Tile::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Tile.Name)
+  return _internal_name();
+}
+inline void List_Tile::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Tile.Name)
+}
+inline std::string* List_Tile::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Tile.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Tile::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Tile::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Tile::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Tile.Name)
+}
+inline void List_Tile::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Tile.Name)
+}
+inline void List_Tile::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Tile.Name)
+}
+inline std::string* List_Tile::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Tile::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Tile.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Tile::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Tile.Name)
 }
 
 // -------------------------------------------------------------------
@@ -16350,6 +20549,150 @@ inline void GameState::set_allocated_turnnumber(::IvionOnline::Integer* turnnumb
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.TurnNumber)
 }
 
+// .IvionOnline.ObjectPath AbsPath = 7;
+inline bool GameState::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool GameState::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void GameState::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& GameState::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& GameState::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.GameState.AbsPath)
+  return _internal_abspath();
+}
+inline void GameState::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.GameState.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* GameState::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* GameState::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* GameState::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* GameState::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void GameState::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.AbsPath)
+}
+
+// string Name = 8;
+inline void GameState::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& GameState::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.GameState.Name)
+  return _internal_name();
+}
+inline void GameState::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.GameState.Name)
+}
+inline std::string* GameState::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.GameState.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& GameState::_internal_name() const {
+  return name_.Get();
+}
+inline void GameState::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void GameState::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.GameState.Name)
+}
+inline void GameState::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.GameState.Name)
+}
+inline void GameState::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.GameState.Name)
+}
+inline std::string* GameState::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* GameState::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.GameState.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void GameState::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.GameState.Name)
+}
+
 // -------------------------------------------------------------------
 
 // List_GameState
@@ -16393,637 +20736,148 @@ List_GameState::element() const {
   return element_;
 }
 
-// -------------------------------------------------------------------
-
-// ObjectPath_Set_Mutation
-
-// .IvionOnline.ObjectPath Path = 1;
-inline bool ObjectPath_Set_Mutation::_internal_has_path() const {
-  return this != internal_default_instance() && path_ != nullptr;
+// .IvionOnline.ObjectPath AbsPath = 2;
+inline bool List_GameState::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
 }
-inline bool ObjectPath_Set_Mutation::has_path() const {
-  return _internal_has_path();
+inline bool List_GameState::has_abspath() const {
+  return _internal_has_abspath();
 }
-inline void ObjectPath_Set_Mutation::clear_path() {
-  if (GetArena() == nullptr && path_ != nullptr) {
-    delete path_;
+inline void List_GameState::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
   }
-  path_ = nullptr;
+  abspath_ = nullptr;
 }
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_path() const {
-  const ::IvionOnline::ObjectPath* p = path_;
+inline const ::IvionOnline::ObjectPath& List_GameState::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
   return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
       ::IvionOnline::_ObjectPath_default_instance_);
 }
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.Path)
-  return _internal_path();
+inline const ::IvionOnline::ObjectPath& List_GameState::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_GameState.AbsPath)
+  return _internal_abspath();
 }
-inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_path(
-    ::IvionOnline::ObjectPath* path) {
+inline void List_GameState::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
   }
-  path_ = path;
-  if (path) {
+  abspath_ = abspath;
+  if (abspath) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.Path)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_GameState.AbsPath)
 }
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_path() {
+inline ::IvionOnline::ObjectPath* List_GameState::release_abspath() {
   
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.Path)
+inline ::IvionOnline::ObjectPath* List_GameState::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_GameState.AbsPath)
   
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
   return temp;
 }
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_path() {
+inline ::IvionOnline::ObjectPath* List_GameState::_internal_mutable_abspath() {
   
-  if (path_ == nullptr) {
+  if (abspath_ == nullptr) {
     auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    path_ = p;
+    abspath_ = p;
   }
-  return path_;
+  return abspath_;
 }
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.Path)
-  return _internal_mutable_path();
+inline ::IvionOnline::ObjectPath* List_GameState::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_GameState.AbsPath)
+  return _internal_mutable_abspath();
 }
-inline void ObjectPath_Set_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+inline void List_GameState::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete path_;
+    delete abspath_;
   }
-  if (path) {
+  if (abspath) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
     if (message_arena != submessage_arena) {
-      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, path, submessage_arena);
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
     }
     
   } else {
     
   }
-  path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.Path)
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_GameState.AbsPath)
 }
 
-// .IvionOnline.ObjectPath NewValue = 2;
-inline bool ObjectPath_Set_Mutation::_internal_has_newvalue() const {
-  return this != internal_default_instance() && newvalue_ != nullptr;
+// string Name = 3;
+inline void List_GameState::clear_name() {
+  name_.ClearToEmpty();
 }
-inline bool ObjectPath_Set_Mutation::has_newvalue() const {
-  return _internal_has_newvalue();
+inline const std::string& List_GameState::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_GameState.Name)
+  return _internal_name();
 }
-inline void ObjectPath_Set_Mutation::clear_newvalue() {
-  if (GetArena() == nullptr && newvalue_ != nullptr) {
-    delete newvalue_;
-  }
-  newvalue_ = nullptr;
+inline void List_GameState::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_GameState.Name)
 }
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_newvalue() const {
-  const ::IvionOnline::ObjectPath* p = newvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
+inline std::string* List_GameState::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_GameState.Name)
+  return _internal_mutable_name();
 }
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::newvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.NewValue)
-  return _internal_newvalue();
+inline const std::string& List_GameState::_internal_name() const {
+  return name_.Get();
 }
-inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_newvalue(
-    ::IvionOnline::ObjectPath* newvalue) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
-  }
-  newvalue_ = newvalue;
-  if (newvalue) {
+inline void List_GameState::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_GameState::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_GameState.Name)
+}
+inline void List_GameState::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_GameState.Name)
+}
+inline void List_GameState::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_GameState.Name)
+}
+inline std::string* List_GameState::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_GameState::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_GameState.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_GameState::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.NewValue)
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_newvalue() {
-  
-  ::IvionOnline::ObjectPath* temp = newvalue_;
-  newvalue_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_newvalue() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.NewValue)
-  
-  ::IvionOnline::ObjectPath* temp = newvalue_;
-  newvalue_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_newvalue() {
-  
-  if (newvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    newvalue_ = p;
-  }
-  return newvalue_;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_newvalue() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.NewValue)
-  return _internal_mutable_newvalue();
-}
-inline void ObjectPath_Set_Mutation::set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete newvalue_;
-  }
-  if (newvalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
-    if (message_arena != submessage_arena) {
-      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, newvalue, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  newvalue_ = newvalue;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.NewValue)
-}
-
-// .IvionOnline.ObjectPath OldValue = 3;
-inline bool ObjectPath_Set_Mutation::_internal_has_oldvalue() const {
-  return this != internal_default_instance() && oldvalue_ != nullptr;
-}
-inline bool ObjectPath_Set_Mutation::has_oldvalue() const {
-  return _internal_has_oldvalue();
-}
-inline void ObjectPath_Set_Mutation::clear_oldvalue() {
-  if (GetArena() == nullptr && oldvalue_ != nullptr) {
-    delete oldvalue_;
-  }
-  oldvalue_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_oldvalue() const {
-  const ::IvionOnline::ObjectPath* p = oldvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::oldvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.OldValue)
-  return _internal_oldvalue();
-}
-inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_oldvalue(
-    ::IvionOnline::ObjectPath* oldvalue) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
-  }
-  oldvalue_ = oldvalue;
-  if (oldvalue) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.OldValue)
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_oldvalue() {
-  
-  ::IvionOnline::ObjectPath* temp = oldvalue_;
-  oldvalue_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_oldvalue() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.OldValue)
-  
-  ::IvionOnline::ObjectPath* temp = oldvalue_;
-  oldvalue_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_oldvalue() {
-  
-  if (oldvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    oldvalue_ = p;
-  }
-  return oldvalue_;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_oldvalue() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.OldValue)
-  return _internal_mutable_oldvalue();
-}
-inline void ObjectPath_Set_Mutation::set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete oldvalue_;
-  }
-  if (oldvalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
-    if (message_arena != submessage_arena) {
-      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, oldvalue, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  oldvalue_ = oldvalue;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.OldValue)
-}
-
-// -------------------------------------------------------------------
-
-// List_ObjectPath_Insert_Mutation
-
-// .IvionOnline.ObjectPath Path = 1;
-inline bool List_ObjectPath_Insert_Mutation::_internal_has_path() const {
-  return this != internal_default_instance() && path_ != nullptr;
-}
-inline bool List_ObjectPath_Insert_Mutation::has_path() const {
-  return _internal_has_path();
-}
-inline void List_ObjectPath_Insert_Mutation::clear_path() {
-  if (GetArena() == nullptr && path_ != nullptr) {
-    delete path_;
-  }
-  path_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::_internal_path() const {
-  const ::IvionOnline::ObjectPath* p = path_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
-  return _internal_path();
-}
-inline void List_ObjectPath_Insert_Mutation::unsafe_arena_set_allocated_path(
-    ::IvionOnline::ObjectPath* path) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
-  }
-  path_ = path;
-  if (path) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::release_path() {
-  
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
-  
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::_internal_mutable_path() {
-  
-  if (path_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    path_ = p;
-  }
-  return path_;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
-  return _internal_mutable_path();
-}
-inline void List_ObjectPath_Insert_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete path_;
-  }
-  if (path) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
-    if (message_arena != submessage_arena) {
-      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, path, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
-}
-
-// .IvionOnline.ObjectPath NewValue = 2;
-inline bool List_ObjectPath_Insert_Mutation::_internal_has_newvalue() const {
-  return this != internal_default_instance() && newvalue_ != nullptr;
-}
-inline bool List_ObjectPath_Insert_Mutation::has_newvalue() const {
-  return _internal_has_newvalue();
-}
-inline void List_ObjectPath_Insert_Mutation::clear_newvalue() {
-  if (GetArena() == nullptr && newvalue_ != nullptr) {
-    delete newvalue_;
-  }
-  newvalue_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::_internal_newvalue() const {
-  const ::IvionOnline::ObjectPath* p = newvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::newvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
-  return _internal_newvalue();
-}
-inline void List_ObjectPath_Insert_Mutation::unsafe_arena_set_allocated_newvalue(
-    ::IvionOnline::ObjectPath* newvalue) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
-  }
-  newvalue_ = newvalue;
-  if (newvalue) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::release_newvalue() {
-  
-  ::IvionOnline::ObjectPath* temp = newvalue_;
-  newvalue_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::unsafe_arena_release_newvalue() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
-  
-  ::IvionOnline::ObjectPath* temp = newvalue_;
-  newvalue_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::_internal_mutable_newvalue() {
-  
-  if (newvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    newvalue_ = p;
-  }
-  return newvalue_;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::mutable_newvalue() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
-  return _internal_mutable_newvalue();
-}
-inline void List_ObjectPath_Insert_Mutation::set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete newvalue_;
-  }
-  if (newvalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
-    if (message_arena != submessage_arena) {
-      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, newvalue, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  newvalue_ = newvalue;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
-}
-
-// int32 Index = 3;
-inline void List_ObjectPath_Insert_Mutation::clear_index() {
-  index_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Insert_Mutation::_internal_index() const {
-  return index_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Insert_Mutation::index() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.Index)
-  return _internal_index();
-}
-inline void List_ObjectPath_Insert_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  index_ = value;
-}
-inline void List_ObjectPath_Insert_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_index(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_ObjectPath_Insert_Mutation.Index)
-}
-
-// -------------------------------------------------------------------
-
-// List_ObjectPath_Remove_Mutation
-
-// .IvionOnline.ObjectPath Path = 1;
-inline bool List_ObjectPath_Remove_Mutation::_internal_has_path() const {
-  return this != internal_default_instance() && path_ != nullptr;
-}
-inline bool List_ObjectPath_Remove_Mutation::has_path() const {
-  return _internal_has_path();
-}
-inline void List_ObjectPath_Remove_Mutation::clear_path() {
-  if (GetArena() == nullptr && path_ != nullptr) {
-    delete path_;
-  }
-  path_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::_internal_path() const {
-  const ::IvionOnline::ObjectPath* p = path_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::path() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
-  return _internal_path();
-}
-inline void List_ObjectPath_Remove_Mutation::unsafe_arena_set_allocated_path(
-    ::IvionOnline::ObjectPath* path) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
-  }
-  path_ = path;
-  if (path) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::release_path() {
-  
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::unsafe_arena_release_path() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
-  
-  ::IvionOnline::ObjectPath* temp = path_;
-  path_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::_internal_mutable_path() {
-  
-  if (path_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    path_ = p;
-  }
-  return path_;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::mutable_path() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
-  return _internal_mutable_path();
-}
-inline void List_ObjectPath_Remove_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete path_;
-  }
-  if (path) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
-    if (message_arena != submessage_arena) {
-      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, path, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  path_ = path;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
-}
-
-// .IvionOnline.ObjectPath OldValue = 2;
-inline bool List_ObjectPath_Remove_Mutation::_internal_has_oldvalue() const {
-  return this != internal_default_instance() && oldvalue_ != nullptr;
-}
-inline bool List_ObjectPath_Remove_Mutation::has_oldvalue() const {
-  return _internal_has_oldvalue();
-}
-inline void List_ObjectPath_Remove_Mutation::clear_oldvalue() {
-  if (GetArena() == nullptr && oldvalue_ != nullptr) {
-    delete oldvalue_;
-  }
-  oldvalue_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::_internal_oldvalue() const {
-  const ::IvionOnline::ObjectPath* p = oldvalue_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::oldvalue() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
-  return _internal_oldvalue();
-}
-inline void List_ObjectPath_Remove_Mutation::unsafe_arena_set_allocated_oldvalue(
-    ::IvionOnline::ObjectPath* oldvalue) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
-  }
-  oldvalue_ = oldvalue;
-  if (oldvalue) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::release_oldvalue() {
-  
-  ::IvionOnline::ObjectPath* temp = oldvalue_;
-  oldvalue_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::unsafe_arena_release_oldvalue() {
-  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
-  
-  ::IvionOnline::ObjectPath* temp = oldvalue_;
-  oldvalue_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::_internal_mutable_oldvalue() {
-  
-  if (oldvalue_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    oldvalue_ = p;
-  }
-  return oldvalue_;
-}
-inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::mutable_oldvalue() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
-  return _internal_mutable_oldvalue();
-}
-inline void List_ObjectPath_Remove_Mutation::set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete oldvalue_;
-  }
-  if (oldvalue) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
-    if (message_arena != submessage_arena) {
-      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, oldvalue, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  oldvalue_ = oldvalue;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
-}
-
-// int32 Index = 3;
-inline void List_ObjectPath_Remove_Mutation::clear_index() {
-  index_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Remove_Mutation::_internal_index() const {
-  return index_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Remove_Mutation::index() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.Index)
-  return _internal_index();
-}
-inline void List_ObjectPath_Remove_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  index_ = value;
-}
-inline void List_ObjectPath_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_index(value);
-  // @@protoc_insertion_point(field_set:IvionOnline.List_ObjectPath_Remove_Mutation.Index)
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_GameState.Name)
 }
 
 // -------------------------------------------------------------------
@@ -20193,6 +24047,639 @@ inline void List_Color_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32
 
 // -------------------------------------------------------------------
 
+// ObjectPath_Set_Mutation
+
+// .IvionOnline.ObjectPath Path = 1;
+inline bool ObjectPath_Set_Mutation::_internal_has_path() const {
+  return this != internal_default_instance() && path_ != nullptr;
+}
+inline bool ObjectPath_Set_Mutation::has_path() const {
+  return _internal_has_path();
+}
+inline void ObjectPath_Set_Mutation::clear_path() {
+  if (GetArena() == nullptr && path_ != nullptr) {
+    delete path_;
+  }
+  path_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_path() const {
+  const ::IvionOnline::ObjectPath* p = path_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.Path)
+  return _internal_path();
+}
+inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_path(
+    ::IvionOnline::ObjectPath* path) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  path_ = path;
+  if (path) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.Path)
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_path() {
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.Path)
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_path() {
+  
+  if (path_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    path_ = p;
+  }
+  return path_;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.Path)
+  return _internal_mutable_path();
+}
+inline void ObjectPath_Set_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete path_;
+  }
+  if (path) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
+    if (message_arena != submessage_arena) {
+      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  path_ = path;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.Path)
+}
+
+// .IvionOnline.ObjectPath NewValue = 2;
+inline bool ObjectPath_Set_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
+}
+inline bool ObjectPath_Set_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
+}
+inline void ObjectPath_Set_Mutation::clear_newvalue() {
+  if (GetArena() == nullptr && newvalue_ != nullptr) {
+    delete newvalue_;
+  }
+  newvalue_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::ObjectPath* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::newvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.NewValue)
+  return _internal_newvalue();
+}
+inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::ObjectPath* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.NewValue)
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_newvalue() {
+  
+  ::IvionOnline::ObjectPath* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.NewValue)
+  
+  ::IvionOnline::ObjectPath* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void ObjectPath_Set_Mutation::set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete newvalue_;
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.NewValue)
+}
+
+// .IvionOnline.ObjectPath OldValue = 3;
+inline bool ObjectPath_Set_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
+}
+inline bool ObjectPath_Set_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
+}
+inline void ObjectPath_Set_Mutation::clear_oldvalue() {
+  if (GetArena() == nullptr && oldvalue_ != nullptr) {
+    delete oldvalue_;
+  }
+  oldvalue_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::ObjectPath* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Set_Mutation::oldvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Set_Mutation.OldValue)
+  return _internal_oldvalue();
+}
+inline void ObjectPath_Set_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::ObjectPath* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Set_Mutation.OldValue)
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::ObjectPath* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Set_Mutation.OldValue)
+  
+  ::IvionOnline::ObjectPath* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Set_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Set_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void ObjectPath_Set_Mutation::set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete oldvalue_;
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Set_Mutation.OldValue)
+}
+
+// -------------------------------------------------------------------
+
+// List_ObjectPath_Insert_Mutation
+
+// .IvionOnline.ObjectPath Path = 1;
+inline bool List_ObjectPath_Insert_Mutation::_internal_has_path() const {
+  return this != internal_default_instance() && path_ != nullptr;
+}
+inline bool List_ObjectPath_Insert_Mutation::has_path() const {
+  return _internal_has_path();
+}
+inline void List_ObjectPath_Insert_Mutation::clear_path() {
+  if (GetArena() == nullptr && path_ != nullptr) {
+    delete path_;
+  }
+  path_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::_internal_path() const {
+  const ::IvionOnline::ObjectPath* p = path_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
+  return _internal_path();
+}
+inline void List_ObjectPath_Insert_Mutation::unsafe_arena_set_allocated_path(
+    ::IvionOnline::ObjectPath* path) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  path_ = path;
+  if (path) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::release_path() {
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::_internal_mutable_path() {
+  
+  if (path_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    path_ = p;
+  }
+  return path_;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
+  return _internal_mutable_path();
+}
+inline void List_ObjectPath_Insert_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete path_;
+  }
+  if (path) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
+    if (message_arena != submessage_arena) {
+      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  path_ = path;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.Path)
+}
+
+// .IvionOnline.ObjectPath NewValue = 2;
+inline bool List_ObjectPath_Insert_Mutation::_internal_has_newvalue() const {
+  return this != internal_default_instance() && newvalue_ != nullptr;
+}
+inline bool List_ObjectPath_Insert_Mutation::has_newvalue() const {
+  return _internal_has_newvalue();
+}
+inline void List_ObjectPath_Insert_Mutation::clear_newvalue() {
+  if (GetArena() == nullptr && newvalue_ != nullptr) {
+    delete newvalue_;
+  }
+  newvalue_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::_internal_newvalue() const {
+  const ::IvionOnline::ObjectPath* p = newvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Insert_Mutation::newvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
+  return _internal_newvalue();
+}
+inline void List_ObjectPath_Insert_Mutation::unsafe_arena_set_allocated_newvalue(
+    ::IvionOnline::ObjectPath* newvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(newvalue_);
+  }
+  newvalue_ = newvalue;
+  if (newvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::release_newvalue() {
+  
+  ::IvionOnline::ObjectPath* temp = newvalue_;
+  newvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::unsafe_arena_release_newvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
+  
+  ::IvionOnline::ObjectPath* temp = newvalue_;
+  newvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::_internal_mutable_newvalue() {
+  
+  if (newvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    newvalue_ = p;
+  }
+  return newvalue_;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Insert_Mutation::mutable_newvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
+  return _internal_mutable_newvalue();
+}
+inline void List_ObjectPath_Insert_Mutation::set_allocated_newvalue(::IvionOnline::ObjectPath* newvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete newvalue_;
+  }
+  if (newvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(newvalue);
+    if (message_arena != submessage_arena) {
+      newvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, newvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  newvalue_ = newvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Insert_Mutation.NewValue)
+}
+
+// int32 Index = 3;
+inline void List_ObjectPath_Insert_Mutation::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Insert_Mutation::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Insert_Mutation::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Insert_Mutation.Index)
+  return _internal_index();
+}
+inline void List_ObjectPath_Insert_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void List_ObjectPath_Insert_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_ObjectPath_Insert_Mutation.Index)
+}
+
+// -------------------------------------------------------------------
+
+// List_ObjectPath_Remove_Mutation
+
+// .IvionOnline.ObjectPath Path = 1;
+inline bool List_ObjectPath_Remove_Mutation::_internal_has_path() const {
+  return this != internal_default_instance() && path_ != nullptr;
+}
+inline bool List_ObjectPath_Remove_Mutation::has_path() const {
+  return _internal_has_path();
+}
+inline void List_ObjectPath_Remove_Mutation::clear_path() {
+  if (GetArena() == nullptr && path_ != nullptr) {
+    delete path_;
+  }
+  path_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::_internal_path() const {
+  const ::IvionOnline::ObjectPath* p = path_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::path() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
+  return _internal_path();
+}
+inline void List_ObjectPath_Remove_Mutation::unsafe_arena_set_allocated_path(
+    ::IvionOnline::ObjectPath* path) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(path_);
+  }
+  path_ = path;
+  if (path) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::release_path() {
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::unsafe_arena_release_path() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
+  
+  ::IvionOnline::ObjectPath* temp = path_;
+  path_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::_internal_mutable_path() {
+  
+  if (path_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    path_ = p;
+  }
+  return path_;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::mutable_path() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
+  return _internal_mutable_path();
+}
+inline void List_ObjectPath_Remove_Mutation::set_allocated_path(::IvionOnline::ObjectPath* path) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete path_;
+  }
+  if (path) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(path);
+    if (message_arena != submessage_arena) {
+      path = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, path, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  path_ = path;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.Path)
+}
+
+// .IvionOnline.ObjectPath OldValue = 2;
+inline bool List_ObjectPath_Remove_Mutation::_internal_has_oldvalue() const {
+  return this != internal_default_instance() && oldvalue_ != nullptr;
+}
+inline bool List_ObjectPath_Remove_Mutation::has_oldvalue() const {
+  return _internal_has_oldvalue();
+}
+inline void List_ObjectPath_Remove_Mutation::clear_oldvalue() {
+  if (GetArena() == nullptr && oldvalue_ != nullptr) {
+    delete oldvalue_;
+  }
+  oldvalue_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::_internal_oldvalue() const {
+  const ::IvionOnline::ObjectPath* p = oldvalue_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_ObjectPath_Remove_Mutation::oldvalue() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
+  return _internal_oldvalue();
+}
+inline void List_ObjectPath_Remove_Mutation::unsafe_arena_set_allocated_oldvalue(
+    ::IvionOnline::ObjectPath* oldvalue) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(oldvalue_);
+  }
+  oldvalue_ = oldvalue;
+  if (oldvalue) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::release_oldvalue() {
+  
+  ::IvionOnline::ObjectPath* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::unsafe_arena_release_oldvalue() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
+  
+  ::IvionOnline::ObjectPath* temp = oldvalue_;
+  oldvalue_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::_internal_mutable_oldvalue() {
+  
+  if (oldvalue_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    oldvalue_ = p;
+  }
+  return oldvalue_;
+}
+inline ::IvionOnline::ObjectPath* List_ObjectPath_Remove_Mutation::mutable_oldvalue() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
+  return _internal_mutable_oldvalue();
+}
+inline void List_ObjectPath_Remove_Mutation::set_allocated_oldvalue(::IvionOnline::ObjectPath* oldvalue) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete oldvalue_;
+  }
+  if (oldvalue) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldvalue);
+    if (message_arena != submessage_arena) {
+      oldvalue = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, oldvalue, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  oldvalue_ = oldvalue;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_ObjectPath_Remove_Mutation.OldValue)
+}
+
+// int32 Index = 3;
+inline void List_ObjectPath_Remove_Mutation::clear_index() {
+  index_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Remove_Mutation::_internal_index() const {
+  return index_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 List_ObjectPath_Remove_Mutation::index() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_ObjectPath_Remove_Mutation.Index)
+  return _internal_index();
+}
+inline void List_ObjectPath_Remove_Mutation::_internal_set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  index_ = value;
+}
+inline void List_ObjectPath_Remove_Mutation::set_index(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_index(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_ObjectPath_Remove_Mutation.Index)
+}
+
+// -------------------------------------------------------------------
+
 // Mutation
 
 // .IvionOnline.Boolean_Set_Mutation Boolean_Set_Mutation = 1;
@@ -21290,6 +25777,225 @@ inline ::IvionOnline::List_Color_Remove_Mutation* Mutation::mutable_list_color_r
   return _internal_mutable_list_color_remove_mutation();
 }
 
+// .IvionOnline.ObjectPath_Set_Mutation ObjectPath_Set_Mutation = 16;
+inline bool Mutation::_internal_has_objectpath_set_mutation() const {
+  return mut_case() == kObjectPathSetMutation;
+}
+inline bool Mutation::has_objectpath_set_mutation() const {
+  return _internal_has_objectpath_set_mutation();
+}
+inline void Mutation::set_has_objectpath_set_mutation() {
+  _oneof_case_[0] = kObjectPathSetMutation;
+}
+inline void Mutation::clear_objectpath_set_mutation() {
+  if (_internal_has_objectpath_set_mutation()) {
+    if (GetArena() == nullptr) {
+      delete mut_.objectpath_set_mutation_;
+    }
+    clear_has_mut();
+  }
+}
+inline ::IvionOnline::ObjectPath_Set_Mutation* Mutation::release_objectpath_set_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.ObjectPath_Set_Mutation)
+  if (_internal_has_objectpath_set_mutation()) {
+    clear_has_mut();
+      ::IvionOnline::ObjectPath_Set_Mutation* temp = mut_.objectpath_set_mutation_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    mut_.objectpath_set_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::ObjectPath_Set_Mutation& Mutation::_internal_objectpath_set_mutation() const {
+  return _internal_has_objectpath_set_mutation()
+      ? *mut_.objectpath_set_mutation_
+      : reinterpret_cast< ::IvionOnline::ObjectPath_Set_Mutation&>(::IvionOnline::_ObjectPath_Set_Mutation_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath_Set_Mutation& Mutation::objectpath_set_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.ObjectPath_Set_Mutation)
+  return _internal_objectpath_set_mutation();
+}
+inline ::IvionOnline::ObjectPath_Set_Mutation* Mutation::unsafe_arena_release_objectpath_set_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.ObjectPath_Set_Mutation)
+  if (_internal_has_objectpath_set_mutation()) {
+    clear_has_mut();
+    ::IvionOnline::ObjectPath_Set_Mutation* temp = mut_.objectpath_set_mutation_;
+    mut_.objectpath_set_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Mutation::unsafe_arena_set_allocated_objectpath_set_mutation(::IvionOnline::ObjectPath_Set_Mutation* objectpath_set_mutation) {
+  clear_mut();
+  if (objectpath_set_mutation) {
+    set_has_objectpath_set_mutation();
+    mut_.objectpath_set_mutation_ = objectpath_set_mutation;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.ObjectPath_Set_Mutation)
+}
+inline ::IvionOnline::ObjectPath_Set_Mutation* Mutation::_internal_mutable_objectpath_set_mutation() {
+  if (!_internal_has_objectpath_set_mutation()) {
+    clear_mut();
+    set_has_objectpath_set_mutation();
+    mut_.objectpath_set_mutation_ = CreateMaybeMessage< ::IvionOnline::ObjectPath_Set_Mutation >(GetArena());
+  }
+  return mut_.objectpath_set_mutation_;
+}
+inline ::IvionOnline::ObjectPath_Set_Mutation* Mutation::mutable_objectpath_set_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.ObjectPath_Set_Mutation)
+  return _internal_mutable_objectpath_set_mutation();
+}
+
+// .IvionOnline.List_ObjectPath_Insert_Mutation List_ObjectPath_Insert_Mutation = 17;
+inline bool Mutation::_internal_has_list_objectpath_insert_mutation() const {
+  return mut_case() == kListObjectPathInsertMutation;
+}
+inline bool Mutation::has_list_objectpath_insert_mutation() const {
+  return _internal_has_list_objectpath_insert_mutation();
+}
+inline void Mutation::set_has_list_objectpath_insert_mutation() {
+  _oneof_case_[0] = kListObjectPathInsertMutation;
+}
+inline void Mutation::clear_list_objectpath_insert_mutation() {
+  if (_internal_has_list_objectpath_insert_mutation()) {
+    if (GetArena() == nullptr) {
+      delete mut_.list_objectpath_insert_mutation_;
+    }
+    clear_has_mut();
+  }
+}
+inline ::IvionOnline::List_ObjectPath_Insert_Mutation* Mutation::release_list_objectpath_insert_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_ObjectPath_Insert_Mutation)
+  if (_internal_has_list_objectpath_insert_mutation()) {
+    clear_has_mut();
+      ::IvionOnline::List_ObjectPath_Insert_Mutation* temp = mut_.list_objectpath_insert_mutation_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    mut_.list_objectpath_insert_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::List_ObjectPath_Insert_Mutation& Mutation::_internal_list_objectpath_insert_mutation() const {
+  return _internal_has_list_objectpath_insert_mutation()
+      ? *mut_.list_objectpath_insert_mutation_
+      : reinterpret_cast< ::IvionOnline::List_ObjectPath_Insert_Mutation&>(::IvionOnline::_List_ObjectPath_Insert_Mutation_default_instance_);
+}
+inline const ::IvionOnline::List_ObjectPath_Insert_Mutation& Mutation::list_objectpath_insert_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_ObjectPath_Insert_Mutation)
+  return _internal_list_objectpath_insert_mutation();
+}
+inline ::IvionOnline::List_ObjectPath_Insert_Mutation* Mutation::unsafe_arena_release_list_objectpath_insert_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_ObjectPath_Insert_Mutation)
+  if (_internal_has_list_objectpath_insert_mutation()) {
+    clear_has_mut();
+    ::IvionOnline::List_ObjectPath_Insert_Mutation* temp = mut_.list_objectpath_insert_mutation_;
+    mut_.list_objectpath_insert_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Mutation::unsafe_arena_set_allocated_list_objectpath_insert_mutation(::IvionOnline::List_ObjectPath_Insert_Mutation* list_objectpath_insert_mutation) {
+  clear_mut();
+  if (list_objectpath_insert_mutation) {
+    set_has_list_objectpath_insert_mutation();
+    mut_.list_objectpath_insert_mutation_ = list_objectpath_insert_mutation;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_ObjectPath_Insert_Mutation)
+}
+inline ::IvionOnline::List_ObjectPath_Insert_Mutation* Mutation::_internal_mutable_list_objectpath_insert_mutation() {
+  if (!_internal_has_list_objectpath_insert_mutation()) {
+    clear_mut();
+    set_has_list_objectpath_insert_mutation();
+    mut_.list_objectpath_insert_mutation_ = CreateMaybeMessage< ::IvionOnline::List_ObjectPath_Insert_Mutation >(GetArena());
+  }
+  return mut_.list_objectpath_insert_mutation_;
+}
+inline ::IvionOnline::List_ObjectPath_Insert_Mutation* Mutation::mutable_list_objectpath_insert_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_ObjectPath_Insert_Mutation)
+  return _internal_mutable_list_objectpath_insert_mutation();
+}
+
+// .IvionOnline.List_ObjectPath_Remove_Mutation List_ObjectPath_Remove_Mutation = 18;
+inline bool Mutation::_internal_has_list_objectpath_remove_mutation() const {
+  return mut_case() == kListObjectPathRemoveMutation;
+}
+inline bool Mutation::has_list_objectpath_remove_mutation() const {
+  return _internal_has_list_objectpath_remove_mutation();
+}
+inline void Mutation::set_has_list_objectpath_remove_mutation() {
+  _oneof_case_[0] = kListObjectPathRemoveMutation;
+}
+inline void Mutation::clear_list_objectpath_remove_mutation() {
+  if (_internal_has_list_objectpath_remove_mutation()) {
+    if (GetArena() == nullptr) {
+      delete mut_.list_objectpath_remove_mutation_;
+    }
+    clear_has_mut();
+  }
+}
+inline ::IvionOnline::List_ObjectPath_Remove_Mutation* Mutation::release_list_objectpath_remove_mutation() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Mutation.List_ObjectPath_Remove_Mutation)
+  if (_internal_has_list_objectpath_remove_mutation()) {
+    clear_has_mut();
+      ::IvionOnline::List_ObjectPath_Remove_Mutation* temp = mut_.list_objectpath_remove_mutation_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    mut_.list_objectpath_remove_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::List_ObjectPath_Remove_Mutation& Mutation::_internal_list_objectpath_remove_mutation() const {
+  return _internal_has_list_objectpath_remove_mutation()
+      ? *mut_.list_objectpath_remove_mutation_
+      : reinterpret_cast< ::IvionOnline::List_ObjectPath_Remove_Mutation&>(::IvionOnline::_List_ObjectPath_Remove_Mutation_default_instance_);
+}
+inline const ::IvionOnline::List_ObjectPath_Remove_Mutation& Mutation::list_objectpath_remove_mutation() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Mutation.List_ObjectPath_Remove_Mutation)
+  return _internal_list_objectpath_remove_mutation();
+}
+inline ::IvionOnline::List_ObjectPath_Remove_Mutation* Mutation::unsafe_arena_release_list_objectpath_remove_mutation() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Mutation.List_ObjectPath_Remove_Mutation)
+  if (_internal_has_list_objectpath_remove_mutation()) {
+    clear_has_mut();
+    ::IvionOnline::List_ObjectPath_Remove_Mutation* temp = mut_.list_objectpath_remove_mutation_;
+    mut_.list_objectpath_remove_mutation_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Mutation::unsafe_arena_set_allocated_list_objectpath_remove_mutation(::IvionOnline::List_ObjectPath_Remove_Mutation* list_objectpath_remove_mutation) {
+  clear_mut();
+  if (list_objectpath_remove_mutation) {
+    set_has_list_objectpath_remove_mutation();
+    mut_.list_objectpath_remove_mutation_ = list_objectpath_remove_mutation;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Mutation.List_ObjectPath_Remove_Mutation)
+}
+inline ::IvionOnline::List_ObjectPath_Remove_Mutation* Mutation::_internal_mutable_list_objectpath_remove_mutation() {
+  if (!_internal_has_list_objectpath_remove_mutation()) {
+    clear_mut();
+    set_has_list_objectpath_remove_mutation();
+    mut_.list_objectpath_remove_mutation_ = CreateMaybeMessage< ::IvionOnline::List_ObjectPath_Remove_Mutation >(GetArena());
+  }
+  return mut_.list_objectpath_remove_mutation_;
+}
+inline ::IvionOnline::List_ObjectPath_Remove_Mutation* Mutation::mutable_list_objectpath_remove_mutation() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Mutation.List_ObjectPath_Remove_Mutation)
+  return _internal_mutable_list_objectpath_remove_mutation();
+}
+
 inline bool Mutation::has_mut() const {
   return mut_case() != MUT_NOT_SET;
 }
@@ -21722,6 +26428,89 @@ inline void SelectMultiple::set_allocated_upto(::IvionOnline::ObjectPath* upto) 
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.SelectMultiple.UpTo)
 }
 
+// .IvionOnline.List_ObjectPath Result = 4;
+inline bool SelectMultiple::_internal_has_result() const {
+  return this != internal_default_instance() && result_ != nullptr;
+}
+inline bool SelectMultiple::has_result() const {
+  return _internal_has_result();
+}
+inline void SelectMultiple::clear_result() {
+  if (GetArena() == nullptr && result_ != nullptr) {
+    delete result_;
+  }
+  result_ = nullptr;
+}
+inline const ::IvionOnline::List_ObjectPath& SelectMultiple::_internal_result() const {
+  const ::IvionOnline::List_ObjectPath* p = result_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
+      ::IvionOnline::_List_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::List_ObjectPath& SelectMultiple::result() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.SelectMultiple.Result)
+  return _internal_result();
+}
+inline void SelectMultiple::unsafe_arena_set_allocated_result(
+    ::IvionOnline::List_ObjectPath* result) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(result_);
+  }
+  result_ = result;
+  if (result) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.SelectMultiple.Result)
+}
+inline ::IvionOnline::List_ObjectPath* SelectMultiple::release_result() {
+  
+  ::IvionOnline::List_ObjectPath* temp = result_;
+  result_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* SelectMultiple::unsafe_arena_release_result() {
+  // @@protoc_insertion_point(field_release:IvionOnline.SelectMultiple.Result)
+  
+  ::IvionOnline::List_ObjectPath* temp = result_;
+  result_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::List_ObjectPath* SelectMultiple::_internal_mutable_result() {
+  
+  if (result_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
+    result_ = p;
+  }
+  return result_;
+}
+inline ::IvionOnline::List_ObjectPath* SelectMultiple::mutable_result() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.SelectMultiple.Result)
+  return _internal_mutable_result();
+}
+inline void SelectMultiple::set_allocated_result(::IvionOnline::List_ObjectPath* result) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete result_;
+  }
+  if (result) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(result);
+    if (message_arena != submessage_arena) {
+      result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, result, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  result_ = result;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.SelectMultiple.Result)
+}
+
 // -------------------------------------------------------------------
 
 // SelectExactlyOne
@@ -21807,6 +26596,89 @@ inline void SelectExactlyOne::set_allocated_source(::IvionOnline::ObjectPath* so
   }
   source_ = source;
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.SelectExactlyOne.Source)
+}
+
+// .IvionOnline.ObjectPath Result = 2;
+inline bool SelectExactlyOne::_internal_has_result() const {
+  return this != internal_default_instance() && result_ != nullptr;
+}
+inline bool SelectExactlyOne::has_result() const {
+  return _internal_has_result();
+}
+inline void SelectExactlyOne::clear_result() {
+  if (GetArena() == nullptr && result_ != nullptr) {
+    delete result_;
+  }
+  result_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& SelectExactlyOne::_internal_result() const {
+  const ::IvionOnline::ObjectPath* p = result_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& SelectExactlyOne::result() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.SelectExactlyOne.Result)
+  return _internal_result();
+}
+inline void SelectExactlyOne::unsafe_arena_set_allocated_result(
+    ::IvionOnline::ObjectPath* result) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(result_);
+  }
+  result_ = result;
+  if (result) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.SelectExactlyOne.Result)
+}
+inline ::IvionOnline::ObjectPath* SelectExactlyOne::release_result() {
+  
+  ::IvionOnline::ObjectPath* temp = result_;
+  result_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* SelectExactlyOne::unsafe_arena_release_result() {
+  // @@protoc_insertion_point(field_release:IvionOnline.SelectExactlyOne.Result)
+  
+  ::IvionOnline::ObjectPath* temp = result_;
+  result_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* SelectExactlyOne::_internal_mutable_result() {
+  
+  if (result_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    result_ = p;
+  }
+  return result_;
+}
+inline ::IvionOnline::ObjectPath* SelectExactlyOne::mutable_result() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.SelectExactlyOne.Result)
+  return _internal_mutable_result();
+}
+inline void SelectExactlyOne::set_allocated_result(::IvionOnline::ObjectPath* result) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete result_;
+  }
+  if (result) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(result);
+    if (message_arena != submessage_arena) {
+      result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, result, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  result_ = result;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.SelectExactlyOne.Result)
 }
 
 // -------------------------------------------------------------------
@@ -23515,93 +28387,6 @@ inline void Damage::set_allocated_amount(::IvionOnline::ObjectPath* amount) {
 
 // -------------------------------------------------------------------
 
-// ObjectPath_Constant
-
-// .IvionOnline.ObjectPath Result = 1;
-inline bool ObjectPath_Constant::_internal_has_result() const {
-  return this != internal_default_instance() && result_ != nullptr;
-}
-inline bool ObjectPath_Constant::has_result() const {
-  return _internal_has_result();
-}
-inline void ObjectPath_Constant::clear_result() {
-  if (GetArena() == nullptr && result_ != nullptr) {
-    delete result_;
-  }
-  result_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& ObjectPath_Constant::_internal_result() const {
-  const ::IvionOnline::ObjectPath* p = result_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& ObjectPath_Constant::result() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Constant.Result)
-  return _internal_result();
-}
-inline void ObjectPath_Constant::unsafe_arena_set_allocated_result(
-    ::IvionOnline::ObjectPath* result) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(result_);
-  }
-  result_ = result;
-  if (result) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Constant.Result)
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Constant::release_result() {
-  
-  ::IvionOnline::ObjectPath* temp = result_;
-  result_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Constant::unsafe_arena_release_result() {
-  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Constant.Result)
-  
-  ::IvionOnline::ObjectPath* temp = result_;
-  result_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Constant::_internal_mutable_result() {
-  
-  if (result_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    result_ = p;
-  }
-  return result_;
-}
-inline ::IvionOnline::ObjectPath* ObjectPath_Constant::mutable_result() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Constant.Result)
-  return _internal_mutable_result();
-}
-inline void ObjectPath_Constant::set_allocated_result(::IvionOnline::ObjectPath* result) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete result_;
-  }
-  if (result) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(result);
-    if (message_arena != submessage_arena) {
-      result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, result, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  result_ = result;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Constant.Result)
-}
-
-// -------------------------------------------------------------------
-
 // Boolean_Constant
 
 // .IvionOnline.Boolean Result = 1;
@@ -24033,6 +28818,93 @@ inline void Color_Constant::set_allocated_result(::IvionOnline::Color* result) {
   }
   result_ = result;
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Color_Constant.Result)
+}
+
+// -------------------------------------------------------------------
+
+// ObjectPath_Constant
+
+// .IvionOnline.ObjectPath Result = 1;
+inline bool ObjectPath_Constant::_internal_has_result() const {
+  return this != internal_default_instance() && result_ != nullptr;
+}
+inline bool ObjectPath_Constant::has_result() const {
+  return _internal_has_result();
+}
+inline void ObjectPath_Constant::clear_result() {
+  if (GetArena() == nullptr && result_ != nullptr) {
+    delete result_;
+  }
+  result_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Constant::_internal_result() const {
+  const ::IvionOnline::ObjectPath* p = result_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ObjectPath_Constant::result() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ObjectPath_Constant.Result)
+  return _internal_result();
+}
+inline void ObjectPath_Constant::unsafe_arena_set_allocated_result(
+    ::IvionOnline::ObjectPath* result) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(result_);
+  }
+  result_ = result;
+  if (result) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ObjectPath_Constant.Result)
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Constant::release_result() {
+  
+  ::IvionOnline::ObjectPath* temp = result_;
+  result_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Constant::unsafe_arena_release_result() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ObjectPath_Constant.Result)
+  
+  ::IvionOnline::ObjectPath* temp = result_;
+  result_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Constant::_internal_mutable_result() {
+  
+  if (result_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    result_ = p;
+  }
+  return result_;
+}
+inline ::IvionOnline::ObjectPath* ObjectPath_Constant::mutable_result() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ObjectPath_Constant.Result)
+  return _internal_mutable_result();
+}
+inline void ObjectPath_Constant::set_allocated_result(::IvionOnline::ObjectPath* result) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete result_;
+  }
+  if (result) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(result);
+    if (message_arena != submessage_arena) {
+      result = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, result, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  result_ = result;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ObjectPath_Constant.Result)
 }
 
 // -------------------------------------------------------------------
@@ -25061,80 +29933,7 @@ inline ::IvionOnline::Damage* Method::mutable_damage() {
   return _internal_mutable_damage();
 }
 
-// .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 15;
-inline bool Method::_internal_has_objectpath_constant() const {
-  return methods_case() == kObjectPathConstant;
-}
-inline bool Method::has_objectpath_constant() const {
-  return _internal_has_objectpath_constant();
-}
-inline void Method::set_has_objectpath_constant() {
-  _oneof_case_[0] = kObjectPathConstant;
-}
-inline void Method::clear_objectpath_constant() {
-  if (_internal_has_objectpath_constant()) {
-    if (GetArena() == nullptr) {
-      delete methods_.objectpath_constant_;
-    }
-    clear_has_methods();
-  }
-}
-inline ::IvionOnline::ObjectPath_Constant* Method::release_objectpath_constant() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Method.ObjectPath_Constant)
-  if (_internal_has_objectpath_constant()) {
-    clear_has_methods();
-      ::IvionOnline::ObjectPath_Constant* temp = methods_.objectpath_constant_;
-    if (GetArena() != nullptr) {
-      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-    }
-    methods_.objectpath_constant_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::IvionOnline::ObjectPath_Constant& Method::_internal_objectpath_constant() const {
-  return _internal_has_objectpath_constant()
-      ? *methods_.objectpath_constant_
-      : reinterpret_cast< ::IvionOnline::ObjectPath_Constant&>(::IvionOnline::_ObjectPath_Constant_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath_Constant& Method::objectpath_constant() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Method.ObjectPath_Constant)
-  return _internal_objectpath_constant();
-}
-inline ::IvionOnline::ObjectPath_Constant* Method::unsafe_arena_release_objectpath_constant() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Method.ObjectPath_Constant)
-  if (_internal_has_objectpath_constant()) {
-    clear_has_methods();
-    ::IvionOnline::ObjectPath_Constant* temp = methods_.objectpath_constant_;
-    methods_.objectpath_constant_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Method::unsafe_arena_set_allocated_objectpath_constant(::IvionOnline::ObjectPath_Constant* objectpath_constant) {
-  clear_methods();
-  if (objectpath_constant) {
-    set_has_objectpath_constant();
-    methods_.objectpath_constant_ = objectpath_constant;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Method.ObjectPath_Constant)
-}
-inline ::IvionOnline::ObjectPath_Constant* Method::_internal_mutable_objectpath_constant() {
-  if (!_internal_has_objectpath_constant()) {
-    clear_methods();
-    set_has_objectpath_constant();
-    methods_.objectpath_constant_ = CreateMaybeMessage< ::IvionOnline::ObjectPath_Constant >(GetArena());
-  }
-  return methods_.objectpath_constant_;
-}
-inline ::IvionOnline::ObjectPath_Constant* Method::mutable_objectpath_constant() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Method.ObjectPath_Constant)
-  return _internal_mutable_objectpath_constant();
-}
-
-// .IvionOnline.Boolean_Constant Boolean_Constant = 16;
+// .IvionOnline.Boolean_Constant Boolean_Constant = 15;
 inline bool Method::_internal_has_boolean_constant() const {
   return methods_case() == kBooleanConstant;
 }
@@ -25207,7 +30006,7 @@ inline ::IvionOnline::Boolean_Constant* Method::mutable_boolean_constant() {
   return _internal_mutable_boolean_constant();
 }
 
-// .IvionOnline.Integer_Constant Integer_Constant = 17;
+// .IvionOnline.Integer_Constant Integer_Constant = 16;
 inline bool Method::_internal_has_integer_constant() const {
   return methods_case() == kIntegerConstant;
 }
@@ -25280,7 +30079,7 @@ inline ::IvionOnline::Integer_Constant* Method::mutable_integer_constant() {
   return _internal_mutable_integer_constant();
 }
 
-// .IvionOnline.Vec2i_Constant Vec2i_Constant = 18;
+// .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
 inline bool Method::_internal_has_vec2i_constant() const {
   return methods_case() == kVec2IConstant;
 }
@@ -25353,7 +30152,7 @@ inline ::IvionOnline::Vec2i_Constant* Method::mutable_vec2i_constant() {
   return _internal_mutable_vec2i_constant();
 }
 
-// .IvionOnline.Terrain_Constant Terrain_Constant = 19;
+// .IvionOnline.Terrain_Constant Terrain_Constant = 18;
 inline bool Method::_internal_has_terrain_constant() const {
   return methods_case() == kTerrainConstant;
 }
@@ -25426,7 +30225,7 @@ inline ::IvionOnline::Terrain_Constant* Method::mutable_terrain_constant() {
   return _internal_mutable_terrain_constant();
 }
 
-// .IvionOnline.Color_Constant Color_Constant = 20;
+// .IvionOnline.Color_Constant Color_Constant = 19;
 inline bool Method::_internal_has_color_constant() const {
   return methods_case() == kColorConstant;
 }
@@ -25499,6 +30298,79 @@ inline ::IvionOnline::Color_Constant* Method::mutable_color_constant() {
   return _internal_mutable_color_constant();
 }
 
+// .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+inline bool Method::_internal_has_objectpath_constant() const {
+  return methods_case() == kObjectPathConstant;
+}
+inline bool Method::has_objectpath_constant() const {
+  return _internal_has_objectpath_constant();
+}
+inline void Method::set_has_objectpath_constant() {
+  _oneof_case_[0] = kObjectPathConstant;
+}
+inline void Method::clear_objectpath_constant() {
+  if (_internal_has_objectpath_constant()) {
+    if (GetArena() == nullptr) {
+      delete methods_.objectpath_constant_;
+    }
+    clear_has_methods();
+  }
+}
+inline ::IvionOnline::ObjectPath_Constant* Method::release_objectpath_constant() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Method.ObjectPath_Constant)
+  if (_internal_has_objectpath_constant()) {
+    clear_has_methods();
+      ::IvionOnline::ObjectPath_Constant* temp = methods_.objectpath_constant_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    methods_.objectpath_constant_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::ObjectPath_Constant& Method::_internal_objectpath_constant() const {
+  return _internal_has_objectpath_constant()
+      ? *methods_.objectpath_constant_
+      : reinterpret_cast< ::IvionOnline::ObjectPath_Constant&>(::IvionOnline::_ObjectPath_Constant_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath_Constant& Method::objectpath_constant() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Method.ObjectPath_Constant)
+  return _internal_objectpath_constant();
+}
+inline ::IvionOnline::ObjectPath_Constant* Method::unsafe_arena_release_objectpath_constant() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Method.ObjectPath_Constant)
+  if (_internal_has_objectpath_constant()) {
+    clear_has_methods();
+    ::IvionOnline::ObjectPath_Constant* temp = methods_.objectpath_constant_;
+    methods_.objectpath_constant_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Method::unsafe_arena_set_allocated_objectpath_constant(::IvionOnline::ObjectPath_Constant* objectpath_constant) {
+  clear_methods();
+  if (objectpath_constant) {
+    set_has_objectpath_constant();
+    methods_.objectpath_constant_ = objectpath_constant;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Method.ObjectPath_Constant)
+}
+inline ::IvionOnline::ObjectPath_Constant* Method::_internal_mutable_objectpath_constant() {
+  if (!_internal_has_objectpath_constant()) {
+    clear_methods();
+    set_has_objectpath_constant();
+    methods_.objectpath_constant_ = CreateMaybeMessage< ::IvionOnline::ObjectPath_Constant >(GetArena());
+  }
+  return methods_.objectpath_constant_;
+}
+inline ::IvionOnline::ObjectPath_Constant* Method::mutable_objectpath_constant() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Method.ObjectPath_Constant)
+  return _internal_mutable_objectpath_constant();
+}
+
 inline bool Method::has_methods() const {
   return methods_case() != METHODS_NOT_SET;
 }
@@ -25554,6 +30426,8 @@ List_Method::element() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

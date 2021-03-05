@@ -24,7 +24,9 @@
     "Classes": {
         "Player": {
             "UID": "string",
-            "Name": "string",
+            "Index": "int32",
+            "IndexStr": "string",
+            "DisplayName": "string",
             "Health": "Integer",
             "Actions": "Integer",
             "Power": "Integer",
@@ -45,7 +47,9 @@
             "MaxDisarm": "Integer"
         },
         "Card": {
-            "CardStats": "Ref<CardData>"
+            "CardStats": "Ref<CardData>",
+            "Index": "int32",
+            "IndexStr": "string"
         },
         "CardData": {
             "Owner": "Ref<Player>",
@@ -64,6 +68,8 @@
         },
         "Tile": {
             "Position": "Vec2i",
+            "Index": "int32",
+            "IndexStr": "string",
             "Terrain": "Terrain",
             "Players": "List<Ref<Player>>",
             "Cards": "List<Ref<Card>>"
@@ -96,11 +102,17 @@
                 "Ref<List<ObjectPath>> Source",
                 "Ref<Integer> Number",
                 "Ref<Boolean> UpTo"
+            ],
+            "Return": [
+                "List<ObjectPath> Result"
             ]
         },
         "SelectExactlyOne": {
             "Args": [
                 "Ref<List<ObjectPath>> Source"
+            ],
+            "Return": [
+                "ObjectPath Result"
             ]
         },
         "AssertControlOrHeroic": {},

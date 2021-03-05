@@ -21,6 +21,9 @@ public:
 	void ApplyMutation(IvionOnline::Mutation *mutation);
 	void RevertMutation(IvionOnline::Mutation *mutation);
 
+	IvionOnline::History RootHistory;
+	IvionOnline::History* currentHistory_{&RootHistory};
+
 	// generates the paths
 	void GenerateBranchingPaths();
 

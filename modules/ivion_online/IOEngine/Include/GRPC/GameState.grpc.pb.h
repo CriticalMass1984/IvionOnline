@@ -4,7 +4,7 @@
 #ifndef GRPC_GameState_2eproto__INCLUDED
 #define GRPC_GameState_2eproto__INCLUDED
 
-#include "GameState.pb.h"
+#include <GRPC/GameState.pb.h>
 
 #include <functional>
 #include <grpc/impl/codegen/port_platform.h>

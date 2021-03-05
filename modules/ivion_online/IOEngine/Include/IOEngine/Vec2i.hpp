@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <GRPC/Types.pb.h>
+#include <GRPC/GameState.pb.h>
 
 struct Vec2i {
 	int x{0}, y{0};
@@ -13,12 +13,12 @@ struct Vec2i {
 	Vec2i() = default;
 	~Vec2i() = default;
 
-	Vec2i(const Types::Vec2i& vec): x(vec.x()), y(vec.y())
+	Vec2i(const IvionOnline::Vec2i& vec): x(vec.x()), y(vec.y())
 	{
 
 	}
 
-	void Fill(Types::Vec2i* vec)
+	void Fill(IvionOnline::Vec2i* vec)
 	{
 		vec->set_x(x);
 		vec->set_y(y);

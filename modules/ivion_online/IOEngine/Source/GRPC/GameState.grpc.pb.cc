@@ -2,8 +2,8 @@
 // If you make any local change, they will be lost.
 // source: GameState.proto
 
-#include "GameState.pb.h"
-#include "GameState.grpc.pb.h"
+#include <GRPC/GameState.pb.h>
+#include <GRPC/GameState.grpc.pb.h>
 
 #include <functional>
 #include <grpcpp/impl/codegen/async_stream.h>

@@ -5,4 +5,6 @@ message {NAME} {{
 
 message List_{NAME} {{
     repeated {NAME} element = 1;
+    ObjectPath AbsPath = 2;
+	string Name = 3;
 }}
