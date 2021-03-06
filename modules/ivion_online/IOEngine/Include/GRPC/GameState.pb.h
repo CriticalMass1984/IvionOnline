@@ -13537,6 +13537,8 @@ class List_Method PROTOBUF_FINAL :
 
   enum : int {
     kElementFieldNumber = 1,
+    kNameFieldNumber = 2,
+    kAbsPathFieldNumber = 3,
   };
   // repeated .IvionOnline.Method element = 1;
   int element_size() const;
@@ -13556,6 +13558,40 @@ class List_Method PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
       element() const;
 
+  // string Name = 2;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  bool has_abspath() const;
+  private:
+  bool _internal_has_abspath() const;
+  public:
+  void clear_abspath();
+  const ::IvionOnline::ObjectPath& abspath() const;
+  ::IvionOnline::ObjectPath* release_abspath();
+  ::IvionOnline::ObjectPath* mutable_abspath();
+  void set_allocated_abspath(::IvionOnline::ObjectPath* abspath);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_abspath() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_abspath();
+  public:
+  void unsafe_arena_set_allocated_abspath(
+      ::IvionOnline::ObjectPath* abspath);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_abspath();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.List_Method)
  private:
   class _Internal;
@@ -13564,6 +13600,8 @@ class List_Method PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method > element_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::IvionOnline::ObjectPath* abspath_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -31392,6 +31430,150 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::IvionOnline::Method >&
 List_Method::element() const {
   // @@protoc_insertion_point(field_list:IvionOnline.List_Method.element)
   return element_;
+}
+
+// string Name = 2;
+inline void List_Method::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& List_Method::name() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Method.Name)
+  return _internal_name();
+}
+inline void List_Method::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.List_Method.Name)
+}
+inline std::string* List_Method::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Method.Name)
+  return _internal_mutable_name();
+}
+inline const std::string& List_Method::_internal_name() const {
+  return name_.Get();
+}
+inline void List_Method::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void List_Method::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:IvionOnline.List_Method.Name)
+}
+inline void List_Method::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:IvionOnline.List_Method.Name)
+}
+inline void List_Method::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:IvionOnline.List_Method.Name)
+}
+inline std::string* List_Method::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* List_Method::release_name() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Method.Name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void List_Method::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Method.Name)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 3;
+inline bool List_Method::_internal_has_abspath() const {
+  return this != internal_default_instance() && abspath_ != nullptr;
+}
+inline bool List_Method::has_abspath() const {
+  return _internal_has_abspath();
+}
+inline void List_Method::clear_abspath() {
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& List_Method::_internal_abspath() const {
+  const ::IvionOnline::ObjectPath* p = abspath_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& List_Method::abspath() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.List_Method.AbsPath)
+  return _internal_abspath();
+}
+inline void List_Method::unsafe_arena_set_allocated_abspath(
+    ::IvionOnline::ObjectPath* abspath) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(abspath_);
+  }
+  abspath_ = abspath;
+  if (abspath) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.List_Method.AbsPath)
+}
+inline ::IvionOnline::ObjectPath* List_Method::release_abspath() {
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Method::unsafe_arena_release_abspath() {
+  // @@protoc_insertion_point(field_release:IvionOnline.List_Method.AbsPath)
+  
+  ::IvionOnline::ObjectPath* temp = abspath_;
+  abspath_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* List_Method::_internal_mutable_abspath() {
+  
+  if (abspath_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    abspath_ = p;
+  }
+  return abspath_;
+}
+inline ::IvionOnline::ObjectPath* List_Method::mutable_abspath() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.List_Method.AbsPath)
+  return _internal_mutable_abspath();
+}
+inline void List_Method::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete abspath_;
+  }
+  if (abspath) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(abspath);
+    if (message_arena != submessage_arena) {
+      abspath = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, abspath, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  abspath_ = abspath;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.List_Method.AbsPath)
 }
 
 #ifdef __GNUC__

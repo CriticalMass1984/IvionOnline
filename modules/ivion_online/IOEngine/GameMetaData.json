@@ -31,6 +31,7 @@
             "Actions": "Integer",
             "Power": "Integer",
             "Initiative": "Integer",
+            "Mitigate": "Integer",
             "Slow": "Integer",
             "Silence": "Integer",
             "Disarm": "Integer",
@@ -44,7 +45,8 @@
             "MaxPower": "Integer",
             "MaxSlow": "Integer",
             "MaxSilence": "Integer",
-            "MaxDisarm": "Integer"
+            "MaxDisarm": "Integer",
+            "MaxMitigate": "Integer"
         },
         "Card": {
             "CardStats": "Ref<CardData>",
@@ -60,6 +62,7 @@
             "AffectedBySlow": "Boolean",
             "AffectedBySilence": "Boolean",
             "AffectedByDisarm": "Boolean",
+            "Attached": "Ref<Entity>",
             "OmniPresentEffect": "List<Method>",
             "PassiveEffect": "List<Method>",
             "FeatEffect": "List<Method>",
@@ -70,9 +73,7 @@
             "Position": "Vec2i",
             "Index": "int32",
             "IndexStr": "string",
-            "Terrain": "Terrain",
-            "Players": "List<Ref<Player>>",
-            "Cards": "List<Ref<Card>>"
+            "Terrain": "Terrain"
         },
         "GameState": {
             "Players": "List<Player>",
@@ -97,6 +98,13 @@
                 "<Type> Result"
             ]
         },
+        "FilterDistance": {
+            "Args": [
+                "Ref<List<ObjectPath>> Targets",
+                "Ref<List<ObjectPath>> RangeSources",
+                "Ref<Integer> MaxDistance"
+            ]
+        },
         "SelectMultiple": {
             "Args": [
                 "Ref<List<ObjectPath>> Source",
@@ -118,14 +126,19 @@
         "AssertControlOrHeroic": {},
         "AssertControllerHasPriority": {},
         "AssertStackEmptyOrInstant": {},
-        "PayCost": {
+        "ReduceCost": {
             "Args": [
-                "Ref<Player> Player",
                 "Ref<Card> Card",
                 "Ref<Integer> ActionCostReduction",
                 "Ref<Integer> PowerCostReduction",
                 "Ref<Integer> CostReduction",
                 "Ref<Boolean> Free"
+            ]
+        },
+        "PayCost": {
+            "Args": [
+                "Ref<Player> Player",
+                "Ref<Card> Card"
             ]
         },
         "PlayGainResources": {

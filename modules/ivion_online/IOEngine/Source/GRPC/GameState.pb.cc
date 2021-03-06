@@ -43,7 +43,7 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Color_Remove_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Integer_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Integer_Remove_Mutation_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Method_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Method_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_ObjectPath_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_ObjectPath_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_ObjectPath_Remove_Mutation_GameState_2eproto;
@@ -834,9 +834,10 @@ static void InitDefaultsscc_info_List_Method_GameState_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_List_Method_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_List_Method_GameState_2eproto}, {
-      &scc_info_Method_GameState_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Method_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_List_Method_GameState_2eproto}, {
+      &scc_info_Method_GameState_2eproto.base,
+      &scc_info_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_List_ObjectPath_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1924,6 +1925,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, element_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, name_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, abspath_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::IvionOnline::History)},
@@ -2348,28 +2351,29 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "onOnline.Terrain_ConstantH\000\0225\n\016Color_Con"
   "stant\030\025 \001(\0132\033.IvionOnline.Color_Constant"
   "H\000\022\?\n\023ObjectPath_Constant\030\026 \001(\0132 .IvionO"
-  "nline.ObjectPath_ConstantH\000B\t\n\007methods\"3"
+  "nline.ObjectPath_ConstantH\000B\t\n\007methods\"k"
   "\n\013List_Method\022$\n\007element\030\001 \003(\0132\023.IvionOn"
-  "line.Method*\351\005\n\nObjectType\022\020\n\014TYPE_BOOLE"
-  "AN\020\000\022\025\n\021TYPE_LIST_BOOLEAN\020\001\022\031\n\025TYPE_LIST"
-  "_REF_BOOLEAN\020\002\022\020\n\014TYPE_INTEGER\020\003\022\025\n\021TYPE"
-  "_LIST_INTEGER\020\004\022\031\n\025TYPE_LIST_REF_INTEGER"
-  "\020\005\022\016\n\nTYPE_VEC2I\020\006\022\023\n\017TYPE_LIST_VEC2I\020\007\022"
-  "\027\n\023TYPE_LIST_REF_VEC2I\020\010\022\020\n\014TYPE_TERRAIN"
-  "\020\t\022\025\n\021TYPE_LIST_TERRAIN\020\n\022\031\n\025TYPE_LIST_R"
-  "EF_TERRAIN\020\013\022\016\n\nTYPE_COLOR\020\014\022\023\n\017TYPE_LIS"
-  "T_COLOR\020\r\022\027\n\023TYPE_LIST_REF_COLOR\020\016\022\023\n\017TY"
-  "PE_OBJECTPATH\020\017\022\030\n\024TYPE_LIST_OBJECTPATH\020"
-  "\020\022\034\n\030TYPE_LIST_REF_OBJECTPATH\020\021\022\017\n\013TYPE_"
-  "PLAYER\020\022\022\024\n\020TYPE_LIST_PLAYER\020\023\022\030\n\024TYPE_L"
-  "IST_REF_PLAYER\020\024\022\r\n\tTYPE_CARD\020\025\022\022\n\016TYPE_"
-  "LIST_CARD\020\026\022\026\n\022TYPE_LIST_REF_CARD\020\027\022\021\n\rT"
-  "YPE_CARDDATA\020\030\022\026\n\022TYPE_LIST_CARDDATA\020\031\022\032"
-  "\n\026TYPE_LIST_REF_CARDDATA\020\032\022\r\n\tTYPE_TILE\020"
-  "\033\022\022\n\016TYPE_LIST_TILE\020\034\022\026\n\022TYPE_LIST_REF_T"
-  "ILE\020\035\022\022\n\016TYPE_GAMESTATE\020\036\022\027\n\023TYPE_LIST_G"
-  "AMESTATE\020\037\022\033\n\027TYPE_LIST_REF_GAMESTATE\020 b"
-  "\006proto3"
+  "line.Method\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 \001"
+  "(\0132\027.IvionOnline.ObjectPath*\351\005\n\nObjectTy"
+  "pe\022\020\n\014TYPE_BOOLEAN\020\000\022\025\n\021TYPE_LIST_BOOLEA"
+  "N\020\001\022\031\n\025TYPE_LIST_REF_BOOLEAN\020\002\022\020\n\014TYPE_I"
+  "NTEGER\020\003\022\025\n\021TYPE_LIST_INTEGER\020\004\022\031\n\025TYPE_"
+  "LIST_REF_INTEGER\020\005\022\016\n\nTYPE_VEC2I\020\006\022\023\n\017TY"
+  "PE_LIST_VEC2I\020\007\022\027\n\023TYPE_LIST_REF_VEC2I\020\010"
+  "\022\020\n\014TYPE_TERRAIN\020\t\022\025\n\021TYPE_LIST_TERRAIN\020"
+  "\n\022\031\n\025TYPE_LIST_REF_TERRAIN\020\013\022\016\n\nTYPE_COL"
+  "OR\020\014\022\023\n\017TYPE_LIST_COLOR\020\r\022\027\n\023TYPE_LIST_R"
+  "EF_COLOR\020\016\022\023\n\017TYPE_OBJECTPATH\020\017\022\030\n\024TYPE_"
+  "LIST_OBJECTPATH\020\020\022\034\n\030TYPE_LIST_REF_OBJEC"
+  "TPATH\020\021\022\017\n\013TYPE_PLAYER\020\022\022\024\n\020TYPE_LIST_PL"
+  "AYER\020\023\022\030\n\024TYPE_LIST_REF_PLAYER\020\024\022\r\n\tTYPE"
+  "_CARD\020\025\022\022\n\016TYPE_LIST_CARD\020\026\022\026\n\022TYPE_LIST"
+  "_REF_CARD\020\027\022\021\n\rTYPE_CARDDATA\020\030\022\026\n\022TYPE_L"
+  "IST_CARDDATA\020\031\022\032\n\026TYPE_LIST_REF_CARDDATA"
+  "\020\032\022\r\n\tTYPE_TILE\020\033\022\022\n\016TYPE_LIST_TILE\020\034\022\026\n"
+  "\022TYPE_LIST_REF_TILE\020\035\022\022\n\016TYPE_GAMESTATE\020"
+  "\036\022\027\n\023TYPE_LIST_GAMESTATE\020\037\022\033\n\027TYPE_LIST_"
+  "REF_GAMESTATE\020 b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[1] = {
 };
@@ -2443,7 +2447,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 12207,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 12263,
   &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 66, 0,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
   file_level_metadata_GameState_2eproto, 66, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
@@ -23991,8 +23995,13 @@ void Method::InternalSwap(Method* other) {
 
 class List_Method::_Internal {
  public:
+  static const ::IvionOnline::ObjectPath& abspath(const List_Method* msg);
 };
 
+const ::IvionOnline::ObjectPath&
+List_Method::_Internal::abspath(const List_Method* msg) {
+  return *msg->abspath_;
+}
 List_Method::List_Method(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   element_(arena) {
@@ -24004,11 +24013,23 @@ List_Method::List_Method(const List_Method& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       element_(from.element_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  if (from._internal_has_abspath()) {
+    abspath_ = new ::IvionOnline::ObjectPath(*from.abspath_);
+  } else {
+    abspath_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.List_Method)
 }
 
 void List_Method::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_List_Method_GameState_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  abspath_ = nullptr;
 }
 
 List_Method::~List_Method() {
@@ -24019,6 +24040,8 @@ List_Method::~List_Method() {
 
 void List_Method::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete abspath_;
 }
 
 void List_Method::ArenaDtor(void* object) {
@@ -24043,6 +24066,11 @@ void List_Method::Clear() {
   (void) cached_has_bits;
 
   element_.Clear();
+  name_.ClearToEmpty();
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -24063,6 +24091,22 @@ const char* List_Method::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // string Name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.List_Method.Name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath AbsPath = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_abspath(), ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -24101,6 +24145,24 @@ failure:
       InternalWriteMessage(1, this->_internal_element(i), target, stream);
   }
 
+  // string Name = 2;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IvionOnline.List_Method.Name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_name(), target);
+  }
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  if (this->has_abspath()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::abspath(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -24122,6 +24184,20 @@ size_t List_Method::ByteSizeLong() const {
   for (const auto& msg : this->element_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string Name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  if (this->has_abspath()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *abspath_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -24156,6 +24232,12 @@ void List_Method::MergeFrom(const List_Method& from) {
   (void) cached_has_bits;
 
   element_.MergeFrom(from.element_);
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.has_abspath()) {
+    _internal_mutable_abspath()->::IvionOnline::ObjectPath::MergeFrom(from._internal_abspath());
+  }
 }
 
 void List_Method::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -24180,6 +24262,8 @@ void List_Method::InternalSwap(List_Method* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   element_.InternalSwap(&other->element_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(abspath_, other->abspath_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata List_Method::GetMetadata() const {

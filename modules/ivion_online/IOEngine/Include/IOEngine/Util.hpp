@@ -6,7 +6,26 @@
 
 namespace IO {
 class GameInstance;
+
 void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path);
+
+template<typename T>
+T* SetPathData(T *obj, IvionOnline::ObjectPath *root, const std::string &name)
+{
+	obj->set_name(name);
+	obj->mutable_abspath()->CopyFrom(*root);
+	obj->mutable_abspath()->add_path(name);
+	return obj;
+}
+
+template<typename T, typename R>
+T* SetPathData(T *obj, R *root, const std::string &name)
+{
+	obj->set_name(name);
+	obj->mutable_abspath()->CopyFrom(root->abspath());
+	obj->mutable_abspath()->add_path(name);
+	return obj;
+}
 
 bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B) {
 	const size_t ALen = A->path_size();

@@ -1,7 +1,7 @@
 void Apply_{NAME}_Set_Mutation(GameInstance* instance,  {PACKAGE_NAME}::{NAME}_Set_Mutation* mutation){{
-    {PACKAGE_NAME}::{NAME}* object = dynamic_cast<{PACKAGE_NAME}::{NAME}*>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::{NAME}* object = instance->ResolvePath<{PACKAGE_NAME}::{NAME}>(mutation->mutable_path());
     assert(object);
-    object->CopyFrom(mutation->newvalue());
+	{APPLY_VALUE}
 }}
 void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
@@ -28,9 +28,9 @@ void Apply_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
     }}
 }}
 void Revert_{NAME}_Set_Mutation(GameInstance* instance, {PACKAGE_NAME}::{NAME}_Set_Mutation* mutation){{
-    {PACKAGE_NAME}::{NAME}* object = dynamic_cast<{PACKAGE_NAME}::{NAME}*>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::{NAME}* object = instance->ResolvePath<{PACKAGE_NAME}::{NAME}>(mutation->mutable_path());
     assert(object);
-    object->CopyFrom(mutation->oldvalue());
+	{REVERT_VALUE}
 }}
 void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());

@@ -79,7 +79,7 @@ void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnl
 void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Tile* value);
 void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Tile* value);
 void Set(GameInstance* instance, IvionOnline::Integer* object, int value);
-void Set(GameInstance* instance, IvionOnline::Integer* object, bool value);
+void Set(GameInstance* instance, IvionOnline::Boolean* object, bool value);
 void Set(GameInstance* instance, IvionOnline::Vec2i* object, const Vec2i& value);
 void Set(GameInstance* instance, IvionOnline::Terrain* object, IvionOnline::Terrain::Terrain_Type value);
 void Set(GameInstance* instance, IvionOnline::Boolean* object, const IvionOnline::Boolean* value);

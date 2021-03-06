@@ -513,5 +513,7 @@ message Method {
 
 message List_Method {
 	repeated Method element = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
