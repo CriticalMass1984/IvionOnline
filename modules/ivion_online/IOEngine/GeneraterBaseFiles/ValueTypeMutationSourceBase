@@ -4,7 +4,7 @@ void Apply_{NAME}_Set_Mutation(GameInstance* instance,  {PACKAGE_NAME}::{NAME}_S
     object->CopyFrom(mutation->newvalue());
 }}
 void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
-    {PACKAGE_NAME}::List_{NAME} *list = dynamic_cast<{PACKAGE_NAME}::List_{NAME} *>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
 	const int size = list->element_size();
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -16,7 +16,7 @@ void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
 	}}
 }}
 void Apply_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Remove_Mutation* mutation){{
-    {PACKAGE_NAME}::List_{NAME} *list = dynamic_cast<{PACKAGE_NAME}::List_{NAME} *>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -33,7 +33,7 @@ void Revert_{NAME}_Set_Mutation(GameInstance* instance, {PACKAGE_NAME}::{NAME}_S
     object->CopyFrom(mutation->oldvalue());
 }}
 void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
-    {PACKAGE_NAME}::List_{NAME} *list = dynamic_cast<{PACKAGE_NAME}::List_{NAME} *>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -45,7 +45,7 @@ void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::
 	}}
 }}
 void Revert_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Remove_Mutation* mutation){{
-    {PACKAGE_NAME}::List_{NAME} *list = dynamic_cast<{PACKAGE_NAME}::List_{NAME} *>(instance->ResolvePath(mutation->mutable_path()));
+    {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
 	const int size = list->element_size();
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);

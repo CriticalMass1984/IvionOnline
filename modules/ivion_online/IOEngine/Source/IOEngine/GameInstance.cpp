@@ -1,6 +1,7 @@
 #include <IOEngine/GameInstance.hpp>
 
 #include <cassert>
+namespace IO {
 
 GameInstance::GameInstance() {}
 
@@ -91,68 +92,56 @@ google::protobuf::Message *GameInstance::ResolvePath(IvionOnline::ObjectPath *pa
 		}
 		return -1;
 	};
-	//
-	google::protobuf::Message *message = this->instance_.mutable_gamestate();
+
+	assert(path);
+	if (path->path().empty()) {
+		return nullptr;
+	}
 
 	//
-	if (path->field_indecies_size() > 0) {
-		auto it = path->field_indecies().begin();
-		// if (*it == -1) {
-		// 	assert(card);
-		// 	message = card;
-		// 	++it;
-		// }
-		for (auto end = path->field_indecies().end(); it != end; ++it) {
-			const auto *descriptor = message->GetDescriptor();
-			assert(*it <= descriptor->field_count());
-			const auto *fieldDesc = descriptor->field(*it);
-			descriptor = fieldDesc->message_type();
-			if (fieldDesc->is_repeated()) {
-				const int idx = *(++it);
-				message = const_cast<google::protobuf::Message *>(
-						&message->GetReflection()->GetRepeatedMessage(*message, fieldDesc, idx));
-			} else {
-				message = message->GetReflection()->MutableMessage(message, fieldDesc);
-			}
-		}
-	} else {
-		if (path->full_path().empty()) {
-			return nullptr;
-		}
-		const auto pathParts = Split(path->full_path());
+	google::protobuf::Message *message = &this->gamestate_;
 
-		// this will clear the full path
-		path->mutable_field_indecies()->Clear();
-		auto fieldName = pathParts.begin();
-		// if (pathParts.front() == ".") {
-		// 	assert(card);
-		// 	message = card;
-		// 	++fieldName;
-		// }
-		for (auto end = pathParts.end(); fieldName != end; ++fieldName) {
-			fprintf(stderr, "Expected Field Name: %s\n", fieldName->c_str());
-			const auto *descriptor = message->GetDescriptor();
-			const auto *fieldDesc = descriptor->FindFieldByName(*fieldName);
+	// this will clear the full path
+	auto fieldName = path->path().begin();
+	if (*fieldName == ".") {
+		assert(this->currentCard_);
+		message = this->currentCard_;
+		++fieldName;
+	}
+	for (auto end = path->path().end(); fieldName != end; ++fieldName) {
+		// fprintf(stderr, "Expected Field Name: %s\n", fieldName->c_str());
+		const auto *descriptor = message->GetDescriptor();
+		const auto *fieldDesc = descriptor->FindFieldByName(*fieldName);
 
-			printf("Found Field Match: %s\n", fieldDesc->name().c_str());
-			descriptor = fieldDesc->message_type();
-			path->add_field_indecies(fieldDesc->index());
-			if (fieldDesc->is_repeated()) {
-				const std::string &indexName = *(++fieldName);
-				// index given by
-				if (auto optIndex = TryParse(indexName); optIndex.has_value()) {
-					const int idx = optIndex.value();
-					message = message->GetReflection()->MutableRepeatedMessage(message, fieldDesc, idx);
-					path->add_field_indecies(idx);
-				} else {
-					const int idx = GetRepeatedItemByName(*message, fieldDesc, message->GetReflection(), indexName);
-					message = message->GetReflection()->MutableRepeatedMessage(message, fieldDesc, idx);
-					path->add_field_indecies(idx);
-				}
+		// printf("Found Field Match: %s\n", fieldDesc->name().c_str());
+		descriptor = fieldDesc->message_type();
+		if (fieldDesc->is_repeated()) {
+			const std::string &indexName = *(++fieldName);
+			// index given by
+			if (auto optIndex = TryParse(indexName); optIndex.has_value()) {
+				const int idx = optIndex.value();
+				message = message->GetReflection()->MutableRepeatedMessage(message, fieldDesc, idx);
 			} else {
-				message = message->GetReflection()->MutableMessage(message, fieldDesc);
+				const int idx = GetRepeatedItemByName(*message, fieldDesc, message->GetReflection(), indexName);
+				message = message->GetReflection()->MutableRepeatedMessage(message, fieldDesc, idx);
 			}
+		} else {
+			message = message->GetReflection()->MutableMessage(message, fieldDesc);
 		}
 	}
 	return message;
 }
+
+void GameInstance::ApplyHistory(IvionOnline::History *history) {
+	assert(history->is_good());
+	for (IvionOnline::Mutation &mutation : *history->mutable_mutations()) {
+		ApplyMutation(&mutation);
+	}
+}
+void GameInstance::RevertHistory(IvionOnline::History *history) {
+	assert(history->is_good());
+	for (auto it = history->mutable_mutations()->rbegin(), end = history->mutable_mutations()->rend(); it != end; ++it) {
+		RevertMutation(&*it);
+	}
+}
+} // namespace IO

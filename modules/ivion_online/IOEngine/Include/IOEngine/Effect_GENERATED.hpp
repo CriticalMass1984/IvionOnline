@@ -7,12 +7,14 @@ namespace IO {
 using MethodIter = google::protobuf::internal::RepeatedPtrIterator<IvionOnline::Method>;
 
 bool __GetList(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::ObjectPath* Source);
+bool __FilterDistance(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Targets, IvionOnline::List_ObjectPath* RangeSources, IvionOnline::Integer* MaxDistance);
 bool __SelectMultiple(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::List_ObjectPath* Source, IvionOnline::Integer* Number, IvionOnline::Boolean* UpTo);
 bool __SelectExactlyOne(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ObjectPath* Result, IvionOnline::List_ObjectPath* Source);
 bool __AssertControlOrHeroic(GameInstance* instance, MethodIter begin, const MethodIter& end);
 bool __AssertControllerHasPriority(GameInstance* instance, MethodIter begin, const MethodIter& end);
 bool __AssertStackEmptyOrInstant(GameInstance* instance, MethodIter begin, const MethodIter& end);
-bool __PayCost(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Player* Player, IvionOnline::Card* Card, IvionOnline::Integer* ActionCostReduction, IvionOnline::Integer* PowerCostReduction, IvionOnline::Integer* CostReduction, IvionOnline::Boolean* Free);
+bool __ReduceCost(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Card* Card, IvionOnline::Integer* ActionCostReduction, IvionOnline::Integer* PowerCostReduction, IvionOnline::Integer* CostReduction, IvionOnline::Boolean* Free);
+bool __PayCost(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Player* Player, IvionOnline::Card* Card);
 bool __PlayGainResources(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Player* Player, IvionOnline::Card* Card);
 bool __RefundCost(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Player* Player, IvionOnline::Card* Card);
 bool __GainActions(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Player* Player, IvionOnline::Integer* Value);
@@ -37,14 +39,24 @@ inline bool GetList(
 }
 
 
+inline bool FilterDistance(
+		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::FilterDistance* message) {
+	return __FilterDistance(
+		instance, begin, end,
+		instance->ResolvePath<IvionOnline::List_ObjectPath>(message->mutable_targets()),
+		instance->ResolvePath<IvionOnline::List_ObjectPath>(message->mutable_rangesources()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_maxdistance()));
+}
+
+
 inline bool SelectMultiple(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::SelectMultiple* message) {
 	return __SelectMultiple(
 		instance, begin, end,
 		message->mutable_result(),
-		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_number())),
-		dynamic_cast<IvionOnline::Boolean*>(instance->ResolvePath(message->mutable_upto())));
+		instance->ResolvePath<IvionOnline::List_ObjectPath>(message->mutable_source()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_number()),
+		instance->ResolvePath<IvionOnline::Boolean>(message->mutable_upto()));
 }
 
 
@@ -53,7 +65,7 @@ inline bool SelectExactlyOne(
 	return __SelectExactlyOne(
 		instance, begin, end,
 		message->mutable_result(),
-		dynamic_cast<IvionOnline::List_ObjectPath*>(instance->ResolvePath(message->mutable_source())));
+		instance->ResolvePath<IvionOnline::List_ObjectPath>(message->mutable_source()));
 }
 
 
@@ -78,16 +90,24 @@ inline bool AssertStackEmptyOrInstant(
 }
 
 
+inline bool ReduceCost(
+		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ReduceCost* message) {
+	return __ReduceCost(
+		instance, begin, end,
+		instance->ResolvePath<IvionOnline::Card>(message->mutable_card()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_actioncostreduction()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_powercostreduction()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_costreduction()),
+		instance->ResolvePath<IvionOnline::Boolean>(message->mutable_free()));
+}
+
+
 inline bool PayCost(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::PayCost* message) {
 	return __PayCost(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Card*>(instance->ResolvePath(message->mutable_card())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_actioncostreduction())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_powercostreduction())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_costreduction())),
-		dynamic_cast<IvionOnline::Boolean*>(instance->ResolvePath(message->mutable_free())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Card>(message->mutable_card()));
 }
 
 
@@ -95,8 +115,8 @@ inline bool PlayGainResources(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::PlayGainResources* message) {
 	return __PlayGainResources(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Card*>(instance->ResolvePath(message->mutable_card())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Card>(message->mutable_card()));
 }
 
 
@@ -104,8 +124,8 @@ inline bool RefundCost(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::RefundCost* message) {
 	return __RefundCost(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Card*>(instance->ResolvePath(message->mutable_card())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Card>(message->mutable_card()));
 }
 
 
@@ -113,8 +133,8 @@ inline bool GainActions(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GainActions* message) {
 	return __GainActions(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_value())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_value()));
 }
 
 
@@ -122,8 +142,8 @@ inline bool GainPower(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GainPower* message) {
 	return __GainPower(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_value())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_value()));
 }
 
 
@@ -131,8 +151,8 @@ inline bool Move(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Move* message) {
 	return __Move(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Tile*>(instance->ResolvePath(message->mutable_destination())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Tile>(message->mutable_destination()));
 }
 
 
@@ -140,8 +160,8 @@ inline bool Travel(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Travel* message) {
 	return __Travel(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Tile*>(instance->ResolvePath(message->mutable_destination())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Tile>(message->mutable_destination()));
 }
 
 
@@ -149,8 +169,8 @@ inline bool Damage(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Damage* message) {
 	return __Damage(
 		instance, begin, end,
-		dynamic_cast<IvionOnline::Player*>(instance->ResolvePath(message->mutable_player())),
-		dynamic_cast<IvionOnline::Integer*>(instance->ResolvePath(message->mutable_amount())));
+		instance->ResolvePath<IvionOnline::Player>(message->mutable_player()),
+		instance->ResolvePath<IvionOnline::Integer>(message->mutable_amount()));
 }
 
 
@@ -208,6 +228,8 @@ inline bool ExecuteMethods(GameInstance* instance, MethodIter begin, const Metho
 	}
 	if(begin->has_getlist()){
 		return GetList(instance, begin + 1, end, begin->mutable_getlist());
+	} else if(begin->has_filterdistance()){
+		return FilterDistance(instance, begin + 1, end, begin->mutable_filterdistance());
 	} else if(begin->has_selectmultiple()){
 		return SelectMultiple(instance, begin + 1, end, begin->mutable_selectmultiple());
 	} else if(begin->has_selectexactlyone()){
@@ -218,6 +240,8 @@ inline bool ExecuteMethods(GameInstance* instance, MethodIter begin, const Metho
 		return AssertControllerHasPriority(instance, begin + 1, end, begin->mutable_assertcontrollerhaspriority());
 	} else if(begin->has_assertstackemptyorinstant()){
 		return AssertStackEmptyOrInstant(instance, begin + 1, end, begin->mutable_assertstackemptyorinstant());
+	} else if(begin->has_reducecost()){
+		return ReduceCost(instance, begin + 1, end, begin->mutable_reducecost());
 	} else if(begin->has_paycost()){
 		return PayCost(instance, begin + 1, end, begin->mutable_paycost());
 	} else if(begin->has_playgainresources()){

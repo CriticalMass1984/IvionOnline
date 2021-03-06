@@ -48,6 +48,7 @@ void Revert_ObjectPath_Set_Mutation(GameInstance* instance, IvionOnline::ObjectP
 void Revert_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Insert_Mutation* mutation);
 void Revert_List_ObjectPath_Remove_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Remove_Mutation* mutation);
 
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::ObjectPath* target);
 void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::ObjectPath* value);
 void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::ObjectPath* value);
 void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Boolean* target);

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <GRPC/GameState.pb.h>
+#include <IOEngine/Util.hpp>
 #include <string>
 
 namespace IO {
-
+class GameInstance;
 void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path);
 
 bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B) {
@@ -23,10 +24,9 @@ bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B
 int GetElementIndex(google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath> *haystack, const IvionOnline::ObjectPath *needle) {
 	// google::protobuf::internal::RepeatedPtrIterator<T>
 	for (auto it = haystack->begin(), end = haystack->end(); it != end; ++it) {
-		if(AreEqual(&*it, needle))
-        {
+		if (AreEqual(&*it, needle)) {
 			return it - haystack->begin();
-        }
+		}
 	}
 	return -1;
 }
@@ -35,10 +35,9 @@ template <typename T>
 int GetElementIndex(google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath> *haystack, const T *needle) {
 	// google::protobuf::internal::RepeatedPtrIterator<T>
 	for (auto it = haystack->begin(), end = haystack->end(); it != end; ++it) {
-		if(AreEqual(&*it, &needle->abspath()))
-        {
+		if (AreEqual(&*it, &needle->abspath())) {
 			return it - haystack->begin();
-        }
+		}
 	}
 	return -1;
 }
@@ -47,12 +46,20 @@ template <typename T>
 int GetElementIndex(google::protobuf::RepeatedPtrField<T> *haystack, const T *needle) {
 	// google::protobuf::internal::RepeatedPtrIterator<T>
 	for (auto it = haystack->begin(), end = haystack->end(); it != end; ++it) {
-		if(AreEqual(&it->abspath(), &needle->abspath()))
-        {
+		if (AreEqual(&it->abspath(), &needle->abspath())) {
 			return it - haystack->begin();
-        }
+		}
 	}
 	return -1;
 }
+bool ObjectPathIsValid(const IvionOnline::ObjectPath &objectPath);
+Vec2i GetPosition(GameInstance *instance, IvionOnline::ObjectPath *objectPath);
+
+struct HistoryBranch {
+	GameInstance* instance_;
+	IvionOnline::History* previousCurrentPath_;
+	HistoryBranch(GameInstance* instance);
+	~HistoryBranch();
+};
 
 } // namespace IO

@@ -139,22 +139,24 @@ message Player {
 	Integer Actions = 6;
 	Integer Power = 7;
 	Integer Initiative = 8;
-	Integer Slow = 9;
-	Integer Silence = 10;
-	Integer Disarm = 11;
-	Vec2i Position = 12;
-	List_ObjectPath Hand = 13;
-	List_ObjectPath Deck = 14;
-	List_ObjectPath Discard = 15;
-	List_ObjectPath Feats = 16;
-	Integer MaxHealth = 17;
-	Integer MaxActions = 18;
-	Integer MaxPower = 19;
-	Integer MaxSlow = 20;
-	Integer MaxSilence = 21;
-	Integer MaxDisarm = 22;
-	ObjectPath AbsPath = 23;
-	string Name = 24;
+	Integer Mitigate = 9;
+	Integer Slow = 10;
+	Integer Silence = 11;
+	Integer Disarm = 12;
+	Vec2i Position = 13;
+	List_ObjectPath Hand = 14;
+	List_ObjectPath Deck = 15;
+	List_ObjectPath Discard = 16;
+	List_ObjectPath Feats = 17;
+	Integer MaxHealth = 18;
+	Integer MaxActions = 19;
+	Integer MaxPower = 20;
+	Integer MaxSlow = 21;
+	Integer MaxSilence = 22;
+	Integer MaxDisarm = 23;
+	Integer MaxMitigate = 24;
+	ObjectPath AbsPath = 25;
+	string Name = 26;
 }
 
 
@@ -186,13 +188,14 @@ message CardData {
 	Boolean AffectedBySlow = 6;
 	Boolean AffectedBySilence = 7;
 	Boolean AffectedByDisarm = 8;
-	List_Method OmniPresentEffect = 9;
-	List_Method PassiveEffect = 10;
-	List_Method FeatEffect = 11;
-	List_Method PlayEffect = 12;
-	List_Method ResolveEffect = 13;
-	ObjectPath AbsPath = 14;
-	string Name = 15;
+	ObjectPath Attached = 9;
+	List_Method OmniPresentEffect = 10;
+	List_Method PassiveEffect = 11;
+	List_Method FeatEffect = 12;
+	List_Method PlayEffect = 13;
+	List_Method ResolveEffect = 14;
+	ObjectPath AbsPath = 15;
+	string Name = 16;
 }
 
 
@@ -206,10 +209,8 @@ message Tile {
 	int32 Index = 2;
 	string IndexStr = 3;
 	Terrain Terrain = 4;
-	List_ObjectPath Players = 5;
-	List_ObjectPath Cards = 6;
-	ObjectPath AbsPath = 7;
-	string Name = 8;
+	ObjectPath AbsPath = 5;
+	string Name = 6;
 }
 
 
@@ -384,6 +385,12 @@ message GetList {
 	List_ObjectPath Result = 2;
 }
 
+message FilterDistance {
+	ObjectPath Targets = 1;
+	ObjectPath RangeSources = 2;
+	ObjectPath MaxDistance = 3;
+}
+
 message SelectMultiple {
 	ObjectPath Source = 1;
 	ObjectPath Number = 2;
@@ -405,13 +412,17 @@ message AssertControllerHasPriority {
 message AssertStackEmptyOrInstant {
 }
 
+message ReduceCost {
+	ObjectPath Card = 1;
+	ObjectPath ActionCostReduction = 2;
+	ObjectPath PowerCostReduction = 3;
+	ObjectPath CostReduction = 4;
+	ObjectPath Free = 5;
+}
+
 message PayCost {
 	ObjectPath Player = 1;
 	ObjectPath Card = 2;
-	ObjectPath ActionCostReduction = 3;
-	ObjectPath PowerCostReduction = 4;
-	ObjectPath CostReduction = 5;
-	ObjectPath Free = 6;
 }
 
 message PlayGainResources {
@@ -476,25 +487,27 @@ message ObjectPath_Constant {
 message Method {
 	oneof methods {
 		GetList GetList = 1;
-		SelectMultiple SelectMultiple = 2;
-		SelectExactlyOne SelectExactlyOne = 3;
-		AssertControlOrHeroic AssertControlOrHeroic = 4;
-		AssertControllerHasPriority AssertControllerHasPriority = 5;
-		AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
-		PayCost PayCost = 7;
-		PlayGainResources PlayGainResources = 8;
-		RefundCost RefundCost = 9;
-		GainActions GainActions = 10;
-		GainPower GainPower = 11;
-		Move Move = 12;
-		Travel Travel = 13;
-		Damage Damage = 14;
-		Boolean_Constant Boolean_Constant = 15;
-		Integer_Constant Integer_Constant = 16;
-		Vec2i_Constant Vec2i_Constant = 17;
-		Terrain_Constant Terrain_Constant = 18;
-		Color_Constant Color_Constant = 19;
-		ObjectPath_Constant ObjectPath_Constant = 20;
+		FilterDistance FilterDistance = 2;
+		SelectMultiple SelectMultiple = 3;
+		SelectExactlyOne SelectExactlyOne = 4;
+		AssertControlOrHeroic AssertControlOrHeroic = 5;
+		AssertControllerHasPriority AssertControllerHasPriority = 6;
+		AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
+		ReduceCost ReduceCost = 8;
+		PayCost PayCost = 9;
+		PlayGainResources PlayGainResources = 10;
+		RefundCost RefundCost = 11;
+		GainActions GainActions = 12;
+		GainPower GainPower = 13;
+		Move Move = 14;
+		Travel Travel = 15;
+		Damage Damage = 16;
+		Boolean_Constant Boolean_Constant = 17;
+		Integer_Constant Integer_Constant = 18;
+		Vec2i_Constant Vec2i_Constant = 19;
+		Terrain_Constant Terrain_Constant = 20;
+		Color_Constant Color_Constant = 21;
+		ObjectPath_Constant ObjectPath_Constant = 22;
 	}
 }
 

@@ -47,7 +47,7 @@ struct TableStruct_GameState_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[64]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[66]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -91,6 +91,9 @@ extern Color_Set_MutationDefaultTypeInternal _Color_Set_Mutation_default_instanc
 class Damage;
 class DamageDefaultTypeInternal;
 extern DamageDefaultTypeInternal _Damage_default_instance_;
+class FilterDistance;
+class FilterDistanceDefaultTypeInternal;
+extern FilterDistanceDefaultTypeInternal _FilterDistance_default_instance_;
 class GainActions;
 class GainActionsDefaultTypeInternal;
 extern GainActionsDefaultTypeInternal _GainActions_default_instance_;
@@ -214,6 +217,9 @@ extern PlayGainResourcesDefaultTypeInternal _PlayGainResources_default_instance_
 class Player;
 class PlayerDefaultTypeInternal;
 extern PlayerDefaultTypeInternal _Player_default_instance_;
+class ReduceCost;
+class ReduceCostDefaultTypeInternal;
+extern ReduceCostDefaultTypeInternal _ReduceCost_default_instance_;
 class RefundCost;
 class RefundCostDefaultTypeInternal;
 extern RefundCostDefaultTypeInternal _RefundCost_default_instance_;
@@ -261,6 +267,7 @@ template<> ::IvionOnline::Color* Arena::CreateMaybeMessage<::IvionOnline::Color>
 template<> ::IvionOnline::Color_Constant* Arena::CreateMaybeMessage<::IvionOnline::Color_Constant>(Arena*);
 template<> ::IvionOnline::Color_Set_Mutation* Arena::CreateMaybeMessage<::IvionOnline::Color_Set_Mutation>(Arena*);
 template<> ::IvionOnline::Damage* Arena::CreateMaybeMessage<::IvionOnline::Damage>(Arena*);
+template<> ::IvionOnline::FilterDistance* Arena::CreateMaybeMessage<::IvionOnline::FilterDistance>(Arena*);
 template<> ::IvionOnline::GainActions* Arena::CreateMaybeMessage<::IvionOnline::GainActions>(Arena*);
 template<> ::IvionOnline::GainPower* Arena::CreateMaybeMessage<::IvionOnline::GainPower>(Arena*);
 template<> ::IvionOnline::GameState* Arena::CreateMaybeMessage<::IvionOnline::GameState>(Arena*);
@@ -302,6 +309,7 @@ template<> ::IvionOnline::ObjectPath_Set_Mutation* Arena::CreateMaybeMessage<::I
 template<> ::IvionOnline::PayCost* Arena::CreateMaybeMessage<::IvionOnline::PayCost>(Arena*);
 template<> ::IvionOnline::PlayGainResources* Arena::CreateMaybeMessage<::IvionOnline::PlayGainResources>(Arena*);
 template<> ::IvionOnline::Player* Arena::CreateMaybeMessage<::IvionOnline::Player>(Arena*);
+template<> ::IvionOnline::ReduceCost* Arena::CreateMaybeMessage<::IvionOnline::ReduceCost>(Arena*);
 template<> ::IvionOnline::RefundCost* Arena::CreateMaybeMessage<::IvionOnline::RefundCost>(Arena*);
 template<> ::IvionOnline::SelectExactlyOne* Arena::CreateMaybeMessage<::IvionOnline::SelectExactlyOne>(Arena*);
 template<> ::IvionOnline::SelectMultiple* Arena::CreateMaybeMessage<::IvionOnline::SelectMultiple>(Arena*);
@@ -2934,26 +2942,28 @@ class Player PROTOBUF_FINAL :
     kUIDFieldNumber = 1,
     kIndexStrFieldNumber = 3,
     kDisplayNameFieldNumber = 4,
-    kNameFieldNumber = 24,
+    kNameFieldNumber = 26,
     kHealthFieldNumber = 5,
     kActionsFieldNumber = 6,
     kPowerFieldNumber = 7,
     kInitiativeFieldNumber = 8,
-    kSlowFieldNumber = 9,
-    kSilenceFieldNumber = 10,
-    kDisarmFieldNumber = 11,
-    kPositionFieldNumber = 12,
-    kHandFieldNumber = 13,
-    kDeckFieldNumber = 14,
-    kDiscardFieldNumber = 15,
-    kFeatsFieldNumber = 16,
-    kMaxHealthFieldNumber = 17,
-    kMaxActionsFieldNumber = 18,
-    kMaxPowerFieldNumber = 19,
-    kMaxSlowFieldNumber = 20,
-    kMaxSilenceFieldNumber = 21,
-    kMaxDisarmFieldNumber = 22,
-    kAbsPathFieldNumber = 23,
+    kMitigateFieldNumber = 9,
+    kSlowFieldNumber = 10,
+    kSilenceFieldNumber = 11,
+    kDisarmFieldNumber = 12,
+    kPositionFieldNumber = 13,
+    kHandFieldNumber = 14,
+    kDeckFieldNumber = 15,
+    kDiscardFieldNumber = 16,
+    kFeatsFieldNumber = 17,
+    kMaxHealthFieldNumber = 18,
+    kMaxActionsFieldNumber = 19,
+    kMaxPowerFieldNumber = 20,
+    kMaxSlowFieldNumber = 21,
+    kMaxSilenceFieldNumber = 22,
+    kMaxDisarmFieldNumber = 23,
+    kMaxMitigateFieldNumber = 24,
+    kAbsPathFieldNumber = 25,
     kIndexFieldNumber = 2,
   };
   // string UID = 1;
@@ -3004,7 +3014,7 @@ class Player PROTOBUF_FINAL :
   std::string* _internal_mutable_displayname();
   public:
 
-  // string Name = 24;
+  // string Name = 26;
   void clear_name();
   const std::string& name() const;
   void set_name(const std::string& value);
@@ -3092,7 +3102,25 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* initiative);
   ::IvionOnline::Integer* unsafe_arena_release_initiative();
 
-  // .IvionOnline.Integer Slow = 9;
+  // .IvionOnline.Integer Mitigate = 9;
+  bool has_mitigate() const;
+  private:
+  bool _internal_has_mitigate() const;
+  public:
+  void clear_mitigate();
+  const ::IvionOnline::Integer& mitigate() const;
+  ::IvionOnline::Integer* release_mitigate();
+  ::IvionOnline::Integer* mutable_mitigate();
+  void set_allocated_mitigate(::IvionOnline::Integer* mitigate);
+  private:
+  const ::IvionOnline::Integer& _internal_mitigate() const;
+  ::IvionOnline::Integer* _internal_mutable_mitigate();
+  public:
+  void unsafe_arena_set_allocated_mitigate(
+      ::IvionOnline::Integer* mitigate);
+  ::IvionOnline::Integer* unsafe_arena_release_mitigate();
+
+  // .IvionOnline.Integer Slow = 10;
   bool has_slow() const;
   private:
   bool _internal_has_slow() const;
@@ -3110,7 +3138,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* slow);
   ::IvionOnline::Integer* unsafe_arena_release_slow();
 
-  // .IvionOnline.Integer Silence = 10;
+  // .IvionOnline.Integer Silence = 11;
   bool has_silence() const;
   private:
   bool _internal_has_silence() const;
@@ -3128,7 +3156,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* silence);
   ::IvionOnline::Integer* unsafe_arena_release_silence();
 
-  // .IvionOnline.Integer Disarm = 11;
+  // .IvionOnline.Integer Disarm = 12;
   bool has_disarm() const;
   private:
   bool _internal_has_disarm() const;
@@ -3146,7 +3174,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* disarm);
   ::IvionOnline::Integer* unsafe_arena_release_disarm();
 
-  // .IvionOnline.Vec2i Position = 12;
+  // .IvionOnline.Vec2i Position = 13;
   bool has_position() const;
   private:
   bool _internal_has_position() const;
@@ -3164,7 +3192,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Vec2i* position);
   ::IvionOnline::Vec2i* unsafe_arena_release_position();
 
-  // .IvionOnline.List_ObjectPath Hand = 13;
+  // .IvionOnline.List_ObjectPath Hand = 14;
   bool has_hand() const;
   private:
   bool _internal_has_hand() const;
@@ -3182,7 +3210,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* hand);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_hand();
 
-  // .IvionOnline.List_ObjectPath Deck = 14;
+  // .IvionOnline.List_ObjectPath Deck = 15;
   bool has_deck() const;
   private:
   bool _internal_has_deck() const;
@@ -3200,7 +3228,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* deck);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_deck();
 
-  // .IvionOnline.List_ObjectPath Discard = 15;
+  // .IvionOnline.List_ObjectPath Discard = 16;
   bool has_discard() const;
   private:
   bool _internal_has_discard() const;
@@ -3218,7 +3246,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* discard);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_discard();
 
-  // .IvionOnline.List_ObjectPath Feats = 16;
+  // .IvionOnline.List_ObjectPath Feats = 17;
   bool has_feats() const;
   private:
   bool _internal_has_feats() const;
@@ -3236,7 +3264,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::List_ObjectPath* feats);
   ::IvionOnline::List_ObjectPath* unsafe_arena_release_feats();
 
-  // .IvionOnline.Integer MaxHealth = 17;
+  // .IvionOnline.Integer MaxHealth = 18;
   bool has_maxhealth() const;
   private:
   bool _internal_has_maxhealth() const;
@@ -3254,7 +3282,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxhealth);
   ::IvionOnline::Integer* unsafe_arena_release_maxhealth();
 
-  // .IvionOnline.Integer MaxActions = 18;
+  // .IvionOnline.Integer MaxActions = 19;
   bool has_maxactions() const;
   private:
   bool _internal_has_maxactions() const;
@@ -3272,7 +3300,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxactions);
   ::IvionOnline::Integer* unsafe_arena_release_maxactions();
 
-  // .IvionOnline.Integer MaxPower = 19;
+  // .IvionOnline.Integer MaxPower = 20;
   bool has_maxpower() const;
   private:
   bool _internal_has_maxpower() const;
@@ -3290,7 +3318,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxpower);
   ::IvionOnline::Integer* unsafe_arena_release_maxpower();
 
-  // .IvionOnline.Integer MaxSlow = 20;
+  // .IvionOnline.Integer MaxSlow = 21;
   bool has_maxslow() const;
   private:
   bool _internal_has_maxslow() const;
@@ -3308,7 +3336,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxslow);
   ::IvionOnline::Integer* unsafe_arena_release_maxslow();
 
-  // .IvionOnline.Integer MaxSilence = 21;
+  // .IvionOnline.Integer MaxSilence = 22;
   bool has_maxsilence() const;
   private:
   bool _internal_has_maxsilence() const;
@@ -3326,7 +3354,7 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxsilence);
   ::IvionOnline::Integer* unsafe_arena_release_maxsilence();
 
-  // .IvionOnline.Integer MaxDisarm = 22;
+  // .IvionOnline.Integer MaxDisarm = 23;
   bool has_maxdisarm() const;
   private:
   bool _internal_has_maxdisarm() const;
@@ -3344,7 +3372,25 @@ class Player PROTOBUF_FINAL :
       ::IvionOnline::Integer* maxdisarm);
   ::IvionOnline::Integer* unsafe_arena_release_maxdisarm();
 
-  // .IvionOnline.ObjectPath AbsPath = 23;
+  // .IvionOnline.Integer MaxMitigate = 24;
+  bool has_maxmitigate() const;
+  private:
+  bool _internal_has_maxmitigate() const;
+  public:
+  void clear_maxmitigate();
+  const ::IvionOnline::Integer& maxmitigate() const;
+  ::IvionOnline::Integer* release_maxmitigate();
+  ::IvionOnline::Integer* mutable_maxmitigate();
+  void set_allocated_maxmitigate(::IvionOnline::Integer* maxmitigate);
+  private:
+  const ::IvionOnline::Integer& _internal_maxmitigate() const;
+  ::IvionOnline::Integer* _internal_mutable_maxmitigate();
+  public:
+  void unsafe_arena_set_allocated_maxmitigate(
+      ::IvionOnline::Integer* maxmitigate);
+  ::IvionOnline::Integer* unsafe_arena_release_maxmitigate();
+
+  // .IvionOnline.ObjectPath AbsPath = 25;
   bool has_abspath() const;
   private:
   bool _internal_has_abspath() const;
@@ -3386,6 +3432,7 @@ class Player PROTOBUF_FINAL :
   ::IvionOnline::Integer* actions_;
   ::IvionOnline::Integer* power_;
   ::IvionOnline::Integer* initiative_;
+  ::IvionOnline::Integer* mitigate_;
   ::IvionOnline::Integer* slow_;
   ::IvionOnline::Integer* silence_;
   ::IvionOnline::Integer* disarm_;
@@ -3400,6 +3447,7 @@ class Player PROTOBUF_FINAL :
   ::IvionOnline::Integer* maxslow_;
   ::IvionOnline::Integer* maxsilence_;
   ::IvionOnline::Integer* maxdisarm_;
+  ::IvionOnline::Integer* maxmitigate_;
   ::IvionOnline::ObjectPath* abspath_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -4097,7 +4145,7 @@ class CardData PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 15,
+    kNameFieldNumber = 16,
     kOwnerFieldNumber = 1,
     kControllerFieldNumber = 2,
     kActionCostFieldNumber = 3,
@@ -4106,14 +4154,15 @@ class CardData PROTOBUF_FINAL :
     kAffectedBySlowFieldNumber = 6,
     kAffectedBySilenceFieldNumber = 7,
     kAffectedByDisarmFieldNumber = 8,
-    kOmniPresentEffectFieldNumber = 9,
-    kPassiveEffectFieldNumber = 10,
-    kFeatEffectFieldNumber = 11,
-    kPlayEffectFieldNumber = 12,
-    kResolveEffectFieldNumber = 13,
-    kAbsPathFieldNumber = 14,
+    kAttachedFieldNumber = 9,
+    kOmniPresentEffectFieldNumber = 10,
+    kPassiveEffectFieldNumber = 11,
+    kFeatEffectFieldNumber = 12,
+    kPlayEffectFieldNumber = 13,
+    kResolveEffectFieldNumber = 14,
+    kAbsPathFieldNumber = 15,
   };
-  // string Name = 15;
+  // string Name = 16;
   void clear_name();
   const std::string& name() const;
   void set_name(const std::string& value);
@@ -4273,7 +4322,25 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::Boolean* affectedbydisarm);
   ::IvionOnline::Boolean* unsafe_arena_release_affectedbydisarm();
 
-  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  // .IvionOnline.ObjectPath Attached = 9;
+  bool has_attached() const;
+  private:
+  bool _internal_has_attached() const;
+  public:
+  void clear_attached();
+  const ::IvionOnline::ObjectPath& attached() const;
+  ::IvionOnline::ObjectPath* release_attached();
+  ::IvionOnline::ObjectPath* mutable_attached();
+  void set_allocated_attached(::IvionOnline::ObjectPath* attached);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_attached() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_attached();
+  public:
+  void unsafe_arena_set_allocated_attached(
+      ::IvionOnline::ObjectPath* attached);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_attached();
+
+  // .IvionOnline.List_Method OmniPresentEffect = 10;
   bool has_omnipresenteffect() const;
   private:
   bool _internal_has_omnipresenteffect() const;
@@ -4291,7 +4358,7 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* omnipresenteffect);
   ::IvionOnline::List_Method* unsafe_arena_release_omnipresenteffect();
 
-  // .IvionOnline.List_Method PassiveEffect = 10;
+  // .IvionOnline.List_Method PassiveEffect = 11;
   bool has_passiveeffect() const;
   private:
   bool _internal_has_passiveeffect() const;
@@ -4309,7 +4376,7 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* passiveeffect);
   ::IvionOnline::List_Method* unsafe_arena_release_passiveeffect();
 
-  // .IvionOnline.List_Method FeatEffect = 11;
+  // .IvionOnline.List_Method FeatEffect = 12;
   bool has_feateffect() const;
   private:
   bool _internal_has_feateffect() const;
@@ -4327,7 +4394,7 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* feateffect);
   ::IvionOnline::List_Method* unsafe_arena_release_feateffect();
 
-  // .IvionOnline.List_Method PlayEffect = 12;
+  // .IvionOnline.List_Method PlayEffect = 13;
   bool has_playeffect() const;
   private:
   bool _internal_has_playeffect() const;
@@ -4345,7 +4412,7 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* playeffect);
   ::IvionOnline::List_Method* unsafe_arena_release_playeffect();
 
-  // .IvionOnline.List_Method ResolveEffect = 13;
+  // .IvionOnline.List_Method ResolveEffect = 14;
   bool has_resolveeffect() const;
   private:
   bool _internal_has_resolveeffect() const;
@@ -4363,7 +4430,7 @@ class CardData PROTOBUF_FINAL :
       ::IvionOnline::List_Method* resolveeffect);
   ::IvionOnline::List_Method* unsafe_arena_release_resolveeffect();
 
-  // .IvionOnline.ObjectPath AbsPath = 14;
+  // .IvionOnline.ObjectPath AbsPath = 15;
   bool has_abspath() const;
   private:
   bool _internal_has_abspath() const;
@@ -4397,6 +4464,7 @@ class CardData PROTOBUF_FINAL :
   ::IvionOnline::Boolean* affectedbyslow_;
   ::IvionOnline::Boolean* affectedbysilence_;
   ::IvionOnline::Boolean* affectedbydisarm_;
+  ::IvionOnline::ObjectPath* attached_;
   ::IvionOnline::List_Method* omnipresenteffect_;
   ::IvionOnline::List_Method* passiveeffect_;
   ::IvionOnline::List_Method* feateffect_;
@@ -4704,12 +4772,10 @@ class Tile PROTOBUF_FINAL :
 
   enum : int {
     kIndexStrFieldNumber = 3,
-    kNameFieldNumber = 8,
+    kNameFieldNumber = 6,
     kPositionFieldNumber = 1,
     kTerrainFieldNumber = 4,
-    kPlayersFieldNumber = 5,
-    kCardsFieldNumber = 6,
-    kAbsPathFieldNumber = 7,
+    kAbsPathFieldNumber = 5,
     kIndexFieldNumber = 2,
   };
   // string IndexStr = 3;
@@ -4728,7 +4794,7 @@ class Tile PROTOBUF_FINAL :
   std::string* _internal_mutable_indexstr();
   public:
 
-  // string Name = 8;
+  // string Name = 6;
   void clear_name();
   const std::string& name() const;
   void set_name(const std::string& value);
@@ -4780,43 +4846,7 @@ class Tile PROTOBUF_FINAL :
       ::IvionOnline::Terrain* terrain);
   ::IvionOnline::Terrain* unsafe_arena_release_terrain();
 
-  // .IvionOnline.List_ObjectPath Players = 5;
-  bool has_players() const;
-  private:
-  bool _internal_has_players() const;
-  public:
-  void clear_players();
-  const ::IvionOnline::List_ObjectPath& players() const;
-  ::IvionOnline::List_ObjectPath* release_players();
-  ::IvionOnline::List_ObjectPath* mutable_players();
-  void set_allocated_players(::IvionOnline::List_ObjectPath* players);
-  private:
-  const ::IvionOnline::List_ObjectPath& _internal_players() const;
-  ::IvionOnline::List_ObjectPath* _internal_mutable_players();
-  public:
-  void unsafe_arena_set_allocated_players(
-      ::IvionOnline::List_ObjectPath* players);
-  ::IvionOnline::List_ObjectPath* unsafe_arena_release_players();
-
-  // .IvionOnline.List_ObjectPath Cards = 6;
-  bool has_cards() const;
-  private:
-  bool _internal_has_cards() const;
-  public:
-  void clear_cards();
-  const ::IvionOnline::List_ObjectPath& cards() const;
-  ::IvionOnline::List_ObjectPath* release_cards();
-  ::IvionOnline::List_ObjectPath* mutable_cards();
-  void set_allocated_cards(::IvionOnline::List_ObjectPath* cards);
-  private:
-  const ::IvionOnline::List_ObjectPath& _internal_cards() const;
-  ::IvionOnline::List_ObjectPath* _internal_mutable_cards();
-  public:
-  void unsafe_arena_set_allocated_cards(
-      ::IvionOnline::List_ObjectPath* cards);
-  ::IvionOnline::List_ObjectPath* unsafe_arena_release_cards();
-
-  // .IvionOnline.ObjectPath AbsPath = 7;
+  // .IvionOnline.ObjectPath AbsPath = 5;
   bool has_abspath() const;
   private:
   bool _internal_has_abspath() const;
@@ -4854,8 +4884,6 @@ class Tile PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   ::IvionOnline::Vec2i* position_;
   ::IvionOnline::Terrain* terrain_;
-  ::IvionOnline::List_ObjectPath* players_;
-  ::IvionOnline::List_ObjectPath* cards_;
   ::IvionOnline::ObjectPath* abspath_;
   ::PROTOBUF_NAMESPACE_ID::int32 index_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -9434,6 +9462,191 @@ class GetList PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class FilterDistance PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.FilterDistance) */ {
+ public:
+  inline FilterDistance() : FilterDistance(nullptr) {}
+  virtual ~FilterDistance();
+
+  FilterDistance(const FilterDistance& from);
+  FilterDistance(FilterDistance&& from) noexcept
+    : FilterDistance() {
+    *this = ::std::move(from);
+  }
+
+  inline FilterDistance& operator=(const FilterDistance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline FilterDistance& operator=(FilterDistance&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const FilterDistance& default_instance();
+
+  static inline const FilterDistance* internal_default_instance() {
+    return reinterpret_cast<const FilterDistance*>(
+               &_FilterDistance_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    43;
+
+  friend void swap(FilterDistance& a, FilterDistance& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(FilterDistance* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(FilterDistance* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FilterDistance* New() const final {
+    return CreateMaybeMessage<FilterDistance>(nullptr);
+  }
+
+  FilterDistance* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<FilterDistance>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const FilterDistance& from);
+  void MergeFrom(const FilterDistance& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(FilterDistance* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.FilterDistance";
+  }
+  protected:
+  explicit FilterDistance(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetsFieldNumber = 1,
+    kRangeSourcesFieldNumber = 2,
+    kMaxDistanceFieldNumber = 3,
+  };
+  // .IvionOnline.ObjectPath Targets = 1;
+  bool has_targets() const;
+  private:
+  bool _internal_has_targets() const;
+  public:
+  void clear_targets();
+  const ::IvionOnline::ObjectPath& targets() const;
+  ::IvionOnline::ObjectPath* release_targets();
+  ::IvionOnline::ObjectPath* mutable_targets();
+  void set_allocated_targets(::IvionOnline::ObjectPath* targets);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_targets() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_targets();
+  public:
+  void unsafe_arena_set_allocated_targets(
+      ::IvionOnline::ObjectPath* targets);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_targets();
+
+  // .IvionOnline.ObjectPath RangeSources = 2;
+  bool has_rangesources() const;
+  private:
+  bool _internal_has_rangesources() const;
+  public:
+  void clear_rangesources();
+  const ::IvionOnline::ObjectPath& rangesources() const;
+  ::IvionOnline::ObjectPath* release_rangesources();
+  ::IvionOnline::ObjectPath* mutable_rangesources();
+  void set_allocated_rangesources(::IvionOnline::ObjectPath* rangesources);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_rangesources() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_rangesources();
+  public:
+  void unsafe_arena_set_allocated_rangesources(
+      ::IvionOnline::ObjectPath* rangesources);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_rangesources();
+
+  // .IvionOnline.ObjectPath MaxDistance = 3;
+  bool has_maxdistance() const;
+  private:
+  bool _internal_has_maxdistance() const;
+  public:
+  void clear_maxdistance();
+  const ::IvionOnline::ObjectPath& maxdistance() const;
+  ::IvionOnline::ObjectPath* release_maxdistance();
+  ::IvionOnline::ObjectPath* mutable_maxdistance();
+  void set_allocated_maxdistance(::IvionOnline::ObjectPath* maxdistance);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_maxdistance() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_maxdistance();
+  public:
+  void unsafe_arena_set_allocated_maxdistance(
+      ::IvionOnline::ObjectPath* maxdistance);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_maxdistance();
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.FilterDistance)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* targets_;
+  ::IvionOnline::ObjectPath* rangesources_;
+  ::IvionOnline::ObjectPath* maxdistance_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SelectMultiple PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.SelectMultiple) */ {
  public:
@@ -9475,7 +9688,7 @@ class SelectMultiple PROTOBUF_FINAL :
                &_SelectMultiple_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(SelectMultiple& a, SelectMultiple& b) {
     a.Swap(&b);
@@ -9680,7 +9893,7 @@ class SelectExactlyOne PROTOBUF_FINAL :
                &_SelectExactlyOne_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(SelectExactlyOne& a, SelectExactlyOne& b) {
     a.Swap(&b);
@@ -9845,7 +10058,7 @@ class AssertControlOrHeroic PROTOBUF_FINAL :
                &_AssertControlOrHeroic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(AssertControlOrHeroic& a, AssertControlOrHeroic& b) {
     a.Swap(&b);
@@ -9968,7 +10181,7 @@ class AssertControllerHasPriority PROTOBUF_FINAL :
                &_AssertControllerHasPriority_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(AssertControllerHasPriority& a, AssertControllerHasPriority& b) {
     a.Swap(&b);
@@ -10091,7 +10304,7 @@ class AssertStackEmptyOrInstant PROTOBUF_FINAL :
                &_AssertStackEmptyOrInstant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(AssertStackEmptyOrInstant& a, AssertStackEmptyOrInstant& b) {
     a.Swap(&b);
@@ -10173,6 +10386,231 @@ class AssertStackEmptyOrInstant PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class ReduceCost PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.ReduceCost) */ {
+ public:
+  inline ReduceCost() : ReduceCost(nullptr) {}
+  virtual ~ReduceCost();
+
+  ReduceCost(const ReduceCost& from);
+  ReduceCost(ReduceCost&& from) noexcept
+    : ReduceCost() {
+    *this = ::std::move(from);
+  }
+
+  inline ReduceCost& operator=(const ReduceCost& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReduceCost& operator=(ReduceCost&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ReduceCost& default_instance();
+
+  static inline const ReduceCost* internal_default_instance() {
+    return reinterpret_cast<const ReduceCost*>(
+               &_ReduceCost_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    49;
+
+  friend void swap(ReduceCost& a, ReduceCost& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReduceCost* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReduceCost* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ReduceCost* New() const final {
+    return CreateMaybeMessage<ReduceCost>(nullptr);
+  }
+
+  ReduceCost* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ReduceCost>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ReduceCost& from);
+  void MergeFrom(const ReduceCost& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReduceCost* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "IvionOnline.ReduceCost";
+  }
+  protected:
+  explicit ReduceCost(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_GameState_2eproto);
+    return ::descriptor_table_GameState_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCardFieldNumber = 1,
+    kActionCostReductionFieldNumber = 2,
+    kPowerCostReductionFieldNumber = 3,
+    kCostReductionFieldNumber = 4,
+    kFreeFieldNumber = 5,
+  };
+  // .IvionOnline.ObjectPath Card = 1;
+  bool has_card() const;
+  private:
+  bool _internal_has_card() const;
+  public:
+  void clear_card();
+  const ::IvionOnline::ObjectPath& card() const;
+  ::IvionOnline::ObjectPath* release_card();
+  ::IvionOnline::ObjectPath* mutable_card();
+  void set_allocated_card(::IvionOnline::ObjectPath* card);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_card() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_card();
+  public:
+  void unsafe_arena_set_allocated_card(
+      ::IvionOnline::ObjectPath* card);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_card();
+
+  // .IvionOnline.ObjectPath ActionCostReduction = 2;
+  bool has_actioncostreduction() const;
+  private:
+  bool _internal_has_actioncostreduction() const;
+  public:
+  void clear_actioncostreduction();
+  const ::IvionOnline::ObjectPath& actioncostreduction() const;
+  ::IvionOnline::ObjectPath* release_actioncostreduction();
+  ::IvionOnline::ObjectPath* mutable_actioncostreduction();
+  void set_allocated_actioncostreduction(::IvionOnline::ObjectPath* actioncostreduction);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_actioncostreduction() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_actioncostreduction();
+  public:
+  void unsafe_arena_set_allocated_actioncostreduction(
+      ::IvionOnline::ObjectPath* actioncostreduction);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_actioncostreduction();
+
+  // .IvionOnline.ObjectPath PowerCostReduction = 3;
+  bool has_powercostreduction() const;
+  private:
+  bool _internal_has_powercostreduction() const;
+  public:
+  void clear_powercostreduction();
+  const ::IvionOnline::ObjectPath& powercostreduction() const;
+  ::IvionOnline::ObjectPath* release_powercostreduction();
+  ::IvionOnline::ObjectPath* mutable_powercostreduction();
+  void set_allocated_powercostreduction(::IvionOnline::ObjectPath* powercostreduction);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_powercostreduction() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_powercostreduction();
+  public:
+  void unsafe_arena_set_allocated_powercostreduction(
+      ::IvionOnline::ObjectPath* powercostreduction);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_powercostreduction();
+
+  // .IvionOnline.ObjectPath CostReduction = 4;
+  bool has_costreduction() const;
+  private:
+  bool _internal_has_costreduction() const;
+  public:
+  void clear_costreduction();
+  const ::IvionOnline::ObjectPath& costreduction() const;
+  ::IvionOnline::ObjectPath* release_costreduction();
+  ::IvionOnline::ObjectPath* mutable_costreduction();
+  void set_allocated_costreduction(::IvionOnline::ObjectPath* costreduction);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_costreduction() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_costreduction();
+  public:
+  void unsafe_arena_set_allocated_costreduction(
+      ::IvionOnline::ObjectPath* costreduction);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_costreduction();
+
+  // .IvionOnline.ObjectPath Free = 5;
+  bool has_free() const;
+  private:
+  bool _internal_has_free() const;
+  public:
+  void clear_free();
+  const ::IvionOnline::ObjectPath& free() const;
+  ::IvionOnline::ObjectPath* release_free();
+  ::IvionOnline::ObjectPath* mutable_free();
+  void set_allocated_free(::IvionOnline::ObjectPath* free);
+  private:
+  const ::IvionOnline::ObjectPath& _internal_free() const;
+  ::IvionOnline::ObjectPath* _internal_mutable_free();
+  public:
+  void unsafe_arena_set_allocated_free(
+      ::IvionOnline::ObjectPath* free);
+  ::IvionOnline::ObjectPath* unsafe_arena_release_free();
+
+  // @@protoc_insertion_point(class_scope:IvionOnline.ReduceCost)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::IvionOnline::ObjectPath* card_;
+  ::IvionOnline::ObjectPath* actioncostreduction_;
+  ::IvionOnline::ObjectPath* powercostreduction_;
+  ::IvionOnline::ObjectPath* costreduction_;
+  ::IvionOnline::ObjectPath* free_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameState_2eproto;
+};
+// -------------------------------------------------------------------
+
 class PayCost PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:IvionOnline.PayCost) */ {
  public:
@@ -10214,7 +10652,7 @@ class PayCost PROTOBUF_FINAL :
                &_PayCost_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(PayCost& a, PayCost& b) {
     a.Swap(&b);
@@ -10287,10 +10725,6 @@ class PayCost PROTOBUF_FINAL :
   enum : int {
     kPlayerFieldNumber = 1,
     kCardFieldNumber = 2,
-    kActionCostReductionFieldNumber = 3,
-    kPowerCostReductionFieldNumber = 4,
-    kCostReductionFieldNumber = 5,
-    kFreeFieldNumber = 6,
   };
   // .IvionOnline.ObjectPath Player = 1;
   bool has_player() const;
@@ -10328,78 +10762,6 @@ class PayCost PROTOBUF_FINAL :
       ::IvionOnline::ObjectPath* card);
   ::IvionOnline::ObjectPath* unsafe_arena_release_card();
 
-  // .IvionOnline.ObjectPath ActionCostReduction = 3;
-  bool has_actioncostreduction() const;
-  private:
-  bool _internal_has_actioncostreduction() const;
-  public:
-  void clear_actioncostreduction();
-  const ::IvionOnline::ObjectPath& actioncostreduction() const;
-  ::IvionOnline::ObjectPath* release_actioncostreduction();
-  ::IvionOnline::ObjectPath* mutable_actioncostreduction();
-  void set_allocated_actioncostreduction(::IvionOnline::ObjectPath* actioncostreduction);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_actioncostreduction() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_actioncostreduction();
-  public:
-  void unsafe_arena_set_allocated_actioncostreduction(
-      ::IvionOnline::ObjectPath* actioncostreduction);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_actioncostreduction();
-
-  // .IvionOnline.ObjectPath PowerCostReduction = 4;
-  bool has_powercostreduction() const;
-  private:
-  bool _internal_has_powercostreduction() const;
-  public:
-  void clear_powercostreduction();
-  const ::IvionOnline::ObjectPath& powercostreduction() const;
-  ::IvionOnline::ObjectPath* release_powercostreduction();
-  ::IvionOnline::ObjectPath* mutable_powercostreduction();
-  void set_allocated_powercostreduction(::IvionOnline::ObjectPath* powercostreduction);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_powercostreduction() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_powercostreduction();
-  public:
-  void unsafe_arena_set_allocated_powercostreduction(
-      ::IvionOnline::ObjectPath* powercostreduction);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_powercostreduction();
-
-  // .IvionOnline.ObjectPath CostReduction = 5;
-  bool has_costreduction() const;
-  private:
-  bool _internal_has_costreduction() const;
-  public:
-  void clear_costreduction();
-  const ::IvionOnline::ObjectPath& costreduction() const;
-  ::IvionOnline::ObjectPath* release_costreduction();
-  ::IvionOnline::ObjectPath* mutable_costreduction();
-  void set_allocated_costreduction(::IvionOnline::ObjectPath* costreduction);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_costreduction() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_costreduction();
-  public:
-  void unsafe_arena_set_allocated_costreduction(
-      ::IvionOnline::ObjectPath* costreduction);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_costreduction();
-
-  // .IvionOnline.ObjectPath Free = 6;
-  bool has_free() const;
-  private:
-  bool _internal_has_free() const;
-  public:
-  void clear_free();
-  const ::IvionOnline::ObjectPath& free() const;
-  ::IvionOnline::ObjectPath* release_free();
-  ::IvionOnline::ObjectPath* mutable_free();
-  void set_allocated_free(::IvionOnline::ObjectPath* free);
-  private:
-  const ::IvionOnline::ObjectPath& _internal_free() const;
-  ::IvionOnline::ObjectPath* _internal_mutable_free();
-  public:
-  void unsafe_arena_set_allocated_free(
-      ::IvionOnline::ObjectPath* free);
-  ::IvionOnline::ObjectPath* unsafe_arena_release_free();
-
   // @@protoc_insertion_point(class_scope:IvionOnline.PayCost)
  private:
   class _Internal;
@@ -10409,10 +10771,6 @@ class PayCost PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::IvionOnline::ObjectPath* player_;
   ::IvionOnline::ObjectPath* card_;
-  ::IvionOnline::ObjectPath* actioncostreduction_;
-  ::IvionOnline::ObjectPath* powercostreduction_;
-  ::IvionOnline::ObjectPath* costreduction_;
-  ::IvionOnline::ObjectPath* free_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameState_2eproto;
 };
@@ -10459,7 +10817,7 @@ class PlayGainResources PROTOBUF_FINAL :
                &_PlayGainResources_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    51;
 
   friend void swap(PlayGainResources& a, PlayGainResources& b) {
     a.Swap(&b);
@@ -10624,7 +10982,7 @@ class RefundCost PROTOBUF_FINAL :
                &_RefundCost_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    52;
 
   friend void swap(RefundCost& a, RefundCost& b) {
     a.Swap(&b);
@@ -10789,7 +11147,7 @@ class GainActions PROTOBUF_FINAL :
                &_GainActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    53;
 
   friend void swap(GainActions& a, GainActions& b) {
     a.Swap(&b);
@@ -10954,7 +11312,7 @@ class GainPower PROTOBUF_FINAL :
                &_GainPower_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    54;
 
   friend void swap(GainPower& a, GainPower& b) {
     a.Swap(&b);
@@ -11119,7 +11477,7 @@ class Move PROTOBUF_FINAL :
                &_Move_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    55;
 
   friend void swap(Move& a, Move& b) {
     a.Swap(&b);
@@ -11284,7 +11642,7 @@ class Travel PROTOBUF_FINAL :
                &_Travel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    56;
 
   friend void swap(Travel& a, Travel& b) {
     a.Swap(&b);
@@ -11449,7 +11807,7 @@ class Damage PROTOBUF_FINAL :
                &_Damage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    57;
 
   friend void swap(Damage& a, Damage& b) {
     a.Swap(&b);
@@ -11614,7 +11972,7 @@ class Boolean_Constant PROTOBUF_FINAL :
                &_Boolean_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    58;
 
   friend void swap(Boolean_Constant& a, Boolean_Constant& b) {
     a.Swap(&b);
@@ -11759,7 +12117,7 @@ class Integer_Constant PROTOBUF_FINAL :
                &_Integer_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    59;
 
   friend void swap(Integer_Constant& a, Integer_Constant& b) {
     a.Swap(&b);
@@ -11904,7 +12262,7 @@ class Vec2i_Constant PROTOBUF_FINAL :
                &_Vec2i_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    60;
 
   friend void swap(Vec2i_Constant& a, Vec2i_Constant& b) {
     a.Swap(&b);
@@ -12049,7 +12407,7 @@ class Terrain_Constant PROTOBUF_FINAL :
                &_Terrain_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    61;
 
   friend void swap(Terrain_Constant& a, Terrain_Constant& b) {
     a.Swap(&b);
@@ -12194,7 +12552,7 @@ class Color_Constant PROTOBUF_FINAL :
                &_Color_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    62;
 
   friend void swap(Color_Constant& a, Color_Constant& b) {
     a.Swap(&b);
@@ -12339,7 +12697,7 @@ class ObjectPath_Constant PROTOBUF_FINAL :
                &_ObjectPath_Constant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    63;
 
   friend void swap(ObjectPath_Constant& a, ObjectPath_Constant& b) {
     a.Swap(&b);
@@ -12481,25 +12839,27 @@ class Method PROTOBUF_FINAL :
 
   enum MethodsCase {
     kGetList = 1,
-    kSelectMultiple = 2,
-    kSelectExactlyOne = 3,
-    kAssertControlOrHeroic = 4,
-    kAssertControllerHasPriority = 5,
-    kAssertStackEmptyOrInstant = 6,
-    kPayCost = 7,
-    kPlayGainResources = 8,
-    kRefundCost = 9,
-    kGainActions = 10,
-    kGainPower = 11,
-    kMove = 12,
-    kTravel = 13,
-    kDamage = 14,
-    kBooleanConstant = 15,
-    kIntegerConstant = 16,
-    kVec2IConstant = 17,
-    kTerrainConstant = 18,
-    kColorConstant = 19,
-    kObjectPathConstant = 20,
+    kFilterDistance = 2,
+    kSelectMultiple = 3,
+    kSelectExactlyOne = 4,
+    kAssertControlOrHeroic = 5,
+    kAssertControllerHasPriority = 6,
+    kAssertStackEmptyOrInstant = 7,
+    kReduceCost = 8,
+    kPayCost = 9,
+    kPlayGainResources = 10,
+    kRefundCost = 11,
+    kGainActions = 12,
+    kGainPower = 13,
+    kMove = 14,
+    kTravel = 15,
+    kDamage = 16,
+    kBooleanConstant = 17,
+    kIntegerConstant = 18,
+    kVec2IConstant = 19,
+    kTerrainConstant = 20,
+    kColorConstant = 21,
+    kObjectPathConstant = 22,
     METHODS_NOT_SET = 0,
   };
 
@@ -12508,7 +12868,7 @@ class Method PROTOBUF_FINAL :
                &_Method_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    64;
 
   friend void swap(Method& a, Method& b) {
     a.Swap(&b);
@@ -12580,25 +12940,27 @@ class Method PROTOBUF_FINAL :
 
   enum : int {
     kGetListFieldNumber = 1,
-    kSelectMultipleFieldNumber = 2,
-    kSelectExactlyOneFieldNumber = 3,
-    kAssertControlOrHeroicFieldNumber = 4,
-    kAssertControllerHasPriorityFieldNumber = 5,
-    kAssertStackEmptyOrInstantFieldNumber = 6,
-    kPayCostFieldNumber = 7,
-    kPlayGainResourcesFieldNumber = 8,
-    kRefundCostFieldNumber = 9,
-    kGainActionsFieldNumber = 10,
-    kGainPowerFieldNumber = 11,
-    kMoveFieldNumber = 12,
-    kTravelFieldNumber = 13,
-    kDamageFieldNumber = 14,
-    kBooleanConstantFieldNumber = 15,
-    kIntegerConstantFieldNumber = 16,
-    kVec2IConstantFieldNumber = 17,
-    kTerrainConstantFieldNumber = 18,
-    kColorConstantFieldNumber = 19,
-    kObjectPathConstantFieldNumber = 20,
+    kFilterDistanceFieldNumber = 2,
+    kSelectMultipleFieldNumber = 3,
+    kSelectExactlyOneFieldNumber = 4,
+    kAssertControlOrHeroicFieldNumber = 5,
+    kAssertControllerHasPriorityFieldNumber = 6,
+    kAssertStackEmptyOrInstantFieldNumber = 7,
+    kReduceCostFieldNumber = 8,
+    kPayCostFieldNumber = 9,
+    kPlayGainResourcesFieldNumber = 10,
+    kRefundCostFieldNumber = 11,
+    kGainActionsFieldNumber = 12,
+    kGainPowerFieldNumber = 13,
+    kMoveFieldNumber = 14,
+    kTravelFieldNumber = 15,
+    kDamageFieldNumber = 16,
+    kBooleanConstantFieldNumber = 17,
+    kIntegerConstantFieldNumber = 18,
+    kVec2IConstantFieldNumber = 19,
+    kTerrainConstantFieldNumber = 20,
+    kColorConstantFieldNumber = 21,
+    kObjectPathConstantFieldNumber = 22,
   };
   // .IvionOnline.GetList GetList = 1;
   bool has_getlist() const;
@@ -12618,7 +12980,25 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::GetList* getlist);
   ::IvionOnline::GetList* unsafe_arena_release_getlist();
 
-  // .IvionOnline.SelectMultiple SelectMultiple = 2;
+  // .IvionOnline.FilterDistance FilterDistance = 2;
+  bool has_filterdistance() const;
+  private:
+  bool _internal_has_filterdistance() const;
+  public:
+  void clear_filterdistance();
+  const ::IvionOnline::FilterDistance& filterdistance() const;
+  ::IvionOnline::FilterDistance* release_filterdistance();
+  ::IvionOnline::FilterDistance* mutable_filterdistance();
+  void set_allocated_filterdistance(::IvionOnline::FilterDistance* filterdistance);
+  private:
+  const ::IvionOnline::FilterDistance& _internal_filterdistance() const;
+  ::IvionOnline::FilterDistance* _internal_mutable_filterdistance();
+  public:
+  void unsafe_arena_set_allocated_filterdistance(
+      ::IvionOnline::FilterDistance* filterdistance);
+  ::IvionOnline::FilterDistance* unsafe_arena_release_filterdistance();
+
+  // .IvionOnline.SelectMultiple SelectMultiple = 3;
   bool has_selectmultiple() const;
   private:
   bool _internal_has_selectmultiple() const;
@@ -12636,7 +13016,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::SelectMultiple* selectmultiple);
   ::IvionOnline::SelectMultiple* unsafe_arena_release_selectmultiple();
 
-  // .IvionOnline.SelectExactlyOne SelectExactlyOne = 3;
+  // .IvionOnline.SelectExactlyOne SelectExactlyOne = 4;
   bool has_selectexactlyone() const;
   private:
   bool _internal_has_selectexactlyone() const;
@@ -12654,7 +13034,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::SelectExactlyOne* selectexactlyone);
   ::IvionOnline::SelectExactlyOne* unsafe_arena_release_selectexactlyone();
 
-  // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 4;
+  // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 5;
   bool has_assertcontrolorheroic() const;
   private:
   bool _internal_has_assertcontrolorheroic() const;
@@ -12672,7 +13052,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::AssertControlOrHeroic* assertcontrolorheroic);
   ::IvionOnline::AssertControlOrHeroic* unsafe_arena_release_assertcontrolorheroic();
 
-  // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 5;
+  // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 6;
   bool has_assertcontrollerhaspriority() const;
   private:
   bool _internal_has_assertcontrollerhaspriority() const;
@@ -12690,7 +13070,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::AssertControllerHasPriority* assertcontrollerhaspriority);
   ::IvionOnline::AssertControllerHasPriority* unsafe_arena_release_assertcontrollerhaspriority();
 
-  // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
+  // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
   bool has_assertstackemptyorinstant() const;
   private:
   bool _internal_has_assertstackemptyorinstant() const;
@@ -12708,7 +13088,25 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::AssertStackEmptyOrInstant* assertstackemptyorinstant);
   ::IvionOnline::AssertStackEmptyOrInstant* unsafe_arena_release_assertstackemptyorinstant();
 
-  // .IvionOnline.PayCost PayCost = 7;
+  // .IvionOnline.ReduceCost ReduceCost = 8;
+  bool has_reducecost() const;
+  private:
+  bool _internal_has_reducecost() const;
+  public:
+  void clear_reducecost();
+  const ::IvionOnline::ReduceCost& reducecost() const;
+  ::IvionOnline::ReduceCost* release_reducecost();
+  ::IvionOnline::ReduceCost* mutable_reducecost();
+  void set_allocated_reducecost(::IvionOnline::ReduceCost* reducecost);
+  private:
+  const ::IvionOnline::ReduceCost& _internal_reducecost() const;
+  ::IvionOnline::ReduceCost* _internal_mutable_reducecost();
+  public:
+  void unsafe_arena_set_allocated_reducecost(
+      ::IvionOnline::ReduceCost* reducecost);
+  ::IvionOnline::ReduceCost* unsafe_arena_release_reducecost();
+
+  // .IvionOnline.PayCost PayCost = 9;
   bool has_paycost() const;
   private:
   bool _internal_has_paycost() const;
@@ -12726,7 +13124,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::PayCost* paycost);
   ::IvionOnline::PayCost* unsafe_arena_release_paycost();
 
-  // .IvionOnline.PlayGainResources PlayGainResources = 8;
+  // .IvionOnline.PlayGainResources PlayGainResources = 10;
   bool has_playgainresources() const;
   private:
   bool _internal_has_playgainresources() const;
@@ -12744,7 +13142,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::PlayGainResources* playgainresources);
   ::IvionOnline::PlayGainResources* unsafe_arena_release_playgainresources();
 
-  // .IvionOnline.RefundCost RefundCost = 9;
+  // .IvionOnline.RefundCost RefundCost = 11;
   bool has_refundcost() const;
   private:
   bool _internal_has_refundcost() const;
@@ -12762,7 +13160,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::RefundCost* refundcost);
   ::IvionOnline::RefundCost* unsafe_arena_release_refundcost();
 
-  // .IvionOnline.GainActions GainActions = 10;
+  // .IvionOnline.GainActions GainActions = 12;
   bool has_gainactions() const;
   private:
   bool _internal_has_gainactions() const;
@@ -12780,7 +13178,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::GainActions* gainactions);
   ::IvionOnline::GainActions* unsafe_arena_release_gainactions();
 
-  // .IvionOnline.GainPower GainPower = 11;
+  // .IvionOnline.GainPower GainPower = 13;
   bool has_gainpower() const;
   private:
   bool _internal_has_gainpower() const;
@@ -12798,7 +13196,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::GainPower* gainpower);
   ::IvionOnline::GainPower* unsafe_arena_release_gainpower();
 
-  // .IvionOnline.Move Move = 12;
+  // .IvionOnline.Move Move = 14;
   bool has_move() const;
   private:
   bool _internal_has_move() const;
@@ -12816,7 +13214,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Move* move);
   ::IvionOnline::Move* unsafe_arena_release_move();
 
-  // .IvionOnline.Travel Travel = 13;
+  // .IvionOnline.Travel Travel = 15;
   bool has_travel() const;
   private:
   bool _internal_has_travel() const;
@@ -12834,7 +13232,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Travel* travel);
   ::IvionOnline::Travel* unsafe_arena_release_travel();
 
-  // .IvionOnline.Damage Damage = 14;
+  // .IvionOnline.Damage Damage = 16;
   bool has_damage() const;
   private:
   bool _internal_has_damage() const;
@@ -12852,7 +13250,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Damage* damage);
   ::IvionOnline::Damage* unsafe_arena_release_damage();
 
-  // .IvionOnline.Boolean_Constant Boolean_Constant = 15;
+  // .IvionOnline.Boolean_Constant Boolean_Constant = 17;
   bool has_boolean_constant() const;
   private:
   bool _internal_has_boolean_constant() const;
@@ -12870,7 +13268,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Boolean_Constant* boolean_constant);
   ::IvionOnline::Boolean_Constant* unsafe_arena_release_boolean_constant();
 
-  // .IvionOnline.Integer_Constant Integer_Constant = 16;
+  // .IvionOnline.Integer_Constant Integer_Constant = 18;
   bool has_integer_constant() const;
   private:
   bool _internal_has_integer_constant() const;
@@ -12888,7 +13286,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Integer_Constant* integer_constant);
   ::IvionOnline::Integer_Constant* unsafe_arena_release_integer_constant();
 
-  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
+  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 19;
   bool has_vec2i_constant() const;
   private:
   bool _internal_has_vec2i_constant() const;
@@ -12906,7 +13304,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Vec2i_Constant* vec2i_constant);
   ::IvionOnline::Vec2i_Constant* unsafe_arena_release_vec2i_constant();
 
-  // .IvionOnline.Terrain_Constant Terrain_Constant = 18;
+  // .IvionOnline.Terrain_Constant Terrain_Constant = 20;
   bool has_terrain_constant() const;
   private:
   bool _internal_has_terrain_constant() const;
@@ -12924,7 +13322,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Terrain_Constant* terrain_constant);
   ::IvionOnline::Terrain_Constant* unsafe_arena_release_terrain_constant();
 
-  // .IvionOnline.Color_Constant Color_Constant = 19;
+  // .IvionOnline.Color_Constant Color_Constant = 21;
   bool has_color_constant() const;
   private:
   bool _internal_has_color_constant() const;
@@ -12942,7 +13340,7 @@ class Method PROTOBUF_FINAL :
       ::IvionOnline::Color_Constant* color_constant);
   ::IvionOnline::Color_Constant* unsafe_arena_release_color_constant();
 
-  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 22;
   bool has_objectpath_constant() const;
   private:
   bool _internal_has_objectpath_constant() const;
@@ -12966,11 +13364,13 @@ class Method PROTOBUF_FINAL :
  private:
   class _Internal;
   void set_has_getlist();
+  void set_has_filterdistance();
   void set_has_selectmultiple();
   void set_has_selectexactlyone();
   void set_has_assertcontrolorheroic();
   void set_has_assertcontrollerhaspriority();
   void set_has_assertstackemptyorinstant();
+  void set_has_reducecost();
   void set_has_paycost();
   void set_has_playgainresources();
   void set_has_refundcost();
@@ -12995,11 +13395,13 @@ class Method PROTOBUF_FINAL :
   union MethodsUnion {
     MethodsUnion() {}
     ::IvionOnline::GetList* getlist_;
+    ::IvionOnline::FilterDistance* filterdistance_;
     ::IvionOnline::SelectMultiple* selectmultiple_;
     ::IvionOnline::SelectExactlyOne* selectexactlyone_;
     ::IvionOnline::AssertControlOrHeroic* assertcontrolorheroic_;
     ::IvionOnline::AssertControllerHasPriority* assertcontrollerhaspriority_;
     ::IvionOnline::AssertStackEmptyOrInstant* assertstackemptyorinstant_;
+    ::IvionOnline::ReduceCost* reducecost_;
     ::IvionOnline::PayCost* paycost_;
     ::IvionOnline::PlayGainResources* playgainresources_;
     ::IvionOnline::RefundCost* refundcost_;
@@ -13063,7 +13465,7 @@ class List_Method PROTOBUF_FINAL :
                &_List_Method_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    65;
 
   friend void swap(List_Method& a, List_Method& b) {
     a.Swap(&b);
@@ -15893,7 +16295,90 @@ inline void Player::set_allocated_initiative(::IvionOnline::Integer* initiative)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Initiative)
 }
 
-// .IvionOnline.Integer Slow = 9;
+// .IvionOnline.Integer Mitigate = 9;
+inline bool Player::_internal_has_mitigate() const {
+  return this != internal_default_instance() && mitigate_ != nullptr;
+}
+inline bool Player::has_mitigate() const {
+  return _internal_has_mitigate();
+}
+inline void Player::clear_mitigate() {
+  if (GetArena() == nullptr && mitigate_ != nullptr) {
+    delete mitigate_;
+  }
+  mitigate_ = nullptr;
+}
+inline const ::IvionOnline::Integer& Player::_internal_mitigate() const {
+  const ::IvionOnline::Integer* p = mitigate_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Integer&>(
+      ::IvionOnline::_Integer_default_instance_);
+}
+inline const ::IvionOnline::Integer& Player::mitigate() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.Mitigate)
+  return _internal_mitigate();
+}
+inline void Player::unsafe_arena_set_allocated_mitigate(
+    ::IvionOnline::Integer* mitigate) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(mitigate_);
+  }
+  mitigate_ = mitigate;
+  if (mitigate) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.Mitigate)
+}
+inline ::IvionOnline::Integer* Player::release_mitigate() {
+  
+  ::IvionOnline::Integer* temp = mitigate_;
+  mitigate_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Integer* Player::unsafe_arena_release_mitigate() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.Mitigate)
+  
+  ::IvionOnline::Integer* temp = mitigate_;
+  mitigate_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Integer* Player::_internal_mutable_mitigate() {
+  
+  if (mitigate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Integer>(GetArena());
+    mitigate_ = p;
+  }
+  return mitigate_;
+}
+inline ::IvionOnline::Integer* Player::mutable_mitigate() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.Mitigate)
+  return _internal_mutable_mitigate();
+}
+inline void Player::set_allocated_mitigate(::IvionOnline::Integer* mitigate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete mitigate_;
+  }
+  if (mitigate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(mitigate);
+    if (message_arena != submessage_arena) {
+      mitigate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, mitigate, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  mitigate_ = mitigate;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Mitigate)
+}
+
+// .IvionOnline.Integer Slow = 10;
 inline bool Player::_internal_has_slow() const {
   return this != internal_default_instance() && slow_ != nullptr;
 }
@@ -15976,7 +16461,7 @@ inline void Player::set_allocated_slow(::IvionOnline::Integer* slow) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Slow)
 }
 
-// .IvionOnline.Integer Silence = 10;
+// .IvionOnline.Integer Silence = 11;
 inline bool Player::_internal_has_silence() const {
   return this != internal_default_instance() && silence_ != nullptr;
 }
@@ -16059,7 +16544,7 @@ inline void Player::set_allocated_silence(::IvionOnline::Integer* silence) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Silence)
 }
 
-// .IvionOnline.Integer Disarm = 11;
+// .IvionOnline.Integer Disarm = 12;
 inline bool Player::_internal_has_disarm() const {
   return this != internal_default_instance() && disarm_ != nullptr;
 }
@@ -16142,7 +16627,7 @@ inline void Player::set_allocated_disarm(::IvionOnline::Integer* disarm) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Disarm)
 }
 
-// .IvionOnline.Vec2i Position = 12;
+// .IvionOnline.Vec2i Position = 13;
 inline bool Player::_internal_has_position() const {
   return this != internal_default_instance() && position_ != nullptr;
 }
@@ -16225,7 +16710,7 @@ inline void Player::set_allocated_position(::IvionOnline::Vec2i* position) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Position)
 }
 
-// .IvionOnline.List_ObjectPath Hand = 13;
+// .IvionOnline.List_ObjectPath Hand = 14;
 inline bool Player::_internal_has_hand() const {
   return this != internal_default_instance() && hand_ != nullptr;
 }
@@ -16308,7 +16793,7 @@ inline void Player::set_allocated_hand(::IvionOnline::List_ObjectPath* hand) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Hand)
 }
 
-// .IvionOnline.List_ObjectPath Deck = 14;
+// .IvionOnline.List_ObjectPath Deck = 15;
 inline bool Player::_internal_has_deck() const {
   return this != internal_default_instance() && deck_ != nullptr;
 }
@@ -16391,7 +16876,7 @@ inline void Player::set_allocated_deck(::IvionOnline::List_ObjectPath* deck) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Deck)
 }
 
-// .IvionOnline.List_ObjectPath Discard = 15;
+// .IvionOnline.List_ObjectPath Discard = 16;
 inline bool Player::_internal_has_discard() const {
   return this != internal_default_instance() && discard_ != nullptr;
 }
@@ -16474,7 +16959,7 @@ inline void Player::set_allocated_discard(::IvionOnline::List_ObjectPath* discar
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Discard)
 }
 
-// .IvionOnline.List_ObjectPath Feats = 16;
+// .IvionOnline.List_ObjectPath Feats = 17;
 inline bool Player::_internal_has_feats() const {
   return this != internal_default_instance() && feats_ != nullptr;
 }
@@ -16557,7 +17042,7 @@ inline void Player::set_allocated_feats(::IvionOnline::List_ObjectPath* feats) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.Feats)
 }
 
-// .IvionOnline.Integer MaxHealth = 17;
+// .IvionOnline.Integer MaxHealth = 18;
 inline bool Player::_internal_has_maxhealth() const {
   return this != internal_default_instance() && maxhealth_ != nullptr;
 }
@@ -16640,7 +17125,7 @@ inline void Player::set_allocated_maxhealth(::IvionOnline::Integer* maxhealth) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxHealth)
 }
 
-// .IvionOnline.Integer MaxActions = 18;
+// .IvionOnline.Integer MaxActions = 19;
 inline bool Player::_internal_has_maxactions() const {
   return this != internal_default_instance() && maxactions_ != nullptr;
 }
@@ -16723,7 +17208,7 @@ inline void Player::set_allocated_maxactions(::IvionOnline::Integer* maxactions)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxActions)
 }
 
-// .IvionOnline.Integer MaxPower = 19;
+// .IvionOnline.Integer MaxPower = 20;
 inline bool Player::_internal_has_maxpower() const {
   return this != internal_default_instance() && maxpower_ != nullptr;
 }
@@ -16806,7 +17291,7 @@ inline void Player::set_allocated_maxpower(::IvionOnline::Integer* maxpower) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxPower)
 }
 
-// .IvionOnline.Integer MaxSlow = 20;
+// .IvionOnline.Integer MaxSlow = 21;
 inline bool Player::_internal_has_maxslow() const {
   return this != internal_default_instance() && maxslow_ != nullptr;
 }
@@ -16889,7 +17374,7 @@ inline void Player::set_allocated_maxslow(::IvionOnline::Integer* maxslow) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxSlow)
 }
 
-// .IvionOnline.Integer MaxSilence = 21;
+// .IvionOnline.Integer MaxSilence = 22;
 inline bool Player::_internal_has_maxsilence() const {
   return this != internal_default_instance() && maxsilence_ != nullptr;
 }
@@ -16972,7 +17457,7 @@ inline void Player::set_allocated_maxsilence(::IvionOnline::Integer* maxsilence)
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxSilence)
 }
 
-// .IvionOnline.Integer MaxDisarm = 22;
+// .IvionOnline.Integer MaxDisarm = 23;
 inline bool Player::_internal_has_maxdisarm() const {
   return this != internal_default_instance() && maxdisarm_ != nullptr;
 }
@@ -17055,7 +17540,90 @@ inline void Player::set_allocated_maxdisarm(::IvionOnline::Integer* maxdisarm) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxDisarm)
 }
 
-// .IvionOnline.ObjectPath AbsPath = 23;
+// .IvionOnline.Integer MaxMitigate = 24;
+inline bool Player::_internal_has_maxmitigate() const {
+  return this != internal_default_instance() && maxmitigate_ != nullptr;
+}
+inline bool Player::has_maxmitigate() const {
+  return _internal_has_maxmitigate();
+}
+inline void Player::clear_maxmitigate() {
+  if (GetArena() == nullptr && maxmitigate_ != nullptr) {
+    delete maxmitigate_;
+  }
+  maxmitigate_ = nullptr;
+}
+inline const ::IvionOnline::Integer& Player::_internal_maxmitigate() const {
+  const ::IvionOnline::Integer* p = maxmitigate_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Integer&>(
+      ::IvionOnline::_Integer_default_instance_);
+}
+inline const ::IvionOnline::Integer& Player::maxmitigate() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Player.MaxMitigate)
+  return _internal_maxmitigate();
+}
+inline void Player::unsafe_arena_set_allocated_maxmitigate(
+    ::IvionOnline::Integer* maxmitigate) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxmitigate_);
+  }
+  maxmitigate_ = maxmitigate;
+  if (maxmitigate) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Player.MaxMitigate)
+}
+inline ::IvionOnline::Integer* Player::release_maxmitigate() {
+  
+  ::IvionOnline::Integer* temp = maxmitigate_;
+  maxmitigate_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Integer* Player::unsafe_arena_release_maxmitigate() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Player.MaxMitigate)
+  
+  ::IvionOnline::Integer* temp = maxmitigate_;
+  maxmitigate_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Integer* Player::_internal_mutable_maxmitigate() {
+  
+  if (maxmitigate_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Integer>(GetArena());
+    maxmitigate_ = p;
+  }
+  return maxmitigate_;
+}
+inline ::IvionOnline::Integer* Player::mutable_maxmitigate() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Player.MaxMitigate)
+  return _internal_mutable_maxmitigate();
+}
+inline void Player::set_allocated_maxmitigate(::IvionOnline::Integer* maxmitigate) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete maxmitigate_;
+  }
+  if (maxmitigate) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(maxmitigate);
+    if (message_arena != submessage_arena) {
+      maxmitigate = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxmitigate, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxmitigate_ = maxmitigate;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.MaxMitigate)
+}
+
+// .IvionOnline.ObjectPath AbsPath = 25;
 inline bool Player::_internal_has_abspath() const {
   return this != internal_default_instance() && abspath_ != nullptr;
 }
@@ -17138,7 +17706,7 @@ inline void Player::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Player.AbsPath)
 }
 
-// string Name = 24;
+// string Name = 26;
 inline void Player::clear_name() {
   name_.ClearToEmpty();
 }
@@ -18553,7 +19121,90 @@ inline void CardData::set_allocated_affectedbydisarm(::IvionOnline::Boolean* aff
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.AffectedByDisarm)
 }
 
-// .IvionOnline.List_Method OmniPresentEffect = 9;
+// .IvionOnline.ObjectPath Attached = 9;
+inline bool CardData::_internal_has_attached() const {
+  return this != internal_default_instance() && attached_ != nullptr;
+}
+inline bool CardData::has_attached() const {
+  return _internal_has_attached();
+}
+inline void CardData::clear_attached() {
+  if (GetArena() == nullptr && attached_ != nullptr) {
+    delete attached_;
+  }
+  attached_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& CardData::_internal_attached() const {
+  const ::IvionOnline::ObjectPath* p = attached_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& CardData::attached() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.CardData.Attached)
+  return _internal_attached();
+}
+inline void CardData::unsafe_arena_set_allocated_attached(
+    ::IvionOnline::ObjectPath* attached) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(attached_);
+  }
+  attached_ = attached;
+  if (attached) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.CardData.Attached)
+}
+inline ::IvionOnline::ObjectPath* CardData::release_attached() {
+  
+  ::IvionOnline::ObjectPath* temp = attached_;
+  attached_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* CardData::unsafe_arena_release_attached() {
+  // @@protoc_insertion_point(field_release:IvionOnline.CardData.Attached)
+  
+  ::IvionOnline::ObjectPath* temp = attached_;
+  attached_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* CardData::_internal_mutable_attached() {
+  
+  if (attached_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    attached_ = p;
+  }
+  return attached_;
+}
+inline ::IvionOnline::ObjectPath* CardData::mutable_attached() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.CardData.Attached)
+  return _internal_mutable_attached();
+}
+inline void CardData::set_allocated_attached(::IvionOnline::ObjectPath* attached) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete attached_;
+  }
+  if (attached) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(attached);
+    if (message_arena != submessage_arena) {
+      attached = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, attached, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  attached_ = attached;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.Attached)
+}
+
+// .IvionOnline.List_Method OmniPresentEffect = 10;
 inline bool CardData::_internal_has_omnipresenteffect() const {
   return this != internal_default_instance() && omnipresenteffect_ != nullptr;
 }
@@ -18636,7 +19287,7 @@ inline void CardData::set_allocated_omnipresenteffect(::IvionOnline::List_Method
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.OmniPresentEffect)
 }
 
-// .IvionOnline.List_Method PassiveEffect = 10;
+// .IvionOnline.List_Method PassiveEffect = 11;
 inline bool CardData::_internal_has_passiveeffect() const {
   return this != internal_default_instance() && passiveeffect_ != nullptr;
 }
@@ -18719,7 +19370,7 @@ inline void CardData::set_allocated_passiveeffect(::IvionOnline::List_Method* pa
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.PassiveEffect)
 }
 
-// .IvionOnline.List_Method FeatEffect = 11;
+// .IvionOnline.List_Method FeatEffect = 12;
 inline bool CardData::_internal_has_feateffect() const {
   return this != internal_default_instance() && feateffect_ != nullptr;
 }
@@ -18802,7 +19453,7 @@ inline void CardData::set_allocated_feateffect(::IvionOnline::List_Method* feate
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.FeatEffect)
 }
 
-// .IvionOnline.List_Method PlayEffect = 12;
+// .IvionOnline.List_Method PlayEffect = 13;
 inline bool CardData::_internal_has_playeffect() const {
   return this != internal_default_instance() && playeffect_ != nullptr;
 }
@@ -18885,7 +19536,7 @@ inline void CardData::set_allocated_playeffect(::IvionOnline::List_Method* playe
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.PlayEffect)
 }
 
-// .IvionOnline.List_Method ResolveEffect = 13;
+// .IvionOnline.List_Method ResolveEffect = 14;
 inline bool CardData::_internal_has_resolveeffect() const {
   return this != internal_default_instance() && resolveeffect_ != nullptr;
 }
@@ -18968,7 +19619,7 @@ inline void CardData::set_allocated_resolveeffect(::IvionOnline::List_Method* re
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.ResolveEffect)
 }
 
-// .IvionOnline.ObjectPath AbsPath = 14;
+// .IvionOnline.ObjectPath AbsPath = 15;
 inline bool CardData::_internal_has_abspath() const {
   return this != internal_default_instance() && abspath_ != nullptr;
 }
@@ -19051,7 +19702,7 @@ inline void CardData::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) 
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.CardData.AbsPath)
 }
 
-// string Name = 15;
+// string Name = 16;
 inline void CardData::clear_name() {
   name_.ClearToEmpty();
 }
@@ -19550,173 +20201,7 @@ inline void Tile::set_allocated_terrain(::IvionOnline::Terrain* terrain) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Terrain)
 }
 
-// .IvionOnline.List_ObjectPath Players = 5;
-inline bool Tile::_internal_has_players() const {
-  return this != internal_default_instance() && players_ != nullptr;
-}
-inline bool Tile::has_players() const {
-  return _internal_has_players();
-}
-inline void Tile::clear_players() {
-  if (GetArena() == nullptr && players_ != nullptr) {
-    delete players_;
-  }
-  players_ = nullptr;
-}
-inline const ::IvionOnline::List_ObjectPath& Tile::_internal_players() const {
-  const ::IvionOnline::List_ObjectPath* p = players_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
-      ::IvionOnline::_List_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::List_ObjectPath& Tile::players() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Tile.Players)
-  return _internal_players();
-}
-inline void Tile::unsafe_arena_set_allocated_players(
-    ::IvionOnline::List_ObjectPath* players) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(players_);
-  }
-  players_ = players;
-  if (players) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Tile.Players)
-}
-inline ::IvionOnline::List_ObjectPath* Tile::release_players() {
-  
-  ::IvionOnline::List_ObjectPath* temp = players_;
-  players_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::unsafe_arena_release_players() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Tile.Players)
-  
-  ::IvionOnline::List_ObjectPath* temp = players_;
-  players_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::_internal_mutable_players() {
-  
-  if (players_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
-    players_ = p;
-  }
-  return players_;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::mutable_players() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Players)
-  return _internal_mutable_players();
-}
-inline void Tile::set_allocated_players(::IvionOnline::List_ObjectPath* players) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete players_;
-  }
-  if (players) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(players);
-    if (message_arena != submessage_arena) {
-      players = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, players, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  players_ = players;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Players)
-}
-
-// .IvionOnline.List_ObjectPath Cards = 6;
-inline bool Tile::_internal_has_cards() const {
-  return this != internal_default_instance() && cards_ != nullptr;
-}
-inline bool Tile::has_cards() const {
-  return _internal_has_cards();
-}
-inline void Tile::clear_cards() {
-  if (GetArena() == nullptr && cards_ != nullptr) {
-    delete cards_;
-  }
-  cards_ = nullptr;
-}
-inline const ::IvionOnline::List_ObjectPath& Tile::_internal_cards() const {
-  const ::IvionOnline::List_ObjectPath* p = cards_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::List_ObjectPath&>(
-      ::IvionOnline::_List_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::List_ObjectPath& Tile::cards() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.Tile.Cards)
-  return _internal_cards();
-}
-inline void Tile::unsafe_arena_set_allocated_cards(
-    ::IvionOnline::List_ObjectPath* cards) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(cards_);
-  }
-  cards_ = cards;
-  if (cards) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Tile.Cards)
-}
-inline ::IvionOnline::List_ObjectPath* Tile::release_cards() {
-  
-  ::IvionOnline::List_ObjectPath* temp = cards_;
-  cards_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::unsafe_arena_release_cards() {
-  // @@protoc_insertion_point(field_release:IvionOnline.Tile.Cards)
-  
-  ::IvionOnline::List_ObjectPath* temp = cards_;
-  cards_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::_internal_mutable_cards() {
-  
-  if (cards_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::List_ObjectPath>(GetArena());
-    cards_ = p;
-  }
-  return cards_;
-}
-inline ::IvionOnline::List_ObjectPath* Tile::mutable_cards() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.Tile.Cards)
-  return _internal_mutable_cards();
-}
-inline void Tile::set_allocated_cards(::IvionOnline::List_ObjectPath* cards) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete cards_;
-  }
-  if (cards) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(cards);
-    if (message_arena != submessage_arena) {
-      cards = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, cards, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  cards_ = cards;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.Cards)
-}
-
-// .IvionOnline.ObjectPath AbsPath = 7;
+// .IvionOnline.ObjectPath AbsPath = 5;
 inline bool Tile::_internal_has_abspath() const {
   return this != internal_default_instance() && abspath_ != nullptr;
 }
@@ -19799,7 +20284,7 @@ inline void Tile::set_allocated_abspath(::IvionOnline::ObjectPath* abspath) {
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Tile.AbsPath)
 }
 
-// string Name = 8;
+// string Name = 6;
 inline void Tile::clear_name() {
   name_.ClearToEmpty();
 }
@@ -26177,6 +26662,259 @@ inline void GetList::set_allocated_result(::IvionOnline::List_ObjectPath* result
 
 // -------------------------------------------------------------------
 
+// FilterDistance
+
+// .IvionOnline.ObjectPath Targets = 1;
+inline bool FilterDistance::_internal_has_targets() const {
+  return this != internal_default_instance() && targets_ != nullptr;
+}
+inline bool FilterDistance::has_targets() const {
+  return _internal_has_targets();
+}
+inline void FilterDistance::clear_targets() {
+  if (GetArena() == nullptr && targets_ != nullptr) {
+    delete targets_;
+  }
+  targets_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::_internal_targets() const {
+  const ::IvionOnline::ObjectPath* p = targets_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::targets() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.FilterDistance.Targets)
+  return _internal_targets();
+}
+inline void FilterDistance::unsafe_arena_set_allocated_targets(
+    ::IvionOnline::ObjectPath* targets) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(targets_);
+  }
+  targets_ = targets;
+  if (targets) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.FilterDistance.Targets)
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::release_targets() {
+  
+  ::IvionOnline::ObjectPath* temp = targets_;
+  targets_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::unsafe_arena_release_targets() {
+  // @@protoc_insertion_point(field_release:IvionOnline.FilterDistance.Targets)
+  
+  ::IvionOnline::ObjectPath* temp = targets_;
+  targets_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::_internal_mutable_targets() {
+  
+  if (targets_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    targets_ = p;
+  }
+  return targets_;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::mutable_targets() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.FilterDistance.Targets)
+  return _internal_mutable_targets();
+}
+inline void FilterDistance::set_allocated_targets(::IvionOnline::ObjectPath* targets) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete targets_;
+  }
+  if (targets) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(targets);
+    if (message_arena != submessage_arena) {
+      targets = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, targets, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  targets_ = targets;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.FilterDistance.Targets)
+}
+
+// .IvionOnline.ObjectPath RangeSources = 2;
+inline bool FilterDistance::_internal_has_rangesources() const {
+  return this != internal_default_instance() && rangesources_ != nullptr;
+}
+inline bool FilterDistance::has_rangesources() const {
+  return _internal_has_rangesources();
+}
+inline void FilterDistance::clear_rangesources() {
+  if (GetArena() == nullptr && rangesources_ != nullptr) {
+    delete rangesources_;
+  }
+  rangesources_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::_internal_rangesources() const {
+  const ::IvionOnline::ObjectPath* p = rangesources_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::rangesources() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.FilterDistance.RangeSources)
+  return _internal_rangesources();
+}
+inline void FilterDistance::unsafe_arena_set_allocated_rangesources(
+    ::IvionOnline::ObjectPath* rangesources) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rangesources_);
+  }
+  rangesources_ = rangesources;
+  if (rangesources) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.FilterDistance.RangeSources)
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::release_rangesources() {
+  
+  ::IvionOnline::ObjectPath* temp = rangesources_;
+  rangesources_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::unsafe_arena_release_rangesources() {
+  // @@protoc_insertion_point(field_release:IvionOnline.FilterDistance.RangeSources)
+  
+  ::IvionOnline::ObjectPath* temp = rangesources_;
+  rangesources_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::_internal_mutable_rangesources() {
+  
+  if (rangesources_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    rangesources_ = p;
+  }
+  return rangesources_;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::mutable_rangesources() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.FilterDistance.RangeSources)
+  return _internal_mutable_rangesources();
+}
+inline void FilterDistance::set_allocated_rangesources(::IvionOnline::ObjectPath* rangesources) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete rangesources_;
+  }
+  if (rangesources) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(rangesources);
+    if (message_arena != submessage_arena) {
+      rangesources = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, rangesources, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  rangesources_ = rangesources;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.FilterDistance.RangeSources)
+}
+
+// .IvionOnline.ObjectPath MaxDistance = 3;
+inline bool FilterDistance::_internal_has_maxdistance() const {
+  return this != internal_default_instance() && maxdistance_ != nullptr;
+}
+inline bool FilterDistance::has_maxdistance() const {
+  return _internal_has_maxdistance();
+}
+inline void FilterDistance::clear_maxdistance() {
+  if (GetArena() == nullptr && maxdistance_ != nullptr) {
+    delete maxdistance_;
+  }
+  maxdistance_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::_internal_maxdistance() const {
+  const ::IvionOnline::ObjectPath* p = maxdistance_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& FilterDistance::maxdistance() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.FilterDistance.MaxDistance)
+  return _internal_maxdistance();
+}
+inline void FilterDistance::unsafe_arena_set_allocated_maxdistance(
+    ::IvionOnline::ObjectPath* maxdistance) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(maxdistance_);
+  }
+  maxdistance_ = maxdistance;
+  if (maxdistance) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.FilterDistance.MaxDistance)
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::release_maxdistance() {
+  
+  ::IvionOnline::ObjectPath* temp = maxdistance_;
+  maxdistance_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::unsafe_arena_release_maxdistance() {
+  // @@protoc_insertion_point(field_release:IvionOnline.FilterDistance.MaxDistance)
+  
+  ::IvionOnline::ObjectPath* temp = maxdistance_;
+  maxdistance_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::_internal_mutable_maxdistance() {
+  
+  if (maxdistance_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    maxdistance_ = p;
+  }
+  return maxdistance_;
+}
+inline ::IvionOnline::ObjectPath* FilterDistance::mutable_maxdistance() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.FilterDistance.MaxDistance)
+  return _internal_mutable_maxdistance();
+}
+inline void FilterDistance::set_allocated_maxdistance(::IvionOnline::ObjectPath* maxdistance) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete maxdistance_;
+  }
+  if (maxdistance) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(maxdistance);
+    if (message_arena != submessage_arena) {
+      maxdistance = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, maxdistance, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  maxdistance_ = maxdistance;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.FilterDistance.MaxDistance)
+}
+
+// -------------------------------------------------------------------
+
 // SelectMultiple
 
 // .IvionOnline.ObjectPath Source = 1;
@@ -26695,6 +27433,425 @@ inline void SelectExactlyOne::set_allocated_result(::IvionOnline::ObjectPath* re
 
 // -------------------------------------------------------------------
 
+// ReduceCost
+
+// .IvionOnline.ObjectPath Card = 1;
+inline bool ReduceCost::_internal_has_card() const {
+  return this != internal_default_instance() && card_ != nullptr;
+}
+inline bool ReduceCost::has_card() const {
+  return _internal_has_card();
+}
+inline void ReduceCost::clear_card() {
+  if (GetArena() == nullptr && card_ != nullptr) {
+    delete card_;
+  }
+  card_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::_internal_card() const {
+  const ::IvionOnline::ObjectPath* p = card_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::card() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ReduceCost.Card)
+  return _internal_card();
+}
+inline void ReduceCost::unsafe_arena_set_allocated_card(
+    ::IvionOnline::ObjectPath* card) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(card_);
+  }
+  card_ = card;
+  if (card) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ReduceCost.Card)
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::release_card() {
+  
+  ::IvionOnline::ObjectPath* temp = card_;
+  card_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::unsafe_arena_release_card() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ReduceCost.Card)
+  
+  ::IvionOnline::ObjectPath* temp = card_;
+  card_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::_internal_mutable_card() {
+  
+  if (card_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    card_ = p;
+  }
+  return card_;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::mutable_card() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ReduceCost.Card)
+  return _internal_mutable_card();
+}
+inline void ReduceCost::set_allocated_card(::IvionOnline::ObjectPath* card) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete card_;
+  }
+  if (card) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(card);
+    if (message_arena != submessage_arena) {
+      card = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, card, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  card_ = card;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ReduceCost.Card)
+}
+
+// .IvionOnline.ObjectPath ActionCostReduction = 2;
+inline bool ReduceCost::_internal_has_actioncostreduction() const {
+  return this != internal_default_instance() && actioncostreduction_ != nullptr;
+}
+inline bool ReduceCost::has_actioncostreduction() const {
+  return _internal_has_actioncostreduction();
+}
+inline void ReduceCost::clear_actioncostreduction() {
+  if (GetArena() == nullptr && actioncostreduction_ != nullptr) {
+    delete actioncostreduction_;
+  }
+  actioncostreduction_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::_internal_actioncostreduction() const {
+  const ::IvionOnline::ObjectPath* p = actioncostreduction_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::actioncostreduction() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ReduceCost.ActionCostReduction)
+  return _internal_actioncostreduction();
+}
+inline void ReduceCost::unsafe_arena_set_allocated_actioncostreduction(
+    ::IvionOnline::ObjectPath* actioncostreduction) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncostreduction_);
+  }
+  actioncostreduction_ = actioncostreduction;
+  if (actioncostreduction) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ReduceCost.ActionCostReduction)
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::release_actioncostreduction() {
+  
+  ::IvionOnline::ObjectPath* temp = actioncostreduction_;
+  actioncostreduction_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::unsafe_arena_release_actioncostreduction() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ReduceCost.ActionCostReduction)
+  
+  ::IvionOnline::ObjectPath* temp = actioncostreduction_;
+  actioncostreduction_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::_internal_mutable_actioncostreduction() {
+  
+  if (actioncostreduction_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    actioncostreduction_ = p;
+  }
+  return actioncostreduction_;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::mutable_actioncostreduction() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ReduceCost.ActionCostReduction)
+  return _internal_mutable_actioncostreduction();
+}
+inline void ReduceCost::set_allocated_actioncostreduction(::IvionOnline::ObjectPath* actioncostreduction) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete actioncostreduction_;
+  }
+  if (actioncostreduction) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(actioncostreduction);
+    if (message_arena != submessage_arena) {
+      actioncostreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actioncostreduction, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  actioncostreduction_ = actioncostreduction;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ReduceCost.ActionCostReduction)
+}
+
+// .IvionOnline.ObjectPath PowerCostReduction = 3;
+inline bool ReduceCost::_internal_has_powercostreduction() const {
+  return this != internal_default_instance() && powercostreduction_ != nullptr;
+}
+inline bool ReduceCost::has_powercostreduction() const {
+  return _internal_has_powercostreduction();
+}
+inline void ReduceCost::clear_powercostreduction() {
+  if (GetArena() == nullptr && powercostreduction_ != nullptr) {
+    delete powercostreduction_;
+  }
+  powercostreduction_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::_internal_powercostreduction() const {
+  const ::IvionOnline::ObjectPath* p = powercostreduction_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::powercostreduction() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ReduceCost.PowerCostReduction)
+  return _internal_powercostreduction();
+}
+inline void ReduceCost::unsafe_arena_set_allocated_powercostreduction(
+    ::IvionOnline::ObjectPath* powercostreduction) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercostreduction_);
+  }
+  powercostreduction_ = powercostreduction;
+  if (powercostreduction) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ReduceCost.PowerCostReduction)
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::release_powercostreduction() {
+  
+  ::IvionOnline::ObjectPath* temp = powercostreduction_;
+  powercostreduction_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::unsafe_arena_release_powercostreduction() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ReduceCost.PowerCostReduction)
+  
+  ::IvionOnline::ObjectPath* temp = powercostreduction_;
+  powercostreduction_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::_internal_mutable_powercostreduction() {
+  
+  if (powercostreduction_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    powercostreduction_ = p;
+  }
+  return powercostreduction_;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::mutable_powercostreduction() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ReduceCost.PowerCostReduction)
+  return _internal_mutable_powercostreduction();
+}
+inline void ReduceCost::set_allocated_powercostreduction(::IvionOnline::ObjectPath* powercostreduction) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete powercostreduction_;
+  }
+  if (powercostreduction) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(powercostreduction);
+    if (message_arena != submessage_arena) {
+      powercostreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, powercostreduction, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  powercostreduction_ = powercostreduction;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ReduceCost.PowerCostReduction)
+}
+
+// .IvionOnline.ObjectPath CostReduction = 4;
+inline bool ReduceCost::_internal_has_costreduction() const {
+  return this != internal_default_instance() && costreduction_ != nullptr;
+}
+inline bool ReduceCost::has_costreduction() const {
+  return _internal_has_costreduction();
+}
+inline void ReduceCost::clear_costreduction() {
+  if (GetArena() == nullptr && costreduction_ != nullptr) {
+    delete costreduction_;
+  }
+  costreduction_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::_internal_costreduction() const {
+  const ::IvionOnline::ObjectPath* p = costreduction_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::costreduction() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ReduceCost.CostReduction)
+  return _internal_costreduction();
+}
+inline void ReduceCost::unsafe_arena_set_allocated_costreduction(
+    ::IvionOnline::ObjectPath* costreduction) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(costreduction_);
+  }
+  costreduction_ = costreduction;
+  if (costreduction) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ReduceCost.CostReduction)
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::release_costreduction() {
+  
+  ::IvionOnline::ObjectPath* temp = costreduction_;
+  costreduction_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::unsafe_arena_release_costreduction() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ReduceCost.CostReduction)
+  
+  ::IvionOnline::ObjectPath* temp = costreduction_;
+  costreduction_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::_internal_mutable_costreduction() {
+  
+  if (costreduction_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    costreduction_ = p;
+  }
+  return costreduction_;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::mutable_costreduction() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ReduceCost.CostReduction)
+  return _internal_mutable_costreduction();
+}
+inline void ReduceCost::set_allocated_costreduction(::IvionOnline::ObjectPath* costreduction) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete costreduction_;
+  }
+  if (costreduction) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(costreduction);
+    if (message_arena != submessage_arena) {
+      costreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, costreduction, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  costreduction_ = costreduction;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ReduceCost.CostReduction)
+}
+
+// .IvionOnline.ObjectPath Free = 5;
+inline bool ReduceCost::_internal_has_free() const {
+  return this != internal_default_instance() && free_ != nullptr;
+}
+inline bool ReduceCost::has_free() const {
+  return _internal_has_free();
+}
+inline void ReduceCost::clear_free() {
+  if (GetArena() == nullptr && free_ != nullptr) {
+    delete free_;
+  }
+  free_ = nullptr;
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::_internal_free() const {
+  const ::IvionOnline::ObjectPath* p = free_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
+      ::IvionOnline::_ObjectPath_default_instance_);
+}
+inline const ::IvionOnline::ObjectPath& ReduceCost::free() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.ReduceCost.Free)
+  return _internal_free();
+}
+inline void ReduceCost::unsafe_arena_set_allocated_free(
+    ::IvionOnline::ObjectPath* free) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(free_);
+  }
+  free_ = free;
+  if (free) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.ReduceCost.Free)
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::release_free() {
+  
+  ::IvionOnline::ObjectPath* temp = free_;
+  free_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::unsafe_arena_release_free() {
+  // @@protoc_insertion_point(field_release:IvionOnline.ReduceCost.Free)
+  
+  ::IvionOnline::ObjectPath* temp = free_;
+  free_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::_internal_mutable_free() {
+  
+  if (free_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
+    free_ = p;
+  }
+  return free_;
+}
+inline ::IvionOnline::ObjectPath* ReduceCost::mutable_free() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.ReduceCost.Free)
+  return _internal_mutable_free();
+}
+inline void ReduceCost::set_allocated_free(::IvionOnline::ObjectPath* free) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete free_;
+  }
+  if (free) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(free);
+    if (message_arena != submessage_arena) {
+      free = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, free, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  free_ = free;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.ReduceCost.Free)
+}
+
+// -------------------------------------------------------------------
+
 // PayCost
 
 // .IvionOnline.ObjectPath Player = 1;
@@ -26861,338 +28018,6 @@ inline void PayCost::set_allocated_card(::IvionOnline::ObjectPath* card) {
   }
   card_ = card;
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.PayCost.Card)
-}
-
-// .IvionOnline.ObjectPath ActionCostReduction = 3;
-inline bool PayCost::_internal_has_actioncostreduction() const {
-  return this != internal_default_instance() && actioncostreduction_ != nullptr;
-}
-inline bool PayCost::has_actioncostreduction() const {
-  return _internal_has_actioncostreduction();
-}
-inline void PayCost::clear_actioncostreduction() {
-  if (GetArena() == nullptr && actioncostreduction_ != nullptr) {
-    delete actioncostreduction_;
-  }
-  actioncostreduction_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& PayCost::_internal_actioncostreduction() const {
-  const ::IvionOnline::ObjectPath* p = actioncostreduction_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& PayCost::actioncostreduction() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.PayCost.ActionCostReduction)
-  return _internal_actioncostreduction();
-}
-inline void PayCost::unsafe_arena_set_allocated_actioncostreduction(
-    ::IvionOnline::ObjectPath* actioncostreduction) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actioncostreduction_);
-  }
-  actioncostreduction_ = actioncostreduction;
-  if (actioncostreduction) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.PayCost.ActionCostReduction)
-}
-inline ::IvionOnline::ObjectPath* PayCost::release_actioncostreduction() {
-  
-  ::IvionOnline::ObjectPath* temp = actioncostreduction_;
-  actioncostreduction_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::unsafe_arena_release_actioncostreduction() {
-  // @@protoc_insertion_point(field_release:IvionOnline.PayCost.ActionCostReduction)
-  
-  ::IvionOnline::ObjectPath* temp = actioncostreduction_;
-  actioncostreduction_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::_internal_mutable_actioncostreduction() {
-  
-  if (actioncostreduction_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    actioncostreduction_ = p;
-  }
-  return actioncostreduction_;
-}
-inline ::IvionOnline::ObjectPath* PayCost::mutable_actioncostreduction() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.PayCost.ActionCostReduction)
-  return _internal_mutable_actioncostreduction();
-}
-inline void PayCost::set_allocated_actioncostreduction(::IvionOnline::ObjectPath* actioncostreduction) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete actioncostreduction_;
-  }
-  if (actioncostreduction) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(actioncostreduction);
-    if (message_arena != submessage_arena) {
-      actioncostreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, actioncostreduction, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  actioncostreduction_ = actioncostreduction;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.PayCost.ActionCostReduction)
-}
-
-// .IvionOnline.ObjectPath PowerCostReduction = 4;
-inline bool PayCost::_internal_has_powercostreduction() const {
-  return this != internal_default_instance() && powercostreduction_ != nullptr;
-}
-inline bool PayCost::has_powercostreduction() const {
-  return _internal_has_powercostreduction();
-}
-inline void PayCost::clear_powercostreduction() {
-  if (GetArena() == nullptr && powercostreduction_ != nullptr) {
-    delete powercostreduction_;
-  }
-  powercostreduction_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& PayCost::_internal_powercostreduction() const {
-  const ::IvionOnline::ObjectPath* p = powercostreduction_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& PayCost::powercostreduction() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.PayCost.PowerCostReduction)
-  return _internal_powercostreduction();
-}
-inline void PayCost::unsafe_arena_set_allocated_powercostreduction(
-    ::IvionOnline::ObjectPath* powercostreduction) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(powercostreduction_);
-  }
-  powercostreduction_ = powercostreduction;
-  if (powercostreduction) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.PayCost.PowerCostReduction)
-}
-inline ::IvionOnline::ObjectPath* PayCost::release_powercostreduction() {
-  
-  ::IvionOnline::ObjectPath* temp = powercostreduction_;
-  powercostreduction_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::unsafe_arena_release_powercostreduction() {
-  // @@protoc_insertion_point(field_release:IvionOnline.PayCost.PowerCostReduction)
-  
-  ::IvionOnline::ObjectPath* temp = powercostreduction_;
-  powercostreduction_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::_internal_mutable_powercostreduction() {
-  
-  if (powercostreduction_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    powercostreduction_ = p;
-  }
-  return powercostreduction_;
-}
-inline ::IvionOnline::ObjectPath* PayCost::mutable_powercostreduction() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.PayCost.PowerCostReduction)
-  return _internal_mutable_powercostreduction();
-}
-inline void PayCost::set_allocated_powercostreduction(::IvionOnline::ObjectPath* powercostreduction) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete powercostreduction_;
-  }
-  if (powercostreduction) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(powercostreduction);
-    if (message_arena != submessage_arena) {
-      powercostreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, powercostreduction, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  powercostreduction_ = powercostreduction;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.PayCost.PowerCostReduction)
-}
-
-// .IvionOnline.ObjectPath CostReduction = 5;
-inline bool PayCost::_internal_has_costreduction() const {
-  return this != internal_default_instance() && costreduction_ != nullptr;
-}
-inline bool PayCost::has_costreduction() const {
-  return _internal_has_costreduction();
-}
-inline void PayCost::clear_costreduction() {
-  if (GetArena() == nullptr && costreduction_ != nullptr) {
-    delete costreduction_;
-  }
-  costreduction_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& PayCost::_internal_costreduction() const {
-  const ::IvionOnline::ObjectPath* p = costreduction_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& PayCost::costreduction() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.PayCost.CostReduction)
-  return _internal_costreduction();
-}
-inline void PayCost::unsafe_arena_set_allocated_costreduction(
-    ::IvionOnline::ObjectPath* costreduction) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(costreduction_);
-  }
-  costreduction_ = costreduction;
-  if (costreduction) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.PayCost.CostReduction)
-}
-inline ::IvionOnline::ObjectPath* PayCost::release_costreduction() {
-  
-  ::IvionOnline::ObjectPath* temp = costreduction_;
-  costreduction_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::unsafe_arena_release_costreduction() {
-  // @@protoc_insertion_point(field_release:IvionOnline.PayCost.CostReduction)
-  
-  ::IvionOnline::ObjectPath* temp = costreduction_;
-  costreduction_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::_internal_mutable_costreduction() {
-  
-  if (costreduction_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    costreduction_ = p;
-  }
-  return costreduction_;
-}
-inline ::IvionOnline::ObjectPath* PayCost::mutable_costreduction() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.PayCost.CostReduction)
-  return _internal_mutable_costreduction();
-}
-inline void PayCost::set_allocated_costreduction(::IvionOnline::ObjectPath* costreduction) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete costreduction_;
-  }
-  if (costreduction) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(costreduction);
-    if (message_arena != submessage_arena) {
-      costreduction = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, costreduction, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  costreduction_ = costreduction;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.PayCost.CostReduction)
-}
-
-// .IvionOnline.ObjectPath Free = 6;
-inline bool PayCost::_internal_has_free() const {
-  return this != internal_default_instance() && free_ != nullptr;
-}
-inline bool PayCost::has_free() const {
-  return _internal_has_free();
-}
-inline void PayCost::clear_free() {
-  if (GetArena() == nullptr && free_ != nullptr) {
-    delete free_;
-  }
-  free_ = nullptr;
-}
-inline const ::IvionOnline::ObjectPath& PayCost::_internal_free() const {
-  const ::IvionOnline::ObjectPath* p = free_;
-  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::ObjectPath&>(
-      ::IvionOnline::_ObjectPath_default_instance_);
-}
-inline const ::IvionOnline::ObjectPath& PayCost::free() const {
-  // @@protoc_insertion_point(field_get:IvionOnline.PayCost.Free)
-  return _internal_free();
-}
-inline void PayCost::unsafe_arena_set_allocated_free(
-    ::IvionOnline::ObjectPath* free) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(free_);
-  }
-  free_ = free;
-  if (free) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.PayCost.Free)
-}
-inline ::IvionOnline::ObjectPath* PayCost::release_free() {
-  
-  ::IvionOnline::ObjectPath* temp = free_;
-  free_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::unsafe_arena_release_free() {
-  // @@protoc_insertion_point(field_release:IvionOnline.PayCost.Free)
-  
-  ::IvionOnline::ObjectPath* temp = free_;
-  free_ = nullptr;
-  return temp;
-}
-inline ::IvionOnline::ObjectPath* PayCost::_internal_mutable_free() {
-  
-  if (free_ == nullptr) {
-    auto* p = CreateMaybeMessage<::IvionOnline::ObjectPath>(GetArena());
-    free_ = p;
-  }
-  return free_;
-}
-inline ::IvionOnline::ObjectPath* PayCost::mutable_free() {
-  // @@protoc_insertion_point(field_mutable:IvionOnline.PayCost.Free)
-  return _internal_mutable_free();
-}
-inline void PayCost::set_allocated_free(::IvionOnline::ObjectPath* free) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete free_;
-  }
-  if (free) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(free);
-    if (message_arena != submessage_arena) {
-      free = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, free, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  free_ = free;
-  // @@protoc_insertion_point(field_set_allocated:IvionOnline.PayCost.Free)
 }
 
 // -------------------------------------------------------------------
@@ -28984,7 +29809,80 @@ inline ::IvionOnline::GetList* Method::mutable_getlist() {
   return _internal_mutable_getlist();
 }
 
-// .IvionOnline.SelectMultiple SelectMultiple = 2;
+// .IvionOnline.FilterDistance FilterDistance = 2;
+inline bool Method::_internal_has_filterdistance() const {
+  return methods_case() == kFilterDistance;
+}
+inline bool Method::has_filterdistance() const {
+  return _internal_has_filterdistance();
+}
+inline void Method::set_has_filterdistance() {
+  _oneof_case_[0] = kFilterDistance;
+}
+inline void Method::clear_filterdistance() {
+  if (_internal_has_filterdistance()) {
+    if (GetArena() == nullptr) {
+      delete methods_.filterdistance_;
+    }
+    clear_has_methods();
+  }
+}
+inline ::IvionOnline::FilterDistance* Method::release_filterdistance() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Method.FilterDistance)
+  if (_internal_has_filterdistance()) {
+    clear_has_methods();
+      ::IvionOnline::FilterDistance* temp = methods_.filterdistance_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    methods_.filterdistance_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::FilterDistance& Method::_internal_filterdistance() const {
+  return _internal_has_filterdistance()
+      ? *methods_.filterdistance_
+      : reinterpret_cast< ::IvionOnline::FilterDistance&>(::IvionOnline::_FilterDistance_default_instance_);
+}
+inline const ::IvionOnline::FilterDistance& Method::filterdistance() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Method.FilterDistance)
+  return _internal_filterdistance();
+}
+inline ::IvionOnline::FilterDistance* Method::unsafe_arena_release_filterdistance() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Method.FilterDistance)
+  if (_internal_has_filterdistance()) {
+    clear_has_methods();
+    ::IvionOnline::FilterDistance* temp = methods_.filterdistance_;
+    methods_.filterdistance_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Method::unsafe_arena_set_allocated_filterdistance(::IvionOnline::FilterDistance* filterdistance) {
+  clear_methods();
+  if (filterdistance) {
+    set_has_filterdistance();
+    methods_.filterdistance_ = filterdistance;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Method.FilterDistance)
+}
+inline ::IvionOnline::FilterDistance* Method::_internal_mutable_filterdistance() {
+  if (!_internal_has_filterdistance()) {
+    clear_methods();
+    set_has_filterdistance();
+    methods_.filterdistance_ = CreateMaybeMessage< ::IvionOnline::FilterDistance >(GetArena());
+  }
+  return methods_.filterdistance_;
+}
+inline ::IvionOnline::FilterDistance* Method::mutable_filterdistance() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Method.FilterDistance)
+  return _internal_mutable_filterdistance();
+}
+
+// .IvionOnline.SelectMultiple SelectMultiple = 3;
 inline bool Method::_internal_has_selectmultiple() const {
   return methods_case() == kSelectMultiple;
 }
@@ -29057,7 +29955,7 @@ inline ::IvionOnline::SelectMultiple* Method::mutable_selectmultiple() {
   return _internal_mutable_selectmultiple();
 }
 
-// .IvionOnline.SelectExactlyOne SelectExactlyOne = 3;
+// .IvionOnline.SelectExactlyOne SelectExactlyOne = 4;
 inline bool Method::_internal_has_selectexactlyone() const {
   return methods_case() == kSelectExactlyOne;
 }
@@ -29130,7 +30028,7 @@ inline ::IvionOnline::SelectExactlyOne* Method::mutable_selectexactlyone() {
   return _internal_mutable_selectexactlyone();
 }
 
-// .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 4;
+// .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 5;
 inline bool Method::_internal_has_assertcontrolorheroic() const {
   return methods_case() == kAssertControlOrHeroic;
 }
@@ -29203,7 +30101,7 @@ inline ::IvionOnline::AssertControlOrHeroic* Method::mutable_assertcontrolorhero
   return _internal_mutable_assertcontrolorheroic();
 }
 
-// .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 5;
+// .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 6;
 inline bool Method::_internal_has_assertcontrollerhaspriority() const {
   return methods_case() == kAssertControllerHasPriority;
 }
@@ -29276,7 +30174,7 @@ inline ::IvionOnline::AssertControllerHasPriority* Method::mutable_assertcontrol
   return _internal_mutable_assertcontrollerhaspriority();
 }
 
-// .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
+// .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
 inline bool Method::_internal_has_assertstackemptyorinstant() const {
   return methods_case() == kAssertStackEmptyOrInstant;
 }
@@ -29349,7 +30247,80 @@ inline ::IvionOnline::AssertStackEmptyOrInstant* Method::mutable_assertstackempt
   return _internal_mutable_assertstackemptyorinstant();
 }
 
-// .IvionOnline.PayCost PayCost = 7;
+// .IvionOnline.ReduceCost ReduceCost = 8;
+inline bool Method::_internal_has_reducecost() const {
+  return methods_case() == kReduceCost;
+}
+inline bool Method::has_reducecost() const {
+  return _internal_has_reducecost();
+}
+inline void Method::set_has_reducecost() {
+  _oneof_case_[0] = kReduceCost;
+}
+inline void Method::clear_reducecost() {
+  if (_internal_has_reducecost()) {
+    if (GetArena() == nullptr) {
+      delete methods_.reducecost_;
+    }
+    clear_has_methods();
+  }
+}
+inline ::IvionOnline::ReduceCost* Method::release_reducecost() {
+  // @@protoc_insertion_point(field_release:IvionOnline.Method.ReduceCost)
+  if (_internal_has_reducecost()) {
+    clear_has_methods();
+      ::IvionOnline::ReduceCost* temp = methods_.reducecost_;
+    if (GetArena() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    methods_.reducecost_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::IvionOnline::ReduceCost& Method::_internal_reducecost() const {
+  return _internal_has_reducecost()
+      ? *methods_.reducecost_
+      : reinterpret_cast< ::IvionOnline::ReduceCost&>(::IvionOnline::_ReduceCost_default_instance_);
+}
+inline const ::IvionOnline::ReduceCost& Method::reducecost() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.Method.ReduceCost)
+  return _internal_reducecost();
+}
+inline ::IvionOnline::ReduceCost* Method::unsafe_arena_release_reducecost() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:IvionOnline.Method.ReduceCost)
+  if (_internal_has_reducecost()) {
+    clear_has_methods();
+    ::IvionOnline::ReduceCost* temp = methods_.reducecost_;
+    methods_.reducecost_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Method::unsafe_arena_set_allocated_reducecost(::IvionOnline::ReduceCost* reducecost) {
+  clear_methods();
+  if (reducecost) {
+    set_has_reducecost();
+    methods_.reducecost_ = reducecost;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.Method.ReduceCost)
+}
+inline ::IvionOnline::ReduceCost* Method::_internal_mutable_reducecost() {
+  if (!_internal_has_reducecost()) {
+    clear_methods();
+    set_has_reducecost();
+    methods_.reducecost_ = CreateMaybeMessage< ::IvionOnline::ReduceCost >(GetArena());
+  }
+  return methods_.reducecost_;
+}
+inline ::IvionOnline::ReduceCost* Method::mutable_reducecost() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.Method.ReduceCost)
+  return _internal_mutable_reducecost();
+}
+
+// .IvionOnline.PayCost PayCost = 9;
 inline bool Method::_internal_has_paycost() const {
   return methods_case() == kPayCost;
 }
@@ -29422,7 +30393,7 @@ inline ::IvionOnline::PayCost* Method::mutable_paycost() {
   return _internal_mutable_paycost();
 }
 
-// .IvionOnline.PlayGainResources PlayGainResources = 8;
+// .IvionOnline.PlayGainResources PlayGainResources = 10;
 inline bool Method::_internal_has_playgainresources() const {
   return methods_case() == kPlayGainResources;
 }
@@ -29495,7 +30466,7 @@ inline ::IvionOnline::PlayGainResources* Method::mutable_playgainresources() {
   return _internal_mutable_playgainresources();
 }
 
-// .IvionOnline.RefundCost RefundCost = 9;
+// .IvionOnline.RefundCost RefundCost = 11;
 inline bool Method::_internal_has_refundcost() const {
   return methods_case() == kRefundCost;
 }
@@ -29568,7 +30539,7 @@ inline ::IvionOnline::RefundCost* Method::mutable_refundcost() {
   return _internal_mutable_refundcost();
 }
 
-// .IvionOnline.GainActions GainActions = 10;
+// .IvionOnline.GainActions GainActions = 12;
 inline bool Method::_internal_has_gainactions() const {
   return methods_case() == kGainActions;
 }
@@ -29641,7 +30612,7 @@ inline ::IvionOnline::GainActions* Method::mutable_gainactions() {
   return _internal_mutable_gainactions();
 }
 
-// .IvionOnline.GainPower GainPower = 11;
+// .IvionOnline.GainPower GainPower = 13;
 inline bool Method::_internal_has_gainpower() const {
   return methods_case() == kGainPower;
 }
@@ -29714,7 +30685,7 @@ inline ::IvionOnline::GainPower* Method::mutable_gainpower() {
   return _internal_mutable_gainpower();
 }
 
-// .IvionOnline.Move Move = 12;
+// .IvionOnline.Move Move = 14;
 inline bool Method::_internal_has_move() const {
   return methods_case() == kMove;
 }
@@ -29787,7 +30758,7 @@ inline ::IvionOnline::Move* Method::mutable_move() {
   return _internal_mutable_move();
 }
 
-// .IvionOnline.Travel Travel = 13;
+// .IvionOnline.Travel Travel = 15;
 inline bool Method::_internal_has_travel() const {
   return methods_case() == kTravel;
 }
@@ -29860,7 +30831,7 @@ inline ::IvionOnline::Travel* Method::mutable_travel() {
   return _internal_mutable_travel();
 }
 
-// .IvionOnline.Damage Damage = 14;
+// .IvionOnline.Damage Damage = 16;
 inline bool Method::_internal_has_damage() const {
   return methods_case() == kDamage;
 }
@@ -29933,7 +30904,7 @@ inline ::IvionOnline::Damage* Method::mutable_damage() {
   return _internal_mutable_damage();
 }
 
-// .IvionOnline.Boolean_Constant Boolean_Constant = 15;
+// .IvionOnline.Boolean_Constant Boolean_Constant = 17;
 inline bool Method::_internal_has_boolean_constant() const {
   return methods_case() == kBooleanConstant;
 }
@@ -30006,7 +30977,7 @@ inline ::IvionOnline::Boolean_Constant* Method::mutable_boolean_constant() {
   return _internal_mutable_boolean_constant();
 }
 
-// .IvionOnline.Integer_Constant Integer_Constant = 16;
+// .IvionOnline.Integer_Constant Integer_Constant = 18;
 inline bool Method::_internal_has_integer_constant() const {
   return methods_case() == kIntegerConstant;
 }
@@ -30079,7 +31050,7 @@ inline ::IvionOnline::Integer_Constant* Method::mutable_integer_constant() {
   return _internal_mutable_integer_constant();
 }
 
-// .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
+// .IvionOnline.Vec2i_Constant Vec2i_Constant = 19;
 inline bool Method::_internal_has_vec2i_constant() const {
   return methods_case() == kVec2IConstant;
 }
@@ -30152,7 +31123,7 @@ inline ::IvionOnline::Vec2i_Constant* Method::mutable_vec2i_constant() {
   return _internal_mutable_vec2i_constant();
 }
 
-// .IvionOnline.Terrain_Constant Terrain_Constant = 18;
+// .IvionOnline.Terrain_Constant Terrain_Constant = 20;
 inline bool Method::_internal_has_terrain_constant() const {
   return methods_case() == kTerrainConstant;
 }
@@ -30225,7 +31196,7 @@ inline ::IvionOnline::Terrain_Constant* Method::mutable_terrain_constant() {
   return _internal_mutable_terrain_constant();
 }
 
-// .IvionOnline.Color_Constant Color_Constant = 19;
+// .IvionOnline.Color_Constant Color_Constant = 21;
 inline bool Method::_internal_has_color_constant() const {
   return methods_case() == kColorConstant;
 }
@@ -30298,7 +31269,7 @@ inline ::IvionOnline::Color_Constant* Method::mutable_color_constant() {
   return _internal_mutable_color_constant();
 }
 
-// .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+// .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 22;
 inline bool Method::_internal_has_objectpath_constant() const {
   return methods_case() == kObjectPathConstant;
 }
@@ -30426,6 +31397,10 @@ List_Method::element() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

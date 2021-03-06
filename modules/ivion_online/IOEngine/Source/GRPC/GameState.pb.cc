@@ -26,6 +26,7 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Color_Constant_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Color_Set_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Damage_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FilterDistance_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GainActions_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GainPower_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<7> scc_info_GameState_GameState_2eproto;
@@ -52,7 +53,7 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Tile_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Vec2i_Insert_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_List_Vec2i_Remove_Mutation_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<20> scc_info_Method_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<22> scc_info_Method_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Move_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<18> scc_info_Mutation_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ObjectPath_GameState_2eproto;
@@ -61,13 +62,14 @@ extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::inter
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PayCost_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayGainResources_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Player_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ReduceCost_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RefundCost_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SelectExactlyOne_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_SelectMultiple_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Terrain_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Terrain_Constant_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_Terrain_Set_Mutation_GameState_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Tile_GameState_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Tile_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Travel_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2i_GameState_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2i_Constant_GameState_2eproto;
@@ -245,6 +247,10 @@ class GetListDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetList> _instance;
 } _GetList_default_instance_;
+class FilterDistanceDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<FilterDistance> _instance;
+} _FilterDistance_default_instance_;
 class SelectMultipleDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SelectMultiple> _instance;
@@ -265,6 +271,10 @@ class AssertStackEmptyOrInstantDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AssertStackEmptyOrInstant> _instance;
 } _AssertStackEmptyOrInstant_default_instance_;
+class ReduceCostDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ReduceCost> _instance;
+} _ReduceCost_default_instance_;
 class PayCostDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PayCost> _instance;
@@ -498,6 +508,20 @@ static void InitDefaultsscc_info_Damage_GameState_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Damage_GameState_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_Damage_GameState_2eproto}, {
+      &scc_info_ObjectPath_GameState_2eproto.base,}};
+
+static void InitDefaultsscc_info_FilterDistance_GameState_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_FilterDistance_default_instance_;
+    new (ptr) ::IvionOnline::FilterDistance();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_FilterDistance_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_FilterDistance_GameState_2eproto}, {
       &scc_info_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_GainActions_GameState_2eproto() {
@@ -986,14 +1010,16 @@ static void InitDefaultsscc_info_Method_GameState_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<20> scc_info_Method_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 20, 0, InitDefaultsscc_info_Method_GameState_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<22> scc_info_Method_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 22, 0, InitDefaultsscc_info_Method_GameState_2eproto}, {
       &scc_info_GetList_GameState_2eproto.base,
+      &scc_info_FilterDistance_GameState_2eproto.base,
       &scc_info_SelectMultiple_GameState_2eproto.base,
       &scc_info_SelectExactlyOne_GameState_2eproto.base,
       &scc_info_AssertControlOrHeroic_GameState_2eproto.base,
       &scc_info_AssertControllerHasPriority_GameState_2eproto.base,
       &scc_info_AssertStackEmptyOrInstant_GameState_2eproto.base,
+      &scc_info_ReduceCost_GameState_2eproto.base,
       &scc_info_PayCost_GameState_2eproto.base,
       &scc_info_PlayGainResources_GameState_2eproto.base,
       &scc_info_RefundCost_GameState_2eproto.base,
@@ -1140,6 +1166,20 @@ static void InitDefaultsscc_info_Player_GameState_2eproto() {
       &scc_info_List_ObjectPath_GameState_2eproto.base,
       &scc_info_ObjectPath_GameState_2eproto.base,}};
 
+static void InitDefaultsscc_info_ReduceCost_GameState_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::IvionOnline::_ReduceCost_default_instance_;
+    new (ptr) ::IvionOnline::ReduceCost();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ReduceCost_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ReduceCost_GameState_2eproto}, {
+      &scc_info_ObjectPath_GameState_2eproto.base,}};
+
 static void InitDefaultsscc_info_RefundCost_GameState_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -1236,11 +1276,10 @@ static void InitDefaultsscc_info_Tile_GameState_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_Tile_GameState_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_Tile_GameState_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_Tile_GameState_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_Tile_GameState_2eproto}, {
       &scc_info_Vec2i_GameState_2eproto.base,
       &scc_info_Terrain_GameState_2eproto.base,
-      &scc_info_List_ObjectPath_GameState_2eproto.base,
       &scc_info_ObjectPath_GameState_2eproto.base,}};
 
 static void InitDefaultsscc_info_Travel_GameState_2eproto() {
@@ -1300,7 +1339,7 @@ static void InitDefaultsscc_info_Vec2i_Set_Mutation_GameState_2eproto() {
       &scc_info_ObjectPath_GameState_2eproto.base,
       &scc_info_Vec2i_GameState_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[64];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameState_2eproto[66];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameState_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_GameState_2eproto = nullptr;
 
@@ -1422,6 +1461,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, actions_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, power_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, initiative_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, mitigate_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, slow_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, silence_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, disarm_),
@@ -1436,6 +1476,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, maxslow_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, maxsilence_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, maxdisarm_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, maxmitigate_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, abspath_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Player, name_),
   ~0u,  // no _has_bits_
@@ -1477,6 +1518,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, affectedbyslow_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, affectedbysilence_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, affectedbydisarm_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, attached_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, omnipresenteffect_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, passiveeffect_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::CardData, feateffect_),
@@ -1501,8 +1543,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, index_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, indexstr_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, terrain_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, players_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, cards_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, abspath_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Tile, name_),
   ~0u,  // no _has_bits_
@@ -1710,6 +1750,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::IvionOnline::GetList, source_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::GetList, result_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::FilterDistance, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::FilterDistance, targets_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::FilterDistance, rangesources_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::FilterDistance, maxdistance_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::SelectMultiple, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1741,16 +1789,22 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, card_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, actioncostreduction_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, powercostreduction_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, costreduction_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ReduceCost, free_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, player_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, card_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, actioncostreduction_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, powercostreduction_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, costreduction_),
-  PROTOBUF_FIELD_OFFSET(::IvionOnline::PayCost, free_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayGainResources, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1861,6 +1915,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::IvionOnline::Method, methods_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::List_Method, _internal_metadata_),
@@ -1884,56 +1940,58 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 89, -1, sizeof(::IvionOnline::ObjectPath)},
   { 96, -1, sizeof(::IvionOnline::List_ObjectPath)},
   { 104, -1, sizeof(::IvionOnline::Player)},
-  { 133, -1, sizeof(::IvionOnline::List_Player)},
-  { 141, -1, sizeof(::IvionOnline::Card)},
-  { 151, -1, sizeof(::IvionOnline::List_Card)},
-  { 159, -1, sizeof(::IvionOnline::CardData)},
-  { 179, -1, sizeof(::IvionOnline::List_CardData)},
-  { 187, -1, sizeof(::IvionOnline::Tile)},
-  { 200, -1, sizeof(::IvionOnline::List_Tile)},
-  { 208, -1, sizeof(::IvionOnline::GameState)},
-  { 221, -1, sizeof(::IvionOnline::List_GameState)},
-  { 229, -1, sizeof(::IvionOnline::Boolean_Set_Mutation)},
-  { 237, -1, sizeof(::IvionOnline::List_Boolean_Insert_Mutation)},
-  { 245, -1, sizeof(::IvionOnline::List_Boolean_Remove_Mutation)},
-  { 253, -1, sizeof(::IvionOnline::Integer_Set_Mutation)},
-  { 261, -1, sizeof(::IvionOnline::List_Integer_Insert_Mutation)},
-  { 269, -1, sizeof(::IvionOnline::List_Integer_Remove_Mutation)},
-  { 277, -1, sizeof(::IvionOnline::Vec2i_Set_Mutation)},
-  { 285, -1, sizeof(::IvionOnline::List_Vec2i_Insert_Mutation)},
-  { 293, -1, sizeof(::IvionOnline::List_Vec2i_Remove_Mutation)},
-  { 301, -1, sizeof(::IvionOnline::Terrain_Set_Mutation)},
-  { 309, -1, sizeof(::IvionOnline::List_Terrain_Insert_Mutation)},
-  { 317, -1, sizeof(::IvionOnline::List_Terrain_Remove_Mutation)},
-  { 325, -1, sizeof(::IvionOnline::Color_Set_Mutation)},
-  { 333, -1, sizeof(::IvionOnline::List_Color_Insert_Mutation)},
-  { 341, -1, sizeof(::IvionOnline::List_Color_Remove_Mutation)},
-  { 349, -1, sizeof(::IvionOnline::ObjectPath_Set_Mutation)},
-  { 357, -1, sizeof(::IvionOnline::List_ObjectPath_Insert_Mutation)},
-  { 365, -1, sizeof(::IvionOnline::List_ObjectPath_Remove_Mutation)},
-  { 373, -1, sizeof(::IvionOnline::Mutation)},
-  { 397, -1, sizeof(::IvionOnline::GetList)},
-  { 404, -1, sizeof(::IvionOnline::SelectMultiple)},
-  { 413, -1, sizeof(::IvionOnline::SelectExactlyOne)},
-  { 420, -1, sizeof(::IvionOnline::AssertControlOrHeroic)},
-  { 425, -1, sizeof(::IvionOnline::AssertControllerHasPriority)},
-  { 430, -1, sizeof(::IvionOnline::AssertStackEmptyOrInstant)},
-  { 435, -1, sizeof(::IvionOnline::PayCost)},
-  { 446, -1, sizeof(::IvionOnline::PlayGainResources)},
-  { 453, -1, sizeof(::IvionOnline::RefundCost)},
-  { 460, -1, sizeof(::IvionOnline::GainActions)},
-  { 467, -1, sizeof(::IvionOnline::GainPower)},
-  { 474, -1, sizeof(::IvionOnline::Move)},
-  { 481, -1, sizeof(::IvionOnline::Travel)},
-  { 488, -1, sizeof(::IvionOnline::Damage)},
-  { 495, -1, sizeof(::IvionOnline::Boolean_Constant)},
-  { 501, -1, sizeof(::IvionOnline::Integer_Constant)},
-  { 507, -1, sizeof(::IvionOnline::Vec2i_Constant)},
-  { 513, -1, sizeof(::IvionOnline::Terrain_Constant)},
-  { 519, -1, sizeof(::IvionOnline::Color_Constant)},
-  { 525, -1, sizeof(::IvionOnline::ObjectPath_Constant)},
-  { 531, -1, sizeof(::IvionOnline::Method)},
-  { 557, -1, sizeof(::IvionOnline::List_Method)},
+  { 135, -1, sizeof(::IvionOnline::List_Player)},
+  { 143, -1, sizeof(::IvionOnline::Card)},
+  { 153, -1, sizeof(::IvionOnline::List_Card)},
+  { 161, -1, sizeof(::IvionOnline::CardData)},
+  { 182, -1, sizeof(::IvionOnline::List_CardData)},
+  { 190, -1, sizeof(::IvionOnline::Tile)},
+  { 201, -1, sizeof(::IvionOnline::List_Tile)},
+  { 209, -1, sizeof(::IvionOnline::GameState)},
+  { 222, -1, sizeof(::IvionOnline::List_GameState)},
+  { 230, -1, sizeof(::IvionOnline::Boolean_Set_Mutation)},
+  { 238, -1, sizeof(::IvionOnline::List_Boolean_Insert_Mutation)},
+  { 246, -1, sizeof(::IvionOnline::List_Boolean_Remove_Mutation)},
+  { 254, -1, sizeof(::IvionOnline::Integer_Set_Mutation)},
+  { 262, -1, sizeof(::IvionOnline::List_Integer_Insert_Mutation)},
+  { 270, -1, sizeof(::IvionOnline::List_Integer_Remove_Mutation)},
+  { 278, -1, sizeof(::IvionOnline::Vec2i_Set_Mutation)},
+  { 286, -1, sizeof(::IvionOnline::List_Vec2i_Insert_Mutation)},
+  { 294, -1, sizeof(::IvionOnline::List_Vec2i_Remove_Mutation)},
+  { 302, -1, sizeof(::IvionOnline::Terrain_Set_Mutation)},
+  { 310, -1, sizeof(::IvionOnline::List_Terrain_Insert_Mutation)},
+  { 318, -1, sizeof(::IvionOnline::List_Terrain_Remove_Mutation)},
+  { 326, -1, sizeof(::IvionOnline::Color_Set_Mutation)},
+  { 334, -1, sizeof(::IvionOnline::List_Color_Insert_Mutation)},
+  { 342, -1, sizeof(::IvionOnline::List_Color_Remove_Mutation)},
+  { 350, -1, sizeof(::IvionOnline::ObjectPath_Set_Mutation)},
+  { 358, -1, sizeof(::IvionOnline::List_ObjectPath_Insert_Mutation)},
+  { 366, -1, sizeof(::IvionOnline::List_ObjectPath_Remove_Mutation)},
+  { 374, -1, sizeof(::IvionOnline::Mutation)},
+  { 398, -1, sizeof(::IvionOnline::GetList)},
+  { 405, -1, sizeof(::IvionOnline::FilterDistance)},
+  { 413, -1, sizeof(::IvionOnline::SelectMultiple)},
+  { 422, -1, sizeof(::IvionOnline::SelectExactlyOne)},
+  { 429, -1, sizeof(::IvionOnline::AssertControlOrHeroic)},
+  { 434, -1, sizeof(::IvionOnline::AssertControllerHasPriority)},
+  { 439, -1, sizeof(::IvionOnline::AssertStackEmptyOrInstant)},
+  { 444, -1, sizeof(::IvionOnline::ReduceCost)},
+  { 454, -1, sizeof(::IvionOnline::PayCost)},
+  { 461, -1, sizeof(::IvionOnline::PlayGainResources)},
+  { 468, -1, sizeof(::IvionOnline::RefundCost)},
+  { 475, -1, sizeof(::IvionOnline::GainActions)},
+  { 482, -1, sizeof(::IvionOnline::GainPower)},
+  { 489, -1, sizeof(::IvionOnline::Move)},
+  { 496, -1, sizeof(::IvionOnline::Travel)},
+  { 503, -1, sizeof(::IvionOnline::Damage)},
+  { 510, -1, sizeof(::IvionOnline::Boolean_Constant)},
+  { 516, -1, sizeof(::IvionOnline::Integer_Constant)},
+  { 522, -1, sizeof(::IvionOnline::Vec2i_Constant)},
+  { 528, -1, sizeof(::IvionOnline::Terrain_Constant)},
+  { 534, -1, sizeof(::IvionOnline::Color_Constant)},
+  { 540, -1, sizeof(::IvionOnline::ObjectPath_Constant)},
+  { 546, -1, sizeof(::IvionOnline::Method)},
+  { 574, -1, sizeof(::IvionOnline::List_Method)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1980,11 +2038,13 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_List_ObjectPath_Remove_Mutation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_Mutation_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_GetList_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_FilterDistance_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_SelectMultiple_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_SelectExactlyOne_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_AssertControlOrHeroic_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_AssertControllerHasPriority_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_AssertStackEmptyOrInstant_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_ReduceCost_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_PayCost_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_PlayGainResources_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::IvionOnline::_RefundCost_default_instance_),
@@ -2043,268 +2103,277 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "2\027.IvionOnline.ObjectType\"s\n\017List_Object"
   "Path\022(\n\007element\030\001 \003(\0132\027.IvionOnline.Obje"
   "ctPath\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022\014\n\004Name\030\003 \001(\t\"\337\006\n\006Player\022\013\n\003UID"
+  "jectPath\022\014\n\004Name\030\003 \001(\t\"\262\007\n\006Player\022\013\n\003UID"
   "\030\001 \001(\t\022\r\n\005Index\030\002 \001(\005\022\020\n\010IndexStr\030\003 \001(\t\022"
   "\023\n\013DisplayName\030\004 \001(\t\022$\n\006Health\030\005 \001(\0132\024.I"
   "vionOnline.Integer\022%\n\007Actions\030\006 \001(\0132\024.Iv"
   "ionOnline.Integer\022#\n\005Power\030\007 \001(\0132\024.Ivion"
   "Online.Integer\022(\n\nInitiative\030\010 \001(\0132\024.Ivi"
-  "onOnline.Integer\022\"\n\004Slow\030\t \001(\0132\024.IvionOn"
-  "line.Integer\022%\n\007Silence\030\n \001(\0132\024.IvionOnl"
-  "ine.Integer\022$\n\006Disarm\030\013 \001(\0132\024.IvionOnlin"
-  "e.Integer\022$\n\010Position\030\014 \001(\0132\022.IvionOnlin"
-  "e.Vec2i\022*\n\004Hand\030\r \001(\0132\034.IvionOnline.List"
-  "_ObjectPath\022*\n\004Deck\030\016 \001(\0132\034.IvionOnline."
-  "List_ObjectPath\022-\n\007Discard\030\017 \001(\0132\034.Ivion"
-  "Online.List_ObjectPath\022+\n\005Feats\030\020 \001(\0132\034."
+  "onOnline.Integer\022&\n\010Mitigate\030\t \001(\0132\024.Ivi"
+  "onOnline.Integer\022\"\n\004Slow\030\n \001(\0132\024.IvionOn"
+  "line.Integer\022%\n\007Silence\030\013 \001(\0132\024.IvionOnl"
+  "ine.Integer\022$\n\006Disarm\030\014 \001(\0132\024.IvionOnlin"
+  "e.Integer\022$\n\010Position\030\r \001(\0132\022.IvionOnlin"
+  "e.Vec2i\022*\n\004Hand\030\016 \001(\0132\034.IvionOnline.List"
+  "_ObjectPath\022*\n\004Deck\030\017 \001(\0132\034.IvionOnline."
+  "List_ObjectPath\022-\n\007Discard\030\020 \001(\0132\034.Ivion"
+  "Online.List_ObjectPath\022+\n\005Feats\030\021 \001(\0132\034."
   "IvionOnline.List_ObjectPath\022\'\n\tMaxHealth"
-  "\030\021 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxActio"
-  "ns\030\022 \001(\0132\024.IvionOnline.Integer\022&\n\010MaxPow"
-  "er\030\023 \001(\0132\024.IvionOnline.Integer\022%\n\007MaxSlo"
-  "w\030\024 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxSile"
-  "nce\030\025 \001(\0132\024.IvionOnline.Integer\022\'\n\tMaxDi"
-  "sarm\030\026 \001(\0132\024.IvionOnline.Integer\022(\n\007AbsP"
-  "ath\030\027 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Na"
-  "me\030\030 \001(\t\"k\n\013List_Player\022$\n\007element\030\001 \003(\013"
-  "2\023.IvionOnline.Player\022(\n\007AbsPath\030\002 \001(\0132\027"
-  ".IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\213\001"
-  "\n\004Card\022*\n\tCardStats\030\001 \001(\0132\027.IvionOnline."
-  "ObjectPath\022\r\n\005Index\030\002 \001(\005\022\020\n\010IndexStr\030\003 "
-  "\001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline.Objec"
-  "tPath\022\014\n\004Name\030\005 \001(\t\"g\n\tList_Card\022\"\n\007elem"
-  "ent\030\001 \003(\0132\021.IvionOnline.Card\022(\n\007AbsPath\030"
-  "\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\003"
-  " \001(\t\"\221\005\n\010CardData\022&\n\005Owner\030\001 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022+\n\nController\030\002 \001(\0132\027."
-  "IvionOnline.ObjectPath\022(\n\nActionCost\030\003 \001"
-  "(\0132\024.IvionOnline.Integer\022\'\n\tPowerCost\030\004 "
-  "\001(\0132\024.IvionOnline.Integer\022#\n\005Range\030\005 \001(\013"
-  "2\024.IvionOnline.Integer\022,\n\016AffectedBySlow"
-  "\030\006 \001(\0132\024.IvionOnline.Boolean\022/\n\021Affected"
-  "BySilence\030\007 \001(\0132\024.IvionOnline.Boolean\022.\n"
-  "\020AffectedByDisarm\030\010 \001(\0132\024.IvionOnline.Bo"
-  "olean\0223\n\021OmniPresentEffect\030\t \001(\0132\030.Ivion"
-  "Online.List_Method\022/\n\rPassiveEffect\030\n \001("
-  "\0132\030.IvionOnline.List_Method\022,\n\nFeatEffec"
-  "t\030\013 \001(\0132\030.IvionOnline.List_Method\022,\n\nPla"
-  "yEffect\030\014 \001(\0132\030.IvionOnline.List_Method\022"
-  "/\n\rResolveEffect\030\r \001(\0132\030.IvionOnline.Lis"
-  "t_Method\022(\n\007AbsPath\030\016 \001(\0132\027.IvionOnline."
-  "ObjectPath\022\014\n\004Name\030\017 \001(\t\"o\n\rList_CardDat"
-  "a\022&\n\007element\030\001 \003(\0132\025.IvionOnline.CardDat"
-  "a\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022\014\n\004Name\030\003 \001(\t\"\210\002\n\004Tile\022$\n\010Position\030\001"
-  " \001(\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\002 \001(\005\022"
-  "\020\n\010IndexStr\030\003 \001(\t\022%\n\007Terrain\030\004 \001(\0132\024.Ivi"
-  "onOnline.Terrain\022-\n\007Players\030\005 \001(\0132\034.Ivio"
-  "nOnline.List_ObjectPath\022+\n\005Cards\030\006 \001(\0132\034"
-  ".IvionOnline.List_ObjectPath\022(\n\007AbsPath\030"
-  "\007 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\010"
-  " \001(\t\"g\n\tList_Tile\022\"\n\007element\030\001 \003(\0132\021.Ivi"
-  "onOnline.Tile\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOn"
-  "line.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\301\002\n\tGameSt"
-  "ate\022)\n\007Players\030\001 \001(\0132\030.IvionOnline.List_"
-  "Player\022%\n\005Cards\030\002 \001(\0132\026.IvionOnline.List"
-  "_Card\022,\n\010CardData\030\003 \001(\0132\032.IvionOnline.Li"
-  "st_CardData\022%\n\005Tiles\030\004 \001(\0132\026.IvionOnline"
-  ".List_Tile\022+\n\005Field\030\005 \001(\0132\034.IvionOnline."
-  "List_ObjectPath\022(\n\nTurnNumber\030\006 \001(\0132\024.Iv"
-  "ionOnline.Integer\022(\n\007AbsPath\030\007 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022\014\n\004Name\030\010 \001(\t\"q\n\016Lis"
-  "t_GameState\022\'\n\007element\030\001 \003(\0132\026.IvionOnli"
-  "ne.GameState\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnl"
-  "ine.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\215\001\n\024Boolean"
-  "_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnlin"
-  "e.ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOn"
-  "line.Boolean\022&\n\010OldValue\030\003 \001(\0132\024.IvionOn"
-  "line.Boolean\"|\n\034List_Boolean_Insert_Muta"
+  "\030\022 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxActio"
+  "ns\030\023 \001(\0132\024.IvionOnline.Integer\022&\n\010MaxPow"
+  "er\030\024 \001(\0132\024.IvionOnline.Integer\022%\n\007MaxSlo"
+  "w\030\025 \001(\0132\024.IvionOnline.Integer\022(\n\nMaxSile"
+  "nce\030\026 \001(\0132\024.IvionOnline.Integer\022\'\n\tMaxDi"
+  "sarm\030\027 \001(\0132\024.IvionOnline.Integer\022)\n\013MaxM"
+  "itigate\030\030 \001(\0132\024.IvionOnline.Integer\022(\n\007A"
+  "bsPath\030\031 \001(\0132\027.IvionOnline.ObjectPath\022\014\n"
+  "\004Name\030\032 \001(\t\"k\n\013List_Player\022$\n\007element\030\001 "
+  "\003(\0132\023.IvionOnline.Player\022(\n\007AbsPath\030\002 \001("
+  "\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t"
+  "\"\213\001\n\004Card\022*\n\tCardStats\030\001 \001(\0132\027.IvionOnli"
+  "ne.ObjectPath\022\r\n\005Index\030\002 \001(\005\022\020\n\010IndexStr"
+  "\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline.Ob"
+  "jectPath\022\014\n\004Name\030\005 \001(\t\"g\n\tList_Card\022\"\n\007e"
+  "lement\030\001 \003(\0132\021.IvionOnline.Card\022(\n\007AbsPa"
+  "th\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Nam"
+  "e\030\003 \001(\t\"\274\005\n\010CardData\022&\n\005Owner\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022+\n\nController\030\002 \001(\013"
+  "2\027.IvionOnline.ObjectPath\022(\n\nActionCost\030"
+  "\003 \001(\0132\024.IvionOnline.Integer\022\'\n\tPowerCost"
+  "\030\004 \001(\0132\024.IvionOnline.Integer\022#\n\005Range\030\005 "
+  "\001(\0132\024.IvionOnline.Integer\022,\n\016AffectedByS"
+  "low\030\006 \001(\0132\024.IvionOnline.Boolean\022/\n\021Affec"
+  "tedBySilence\030\007 \001(\0132\024.IvionOnline.Boolean"
+  "\022.\n\020AffectedByDisarm\030\010 \001(\0132\024.IvionOnline"
+  ".Boolean\022)\n\010Attached\030\t \001(\0132\027.IvionOnline"
+  ".ObjectPath\0223\n\021OmniPresentEffect\030\n \001(\0132\030"
+  ".IvionOnline.List_Method\022/\n\rPassiveEffec"
+  "t\030\013 \001(\0132\030.IvionOnline.List_Method\022,\n\nFea"
+  "tEffect\030\014 \001(\0132\030.IvionOnline.List_Method\022"
+  ",\n\nPlayEffect\030\r \001(\0132\030.IvionOnline.List_M"
+  "ethod\022/\n\rResolveEffect\030\016 \001(\0132\030.IvionOnli"
+  "ne.List_Method\022(\n\007AbsPath\030\017 \001(\0132\027.IvionO"
+  "nline.ObjectPath\022\014\n\004Name\030\020 \001(\t\"o\n\rList_C"
+  "ardData\022&\n\007element\030\001 \003(\0132\025.IvionOnline.C"
+  "ardData\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.O"
+  "bjectPath\022\014\n\004Name\030\003 \001(\t\"\254\001\n\004Tile\022$\n\010Posi"
+  "tion\030\001 \001(\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030"
+  "\002 \001(\005\022\020\n\010IndexStr\030\003 \001(\t\022%\n\007Terrain\030\004 \001(\013"
+  "2\024.IvionOnline.Terrain\022(\n\007AbsPath\030\005 \001(\0132"
+  "\027.IvionOnline.ObjectPath\022\014\n\004Name\030\006 \001(\t\"g"
+  "\n\tList_Tile\022\"\n\007element\030\001 \003(\0132\021.IvionOnli"
+  "ne.Tile\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.O"
+  "bjectPath\022\014\n\004Name\030\003 \001(\t\"\301\002\n\tGameState\022)\n"
+  "\007Players\030\001 \001(\0132\030.IvionOnline.List_Player"
+  "\022%\n\005Cards\030\002 \001(\0132\026.IvionOnline.List_Card\022"
+  ",\n\010CardData\030\003 \001(\0132\032.IvionOnline.List_Car"
+  "dData\022%\n\005Tiles\030\004 \001(\0132\026.IvionOnline.List_"
+  "Tile\022+\n\005Field\030\005 \001(\0132\034.IvionOnline.List_O"
+  "bjectPath\022(\n\nTurnNumber\030\006 \001(\0132\024.IvionOnl"
+  "ine.Integer\022(\n\007AbsPath\030\007 \001(\0132\027.IvionOnli"
+  "ne.ObjectPath\022\014\n\004Name\030\010 \001(\t\"q\n\016List_Game"
+  "State\022\'\n\007element\030\001 \003(\0132\026.IvionOnline.Gam"
+  "eState\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Ob"
+  "jectPath\022\014\n\004Name\030\003 \001(\t\"\215\001\n\024Boolean_Set_M"
+  "utation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Obje"
+  "ctPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.B"
+  "oolean\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline.B"
+  "oolean\"|\n\034List_Boolean_Insert_Mutation\022%"
+  "\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n"
+  "\010NewValue\030\002 \001(\0132\024.IvionOnline.Boolean\022\r\n"
+  "\005Index\030\003 \001(\005\"|\n\034List_Boolean_Remove_Muta"
   "tion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Bool"
-  "ean\022\r\n\005Index\030\003 \001(\005\"|\n\034List_Boolean_Remov"
-  "e_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.O"
-  "bjectPath\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnlin"
-  "e.Boolean\022\r\n\005Index\030\003 \001(\005\"\215\001\n\024Integer_Set"
-  "_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline"
-  ".Integer\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline"
-  ".Integer\"|\n\034List_Integer_Insert_Mutation"
-  "\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022"
-  "&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Integer\022"
-  "\r\n\005Index\030\003 \001(\005\"|\n\034List_Integer_Remove_Mu"
-  "tation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Objec"
-  "tPath\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.In"
-  "teger\022\r\n\005Index\030\003 \001(\005\"\207\001\n\022Vec2i_Set_Mutat"
+  "ath\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.Bool"
+  "ean\022\r\n\005Index\030\003 \001(\005\"\215\001\n\024Integer_Set_Mutat"
   "ion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\022$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Vec2i"
-  "\022$\n\010OldValue\030\003 \001(\0132\022.IvionOnline.Vec2i\"x"
-  "\n\032List_Vec2i_Insert_Mutation\022%\n\004Path\030\001 \001"
-  "(\0132\027.IvionOnline.ObjectPath\022$\n\010NewValue\030"
-  "\002 \001(\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001(\005"
-  "\"x\n\032List_Vec2i_Remove_Mutation\022%\n\004Path\030\001"
-  " \001(\0132\027.IvionOnline.ObjectPath\022$\n\010OldValu"
-  "e\030\002 \001(\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001"
-  "(\005\"\215\001\n\024Terrain_Set_Mutation\022%\n\004Path\030\001 \001("
-  "\0132\027.IvionOnline.ObjectPath\022&\n\010NewValue\030\002"
-  " \001(\0132\024.IvionOnline.Terrain\022&\n\010OldValue\030\003"
-  " \001(\0132\024.IvionOnline.Terrain\"|\n\034List_Terra"
-  "in_Insert_Mutation\022%\n\004Path\030\001 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024.Iv"
-  "ionOnline.Terrain\022\r\n\005Index\030\003 \001(\005\"|\n\034List"
-  "_Terrain_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027"
-  ".IvionOnline.ObjectPath\022&\n\010OldValue\030\002 \001("
-  "\0132\024.IvionOnline.Terrain\022\r\n\005Index\030\003 \001(\005\"\207"
-  "\001\n\022Color_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.Iv"
-  "ionOnline.ObjectPath\022$\n\010NewValue\030\002 \001(\0132\022"
-  ".IvionOnline.Color\022$\n\010OldValue\030\003 \001(\0132\022.I"
-  "vionOnline.Color\"x\n\032List_Color_Insert_Mu"
-  "tation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Objec"
-  "tPath\022$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Co"
-  "lor\022\r\n\005Index\030\003 \001(\005\"x\n\032List_Color_Remove_"
-  "Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Obj"
-  "ectPath\022$\n\010OldValue\030\002 \001(\0132\022.IvionOnline."
-  "Color\022\r\n\005Index\030\003 \001(\005\"\226\001\n\027ObjectPath_Set_"
-  "Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Obj"
-  "ectPath\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline."
-  "ObjectPath\022)\n\010OldValue\030\003 \001(\0132\027.IvionOnli"
-  "ne.ObjectPath\"\202\001\n\037List_ObjectPath_Insert"
-  "_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline"
-  ".ObjectPath\022\r\n\005Index\030\003 \001(\005\"\202\001\n\037List_Obje"
-  "ctPath_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027.I"
-  "vionOnline.ObjectPath\022)\n\010OldValue\030\002 \001(\0132"
-  "\027.IvionOnline.ObjectPath\022\r\n\005Index\030\003 \001(\005\""
-  "\201\013\n\010Mutation\022A\n\024Boolean_Set_Mutation\030\001 \001"
-  "(\0132!.IvionOnline.Boolean_Set_MutationH\000\022"
-  "Q\n\034List_Boolean_Insert_Mutation\030\002 \001(\0132)."
-  "IvionOnline.List_Boolean_Insert_Mutation"
-  "H\000\022Q\n\034List_Boolean_Remove_Mutation\030\003 \001(\013"
-  "2).IvionOnline.List_Boolean_Remove_Mutat"
-  "ionH\000\022A\n\024Integer_Set_Mutation\030\004 \001(\0132!.Iv"
-  "ionOnline.Integer_Set_MutationH\000\022Q\n\034List"
-  "_Integer_Insert_Mutation\030\005 \001(\0132).IvionOn"
-  "line.List_Integer_Insert_MutationH\000\022Q\n\034L"
-  "ist_Integer_Remove_Mutation\030\006 \001(\0132).Ivio"
-  "nOnline.List_Integer_Remove_MutationH\000\022="
-  "\n\022Vec2i_Set_Mutation\030\007 \001(\0132\037.IvionOnline"
-  ".Vec2i_Set_MutationH\000\022M\n\032List_Vec2i_Inse"
-  "rt_Mutation\030\010 \001(\0132\'.IvionOnline.List_Vec"
-  "2i_Insert_MutationH\000\022M\n\032List_Vec2i_Remov"
-  "e_Mutation\030\t \001(\0132\'.IvionOnline.List_Vec2"
-  "i_Remove_MutationH\000\022A\n\024Terrain_Set_Mutat"
-  "ion\030\n \001(\0132!.IvionOnline.Terrain_Set_Muta"
-  "tionH\000\022Q\n\034List_Terrain_Insert_Mutation\030\013"
-  " \001(\0132).IvionOnline.List_Terrain_Insert_M"
-  "utationH\000\022Q\n\034List_Terrain_Remove_Mutatio"
-  "n\030\014 \001(\0132).IvionOnline.List_Terrain_Remov"
-  "e_MutationH\000\022=\n\022Color_Set_Mutation\030\r \001(\013"
-  "2\037.IvionOnline.Color_Set_MutationH\000\022M\n\032L"
-  "ist_Color_Insert_Mutation\030\016 \001(\0132\'.IvionO"
-  "nline.List_Color_Insert_MutationH\000\022M\n\032Li"
-  "st_Color_Remove_Mutation\030\017 \001(\0132\'.IvionOn"
-  "line.List_Color_Remove_MutationH\000\022G\n\027Obj"
-  "ectPath_Set_Mutation\030\020 \001(\0132$.IvionOnline"
-  ".ObjectPath_Set_MutationH\000\022W\n\037List_Objec"
-  "tPath_Insert_Mutation\030\021 \001(\0132,.IvionOnlin"
-  "e.List_ObjectPath_Insert_MutationH\000\022W\n\037L"
-  "ist_ObjectPath_Remove_Mutation\030\022 \001(\0132,.I"
-  "vionOnline.List_ObjectPath_Remove_Mutati"
-  "onH\000B\005\n\003mut\"`\n\007GetList\022\'\n\006Source\030\001 \001(\0132\027"
-  ".IvionOnline.ObjectPath\022,\n\006Result\030\002 \001(\0132"
-  "\034.IvionOnline.List_ObjectPath\"\267\001\n\016Select"
-  "Multiple\022\'\n\006Source\030\001 \001(\0132\027.IvionOnline.O"
-  "bjectPath\022\'\n\006Number\030\002 \001(\0132\027.IvionOnline."
-  "ObjectPath\022%\n\004UpTo\030\003 \001(\0132\027.IvionOnline.O"
-  "bjectPath\022,\n\006Result\030\004 \001(\0132\034.IvionOnline."
-  "List_ObjectPath\"d\n\020SelectExactlyOne\022\'\n\006S"
-  "ource\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006"
-  "Result\030\002 \001(\0132\027.IvionOnline.ObjectPath\"\027\n"
-  "\025AssertControlOrHeroic\"\035\n\033AssertControll"
-  "erHasPriority\"\033\n\031AssertStackEmptyOrInsta"
-  "nt\"\233\002\n\007PayCost\022\'\n\006Player\030\001 \001(\0132\027.IvionOn"
-  "line.ObjectPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnl"
-  "ine.ObjectPath\0224\n\023ActionCostReduction\030\003 "
-  "\001(\0132\027.IvionOnline.ObjectPath\0223\n\022PowerCos"
-  "tReduction\030\004 \001(\0132\027.IvionOnline.ObjectPat"
-  "h\022.\n\rCostReduction\030\005 \001(\0132\027.IvionOnline.O"
-  "bjectPath\022%\n\004Free\030\006 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\"c\n\021PlayGainResources\022\'\n\006Player\030"
-  "\001 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004Card\030\002"
-  " \001(\0132\027.IvionOnline.ObjectPath\"\\\n\nRefundC"
-  "ost\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Object"
-  "Path\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\"^\n\013GainActions\022\'\n\006Player\030\001 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022&\n\005Value\030\002 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\"\\\n\tGainPower\022\'\n\006Play"
-  "er\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\005Val"
-  "ue\030\002 \001(\0132\027.IvionOnline.ObjectPath\"]\n\004Mov"
-  "e\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\022,\n\013Destination\030\002 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\"_\n\006Travel\022\'\n\006Player\030\001 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022,\n\013Destination\030\002 \001(\013"
-  "2\027.IvionOnline.ObjectPath\"Z\n\006Damage\022\'\n\006P"
-  "layer\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006"
-  "Amount\030\002 \001(\0132\027.IvionOnline.ObjectPath\"8\n"
-  "\020Boolean_Constant\022$\n\006Result\030\001 \001(\0132\024.Ivio"
-  "nOnline.Boolean\"8\n\020Integer_Constant\022$\n\006R"
-  "esult\030\001 \001(\0132\024.IvionOnline.Integer\"4\n\016Vec"
-  "2i_Constant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnlin"
-  "e.Vec2i\"8\n\020Terrain_Constant\022$\n\006Result\030\001 "
-  "\001(\0132\024.IvionOnline.Terrain\"4\n\016Color_Const"
-  "ant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnline.Color\""
-  ">\n\023ObjectPath_Constant\022\'\n\006Result\030\001 \001(\0132\027"
-  ".IvionOnline.ObjectPath\"\325\010\n\006Method\022\'\n\007Ge"
-  "tList\030\001 \001(\0132\024.IvionOnline.GetListH\000\0225\n\016S"
-  "electMultiple\030\002 \001(\0132\033.IvionOnline.Select"
-  "MultipleH\000\0229\n\020SelectExactlyOne\030\003 \001(\0132\035.I"
-  "vionOnline.SelectExactlyOneH\000\022C\n\025AssertC"
-  "ontrolOrHeroic\030\004 \001(\0132\".IvionOnline.Asser"
-  "tControlOrHeroicH\000\022O\n\033AssertControllerHa"
-  "sPriority\030\005 \001(\0132(.IvionOnline.AssertCont"
-  "rollerHasPriorityH\000\022K\n\031AssertStackEmptyO"
-  "rInstant\030\006 \001(\0132&.IvionOnline.AssertStack"
-  "EmptyOrInstantH\000\022\'\n\007PayCost\030\007 \001(\0132\024.Ivio"
-  "nOnline.PayCostH\000\022;\n\021PlayGainResources\030\010"
-  " \001(\0132\036.IvionOnline.PlayGainResourcesH\000\022-"
-  "\n\nRefundCost\030\t \001(\0132\027.IvionOnline.RefundC"
-  "ostH\000\022/\n\013GainActions\030\n \001(\0132\030.IvionOnline"
-  ".GainActionsH\000\022+\n\tGainPower\030\013 \001(\0132\026.Ivio"
-  "nOnline.GainPowerH\000\022!\n\004Move\030\014 \001(\0132\021.Ivio"
-  "nOnline.MoveH\000\022%\n\006Travel\030\r \001(\0132\023.IvionOn"
-  "line.TravelH\000\022%\n\006Damage\030\016 \001(\0132\023.IvionOnl"
-  "ine.DamageH\000\0229\n\020Boolean_Constant\030\017 \001(\0132\035"
-  ".IvionOnline.Boolean_ConstantH\000\0229\n\020Integ"
-  "er_Constant\030\020 \001(\0132\035.IvionOnline.Integer_"
-  "ConstantH\000\0225\n\016Vec2i_Constant\030\021 \001(\0132\033.Ivi"
-  "onOnline.Vec2i_ConstantH\000\0229\n\020Terrain_Con"
-  "stant\030\022 \001(\0132\035.IvionOnline.Terrain_Consta"
-  "ntH\000\0225\n\016Color_Constant\030\023 \001(\0132\033.IvionOnli"
-  "ne.Color_ConstantH\000\022\?\n\023ObjectPath_Consta"
-  "nt\030\024 \001(\0132 .IvionOnline.ObjectPath_Consta"
-  "ntH\000B\t\n\007methods\"3\n\013List_Method\022$\n\007elemen"
-  "t\030\001 \003(\0132\023.IvionOnline.Method*\351\005\n\nObjectT"
-  "ype\022\020\n\014TYPE_BOOLEAN\020\000\022\025\n\021TYPE_LIST_BOOLE"
-  "AN\020\001\022\031\n\025TYPE_LIST_REF_BOOLEAN\020\002\022\020\n\014TYPE_"
-  "INTEGER\020\003\022\025\n\021TYPE_LIST_INTEGER\020\004\022\031\n\025TYPE"
-  "_LIST_REF_INTEGER\020\005\022\016\n\nTYPE_VEC2I\020\006\022\023\n\017T"
-  "YPE_LIST_VEC2I\020\007\022\027\n\023TYPE_LIST_REF_VEC2I\020"
-  "\010\022\020\n\014TYPE_TERRAIN\020\t\022\025\n\021TYPE_LIST_TERRAIN"
-  "\020\n\022\031\n\025TYPE_LIST_REF_TERRAIN\020\013\022\016\n\nTYPE_CO"
-  "LOR\020\014\022\023\n\017TYPE_LIST_COLOR\020\r\022\027\n\023TYPE_LIST_"
-  "REF_COLOR\020\016\022\023\n\017TYPE_OBJECTPATH\020\017\022\030\n\024TYPE"
-  "_LIST_OBJECTPATH\020\020\022\034\n\030TYPE_LIST_REF_OBJE"
-  "CTPATH\020\021\022\017\n\013TYPE_PLAYER\020\022\022\024\n\020TYPE_LIST_P"
-  "LAYER\020\023\022\030\n\024TYPE_LIST_REF_PLAYER\020\024\022\r\n\tTYP"
-  "E_CARD\020\025\022\022\n\016TYPE_LIST_CARD\020\026\022\026\n\022TYPE_LIS"
-  "T_REF_CARD\020\027\022\021\n\rTYPE_CARDDATA\020\030\022\026\n\022TYPE_"
-  "LIST_CARDDATA\020\031\022\032\n\026TYPE_LIST_REF_CARDDAT"
-  "A\020\032\022\r\n\tTYPE_TILE\020\033\022\022\n\016TYPE_LIST_TILE\020\034\022\026"
-  "\n\022TYPE_LIST_REF_TILE\020\035\022\022\n\016TYPE_GAMESTATE"
-  "\020\036\022\027\n\023TYPE_LIST_GAMESTATE\020\037\022\033\n\027TYPE_LIST"
-  "_REF_GAMESTATE\020 b\006proto3"
+  "th\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Integ"
+  "er\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline.Integ"
+  "er\"|\n\034List_Integer_Insert_Mutation\022%\n\004Pa"
+  "th\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\010New"
+  "Value\030\002 \001(\0132\024.IvionOnline.Integer\022\r\n\005Ind"
+  "ex\030\003 \001(\005\"|\n\034List_Integer_Remove_Mutation"
+  "\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022"
+  "&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.Integer\022"
+  "\r\n\005Index\030\003 \001(\005\"\207\001\n\022Vec2i_Set_Mutation\022%\n"
+  "\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022$\n\010"
+  "NewValue\030\002 \001(\0132\022.IvionOnline.Vec2i\022$\n\010Ol"
+  "dValue\030\003 \001(\0132\022.IvionOnline.Vec2i\"x\n\032List"
+  "_Vec2i_Insert_Mutation\022%\n\004Path\030\001 \001(\0132\027.I"
+  "vionOnline.ObjectPath\022$\n\010NewValue\030\002 \001(\0132"
+  "\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001(\005\"x\n\032Li"
+  "st_Vec2i_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027"
+  ".IvionOnline.ObjectPath\022$\n\010OldValue\030\002 \001("
+  "\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001(\005\"\215\001\n"
+  "\024Terrain_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024"
+  ".IvionOnline.Terrain\022&\n\010OldValue\030\003 \001(\0132\024"
+  ".IvionOnline.Terrain\"|\n\034List_Terrain_Ins"
+  "ert_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline"
+  ".ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnl"
+  "ine.Terrain\022\r\n\005Index\030\003 \001(\005\"|\n\034List_Terra"
+  "in_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027.Ivion"
+  "Online.ObjectPath\022&\n\010OldValue\030\002 \001(\0132\024.Iv"
+  "ionOnline.Terrain\022\r\n\005Index\030\003 \001(\005\"\207\001\n\022Col"
+  "or_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnl"
+  "ine.ObjectPath\022$\n\010NewValue\030\002 \001(\0132\022.Ivion"
+  "Online.Color\022$\n\010OldValue\030\003 \001(\0132\022.IvionOn"
+  "line.Color\"x\n\032List_Color_Insert_Mutation"
+  "\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022"
+  "$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Color\022\r\n"
+  "\005Index\030\003 \001(\005\"x\n\032List_Color_Remove_Mutati"
+  "on\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPat"
+  "h\022$\n\010OldValue\030\002 \001(\0132\022.IvionOnline.Color\022"
+  "\r\n\005Index\030\003 \001(\005\"\226\001\n\027ObjectPath_Set_Mutati"
+  "on\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPat"
+  "h\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline.Object"
+  "Path\022)\n\010OldValue\030\003 \001(\0132\027.IvionOnline.Obj"
+  "ectPath\"\202\001\n\037List_ObjectPath_Insert_Mutat"
+  "ion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPa"
+  "th\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline.Objec"
+  "tPath\022\r\n\005Index\030\003 \001(\005\"\202\001\n\037List_ObjectPath"
+  "_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOn"
+  "line.ObjectPath\022)\n\010OldValue\030\002 \001(\0132\027.Ivio"
+  "nOnline.ObjectPath\022\r\n\005Index\030\003 \001(\005\"\201\013\n\010Mu"
+  "tation\022A\n\024Boolean_Set_Mutation\030\001 \001(\0132!.I"
+  "vionOnline.Boolean_Set_MutationH\000\022Q\n\034Lis"
+  "t_Boolean_Insert_Mutation\030\002 \001(\0132).IvionO"
+  "nline.List_Boolean_Insert_MutationH\000\022Q\n\034"
+  "List_Boolean_Remove_Mutation\030\003 \001(\0132).Ivi"
+  "onOnline.List_Boolean_Remove_MutationH\000\022"
+  "A\n\024Integer_Set_Mutation\030\004 \001(\0132!.IvionOnl"
+  "ine.Integer_Set_MutationH\000\022Q\n\034List_Integ"
+  "er_Insert_Mutation\030\005 \001(\0132).IvionOnline.L"
+  "ist_Integer_Insert_MutationH\000\022Q\n\034List_In"
+  "teger_Remove_Mutation\030\006 \001(\0132).IvionOnlin"
+  "e.List_Integer_Remove_MutationH\000\022=\n\022Vec2"
+  "i_Set_Mutation\030\007 \001(\0132\037.IvionOnline.Vec2i"
+  "_Set_MutationH\000\022M\n\032List_Vec2i_Insert_Mut"
+  "ation\030\010 \001(\0132\'.IvionOnline.List_Vec2i_Ins"
+  "ert_MutationH\000\022M\n\032List_Vec2i_Remove_Muta"
+  "tion\030\t \001(\0132\'.IvionOnline.List_Vec2i_Remo"
+  "ve_MutationH\000\022A\n\024Terrain_Set_Mutation\030\n "
+  "\001(\0132!.IvionOnline.Terrain_Set_MutationH\000"
+  "\022Q\n\034List_Terrain_Insert_Mutation\030\013 \001(\0132)"
+  ".IvionOnline.List_Terrain_Insert_Mutatio"
+  "nH\000\022Q\n\034List_Terrain_Remove_Mutation\030\014 \001("
+  "\0132).IvionOnline.List_Terrain_Remove_Muta"
+  "tionH\000\022=\n\022Color_Set_Mutation\030\r \001(\0132\037.Ivi"
+  "onOnline.Color_Set_MutationH\000\022M\n\032List_Co"
+  "lor_Insert_Mutation\030\016 \001(\0132\'.IvionOnline."
+  "List_Color_Insert_MutationH\000\022M\n\032List_Col"
+  "or_Remove_Mutation\030\017 \001(\0132\'.IvionOnline.L"
+  "ist_Color_Remove_MutationH\000\022G\n\027ObjectPat"
+  "h_Set_Mutation\030\020 \001(\0132$.IvionOnline.Objec"
+  "tPath_Set_MutationH\000\022W\n\037List_ObjectPath_"
+  "Insert_Mutation\030\021 \001(\0132,.IvionOnline.List"
+  "_ObjectPath_Insert_MutationH\000\022W\n\037List_Ob"
+  "jectPath_Remove_Mutation\030\022 \001(\0132,.IvionOn"
+  "line.List_ObjectPath_Remove_MutationH\000B\005"
+  "\n\003mut\"`\n\007GetList\022\'\n\006Source\030\001 \001(\0132\027.Ivion"
+  "Online.ObjectPath\022,\n\006Result\030\002 \001(\0132\034.Ivio"
+  "nOnline.List_ObjectPath\"\227\001\n\016FilterDistan"
+  "ce\022(\n\007Targets\030\001 \001(\0132\027.IvionOnline.Object"
+  "Path\022-\n\014RangeSources\030\002 \001(\0132\027.IvionOnline"
+  ".ObjectPath\022,\n\013MaxDistance\030\003 \001(\0132\027.Ivion"
+  "Online.ObjectPath\"\267\001\n\016SelectMultiple\022\'\n\006"
+  "Source\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n"
+  "\006Number\030\002 \001(\0132\027.IvionOnline.ObjectPath\022%"
+  "\n\004UpTo\030\003 \001(\0132\027.IvionOnline.ObjectPath\022,\n"
+  "\006Result\030\004 \001(\0132\034.IvionOnline.List_ObjectP"
+  "ath\"d\n\020SelectExactlyOne\022\'\n\006Source\030\001 \001(\0132"
+  "\027.IvionOnline.ObjectPath\022\'\n\006Result\030\002 \001(\013"
+  "2\027.IvionOnline.ObjectPath\"\027\n\025AssertContr"
+  "olOrHeroic\"\035\n\033AssertControllerHasPriorit"
+  "y\"\033\n\031AssertStackEmptyOrInstant\"\365\001\n\nReduc"
+  "eCost\022%\n\004Card\030\001 \001(\0132\027.IvionOnline.Object"
+  "Path\0224\n\023ActionCostReduction\030\002 \001(\0132\027.Ivio"
+  "nOnline.ObjectPath\0223\n\022PowerCostReduction"
+  "\030\003 \001(\0132\027.IvionOnline.ObjectPath\022.\n\rCostR"
+  "eduction\030\004 \001(\0132\027.IvionOnline.ObjectPath\022"
+  "%\n\004Free\030\005 \001(\0132\027.IvionOnline.ObjectPath\"Y"
+  "\n\007PayCost\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline."
+  "ObjectPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.O"
+  "bjectPath\"c\n\021PlayGainResources\022\'\n\006Player"
+  "\030\001 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004Card\030"
+  "\002 \001(\0132\027.IvionOnline.ObjectPath\"\\\n\nRefund"
+  "Cost\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Objec"
+  "tPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.Object"
+  "Path\"^\n\013GainActions\022\'\n\006Player\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022&\n\005Value\030\002 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\"\\\n\tGainPower\022\'\n\006Pla"
+  "yer\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\005Va"
+  "lue\030\002 \001(\0132\027.IvionOnline.ObjectPath\"]\n\004Mo"
+  "ve\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.ObjectP"
+  "ath\022,\n\013Destination\030\002 \001(\0132\027.IvionOnline.O"
+  "bjectPath\"_\n\006Travel\022\'\n\006Player\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022,\n\013Destination\030\002 \001("
+  "\0132\027.IvionOnline.ObjectPath\"Z\n\006Damage\022\'\n\006"
+  "Player\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n"
+  "\006Amount\030\002 \001(\0132\027.IvionOnline.ObjectPath\"8"
+  "\n\020Boolean_Constant\022$\n\006Result\030\001 \001(\0132\024.Ivi"
+  "onOnline.Boolean\"8\n\020Integer_Constant\022$\n\006"
+  "Result\030\001 \001(\0132\024.IvionOnline.Integer\"4\n\016Ve"
+  "c2i_Constant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnli"
+  "ne.Vec2i\"8\n\020Terrain_Constant\022$\n\006Result\030\001"
+  " \001(\0132\024.IvionOnline.Terrain\"4\n\016Color_Cons"
+  "tant\022\"\n\006Result\030\001 \001(\0132\022.IvionOnline.Color"
+  "\">\n\023ObjectPath_Constant\022\'\n\006Result\030\001 \001(\0132"
+  "\027.IvionOnline.ObjectPath\"\273\t\n\006Method\022\'\n\007G"
+  "etList\030\001 \001(\0132\024.IvionOnline.GetListH\000\0225\n\016"
+  "FilterDistance\030\002 \001(\0132\033.IvionOnline.Filte"
+  "rDistanceH\000\0225\n\016SelectMultiple\030\003 \001(\0132\033.Iv"
+  "ionOnline.SelectMultipleH\000\0229\n\020SelectExac"
+  "tlyOne\030\004 \001(\0132\035.IvionOnline.SelectExactly"
+  "OneH\000\022C\n\025AssertControlOrHeroic\030\005 \001(\0132\".I"
+  "vionOnline.AssertControlOrHeroicH\000\022O\n\033As"
+  "sertControllerHasPriority\030\006 \001(\0132(.IvionO"
+  "nline.AssertControllerHasPriorityH\000\022K\n\031A"
+  "ssertStackEmptyOrInstant\030\007 \001(\0132&.IvionOn"
+  "line.AssertStackEmptyOrInstantH\000\022-\n\nRedu"
+  "ceCost\030\010 \001(\0132\027.IvionOnline.ReduceCostH\000\022"
+  "\'\n\007PayCost\030\t \001(\0132\024.IvionOnline.PayCostH\000"
+  "\022;\n\021PlayGainResources\030\n \001(\0132\036.IvionOnlin"
+  "e.PlayGainResourcesH\000\022-\n\nRefundCost\030\013 \001("
+  "\0132\027.IvionOnline.RefundCostH\000\022/\n\013GainActi"
+  "ons\030\014 \001(\0132\030.IvionOnline.GainActionsH\000\022+\n"
+  "\tGainPower\030\r \001(\0132\026.IvionOnline.GainPower"
+  "H\000\022!\n\004Move\030\016 \001(\0132\021.IvionOnline.MoveH\000\022%\n"
+  "\006Travel\030\017 \001(\0132\023.IvionOnline.TravelH\000\022%\n\006"
+  "Damage\030\020 \001(\0132\023.IvionOnline.DamageH\000\0229\n\020B"
+  "oolean_Constant\030\021 \001(\0132\035.IvionOnline.Bool"
+  "ean_ConstantH\000\0229\n\020Integer_Constant\030\022 \001(\013"
+  "2\035.IvionOnline.Integer_ConstantH\000\0225\n\016Vec"
+  "2i_Constant\030\023 \001(\0132\033.IvionOnline.Vec2i_Co"
+  "nstantH\000\0229\n\020Terrain_Constant\030\024 \001(\0132\035.Ivi"
+  "onOnline.Terrain_ConstantH\000\0225\n\016Color_Con"
+  "stant\030\025 \001(\0132\033.IvionOnline.Color_Constant"
+  "H\000\022\?\n\023ObjectPath_Constant\030\026 \001(\0132 .IvionO"
+  "nline.ObjectPath_ConstantH\000B\t\n\007methods\"3"
+  "\n\013List_Method\022$\n\007element\030\001 \003(\0132\023.IvionOn"
+  "line.Method*\351\005\n\nObjectType\022\020\n\014TYPE_BOOLE"
+  "AN\020\000\022\025\n\021TYPE_LIST_BOOLEAN\020\001\022\031\n\025TYPE_LIST"
+  "_REF_BOOLEAN\020\002\022\020\n\014TYPE_INTEGER\020\003\022\025\n\021TYPE"
+  "_LIST_INTEGER\020\004\022\031\n\025TYPE_LIST_REF_INTEGER"
+  "\020\005\022\016\n\nTYPE_VEC2I\020\006\022\023\n\017TYPE_LIST_VEC2I\020\007\022"
+  "\027\n\023TYPE_LIST_REF_VEC2I\020\010\022\020\n\014TYPE_TERRAIN"
+  "\020\t\022\025\n\021TYPE_LIST_TERRAIN\020\n\022\031\n\025TYPE_LIST_R"
+  "EF_TERRAIN\020\013\022\016\n\nTYPE_COLOR\020\014\022\023\n\017TYPE_LIS"
+  "T_COLOR\020\r\022\027\n\023TYPE_LIST_REF_COLOR\020\016\022\023\n\017TY"
+  "PE_OBJECTPATH\020\017\022\030\n\024TYPE_LIST_OBJECTPATH\020"
+  "\020\022\034\n\030TYPE_LIST_REF_OBJECTPATH\020\021\022\017\n\013TYPE_"
+  "PLAYER\020\022\022\024\n\020TYPE_LIST_PLAYER\020\023\022\030\n\024TYPE_L"
+  "IST_REF_PLAYER\020\024\022\r\n\tTYPE_CARD\020\025\022\022\n\016TYPE_"
+  "LIST_CARD\020\026\022\026\n\022TYPE_LIST_REF_CARD\020\027\022\021\n\rT"
+  "YPE_CARDDATA\020\030\022\026\n\022TYPE_LIST_CARDDATA\020\031\022\032"
+  "\n\026TYPE_LIST_REF_CARDDATA\020\032\022\r\n\tTYPE_TILE\020"
+  "\033\022\022\n\016TYPE_LIST_TILE\020\034\022\026\n\022TYPE_LIST_REF_T"
+  "ILE\020\035\022\022\n\016TYPE_GAMESTATE\020\036\022\027\n\023TYPE_LIST_G"
+  "AMESTATE\020\037\022\033\n\027TYPE_LIST_REF_GAMESTATE\020 b"
+  "\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[64] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_GameState_2eproto_sccs[66] = {
   &scc_info_AssertControlOrHeroic_GameState_2eproto.base,
   &scc_info_AssertControllerHasPriority_GameState_2eproto.base,
   &scc_info_AssertStackEmptyOrInstant_GameState_2eproto.base,
@@ -2317,6 +2386,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
   &scc_info_Color_Constant_GameState_2eproto.base,
   &scc_info_Color_Set_Mutation_GameState_2eproto.base,
   &scc_info_Damage_GameState_2eproto.base,
+  &scc_info_FilterDistance_GameState_2eproto.base,
   &scc_info_GainActions_GameState_2eproto.base,
   &scc_info_GainPower_GameState_2eproto.base,
   &scc_info_GameState_GameState_2eproto.base,
@@ -2358,6 +2428,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
   &scc_info_PayCost_GameState_2eproto.base,
   &scc_info_PlayGainResources_GameState_2eproto.base,
   &scc_info_Player_GameState_2eproto.base,
+  &scc_info_ReduceCost_GameState_2eproto.base,
   &scc_info_RefundCost_GameState_2eproto.base,
   &scc_info_SelectExactlyOne_GameState_2eproto.base,
   &scc_info_SelectMultiple_GameState_2eproto.base,
@@ -2372,10 +2443,10 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 11864,
-  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 64, 0,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 12207,
+  &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 66, 0,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
-  file_level_metadata_GameState_2eproto, 64, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
+  file_level_metadata_GameState_2eproto, 66, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -6091,6 +6162,7 @@ class Player::_Internal {
   static const ::IvionOnline::Integer& actions(const Player* msg);
   static const ::IvionOnline::Integer& power(const Player* msg);
   static const ::IvionOnline::Integer& initiative(const Player* msg);
+  static const ::IvionOnline::Integer& mitigate(const Player* msg);
   static const ::IvionOnline::Integer& slow(const Player* msg);
   static const ::IvionOnline::Integer& silence(const Player* msg);
   static const ::IvionOnline::Integer& disarm(const Player* msg);
@@ -6105,6 +6177,7 @@ class Player::_Internal {
   static const ::IvionOnline::Integer& maxslow(const Player* msg);
   static const ::IvionOnline::Integer& maxsilence(const Player* msg);
   static const ::IvionOnline::Integer& maxdisarm(const Player* msg);
+  static const ::IvionOnline::Integer& maxmitigate(const Player* msg);
   static const ::IvionOnline::ObjectPath& abspath(const Player* msg);
 };
 
@@ -6123,6 +6196,10 @@ Player::_Internal::power(const Player* msg) {
 const ::IvionOnline::Integer&
 Player::_Internal::initiative(const Player* msg) {
   return *msg->initiative_;
+}
+const ::IvionOnline::Integer&
+Player::_Internal::mitigate(const Player* msg) {
+  return *msg->mitigate_;
 }
 const ::IvionOnline::Integer&
 Player::_Internal::slow(const Player* msg) {
@@ -6180,6 +6257,10 @@ const ::IvionOnline::Integer&
 Player::_Internal::maxdisarm(const Player* msg) {
   return *msg->maxdisarm_;
 }
+const ::IvionOnline::Integer&
+Player::_Internal::maxmitigate(const Player* msg) {
+  return *msg->maxmitigate_;
+}
 const ::IvionOnline::ObjectPath&
 Player::_Internal::abspath(const Player* msg) {
   return *msg->abspath_;
@@ -6232,6 +6313,11 @@ Player::Player(const Player& from)
     initiative_ = new ::IvionOnline::Integer(*from.initiative_);
   } else {
     initiative_ = nullptr;
+  }
+  if (from._internal_has_mitigate()) {
+    mitigate_ = new ::IvionOnline::Integer(*from.mitigate_);
+  } else {
+    mitigate_ = nullptr;
   }
   if (from._internal_has_slow()) {
     slow_ = new ::IvionOnline::Integer(*from.slow_);
@@ -6303,6 +6389,11 @@ Player::Player(const Player& from)
   } else {
     maxdisarm_ = nullptr;
   }
+  if (from._internal_has_maxmitigate()) {
+    maxmitigate_ = new ::IvionOnline::Integer(*from.maxmitigate_);
+  } else {
+    maxmitigate_ = nullptr;
+  }
   if (from._internal_has_abspath()) {
     abspath_ = new ::IvionOnline::ObjectPath(*from.abspath_);
   } else {
@@ -6340,6 +6431,7 @@ void Player::SharedDtor() {
   if (this != internal_default_instance()) delete actions_;
   if (this != internal_default_instance()) delete power_;
   if (this != internal_default_instance()) delete initiative_;
+  if (this != internal_default_instance()) delete mitigate_;
   if (this != internal_default_instance()) delete slow_;
   if (this != internal_default_instance()) delete silence_;
   if (this != internal_default_instance()) delete disarm_;
@@ -6354,6 +6446,7 @@ void Player::SharedDtor() {
   if (this != internal_default_instance()) delete maxslow_;
   if (this != internal_default_instance()) delete maxsilence_;
   if (this != internal_default_instance()) delete maxdisarm_;
+  if (this != internal_default_instance()) delete maxmitigate_;
   if (this != internal_default_instance()) delete abspath_;
 }
 
@@ -6398,6 +6491,10 @@ void Player::Clear() {
     delete initiative_;
   }
   initiative_ = nullptr;
+  if (GetArena() == nullptr && mitigate_ != nullptr) {
+    delete mitigate_;
+  }
+  mitigate_ = nullptr;
   if (GetArena() == nullptr && slow_ != nullptr) {
     delete slow_;
   }
@@ -6454,6 +6551,10 @@ void Player::Clear() {
     delete maxdisarm_;
   }
   maxdisarm_ = nullptr;
+  if (GetArena() == nullptr && maxmitigate_ != nullptr) {
+    delete maxmitigate_;
+  }
+  maxmitigate_ = nullptr;
   if (GetArena() == nullptr && abspath_ != nullptr) {
     delete abspath_;
   }
@@ -6531,114 +6632,128 @@ const char* Player::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer Slow = 9;
+      // .IvionOnline.Integer Mitigate = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_mitigate(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.Integer Slow = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_slow(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer Silence = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+      // .IvionOnline.Integer Silence = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_silence(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer Disarm = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+      // .IvionOnline.Integer Disarm = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_disarm(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Vec2i Position = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+      // .IvionOnline.Vec2i Position = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_position(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_ObjectPath Hand = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+      // .IvionOnline.List_ObjectPath Hand = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           ptr = ctx->ParseMessage(_internal_mutable_hand(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_ObjectPath Deck = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+      // .IvionOnline.List_ObjectPath Deck = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_deck(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_ObjectPath Discard = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+      // .IvionOnline.List_ObjectPath Discard = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
           ptr = ctx->ParseMessage(_internal_mutable_discard(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_ObjectPath Feats = 16;
-      case 16:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+      // .IvionOnline.List_ObjectPath Feats = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
           ptr = ctx->ParseMessage(_internal_mutable_feats(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxHealth = 17;
-      case 17:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
+      // .IvionOnline.Integer MaxHealth = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxhealth(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxActions = 18;
-      case 18:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
+      // .IvionOnline.Integer MaxActions = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxactions(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxPower = 19;
-      case 19:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154)) {
+      // .IvionOnline.Integer MaxPower = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxpower(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxSlow = 20;
-      case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
+      // .IvionOnline.Integer MaxSlow = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxslow(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxSilence = 21;
-      case 21:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
+      // .IvionOnline.Integer MaxSilence = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxsilence(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer MaxDisarm = 22;
-      case 22:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
+      // .IvionOnline.Integer MaxDisarm = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 186)) {
           ptr = ctx->ParseMessage(_internal_mutable_maxdisarm(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.ObjectPath AbsPath = 23;
-      case 23:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 186)) {
+      // .IvionOnline.Integer MaxMitigate = 24;
+      case 24:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 194)) {
+          ptr = ctx->ParseMessage(_internal_mutable_maxmitigate(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath AbsPath = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 202)) {
           ptr = ctx->ParseMessage(_internal_mutable_abspath(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string Name = 24;
-      case 24:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 194)) {
+      // string Name = 26;
+      case 26:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 210)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.Player.Name"));
@@ -6741,134 +6856,150 @@ failure:
         8, _Internal::initiative(this), target, stream);
   }
 
-  // .IvionOnline.Integer Slow = 9;
+  // .IvionOnline.Integer Mitigate = 9;
+  if (this->has_mitigate()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::mitigate(this), target, stream);
+  }
+
+  // .IvionOnline.Integer Slow = 10;
   if (this->has_slow()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::slow(this), target, stream);
+        10, _Internal::slow(this), target, stream);
   }
 
-  // .IvionOnline.Integer Silence = 10;
+  // .IvionOnline.Integer Silence = 11;
   if (this->has_silence()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        10, _Internal::silence(this), target, stream);
+        11, _Internal::silence(this), target, stream);
   }
 
-  // .IvionOnline.Integer Disarm = 11;
+  // .IvionOnline.Integer Disarm = 12;
   if (this->has_disarm()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        11, _Internal::disarm(this), target, stream);
+        12, _Internal::disarm(this), target, stream);
   }
 
-  // .IvionOnline.Vec2i Position = 12;
+  // .IvionOnline.Vec2i Position = 13;
   if (this->has_position()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        12, _Internal::position(this), target, stream);
+        13, _Internal::position(this), target, stream);
   }
 
-  // .IvionOnline.List_ObjectPath Hand = 13;
+  // .IvionOnline.List_ObjectPath Hand = 14;
   if (this->has_hand()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        13, _Internal::hand(this), target, stream);
+        14, _Internal::hand(this), target, stream);
   }
 
-  // .IvionOnline.List_ObjectPath Deck = 14;
+  // .IvionOnline.List_ObjectPath Deck = 15;
   if (this->has_deck()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        14, _Internal::deck(this), target, stream);
+        15, _Internal::deck(this), target, stream);
   }
 
-  // .IvionOnline.List_ObjectPath Discard = 15;
+  // .IvionOnline.List_ObjectPath Discard = 16;
   if (this->has_discard()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        15, _Internal::discard(this), target, stream);
+        16, _Internal::discard(this), target, stream);
   }
 
-  // .IvionOnline.List_ObjectPath Feats = 16;
+  // .IvionOnline.List_ObjectPath Feats = 17;
   if (this->has_feats()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        16, _Internal::feats(this), target, stream);
+        17, _Internal::feats(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxHealth = 17;
+  // .IvionOnline.Integer MaxHealth = 18;
   if (this->has_maxhealth()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        17, _Internal::maxhealth(this), target, stream);
+        18, _Internal::maxhealth(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxActions = 18;
+  // .IvionOnline.Integer MaxActions = 19;
   if (this->has_maxactions()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        18, _Internal::maxactions(this), target, stream);
+        19, _Internal::maxactions(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxPower = 19;
+  // .IvionOnline.Integer MaxPower = 20;
   if (this->has_maxpower()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        19, _Internal::maxpower(this), target, stream);
+        20, _Internal::maxpower(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxSlow = 20;
+  // .IvionOnline.Integer MaxSlow = 21;
   if (this->has_maxslow()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        20, _Internal::maxslow(this), target, stream);
+        21, _Internal::maxslow(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxSilence = 21;
+  // .IvionOnline.Integer MaxSilence = 22;
   if (this->has_maxsilence()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        21, _Internal::maxsilence(this), target, stream);
+        22, _Internal::maxsilence(this), target, stream);
   }
 
-  // .IvionOnline.Integer MaxDisarm = 22;
+  // .IvionOnline.Integer MaxDisarm = 23;
   if (this->has_maxdisarm()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        22, _Internal::maxdisarm(this), target, stream);
+        23, _Internal::maxdisarm(this), target, stream);
   }
 
-  // .IvionOnline.ObjectPath AbsPath = 23;
+  // .IvionOnline.Integer MaxMitigate = 24;
+  if (this->has_maxmitigate()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        24, _Internal::maxmitigate(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath AbsPath = 25;
   if (this->has_abspath()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        23, _Internal::abspath(this), target, stream);
+        25, _Internal::abspath(this), target, stream);
   }
 
-  // string Name = 24;
+  // string Name = 26;
   if (this->name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "IvionOnline.Player.Name");
     target = stream->WriteStringMaybeAliased(
-        24, this->_internal_name(), target);
+        26, this->_internal_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6908,7 +7039,7 @@ size_t Player::ByteSizeLong() const {
         this->_internal_displayname());
   }
 
-  // string Name = 24;
+  // string Name = 26;
   if (this->name().size() > 0) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -6943,105 +7074,119 @@ size_t Player::ByteSizeLong() const {
         *initiative_);
   }
 
-  // .IvionOnline.Integer Slow = 9;
+  // .IvionOnline.Integer Mitigate = 9;
+  if (this->has_mitigate()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *mitigate_);
+  }
+
+  // .IvionOnline.Integer Slow = 10;
   if (this->has_slow()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *slow_);
   }
 
-  // .IvionOnline.Integer Silence = 10;
+  // .IvionOnline.Integer Silence = 11;
   if (this->has_silence()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *silence_);
   }
 
-  // .IvionOnline.Integer Disarm = 11;
+  // .IvionOnline.Integer Disarm = 12;
   if (this->has_disarm()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *disarm_);
   }
 
-  // .IvionOnline.Vec2i Position = 12;
+  // .IvionOnline.Vec2i Position = 13;
   if (this->has_position()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *position_);
   }
 
-  // .IvionOnline.List_ObjectPath Hand = 13;
+  // .IvionOnline.List_ObjectPath Hand = 14;
   if (this->has_hand()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *hand_);
   }
 
-  // .IvionOnline.List_ObjectPath Deck = 14;
+  // .IvionOnline.List_ObjectPath Deck = 15;
   if (this->has_deck()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *deck_);
   }
 
-  // .IvionOnline.List_ObjectPath Discard = 15;
+  // .IvionOnline.List_ObjectPath Discard = 16;
   if (this->has_discard()) {
-    total_size += 1 +
+    total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *discard_);
   }
 
-  // .IvionOnline.List_ObjectPath Feats = 16;
+  // .IvionOnline.List_ObjectPath Feats = 17;
   if (this->has_feats()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *feats_);
   }
 
-  // .IvionOnline.Integer MaxHealth = 17;
+  // .IvionOnline.Integer MaxHealth = 18;
   if (this->has_maxhealth()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxhealth_);
   }
 
-  // .IvionOnline.Integer MaxActions = 18;
+  // .IvionOnline.Integer MaxActions = 19;
   if (this->has_maxactions()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxactions_);
   }
 
-  // .IvionOnline.Integer MaxPower = 19;
+  // .IvionOnline.Integer MaxPower = 20;
   if (this->has_maxpower()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxpower_);
   }
 
-  // .IvionOnline.Integer MaxSlow = 20;
+  // .IvionOnline.Integer MaxSlow = 21;
   if (this->has_maxslow()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxslow_);
   }
 
-  // .IvionOnline.Integer MaxSilence = 21;
+  // .IvionOnline.Integer MaxSilence = 22;
   if (this->has_maxsilence()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxsilence_);
   }
 
-  // .IvionOnline.Integer MaxDisarm = 22;
+  // .IvionOnline.Integer MaxDisarm = 23;
   if (this->has_maxdisarm()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *maxdisarm_);
   }
 
-  // .IvionOnline.ObjectPath AbsPath = 23;
+  // .IvionOnline.Integer MaxMitigate = 24;
+  if (this->has_maxmitigate()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *maxmitigate_);
+  }
+
+  // .IvionOnline.ObjectPath AbsPath = 25;
   if (this->has_abspath()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -7110,6 +7255,9 @@ void Player::MergeFrom(const Player& from) {
   if (from.has_initiative()) {
     _internal_mutable_initiative()->::IvionOnline::Integer::MergeFrom(from._internal_initiative());
   }
+  if (from.has_mitigate()) {
+    _internal_mutable_mitigate()->::IvionOnline::Integer::MergeFrom(from._internal_mitigate());
+  }
   if (from.has_slow()) {
     _internal_mutable_slow()->::IvionOnline::Integer::MergeFrom(from._internal_slow());
   }
@@ -7151,6 +7299,9 @@ void Player::MergeFrom(const Player& from) {
   }
   if (from.has_maxdisarm()) {
     _internal_mutable_maxdisarm()->::IvionOnline::Integer::MergeFrom(from._internal_maxdisarm());
+  }
+  if (from.has_maxmitigate()) {
+    _internal_mutable_maxmitigate()->::IvionOnline::Integer::MergeFrom(from._internal_maxmitigate());
   }
   if (from.has_abspath()) {
     _internal_mutable_abspath()->::IvionOnline::ObjectPath::MergeFrom(from._internal_abspath());
@@ -8129,6 +8280,7 @@ class CardData::_Internal {
   static const ::IvionOnline::Boolean& affectedbyslow(const CardData* msg);
   static const ::IvionOnline::Boolean& affectedbysilence(const CardData* msg);
   static const ::IvionOnline::Boolean& affectedbydisarm(const CardData* msg);
+  static const ::IvionOnline::ObjectPath& attached(const CardData* msg);
   static const ::IvionOnline::List_Method& omnipresenteffect(const CardData* msg);
   static const ::IvionOnline::List_Method& passiveeffect(const CardData* msg);
   static const ::IvionOnline::List_Method& feateffect(const CardData* msg);
@@ -8168,6 +8320,10 @@ CardData::_Internal::affectedbysilence(const CardData* msg) {
 const ::IvionOnline::Boolean&
 CardData::_Internal::affectedbydisarm(const CardData* msg) {
   return *msg->affectedbydisarm_;
+}
+const ::IvionOnline::ObjectPath&
+CardData::_Internal::attached(const CardData* msg) {
+  return *msg->attached_;
 }
 const ::IvionOnline::List_Method&
 CardData::_Internal::omnipresenteffect(const CardData* msg) {
@@ -8247,6 +8403,11 @@ CardData::CardData(const CardData& from)
   } else {
     affectedbydisarm_ = nullptr;
   }
+  if (from._internal_has_attached()) {
+    attached_ = new ::IvionOnline::ObjectPath(*from.attached_);
+  } else {
+    attached_ = nullptr;
+  }
   if (from._internal_has_omnipresenteffect()) {
     omnipresenteffect_ = new ::IvionOnline::List_Method(*from.omnipresenteffect_);
   } else {
@@ -8306,6 +8467,7 @@ void CardData::SharedDtor() {
   if (this != internal_default_instance()) delete affectedbyslow_;
   if (this != internal_default_instance()) delete affectedbysilence_;
   if (this != internal_default_instance()) delete affectedbydisarm_;
+  if (this != internal_default_instance()) delete attached_;
   if (this != internal_default_instance()) delete omnipresenteffect_;
   if (this != internal_default_instance()) delete passiveeffect_;
   if (this != internal_default_instance()) delete feateffect_;
@@ -8368,6 +8530,10 @@ void CardData::Clear() {
     delete affectedbydisarm_;
   }
   affectedbydisarm_ = nullptr;
+  if (GetArena() == nullptr && attached_ != nullptr) {
+    delete attached_;
+  }
+  attached_ = nullptr;
   if (GetArena() == nullptr && omnipresenteffect_ != nullptr) {
     delete omnipresenteffect_;
   }
@@ -8458,51 +8624,58 @@ const char* CardData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_Method OmniPresentEffect = 9;
+      // .IvionOnline.ObjectPath Attached = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_attached(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.List_Method OmniPresentEffect = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_omnipresenteffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_Method PassiveEffect = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+      // .IvionOnline.List_Method PassiveEffect = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_passiveeffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_Method FeatEffect = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+      // .IvionOnline.List_Method FeatEffect = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_feateffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_Method PlayEffect = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+      // .IvionOnline.List_Method PlayEffect = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_playeffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_Method ResolveEffect = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+      // .IvionOnline.List_Method ResolveEffect = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           ptr = ctx->ParseMessage(_internal_mutable_resolveeffect(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.ObjectPath AbsPath = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+      // .IvionOnline.ObjectPath AbsPath = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_abspath(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string Name = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+      // string Name = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.CardData.Name"));
@@ -8601,62 +8774,70 @@ failure:
         8, _Internal::affectedbydisarm(this), target, stream);
   }
 
-  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  // .IvionOnline.ObjectPath Attached = 9;
+  if (this->has_attached()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        9, _Internal::attached(this), target, stream);
+  }
+
+  // .IvionOnline.List_Method OmniPresentEffect = 10;
   if (this->has_omnipresenteffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::omnipresenteffect(this), target, stream);
+        10, _Internal::omnipresenteffect(this), target, stream);
   }
 
-  // .IvionOnline.List_Method PassiveEffect = 10;
+  // .IvionOnline.List_Method PassiveEffect = 11;
   if (this->has_passiveeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        10, _Internal::passiveeffect(this), target, stream);
+        11, _Internal::passiveeffect(this), target, stream);
   }
 
-  // .IvionOnline.List_Method FeatEffect = 11;
+  // .IvionOnline.List_Method FeatEffect = 12;
   if (this->has_feateffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        11, _Internal::feateffect(this), target, stream);
+        12, _Internal::feateffect(this), target, stream);
   }
 
-  // .IvionOnline.List_Method PlayEffect = 12;
+  // .IvionOnline.List_Method PlayEffect = 13;
   if (this->has_playeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        12, _Internal::playeffect(this), target, stream);
+        13, _Internal::playeffect(this), target, stream);
   }
 
-  // .IvionOnline.List_Method ResolveEffect = 13;
+  // .IvionOnline.List_Method ResolveEffect = 14;
   if (this->has_resolveeffect()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        13, _Internal::resolveeffect(this), target, stream);
+        14, _Internal::resolveeffect(this), target, stream);
   }
 
-  // .IvionOnline.ObjectPath AbsPath = 14;
+  // .IvionOnline.ObjectPath AbsPath = 15;
   if (this->has_abspath()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        14, _Internal::abspath(this), target, stream);
+        15, _Internal::abspath(this), target, stream);
   }
 
-  // string Name = 15;
+  // string Name = 16;
   if (this->name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "IvionOnline.CardData.Name");
     target = stream->WriteStringMaybeAliased(
-        15, this->_internal_name(), target);
+        16, this->_internal_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -8675,9 +8856,9 @@ size_t CardData::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string Name = 15;
+  // string Name = 16;
   if (this->name().size() > 0) {
-    total_size += 1 +
+    total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
@@ -8738,42 +8919,49 @@ size_t CardData::ByteSizeLong() const {
         *affectedbydisarm_);
   }
 
-  // .IvionOnline.List_Method OmniPresentEffect = 9;
+  // .IvionOnline.ObjectPath Attached = 9;
+  if (this->has_attached()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *attached_);
+  }
+
+  // .IvionOnline.List_Method OmniPresentEffect = 10;
   if (this->has_omnipresenteffect()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *omnipresenteffect_);
   }
 
-  // .IvionOnline.List_Method PassiveEffect = 10;
+  // .IvionOnline.List_Method PassiveEffect = 11;
   if (this->has_passiveeffect()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *passiveeffect_);
   }
 
-  // .IvionOnline.List_Method FeatEffect = 11;
+  // .IvionOnline.List_Method FeatEffect = 12;
   if (this->has_feateffect()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *feateffect_);
   }
 
-  // .IvionOnline.List_Method PlayEffect = 12;
+  // .IvionOnline.List_Method PlayEffect = 13;
   if (this->has_playeffect()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *playeffect_);
   }
 
-  // .IvionOnline.List_Method ResolveEffect = 13;
+  // .IvionOnline.List_Method ResolveEffect = 14;
   if (this->has_resolveeffect()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *resolveeffect_);
   }
 
-  // .IvionOnline.ObjectPath AbsPath = 14;
+  // .IvionOnline.ObjectPath AbsPath = 15;
   if (this->has_abspath()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -8837,6 +9025,9 @@ void CardData::MergeFrom(const CardData& from) {
   }
   if (from.has_affectedbydisarm()) {
     _internal_mutable_affectedbydisarm()->::IvionOnline::Boolean::MergeFrom(from._internal_affectedbydisarm());
+  }
+  if (from.has_attached()) {
+    _internal_mutable_attached()->::IvionOnline::ObjectPath::MergeFrom(from._internal_attached());
   }
   if (from.has_omnipresenteffect()) {
     _internal_mutable_omnipresenteffect()->::IvionOnline::List_Method::MergeFrom(from._internal_omnipresenteffect());
@@ -9179,8 +9370,6 @@ class Tile::_Internal {
  public:
   static const ::IvionOnline::Vec2i& position(const Tile* msg);
   static const ::IvionOnline::Terrain& terrain(const Tile* msg);
-  static const ::IvionOnline::List_ObjectPath& players(const Tile* msg);
-  static const ::IvionOnline::List_ObjectPath& cards(const Tile* msg);
   static const ::IvionOnline::ObjectPath& abspath(const Tile* msg);
 };
 
@@ -9191,14 +9380,6 @@ Tile::_Internal::position(const Tile* msg) {
 const ::IvionOnline::Terrain&
 Tile::_Internal::terrain(const Tile* msg) {
   return *msg->terrain_;
-}
-const ::IvionOnline::List_ObjectPath&
-Tile::_Internal::players(const Tile* msg) {
-  return *msg->players_;
-}
-const ::IvionOnline::List_ObjectPath&
-Tile::_Internal::cards(const Tile* msg) {
-  return *msg->cards_;
 }
 const ::IvionOnline::ObjectPath&
 Tile::_Internal::abspath(const Tile* msg) {
@@ -9233,16 +9414,6 @@ Tile::Tile(const Tile& from)
   } else {
     terrain_ = nullptr;
   }
-  if (from._internal_has_players()) {
-    players_ = new ::IvionOnline::List_ObjectPath(*from.players_);
-  } else {
-    players_ = nullptr;
-  }
-  if (from._internal_has_cards()) {
-    cards_ = new ::IvionOnline::List_ObjectPath(*from.cards_);
-  } else {
-    cards_ = nullptr;
-  }
   if (from._internal_has_abspath()) {
     abspath_ = new ::IvionOnline::ObjectPath(*from.abspath_);
   } else {
@@ -9274,8 +9445,6 @@ void Tile::SharedDtor() {
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete position_;
   if (this != internal_default_instance()) delete terrain_;
-  if (this != internal_default_instance()) delete players_;
-  if (this != internal_default_instance()) delete cards_;
   if (this != internal_default_instance()) delete abspath_;
 }
 
@@ -9310,14 +9479,6 @@ void Tile::Clear() {
     delete terrain_;
   }
   terrain_ = nullptr;
-  if (GetArena() == nullptr && players_ != nullptr) {
-    delete players_;
-  }
-  players_ = nullptr;
-  if (GetArena() == nullptr && cards_ != nullptr) {
-    delete cards_;
-  }
-  cards_ = nullptr;
   if (GetArena() == nullptr && abspath_ != nullptr) {
     delete abspath_;
   }
@@ -9363,30 +9524,16 @@ const char* Tile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.List_ObjectPath Players = 5;
+      // .IvionOnline.ObjectPath AbsPath = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_players(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.List_ObjectPath Cards = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_cards(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.ObjectPath AbsPath = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_abspath(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string Name = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+      // string Name = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.Tile.Name"));
@@ -9453,38 +9600,22 @@ failure:
         4, _Internal::terrain(this), target, stream);
   }
 
-  // .IvionOnline.List_ObjectPath Players = 5;
-  if (this->has_players()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::players(this), target, stream);
-  }
-
-  // .IvionOnline.List_ObjectPath Cards = 6;
-  if (this->has_cards()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::cards(this), target, stream);
-  }
-
-  // .IvionOnline.ObjectPath AbsPath = 7;
+  // .IvionOnline.ObjectPath AbsPath = 5;
   if (this->has_abspath()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        7, _Internal::abspath(this), target, stream);
+        5, _Internal::abspath(this), target, stream);
   }
 
-  // string Name = 8;
+  // string Name = 6;
   if (this->name().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "IvionOnline.Tile.Name");
     target = stream->WriteStringMaybeAliased(
-        8, this->_internal_name(), target);
+        6, this->_internal_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9510,7 +9641,7 @@ size_t Tile::ByteSizeLong() const {
         this->_internal_indexstr());
   }
 
-  // string Name = 8;
+  // string Name = 6;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -9531,21 +9662,7 @@ size_t Tile::ByteSizeLong() const {
         *terrain_);
   }
 
-  // .IvionOnline.List_ObjectPath Players = 5;
-  if (this->has_players()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *players_);
-  }
-
-  // .IvionOnline.List_ObjectPath Cards = 6;
-  if (this->has_cards()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *cards_);
-  }
-
-  // .IvionOnline.ObjectPath AbsPath = 7;
+  // .IvionOnline.ObjectPath AbsPath = 5;
   if (this->has_abspath()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -9601,12 +9718,6 @@ void Tile::MergeFrom(const Tile& from) {
   }
   if (from.has_terrain()) {
     _internal_mutable_terrain()->::IvionOnline::Terrain::MergeFrom(from._internal_terrain());
-  }
-  if (from.has_players()) {
-    _internal_mutable_players()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_players());
-  }
-  if (from.has_cards()) {
-    _internal_mutable_cards()->::IvionOnline::List_ObjectPath::MergeFrom(from._internal_cards());
   }
   if (from.has_abspath()) {
     _internal_mutable_abspath()->::IvionOnline::ObjectPath::MergeFrom(from._internal_abspath());
@@ -17362,6 +17473,304 @@ void GetList::InternalSwap(GetList* other) {
 
 // ===================================================================
 
+class FilterDistance::_Internal {
+ public:
+  static const ::IvionOnline::ObjectPath& targets(const FilterDistance* msg);
+  static const ::IvionOnline::ObjectPath& rangesources(const FilterDistance* msg);
+  static const ::IvionOnline::ObjectPath& maxdistance(const FilterDistance* msg);
+};
+
+const ::IvionOnline::ObjectPath&
+FilterDistance::_Internal::targets(const FilterDistance* msg) {
+  return *msg->targets_;
+}
+const ::IvionOnline::ObjectPath&
+FilterDistance::_Internal::rangesources(const FilterDistance* msg) {
+  return *msg->rangesources_;
+}
+const ::IvionOnline::ObjectPath&
+FilterDistance::_Internal::maxdistance(const FilterDistance* msg) {
+  return *msg->maxdistance_;
+}
+FilterDistance::FilterDistance(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.FilterDistance)
+}
+FilterDistance::FilterDistance(const FilterDistance& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_targets()) {
+    targets_ = new ::IvionOnline::ObjectPath(*from.targets_);
+  } else {
+    targets_ = nullptr;
+  }
+  if (from._internal_has_rangesources()) {
+    rangesources_ = new ::IvionOnline::ObjectPath(*from.rangesources_);
+  } else {
+    rangesources_ = nullptr;
+  }
+  if (from._internal_has_maxdistance()) {
+    maxdistance_ = new ::IvionOnline::ObjectPath(*from.maxdistance_);
+  } else {
+    maxdistance_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.FilterDistance)
+}
+
+void FilterDistance::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_FilterDistance_GameState_2eproto.base);
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&targets_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&maxdistance_) -
+      reinterpret_cast<char*>(&targets_)) + sizeof(maxdistance_));
+}
+
+FilterDistance::~FilterDistance() {
+  // @@protoc_insertion_point(destructor:IvionOnline.FilterDistance)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void FilterDistance::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete targets_;
+  if (this != internal_default_instance()) delete rangesources_;
+  if (this != internal_default_instance()) delete maxdistance_;
+}
+
+void FilterDistance::ArenaDtor(void* object) {
+  FilterDistance* _this = reinterpret_cast< FilterDistance* >(object);
+  (void)_this;
+}
+void FilterDistance::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void FilterDistance::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FilterDistance& FilterDistance::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_FilterDistance_GameState_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FilterDistance::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.FilterDistance)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && targets_ != nullptr) {
+    delete targets_;
+  }
+  targets_ = nullptr;
+  if (GetArena() == nullptr && rangesources_ != nullptr) {
+    delete rangesources_;
+  }
+  rangesources_ = nullptr;
+  if (GetArena() == nullptr && maxdistance_ != nullptr) {
+    delete maxdistance_;
+  }
+  maxdistance_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* FilterDistance::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .IvionOnline.ObjectPath Targets = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_targets(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath RangeSources = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rangesources(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath MaxDistance = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_maxdistance(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* FilterDistance::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.FilterDistance)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .IvionOnline.ObjectPath Targets = 1;
+  if (this->has_targets()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::targets(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath RangeSources = 2;
+  if (this->has_rangesources()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::rangesources(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath MaxDistance = 3;
+  if (this->has_maxdistance()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::maxdistance(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.FilterDistance)
+  return target;
+}
+
+size_t FilterDistance::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.FilterDistance)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .IvionOnline.ObjectPath Targets = 1;
+  if (this->has_targets()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *targets_);
+  }
+
+  // .IvionOnline.ObjectPath RangeSources = 2;
+  if (this->has_rangesources()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *rangesources_);
+  }
+
+  // .IvionOnline.ObjectPath MaxDistance = 3;
+  if (this->has_maxdistance()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *maxdistance_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FilterDistance::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.FilterDistance)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FilterDistance* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<FilterDistance>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.FilterDistance)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.FilterDistance)
+    MergeFrom(*source);
+  }
+}
+
+void FilterDistance::MergeFrom(const FilterDistance& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.FilterDistance)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_targets()) {
+    _internal_mutable_targets()->::IvionOnline::ObjectPath::MergeFrom(from._internal_targets());
+  }
+  if (from.has_rangesources()) {
+    _internal_mutable_rangesources()->::IvionOnline::ObjectPath::MergeFrom(from._internal_rangesources());
+  }
+  if (from.has_maxdistance()) {
+    _internal_mutable_maxdistance()->::IvionOnline::ObjectPath::MergeFrom(from._internal_maxdistance());
+  }
+}
+
+void FilterDistance::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.FilterDistance)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FilterDistance::CopyFrom(const FilterDistance& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.FilterDistance)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FilterDistance::IsInitialized() const {
+  return true;
+}
+
+void FilterDistance::InternalSwap(FilterDistance* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(FilterDistance, maxdistance_)
+      + sizeof(FilterDistance::maxdistance_)
+      - PROTOBUF_FIELD_OFFSET(FilterDistance, targets_)>(
+          reinterpret_cast<char*>(&targets_),
+          reinterpret_cast<char*>(&other->targets_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata FilterDistance::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class SelectMultiple::_Internal {
  public:
   static const ::IvionOnline::ObjectPath& source(const SelectMultiple* msg);
@@ -18444,54 +18853,44 @@ void AssertStackEmptyOrInstant::InternalSwap(AssertStackEmptyOrInstant* other) {
 
 // ===================================================================
 
-class PayCost::_Internal {
+class ReduceCost::_Internal {
  public:
-  static const ::IvionOnline::ObjectPath& player(const PayCost* msg);
-  static const ::IvionOnline::ObjectPath& card(const PayCost* msg);
-  static const ::IvionOnline::ObjectPath& actioncostreduction(const PayCost* msg);
-  static const ::IvionOnline::ObjectPath& powercostreduction(const PayCost* msg);
-  static const ::IvionOnline::ObjectPath& costreduction(const PayCost* msg);
-  static const ::IvionOnline::ObjectPath& free(const PayCost* msg);
+  static const ::IvionOnline::ObjectPath& card(const ReduceCost* msg);
+  static const ::IvionOnline::ObjectPath& actioncostreduction(const ReduceCost* msg);
+  static const ::IvionOnline::ObjectPath& powercostreduction(const ReduceCost* msg);
+  static const ::IvionOnline::ObjectPath& costreduction(const ReduceCost* msg);
+  static const ::IvionOnline::ObjectPath& free(const ReduceCost* msg);
 };
 
 const ::IvionOnline::ObjectPath&
-PayCost::_Internal::player(const PayCost* msg) {
-  return *msg->player_;
-}
-const ::IvionOnline::ObjectPath&
-PayCost::_Internal::card(const PayCost* msg) {
+ReduceCost::_Internal::card(const ReduceCost* msg) {
   return *msg->card_;
 }
 const ::IvionOnline::ObjectPath&
-PayCost::_Internal::actioncostreduction(const PayCost* msg) {
+ReduceCost::_Internal::actioncostreduction(const ReduceCost* msg) {
   return *msg->actioncostreduction_;
 }
 const ::IvionOnline::ObjectPath&
-PayCost::_Internal::powercostreduction(const PayCost* msg) {
+ReduceCost::_Internal::powercostreduction(const ReduceCost* msg) {
   return *msg->powercostreduction_;
 }
 const ::IvionOnline::ObjectPath&
-PayCost::_Internal::costreduction(const PayCost* msg) {
+ReduceCost::_Internal::costreduction(const ReduceCost* msg) {
   return *msg->costreduction_;
 }
 const ::IvionOnline::ObjectPath&
-PayCost::_Internal::free(const PayCost* msg) {
+ReduceCost::_Internal::free(const ReduceCost* msg) {
   return *msg->free_;
 }
-PayCost::PayCost(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+ReduceCost::ReduceCost(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:IvionOnline.PayCost)
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.ReduceCost)
 }
-PayCost::PayCost(const PayCost& from)
+ReduceCost::ReduceCost(const ReduceCost& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_player()) {
-    player_ = new ::IvionOnline::ObjectPath(*from.player_);
-  } else {
-    player_ = nullptr;
-  }
   if (from._internal_has_card()) {
     card_ = new ::IvionOnline::ObjectPath(*from.card_);
   } else {
@@ -18517,6 +18916,354 @@ PayCost::PayCost(const PayCost& from)
   } else {
     free_ = nullptr;
   }
+  // @@protoc_insertion_point(copy_constructor:IvionOnline.ReduceCost)
+}
+
+void ReduceCost::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ReduceCost_GameState_2eproto.base);
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&card_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&free_) -
+      reinterpret_cast<char*>(&card_)) + sizeof(free_));
+}
+
+ReduceCost::~ReduceCost() {
+  // @@protoc_insertion_point(destructor:IvionOnline.ReduceCost)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void ReduceCost::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete card_;
+  if (this != internal_default_instance()) delete actioncostreduction_;
+  if (this != internal_default_instance()) delete powercostreduction_;
+  if (this != internal_default_instance()) delete costreduction_;
+  if (this != internal_default_instance()) delete free_;
+}
+
+void ReduceCost::ArenaDtor(void* object) {
+  ReduceCost* _this = reinterpret_cast< ReduceCost* >(object);
+  (void)_this;
+}
+void ReduceCost::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ReduceCost::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ReduceCost& ReduceCost::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ReduceCost_GameState_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ReduceCost::Clear() {
+// @@protoc_insertion_point(message_clear_start:IvionOnline.ReduceCost)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && card_ != nullptr) {
+    delete card_;
+  }
+  card_ = nullptr;
+  if (GetArena() == nullptr && actioncostreduction_ != nullptr) {
+    delete actioncostreduction_;
+  }
+  actioncostreduction_ = nullptr;
+  if (GetArena() == nullptr && powercostreduction_ != nullptr) {
+    delete powercostreduction_;
+  }
+  powercostreduction_ = nullptr;
+  if (GetArena() == nullptr && costreduction_ != nullptr) {
+    delete costreduction_;
+  }
+  costreduction_ = nullptr;
+  if (GetArena() == nullptr && free_ != nullptr) {
+    delete free_;
+  }
+  free_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReduceCost::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .IvionOnline.ObjectPath Card = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath ActionCostReduction = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_actioncostreduction(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath PowerCostReduction = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_powercostreduction(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath CostReduction = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_costreduction(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath Free = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_free(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ReduceCost::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:IvionOnline.ReduceCost)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .IvionOnline.ObjectPath Card = 1;
+  if (this->has_card()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::card(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath ActionCostReduction = 2;
+  if (this->has_actioncostreduction()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::actioncostreduction(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath PowerCostReduction = 3;
+  if (this->has_powercostreduction()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::powercostreduction(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath CostReduction = 4;
+  if (this->has_costreduction()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::costreduction(this), target, stream);
+  }
+
+  // .IvionOnline.ObjectPath Free = 5;
+  if (this->has_free()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        5, _Internal::free(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:IvionOnline.ReduceCost)
+  return target;
+}
+
+size_t ReduceCost::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:IvionOnline.ReduceCost)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .IvionOnline.ObjectPath Card = 1;
+  if (this->has_card()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *card_);
+  }
+
+  // .IvionOnline.ObjectPath ActionCostReduction = 2;
+  if (this->has_actioncostreduction()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *actioncostreduction_);
+  }
+
+  // .IvionOnline.ObjectPath PowerCostReduction = 3;
+  if (this->has_powercostreduction()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *powercostreduction_);
+  }
+
+  // .IvionOnline.ObjectPath CostReduction = 4;
+  if (this->has_costreduction()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *costreduction_);
+  }
+
+  // .IvionOnline.ObjectPath Free = 5;
+  if (this->has_free()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *free_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ReduceCost::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:IvionOnline.ReduceCost)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ReduceCost* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ReduceCost>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:IvionOnline.ReduceCost)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:IvionOnline.ReduceCost)
+    MergeFrom(*source);
+  }
+}
+
+void ReduceCost::MergeFrom(const ReduceCost& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:IvionOnline.ReduceCost)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_card()) {
+    _internal_mutable_card()->::IvionOnline::ObjectPath::MergeFrom(from._internal_card());
+  }
+  if (from.has_actioncostreduction()) {
+    _internal_mutable_actioncostreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_actioncostreduction());
+  }
+  if (from.has_powercostreduction()) {
+    _internal_mutable_powercostreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_powercostreduction());
+  }
+  if (from.has_costreduction()) {
+    _internal_mutable_costreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_costreduction());
+  }
+  if (from.has_free()) {
+    _internal_mutable_free()->::IvionOnline::ObjectPath::MergeFrom(from._internal_free());
+  }
+}
+
+void ReduceCost::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:IvionOnline.ReduceCost)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReduceCost::CopyFrom(const ReduceCost& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:IvionOnline.ReduceCost)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReduceCost::IsInitialized() const {
+  return true;
+}
+
+void ReduceCost::InternalSwap(ReduceCost* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ReduceCost, free_)
+      + sizeof(ReduceCost::free_)
+      - PROTOBUF_FIELD_OFFSET(ReduceCost, card_)>(
+          reinterpret_cast<char*>(&card_),
+          reinterpret_cast<char*>(&other->card_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReduceCost::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class PayCost::_Internal {
+ public:
+  static const ::IvionOnline::ObjectPath& player(const PayCost* msg);
+  static const ::IvionOnline::ObjectPath& card(const PayCost* msg);
+};
+
+const ::IvionOnline::ObjectPath&
+PayCost::_Internal::player(const PayCost* msg) {
+  return *msg->player_;
+}
+const ::IvionOnline::ObjectPath&
+PayCost::_Internal::card(const PayCost* msg) {
+  return *msg->card_;
+}
+PayCost::PayCost(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:IvionOnline.PayCost)
+}
+PayCost::PayCost(const PayCost& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_player()) {
+    player_ = new ::IvionOnline::ObjectPath(*from.player_);
+  } else {
+    player_ = nullptr;
+  }
+  if (from._internal_has_card()) {
+    card_ = new ::IvionOnline::ObjectPath(*from.card_);
+  } else {
+    card_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.PayCost)
 }
 
@@ -18524,8 +19271,8 @@ void PayCost::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PayCost_GameState_2eproto.base);
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&player_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&free_) -
-      reinterpret_cast<char*>(&player_)) + sizeof(free_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&card_) -
+      reinterpret_cast<char*>(&player_)) + sizeof(card_));
 }
 
 PayCost::~PayCost() {
@@ -18538,10 +19285,6 @@ void PayCost::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete player_;
   if (this != internal_default_instance()) delete card_;
-  if (this != internal_default_instance()) delete actioncostreduction_;
-  if (this != internal_default_instance()) delete powercostreduction_;
-  if (this != internal_default_instance()) delete costreduction_;
-  if (this != internal_default_instance()) delete free_;
 }
 
 void PayCost::ArenaDtor(void* object) {
@@ -18573,22 +19316,6 @@ void PayCost::Clear() {
     delete card_;
   }
   card_ = nullptr;
-  if (GetArena() == nullptr && actioncostreduction_ != nullptr) {
-    delete actioncostreduction_;
-  }
-  actioncostreduction_ = nullptr;
-  if (GetArena() == nullptr && powercostreduction_ != nullptr) {
-    delete powercostreduction_;
-  }
-  powercostreduction_ = nullptr;
-  if (GetArena() == nullptr && costreduction_ != nullptr) {
-    delete costreduction_;
-  }
-  costreduction_ = nullptr;
-  if (GetArena() == nullptr && free_ != nullptr) {
-    delete free_;
-  }
-  free_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -18610,34 +19337,6 @@ const char* PayCost::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_card(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.ObjectPath ActionCostReduction = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_actioncostreduction(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.ObjectPath PowerCostReduction = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ctx->ParseMessage(_internal_mutable_powercostreduction(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.ObjectPath CostReduction = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ctx->ParseMessage(_internal_mutable_costreduction(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .IvionOnline.ObjectPath Free = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_free(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -18685,38 +19384,6 @@ failure:
         2, _Internal::card(this), target, stream);
   }
 
-  // .IvionOnline.ObjectPath ActionCostReduction = 3;
-  if (this->has_actioncostreduction()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::actioncostreduction(this), target, stream);
-  }
-
-  // .IvionOnline.ObjectPath PowerCostReduction = 4;
-  if (this->has_powercostreduction()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::powercostreduction(this), target, stream);
-  }
-
-  // .IvionOnline.ObjectPath CostReduction = 5;
-  if (this->has_costreduction()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::costreduction(this), target, stream);
-  }
-
-  // .IvionOnline.ObjectPath Free = 6;
-  if (this->has_free()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::free(this), target, stream);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -18745,34 +19412,6 @@ size_t PayCost::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *card_);
-  }
-
-  // .IvionOnline.ObjectPath ActionCostReduction = 3;
-  if (this->has_actioncostreduction()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *actioncostreduction_);
-  }
-
-  // .IvionOnline.ObjectPath PowerCostReduction = 4;
-  if (this->has_powercostreduction()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *powercostreduction_);
-  }
-
-  // .IvionOnline.ObjectPath CostReduction = 5;
-  if (this->has_costreduction()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *costreduction_);
-  }
-
-  // .IvionOnline.ObjectPath Free = 6;
-  if (this->has_free()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *free_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -18812,18 +19451,6 @@ void PayCost::MergeFrom(const PayCost& from) {
   if (from.has_card()) {
     _internal_mutable_card()->::IvionOnline::ObjectPath::MergeFrom(from._internal_card());
   }
-  if (from.has_actioncostreduction()) {
-    _internal_mutable_actioncostreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_actioncostreduction());
-  }
-  if (from.has_powercostreduction()) {
-    _internal_mutable_powercostreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_powercostreduction());
-  }
-  if (from.has_costreduction()) {
-    _internal_mutable_costreduction()->::IvionOnline::ObjectPath::MergeFrom(from._internal_costreduction());
-  }
-  if (from.has_free()) {
-    _internal_mutable_free()->::IvionOnline::ObjectPath::MergeFrom(from._internal_free());
-  }
 }
 
 void PayCost::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -18848,8 +19475,8 @@ void PayCost::InternalSwap(PayCost* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PayCost, free_)
-      + sizeof(PayCost::free_)
+      PROTOBUF_FIELD_OFFSET(PayCost, card_)
+      + sizeof(PayCost::card_)
       - PROTOBUF_FIELD_OFFSET(PayCost, player_)>(
           reinterpret_cast<char*>(&player_),
           reinterpret_cast<char*>(&other->player_));
@@ -21931,11 +22558,13 @@ void ObjectPath_Constant::InternalSwap(ObjectPath_Constant* other) {
 class Method::_Internal {
  public:
   static const ::IvionOnline::GetList& getlist(const Method* msg);
+  static const ::IvionOnline::FilterDistance& filterdistance(const Method* msg);
   static const ::IvionOnline::SelectMultiple& selectmultiple(const Method* msg);
   static const ::IvionOnline::SelectExactlyOne& selectexactlyone(const Method* msg);
   static const ::IvionOnline::AssertControlOrHeroic& assertcontrolorheroic(const Method* msg);
   static const ::IvionOnline::AssertControllerHasPriority& assertcontrollerhaspriority(const Method* msg);
   static const ::IvionOnline::AssertStackEmptyOrInstant& assertstackemptyorinstant(const Method* msg);
+  static const ::IvionOnline::ReduceCost& reducecost(const Method* msg);
   static const ::IvionOnline::PayCost& paycost(const Method* msg);
   static const ::IvionOnline::PlayGainResources& playgainresources(const Method* msg);
   static const ::IvionOnline::RefundCost& refundcost(const Method* msg);
@@ -21956,6 +22585,10 @@ const ::IvionOnline::GetList&
 Method::_Internal::getlist(const Method* msg) {
   return *msg->methods_.getlist_;
 }
+const ::IvionOnline::FilterDistance&
+Method::_Internal::filterdistance(const Method* msg) {
+  return *msg->methods_.filterdistance_;
+}
 const ::IvionOnline::SelectMultiple&
 Method::_Internal::selectmultiple(const Method* msg) {
   return *msg->methods_.selectmultiple_;
@@ -21975,6 +22608,10 @@ Method::_Internal::assertcontrollerhaspriority(const Method* msg) {
 const ::IvionOnline::AssertStackEmptyOrInstant&
 Method::_Internal::assertstackemptyorinstant(const Method* msg) {
   return *msg->methods_.assertstackemptyorinstant_;
+}
+const ::IvionOnline::ReduceCost&
+Method::_Internal::reducecost(const Method* msg) {
+  return *msg->methods_.reducecost_;
 }
 const ::IvionOnline::PayCost&
 Method::_Internal::paycost(const Method* msg) {
@@ -22046,6 +22683,21 @@ void Method::set_allocated_getlist(::IvionOnline::GetList* getlist) {
     methods_.getlist_ = getlist;
   }
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Method.GetList)
+}
+void Method::set_allocated_filterdistance(::IvionOnline::FilterDistance* filterdistance) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_methods();
+  if (filterdistance) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(filterdistance);
+    if (message_arena != submessage_arena) {
+      filterdistance = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, filterdistance, submessage_arena);
+    }
+    set_has_filterdistance();
+    methods_.filterdistance_ = filterdistance;
+  }
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Method.FilterDistance)
 }
 void Method::set_allocated_selectmultiple(::IvionOnline::SelectMultiple* selectmultiple) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -22121,6 +22773,21 @@ void Method::set_allocated_assertstackemptyorinstant(::IvionOnline::AssertStackE
     methods_.assertstackemptyorinstant_ = assertstackemptyorinstant;
   }
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.Method.AssertStackEmptyOrInstant)
+}
+void Method::set_allocated_reducecost(::IvionOnline::ReduceCost* reducecost) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  clear_methods();
+  if (reducecost) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(reducecost);
+    if (message_arena != submessage_arena) {
+      reducecost = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, reducecost, submessage_arena);
+    }
+    set_has_reducecost();
+    methods_.reducecost_ = reducecost;
+  }
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.Method.ReduceCost)
 }
 void Method::set_allocated_paycost(::IvionOnline::PayCost* paycost) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
@@ -22347,6 +23014,10 @@ Method::Method(const Method& from)
       _internal_mutable_getlist()->::IvionOnline::GetList::MergeFrom(from._internal_getlist());
       break;
     }
+    case kFilterDistance: {
+      _internal_mutable_filterdistance()->::IvionOnline::FilterDistance::MergeFrom(from._internal_filterdistance());
+      break;
+    }
     case kSelectMultiple: {
       _internal_mutable_selectmultiple()->::IvionOnline::SelectMultiple::MergeFrom(from._internal_selectmultiple());
       break;
@@ -22365,6 +23036,10 @@ Method::Method(const Method& from)
     }
     case kAssertStackEmptyOrInstant: {
       _internal_mutable_assertstackemptyorinstant()->::IvionOnline::AssertStackEmptyOrInstant::MergeFrom(from._internal_assertstackemptyorinstant());
+      break;
+    }
+    case kReduceCost: {
+      _internal_mutable_reducecost()->::IvionOnline::ReduceCost::MergeFrom(from._internal_reducecost());
       break;
     }
     case kPayCost: {
@@ -22472,6 +23147,12 @@ void Method::clear_methods() {
       }
       break;
     }
+    case kFilterDistance: {
+      if (GetArena() == nullptr) {
+        delete methods_.filterdistance_;
+      }
+      break;
+    }
     case kSelectMultiple: {
       if (GetArena() == nullptr) {
         delete methods_.selectmultiple_;
@@ -22499,6 +23180,12 @@ void Method::clear_methods() {
     case kAssertStackEmptyOrInstant: {
       if (GetArena() == nullptr) {
         delete methods_.assertstackemptyorinstant_;
+      }
+      break;
+    }
+    case kReduceCost: {
+      if (GetArena() == nullptr) {
+        delete methods_.reducecost_;
       }
       break;
     }
@@ -22618,135 +23305,149 @@ const char* Method::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.SelectMultiple SelectMultiple = 2;
+      // .IvionOnline.FilterDistance FilterDistance = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_filterdistance(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.SelectMultiple SelectMultiple = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_selectmultiple(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.SelectExactlyOne SelectExactlyOne = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+      // .IvionOnline.SelectExactlyOne SelectExactlyOne = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_selectexactlyone(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+      // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_assertcontrolorheroic(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+      // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_assertcontrollerhaspriority(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+      // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_assertstackemptyorinstant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.PayCost PayCost = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+      // .IvionOnline.ReduceCost ReduceCost = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_reducecost(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.PayCost PayCost = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_paycost(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.PlayGainResources PlayGainResources = 8;
-      case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+      // .IvionOnline.PlayGainResources PlayGainResources = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_playgainresources(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.RefundCost RefundCost = 9;
-      case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+      // .IvionOnline.RefundCost RefundCost = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_refundcost(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.GainActions GainActions = 10;
-      case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+      // .IvionOnline.GainActions GainActions = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_gainactions(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.GainPower GainPower = 11;
-      case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+      // .IvionOnline.GainPower GainPower = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_gainpower(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Move Move = 12;
-      case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+      // .IvionOnline.Move Move = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           ptr = ctx->ParseMessage(_internal_mutable_move(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Travel Travel = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+      // .IvionOnline.Travel Travel = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_travel(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Damage Damage = 14;
-      case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+      // .IvionOnline.Damage Damage = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
           ptr = ctx->ParseMessage(_internal_mutable_damage(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Boolean_Constant Boolean_Constant = 15;
-      case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+      // .IvionOnline.Boolean_Constant Boolean_Constant = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
           ptr = ctx->ParseMessage(_internal_mutable_boolean_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Integer_Constant Integer_Constant = 16;
-      case 16:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+      // .IvionOnline.Integer_Constant Integer_Constant = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
           ptr = ctx->ParseMessage(_internal_mutable_integer_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
-      case 17:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
+      // .IvionOnline.Vec2i_Constant Vec2i_Constant = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154)) {
           ptr = ctx->ParseMessage(_internal_mutable_vec2i_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Terrain_Constant Terrain_Constant = 18;
-      case 18:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
+      // .IvionOnline.Terrain_Constant Terrain_Constant = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
           ptr = ctx->ParseMessage(_internal_mutable_terrain_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.Color_Constant Color_Constant = 19;
-      case 19:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154)) {
+      // .IvionOnline.Color_Constant Color_Constant = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
           ptr = ctx->ParseMessage(_internal_mutable_color_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
-      case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
+      // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
           ptr = ctx->ParseMessage(_internal_mutable_objectpath_constant(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -22787,156 +23488,172 @@ failure:
         1, _Internal::getlist(this), target, stream);
   }
 
-  // .IvionOnline.SelectMultiple SelectMultiple = 2;
+  // .IvionOnline.FilterDistance FilterDistance = 2;
+  if (_internal_has_filterdistance()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::filterdistance(this), target, stream);
+  }
+
+  // .IvionOnline.SelectMultiple SelectMultiple = 3;
   if (_internal_has_selectmultiple()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::selectmultiple(this), target, stream);
+        3, _Internal::selectmultiple(this), target, stream);
   }
 
-  // .IvionOnline.SelectExactlyOne SelectExactlyOne = 3;
+  // .IvionOnline.SelectExactlyOne SelectExactlyOne = 4;
   if (_internal_has_selectexactlyone()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::selectexactlyone(this), target, stream);
+        4, _Internal::selectexactlyone(this), target, stream);
   }
 
-  // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 4;
+  // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 5;
   if (_internal_has_assertcontrolorheroic()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        4, _Internal::assertcontrolorheroic(this), target, stream);
+        5, _Internal::assertcontrolorheroic(this), target, stream);
   }
 
-  // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 5;
+  // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 6;
   if (_internal_has_assertcontrollerhaspriority()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        5, _Internal::assertcontrollerhaspriority(this), target, stream);
+        6, _Internal::assertcontrollerhaspriority(this), target, stream);
   }
 
-  // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
+  // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
   if (_internal_has_assertstackemptyorinstant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::assertstackemptyorinstant(this), target, stream);
+        7, _Internal::assertstackemptyorinstant(this), target, stream);
   }
 
-  // .IvionOnline.PayCost PayCost = 7;
+  // .IvionOnline.ReduceCost ReduceCost = 8;
+  if (_internal_has_reducecost()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        8, _Internal::reducecost(this), target, stream);
+  }
+
+  // .IvionOnline.PayCost PayCost = 9;
   if (_internal_has_paycost()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        7, _Internal::paycost(this), target, stream);
+        9, _Internal::paycost(this), target, stream);
   }
 
-  // .IvionOnline.PlayGainResources PlayGainResources = 8;
+  // .IvionOnline.PlayGainResources PlayGainResources = 10;
   if (_internal_has_playgainresources()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        8, _Internal::playgainresources(this), target, stream);
+        10, _Internal::playgainresources(this), target, stream);
   }
 
-  // .IvionOnline.RefundCost RefundCost = 9;
+  // .IvionOnline.RefundCost RefundCost = 11;
   if (_internal_has_refundcost()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::refundcost(this), target, stream);
+        11, _Internal::refundcost(this), target, stream);
   }
 
-  // .IvionOnline.GainActions GainActions = 10;
+  // .IvionOnline.GainActions GainActions = 12;
   if (_internal_has_gainactions()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        10, _Internal::gainactions(this), target, stream);
+        12, _Internal::gainactions(this), target, stream);
   }
 
-  // .IvionOnline.GainPower GainPower = 11;
+  // .IvionOnline.GainPower GainPower = 13;
   if (_internal_has_gainpower()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        11, _Internal::gainpower(this), target, stream);
+        13, _Internal::gainpower(this), target, stream);
   }
 
-  // .IvionOnline.Move Move = 12;
+  // .IvionOnline.Move Move = 14;
   if (_internal_has_move()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        12, _Internal::move(this), target, stream);
+        14, _Internal::move(this), target, stream);
   }
 
-  // .IvionOnline.Travel Travel = 13;
+  // .IvionOnline.Travel Travel = 15;
   if (_internal_has_travel()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        13, _Internal::travel(this), target, stream);
+        15, _Internal::travel(this), target, stream);
   }
 
-  // .IvionOnline.Damage Damage = 14;
+  // .IvionOnline.Damage Damage = 16;
   if (_internal_has_damage()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        14, _Internal::damage(this), target, stream);
+        16, _Internal::damage(this), target, stream);
   }
 
-  // .IvionOnline.Boolean_Constant Boolean_Constant = 15;
+  // .IvionOnline.Boolean_Constant Boolean_Constant = 17;
   if (_internal_has_boolean_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        15, _Internal::boolean_constant(this), target, stream);
+        17, _Internal::boolean_constant(this), target, stream);
   }
 
-  // .IvionOnline.Integer_Constant Integer_Constant = 16;
+  // .IvionOnline.Integer_Constant Integer_Constant = 18;
   if (_internal_has_integer_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        16, _Internal::integer_constant(this), target, stream);
+        18, _Internal::integer_constant(this), target, stream);
   }
 
-  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
+  // .IvionOnline.Vec2i_Constant Vec2i_Constant = 19;
   if (_internal_has_vec2i_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        17, _Internal::vec2i_constant(this), target, stream);
+        19, _Internal::vec2i_constant(this), target, stream);
   }
 
-  // .IvionOnline.Terrain_Constant Terrain_Constant = 18;
+  // .IvionOnline.Terrain_Constant Terrain_Constant = 20;
   if (_internal_has_terrain_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        18, _Internal::terrain_constant(this), target, stream);
+        20, _Internal::terrain_constant(this), target, stream);
   }
 
-  // .IvionOnline.Color_Constant Color_Constant = 19;
+  // .IvionOnline.Color_Constant Color_Constant = 21;
   if (_internal_has_color_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        19, _Internal::color_constant(this), target, stream);
+        21, _Internal::color_constant(this), target, stream);
   }
 
-  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+  // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 22;
   if (_internal_has_objectpath_constant()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        20, _Internal::objectpath_constant(this), target, stream);
+        22, _Internal::objectpath_constant(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -22963,133 +23680,147 @@ size_t Method::ByteSizeLong() const {
           *methods_.getlist_);
       break;
     }
-    // .IvionOnline.SelectMultiple SelectMultiple = 2;
+    // .IvionOnline.FilterDistance FilterDistance = 2;
+    case kFilterDistance: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *methods_.filterdistance_);
+      break;
+    }
+    // .IvionOnline.SelectMultiple SelectMultiple = 3;
     case kSelectMultiple: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.selectmultiple_);
       break;
     }
-    // .IvionOnline.SelectExactlyOne SelectExactlyOne = 3;
+    // .IvionOnline.SelectExactlyOne SelectExactlyOne = 4;
     case kSelectExactlyOne: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.selectexactlyone_);
       break;
     }
-    // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 4;
+    // .IvionOnline.AssertControlOrHeroic AssertControlOrHeroic = 5;
     case kAssertControlOrHeroic: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.assertcontrolorheroic_);
       break;
     }
-    // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 5;
+    // .IvionOnline.AssertControllerHasPriority AssertControllerHasPriority = 6;
     case kAssertControllerHasPriority: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.assertcontrollerhaspriority_);
       break;
     }
-    // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 6;
+    // .IvionOnline.AssertStackEmptyOrInstant AssertStackEmptyOrInstant = 7;
     case kAssertStackEmptyOrInstant: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.assertstackemptyorinstant_);
       break;
     }
-    // .IvionOnline.PayCost PayCost = 7;
+    // .IvionOnline.ReduceCost ReduceCost = 8;
+    case kReduceCost: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *methods_.reducecost_);
+      break;
+    }
+    // .IvionOnline.PayCost PayCost = 9;
     case kPayCost: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.paycost_);
       break;
     }
-    // .IvionOnline.PlayGainResources PlayGainResources = 8;
+    // .IvionOnline.PlayGainResources PlayGainResources = 10;
     case kPlayGainResources: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.playgainresources_);
       break;
     }
-    // .IvionOnline.RefundCost RefundCost = 9;
+    // .IvionOnline.RefundCost RefundCost = 11;
     case kRefundCost: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.refundcost_);
       break;
     }
-    // .IvionOnline.GainActions GainActions = 10;
+    // .IvionOnline.GainActions GainActions = 12;
     case kGainActions: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.gainactions_);
       break;
     }
-    // .IvionOnline.GainPower GainPower = 11;
+    // .IvionOnline.GainPower GainPower = 13;
     case kGainPower: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.gainpower_);
       break;
     }
-    // .IvionOnline.Move Move = 12;
+    // .IvionOnline.Move Move = 14;
     case kMove: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.move_);
       break;
     }
-    // .IvionOnline.Travel Travel = 13;
+    // .IvionOnline.Travel Travel = 15;
     case kTravel: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.travel_);
       break;
     }
-    // .IvionOnline.Damage Damage = 14;
+    // .IvionOnline.Damage Damage = 16;
     case kDamage: {
-      total_size += 1 +
+      total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.damage_);
       break;
     }
-    // .IvionOnline.Boolean_Constant Boolean_Constant = 15;
+    // .IvionOnline.Boolean_Constant Boolean_Constant = 17;
     case kBooleanConstant: {
-      total_size += 1 +
+      total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.boolean_constant_);
       break;
     }
-    // .IvionOnline.Integer_Constant Integer_Constant = 16;
+    // .IvionOnline.Integer_Constant Integer_Constant = 18;
     case kIntegerConstant: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.integer_constant_);
       break;
     }
-    // .IvionOnline.Vec2i_Constant Vec2i_Constant = 17;
+    // .IvionOnline.Vec2i_Constant Vec2i_Constant = 19;
     case kVec2IConstant: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.vec2i_constant_);
       break;
     }
-    // .IvionOnline.Terrain_Constant Terrain_Constant = 18;
+    // .IvionOnline.Terrain_Constant Terrain_Constant = 20;
     case kTerrainConstant: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.terrain_constant_);
       break;
     }
-    // .IvionOnline.Color_Constant Color_Constant = 19;
+    // .IvionOnline.Color_Constant Color_Constant = 21;
     case kColorConstant: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *methods_.color_constant_);
       break;
     }
-    // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 20;
+    // .IvionOnline.ObjectPath_Constant ObjectPath_Constant = 22;
     case kObjectPathConstant: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -23136,6 +23867,10 @@ void Method::MergeFrom(const Method& from) {
       _internal_mutable_getlist()->::IvionOnline::GetList::MergeFrom(from._internal_getlist());
       break;
     }
+    case kFilterDistance: {
+      _internal_mutable_filterdistance()->::IvionOnline::FilterDistance::MergeFrom(from._internal_filterdistance());
+      break;
+    }
     case kSelectMultiple: {
       _internal_mutable_selectmultiple()->::IvionOnline::SelectMultiple::MergeFrom(from._internal_selectmultiple());
       break;
@@ -23154,6 +23889,10 @@ void Method::MergeFrom(const Method& from) {
     }
     case kAssertStackEmptyOrInstant: {
       _internal_mutable_assertstackemptyorinstant()->::IvionOnline::AssertStackEmptyOrInstant::MergeFrom(from._internal_assertstackemptyorinstant());
+      break;
+    }
+    case kReduceCost: {
+      _internal_mutable_reducecost()->::IvionOnline::ReduceCost::MergeFrom(from._internal_reducecost());
       break;
     }
     case kPayCost: {
@@ -23580,6 +24319,9 @@ template<> PROTOBUF_NOINLINE ::IvionOnline::Mutation* Arena::CreateMaybeMessage<
 template<> PROTOBUF_NOINLINE ::IvionOnline::GetList* Arena::CreateMaybeMessage< ::IvionOnline::GetList >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::GetList >(arena);
 }
+template<> PROTOBUF_NOINLINE ::IvionOnline::FilterDistance* Arena::CreateMaybeMessage< ::IvionOnline::FilterDistance >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::FilterDistance >(arena);
+}
 template<> PROTOBUF_NOINLINE ::IvionOnline::SelectMultiple* Arena::CreateMaybeMessage< ::IvionOnline::SelectMultiple >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::SelectMultiple >(arena);
 }
@@ -23594,6 +24336,9 @@ template<> PROTOBUF_NOINLINE ::IvionOnline::AssertControllerHasPriority* Arena::
 }
 template<> PROTOBUF_NOINLINE ::IvionOnline::AssertStackEmptyOrInstant* Arena::CreateMaybeMessage< ::IvionOnline::AssertStackEmptyOrInstant >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::AssertStackEmptyOrInstant >(arena);
+}
+template<> PROTOBUF_NOINLINE ::IvionOnline::ReduceCost* Arena::CreateMaybeMessage< ::IvionOnline::ReduceCost >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::IvionOnline::ReduceCost >(arena);
 }
 template<> PROTOBUF_NOINLINE ::IvionOnline::PayCost* Arena::CreateMaybeMessage< ::IvionOnline::PayCost >(Arena* arena) {
   return Arena::CreateMessageInternal< ::IvionOnline::PayCost >(arena);

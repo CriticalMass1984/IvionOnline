@@ -18,9 +18,14 @@ struct Vec2i {
 
 	}
 
-	void Fill(IvionOnline::Vec2i* vec)
+	void Fill(IvionOnline::Vec2i* vec) const noexcept
 	{
 		vec->set_x(x);
 		vec->set_y(y);
+	}
+
+	int Distance(const Vec2i& v) const noexcept
+	{
+		return std::abs(v.x - this->x) + std::abs(v.y - this->y);
 	}
 };
