@@ -353,9 +353,6 @@ IvionOnline::List_Tile* Initialize(IvionOnline::List_Tile* obj, const IvionOnlin
 	return obj;
 }
 IvionOnline::GameState* Initialize(IvionOnline::GameState* obj, const IvionOnline::ObjectPath& root, const std::string& name){
-	obj->set_name(name);
-	obj->mutable_abspath()->CopyFrom(root);
-	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_GAMESTATE);
 	Initialize(obj->mutable_players(), obj->abspath(), "Players");
 	Initialize(obj->mutable_cards(), obj->abspath(), "Cards");

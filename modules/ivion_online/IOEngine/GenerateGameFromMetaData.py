@@ -408,7 +408,7 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
                             memName.lower(), memName))
             sourceFile.write("\treturn obj;\n")
             sourceFile.write("}\n")
-            if buildList:
+            if buildList and name != "GameState":
                 BuildListInitializer(name)
 
         for name, vtype in ClassTypes.items():
@@ -419,9 +419,10 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
             headerFile.write("{};\n".format(ConstructorHeader))
             sourceFile.write(ConstructorHeader)
             sourceFile.write("{\n")
-            sourceFile.write("\tobj->set_name(name);\n")
-            sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
-            sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
+            if name != "GameState":
+                sourceFile.write("\tobj->set_name(name);\n")
+                sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
+                sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
             sourceFile.write("\tobj->mutable_abspath()->set_object_type({}::ObjectType::TYPE_{});\n".format(PackageName, name.upper()))
             for memName, memType in vtype.Members.items():
                 protoType = ProtoType(memType)

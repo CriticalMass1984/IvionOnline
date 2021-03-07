@@ -7,7 +7,7 @@ namespace IO {
 
 std::vector<std::string> Split(const std::string &path) {
 	std::vector<std::string> parts;
-	size_t start = 0;
+	size_t start = path.front() == '/' ? 1 : 0;
 	size_t end = path.find('/', start);
 	if (end != std::string::npos && end > start) {
 		parts.emplace_back(path.substr(start, end - start));
@@ -27,7 +27,15 @@ std::vector<std::string> Split(const std::string &path) {
 	}
 	return parts;
 }
-
+std::string PrintObjectPath(const IvionOnline::ObjectPath &obj)
+{
+	std::stringstream stream;
+	for(const auto& p : obj.path())
+	{
+		stream << '/' << p;
+	}
+	return stream.str();
+}
 void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path) {
 	obj->clear_path();
 	for (const std::string &part : Split(path)) {

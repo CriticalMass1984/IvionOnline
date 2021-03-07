@@ -55,6 +55,9 @@ int main(int argc, char **argv) {
 	IO::GameInstance instance;
 	instance.Init(info);
 
+	instance.gamestate_.PrintDebugString();
+	printf("GameState Size: %ld\n", instance.gamestate_.ByteSizeLong());
+
 	std::default_random_engine generator;
 	while(true)
 	{

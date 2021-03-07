@@ -493,6 +493,7 @@ class PlayerInfo PROTOBUF_FINAL :
     kDisplayNameFieldNumber = 2,
     kDeckFieldNumber = 3,
     kStartingPositionFieldNumber = 4,
+    kTeamIndexFieldNumber = 5,
   };
   // string UID = 1;
   void clear_uid();
@@ -562,6 +563,15 @@ class PlayerInfo PROTOBUF_FINAL :
       ::IvionOnline::Vec2i* startingposition);
   ::IvionOnline::Vec2i* unsafe_arena_release_startingposition();
 
+  // int32 TeamIndex = 5;
+  void clear_teamindex();
+  ::PROTOBUF_NAMESPACE_ID::int32 teamindex() const;
+  void set_teamindex(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_teamindex() const;
+  void _internal_set_teamindex(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:IvionOnline.PlayerInfo)
  private:
   class _Internal;
@@ -573,6 +583,7 @@ class PlayerInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr displayname_;
   ::IvionOnline::DeckList* deck_;
   ::IvionOnline::Vec2i* startingposition_;
+  ::PROTOBUF_NAMESPACE_ID::int32 teamindex_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameInfo_2eproto;
 };
@@ -1160,6 +1171,26 @@ inline void PlayerInfo::set_allocated_startingposition(::IvionOnline::Vec2i* sta
   }
   startingposition_ = startingposition;
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.PlayerInfo.StartingPosition)
+}
+
+// int32 TeamIndex = 5;
+inline void PlayerInfo::clear_teamindex() {
+  teamindex_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerInfo::_internal_teamindex() const {
+  return teamindex_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 PlayerInfo::teamindex() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.PlayerInfo.TeamIndex)
+  return _internal_teamindex();
+}
+inline void PlayerInfo::_internal_set_teamindex(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  teamindex_ = value;
+}
+inline void PlayerInfo::set_teamindex(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_teamindex(value);
+  // @@protoc_insertion_point(field_set:IvionOnline.PlayerInfo.TeamIndex)
 }
 
 // -------------------------------------------------------------------

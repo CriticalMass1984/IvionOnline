@@ -11,15 +11,12 @@ class GameInstance;
 std::vector<std::string> Split(const std::string &path);
 void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path);
 
+std::string PrintObjectPath(const IvionOnline::ObjectPath &obj);
+
 template<typename T>
 std::string PrintObjectPath(const T &obj)
 {
-	std::stringstream stream;
-	for(const auto& p : obj.abspath().path())
-	{
-		stream << p;
-	}
-	return stream.str();
+	return PrintObjectPath(obj.abspath());
 }
 
 template<typename T>

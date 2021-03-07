@@ -120,6 +120,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameInfo_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, displayname_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, deck_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, startingposition_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, teamindex_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::GameInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -132,7 +133,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, sizeof(::IvionOnline::CardInfo)},
   { 7, -1, sizeof(::IvionOnline::DeckList)},
   { 13, -1, sizeof(::IvionOnline::PlayerInfo)},
-  { 22, -1, sizeof(::IvionOnline::GameInfo)},
+  { 23, -1, sizeof(::IvionOnline::GameInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -146,15 +147,16 @@ const char descriptor_table_protodef_GameInfo_2eproto[] PROTOBUF_SECTION_VARIABL
   "\n\016GameInfo.proto\022\013IvionOnline\032\017GameState"
   ".proto\"0\n\010CardInfo\022\020\n\010Card_UID\030\001 \001(\t\022\022\n\n"
   "Card_Count\030\002 \001(\005\"0\n\010DeckList\022$\n\005Cards\030\003 "
-  "\003(\0132\025.IvionOnline.CardInfo\"\201\001\n\nPlayerInf"
+  "\003(\0132\025.IvionOnline.CardInfo\"\224\001\n\nPlayerInf"
   "o\022\013\n\003UID\030\001 \001(\t\022\023\n\013DisplayName\030\002 \001(\t\022#\n\004D"
   "eck\030\003 \001(\0132\025.IvionOnline.DeckList\022,\n\020Star"
-  "tingPosition\030\004 \001(\0132\022.IvionOnline.Vec2i\"Y"
-  "\n\010GameInfo\022(\n\007Players\030\001 \003(\0132\027.IvionOnlin"
-  "e.PlayerInfo\022#\n\007MapSize\030\002 \001(\0132\022.IvionOnl"
-  "ine.Vec2i2W\n\023CardDatabaseService\022@\n\020Retr"
-  "ieveCardData\022\025.IvionOnline.CardInfo\032\025.Iv"
-  "ionOnline.CardDatab\006proto3"
+  "tingPosition\030\004 \001(\0132\022.IvionOnline.Vec2i\022\021"
+  "\n\tTeamIndex\030\005 \001(\005\"Y\n\010GameInfo\022(\n\007Players"
+  "\030\001 \003(\0132\027.IvionOnline.PlayerInfo\022#\n\007MapSi"
+  "ze\030\002 \001(\0132\022.IvionOnline.Vec2i2W\n\023CardData"
+  "baseService\022@\n\020RetrieveCardData\022\025.IvionO"
+  "nline.CardInfo\032\025.IvionOnline.CardDatab\006p"
+  "roto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[1] = {
   &::descriptor_table_GameState_2eproto,
@@ -167,7 +169,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameInfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameInfo_2eproto = {
-  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 466,
+  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 485,
   &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 4, 1,
   schemas, file_default_instances, TableStruct_GameInfo_2eproto::offsets,
   file_level_metadata_GameInfo_2eproto, 4, file_level_enum_descriptors_GameInfo_2eproto, file_level_service_descriptors_GameInfo_2eproto,
@@ -661,6 +663,7 @@ PlayerInfo::PlayerInfo(const PlayerInfo& from)
   } else {
     startingposition_ = nullptr;
   }
+  teamindex_ = from.teamindex_;
   // @@protoc_insertion_point(copy_constructor:IvionOnline.PlayerInfo)
 }
 
@@ -670,8 +673,8 @@ void PlayerInfo::SharedCtor() {
   displayname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
       reinterpret_cast<char*>(&deck_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&startingposition_) -
-      reinterpret_cast<char*>(&deck_)) + sizeof(startingposition_));
+      0, static_cast<size_t>(reinterpret_cast<char*>(&teamindex_) -
+      reinterpret_cast<char*>(&deck_)) + sizeof(teamindex_));
 }
 
 PlayerInfo::~PlayerInfo() {
@@ -719,6 +722,7 @@ void PlayerInfo::Clear() {
     delete startingposition_;
   }
   startingposition_ = nullptr;
+  teamindex_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -758,6 +762,13 @@ const char* PlayerInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_startingposition(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 TeamIndex = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          teamindex_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -825,6 +836,12 @@ failure:
         4, _Internal::startingposition(this), target, stream);
   }
 
+  // int32 TeamIndex = 5;
+  if (this->teamindex() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_teamindex(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -867,6 +884,13 @@ size_t PlayerInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *startingposition_);
+  }
+
+  // int32 TeamIndex = 5;
+  if (this->teamindex() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_teamindex());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -912,6 +936,9 @@ void PlayerInfo::MergeFrom(const PlayerInfo& from) {
   if (from.has_startingposition()) {
     _internal_mutable_startingposition()->::IvionOnline::Vec2i::MergeFrom(from._internal_startingposition());
   }
+  if (from.teamindex() != 0) {
+    _internal_set_teamindex(from._internal_teamindex());
+  }
 }
 
 void PlayerInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -938,8 +965,8 @@ void PlayerInfo::InternalSwap(PlayerInfo* other) {
   uid_.Swap(&other->uid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   displayname_.Swap(&other->displayname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerInfo, startingposition_)
-      + sizeof(PlayerInfo::startingposition_)
+      PROTOBUF_FIELD_OFFSET(PlayerInfo, teamindex_)
+      + sizeof(PlayerInfo::teamindex_)
       - PROTOBUF_FIELD_OFFSET(PlayerInfo, deck_)>(
           reinterpret_cast<char*>(&deck_),
           reinterpret_cast<char*>(&other->deck_));
