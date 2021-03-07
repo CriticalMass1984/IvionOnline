@@ -148,15 +148,16 @@ message Player {
 	List_ObjectPath Deck = 15;
 	List_ObjectPath Discard = 16;
 	List_ObjectPath Feats = 17;
-	Integer MaxHealth = 18;
-	Integer MaxActions = 19;
-	Integer MaxPower = 20;
-	Integer MaxSlow = 21;
-	Integer MaxSilence = 22;
-	Integer MaxDisarm = 23;
-	Integer MaxMitigate = 24;
-	ObjectPath AbsPath = 25;
-	string Name = 26;
+	List_ObjectPath RangeSources = 18;
+	Integer MaxHealth = 19;
+	Integer MaxActions = 20;
+	Integer MaxPower = 21;
+	Integer MaxSlow = 22;
+	Integer MaxSilence = 23;
+	Integer MaxDisarm = 24;
+	Integer MaxMitigate = 25;
+	ObjectPath AbsPath = 26;
+	string Name = 27;
 }
 
 
@@ -383,12 +384,16 @@ message Mutation
 message GetList {
 	ObjectPath Source = 1;
 	List_ObjectPath Result = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message FilterDistance {
 	ObjectPath Targets = 1;
 	ObjectPath RangeSources = 2;
 	ObjectPath MaxDistance = 3;
+	string Name = 4;
+	ObjectPath AbsPath = 5;
 }
 
 message SelectMultiple {
@@ -396,20 +401,30 @@ message SelectMultiple {
 	ObjectPath Number = 2;
 	ObjectPath UpTo = 3;
 	List_ObjectPath Result = 4;
+	string Name = 5;
+	ObjectPath AbsPath = 6;
 }
 
 message SelectExactlyOne {
 	ObjectPath Source = 1;
 	ObjectPath Result = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message AssertControlOrHeroic {
+	string Name = 1;
+	ObjectPath AbsPath = 2;
 }
 
 message AssertControllerHasPriority {
+	string Name = 1;
+	ObjectPath AbsPath = 2;
 }
 
 message AssertStackEmptyOrInstant {
+	string Name = 1;
+	ObjectPath AbsPath = 2;
 }
 
 message ReduceCost {
@@ -418,70 +433,100 @@ message ReduceCost {
 	ObjectPath PowerCostReduction = 3;
 	ObjectPath CostReduction = 4;
 	ObjectPath Free = 5;
+	string Name = 6;
+	ObjectPath AbsPath = 7;
 }
 
 message PayCost {
 	ObjectPath Player = 1;
 	ObjectPath Card = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message PlayGainResources {
 	ObjectPath Player = 1;
 	ObjectPath Card = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message RefundCost {
 	ObjectPath Player = 1;
 	ObjectPath Card = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message GainActions {
 	ObjectPath Player = 1;
 	ObjectPath Value = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message GainPower {
 	ObjectPath Player = 1;
 	ObjectPath Value = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message Move {
 	ObjectPath Player = 1;
 	ObjectPath Destination = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message Travel {
 	ObjectPath Player = 1;
 	ObjectPath Destination = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message Damage {
 	ObjectPath Player = 1;
 	ObjectPath Amount = 2;
+	string Name = 3;
+	ObjectPath AbsPath = 4;
 }
 
 message Boolean_Constant {
 	Boolean Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message Integer_Constant {
 	Integer Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message Vec2i_Constant {
 	Vec2i Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message Terrain_Constant {
 	Terrain Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message Color_Constant {
 	Color Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message ObjectPath_Constant {
 	ObjectPath Result = 1;
+	string Name = 2;
+	ObjectPath AbsPath = 3;
 }
 
 message Method {
