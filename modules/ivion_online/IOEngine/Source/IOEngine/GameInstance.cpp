@@ -1,32 +1,13 @@
 #include <IOEngine/GameInstance.hpp>
 
 #include <IOEngine/Types_GENERATED.hpp>
+#include <IOEngine/Mutation_GENERATED.hpp>
+#include <IOEngine/Effect_GENERATED.hpp>
+#include <IOEngine/BasicActions.hpp>
+#include <IOEngine/Util.hpp>
 
 #include <cassert>
 namespace IO {
-
-std::vector<std::string> Split(const std::string &path) {
-	std::vector<std::string> parts;
-	size_t start = 0;
-	size_t end = path.find('/', start);
-	if (end != std::string::npos && end > start) {
-		parts.emplace_back(path.substr(start, end - start));
-		start = end + 1;
-		end = path.find('/', start);
-	}
-	while (end != std::string::npos) {
-		if (end > start) {
-			parts.emplace_back(path.substr(start, end - start));
-		}
-		start = end + 1;
-		end = path.find('/', start);
-	}
-	end = path.size();
-	if (end > start) {
-		parts.emplace_back(path.substr(start, end - start));
-	}
-	return parts;
-}
 
 std::optional<int> TryParse(const std::string &str) {
 	int value = 0;
@@ -134,9 +115,54 @@ google::protobuf::Message *GameInstance::ResolvePath(IvionOnline::ObjectPath *pa
 
 void GameInstance::Init(const IvionOnline::GameInfo& info)
 {
-	Initialize(&gamestate_, IvionOnline::ObjectPath(), "");
-	gamestate_.mutable_abspath()->mutable_path()->Clear();
-	gamestate_.mutable_abspath()->set_object_type();
+	Initialize(&gamestate_, IvionOnline::ObjectPath(), "/");
+	for(const auto& playerInfo : info.players())
+	{
+		IvionOnline::Player* player = Initialize(gamestate_.mutable_players()->add_element(), gamestate_.mutable_players()->abspath(), playerInfo.uid());;
+		player->mutable_position()->set_x(playerInfo.startingposition().x());
+		player->mutable_position()->set_y(playerInfo.startingposition().y());
+
+		// load basic action cards
+		AddMoveAction(this, player);
+
+		// load deck
+		for(const auto& cardInfo : playerInfo.deck().cards())
+		{
+			// TOTO : separate server and client knowledge of card -> card data mapping
+			constexpr int kBufferSize = 128;
+			char cardName[kBufferSize];
+			for(int i = 0; i < cardInfo.card_count(); ++i)
+			{
+				snprintf(cardName, kBufferSize, "'%s' #%d", cardInfo.card_uid().c_str(), i);
+
+				// init the card data
+				auto* cardData = gamestate_.mutable_carddata()->add_element();
+				// cardData->CopyFrom(the card loaded fromt he library);
+				Initialize(cardData, gamestate_.carddata().abspath(), cardName);
+
+				// init the card
+				auto* card = Initialize(gamestate_.mutable_cards()->add_element(), gamestate_.cards().abspath(), cardName);
+
+				// TODO : for release version, we need to hide the mapping from card to card data on clients
+				card->mutable_cardstats()->CopyFrom(cardData->abspath());
+
+				player->mutable_deck()->add_element()->CopyFrom(card->abspath());
+			}
+		}
+	}
+
+	// create tiles
+	constexpr int kBufferSize = 128;
+	char tileName[kBufferSize];
+	for (int y = 0; y < info.mapsize().y(); ++y) {
+		for (int x = 0; x < info.mapsize().x(); ++x) {
+			snprintf(tileName, kBufferSize, "(x: %d, y: %d)", x, y);
+			auto *tile = Initialize(this->gamestate_.mutable_tiles()->add_element(), gamestate_.tiles().abspath(), tileName);
+			tile->mutable_terrain()->set_value(IvionOnline::Terrain_Terrain_Type_TERRAIN_TYPE_NONE);
+			tile->mutable_position()->set_x(x);
+			tile->mutable_position()->set_y(y);
+		}
+	}
 }
 
 void GameInstance::ApplyHistory(IvionOnline::History *history) {
@@ -146,9 +172,51 @@ void GameInstance::ApplyHistory(IvionOnline::History *history) {
 	}
 }
 void GameInstance::RevertHistory(IvionOnline::History *history) {
-	assert(history->is_good());
 	for (auto it = history->mutable_mutations()->rbegin(), end = history->mutable_mutations()->rend(); it != end; ++it) {
 		RevertMutation(&*it);
 	}
 }
+void GameInstance::Step()
+{
+	currentHistory_->Clear();
+	this->RootHistory.Clear();
+	currentHistory_ = &RootHistory;
+
+	int teamIdx = this->gamestate_.turnnumber().value() % this->gamestate_.teams().element_size();
+	for(IvionOnline::ObjectPath& playerPath : *gamestate_.mutable_teams()->mutable_element()->Mutable(teamIdx)->mutable_players()->mutable_element())
+	{
+		auto* player = ResolvePath<IvionOnline::Player>(&playerPath);
+		// basic actions
+		for(auto& actionPath : *player->mutable_basicactions()->mutable_element())
+		{
+			auto* card = ResolvePath<IvionOnline::Card>(&actionPath);
+			auto* cardData = ResolvePath<IvionOnline::CardData>(card->mutable_cardstats());
+			
+			HistoryBranch branch(this);
+
+			ExecuteMethods(
+				this,
+				cardData->mutable_playeffect()->mutable_element()->begin(),
+				cardData->mutable_playeffect()->mutable_element()->end()
+			);
+		}
+	}
+}
+
+bool GameInstance::MakeChoice(int choice)
+{
+	assert(currentHistory_);
+	if(choice < 0)
+	{
+		return false;
+	}
+	if(choice >= currentHistory_->branches_size())
+	{
+		return false;
+	}
+	currentHistory_ = currentHistory_->mutable_branches()->Mutable(choice);
+	ApplyHistory(currentHistory_);
+	return true;
+}
+
 } // namespace IO

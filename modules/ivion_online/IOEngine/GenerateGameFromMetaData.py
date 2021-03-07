@@ -190,6 +190,12 @@ for name, details in list(GameMetaData["Methods"].items()):
                 "Args": methodArgs,
                 "Return": methodReturns
             }
+            Types.append("TYPE_{}".format(methodName.upper()))
+    else:
+        Types.append("TYPE_{}".format(name.upper()))
+Types.append("TYPE_METHOD")
+Types.append("TYPE_LIST_METHOD")
+
 
 # build protofile
 with open("Protobuf/GameState.proto", 'w') as protoFile:
@@ -237,6 +243,9 @@ with open("Protobuf/GameState.proto", 'w') as protoFile:
             protoFile.write("\t{} {} = {};\n".format(
                 ProtoType(arg), argName, index))
             index += 1
+        protoFile.write("\tstring Name = {};\n".format(index))
+        index += 1
+        protoFile.write("\tObjectPath AbsPath = {};\n".format(index))
         protoFile.write("}\n\n")
 
     for methodName, details in GameMetaData["Methods"].items():
@@ -348,7 +357,7 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
 
         def BuildListInitializer(name: str):
             # list
-            ConstructorHeader = "void Initialize_List_{NAME}({PACKAGE_NAME}::List_{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
+            ConstructorHeader = "{PACKAGE_NAME}::List_{NAME}* Initialize({PACKAGE_NAME}::List_{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
                 "NAME": name,
                 "PACKAGE_NAME": PackageName,
             })
@@ -358,14 +367,24 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
             sourceFile.write("\tobj->set_name(name);\n")
             sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
             sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
+            sourceFile.write("\tobj->mutable_abspath()->set_object_type({}::TYPE_LIST_{});\n".format(PackageName, name.upper()))
+            sourceFile.write("\treturn obj;\n")
             sourceFile.write("}\n")
         BuildListInitializer("ObjectPath")
         BuildListInitializer("Method")
 
-        for name, vtype in ValueTypes.items():
+        initializerTypes = [(name, vtype.Type, vtype.Members, True) for name, vtype in ValueTypes.items()]
+        for methodName, details in GameMetaData["Methods"].items():
+            members = dict()
+            for arg in details["Return"] + details["Args"]:
+                ctype, name = arg.split(" ")
+                members[name] = ProtoType(ctype)
+            initializerTypes.append((methodName, "func", members, False))
+
+        for name, vtype, members, buildList in initializerTypes:
             if name == "ObjectPath":
                 continue
-            ConstructorHeader = "void Initialize_{NAME}({PACKAGE_NAME}::{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
+            ConstructorHeader = "{PACKAGE_NAME}::{NAME}* Initialize({PACKAGE_NAME}::{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
                 "NAME": name,
                 "PACKAGE_NAME": PackageName,
             })
@@ -375,8 +394,9 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
             sourceFile.write("\tobj->set_name(name);\n")
             sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
             sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
-            if vtype.Type != "enum":
-                for memName, memType in vtype.Members.items():
+            sourceFile.write("\tobj->mutable_abspath()->set_object_type({}::TYPE_{});\n".format(PackageName, name.upper()))
+            if vtype != "enum":
+                for memName, memType in members.items():
                     protoType = ProtoType(memType)
                     # print(memName, protoType)
                     if memName == "AbsPath" or memName == "Name":
@@ -384,13 +404,15 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
                     if protoType == "ObjectPath":
                         continue
                     if protoType not in ["int32", "string", "bool"]:
-                        sourceFile.write("\tInitialize_{}(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
-                            protoType, memName.lower(), memName))
+                        sourceFile.write("\tInitialize(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
+                            memName.lower(), memName))
+            sourceFile.write("\treturn obj;\n")
             sourceFile.write("}\n")
-            BuildListInitializer(name)
+            if buildList:
+                BuildListInitializer(name)
 
         for name, vtype in ClassTypes.items():
-            ConstructorHeader = "void Initialize_{NAME}({PACKAGE_NAME}::{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
+            ConstructorHeader = "{PACKAGE_NAME}::{NAME}* Initialize({PACKAGE_NAME}::{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
                 "NAME": name,
                 "PACKAGE_NAME": PackageName,
             })
@@ -400,6 +422,7 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
             sourceFile.write("\tobj->set_name(name);\n")
             sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
             sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
+            sourceFile.write("\tobj->mutable_abspath()->set_object_type({}::ObjectType::TYPE_{});\n".format(PackageName, name.upper()))
             for memName, memType in vtype.Members.items():
                 protoType = ProtoType(memType)
                 # print(memName, protoType)
@@ -408,8 +431,9 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
                 if protoType == "ObjectPath":
                     continue
                 if protoType not in ["int32", "string", "bool"]:
-                    sourceFile.write("\tInitialize_{}(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
-                        protoType, memName.lower(), memName))
+                    sourceFile.write("\tInitialize(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
+                        memName.lower(), memName))
+            sourceFile.write("\treturn obj;\n")
             sourceFile.write("}\n")
             BuildListInitializer(name)
 

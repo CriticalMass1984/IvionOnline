@@ -30,18 +30,45 @@ enum ObjectType {
 	TYPE_PLAYER = 18;
 	TYPE_LIST_PLAYER = 19;
 	TYPE_LIST_REF_PLAYER = 20;
-	TYPE_CARD = 21;
-	TYPE_LIST_CARD = 22;
-	TYPE_LIST_REF_CARD = 23;
-	TYPE_CARDDATA = 24;
-	TYPE_LIST_CARDDATA = 25;
-	TYPE_LIST_REF_CARDDATA = 26;
-	TYPE_TILE = 27;
-	TYPE_LIST_TILE = 28;
-	TYPE_LIST_REF_TILE = 29;
-	TYPE_GAMESTATE = 30;
-	TYPE_LIST_GAMESTATE = 31;
-	TYPE_LIST_REF_GAMESTATE = 32;
+	TYPE_TEAM = 21;
+	TYPE_LIST_TEAM = 22;
+	TYPE_LIST_REF_TEAM = 23;
+	TYPE_CARD = 24;
+	TYPE_LIST_CARD = 25;
+	TYPE_LIST_REF_CARD = 26;
+	TYPE_CARDDATA = 27;
+	TYPE_LIST_CARDDATA = 28;
+	TYPE_LIST_REF_CARDDATA = 29;
+	TYPE_TILE = 30;
+	TYPE_LIST_TILE = 31;
+	TYPE_LIST_REF_TILE = 32;
+	TYPE_GAMESTATE = 33;
+	TYPE_LIST_GAMESTATE = 34;
+	TYPE_LIST_REF_GAMESTATE = 35;
+	TYPE_GETLIST = 36;
+	TYPE_BOOLEAN_CONSTANT = 37;
+	TYPE_INTEGER_CONSTANT = 38;
+	TYPE_VEC2I_CONSTANT = 39;
+	TYPE_TERRAIN_CONSTANT = 40;
+	TYPE_COLOR_CONSTANT = 41;
+	TYPE_OBJECTPATH_CONSTANT = 42;
+	TYPE_FILTERDISTANCE = 43;
+	TYPE_SELECTMULTIPLE = 44;
+	TYPE_SELECTEXACTLYONE = 45;
+	TYPE_ASSERTCONTROLORHEROIC = 46;
+	TYPE_ASSERTCONTROLLERHASPRIORITY = 47;
+	TYPE_ASSERTSTACKEMPTYORINSTANT = 48;
+	TYPE_REDUCECOST = 49;
+	TYPE_PAYCOST = 50;
+	TYPE_PLAYGAINRESOURCES = 51;
+	TYPE_REFUNDCOST = 52;
+	TYPE_GAINACTIONS = 53;
+	TYPE_GAINPOWER = 54;
+	TYPE_MOVE = 55;
+	TYPE_TRAVEL = 56;
+	TYPE_DAMAGE = 57;
+	TYPE_METHOD = 58;
+	TYPE_LIST_METHOD = 59;
 }
 
 message Boolean {
@@ -132,32 +159,31 @@ message List_ObjectPath {
 }
 message Player {
 	string UID = 1;
-	int32 Index = 2;
-	string IndexStr = 3;
-	string DisplayName = 4;
-	Integer Health = 5;
-	Integer Actions = 6;
-	Integer Power = 7;
-	Integer Initiative = 8;
-	Integer Mitigate = 9;
-	Integer Slow = 10;
-	Integer Silence = 11;
-	Integer Disarm = 12;
-	Vec2i Position = 13;
-	List_ObjectPath Hand = 14;
-	List_ObjectPath Deck = 15;
-	List_ObjectPath Discard = 16;
-	List_ObjectPath Feats = 17;
-	List_ObjectPath RangeSources = 18;
-	Integer MaxHealth = 19;
-	Integer MaxActions = 20;
-	Integer MaxPower = 21;
-	Integer MaxSlow = 22;
-	Integer MaxSilence = 23;
-	Integer MaxDisarm = 24;
-	Integer MaxMitigate = 25;
-	ObjectPath AbsPath = 26;
-	string Name = 27;
+	string DisplayName = 2;
+	Integer Health = 3;
+	Integer Actions = 4;
+	Integer Power = 5;
+	Integer Initiative = 6;
+	Integer Mitigate = 7;
+	Integer Slow = 8;
+	Integer Silence = 9;
+	Integer Disarm = 10;
+	Vec2i Position = 11;
+	List_ObjectPath BasicActions = 12;
+	List_ObjectPath Hand = 13;
+	List_ObjectPath Deck = 14;
+	List_ObjectPath Discard = 15;
+	List_ObjectPath Feats = 16;
+	List_ObjectPath RangeSources = 17;
+	Integer MaxHealth = 18;
+	Integer MaxActions = 19;
+	Integer MaxPower = 20;
+	Integer MaxSlow = 21;
+	Integer MaxSilence = 22;
+	Integer MaxDisarm = 23;
+	Integer MaxMitigate = 24;
+	ObjectPath AbsPath = 25;
+	string Name = 26;
 }
 
 
@@ -166,12 +192,22 @@ message List_Player {
     ObjectPath AbsPath = 2;
 	string Name = 3;
 }
+message Team {
+	List_ObjectPath Players = 1;
+	ObjectPath AbsPath = 2;
+	string Name = 3;
+}
+
+
+message List_Team {
+    repeated Team element = 1;
+    ObjectPath AbsPath = 2;
+	string Name = 3;
+}
 message Card {
 	ObjectPath CardStats = 1;
-	int32 Index = 2;
-	string IndexStr = 3;
-	ObjectPath AbsPath = 4;
-	string Name = 5;
+	ObjectPath AbsPath = 2;
+	string Name = 3;
 }
 
 
@@ -195,8 +231,11 @@ message CardData {
 	List_Method FeatEffect = 12;
 	List_Method PlayEffect = 13;
 	List_Method ResolveEffect = 14;
-	ObjectPath AbsPath = 15;
-	string Name = 16;
+	bool BasicAction = 15;
+	bool Feat = 16;
+	bool Ultimate = 17;
+	ObjectPath AbsPath = 18;
+	string Name = 19;
 }
 
 
@@ -224,11 +263,12 @@ message GameState {
 	List_Player Players = 1;
 	List_Card Cards = 2;
 	List_CardData CardData = 3;
-	List_Tile Tiles = 4;
-	List_ObjectPath Field = 5;
-	Integer TurnNumber = 6;
-	ObjectPath AbsPath = 7;
-	string Name = 8;
+	List_Team Teams = 4;
+	List_Tile Tiles = 5;
+	List_ObjectPath Field = 6;
+	Integer TurnNumber = 7;
+	ObjectPath AbsPath = 8;
+	string Name = 9;
 }
 
 

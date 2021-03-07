@@ -69,6 +69,9 @@ void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const 
 void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Player* target);
 void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Player* value);
 void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Player* value);
+void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Team* target);
+void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Team* value);
+void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Team* value);
 void Set(GameInstance* instance, IvionOnline::ObjectPath* object, const IvionOnline::Card* target);
 void Append(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Card* value);
 void Remove(GameInstance* instance, IvionOnline::List_ObjectPath* object, const IvionOnline::Card* value);

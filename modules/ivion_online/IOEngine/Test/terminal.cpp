@@ -6,6 +6,7 @@
 #include <cstdio>
 #include <fstream>
 #include <optional>
+#include <random>
 
 //https://stackoverflow.com/questions/49221417/pyrun-file-with-recursive-functions-in-python-c-api
 
@@ -28,7 +29,7 @@ bool LoadFromJsonFile(const std::string &filename, T *message) {
 	return google::protobuf::util::JsonStringToMessage(fileContents, message).ok();
 }
 
-void GenerateRandomGame(NetworkIO::GameInfo *info, int numPlayers) {
+void GenerateRandomGame(IvionOnline::GameInfo *info, int numPlayers) {
 	info->mutable_mapsize()->set_x(4);
 	info->mutable_mapsize()->set_y(4);
 
@@ -37,110 +38,35 @@ void GenerateRandomGame(NetworkIO::GameInfo *info, int numPlayers) {
 	const int start_x[] = { 0, 3, 2, 0 };
 	const int start_y[] = { 0, 3, 0, 2 };
 
-	Effects::CardEffect MoveEffect;
-
 	for (int i = 0; i < numPlayers; ++i) {
 		auto *newPlayer = info->mutable_players()->Add();
 		newPlayer->mutable_startingposition()->set_x(start_x[i]);
 		newPlayer->mutable_startingposition()->set_y(start_y[i]);
 		newPlayer->mutable_deck();
-		newPlayer->mutable_randomagent();
 		newPlayer->set_uid("UID_RandomAgent_" + std::to_string(i));
-		newPlayer->set_username("RandomAgent_" + std::to_string(i));
-	}
-}
-
-void InitializeGame(const NetworkIO::GameInfo &info, GameState::GameInstance *instance) {
-	// reset instance
-	instance->mutable_history()->Clear();
-	instance->mutable_gamestate()->Clear();
-
-	// create tiles
-	for (int y = 0; y < info.mapsize().y(); ++y) {
-		for (int x = 0; x < info.mapsize().x(); ++x) {
-			auto *tile = instance->mutable_gamestate()->add_tiles();
-			tile->set_terrain(Types::TerrainType::TERRAIN_NONE);
-			tile->mutable_position()->set_y(y);
-			tile->mutable_position()->set_x(x);
-		}
-	}
-
-	// create players
-	for (const auto &player : info.players()) {
-		const int playerIndex = instance->gamestate().players_size();
-		auto *playerInstance = instance->mutable_gamestate()->add_players();
-
-		// meta info
-		playerInstance->set_name(player.username());
-		playerInstance->set_uid(player.uid());
-
-		// setup stats
-		playerInstance->mutable_health()->set_value(40);
-		playerInstance->mutable_actions()->set_value(0);
-		playerInstance->mutable_power()->set_value(0);
-		playerInstance->mutable_slow()->set_value(0);
-		playerInstance->mutable_silence()->set_value(0);
-		playerInstance->mutable_disarm()->set_value(0);
-		playerInstance->mutable_initiative()->set_value(0);
-
-		// setup max stats
-		playerInstance->mutable_maxhealth()->set_value(40);
-		playerInstance->mutable_maxactions()->set_value(5);
-		playerInstance->mutable_maxpower()->set_value(5);
-		playerInstance->mutable_maxslow()->set_value(5);
-		playerInstance->mutable_maxsilence()->set_value(5);
-		playerInstance->mutable_maxdisarm()->set_value(5);
-		playerInstance->mutable_maxinitiative()->set_value(5);
-
-		//
-		playerInstance->mutable_field();
-		playerInstance->mutable_hand();
-		playerInstance->mutable_deck();
-		playerInstance->mutable_discard();
-		playerInstance->mutable_feats();
-
-		constexpr int kBufferSize = 128;
-		char playerPath[kBufferSize];
-		// create path to player
-		if (snprintf(playerPath, kBufferSize, "/Players/%d", playerIndex) < kBufferSize) {
-		} else {
-			throw std::runtime_error("Player Path is too long!");
-		}
-
-		// create cards
-		for (const NetworkIO::CardInfo &cardInfo : player.deck()) {
-			// load card stats from card server
-			for (int cardNum = 0; cardNum < cardInfo.count(); ++cardNum) {
-				const int cardIdx = instance->gamestate().cards_size();
-				auto *card = instance->mutable_gamestate()->add_cards();
-				char buffer[kBufferSize];
-
-				// create card name
-				if (snprintf(buffer, kBufferSize, "%s###%d", cardInfo.metadata().basename().c_str(), cardNum) < kBufferSize) {
-					card->set_name(buffer);
-				} else {
-					throw std::runtime_error("Card Name is too long!");
-				}
-
-				card->mutable_owner()->mutable_objectpath()->set_fullpath(playerPath);
-				card->mutable_controller()->CopyFrom(card->owner());
-				card->mutable_metadata()->CopyFrom(cardInfo.metadata());
-
-				// create path to card
-				if (snprintf(buffer, kBufferSize, "/Cards/%d", cardIdx) < kBufferSize) {
-					card->set_name(buffer);
-				} else {
-					throw std::runtime_error("Card Path is too long!");
-				}
-
-				playerInstance->add_deck()->mutable_objectpath()->set_fullpath(buffer);
-			}
-		}
+		newPlayer->set_displayname("RandomAgent_" + std::to_string(i));
 	}
 }
 
 int main(int argc, char **argv) {
-	// GameInstance instance;
+	IvionOnline::GameInfo info;
+	GenerateRandomGame(&info, 2);
+
+	IO::GameInstance instance;
+	instance.Init(info);
+
+	std::default_random_engine generator;
+	while(true)
+	{
+		instance.Step();
+		while(instance.currentHistory_->branches_size())
+		{
+			const int optionsCount = instance.currentHistory_->branches_size();
+			std::uniform_int_distribution<int> distribution(0, optionsCount);
+			int choice = distribution(generator);
+			instance.MakeChoice(choice);
+		}
+	}
 
 	// return 0;
 	/////////////////////

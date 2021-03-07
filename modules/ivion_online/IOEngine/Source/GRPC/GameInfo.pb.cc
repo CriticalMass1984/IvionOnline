@@ -16,7 +16,7 @@
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CardInfo_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DeckList_GameInfo_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerInfo_GameInfo_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_GameInfo_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_PlayerInfo_GameInfo_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_GameState_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_Vec2i_GameState_2eproto;
 namespace IvionOnline {
 class CardInfoDefaultTypeInternal {
@@ -88,9 +88,10 @@ static void InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PlayerInfo_GameInfo_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto}, {
-      &scc_info_DeckList_GameInfo_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_PlayerInfo_GameInfo_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_PlayerInfo_GameInfo_2eproto}, {
+      &scc_info_DeckList_GameInfo_2eproto.base,
+      &scc_info_Vec2i_GameState_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_GameInfo_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_GameInfo_2eproto = nullptr;
@@ -118,6 +119,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameInfo_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, uid_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, displayname_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, deck_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::PlayerInfo, startingposition_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::GameInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -130,7 +132,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, sizeof(::IvionOnline::CardInfo)},
   { 7, -1, sizeof(::IvionOnline::DeckList)},
   { 13, -1, sizeof(::IvionOnline::PlayerInfo)},
-  { 21, -1, sizeof(::IvionOnline::GameInfo)},
+  { 22, -1, sizeof(::IvionOnline::GameInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -144,14 +146,15 @@ const char descriptor_table_protodef_GameInfo_2eproto[] PROTOBUF_SECTION_VARIABL
   "\n\016GameInfo.proto\022\013IvionOnline\032\017GameState"
   ".proto\"0\n\010CardInfo\022\020\n\010Card_UID\030\001 \001(\t\022\022\n\n"
   "Card_Count\030\002 \001(\005\"0\n\010DeckList\022$\n\005Cards\030\003 "
-  "\003(\0132\025.IvionOnline.CardInfo\"S\n\nPlayerInfo"
-  "\022\013\n\003UID\030\001 \001(\t\022\023\n\013DisplayName\030\002 \001(\t\022#\n\004De"
-  "ck\030\003 \001(\0132\025.IvionOnline.DeckList\"Y\n\010GameI"
-  "nfo\022(\n\007Players\030\001 \003(\0132\027.IvionOnline.Playe"
-  "rInfo\022#\n\007MapSize\030\002 \001(\0132\022.IvionOnline.Vec"
-  "2i2W\n\023CardDatabaseService\022@\n\020RetrieveCar"
-  "dData\022\025.IvionOnline.CardInfo\032\025.IvionOnli"
-  "ne.CardDatab\006proto3"
+  "\003(\0132\025.IvionOnline.CardInfo\"\201\001\n\nPlayerInf"
+  "o\022\013\n\003UID\030\001 \001(\t\022\023\n\013DisplayName\030\002 \001(\t\022#\n\004D"
+  "eck\030\003 \001(\0132\025.IvionOnline.DeckList\022,\n\020Star"
+  "tingPosition\030\004 \001(\0132\022.IvionOnline.Vec2i\"Y"
+  "\n\010GameInfo\022(\n\007Players\030\001 \003(\0132\027.IvionOnlin"
+  "e.PlayerInfo\022#\n\007MapSize\030\002 \001(\0132\022.IvionOnl"
+  "ine.Vec2i2W\n\023CardDatabaseService\022@\n\020Retr"
+  "ieveCardData\022\025.IvionOnline.CardInfo\032\025.Iv"
+  "ionOnline.CardDatab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameInfo_2eproto_deps[1] = {
   &::descriptor_table_GameState_2eproto,
@@ -164,7 +167,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameInfo_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameInfo_2eproto = {
-  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 419,
+  false, false, descriptor_table_protodef_GameInfo_2eproto, "GameInfo.proto", 466,
   &descriptor_table_GameInfo_2eproto_once, descriptor_table_GameInfo_2eproto_sccs, descriptor_table_GameInfo_2eproto_deps, 4, 1,
   schemas, file_default_instances, TableStruct_GameInfo_2eproto::offsets,
   file_level_metadata_GameInfo_2eproto, 4, file_level_enum_descriptors_GameInfo_2eproto, file_level_service_descriptors_GameInfo_2eproto,
@@ -612,11 +615,22 @@ void DeckList::InternalSwap(DeckList* other) {
 class PlayerInfo::_Internal {
  public:
   static const ::IvionOnline::DeckList& deck(const PlayerInfo* msg);
+  static const ::IvionOnline::Vec2i& startingposition(const PlayerInfo* msg);
 };
 
 const ::IvionOnline::DeckList&
 PlayerInfo::_Internal::deck(const PlayerInfo* msg) {
   return *msg->deck_;
+}
+const ::IvionOnline::Vec2i&
+PlayerInfo::_Internal::startingposition(const PlayerInfo* msg) {
+  return *msg->startingposition_;
+}
+void PlayerInfo::clear_startingposition() {
+  if (GetArena() == nullptr && startingposition_ != nullptr) {
+    delete startingposition_;
+  }
+  startingposition_ = nullptr;
 }
 PlayerInfo::PlayerInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -642,6 +656,11 @@ PlayerInfo::PlayerInfo(const PlayerInfo& from)
   } else {
     deck_ = nullptr;
   }
+  if (from._internal_has_startingposition()) {
+    startingposition_ = new ::IvionOnline::Vec2i(*from.startingposition_);
+  } else {
+    startingposition_ = nullptr;
+  }
   // @@protoc_insertion_point(copy_constructor:IvionOnline.PlayerInfo)
 }
 
@@ -649,7 +668,10 @@ void PlayerInfo::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PlayerInfo_GameInfo_2eproto.base);
   uid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   displayname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  deck_ = nullptr;
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&deck_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&startingposition_) -
+      reinterpret_cast<char*>(&deck_)) + sizeof(startingposition_));
 }
 
 PlayerInfo::~PlayerInfo() {
@@ -663,6 +685,7 @@ void PlayerInfo::SharedDtor() {
   uid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   displayname_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete deck_;
+  if (this != internal_default_instance()) delete startingposition_;
 }
 
 void PlayerInfo::ArenaDtor(void* object) {
@@ -692,6 +715,10 @@ void PlayerInfo::Clear() {
     delete deck_;
   }
   deck_ = nullptr;
+  if (GetArena() == nullptr && startingposition_ != nullptr) {
+    delete startingposition_;
+  }
+  startingposition_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -724,6 +751,13 @@ const char* PlayerInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_deck(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.Vec2i StartingPosition = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_startingposition(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -783,6 +817,14 @@ failure:
         3, _Internal::deck(this), target, stream);
   }
 
+  // .IvionOnline.Vec2i StartingPosition = 4;
+  if (this->has_startingposition()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        4, _Internal::startingposition(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -818,6 +860,13 @@ size_t PlayerInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *deck_);
+  }
+
+  // .IvionOnline.Vec2i StartingPosition = 4;
+  if (this->has_startingposition()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *startingposition_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -860,6 +909,9 @@ void PlayerInfo::MergeFrom(const PlayerInfo& from) {
   if (from.has_deck()) {
     _internal_mutable_deck()->::IvionOnline::DeckList::MergeFrom(from._internal_deck());
   }
+  if (from.has_startingposition()) {
+    _internal_mutable_startingposition()->::IvionOnline::Vec2i::MergeFrom(from._internal_startingposition());
+  }
 }
 
 void PlayerInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -885,7 +937,12 @@ void PlayerInfo::InternalSwap(PlayerInfo* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   uid_.Swap(&other->uid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   displayname_.Swap(&other->displayname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  swap(deck_, other->deck_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerInfo, startingposition_)
+      + sizeof(PlayerInfo::startingposition_)
+      - PROTOBUF_FIELD_OFFSET(PlayerInfo, deck_)>(
+          reinterpret_cast<char*>(&deck_),
+          reinterpret_cast<char*>(&other->deck_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PlayerInfo::GetMetadata() const {

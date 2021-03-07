@@ -2,12 +2,25 @@
 
 #include <GRPC/GameState.pb.h>
 #include <IOEngine/Util.hpp>
+#include <IOEngine/Vec2i.hpp>
 #include <string>
+#include <sstream>
 
 namespace IO {
 class GameInstance;
-
+std::vector<std::string> Split(const std::string &path);
 void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path);
+
+template<typename T>
+std::string PrintObjectPath(const T &obj)
+{
+	std::stringstream stream;
+	for(const auto& p : obj.abspath().path())
+	{
+		stream << p;
+	}
+	return stream.str();
+}
 
 template<typename T>
 T* SetPathData(T *obj, IvionOnline::ObjectPath *root, const std::string &name)
@@ -27,28 +40,9 @@ T* SetPathData(T *obj, R *root, const std::string &name)
 	return obj;
 }
 
-bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B) {
-	const size_t ALen = A->path_size();
-	if (ALen != B->path_size()) {
-		return false;
-	}
-	for (size_t i = 0; i < ALen; ++i) {
-		if (A->path().Get(i) != B->path().Get(i)) {
-			return false;
-		}
-	}
-	return true;
-}
+bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B);
 
-int GetElementIndex(google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath> *haystack, const IvionOnline::ObjectPath *needle) {
-	// google::protobuf::internal::RepeatedPtrIterator<T>
-	for (auto it = haystack->begin(), end = haystack->end(); it != end; ++it) {
-		if (AreEqual(&*it, needle)) {
-			return it - haystack->begin();
-		}
-	}
-	return -1;
-}
+int GetElementIndex(google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath> *haystack, const IvionOnline::ObjectPath *needle);
 
 template <typename T>
 int GetElementIndex(google::protobuf::RepeatedPtrField<IvionOnline::ObjectPath> *haystack, const T *needle) {

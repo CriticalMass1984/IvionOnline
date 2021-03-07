@@ -2,19 +2,28 @@
 
 #include <IOEngine/Types_GENERATED.hpp>
 #include <IOEngine/Util.hpp>
+#include <IOEngine/GameInstance.hpp>
 
 namespace IO {
-    void BuildMoveAction(IvionOnline::CardData* card, IvionOnline::Player* player) {
-        assert(card->abspath().path_size() > 0);
-        card->Clear();
-        card->mutable_controller()->CopyFrom(player->abspath());
-        card->mutable_owner()->CopyFrom(player->abspath());
-        card->mutable_powercost()->set_value(0);
-        card->mutable_actioncost()->set_value(1);
-        card->mutable_range()->set_value(1);
-        card->mutable_affectedbyslow()->set_value(true);
+    void AddMoveAction(GameInstance* instance, IvionOnline::Player* player) {
+        constexpr const char* kName = "Move";
+        auto* cardData = Initialize(instance->gamestate_.mutable_carddata()->add_element(), instance->gamestate_.mutable_carddata()->abspath(), kName);
+        auto* card = Initialize(instance->gamestate_.mutable_cards()->add_element(), instance->gamestate_.mutable_cards()->abspath(), kName);
+
+        // add action
+        card->mutable_cardstats()->CopyFrom(cardData->abspath());
+        player->mutable_basicactions()->add_element()->CopyFrom(card->abspath());
+
+        // configure action
+        cardData->mutable_controller()->CopyFrom(player->abspath());
+        cardData->mutable_owner()->CopyFrom(player->abspath());
+        cardData->mutable_powercost()->set_value(0);
+        cardData->mutable_actioncost()->set_value(1);
+        cardData->mutable_range()->set_value(1);
+        cardData->mutable_affectedbyslow()->set_value(true);
+        cardData->set_basicaction(true);
         
-        auto* const play = card->mutable_playeffect();
+        auto* const play = cardData->mutable_playeffect();
 
         auto* maxDistance = Initialize(play->add_element()->mutable_integer_constant(), play->abspath(), "MaxDistance");
         maxDistance->mutable_result()->set_value(1);
@@ -27,7 +36,7 @@ namespace IO {
         FillObjectPath(distanceFilter->mutable_rangesources(), "./Controller/RangeSources");
         distanceFilter->mutable_targets()->CopyFrom(getList->result().abspath());
 
-        auto* selectOne = Initialize(card->mutable_playeffect()->add_element()->mutable_selectexactlyone(), play->abspath(), "SelectOne");
+        auto* selectOne = Initialize(play->add_element()->mutable_selectexactlyone(), play->abspath(), "SelectOne");
         selectOne->mutable_source()->CopyFrom(getList->result().abspath());
 
         auto* move = Initialize(play->add_element()->mutable_move(), play->abspath(), "Move");

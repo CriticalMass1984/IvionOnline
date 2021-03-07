@@ -38,6 +38,8 @@ IvionOnline::Color_Constant* Initialize(IvionOnline::Color_Constant* obj, const 
 IvionOnline::ObjectPath_Constant* Initialize(IvionOnline::ObjectPath_Constant* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::Player* Initialize(IvionOnline::Player* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::List_Player* Initialize(IvionOnline::List_Player* obj, const IvionOnline::ObjectPath& root, const std::string& name);
+IvionOnline::Team* Initialize(IvionOnline::Team* obj, const IvionOnline::ObjectPath& root, const std::string& name);
+IvionOnline::List_Team* Initialize(IvionOnline::List_Team* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::Card* Initialize(IvionOnline::Card* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::List_Card* Initialize(IvionOnline::List_Card* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::CardData* Initialize(IvionOnline::CardData* obj, const IvionOnline::ObjectPath& root, const std::string& name);

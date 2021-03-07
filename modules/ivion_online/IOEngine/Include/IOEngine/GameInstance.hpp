@@ -26,7 +26,7 @@ public:
 
 	google::protobuf::Message *ResolvePath(IvionOnline::ObjectPath *path);
 	template<typename T>
-	inline T* GameInstance::ResolvePath(IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(ResolvePath(path)); }
+	inline T* ResolvePath(IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(ResolvePath(path)); }
 
 	// the generate code contains the source for this
 	void ApplyMutation(IvionOnline::Mutation *mutation);
@@ -40,9 +40,9 @@ public:
 	IvionOnline::Card *currentCard_{ nullptr };
 
 	// generates the paths
-	void GenerateBranchingPaths();
-
-	void MakeChoice();
+	void Step();
+	
+	bool MakeChoice(int choice);
 };
 
 } // namespace IO

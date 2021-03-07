@@ -21,6 +21,7 @@ message PlayerInfo {
     string UID = 1;
     string DisplayName = 2;
     DeckList Deck = 3;
+    Vec2i StartingPosition = 4;
 }
 
 

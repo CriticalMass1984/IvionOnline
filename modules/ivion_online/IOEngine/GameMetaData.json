@@ -24,8 +24,6 @@
     "Classes": {
         "Player": {
             "UID": "string",
-            "Index": "int32",
-            "IndexStr": "string",
             "DisplayName": "string",
             "Health": "Integer",
             "Actions": "Integer",
@@ -36,10 +34,12 @@
             "Silence": "Integer",
             "Disarm": "Integer",
             "Position": "Vec2i",
+            "BasicActions": "List<Ref<Card>>",
             "Hand": "List<Ref<Card>>",
             "Deck": "List<Ref<Card>>",
             "Discard": "List<Ref<Card>>",
             "Feats": "List<Ref<Card>>",
+            "RangeSources": "List<ObjectPath>",
             "MaxHealth": "Integer",
             "MaxActions": "Integer",
             "MaxPower": "Integer",
@@ -48,10 +48,11 @@
             "MaxDisarm": "Integer",
             "MaxMitigate": "Integer"
         },
+        "Team": {
+            "Players": "List<Ref<Player>>"
+        },
         "Card": {
-            "CardStats": "Ref<CardData>",
-            "Index": "int32",
-            "IndexStr": "string"
+            "CardStats": "Ref<CardData>"
         },
         "CardData": {
             "Owner": "Ref<Player>",
@@ -67,7 +68,10 @@
             "PassiveEffect": "List<Method>",
             "FeatEffect": "List<Method>",
             "PlayEffect": "List<Method>",
-            "ResolveEffect": "List<Method>"
+            "ResolveEffect": "List<Method>",
+            "BasicAction": "bool",
+            "Feat": "bool",
+            "Ultimate": "bool"
         },
         "Tile": {
             "Position": "Vec2i",
@@ -79,6 +83,7 @@
             "Players": "List<Player>",
             "Cards": "List<Card>",
             "CardData": "List<CardData>",
+            "Teams": "List<Team>",
             "Tiles": "List<Tile>",
             "Field": "List<Ref<Card>>",
             "TurnNumber": "Integer"

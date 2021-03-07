@@ -492,6 +492,7 @@ class PlayerInfo PROTOBUF_FINAL :
     kUIDFieldNumber = 1,
     kDisplayNameFieldNumber = 2,
     kDeckFieldNumber = 3,
+    kStartingPositionFieldNumber = 4,
   };
   // string UID = 1;
   void clear_uid();
@@ -543,6 +544,24 @@ class PlayerInfo PROTOBUF_FINAL :
       ::IvionOnline::DeckList* deck);
   ::IvionOnline::DeckList* unsafe_arena_release_deck();
 
+  // .IvionOnline.Vec2i StartingPosition = 4;
+  bool has_startingposition() const;
+  private:
+  bool _internal_has_startingposition() const;
+  public:
+  void clear_startingposition();
+  const ::IvionOnline::Vec2i& startingposition() const;
+  ::IvionOnline::Vec2i* release_startingposition();
+  ::IvionOnline::Vec2i* mutable_startingposition();
+  void set_allocated_startingposition(::IvionOnline::Vec2i* startingposition);
+  private:
+  const ::IvionOnline::Vec2i& _internal_startingposition() const;
+  ::IvionOnline::Vec2i* _internal_mutable_startingposition();
+  public:
+  void unsafe_arena_set_allocated_startingposition(
+      ::IvionOnline::Vec2i* startingposition);
+  ::IvionOnline::Vec2i* unsafe_arena_release_startingposition();
+
   // @@protoc_insertion_point(class_scope:IvionOnline.PlayerInfo)
  private:
   class _Internal;
@@ -553,6 +572,7 @@ class PlayerInfo PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr displayname_;
   ::IvionOnline::DeckList* deck_;
+  ::IvionOnline::Vec2i* startingposition_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameInfo_2eproto;
 };
@@ -1063,6 +1083,83 @@ inline void PlayerInfo::set_allocated_deck(::IvionOnline::DeckList* deck) {
   }
   deck_ = deck;
   // @@protoc_insertion_point(field_set_allocated:IvionOnline.PlayerInfo.Deck)
+}
+
+// .IvionOnline.Vec2i StartingPosition = 4;
+inline bool PlayerInfo::_internal_has_startingposition() const {
+  return this != internal_default_instance() && startingposition_ != nullptr;
+}
+inline bool PlayerInfo::has_startingposition() const {
+  return _internal_has_startingposition();
+}
+inline const ::IvionOnline::Vec2i& PlayerInfo::_internal_startingposition() const {
+  const ::IvionOnline::Vec2i* p = startingposition_;
+  return p != nullptr ? *p : reinterpret_cast<const ::IvionOnline::Vec2i&>(
+      ::IvionOnline::_Vec2i_default_instance_);
+}
+inline const ::IvionOnline::Vec2i& PlayerInfo::startingposition() const {
+  // @@protoc_insertion_point(field_get:IvionOnline.PlayerInfo.StartingPosition)
+  return _internal_startingposition();
+}
+inline void PlayerInfo::unsafe_arena_set_allocated_startingposition(
+    ::IvionOnline::Vec2i* startingposition) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(startingposition_);
+  }
+  startingposition_ = startingposition;
+  if (startingposition) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:IvionOnline.PlayerInfo.StartingPosition)
+}
+inline ::IvionOnline::Vec2i* PlayerInfo::release_startingposition() {
+  
+  ::IvionOnline::Vec2i* temp = startingposition_;
+  startingposition_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::IvionOnline::Vec2i* PlayerInfo::unsafe_arena_release_startingposition() {
+  // @@protoc_insertion_point(field_release:IvionOnline.PlayerInfo.StartingPosition)
+  
+  ::IvionOnline::Vec2i* temp = startingposition_;
+  startingposition_ = nullptr;
+  return temp;
+}
+inline ::IvionOnline::Vec2i* PlayerInfo::_internal_mutable_startingposition() {
+  
+  if (startingposition_ == nullptr) {
+    auto* p = CreateMaybeMessage<::IvionOnline::Vec2i>(GetArena());
+    startingposition_ = p;
+  }
+  return startingposition_;
+}
+inline ::IvionOnline::Vec2i* PlayerInfo::mutable_startingposition() {
+  // @@protoc_insertion_point(field_mutable:IvionOnline.PlayerInfo.StartingPosition)
+  return _internal_mutable_startingposition();
+}
+inline void PlayerInfo::set_allocated_startingposition(::IvionOnline::Vec2i* startingposition) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(startingposition_);
+  }
+  if (startingposition) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(startingposition)->GetArena();
+    if (message_arena != submessage_arena) {
+      startingposition = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, startingposition, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  startingposition_ = startingposition;
+  // @@protoc_insertion_point(field_set_allocated:IvionOnline.PlayerInfo.StartingPosition)
 }
 
 // -------------------------------------------------------------------

@@ -5,91 +5,91 @@ IvionOnline::List_ObjectPath* Initialize(IvionOnline::List_ObjectPath* obj, cons
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_OBJECTPATH);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_OBJECTPATH);
 	return obj;
 }
 IvionOnline::List_Method* Initialize(IvionOnline::List_Method* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_METHOD);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_METHOD);
 	return obj;
 }
 IvionOnline::Boolean* Initialize(IvionOnline::Boolean* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_BOOLEAN);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_BOOLEAN);
 	return obj;
 }
 IvionOnline::List_Boolean* Initialize(IvionOnline::List_Boolean* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_BOOLEAN);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_BOOLEAN);
 	return obj;
 }
 IvionOnline::Integer* Initialize(IvionOnline::Integer* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_INTEGER);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_INTEGER);
 	return obj;
 }
 IvionOnline::List_Integer* Initialize(IvionOnline::List_Integer* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_INTEGER);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_INTEGER);
 	return obj;
 }
 IvionOnline::Vec2i* Initialize(IvionOnline::Vec2i* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_VEC2I);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_VEC2I);
 	return obj;
 }
 IvionOnline::List_Vec2i* Initialize(IvionOnline::List_Vec2i* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_VEC2I);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_VEC2I);
 	return obj;
 }
 IvionOnline::Terrain* Initialize(IvionOnline::Terrain* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TERRAIN);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_TERRAIN);
 	return obj;
 }
 IvionOnline::List_Terrain* Initialize(IvionOnline::List_Terrain* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TERRAIN);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_TERRAIN);
 	return obj;
 }
 IvionOnline::Color* Initialize(IvionOnline::Color* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_COLOR);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_COLOR);
 	return obj;
 }
 IvionOnline::List_Color* Initialize(IvionOnline::List_Color* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_COLOR);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_COLOR);
 	return obj;
 }
 IvionOnline::GetList* Initialize(IvionOnline::GetList* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_GETLIST);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GETLIST);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -97,14 +97,14 @@ IvionOnline::FilterDistance* Initialize(IvionOnline::FilterDistance* obj, const 
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_FILTERDISTANCE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_FILTERDISTANCE);
 	return obj;
 }
 IvionOnline::SelectMultiple* Initialize(IvionOnline::SelectMultiple* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_SELECTMULTIPLE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_SELECTMULTIPLE);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -112,98 +112,98 @@ IvionOnline::SelectExactlyOne* Initialize(IvionOnline::SelectExactlyOne* obj, co
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_SELECTEXACTLYONE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_SELECTEXACTLYONE);
 	return obj;
 }
 IvionOnline::AssertControlOrHeroic* Initialize(IvionOnline::AssertControlOrHeroic* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_ASSERTCONTROLORHEROIC);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_ASSERTCONTROLORHEROIC);
 	return obj;
 }
 IvionOnline::AssertControllerHasPriority* Initialize(IvionOnline::AssertControllerHasPriority* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_ASSERTCONTROLLERHASPRIORITY);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_ASSERTCONTROLLERHASPRIORITY);
 	return obj;
 }
 IvionOnline::AssertStackEmptyOrInstant* Initialize(IvionOnline::AssertStackEmptyOrInstant* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_ASSERTSTACKEMPTYORINSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_ASSERTSTACKEMPTYORINSTANT);
 	return obj;
 }
 IvionOnline::ReduceCost* Initialize(IvionOnline::ReduceCost* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_REDUCECOST);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_REDUCECOST);
 	return obj;
 }
 IvionOnline::PayCost* Initialize(IvionOnline::PayCost* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_PAYCOST);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_PAYCOST);
 	return obj;
 }
 IvionOnline::PlayGainResources* Initialize(IvionOnline::PlayGainResources* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_PLAYGAINRESOURCES);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_PLAYGAINRESOURCES);
 	return obj;
 }
 IvionOnline::RefundCost* Initialize(IvionOnline::RefundCost* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_REFUNDCOST);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_REFUNDCOST);
 	return obj;
 }
 IvionOnline::GainActions* Initialize(IvionOnline::GainActions* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_GAINACTIONS);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GAINACTIONS);
 	return obj;
 }
 IvionOnline::GainPower* Initialize(IvionOnline::GainPower* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_GAINPOWER);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GAINPOWER);
 	return obj;
 }
 IvionOnline::Move* Initialize(IvionOnline::Move* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_MOVE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_MOVE);
 	return obj;
 }
 IvionOnline::Travel* Initialize(IvionOnline::Travel* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TRAVEL);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_TRAVEL);
 	return obj;
 }
 IvionOnline::Damage* Initialize(IvionOnline::Damage* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_DAMAGE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_DAMAGE);
 	return obj;
 }
 IvionOnline::Boolean_Constant* Initialize(IvionOnline::Boolean_Constant* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_BOOLEAN_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_BOOLEAN_CONSTANT);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -211,7 +211,7 @@ IvionOnline::Integer_Constant* Initialize(IvionOnline::Integer_Constant* obj, co
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_INTEGER_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_INTEGER_CONSTANT);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -219,7 +219,7 @@ IvionOnline::Vec2i_Constant* Initialize(IvionOnline::Vec2i_Constant* obj, const 
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_VEC2I_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_VEC2I_CONSTANT);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -227,7 +227,7 @@ IvionOnline::Terrain_Constant* Initialize(IvionOnline::Terrain_Constant* obj, co
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TERRAIN_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_TERRAIN_CONSTANT);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -235,7 +235,7 @@ IvionOnline::Color_Constant* Initialize(IvionOnline::Color_Constant* obj, const 
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_COLOR_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_COLOR_CONSTANT);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	return obj;
 }
@@ -243,7 +243,7 @@ IvionOnline::ObjectPath_Constant* Initialize(IvionOnline::ObjectPath_Constant* o
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_OBJECTPATH_CONSTANT);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_OBJECTPATH_CONSTANT);
 	return obj;
 }
 IvionOnline::Player* Initialize(IvionOnline::Player* obj, const IvionOnline::ObjectPath& root, const std::string& name){
@@ -260,6 +260,7 @@ IvionOnline::Player* Initialize(IvionOnline::Player* obj, const IvionOnline::Obj
 	Initialize(obj->mutable_silence(), obj->abspath(), "Silence");
 	Initialize(obj->mutable_disarm(), obj->abspath(), "Disarm");
 	Initialize(obj->mutable_position(), obj->abspath(), "Position");
+	Initialize(obj->mutable_basicactions(), obj->abspath(), "BasicActions");
 	Initialize(obj->mutable_hand(), obj->abspath(), "Hand");
 	Initialize(obj->mutable_deck(), obj->abspath(), "Deck");
 	Initialize(obj->mutable_discard(), obj->abspath(), "Discard");
@@ -278,7 +279,22 @@ IvionOnline::List_Player* Initialize(IvionOnline::List_Player* obj, const IvionO
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_PLAYER);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_PLAYER);
+	return obj;
+}
+IvionOnline::Team* Initialize(IvionOnline::Team* obj, const IvionOnline::ObjectPath& root, const std::string& name){
+	obj->set_name(name);
+	obj->mutable_abspath()->CopyFrom(root);
+	obj->mutable_abspath()->add_path(name);
+	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TEAM);
+	Initialize(obj->mutable_players(), obj->abspath(), "Players");
+	return obj;
+}
+IvionOnline::List_Team* Initialize(IvionOnline::List_Team* obj, const IvionOnline::ObjectPath& root, const std::string& name){
+	obj->set_name(name);
+	obj->mutable_abspath()->CopyFrom(root);
+	obj->mutable_abspath()->add_path(name);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_TEAM);
 	return obj;
 }
 IvionOnline::Card* Initialize(IvionOnline::Card* obj, const IvionOnline::ObjectPath& root, const std::string& name){
@@ -292,7 +308,7 @@ IvionOnline::List_Card* Initialize(IvionOnline::List_Card* obj, const IvionOnlin
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_CARD);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_CARD);
 	return obj;
 }
 IvionOnline::CardData* Initialize(IvionOnline::CardData* obj, const IvionOnline::ObjectPath& root, const std::string& name){
@@ -317,7 +333,7 @@ IvionOnline::List_CardData* Initialize(IvionOnline::List_CardData* obj, const Iv
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_CARDDATA);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_CARDDATA);
 	return obj;
 }
 IvionOnline::Tile* Initialize(IvionOnline::Tile* obj, const IvionOnline::ObjectPath& root, const std::string& name){
@@ -333,7 +349,7 @@ IvionOnline::List_Tile* Initialize(IvionOnline::List_Tile* obj, const IvionOnlin
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_TILE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_TILE);
 	return obj;
 }
 IvionOnline::GameState* Initialize(IvionOnline::GameState* obj, const IvionOnline::ObjectPath& root, const std::string& name){
@@ -344,6 +360,7 @@ IvionOnline::GameState* Initialize(IvionOnline::GameState* obj, const IvionOnlin
 	Initialize(obj->mutable_players(), obj->abspath(), "Players");
 	Initialize(obj->mutable_cards(), obj->abspath(), "Cards");
 	Initialize(obj->mutable_carddata(), obj->abspath(), "CardData");
+	Initialize(obj->mutable_teams(), obj->abspath(), "Teams");
 	Initialize(obj->mutable_tiles(), obj->abspath(), "Tiles");
 	Initialize(obj->mutable_field(), obj->abspath(), "Field");
 	Initialize(obj->mutable_turnnumber(), obj->abspath(), "TurnNumber");
@@ -353,7 +370,7 @@ IvionOnline::List_GameState* Initialize(IvionOnline::List_GameState* obj, const 
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
-	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_GAMESTATE);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_LIST_GAMESTATE);
 	return obj;
 }
 

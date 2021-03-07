@@ -89,7 +89,7 @@ bool MakeChoice(std::vector<int> &choices, int start, int end, const int Number,
 	if (choices.size() < Number) {
 		for (int i = start; i < end; ++i) {
 			choices.emplace_back(i);
-			if (MakeChoice(choices, i + 1, end, Number, upTo)) {
+			if (MakeChoice(choices, i + 1, end, Number, upTo, lambda)) {
 				anyGoodBranch = true;
 			}
 			choices.pop_back();

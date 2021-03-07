@@ -55,10 +55,12 @@ protobuf:
 	--plugin=protoc-gen-grpc_cpp=${ROOT_DIR}/Extern/Install/GRPC/bin/grpc_cpp_plugin \
 	--cpp_out=${ROOT_DIR}/Source/GRPC \
 	--grpc_cpp_out=${ROOT_DIR}/Source/GRPC \
-	GameState.proto
+	GameState.proto GameInfo.proto
 	sed -i \
 		-e 's|"GameState.pb.h"|<GRPC/GameState.pb.h>|g' \
 		-e 's|"GameState.grpc.pb.h"|<GRPC/GameState.grpc.pb.h>|g' \
+		-e 's|"GameInfo.pb.h"|<GRPC/GameInfo.pb.h>|g' \
+		-e 's|"GameInfo.grpc.pb.h"|<GRPC/GameInfo.grpc.pb.h>|g' \
 		${ROOT_DIR}/Source/GRPC/*
 	mv ${ROOT_DIR}/Source/GRPC/*.h ${ROOT_DIR}/Include/GRPC/
 
