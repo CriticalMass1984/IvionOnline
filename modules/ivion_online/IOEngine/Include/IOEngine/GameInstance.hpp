@@ -7,6 +7,7 @@
 
 
 #include <GRPC/GameState.pb.h>
+#include <GRPC/GameInfo.pb.h>
 #include <IOEngine/Vec2i.hpp>
 
 namespace IO {
@@ -16,7 +17,12 @@ public:
 	IvionOnline::GameState gamestate_;
 	Vec2i MapSize;
 
-	GameInstance();
+	GameInstance() = default;
+	~GameInstance() = default;
+	GameInstance(const GameInstance&) = delete;
+	GameInstance(GameInstance&&) = delete;
+
+	void Init(const IvionOnline::GameInfo& info);
 
 	google::protobuf::Message *ResolvePath(IvionOnline::ObjectPath *path);
 	template<typename T>

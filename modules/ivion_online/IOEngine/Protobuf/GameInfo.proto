@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package IvionOnline;
+
+import "GameState.proto";
+
+service CardDatabaseService {
+    rpc RetrieveCardData (CardInfo) returns (CardData);
+}
+
+message CardInfo {
+    string Card_UID = 1;
+    int32 Card_Count = 2;
+}
+
+message DeckList {
+    repeated CardInfo Cards = 3;
+};
+
+message PlayerInfo {
+    string UID = 1;
+    string DisplayName = 2;
+    DeckList Deck = 3;
+}
+
+
+message GameInfo {
+    repeated PlayerInfo Players = 1;
+    Vec2i MapSize = 2;
+}

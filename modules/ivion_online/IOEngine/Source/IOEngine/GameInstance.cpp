@@ -1,9 +1,9 @@
 #include <IOEngine/GameInstance.hpp>
 
+#include <IOEngine/Types_GENERATED.hpp>
+
 #include <cassert>
 namespace IO {
-
-GameInstance::GameInstance() {}
 
 std::vector<std::string> Split(const std::string &path) {
 	std::vector<std::string> parts;
@@ -130,6 +130,13 @@ google::protobuf::Message *GameInstance::ResolvePath(IvionOnline::ObjectPath *pa
 		}
 	}
 	return message;
+}
+
+void GameInstance::Init(const IvionOnline::GameInfo& info)
+{
+	Initialize(&gamestate_, IvionOnline::ObjectPath(), "");
+	gamestate_.mutable_abspath()->mutable_path()->Clear();
+	gamestate_.mutable_abspath()->set_object_type();
 }
 
 void GameInstance::ApplyHistory(IvionOnline::History *history) {
