@@ -1,5 +1,6 @@
 #pragma once
 #include <GRPC/GameState.pb.h>
+#include <IOEngine/Util.hpp>
 
 namespace IO {
 IvionOnline::List_ObjectPath* Initialize(IvionOnline::List_ObjectPath* obj, const IvionOnline::ObjectPath& root, const std::string& name);

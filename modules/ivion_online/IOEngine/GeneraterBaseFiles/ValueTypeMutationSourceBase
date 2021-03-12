@@ -1,10 +1,13 @@
 void Apply_{NAME}_Set_Mutation(GameInstance* instance,  {PACKAGE_NAME}::{NAME}_Set_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::{NAME}* object = instance->ResolvePath<{PACKAGE_NAME}::{NAME}>(mutation->mutable_path());
     assert(object);
 	{APPLY_VALUE}
 }}
 void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
+	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -16,7 +19,9 @@ void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
 	}}
 }}
 void Apply_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Remove_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
+	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -28,12 +33,15 @@ void Apply_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
     }}
 }}
 void Revert_{NAME}_Set_Mutation(GameInstance* instance, {PACKAGE_NAME}::{NAME}_Set_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::{NAME}* object = instance->ResolvePath<{PACKAGE_NAME}::{NAME}>(mutation->mutable_path());
     assert(object);
 	{REVERT_VALUE}
 }}
 void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Insert_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
+	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);
@@ -45,7 +53,9 @@ void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::
 	}}
 }}
 void Revert_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::List_{NAME}_Remove_Mutation* mutation){{
+	assert(mutation);
     {PACKAGE_NAME}::List_{NAME} *list = instance->ResolvePath<{PACKAGE_NAME}::List_{NAME}>(mutation->mutable_path());
+	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
 	assert(mutation->index() <= size);

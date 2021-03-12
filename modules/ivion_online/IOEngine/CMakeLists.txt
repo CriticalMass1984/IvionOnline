@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_BUILD_TYPE DEBUG)
+
 find_package( Threads )
 find_package(Protobuf REQUIRED PATHS "Extern/Install/GRPC/lib/cmake")
 find_package(gRPC CONFIG PATHS "Extern/Install/GRPC/lib/cmake")
@@ -19,7 +21,6 @@ else()
   list(APPEND GRPCPP_LIBRARIES ${GRPC_LIBRARIES})
 endif()
 
-set(CMAKE_BUILD_TYPE DEBUG)
 
 file(GLOB_RECURSE SOURCES "Source/*.cpp" "Source/*.cc")
 add_library(IOEngine ${SOURCES})

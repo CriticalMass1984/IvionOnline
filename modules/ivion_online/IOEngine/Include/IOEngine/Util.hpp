@@ -9,7 +9,7 @@
 namespace IO {
 class GameInstance;
 std::vector<std::string> Split(const std::string &path);
-void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path);
+void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path, IvionOnline::ObjectType type);
 
 std::string PrintObjectPath(const IvionOnline::ObjectPath &obj);
 
@@ -63,8 +63,25 @@ int GetElementIndex(google::protobuf::RepeatedPtrField<T> *haystack, const T *ne
 	return -1;
 }
 bool ObjectPathIsValid(const IvionOnline::ObjectPath &objectPath);
-Vec2i GetPosition(GameInstance *instance, IvionOnline::ObjectPath *objectPath);
 
+inline bool ObjectIsValid(const IvionOnline::ObjectPath *objectPath)
+{
+	if(objectPath == nullptr)
+	{
+		return false;
+	}
+	return ObjectPathIsValid(*objectPath);
+}
+template<typename T>
+bool ObjectIsValid(const T *object){
+	if(object == nullptr)
+	{
+		return false;
+	}
+	return ObjectPathIsValid(object->abspath());
+}
+Vec2i GetPosition(GameInstance *instance, IvionOnline::ObjectPath *objectPath);
+std::optional<int> TryParse(const std::string &str) noexcept;
 struct HistoryBranch {
 	GameInstance* instance_;
 	IvionOnline::History* previousCurrentPath_;

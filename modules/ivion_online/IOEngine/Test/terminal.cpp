@@ -55,8 +55,9 @@ int main(int argc, char **argv) {
 	IO::GameInstance instance;
 	instance.Init(info);
 
-	instance.gamestate_.PrintDebugString();
-	printf("GameState Size: %ld\n", instance.gamestate_.ByteSizeLong());
+	std::ofstream debugFile("gamestate.txt");
+	debugFile << instance.gamestate_.DebugString();
+	// printf("GameState Size: %ld\n", instance.gamestate_.ByteSizeLong());
 
 	std::default_random_engine generator;
 	while(true)
@@ -64,6 +65,7 @@ int main(int argc, char **argv) {
 		instance.Step();
 		while(instance.currentHistory_->branches_size())
 		{
+			instance.currentHistory_->PrintDebugString();
 			const int optionsCount = instance.currentHistory_->branches_size();
 			std::uniform_int_distribution<int> distribution(0, optionsCount);
 			int choice = distribution(generator);

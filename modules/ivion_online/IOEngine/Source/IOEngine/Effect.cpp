@@ -7,7 +7,7 @@
 namespace IO {
 
 bool __GetList(GameInstance *instance, MethodIter begin, const MethodIter &end, IvionOnline::List_ObjectPath *Result, IvionOnline::ObjectPath *Source) {
-	Result->Clear();
+	Result->clear_element();
 	switch (Source->object_type()) {
 		case IvionOnline::ObjectType::TYPE_PLAYER: {
 			auto *obj = instance->ResolvePath<IvionOnline::Player>(Source);
@@ -46,7 +46,8 @@ bool __GetList(GameInstance *instance, MethodIter begin, const MethodIter &end, 
 			}
 		} break;
 		default:
-			fprintf(stderr, "Error: %s:%d - __GetList: type not supported: %d\n", __FILE__, __LINE__, Source->object_type());
+			fprintf(stderr, "Error: %s:%d - __GetList: type not supported: %d : '%s'\n", __FILE__, __LINE__, Source->object_type(), PrintObjectPath(*Source).c_str());
+			throw std::runtime_error("Bad Type");
 			return false;
 	}
 	return ExecuteMethods(instance, begin, end);

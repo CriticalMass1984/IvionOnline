@@ -36,11 +36,12 @@ std::string PrintObjectPath(const IvionOnline::ObjectPath &obj)
 	}
 	return stream.str();
 }
-void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path) {
+void FillObjectPath(IvionOnline::ObjectPath *obj, const std::string &path, IvionOnline::ObjectType type) {
 	obj->clear_path();
 	for (const std::string &part : Split(path)) {
 		obj->add_path(part);
 	}
+	obj->set_object_type(type);
 }
 bool ObjectPathIsValid(const IvionOnline::ObjectPath &objectPath)
 {
@@ -96,6 +97,50 @@ Vec2i GetPosition(GameInstance* instance, IvionOnline::ObjectPath* objectPath)
 			throw std::runtime_error("GetPosition: Bad object type");
 	}
 }
+
+std::optional<int> TryParse(const std::string &str) noexcept {
+	int value = 0;
+	for (char c : str) {
+		int v = 0;
+		switch (c) {
+			case '0':
+				v = 0;
+				break;
+			case '1':
+				v = 1;
+				break;
+			case '2':
+				v = 2;
+				break;
+			case '3':
+				v = 3;
+				break;
+			case '4':
+				v = 4;
+				break;
+			case '5':
+				v = 5;
+				break;
+			case '6':
+				v = 6;
+				break;
+			case '7':
+				v = 7;
+				break;
+			case '8':
+				v = 8;
+				break;
+			case '9':
+				v = 9;
+				break;
+			default:
+				return {};
+		}
+		value = value * 10 + v;
+	}
+	return value;
+}
+
 HistoryBranch::HistoryBranch(GameInstance* instance): instance_(instance), previousCurrentPath_(instance->currentHistory_)
 {
 	instance->currentHistory_ = instance->currentHistory_->add_branches();

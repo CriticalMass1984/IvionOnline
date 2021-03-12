@@ -2,3 +2,14 @@
 
 #include <GRPC/GameState.pb.h>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Util.hpp>
+
+namespace IO {{
+
+using MethodIter = google::protobuf::internal::RepeatedPtrIterator<{PACKAGE_NAME}::Method>;
+using StringIter = google::protobuf::internal::RepeatedPtrIterator<std::__cxx11::string>;
+
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj);
+
+
+

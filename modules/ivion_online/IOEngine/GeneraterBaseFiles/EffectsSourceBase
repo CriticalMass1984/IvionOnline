@@ -1,3 +1,7 @@
-#pragma once
-
 #include <IOEngine/Effect_GENERATED.hpp>
+
+namespace IO {{
+ 
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj) {{
+    return ResolvePath(instance, &instance->gamestate_, obj->mutable_path()->begin(), obj->mutable_path()->end());
+}}

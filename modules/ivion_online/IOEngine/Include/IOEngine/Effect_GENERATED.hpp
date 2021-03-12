@@ -2,10 +2,65 @@
 
 #include <GRPC/GameState.pb.h>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Util.hpp>
 
 namespace IO {
-using MethodIter = google::protobuf::internal::RepeatedPtrIterator<IvionOnline::Method>;
 
+using MethodIter = google::protobuf::internal::RepeatedPtrIterator<IvionOnline::Method>;
+using StringIter = google::protobuf::internal::RepeatedPtrIterator<std::__cxx11::string>;
+
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj);
+
+
+
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_ObjectPath *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Boolean *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Integer *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Vec2i *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Terrain *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Color *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Player *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Team *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::CardData *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Tile *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GameState *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Boolean *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Integer *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Vec2i *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Terrain *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Color *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Player *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Team *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Card *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_CardData *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Tile *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_GameState *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GetList *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::FilterDistance *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::SelectMultiple *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::SelectExactlyOne *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::AssertControlOrHeroic *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::AssertControllerHasPriority *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::AssertStackEmptyOrInstant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ReduceCost *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::PayCost *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::PlayGainResources *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::RefundCost *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GainActions *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GainPower *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Move *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Travel *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Damage *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Boolean_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Integer_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Vec2i_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Terrain_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Color_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath_Constant *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Method *obj, const StringIter& fieldName, const StringIter& end);
+google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_Method *obj, const StringIter& fieldName, const StringIter& end);
 bool __GetList(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::ObjectPath* Source);
 bool __FilterDistance(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Targets, IvionOnline::List_ObjectPath* RangeSources, IvionOnline::Integer* MaxDistance);
 bool __SelectMultiple(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Result, IvionOnline::List_ObjectPath* Source, IvionOnline::Integer* Number, IvionOnline::Boolean* UpTo);
@@ -222,10 +277,209 @@ inline bool ObjectPath_Constant(
 }
 
 
+inline bool GetListIsValid(const IvionOnline::GetList& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		if(!ObjectIsValid(&message.source())){return false;};
+		return true;
+}
+
+inline bool FilterDistanceIsValid(const IvionOnline::FilterDistance& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.targets())){return false;};
+		if(!ObjectIsValid(&message.rangesources())){return false;};
+		if(!ObjectIsValid(&message.maxdistance())){return false;};
+		return true;
+}
+
+inline bool SelectMultipleIsValid(const IvionOnline::SelectMultiple& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		if(!ObjectIsValid(&message.source())){return false;};
+		if(!ObjectIsValid(&message.number())){return false;};
+		if(!ObjectIsValid(&message.upto())){return false;};
+		return true;
+}
+
+inline bool SelectExactlyOneIsValid(const IvionOnline::SelectExactlyOne& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		if(!ObjectIsValid(&message.source())){return false;};
+		return true;
+}
+
+inline bool AssertControlOrHeroicIsValid(const IvionOnline::AssertControlOrHeroic& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		return true;
+}
+
+inline bool AssertControllerHasPriorityIsValid(const IvionOnline::AssertControllerHasPriority& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		return true;
+}
+
+inline bool AssertStackEmptyOrInstantIsValid(const IvionOnline::AssertStackEmptyOrInstant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		return true;
+}
+
+inline bool ReduceCostIsValid(const IvionOnline::ReduceCost& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.card())){return false;};
+		if(!ObjectIsValid(&message.actioncostreduction())){return false;};
+		if(!ObjectIsValid(&message.powercostreduction())){return false;};
+		if(!ObjectIsValid(&message.costreduction())){return false;};
+		if(!ObjectIsValid(&message.free())){return false;};
+		return true;
+}
+
+inline bool PayCostIsValid(const IvionOnline::PayCost& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.card())){return false;};
+		return true;
+}
+
+inline bool PlayGainResourcesIsValid(const IvionOnline::PlayGainResources& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.card())){return false;};
+		return true;
+}
+
+inline bool RefundCostIsValid(const IvionOnline::RefundCost& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.card())){return false;};
+		return true;
+}
+
+inline bool GainActionsIsValid(const IvionOnline::GainActions& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.value())){return false;};
+		return true;
+}
+
+inline bool GainPowerIsValid(const IvionOnline::GainPower& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.value())){return false;};
+		return true;
+}
+
+inline bool MoveIsValid(const IvionOnline::Move& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.destination())){return false;};
+		return true;
+}
+
+inline bool TravelIsValid(const IvionOnline::Travel& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.destination())){return false;};
+		return true;
+}
+
+inline bool DamageIsValid(const IvionOnline::Damage& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.player())){return false;};
+		if(!ObjectIsValid(&message.amount())){return false;};
+		return true;
+}
+
+inline bool Boolean_ConstantIsValid(const IvionOnline::Boolean_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool Integer_ConstantIsValid(const IvionOnline::Integer_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool Vec2i_ConstantIsValid(const IvionOnline::Vec2i_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool Terrain_ConstantIsValid(const IvionOnline::Terrain_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool Color_ConstantIsValid(const IvionOnline::Color_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool ObjectPath_ConstantIsValid(const IvionOnline::ObjectPath_Constant& message) {
+		if(!ObjectIsValid(&message)){return false;};
+		if(!ObjectIsValid(&message.result())){return false;};
+		return true;
+}
+
+inline bool MethodIsValid(const IvionOnline::Method& method){
+	if(method.has_getlist()){
+		return GetListIsValid(method.getlist());
+	} else if(method.has_filterdistance()){
+		return FilterDistanceIsValid(method.filterdistance());
+	} else if(method.has_selectmultiple()){
+		return SelectMultipleIsValid(method.selectmultiple());
+	} else if(method.has_selectexactlyone()){
+		return SelectExactlyOneIsValid(method.selectexactlyone());
+	} else if(method.has_assertcontrolorheroic()){
+		return AssertControlOrHeroicIsValid(method.assertcontrolorheroic());
+	} else if(method.has_assertcontrollerhaspriority()){
+		return AssertControllerHasPriorityIsValid(method.assertcontrollerhaspriority());
+	} else if(method.has_assertstackemptyorinstant()){
+		return AssertStackEmptyOrInstantIsValid(method.assertstackemptyorinstant());
+	} else if(method.has_reducecost()){
+		return ReduceCostIsValid(method.reducecost());
+	} else if(method.has_paycost()){
+		return PayCostIsValid(method.paycost());
+	} else if(method.has_playgainresources()){
+		return PlayGainResourcesIsValid(method.playgainresources());
+	} else if(method.has_refundcost()){
+		return RefundCostIsValid(method.refundcost());
+	} else if(method.has_gainactions()){
+		return GainActionsIsValid(method.gainactions());
+	} else if(method.has_gainpower()){
+		return GainPowerIsValid(method.gainpower());
+	} else if(method.has_move()){
+		return MoveIsValid(method.move());
+	} else if(method.has_travel()){
+		return TravelIsValid(method.travel());
+	} else if(method.has_damage()){
+		return DamageIsValid(method.damage());
+	} else if(method.has_boolean_constant()){
+		return Boolean_ConstantIsValid(method.boolean_constant());
+	} else if(method.has_integer_constant()){
+		return Integer_ConstantIsValid(method.integer_constant());
+	} else if(method.has_vec2i_constant()){
+		return Vec2i_ConstantIsValid(method.vec2i_constant());
+	} else if(method.has_terrain_constant()){
+		return Terrain_ConstantIsValid(method.terrain_constant());
+	} else if(method.has_color_constant()){
+		return Color_ConstantIsValid(method.color_constant());
+	} else if(method.has_objectpath_constant()){
+		return ObjectPath_ConstantIsValid(method.objectpath_constant());
+	}
+	return false;
+}
+
 inline bool ExecuteMethods(GameInstance* instance, MethodIter begin, const MethodIter& end){
+	assert(instance);
 	if(begin == end) {
 		return true;
 	}
+	assert(MethodIsValid(*begin));
 	if(begin->has_getlist()){
 		return GetList(instance, begin + 1, end, begin->mutable_getlist());
 	} else if(begin->has_filterdistance()){

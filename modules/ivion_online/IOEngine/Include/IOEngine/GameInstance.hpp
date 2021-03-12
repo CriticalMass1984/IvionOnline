@@ -24,9 +24,8 @@ public:
 
 	void Init(const IvionOnline::GameInfo& info);
 
-	google::protobuf::Message *ResolvePath(IvionOnline::ObjectPath *path);
 	template<typename T>
-	inline T* ResolvePath(IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(ResolvePath(path)); }
+	inline T* ResolvePath(IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(::IO::ResolvePath(this, path)); }
 
 	// the generate code contains the source for this
 	void ApplyMutation(IvionOnline::Mutation *mutation);
