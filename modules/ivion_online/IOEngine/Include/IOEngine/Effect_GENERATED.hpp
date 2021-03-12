@@ -11,7 +11,23 @@ class GameInstance;
 
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj);
 template<typename T>
-inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(ResolvePath(instance, path)); }
+inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) { 
+    google::protobuf::Message* objPtr = ResolvePath(instance, path);
+    assert(objPtr);
+    auto* typedPtr = dynamic_cast<T*>(objPtr);
+	while(typedPtr == nullptr)
+	{
+		objPtr->PrintDebugString();
+		path = dynamic_cast<IvionOnline::ObjectPath*>(objPtr);
+		assert(path);
+		objPtr = ResolvePath(instance, path);
+		typedPtr = dynamic_cast<T*>(objPtr);
+	}
+	
+
+    assert(typedPtr);
+    return typedPtr;
+}
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj, const StringIter& fieldName, const StringIter& end);
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_ObjectPath *obj, const StringIter& fieldName, const StringIter& end);
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Boolean *obj, const StringIter& fieldName, const StringIter& end);
@@ -86,40 +102,62 @@ bool __ObjectPath_Constant(GameInstance* instance, MethodIter begin, const Metho
 
 inline bool GetList(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GetList* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
+	auto* _source = message->mutable_source();
+	assert(_source);
 	return __GetList(
 		instance, begin, end,
-		message->mutable_result(),
-		message->mutable_source());
+		_result,
+		_source);
 }
 
 
 inline bool FilterDistance(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::FilterDistance* message) {
+	auto* _targets = ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_targets());
+	assert(_targets);
+	auto* _rangesources = ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_rangesources());
+	assert(_rangesources);
+	auto* _maxdistance = ResolvePath<IvionOnline::Integer>(instance, message->mutable_maxdistance());
+	assert(_maxdistance);
 	return __FilterDistance(
 		instance, begin, end,
-		ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_targets()),
-		ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_rangesources()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_maxdistance()));
+		_targets,
+		_rangesources,
+		_maxdistance);
 }
 
 
 inline bool SelectMultiple(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::SelectMultiple* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
+	auto* _source = ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_source());
+	assert(_source);
+	auto* _number = ResolvePath<IvionOnline::Integer>(instance, message->mutable_number());
+	assert(_number);
+	auto* _upto = ResolvePath<IvionOnline::Boolean>(instance, message->mutable_upto());
+	assert(_upto);
 	return __SelectMultiple(
 		instance, begin, end,
-		message->mutable_result(),
-		ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_source()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_number()),
-		ResolvePath<IvionOnline::Boolean>(instance, message->mutable_upto()));
+		_result,
+		_source,
+		_number,
+		_upto);
 }
 
 
 inline bool SelectExactlyOne(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::SelectExactlyOne* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
+	auto* _source = ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_source());
+	assert(_source);
 	return __SelectExactlyOne(
 		instance, begin, end,
-		message->mutable_result(),
-		ResolvePath<IvionOnline::List_ObjectPath>(instance, message->mutable_source()));
+		_result,
+		_source);
 }
 
 
@@ -146,133 +184,187 @@ inline bool AssertStackEmptyOrInstant(
 
 inline bool ReduceCost(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ReduceCost* message) {
+	auto* _card = ResolvePath<IvionOnline::Card>(instance, message->mutable_card());
+	assert(_card);
+	auto* _actioncostreduction = ResolvePath<IvionOnline::Integer>(instance, message->mutable_actioncostreduction());
+	assert(_actioncostreduction);
+	auto* _powercostreduction = ResolvePath<IvionOnline::Integer>(instance, message->mutable_powercostreduction());
+	assert(_powercostreduction);
+	auto* _costreduction = ResolvePath<IvionOnline::Integer>(instance, message->mutable_costreduction());
+	assert(_costreduction);
+	auto* _free = ResolvePath<IvionOnline::Boolean>(instance, message->mutable_free());
+	assert(_free);
 	return __ReduceCost(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Card>(instance, message->mutable_card()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_actioncostreduction()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_powercostreduction()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_costreduction()),
-		ResolvePath<IvionOnline::Boolean>(instance, message->mutable_free()));
+		_card,
+		_actioncostreduction,
+		_powercostreduction,
+		_costreduction,
+		_free);
 }
 
 
 inline bool PayCost(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::PayCost* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _card = ResolvePath<IvionOnline::Card>(instance, message->mutable_card());
+	assert(_card);
 	return __PayCost(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Card>(instance, message->mutable_card()));
+		_player,
+		_card);
 }
 
 
 inline bool PlayGainResources(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::PlayGainResources* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _card = ResolvePath<IvionOnline::Card>(instance, message->mutable_card());
+	assert(_card);
 	return __PlayGainResources(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Card>(instance, message->mutable_card()));
+		_player,
+		_card);
 }
 
 
 inline bool RefundCost(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::RefundCost* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _card = ResolvePath<IvionOnline::Card>(instance, message->mutable_card());
+	assert(_card);
 	return __RefundCost(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Card>(instance, message->mutable_card()));
+		_player,
+		_card);
 }
 
 
 inline bool GainActions(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GainActions* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _value = ResolvePath<IvionOnline::Integer>(instance, message->mutable_value());
+	assert(_value);
 	return __GainActions(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_value()));
+		_player,
+		_value);
 }
 
 
 inline bool GainPower(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::GainPower* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _value = ResolvePath<IvionOnline::Integer>(instance, message->mutable_value());
+	assert(_value);
 	return __GainPower(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_value()));
+		_player,
+		_value);
 }
 
 
 inline bool Move(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Move* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _destination = ResolvePath<IvionOnline::Tile>(instance, message->mutable_destination());
+	assert(_destination);
 	return __Move(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Tile>(instance, message->mutable_destination()));
+		_player,
+		_destination);
 }
 
 
 inline bool Travel(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Travel* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _destination = ResolvePath<IvionOnline::Tile>(instance, message->mutable_destination());
+	assert(_destination);
 	return __Travel(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Tile>(instance, message->mutable_destination()));
+		_player,
+		_destination);
 }
 
 
 inline bool Damage(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Damage* message) {
+	auto* _player = ResolvePath<IvionOnline::Player>(instance, message->mutable_player());
+	assert(_player);
+	auto* _amount = ResolvePath<IvionOnline::Integer>(instance, message->mutable_amount());
+	assert(_amount);
 	return __Damage(
 		instance, begin, end,
-		ResolvePath<IvionOnline::Player>(instance, message->mutable_player()),
-		ResolvePath<IvionOnline::Integer>(instance, message->mutable_amount()));
+		_player,
+		_amount);
 }
 
 
 inline bool Boolean_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Boolean_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __Boolean_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 
 inline bool Integer_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Integer_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __Integer_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 
 inline bool Vec2i_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Vec2i_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __Vec2i_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 
 inline bool Terrain_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Terrain_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __Terrain_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 
 inline bool Color_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::Color_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __Color_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 
 inline bool ObjectPath_Constant(
 		GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::ObjectPath_Constant* message) {
+	auto* _result = message->mutable_result();
+	assert(_result);
 	return __ObjectPath_Constant(
 		instance, begin, end,
-		message->mutable_result());
+		_result);
 }
 
 

@@ -52,10 +52,9 @@ void AddMoveAction(GameInstance *instance, IvionOnline::Player *player) {
 	auto *selectOne = Initialize(play->add_element()->mutable_selectexactlyone(), play->abspath(), "SelectOne");
 	CopyObjectPathNoMutation(selectOne->mutable_source(), getList->result().abspath());
 	assert(ObjectIsValid(selectOne));
-	selectOne->PrintDebugString();
 
 	auto *move = Initialize(play->add_element()->mutable_move(), play->abspath(), "Move");
-	CopyObjectPathNoMutation(move->mutable_destination(), selectOne->result());
+	CopyObjectPathNoMutation(move->mutable_destination(), selectOne->result().abspath());
 	CopyObjectPathNoMutation(move->mutable_player(), player->abspath());
 	assert(ObjectIsValid(move));
 

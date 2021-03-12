@@ -126,7 +126,7 @@ bool __SelectExactlyOne(GameInstance *instance, MethodIter begin, const MethodIt
 	bool anyGoodBranch = false;
 	for (const IvionOnline::ObjectPath &object : Source->element()) {
 		HistoryBranch branch(instance);
-		object.PrintDebugString();
+
 		Set(instance, Result, &object);
 
 		if (ExecuteMethods(instance, begin, end)) {

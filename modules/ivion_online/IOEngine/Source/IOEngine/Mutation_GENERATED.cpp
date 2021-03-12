@@ -355,7 +355,7 @@ void Apply_ObjectPath_Set_Mutation(GameInstance* instance,  IvionOnline::ObjectP
 	assert(mutation);
     IvionOnline::ObjectPath* object = ResolvePath<IvionOnline::ObjectPath>(instance, mutation->mutable_path());
     assert(object);
-	object->CopyFrom(mutation->newvalue());
+	CopyObjectPathNoMutation(object, mutation->newvalue());
 }
 void Apply_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Insert_Mutation* mutation){
 	assert(mutation);
@@ -389,7 +389,7 @@ void Revert_ObjectPath_Set_Mutation(GameInstance* instance, IvionOnline::ObjectP
 	assert(mutation);
     IvionOnline::ObjectPath* object = ResolvePath<IvionOnline::ObjectPath>(instance, mutation->mutable_path());
     assert(object);
-	object->CopyFrom(mutation->oldvalue());
+	CopyObjectPathNoMutation(object, mutation->oldvalue());
 }
 void Revert_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Insert_Mutation* mutation){
 	assert(mutation);

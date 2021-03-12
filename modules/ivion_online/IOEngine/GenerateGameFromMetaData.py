@@ -74,8 +74,8 @@ class ValueType:
             self.MutatorSource = ValueType.mutationSourceBase.format(**{
                 "NAME": self.Name,
                 "PACKAGE_NAME": PackageName,
-                "APPLY_VALUE": "object->CopyFrom(mutation->newvalue());",
-                "REVERT_VALUE": "object->CopyFrom(mutation->oldvalue());",
+                "APPLY_VALUE": "CopyObjectPathNoMutation(object, mutation->newvalue());",
+                "REVERT_VALUE": "CopyObjectPathNoMutation(object, mutation->oldvalue());",
             })
         else:
             self.MutatorSource = ValueType.mutationSourceBase.format(**{
@@ -353,6 +353,7 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
             header = "google::protobuf::Message *ResolvePath(GameInstance* instance, {PACKAGE}::{NAME} *obj, const StringIter& fieldName, const StringIter& end)".format(**{"PACKAGE": PackageName, "NAME": name})
             headerFile.write("{};\n".format(header))
             sourceFile.write("{} {{\n".format(header))
+            sourceFile.write("\tassert(fieldName < end);\n")
             sourceFile.write("\tconst auto& nextField = fieldName + 1;\n")
             if name == "GameState":
                 sourceFile.write("\tif(*fieldName == \".\") {\n")
@@ -479,9 +480,11 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
             headerFile.write(
                 "\ninline bool {}(\n\t\tGameInstance* instance, MethodIter begin, const MethodIter& end, {}::{}* message) {{\n".format(name, PackageName, name))
             headerFile.write(
+                "".join(["\tauto* _{} = {};\n\tassert(_{});\n".format(argName.lower(), ResolveType(arg, argName), argName.lower()) for (arg, argName) in arguments]))
+            headerFile.write(
                 "\treturn __{}(\n\t\tinstance, begin, end".format(name))
             headerFile.write(
-                "".join([",\n\t\t"+ResolveType(arg, argName) for (arg, argName) in arguments]))
+                "".join([",\n\t\t_{}".format(argName.lower()) for (arg, argName) in arguments]))
             headerFile.write(");\n")
             headerFile.write("}\n\n")
 

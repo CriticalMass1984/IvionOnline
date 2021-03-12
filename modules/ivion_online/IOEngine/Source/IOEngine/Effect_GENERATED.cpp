@@ -177,6 +177,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Colo
 	return obj;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Player *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Health") {
 		if(nextField == end){return obj->mutable_health();}
@@ -270,6 +271,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Play
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Team *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Players") {
 		if(nextField == end){return obj->mutable_players();}
@@ -279,6 +281,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Team
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == "CardStats") {
 		if(nextField == end){return obj->mutable_cardstats();}
@@ -288,6 +291,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::CardData *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Owner") {
 		if(nextField == end){return obj->mutable_owner();}
@@ -349,6 +353,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Tile *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Position") {
 		if(nextField == end){return obj->mutable_position();}
@@ -362,6 +367,7 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Tile
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GameState *obj, const StringIter& fieldName, const StringIter& end) {
+	assert(fieldName < end);
 	const auto& nextField = fieldName + 1;
 	if(*fieldName == ".") {
 		assert(instance->currentCard_ != nullptr);

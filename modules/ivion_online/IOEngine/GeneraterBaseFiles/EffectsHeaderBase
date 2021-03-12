@@ -11,4 +11,10 @@ class GameInstance;
 
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj);
 template<typename T>
-inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) {{ return dynamic_cast<T*>(ResolvePath(instance, path)); }}
+inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) {{ 
+    google::protobuf::Message* objPtr = ResolvePath(instance, path);
+    assert(objPtr);
+    auto* typedPtr = dynamic_cast<T*>(objPtr);
+    assert(typedPtr);
+    return typedPtr;
+}}

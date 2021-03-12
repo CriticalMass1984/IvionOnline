@@ -95,7 +95,7 @@ void GameInstance::Step() {
 		for (auto &actionPath : *player->mutable_basicactions()->mutable_element()) {
 			auto *card = ResolvePath<IvionOnline::Card>(this, &actionPath);
 			auto *cardData = ResolvePath<IvionOnline::CardData>(this, card->mutable_cardstats());
-			// cardData->playeffect().PrintDebugString();
+
 			assert(ObjectIsValid(card));
 			assert(ObjectIsValid(cardData));
 
