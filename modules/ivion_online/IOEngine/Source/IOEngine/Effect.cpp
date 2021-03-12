@@ -71,13 +71,13 @@ bool __FilterDistance(GameInstance* instance, MethodIter begin, const MethodIter
 		return false;
 	};
 	auto* elements = Targets->mutable_element();
-	for(auto it = elements->begin(), end = elements->end(); it != end;)
+	for(int i = 0; i < Targets->element_size();)
 	{
-		if(isInRange(&*it))
+		if(isInRange(Targets->mutable_element()->Mutable(i)))
 		{
-			++it;
+			++i;
 		}else{
-			it = elements->erase(it);
+			Remove(instance, Targets, i);
 		}
 	}
 	return ExecuteMethods(instance, begin, end);
@@ -126,7 +126,7 @@ bool __SelectExactlyOne(GameInstance *instance, MethodIter begin, const MethodIt
 	bool anyGoodBranch = false;
 	for (const IvionOnline::ObjectPath &object : Source->element()) {
 		HistoryBranch branch(instance);
-
+		object.PrintDebugString();
 		Set(instance, Result, &object);
 
 		if (ExecuteMethods(instance, begin, end)) {

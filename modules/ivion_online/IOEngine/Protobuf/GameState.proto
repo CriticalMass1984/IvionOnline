@@ -150,6 +150,8 @@ message List_Color {
 message ObjectPath {
 	repeated string Path = 1;
 	ObjectType Object_Type = 2;
+	ObjectPath AbsPath = 3;
+	string Name = 4;
 }
 
 

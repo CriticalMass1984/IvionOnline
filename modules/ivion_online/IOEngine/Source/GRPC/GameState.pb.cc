@@ -1490,6 +1490,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameState_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, path_),
   PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, object_type_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, abspath_),
+  PROTOBUF_FIELD_OFFSET(::IvionOnline::ObjectPath, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::IvionOnline::List_ObjectPath, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2052,62 +2054,62 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 73, -1, sizeof(::IvionOnline::Color)},
   { 81, -1, sizeof(::IvionOnline::List_Color)},
   { 89, -1, sizeof(::IvionOnline::ObjectPath)},
-  { 96, -1, sizeof(::IvionOnline::List_ObjectPath)},
-  { 104, -1, sizeof(::IvionOnline::Player)},
-  { 135, -1, sizeof(::IvionOnline::List_Player)},
-  { 143, -1, sizeof(::IvionOnline::Team)},
-  { 151, -1, sizeof(::IvionOnline::List_Team)},
-  { 159, -1, sizeof(::IvionOnline::Card)},
-  { 167, -1, sizeof(::IvionOnline::List_Card)},
-  { 175, -1, sizeof(::IvionOnline::CardData)},
-  { 199, -1, sizeof(::IvionOnline::List_CardData)},
-  { 207, -1, sizeof(::IvionOnline::Tile)},
-  { 218, -1, sizeof(::IvionOnline::List_Tile)},
-  { 226, -1, sizeof(::IvionOnline::GameState)},
-  { 240, -1, sizeof(::IvionOnline::List_GameState)},
-  { 248, -1, sizeof(::IvionOnline::Boolean_Set_Mutation)},
-  { 256, -1, sizeof(::IvionOnline::List_Boolean_Insert_Mutation)},
-  { 264, -1, sizeof(::IvionOnline::List_Boolean_Remove_Mutation)},
-  { 272, -1, sizeof(::IvionOnline::Integer_Set_Mutation)},
-  { 280, -1, sizeof(::IvionOnline::List_Integer_Insert_Mutation)},
-  { 288, -1, sizeof(::IvionOnline::List_Integer_Remove_Mutation)},
-  { 296, -1, sizeof(::IvionOnline::Vec2i_Set_Mutation)},
-  { 304, -1, sizeof(::IvionOnline::List_Vec2i_Insert_Mutation)},
-  { 312, -1, sizeof(::IvionOnline::List_Vec2i_Remove_Mutation)},
-  { 320, -1, sizeof(::IvionOnline::Terrain_Set_Mutation)},
-  { 328, -1, sizeof(::IvionOnline::List_Terrain_Insert_Mutation)},
-  { 336, -1, sizeof(::IvionOnline::List_Terrain_Remove_Mutation)},
-  { 344, -1, sizeof(::IvionOnline::Color_Set_Mutation)},
-  { 352, -1, sizeof(::IvionOnline::List_Color_Insert_Mutation)},
-  { 360, -1, sizeof(::IvionOnline::List_Color_Remove_Mutation)},
-  { 368, -1, sizeof(::IvionOnline::ObjectPath_Set_Mutation)},
-  { 376, -1, sizeof(::IvionOnline::List_ObjectPath_Insert_Mutation)},
-  { 384, -1, sizeof(::IvionOnline::List_ObjectPath_Remove_Mutation)},
-  { 392, -1, sizeof(::IvionOnline::Mutation)},
-  { 416, -1, sizeof(::IvionOnline::GetList)},
-  { 425, -1, sizeof(::IvionOnline::FilterDistance)},
-  { 435, -1, sizeof(::IvionOnline::SelectMultiple)},
-  { 446, -1, sizeof(::IvionOnline::SelectExactlyOne)},
-  { 455, -1, sizeof(::IvionOnline::AssertControlOrHeroic)},
-  { 462, -1, sizeof(::IvionOnline::AssertControllerHasPriority)},
-  { 469, -1, sizeof(::IvionOnline::AssertStackEmptyOrInstant)},
-  { 476, -1, sizeof(::IvionOnline::ReduceCost)},
-  { 488, -1, sizeof(::IvionOnline::PayCost)},
-  { 497, -1, sizeof(::IvionOnline::PlayGainResources)},
-  { 506, -1, sizeof(::IvionOnline::RefundCost)},
-  { 515, -1, sizeof(::IvionOnline::GainActions)},
-  { 524, -1, sizeof(::IvionOnline::GainPower)},
-  { 533, -1, sizeof(::IvionOnline::Move)},
-  { 542, -1, sizeof(::IvionOnline::Travel)},
-  { 551, -1, sizeof(::IvionOnline::Damage)},
-  { 560, -1, sizeof(::IvionOnline::Boolean_Constant)},
-  { 568, -1, sizeof(::IvionOnline::Integer_Constant)},
-  { 576, -1, sizeof(::IvionOnline::Vec2i_Constant)},
-  { 584, -1, sizeof(::IvionOnline::Terrain_Constant)},
-  { 592, -1, sizeof(::IvionOnline::Color_Constant)},
-  { 600, -1, sizeof(::IvionOnline::ObjectPath_Constant)},
-  { 608, -1, sizeof(::IvionOnline::Method)},
-  { 636, -1, sizeof(::IvionOnline::List_Method)},
+  { 98, -1, sizeof(::IvionOnline::List_ObjectPath)},
+  { 106, -1, sizeof(::IvionOnline::Player)},
+  { 137, -1, sizeof(::IvionOnline::List_Player)},
+  { 145, -1, sizeof(::IvionOnline::Team)},
+  { 153, -1, sizeof(::IvionOnline::List_Team)},
+  { 161, -1, sizeof(::IvionOnline::Card)},
+  { 169, -1, sizeof(::IvionOnline::List_Card)},
+  { 177, -1, sizeof(::IvionOnline::CardData)},
+  { 201, -1, sizeof(::IvionOnline::List_CardData)},
+  { 209, -1, sizeof(::IvionOnline::Tile)},
+  { 220, -1, sizeof(::IvionOnline::List_Tile)},
+  { 228, -1, sizeof(::IvionOnline::GameState)},
+  { 242, -1, sizeof(::IvionOnline::List_GameState)},
+  { 250, -1, sizeof(::IvionOnline::Boolean_Set_Mutation)},
+  { 258, -1, sizeof(::IvionOnline::List_Boolean_Insert_Mutation)},
+  { 266, -1, sizeof(::IvionOnline::List_Boolean_Remove_Mutation)},
+  { 274, -1, sizeof(::IvionOnline::Integer_Set_Mutation)},
+  { 282, -1, sizeof(::IvionOnline::List_Integer_Insert_Mutation)},
+  { 290, -1, sizeof(::IvionOnline::List_Integer_Remove_Mutation)},
+  { 298, -1, sizeof(::IvionOnline::Vec2i_Set_Mutation)},
+  { 306, -1, sizeof(::IvionOnline::List_Vec2i_Insert_Mutation)},
+  { 314, -1, sizeof(::IvionOnline::List_Vec2i_Remove_Mutation)},
+  { 322, -1, sizeof(::IvionOnline::Terrain_Set_Mutation)},
+  { 330, -1, sizeof(::IvionOnline::List_Terrain_Insert_Mutation)},
+  { 338, -1, sizeof(::IvionOnline::List_Terrain_Remove_Mutation)},
+  { 346, -1, sizeof(::IvionOnline::Color_Set_Mutation)},
+  { 354, -1, sizeof(::IvionOnline::List_Color_Insert_Mutation)},
+  { 362, -1, sizeof(::IvionOnline::List_Color_Remove_Mutation)},
+  { 370, -1, sizeof(::IvionOnline::ObjectPath_Set_Mutation)},
+  { 378, -1, sizeof(::IvionOnline::List_ObjectPath_Insert_Mutation)},
+  { 386, -1, sizeof(::IvionOnline::List_ObjectPath_Remove_Mutation)},
+  { 394, -1, sizeof(::IvionOnline::Mutation)},
+  { 418, -1, sizeof(::IvionOnline::GetList)},
+  { 427, -1, sizeof(::IvionOnline::FilterDistance)},
+  { 437, -1, sizeof(::IvionOnline::SelectMultiple)},
+  { 448, -1, sizeof(::IvionOnline::SelectExactlyOne)},
+  { 457, -1, sizeof(::IvionOnline::AssertControlOrHeroic)},
+  { 464, -1, sizeof(::IvionOnline::AssertControllerHasPriority)},
+  { 471, -1, sizeof(::IvionOnline::AssertStackEmptyOrInstant)},
+  { 478, -1, sizeof(::IvionOnline::ReduceCost)},
+  { 490, -1, sizeof(::IvionOnline::PayCost)},
+  { 499, -1, sizeof(::IvionOnline::PlayGainResources)},
+  { 508, -1, sizeof(::IvionOnline::RefundCost)},
+  { 517, -1, sizeof(::IvionOnline::GainActions)},
+  { 526, -1, sizeof(::IvionOnline::GainPower)},
+  { 535, -1, sizeof(::IvionOnline::Move)},
+  { 544, -1, sizeof(::IvionOnline::Travel)},
+  { 553, -1, sizeof(::IvionOnline::Damage)},
+  { 562, -1, sizeof(::IvionOnline::Boolean_Constant)},
+  { 570, -1, sizeof(::IvionOnline::Integer_Constant)},
+  { 578, -1, sizeof(::IvionOnline::Vec2i_Constant)},
+  { 586, -1, sizeof(::IvionOnline::Terrain_Constant)},
+  { 594, -1, sizeof(::IvionOnline::Color_Constant)},
+  { 602, -1, sizeof(::IvionOnline::ObjectPath_Constant)},
+  { 610, -1, sizeof(::IvionOnline::Method)},
+  { 638, -1, sizeof(::IvionOnline::List_Method)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2216,335 +2218,337 @@ const char descriptor_table_protodef_GameState_2eproto[] PROTOBUF_SECTION_VARIAB
   "LOR_GREEN\020\004\022\016\n\nCOLOR_BLUE\020\005\022\017\n\013COLOR_WHI"
   "TE\020\006\"i\n\nList_Color\022#\n\007element\030\001 \003(\0132\022.Iv"
   "ionOnline.Color\022(\n\007AbsPath\030\002 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022\014\n\004Name\030\003 \001(\t\"H\n\nObjec"
-  "tPath\022\014\n\004Path\030\001 \003(\t\022,\n\013Object_Type\030\002 \001(\016"
-  "2\027.IvionOnline.ObjectType\"s\n\017List_Object"
-  "Path\022(\n\007element\030\001 \003(\0132\027.IvionOnline.Obje"
-  "ctPath\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022\014\n\004Name\030\003 \001(\t\"\371\007\n\006Player\022\013\n\003UID"
-  "\030\001 \001(\t\022\023\n\013DisplayName\030\002 \001(\t\022$\n\006Health\030\003 "
-  "\001(\0132\024.IvionOnline.Integer\022%\n\007Actions\030\004 \001"
-  "(\0132\024.IvionOnline.Integer\022#\n\005Power\030\005 \001(\0132"
-  "\024.IvionOnline.Integer\022(\n\nInitiative\030\006 \001("
-  "\0132\024.IvionOnline.Integer\022&\n\010Mitigate\030\007 \001("
-  "\0132\024.IvionOnline.Integer\022\"\n\004Slow\030\010 \001(\0132\024."
-  "IvionOnline.Integer\022%\n\007Silence\030\t \001(\0132\024.I"
-  "vionOnline.Integer\022$\n\006Disarm\030\n \001(\0132\024.Ivi"
-  "onOnline.Integer\022$\n\010Position\030\013 \001(\0132\022.Ivi"
-  "onOnline.Vec2i\0222\n\014BasicActions\030\014 \001(\0132\034.I"
-  "vionOnline.List_ObjectPath\022*\n\004Hand\030\r \001(\013"
-  "2\034.IvionOnline.List_ObjectPath\022*\n\004Deck\030\016"
-  " \001(\0132\034.IvionOnline.List_ObjectPath\022-\n\007Di"
-  "scard\030\017 \001(\0132\034.IvionOnline.List_ObjectPat"
-  "h\022+\n\005Feats\030\020 \001(\0132\034.IvionOnline.List_Obje"
-  "ctPath\0222\n\014RangeSources\030\021 \001(\0132\034.IvionOnli"
-  "ne.List_ObjectPath\022\'\n\tMaxHealth\030\022 \001(\0132\024."
-  "IvionOnline.Integer\022(\n\nMaxActions\030\023 \001(\0132"
-  "\024.IvionOnline.Integer\022&\n\010MaxPower\030\024 \001(\0132"
-  "\024.IvionOnline.Integer\022%\n\007MaxSlow\030\025 \001(\0132\024"
-  ".IvionOnline.Integer\022(\n\nMaxSilence\030\026 \001(\013"
-  "2\024.IvionOnline.Integer\022\'\n\tMaxDisarm\030\027 \001("
-  "\0132\024.IvionOnline.Integer\022)\n\013MaxMitigate\030\030"
-  " \001(\0132\024.IvionOnline.Integer\022(\n\007AbsPath\030\031 "
-  "\001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\032 \001"
-  "(\t\"k\n\013List_Player\022$\n\007element\030\001 \003(\0132\023.Ivi"
-  "onOnline.Player\022(\n\007AbsPath\030\002 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022\014\n\004Name\030\003 \001(\t\"m\n\004Team\022"
-  "-\n\007Players\030\001 \001(\0132\034.IvionOnline.List_Obje"
-  "ctPath\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022\014\n\004Name\030\003 \001(\t\"g\n\tList_Team\022\"\n\007e"
-  "lement\030\001 \003(\0132\021.IvionOnline.Team\022(\n\007AbsPa"
-  "th\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Nam"
-  "e\030\003 \001(\t\"j\n\004Card\022*\n\tCardStats\030\001 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022(\n\007AbsPath\030\002 \001(\0132\027.I"
-  "vionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\"g\n\tL"
-  "ist_Card\022\"\n\007element\030\001 \003(\0132\021.IvionOnline."
-  "Card\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\022\014\n\004Name\030\003 \001(\t\"\361\005\n\010CardData\022&\n\005Own"
-  "er\030\001 \001(\0132\027.IvionOnline.ObjectPath\022+\n\nCon"
-  "troller\030\002 \001(\0132\027.IvionOnline.ObjectPath\022("
-  "\n\nActionCost\030\003 \001(\0132\024.IvionOnline.Integer"
-  "\022\'\n\tPowerCost\030\004 \001(\0132\024.IvionOnline.Intege"
-  "r\022#\n\005Range\030\005 \001(\0132\024.IvionOnline.Integer\022,"
-  "\n\016AffectedBySlow\030\006 \001(\0132\024.IvionOnline.Boo"
-  "lean\022/\n\021AffectedBySilence\030\007 \001(\0132\024.IvionO"
-  "nline.Boolean\022.\n\020AffectedByDisarm\030\010 \001(\0132"
-  "\024.IvionOnline.Boolean\022)\n\010Attached\030\t \001(\0132"
-  "\027.IvionOnline.ObjectPath\0223\n\021OmniPresentE"
-  "ffect\030\n \001(\0132\030.IvionOnline.List_Method\022/\n"
-  "\rPassiveEffect\030\013 \001(\0132\030.IvionOnline.List_"
-  "Method\022,\n\nFeatEffect\030\014 \001(\0132\030.IvionOnline"
-  ".List_Method\022,\n\nPlayEffect\030\r \001(\0132\030.Ivion"
-  "Online.List_Method\022/\n\rResolveEffect\030\016 \001("
-  "\0132\030.IvionOnline.List_Method\022\023\n\013BasicActi"
-  "on\030\017 \001(\010\022\014\n\004Feat\030\020 \001(\010\022\020\n\010Ultimate\030\021 \001(\010"
-  "\022(\n\007AbsPath\030\022 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\022\014\n\004Name\030\023 \001(\t\"o\n\rList_CardData\022&\n\007ele"
-  "ment\030\001 \003(\0132\025.IvionOnline.CardData\022(\n\007Abs"
-  "Path\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004N"
-  "ame\030\003 \001(\t\"\254\001\n\004Tile\022$\n\010Position\030\001 \001(\0132\022.I"
-  "vionOnline.Vec2i\022\r\n\005Index\030\002 \001(\005\022\020\n\010Index"
-  "Str\030\003 \001(\t\022%\n\007Terrain\030\004 \001(\0132\024.IvionOnline"
-  ".Terrain\022(\n\007AbsPath\030\005 \001(\0132\027.IvionOnline."
-  "ObjectPath\022\014\n\004Name\030\006 \001(\t\"g\n\tList_Tile\022\"\n"
-  "\007element\030\001 \003(\0132\021.IvionOnline.Tile\022(\n\007Abs"
-  "Path\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004N"
-  "ame\030\003 \001(\t\"\350\002\n\tGameState\022)\n\007Players\030\001 \001(\013"
-  "2\030.IvionOnline.List_Player\022%\n\005Cards\030\002 \001("
-  "\0132\026.IvionOnline.List_Card\022,\n\010CardData\030\003 "
-  "\001(\0132\032.IvionOnline.List_CardData\022%\n\005Teams"
-  "\030\004 \001(\0132\026.IvionOnline.List_Team\022%\n\005Tiles\030"
-  "\005 \001(\0132\026.IvionOnline.List_Tile\022+\n\005Field\030\006"
-  " \001(\0132\034.IvionOnline.List_ObjectPath\022(\n\nTu"
-  "rnNumber\030\007 \001(\0132\024.IvionOnline.Integer\022(\n\007"
-  "AbsPath\030\010 \001(\0132\027.IvionOnline.ObjectPath\022\014"
-  "\n\004Name\030\t \001(\t\"q\n\016List_GameState\022\'\n\007elemen"
-  "t\030\001 \003(\0132\026.IvionOnline.GameState\022(\n\007AbsPa"
-  "th\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Nam"
-  "e\030\003 \001(\t\"\215\001\n\024Boolean_Set_Mutation\022%\n\004Path"
-  "\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\010NewVa"
-  "lue\030\002 \001(\0132\024.IvionOnline.Boolean\022&\n\010OldVa"
-  "lue\030\003 \001(\0132\024.IvionOnline.Boolean\"|\n\034List_"
-  "Boolean_Insert_Mutation\022%\n\004Path\030\001 \001(\0132\027."
-  "IvionOnline.ObjectPath\022&\n\010NewValue\030\002 \001(\013"
-  "2\024.IvionOnline.Boolean\022\r\n\005Index\030\003 \001(\005\"|\n"
-  "\034List_Boolean_Remove_Mutation\022%\n\004Path\030\001 "
-  "\001(\0132\027.IvionOnline.ObjectPath\022&\n\010OldValue"
-  "\030\002 \001(\0132\024.IvionOnline.Boolean\022\r\n\005Index\030\003 "
-  "\001(\005\"\215\001\n\024Integer_Set_Mutation\022%\n\004Path\030\001 \001"
-  "(\0132\027.IvionOnline.ObjectPath\022&\n\010NewValue\030"
-  "\002 \001(\0132\024.IvionOnline.Integer\022&\n\010OldValue\030"
-  "\003 \001(\0132\024.IvionOnline.Integer\"|\n\034List_Inte"
-  "ger_Insert_Mutation\022%\n\004Path\030\001 \001(\0132\027.Ivio"
-  "nOnline.ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024.I"
-  "vionOnline.Integer\022\r\n\005Index\030\003 \001(\005\"|\n\034Lis"
-  "t_Integer_Remove_Mutation\022%\n\004Path\030\001 \001(\0132"
-  "\027.IvionOnline.ObjectPath\022&\n\010OldValue\030\002 \001"
-  "(\0132\024.IvionOnline.Integer\022\r\n\005Index\030\003 \001(\005\""
-  "\207\001\n\022Vec2i_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.I"
-  "vionOnline.ObjectPath\022$\n\010NewValue\030\002 \001(\0132"
-  "\022.IvionOnline.Vec2i\022$\n\010OldValue\030\003 \001(\0132\022."
-  "IvionOnline.Vec2i\"x\n\032List_Vec2i_Insert_M"
-  "utation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\022$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.V"
-  "ec2i\022\r\n\005Index\030\003 \001(\005\"x\n\032List_Vec2i_Remove"
+  "Online.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\200\001\n\nObje"
+  "ctPath\022\014\n\004Path\030\001 \003(\t\022,\n\013Object_Type\030\002 \001("
+  "\0162\027.IvionOnline.ObjectType\022(\n\007AbsPath\030\003 "
+  "\001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\004 \001"
+  "(\t\"s\n\017List_ObjectPath\022(\n\007element\030\001 \003(\0132\027"
+  ".IvionOnline.ObjectPath\022(\n\007AbsPath\030\002 \001(\013"
+  "2\027.IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\""
+  "\371\007\n\006Player\022\013\n\003UID\030\001 \001(\t\022\023\n\013DisplayName\030\002"
+  " \001(\t\022$\n\006Health\030\003 \001(\0132\024.IvionOnline.Integ"
+  "er\022%\n\007Actions\030\004 \001(\0132\024.IvionOnline.Intege"
+  "r\022#\n\005Power\030\005 \001(\0132\024.IvionOnline.Integer\022("
+  "\n\nInitiative\030\006 \001(\0132\024.IvionOnline.Integer"
+  "\022&\n\010Mitigate\030\007 \001(\0132\024.IvionOnline.Integer"
+  "\022\"\n\004Slow\030\010 \001(\0132\024.IvionOnline.Integer\022%\n\007"
+  "Silence\030\t \001(\0132\024.IvionOnline.Integer\022$\n\006D"
+  "isarm\030\n \001(\0132\024.IvionOnline.Integer\022$\n\010Pos"
+  "ition\030\013 \001(\0132\022.IvionOnline.Vec2i\0222\n\014Basic"
+  "Actions\030\014 \001(\0132\034.IvionOnline.List_ObjectP"
+  "ath\022*\n\004Hand\030\r \001(\0132\034.IvionOnline.List_Obj"
+  "ectPath\022*\n\004Deck\030\016 \001(\0132\034.IvionOnline.List"
+  "_ObjectPath\022-\n\007Discard\030\017 \001(\0132\034.IvionOnli"
+  "ne.List_ObjectPath\022+\n\005Feats\030\020 \001(\0132\034.Ivio"
+  "nOnline.List_ObjectPath\0222\n\014RangeSources\030"
+  "\021 \001(\0132\034.IvionOnline.List_ObjectPath\022\'\n\tM"
+  "axHealth\030\022 \001(\0132\024.IvionOnline.Integer\022(\n\n"
+  "MaxActions\030\023 \001(\0132\024.IvionOnline.Integer\022&"
+  "\n\010MaxPower\030\024 \001(\0132\024.IvionOnline.Integer\022%"
+  "\n\007MaxSlow\030\025 \001(\0132\024.IvionOnline.Integer\022(\n"
+  "\nMaxSilence\030\026 \001(\0132\024.IvionOnline.Integer\022"
+  "\'\n\tMaxDisarm\030\027 \001(\0132\024.IvionOnline.Integer"
+  "\022)\n\013MaxMitigate\030\030 \001(\0132\024.IvionOnline.Inte"
+  "ger\022(\n\007AbsPath\030\031 \001(\0132\027.IvionOnline.Objec"
+  "tPath\022\014\n\004Name\030\032 \001(\t\"k\n\013List_Player\022$\n\007el"
+  "ement\030\001 \003(\0132\023.IvionOnline.Player\022(\n\007AbsP"
+  "ath\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Na"
+  "me\030\003 \001(\t\"m\n\004Team\022-\n\007Players\030\001 \001(\0132\034.Ivio"
+  "nOnline.List_ObjectPath\022(\n\007AbsPath\030\002 \001(\013"
+  "2\027.IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\""
+  "g\n\tList_Team\022\"\n\007element\030\001 \003(\0132\021.IvionOnl"
+  "ine.Team\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline."
+  "ObjectPath\022\014\n\004Name\030\003 \001(\t\"j\n\004Card\022*\n\tCard"
+  "Stats\030\001 \001(\0132\027.IvionOnline.ObjectPath\022(\n\007"
+  "AbsPath\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014"
+  "\n\004Name\030\003 \001(\t\"g\n\tList_Card\022\"\n\007element\030\001 \003"
+  "(\0132\021.IvionOnline.Card\022(\n\007AbsPath\030\002 \001(\0132\027"
+  ".IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\361\005"
+  "\n\010CardData\022&\n\005Owner\030\001 \001(\0132\027.IvionOnline."
+  "ObjectPath\022+\n\nController\030\002 \001(\0132\027.IvionOn"
+  "line.ObjectPath\022(\n\nActionCost\030\003 \001(\0132\024.Iv"
+  "ionOnline.Integer\022\'\n\tPowerCost\030\004 \001(\0132\024.I"
+  "vionOnline.Integer\022#\n\005Range\030\005 \001(\0132\024.Ivio"
+  "nOnline.Integer\022,\n\016AffectedBySlow\030\006 \001(\0132"
+  "\024.IvionOnline.Boolean\022/\n\021AffectedBySilen"
+  "ce\030\007 \001(\0132\024.IvionOnline.Boolean\022.\n\020Affect"
+  "edByDisarm\030\010 \001(\0132\024.IvionOnline.Boolean\022)"
+  "\n\010Attached\030\t \001(\0132\027.IvionOnline.ObjectPat"
+  "h\0223\n\021OmniPresentEffect\030\n \001(\0132\030.IvionOnli"
+  "ne.List_Method\022/\n\rPassiveEffect\030\013 \001(\0132\030."
+  "IvionOnline.List_Method\022,\n\nFeatEffect\030\014 "
+  "\001(\0132\030.IvionOnline.List_Method\022,\n\nPlayEff"
+  "ect\030\r \001(\0132\030.IvionOnline.List_Method\022/\n\rR"
+  "esolveEffect\030\016 \001(\0132\030.IvionOnline.List_Me"
+  "thod\022\023\n\013BasicAction\030\017 \001(\010\022\014\n\004Feat\030\020 \001(\010\022"
+  "\020\n\010Ultimate\030\021 \001(\010\022(\n\007AbsPath\030\022 \001(\0132\027.Ivi"
+  "onOnline.ObjectPath\022\014\n\004Name\030\023 \001(\t\"o\n\rLis"
+  "t_CardData\022&\n\007element\030\001 \003(\0132\025.IvionOnlin"
+  "e.CardData\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnlin"
+  "e.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\254\001\n\004Tile\022$\n\010P"
+  "osition\030\001 \001(\0132\022.IvionOnline.Vec2i\022\r\n\005Ind"
+  "ex\030\002 \001(\005\022\020\n\010IndexStr\030\003 \001(\t\022%\n\007Terrain\030\004 "
+  "\001(\0132\024.IvionOnline.Terrain\022(\n\007AbsPath\030\005 \001"
+  "(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\006 \001("
+  "\t\"g\n\tList_Tile\022\"\n\007element\030\001 \003(\0132\021.IvionO"
+  "nline.Tile\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnlin"
+  "e.ObjectPath\022\014\n\004Name\030\003 \001(\t\"\350\002\n\tGameState"
+  "\022)\n\007Players\030\001 \001(\0132\030.IvionOnline.List_Pla"
+  "yer\022%\n\005Cards\030\002 \001(\0132\026.IvionOnline.List_Ca"
+  "rd\022,\n\010CardData\030\003 \001(\0132\032.IvionOnline.List_"
+  "CardData\022%\n\005Teams\030\004 \001(\0132\026.IvionOnline.Li"
+  "st_Team\022%\n\005Tiles\030\005 \001(\0132\026.IvionOnline.Lis"
+  "t_Tile\022+\n\005Field\030\006 \001(\0132\034.IvionOnline.List"
+  "_ObjectPath\022(\n\nTurnNumber\030\007 \001(\0132\024.IvionO"
+  "nline.Integer\022(\n\007AbsPath\030\010 \001(\0132\027.IvionOn"
+  "line.ObjectPath\022\014\n\004Name\030\t \001(\t\"q\n\016List_Ga"
+  "meState\022\'\n\007element\030\001 \003(\0132\026.IvionOnline.G"
+  "ameState\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline."
+  "ObjectPath\022\014\n\004Name\030\003 \001(\t\"\215\001\n\024Boolean_Set"
   "_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Ob"
-  "jectPath\022$\n\010OldValue\030\002 \001(\0132\022.IvionOnline"
-  ".Vec2i\022\r\n\005Index\030\003 \001(\005\"\215\001\n\024Terrain_Set_Mu"
-  "tation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Objec"
-  "tPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Te"
-  "rrain\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline.Te"
-  "rrain\"|\n\034List_Terrain_Insert_Mutation\022%\n"
-  "\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\010"
-  "NewValue\030\002 \001(\0132\024.IvionOnline.Terrain\022\r\n\005"
-  "Index\030\003 \001(\005\"|\n\034List_Terrain_Remove_Mutat"
-  "ion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPa"
-  "th\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.Terra"
-  "in\022\r\n\005Index\030\003 \001(\005\"\207\001\n\022Color_Set_Mutation"
+  "jectPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline"
+  ".Boolean\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline"
+  ".Boolean\"|\n\034List_Boolean_Insert_Mutation"
   "\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022"
-  "$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Color\022$\n"
-  "\010OldValue\030\003 \001(\0132\022.IvionOnline.Color\"x\n\032L"
-  "ist_Color_Insert_Mutation\022%\n\004Path\030\001 \001(\0132"
-  "\027.IvionOnline.ObjectPath\022$\n\010NewValue\030\002 \001"
-  "(\0132\022.IvionOnline.Color\022\r\n\005Index\030\003 \001(\005\"x\n"
-  "\032List_Color_Remove_Mutation\022%\n\004Path\030\001 \001("
-  "\0132\027.IvionOnline.ObjectPath\022$\n\010OldValue\030\002"
-  " \001(\0132\022.IvionOnline.Color\022\r\n\005Index\030\003 \001(\005\""
-  "\226\001\n\027ObjectPath_Set_Mutation\022%\n\004Path\030\001 \001("
-  "\0132\027.IvionOnline.ObjectPath\022)\n\010NewValue\030\002"
-  " \001(\0132\027.IvionOnline.ObjectPath\022)\n\010OldValu"
-  "e\030\003 \001(\0132\027.IvionOnline.ObjectPath\"\202\001\n\037Lis"
-  "t_ObjectPath_Insert_Mutation\022%\n\004Path\030\001 \001"
-  "(\0132\027.IvionOnline.ObjectPath\022)\n\010NewValue\030"
-  "\002 \001(\0132\027.IvionOnline.ObjectPath\022\r\n\005Index\030"
-  "\003 \001(\005\"\202\001\n\037List_ObjectPath_Remove_Mutatio"
-  "n\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath"
-  "\022)\n\010OldValue\030\002 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022\r\n\005Index\030\003 \001(\005\"\201\013\n\010Mutation\022A\n\024Boole"
-  "an_Set_Mutation\030\001 \001(\0132!.IvionOnline.Bool"
-  "ean_Set_MutationH\000\022Q\n\034List_Boolean_Inser"
-  "t_Mutation\030\002 \001(\0132).IvionOnline.List_Bool"
-  "ean_Insert_MutationH\000\022Q\n\034List_Boolean_Re"
-  "move_Mutation\030\003 \001(\0132).IvionOnline.List_B"
-  "oolean_Remove_MutationH\000\022A\n\024Integer_Set_"
-  "Mutation\030\004 \001(\0132!.IvionOnline.Integer_Set"
-  "_MutationH\000\022Q\n\034List_Integer_Insert_Mutat"
-  "ion\030\005 \001(\0132).IvionOnline.List_Integer_Ins"
-  "ert_MutationH\000\022Q\n\034List_Integer_Remove_Mu"
-  "tation\030\006 \001(\0132).IvionOnline.List_Integer_"
-  "Remove_MutationH\000\022=\n\022Vec2i_Set_Mutation\030"
-  "\007 \001(\0132\037.IvionOnline.Vec2i_Set_MutationH\000"
-  "\022M\n\032List_Vec2i_Insert_Mutation\030\010 \001(\0132\'.I"
-  "vionOnline.List_Vec2i_Insert_MutationH\000\022"
-  "M\n\032List_Vec2i_Remove_Mutation\030\t \001(\0132\'.Iv"
-  "ionOnline.List_Vec2i_Remove_MutationH\000\022A"
-  "\n\024Terrain_Set_Mutation\030\n \001(\0132!.IvionOnli"
-  "ne.Terrain_Set_MutationH\000\022Q\n\034List_Terrai"
-  "n_Insert_Mutation\030\013 \001(\0132).IvionOnline.Li"
-  "st_Terrain_Insert_MutationH\000\022Q\n\034List_Ter"
-  "rain_Remove_Mutation\030\014 \001(\0132).IvionOnline"
-  ".List_Terrain_Remove_MutationH\000\022=\n\022Color"
-  "_Set_Mutation\030\r \001(\0132\037.IvionOnline.Color_"
-  "Set_MutationH\000\022M\n\032List_Color_Insert_Muta"
-  "tion\030\016 \001(\0132\'.IvionOnline.List_Color_Inse"
-  "rt_MutationH\000\022M\n\032List_Color_Remove_Mutat"
-  "ion\030\017 \001(\0132\'.IvionOnline.List_Color_Remov"
-  "e_MutationH\000\022G\n\027ObjectPath_Set_Mutation\030"
-  "\020 \001(\0132$.IvionOnline.ObjectPath_Set_Mutat"
-  "ionH\000\022W\n\037List_ObjectPath_Insert_Mutation"
-  "\030\021 \001(\0132,.IvionOnline.List_ObjectPath_Ins"
-  "ert_MutationH\000\022W\n\037List_ObjectPath_Remove"
-  "_Mutation\030\022 \001(\0132,.IvionOnline.List_Objec"
-  "tPath_Remove_MutationH\000B\005\n\003mut\"\230\001\n\007GetLi"
-  "st\022\'\n\006Source\030\001 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022,\n\006Result\030\002 \001(\0132\034.IvionOnline.List_O"
-  "bjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\013"
-  "2\027.IvionOnline.ObjectPath\"\317\001\n\016FilterDist"
-  "ance\022(\n\007Targets\030\001 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\022-\n\014RangeSources\030\002 \001(\0132\027.IvionOnli"
-  "ne.ObjectPath\022,\n\013MaxDistance\030\003 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022\014\n\004Name\030\004 \001(\t\022(\n\007Abs"
-  "Path\030\005 \001(\0132\027.IvionOnline.ObjectPath\"\357\001\n\016"
-  "SelectMultiple\022\'\n\006Source\030\001 \001(\0132\027.IvionOn"
-  "line.ObjectPath\022\'\n\006Number\030\002 \001(\0132\027.IvionO"
-  "nline.ObjectPath\022%\n\004UpTo\030\003 \001(\0132\027.IvionOn"
-  "line.ObjectPath\022,\n\006Result\030\004 \001(\0132\034.IvionO"
-  "nline.List_ObjectPath\022\014\n\004Name\030\005 \001(\t\022(\n\007A"
-  "bsPath\030\006 \001(\0132\027.IvionOnline.ObjectPath\"\234\001"
-  "\n\020SelectExactlyOne\022\'\n\006Source\030\001 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\022\'\n\006Result\030\002 \001(\0132\027.Iv"
+  "&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Boolean\022"
+  "\r\n\005Index\030\003 \001(\005\"|\n\034List_Boolean_Remove_Mu"
+  "tation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Objec"
+  "tPath\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.Bo"
+  "olean\022\r\n\005Index\030\003 \001(\005\"\215\001\n\024Integer_Set_Mut"
+  "ation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Object"
+  "Path\022&\n\010NewValue\030\002 \001(\0132\024.IvionOnline.Int"
+  "eger\022&\n\010OldValue\030\003 \001(\0132\024.IvionOnline.Int"
+  "eger\"|\n\034List_Integer_Insert_Mutation\022%\n\004"
+  "Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\010N"
+  "ewValue\030\002 \001(\0132\024.IvionOnline.Integer\022\r\n\005I"
+  "ndex\030\003 \001(\005\"|\n\034List_Integer_Remove_Mutati"
+  "on\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPat"
+  "h\022&\n\010OldValue\030\002 \001(\0132\024.IvionOnline.Intege"
+  "r\022\r\n\005Index\030\003 \001(\005\"\207\001\n\022Vec2i_Set_Mutation\022"
+  "%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPath\022$"
+  "\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Vec2i\022$\n\010"
+  "OldValue\030\003 \001(\0132\022.IvionOnline.Vec2i\"x\n\032Li"
+  "st_Vec2i_Insert_Mutation\022%\n\004Path\030\001 \001(\0132\027"
+  ".IvionOnline.ObjectPath\022$\n\010NewValue\030\002 \001("
+  "\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001(\005\"x\n\032"
+  "List_Vec2i_Remove_Mutation\022%\n\004Path\030\001 \001(\013"
+  "2\027.IvionOnline.ObjectPath\022$\n\010OldValue\030\002 "
+  "\001(\0132\022.IvionOnline.Vec2i\022\r\n\005Index\030\003 \001(\005\"\215"
+  "\001\n\024Terrain_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027."
+  "IvionOnline.ObjectPath\022&\n\010NewValue\030\002 \001(\013"
+  "2\024.IvionOnline.Terrain\022&\n\010OldValue\030\003 \001(\013"
+  "2\024.IvionOnline.Terrain\"|\n\034List_Terrain_I"
+  "nsert_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionOnli"
+  "ne.ObjectPath\022&\n\010NewValue\030\002 \001(\0132\024.IvionO"
+  "nline.Terrain\022\r\n\005Index\030\003 \001(\005\"|\n\034List_Ter"
+  "rain_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027.Ivi"
+  "onOnline.ObjectPath\022&\n\010OldValue\030\002 \001(\0132\024."
+  "IvionOnline.Terrain\022\r\n\005Index\030\003 \001(\005\"\207\001\n\022C"
+  "olor_Set_Mutation\022%\n\004Path\030\001 \001(\0132\027.IvionO"
+  "nline.ObjectPath\022$\n\010NewValue\030\002 \001(\0132\022.Ivi"
+  "onOnline.Color\022$\n\010OldValue\030\003 \001(\0132\022.Ivion"
+  "Online.Color\"x\n\032List_Color_Insert_Mutati"
+  "on\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectPat"
+  "h\022$\n\010NewValue\030\002 \001(\0132\022.IvionOnline.Color\022"
+  "\r\n\005Index\030\003 \001(\005\"x\n\032List_Color_Remove_Muta"
+  "tion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectP"
+  "ath\022$\n\010OldValue\030\002 \001(\0132\022.IvionOnline.Colo"
+  "r\022\r\n\005Index\030\003 \001(\005\"\226\001\n\027ObjectPath_Set_Muta"
+  "tion\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.ObjectP"
+  "ath\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline.Obje"
+  "ctPath\022)\n\010OldValue\030\003 \001(\0132\027.IvionOnline.O"
+  "bjectPath\"\202\001\n\037List_ObjectPath_Insert_Mut"
+  "ation\022%\n\004Path\030\001 \001(\0132\027.IvionOnline.Object"
+  "Path\022)\n\010NewValue\030\002 \001(\0132\027.IvionOnline.Obj"
+  "ectPath\022\r\n\005Index\030\003 \001(\005\"\202\001\n\037List_ObjectPa"
+  "th_Remove_Mutation\022%\n\004Path\030\001 \001(\0132\027.Ivion"
+  "Online.ObjectPath\022)\n\010OldValue\030\002 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022\r\n\005Index\030\003 \001(\005\"\201\013\n\010"
+  "Mutation\022A\n\024Boolean_Set_Mutation\030\001 \001(\0132!"
+  ".IvionOnline.Boolean_Set_MutationH\000\022Q\n\034L"
+  "ist_Boolean_Insert_Mutation\030\002 \001(\0132).Ivio"
+  "nOnline.List_Boolean_Insert_MutationH\000\022Q"
+  "\n\034List_Boolean_Remove_Mutation\030\003 \001(\0132).I"
+  "vionOnline.List_Boolean_Remove_MutationH"
+  "\000\022A\n\024Integer_Set_Mutation\030\004 \001(\0132!.IvionO"
+  "nline.Integer_Set_MutationH\000\022Q\n\034List_Int"
+  "eger_Insert_Mutation\030\005 \001(\0132).IvionOnline"
+  ".List_Integer_Insert_MutationH\000\022Q\n\034List_"
+  "Integer_Remove_Mutation\030\006 \001(\0132).IvionOnl"
+  "ine.List_Integer_Remove_MutationH\000\022=\n\022Ve"
+  "c2i_Set_Mutation\030\007 \001(\0132\037.IvionOnline.Vec"
+  "2i_Set_MutationH\000\022M\n\032List_Vec2i_Insert_M"
+  "utation\030\010 \001(\0132\'.IvionOnline.List_Vec2i_I"
+  "nsert_MutationH\000\022M\n\032List_Vec2i_Remove_Mu"
+  "tation\030\t \001(\0132\'.IvionOnline.List_Vec2i_Re"
+  "move_MutationH\000\022A\n\024Terrain_Set_Mutation\030"
+  "\n \001(\0132!.IvionOnline.Terrain_Set_Mutation"
+  "H\000\022Q\n\034List_Terrain_Insert_Mutation\030\013 \001(\013"
+  "2).IvionOnline.List_Terrain_Insert_Mutat"
+  "ionH\000\022Q\n\034List_Terrain_Remove_Mutation\030\014 "
+  "\001(\0132).IvionOnline.List_Terrain_Remove_Mu"
+  "tationH\000\022=\n\022Color_Set_Mutation\030\r \001(\0132\037.I"
+  "vionOnline.Color_Set_MutationH\000\022M\n\032List_"
+  "Color_Insert_Mutation\030\016 \001(\0132\'.IvionOnlin"
+  "e.List_Color_Insert_MutationH\000\022M\n\032List_C"
+  "olor_Remove_Mutation\030\017 \001(\0132\'.IvionOnline"
+  ".List_Color_Remove_MutationH\000\022G\n\027ObjectP"
+  "ath_Set_Mutation\030\020 \001(\0132$.IvionOnline.Obj"
+  "ectPath_Set_MutationH\000\022W\n\037List_ObjectPat"
+  "h_Insert_Mutation\030\021 \001(\0132,.IvionOnline.Li"
+  "st_ObjectPath_Insert_MutationH\000\022W\n\037List_"
+  "ObjectPath_Remove_Mutation\030\022 \001(\0132,.Ivion"
+  "Online.List_ObjectPath_Remove_MutationH\000"
+  "B\005\n\003mut\"\230\001\n\007GetList\022\'\n\006Source\030\001 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\022,\n\006Result\030\002 \001(\0132\034.I"
+  "vionOnline.List_ObjectPath\022\014\n\004Name\030\003 \001(\t"
+  "\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline.ObjectPa"
+  "th\"\317\001\n\016FilterDistance\022(\n\007Targets\030\001 \001(\0132\027"
+  ".IvionOnline.ObjectPath\022-\n\014RangeSources\030"
+  "\002 \001(\0132\027.IvionOnline.ObjectPath\022,\n\013MaxDis"
+  "tance\030\003 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004"
+  "Name\030\004 \001(\t\022(\n\007AbsPath\030\005 \001(\0132\027.IvionOnlin"
+  "e.ObjectPath\"\357\001\n\016SelectMultiple\022\'\n\006Sourc"
+  "e\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006Numb"
+  "er\030\002 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004UpT"
+  "o\030\003 \001(\0132\027.IvionOnline.ObjectPath\022,\n\006Resu"
+  "lt\030\004 \001(\0132\034.IvionOnline.List_ObjectPath\022\014"
+  "\n\004Name\030\005 \001(\t\022(\n\007AbsPath\030\006 \001(\0132\027.IvionOnl"
+  "ine.ObjectPath\"\234\001\n\020SelectExactlyOne\022\'\n\006S"
+  "ource\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006"
+  "Result\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n"
+  "\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnli"
+  "ne.ObjectPath\"O\n\025AssertControlOrHeroic\022\014"
+  "\n\004Name\030\001 \001(\t\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnl"
+  "ine.ObjectPath\"U\n\033AssertControllerHasPri"
+  "ority\022\014\n\004Name\030\001 \001(\t\022(\n\007AbsPath\030\002 \001(\0132\027.I"
+  "vionOnline.ObjectPath\"S\n\031AssertStackEmpt"
+  "yOrInstant\022\014\n\004Name\030\001 \001(\t\022(\n\007AbsPath\030\002 \001("
+  "\0132\027.IvionOnline.ObjectPath\"\255\002\n\nReduceCos"
+  "t\022%\n\004Card\030\001 \001(\0132\027.IvionOnline.ObjectPath"
+  "\0224\n\023ActionCostReduction\030\002 \001(\0132\027.IvionOnl"
+  "ine.ObjectPath\0223\n\022PowerCostReduction\030\003 \001"
+  "(\0132\027.IvionOnline.ObjectPath\022.\n\rCostReduc"
+  "tion\030\004 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004F"
+  "ree\030\005 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Na"
+  "me\030\006 \001(\t\022(\n\007AbsPath\030\007 \001(\0132\027.IvionOnline."
+  "ObjectPath\"\221\001\n\007PayCost\022\'\n\006Player\030\001 \001(\0132\027"
+  ".IvionOnline.ObjectPath\022%\n\004Card\030\002 \001(\0132\027."
+  "IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007"
+  "AbsPath\030\004 \001(\0132\027.IvionOnline.ObjectPath\"\233"
+  "\001\n\021PlayGainResources\022\'\n\006Player\030\001 \001(\0132\027.I"
+  "vionOnline.ObjectPath\022%\n\004Card\030\002 \001(\0132\027.Iv"
   "ionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007Ab"
-  "sPath\030\004 \001(\0132\027.IvionOnline.ObjectPath\"O\n\025"
-  "AssertControlOrHeroic\022\014\n\004Name\030\001 \001(\t\022(\n\007A"
-  "bsPath\030\002 \001(\0132\027.IvionOnline.ObjectPath\"U\n"
-  "\033AssertControllerHasPriority\022\014\n\004Name\030\001 \001"
-  "(\t\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.Object"
-  "Path\"S\n\031AssertStackEmptyOrInstant\022\014\n\004Nam"
-  "e\030\001 \001(\t\022(\n\007AbsPath\030\002 \001(\0132\027.IvionOnline.O"
-  "bjectPath\"\255\002\n\nReduceCost\022%\n\004Card\030\001 \001(\0132\027"
-  ".IvionOnline.ObjectPath\0224\n\023ActionCostRed"
-  "uction\030\002 \001(\0132\027.IvionOnline.ObjectPath\0223\n"
-  "\022PowerCostReduction\030\003 \001(\0132\027.IvionOnline."
-  "ObjectPath\022.\n\rCostReduction\030\004 \001(\0132\027.Ivio"
-  "nOnline.ObjectPath\022%\n\004Free\030\005 \001(\0132\027.Ivion"
-  "Online.ObjectPath\022\014\n\004Name\030\006 \001(\t\022(\n\007AbsPa"
-  "th\030\007 \001(\0132\027.IvionOnline.ObjectPath\"\221\001\n\007Pa"
-  "yCost\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Obje"
-  "ctPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.Objec"
-  "tPath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.I"
-  "vionOnline.ObjectPath\"\233\001\n\021PlayGainResour"
-  "ces\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Object"
-  "Path\022%\n\004Card\030\002 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.Ivi"
-  "onOnline.ObjectPath\"\224\001\n\nRefundCost\022\'\n\006Pl"
-  "ayer\030\001 \001(\0132\027.IvionOnline.ObjectPath\022%\n\004C"
-  "ard\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Na"
-  "me\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline."
-  "ObjectPath\"\226\001\n\013GainActions\022\'\n\006Player\030\001 \001"
-  "(\0132\027.IvionOnline.ObjectPath\022&\n\005Value\030\002 \001"
+  "sPath\030\004 \001(\0132\027.IvionOnline.ObjectPath\"\224\001\n"
+  "\nRefundCost\022\'\n\006Player\030\001 \001(\0132\027.IvionOnlin"
+  "e.ObjectPath\022%\n\004Card\030\002 \001(\0132\027.IvionOnline"
+  ".ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001"
+  "(\0132\027.IvionOnline.ObjectPath\"\226\001\n\013GainActi"
+  "ons\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Object"
+  "Path\022&\n\005Value\030\002 \001(\0132\027.IvionOnline.Object"
+  "Path\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\"\224\001\n\tGainPower\022\'\n\006Pl"
+  "ayer\030\001 \001(\0132\027.IvionOnline.ObjectPath\022&\n\005V"
+  "alue\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004N"
+  "ame\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline"
+  ".ObjectPath\"\225\001\n\004Move\022\'\n\006Player\030\001 \001(\0132\027.I"
+  "vionOnline.ObjectPath\022,\n\013Destination\030\002 \001"
   "(\0132\027.IvionOnline.ObjectPath\022\014\n\004Name\030\003 \001("
   "\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\"\224\001\n\tGainPower\022\'\n\006Player\030\001 \001(\0132\027.Ivio"
-  "nOnline.ObjectPath\022&\n\005Value\030\002 \001(\0132\027.Ivio"
-  "nOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsP"
-  "ath\030\004 \001(\0132\027.IvionOnline.ObjectPath\"\225\001\n\004M"
-  "ove\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.Object"
-  "Path\022,\n\013Destination\030\002 \001(\0132\027.IvionOnline."
+  "ath\"\227\001\n\006Travel\022\'\n\006Player\030\001 \001(\0132\027.IvionOn"
+  "line.ObjectPath\022,\n\013Destination\030\002 \001(\0132\027.I"
+  "vionOnline.ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007A"
+  "bsPath\030\004 \001(\0132\027.IvionOnline.ObjectPath\"\222\001"
+  "\n\006Damage\022\'\n\006Player\030\001 \001(\0132\027.IvionOnline.O"
+  "bjectPath\022\'\n\006Amount\030\002 \001(\0132\027.IvionOnline."
   "ObjectPath\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001("
-  "\0132\027.IvionOnline.ObjectPath\"\227\001\n\006Travel\022\'\n"
-  "\006Player\030\001 \001(\0132\027.IvionOnline.ObjectPath\022,"
-  "\n\013Destination\030\002 \001(\0132\027.IvionOnline.Object"
-  "Path\022\014\n\004Name\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.Iv"
-  "ionOnline.ObjectPath\"\222\001\n\006Damage\022\'\n\006Playe"
-  "r\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\'\n\006Amou"
-  "nt\030\002 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004Nam"
-  "e\030\003 \001(\t\022(\n\007AbsPath\030\004 \001(\0132\027.IvionOnline.O"
-  "bjectPath\"p\n\020Boolean_Constant\022$\n\006Result\030"
-  "\001 \001(\0132\024.IvionOnline.Boolean\022\014\n\004Name\030\002 \001("
-  "\t\022(\n\007AbsPath\030\003 \001(\0132\027.IvionOnline.ObjectP"
-  "ath\"p\n\020Integer_Constant\022$\n\006Result\030\001 \001(\0132"
-  "\024.IvionOnline.Integer\022\014\n\004Name\030\002 \001(\t\022(\n\007A"
-  "bsPath\030\003 \001(\0132\027.IvionOnline.ObjectPath\"l\n"
-  "\016Vec2i_Constant\022\"\n\006Result\030\001 \001(\0132\022.IvionO"
-  "nline.Vec2i\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 \001"
-  "(\0132\027.IvionOnline.ObjectPath\"p\n\020Terrain_C"
-  "onstant\022$\n\006Result\030\001 \001(\0132\024.IvionOnline.Te"
-  "rrain\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 \001(\0132\027.I"
-  "vionOnline.ObjectPath\"l\n\016Color_Constant\022"
-  "\"\n\006Result\030\001 \001(\0132\022.IvionOnline.Color\022\014\n\004N"
-  "ame\030\002 \001(\t\022(\n\007AbsPath\030\003 \001(\0132\027.IvionOnline"
-  ".ObjectPath\"v\n\023ObjectPath_Constant\022\'\n\006Re"
-  "sult\030\001 \001(\0132\027.IvionOnline.ObjectPath\022\014\n\004N"
-  "ame\030\002 \001(\t\022(\n\007AbsPath\030\003 \001(\0132\027.IvionOnline"
-  ".ObjectPath\"\273\t\n\006Method\022\'\n\007GetList\030\001 \001(\0132"
-  "\024.IvionOnline.GetListH\000\0225\n\016FilterDistanc"
-  "e\030\002 \001(\0132\033.IvionOnline.FilterDistanceH\000\0225"
-  "\n\016SelectMultiple\030\003 \001(\0132\033.IvionOnline.Sel"
-  "ectMultipleH\000\0229\n\020SelectExactlyOne\030\004 \001(\0132"
-  "\035.IvionOnline.SelectExactlyOneH\000\022C\n\025Asse"
-  "rtControlOrHeroic\030\005 \001(\0132\".IvionOnline.As"
-  "sertControlOrHeroicH\000\022O\n\033AssertControlle"
-  "rHasPriority\030\006 \001(\0132(.IvionOnline.AssertC"
-  "ontrollerHasPriorityH\000\022K\n\031AssertStackEmp"
-  "tyOrInstant\030\007 \001(\0132&.IvionOnline.AssertSt"
-  "ackEmptyOrInstantH\000\022-\n\nReduceCost\030\010 \001(\0132"
-  "\027.IvionOnline.ReduceCostH\000\022\'\n\007PayCost\030\t "
-  "\001(\0132\024.IvionOnline.PayCostH\000\022;\n\021PlayGainR"
-  "esources\030\n \001(\0132\036.IvionOnline.PlayGainRes"
-  "ourcesH\000\022-\n\nRefundCost\030\013 \001(\0132\027.IvionOnli"
-  "ne.RefundCostH\000\022/\n\013GainActions\030\014 \001(\0132\030.I"
-  "vionOnline.GainActionsH\000\022+\n\tGainPower\030\r "
-  "\001(\0132\026.IvionOnline.GainPowerH\000\022!\n\004Move\030\016 "
-  "\001(\0132\021.IvionOnline.MoveH\000\022%\n\006Travel\030\017 \001(\013"
-  "2\023.IvionOnline.TravelH\000\022%\n\006Damage\030\020 \001(\0132"
-  "\023.IvionOnline.DamageH\000\0229\n\020Boolean_Consta"
-  "nt\030\021 \001(\0132\035.IvionOnline.Boolean_ConstantH"
-  "\000\0229\n\020Integer_Constant\030\022 \001(\0132\035.IvionOnlin"
-  "e.Integer_ConstantH\000\0225\n\016Vec2i_Constant\030\023"
-  " \001(\0132\033.IvionOnline.Vec2i_ConstantH\000\0229\n\020T"
-  "errain_Constant\030\024 \001(\0132\035.IvionOnline.Terr"
-  "ain_ConstantH\000\0225\n\016Color_Constant\030\025 \001(\0132\033"
-  ".IvionOnline.Color_ConstantH\000\022\?\n\023ObjectP"
-  "ath_Constant\030\026 \001(\0132 .IvionOnline.ObjectP"
-  "ath_ConstantH\000B\t\n\007methods\"k\n\013List_Method"
-  "\022$\n\007element\030\001 \003(\0132\023.IvionOnline.Method\022\014"
+  "\0132\027.IvionOnline.ObjectPath\"p\n\020Boolean_Co"
+  "nstant\022$\n\006Result\030\001 \001(\0132\024.IvionOnline.Boo"
+  "lean\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 \001(\0132\027.Iv"
+  "ionOnline.ObjectPath\"p\n\020Integer_Constant"
+  "\022$\n\006Result\030\001 \001(\0132\024.IvionOnline.Integer\022\014"
   "\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 \001(\0132\027.IvionOnl"
-  "ine.ObjectPath*\367\n\n\nObjectType\022\r\n\tTYPE_NO"
-  "NE\020\000\022\020\n\014TYPE_BOOLEAN\020\001\022\025\n\021TYPE_LIST_BOOL"
-  "EAN\020\002\022\031\n\025TYPE_LIST_REF_BOOLEAN\020\003\022\020\n\014TYPE"
-  "_INTEGER\020\004\022\025\n\021TYPE_LIST_INTEGER\020\005\022\031\n\025TYP"
-  "E_LIST_REF_INTEGER\020\006\022\016\n\nTYPE_VEC2I\020\007\022\023\n\017"
-  "TYPE_LIST_VEC2I\020\010\022\027\n\023TYPE_LIST_REF_VEC2I"
-  "\020\t\022\020\n\014TYPE_TERRAIN\020\n\022\025\n\021TYPE_LIST_TERRAI"
-  "N\020\013\022\031\n\025TYPE_LIST_REF_TERRAIN\020\014\022\016\n\nTYPE_C"
-  "OLOR\020\r\022\023\n\017TYPE_LIST_COLOR\020\016\022\027\n\023TYPE_LIST"
-  "_REF_COLOR\020\017\022\023\n\017TYPE_OBJECTPATH\020\020\022\030\n\024TYP"
-  "E_LIST_OBJECTPATH\020\021\022\034\n\030TYPE_LIST_REF_OBJ"
-  "ECTPATH\020\022\022\017\n\013TYPE_PLAYER\020\023\022\024\n\020TYPE_LIST_"
-  "PLAYER\020\024\022\030\n\024TYPE_LIST_REF_PLAYER\020\025\022\r\n\tTY"
-  "PE_TEAM\020\026\022\022\n\016TYPE_LIST_TEAM\020\027\022\026\n\022TYPE_LI"
-  "ST_REF_TEAM\020\030\022\r\n\tTYPE_CARD\020\031\022\022\n\016TYPE_LIS"
-  "T_CARD\020\032\022\026\n\022TYPE_LIST_REF_CARD\020\033\022\021\n\rTYPE"
-  "_CARDDATA\020\034\022\026\n\022TYPE_LIST_CARDDATA\020\035\022\032\n\026T"
-  "YPE_LIST_REF_CARDDATA\020\036\022\r\n\tTYPE_TILE\020\037\022\022"
-  "\n\016TYPE_LIST_TILE\020 \022\026\n\022TYPE_LIST_REF_TILE"
-  "\020!\022\022\n\016TYPE_GAMESTATE\020\"\022\027\n\023TYPE_LIST_GAME"
-  "STATE\020#\022\033\n\027TYPE_LIST_REF_GAMESTATE\020$\022\020\n\014"
-  "TYPE_GETLIST\020%\022\031\n\025TYPE_BOOLEAN_CONSTANT\020"
-  "&\022\031\n\025TYPE_INTEGER_CONSTANT\020\'\022\027\n\023TYPE_VEC"
-  "2I_CONSTANT\020(\022\031\n\025TYPE_TERRAIN_CONSTANT\020)"
-  "\022\027\n\023TYPE_COLOR_CONSTANT\020*\022\034\n\030TYPE_OBJECT"
-  "PATH_CONSTANT\020+\022\027\n\023TYPE_FILTERDISTANCE\020,"
-  "\022\027\n\023TYPE_SELECTMULTIPLE\020-\022\031\n\025TYPE_SELECT"
-  "EXACTLYONE\020.\022\036\n\032TYPE_ASSERTCONTROLORHERO"
-  "IC\020/\022$\n TYPE_ASSERTCONTROLLERHASPRIORITY"
-  "\0200\022\"\n\036TYPE_ASSERTSTACKEMPTYORINSTANT\0201\022\023"
-  "\n\017TYPE_REDUCECOST\0202\022\020\n\014TYPE_PAYCOST\0203\022\032\n"
-  "\026TYPE_PLAYGAINRESOURCES\0204\022\023\n\017TYPE_REFUND"
-  "COST\0205\022\024\n\020TYPE_GAINACTIONS\0206\022\022\n\016TYPE_GAI"
-  "NPOWER\0207\022\r\n\tTYPE_MOVE\0208\022\017\n\013TYPE_TRAVEL\0209"
-  "\022\017\n\013TYPE_DAMAGE\020:\022\017\n\013TYPE_METHOD\020;\022\024\n\020TY"
-  "PE_LIST_METHOD\020<b\006proto3"
+  "ine.ObjectPath\"l\n\016Vec2i_Constant\022\"\n\006Resu"
+  "lt\030\001 \001(\0132\022.IvionOnline.Vec2i\022\014\n\004Name\030\002 \001"
+  "(\t\022(\n\007AbsPath\030\003 \001(\0132\027.IvionOnline.Object"
+  "Path\"p\n\020Terrain_Constant\022$\n\006Result\030\001 \001(\013"
+  "2\024.IvionOnline.Terrain\022\014\n\004Name\030\002 \001(\t\022(\n\007"
+  "AbsPath\030\003 \001(\0132\027.IvionOnline.ObjectPath\"l"
+  "\n\016Color_Constant\022\"\n\006Result\030\001 \001(\0132\022.Ivion"
+  "Online.Color\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 "
+  "\001(\0132\027.IvionOnline.ObjectPath\"v\n\023ObjectPa"
+  "th_Constant\022\'\n\006Result\030\001 \001(\0132\027.IvionOnlin"
+  "e.ObjectPath\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath\030\003 "
+  "\001(\0132\027.IvionOnline.ObjectPath\"\273\t\n\006Method\022"
+  "\'\n\007GetList\030\001 \001(\0132\024.IvionOnline.GetListH\000"
+  "\0225\n\016FilterDistance\030\002 \001(\0132\033.IvionOnline.F"
+  "ilterDistanceH\000\0225\n\016SelectMultiple\030\003 \001(\0132"
+  "\033.IvionOnline.SelectMultipleH\000\0229\n\020Select"
+  "ExactlyOne\030\004 \001(\0132\035.IvionOnline.SelectExa"
+  "ctlyOneH\000\022C\n\025AssertControlOrHeroic\030\005 \001(\013"
+  "2\".IvionOnline.AssertControlOrHeroicH\000\022O"
+  "\n\033AssertControllerHasPriority\030\006 \001(\0132(.Iv"
+  "ionOnline.AssertControllerHasPriorityH\000\022"
+  "K\n\031AssertStackEmptyOrInstant\030\007 \001(\0132&.Ivi"
+  "onOnline.AssertStackEmptyOrInstantH\000\022-\n\n"
+  "ReduceCost\030\010 \001(\0132\027.IvionOnline.ReduceCos"
+  "tH\000\022\'\n\007PayCost\030\t \001(\0132\024.IvionOnline.PayCo"
+  "stH\000\022;\n\021PlayGainResources\030\n \001(\0132\036.IvionO"
+  "nline.PlayGainResourcesH\000\022-\n\nRefundCost\030"
+  "\013 \001(\0132\027.IvionOnline.RefundCostH\000\022/\n\013Gain"
+  "Actions\030\014 \001(\0132\030.IvionOnline.GainActionsH"
+  "\000\022+\n\tGainPower\030\r \001(\0132\026.IvionOnline.GainP"
+  "owerH\000\022!\n\004Move\030\016 \001(\0132\021.IvionOnline.MoveH"
+  "\000\022%\n\006Travel\030\017 \001(\0132\023.IvionOnline.TravelH\000"
+  "\022%\n\006Damage\030\020 \001(\0132\023.IvionOnline.DamageH\000\022"
+  "9\n\020Boolean_Constant\030\021 \001(\0132\035.IvionOnline."
+  "Boolean_ConstantH\000\0229\n\020Integer_Constant\030\022"
+  " \001(\0132\035.IvionOnline.Integer_ConstantH\000\0225\n"
+  "\016Vec2i_Constant\030\023 \001(\0132\033.IvionOnline.Vec2"
+  "i_ConstantH\000\0229\n\020Terrain_Constant\030\024 \001(\0132\035"
+  ".IvionOnline.Terrain_ConstantH\000\0225\n\016Color"
+  "_Constant\030\025 \001(\0132\033.IvionOnline.Color_Cons"
+  "tantH\000\022\?\n\023ObjectPath_Constant\030\026 \001(\0132 .Iv"
+  "ionOnline.ObjectPath_ConstantH\000B\t\n\007metho"
+  "ds\"k\n\013List_Method\022$\n\007element\030\001 \003(\0132\023.Ivi"
+  "onOnline.Method\022\014\n\004Name\030\002 \001(\t\022(\n\007AbsPath"
+  "\030\003 \001(\0132\027.IvionOnline.ObjectPath*\367\n\n\nObje"
+  "ctType\022\r\n\tTYPE_NONE\020\000\022\020\n\014TYPE_BOOLEAN\020\001\022"
+  "\025\n\021TYPE_LIST_BOOLEAN\020\002\022\031\n\025TYPE_LIST_REF_"
+  "BOOLEAN\020\003\022\020\n\014TYPE_INTEGER\020\004\022\025\n\021TYPE_LIST"
+  "_INTEGER\020\005\022\031\n\025TYPE_LIST_REF_INTEGER\020\006\022\016\n"
+  "\nTYPE_VEC2I\020\007\022\023\n\017TYPE_LIST_VEC2I\020\010\022\027\n\023TY"
+  "PE_LIST_REF_VEC2I\020\t\022\020\n\014TYPE_TERRAIN\020\n\022\025\n"
+  "\021TYPE_LIST_TERRAIN\020\013\022\031\n\025TYPE_LIST_REF_TE"
+  "RRAIN\020\014\022\016\n\nTYPE_COLOR\020\r\022\023\n\017TYPE_LIST_COL"
+  "OR\020\016\022\027\n\023TYPE_LIST_REF_COLOR\020\017\022\023\n\017TYPE_OB"
+  "JECTPATH\020\020\022\030\n\024TYPE_LIST_OBJECTPATH\020\021\022\034\n\030"
+  "TYPE_LIST_REF_OBJECTPATH\020\022\022\017\n\013TYPE_PLAYE"
+  "R\020\023\022\024\n\020TYPE_LIST_PLAYER\020\024\022\030\n\024TYPE_LIST_R"
+  "EF_PLAYER\020\025\022\r\n\tTYPE_TEAM\020\026\022\022\n\016TYPE_LIST_"
+  "TEAM\020\027\022\026\n\022TYPE_LIST_REF_TEAM\020\030\022\r\n\tTYPE_C"
+  "ARD\020\031\022\022\n\016TYPE_LIST_CARD\020\032\022\026\n\022TYPE_LIST_R"
+  "EF_CARD\020\033\022\021\n\rTYPE_CARDDATA\020\034\022\026\n\022TYPE_LIS"
+  "T_CARDDATA\020\035\022\032\n\026TYPE_LIST_REF_CARDDATA\020\036"
+  "\022\r\n\tTYPE_TILE\020\037\022\022\n\016TYPE_LIST_TILE\020 \022\026\n\022T"
+  "YPE_LIST_REF_TILE\020!\022\022\n\016TYPE_GAMESTATE\020\"\022"
+  "\027\n\023TYPE_LIST_GAMESTATE\020#\022\033\n\027TYPE_LIST_RE"
+  "F_GAMESTATE\020$\022\020\n\014TYPE_GETLIST\020%\022\031\n\025TYPE_"
+  "BOOLEAN_CONSTANT\020&\022\031\n\025TYPE_INTEGER_CONST"
+  "ANT\020\'\022\027\n\023TYPE_VEC2I_CONSTANT\020(\022\031\n\025TYPE_T"
+  "ERRAIN_CONSTANT\020)\022\027\n\023TYPE_COLOR_CONSTANT"
+  "\020*\022\034\n\030TYPE_OBJECTPATH_CONSTANT\020+\022\027\n\023TYPE"
+  "_FILTERDISTANCE\020,\022\027\n\023TYPE_SELECTMULTIPLE"
+  "\020-\022\031\n\025TYPE_SELECTEXACTLYONE\020.\022\036\n\032TYPE_AS"
+  "SERTCONTROLORHEROIC\020/\022$\n TYPE_ASSERTCONT"
+  "ROLLERHASPRIORITY\0200\022\"\n\036TYPE_ASSERTSTACKE"
+  "MPTYORINSTANT\0201\022\023\n\017TYPE_REDUCECOST\0202\022\020\n\014"
+  "TYPE_PAYCOST\0203\022\032\n\026TYPE_PLAYGAINRESOURCES"
+  "\0204\022\023\n\017TYPE_REFUNDCOST\0205\022\024\n\020TYPE_GAINACTI"
+  "ONS\0206\022\022\n\016TYPE_GAINPOWER\0207\022\r\n\tTYPE_MOVE\0208"
+  "\022\017\n\013TYPE_TRAVEL\0209\022\017\n\013TYPE_DAMAGE\020:\022\017\n\013TY"
+  "PE_METHOD\020;\022\024\n\020TYPE_LIST_METHOD\020<b\006proto"
+  "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameState_2eproto_deps[1] = {
 };
@@ -2620,7 +2624,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_Gam
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameState_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameState_2eproto = {
-  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 14504,
+  false, false, descriptor_table_protodef_GameState_2eproto, "GameState.proto", 14561,
   &descriptor_table_GameState_2eproto_once, descriptor_table_GameState_2eproto_sccs, descriptor_table_GameState_2eproto_deps, 68, 0,
   schemas, file_default_instances, TableStruct_GameState_2eproto::offsets,
   file_level_metadata_GameState_2eproto, 68, file_level_enum_descriptors_GameState_2eproto, file_level_service_descriptors_GameState_2eproto,
@@ -5850,8 +5854,13 @@ void List_Color::InternalSwap(List_Color* other) {
 
 class ObjectPath::_Internal {
  public:
+  static const ::IvionOnline::ObjectPath& abspath(const ObjectPath* msg);
 };
 
+const ::IvionOnline::ObjectPath&
+ObjectPath::_Internal::abspath(const ObjectPath* msg) {
+  return *msg->abspath_;
+}
 ObjectPath::ObjectPath(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   path_(arena) {
@@ -5863,13 +5872,27 @@ ObjectPath::ObjectPath(const ObjectPath& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       path_(from.path_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  if (from._internal_has_abspath()) {
+    abspath_ = new ::IvionOnline::ObjectPath(*from.abspath_);
+  } else {
+    abspath_ = nullptr;
+  }
   object_type_ = from.object_type_;
   // @@protoc_insertion_point(copy_constructor:IvionOnline.ObjectPath)
 }
 
 void ObjectPath::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ObjectPath_GameState_2eproto.base);
-  object_type_ = 0;
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&abspath_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&object_type_) -
+      reinterpret_cast<char*>(&abspath_)) + sizeof(object_type_));
 }
 
 ObjectPath::~ObjectPath() {
@@ -5880,6 +5903,8 @@ ObjectPath::~ObjectPath() {
 
 void ObjectPath::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete abspath_;
 }
 
 void ObjectPath::ArenaDtor(void* object) {
@@ -5904,6 +5929,11 @@ void ObjectPath::Clear() {
   (void) cached_has_bits;
 
   path_.Clear();
+  name_.ClearToEmpty();
+  if (GetArena() == nullptr && abspath_ != nullptr) {
+    delete abspath_;
+  }
+  abspath_ = nullptr;
   object_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -5935,6 +5965,22 @@ const char* ObjectPath::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_object_type(static_cast<::IvionOnline::ObjectType>(val));
+        } else goto handle_unusual;
+        continue;
+      // .IvionOnline.ObjectPath AbsPath = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_abspath(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string Name = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "IvionOnline.ObjectPath.Name"));
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -5982,6 +6028,24 @@ failure:
       2, this->_internal_object_type(), target);
   }
 
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  if (this->has_abspath()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::abspath(this), target, stream);
+  }
+
+  // string Name = 4;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "IvionOnline.ObjectPath.Name");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_name(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6004,6 +6068,20 @@ size_t ObjectPath::ByteSizeLong() const {
   for (int i = 0, n = path_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
       path_.Get(i));
+  }
+
+  // string Name = 4;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // .IvionOnline.ObjectPath AbsPath = 3;
+  if (this->has_abspath()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *abspath_);
   }
 
   // .IvionOnline.ObjectType Object_Type = 2;
@@ -6044,6 +6122,12 @@ void ObjectPath::MergeFrom(const ObjectPath& from) {
   (void) cached_has_bits;
 
   path_.MergeFrom(from.path_);
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.has_abspath()) {
+    _internal_mutable_abspath()->::IvionOnline::ObjectPath::MergeFrom(from._internal_abspath());
+  }
   if (from.object_type() != 0) {
     _internal_set_object_type(from._internal_object_type());
   }
@@ -6071,7 +6155,13 @@ void ObjectPath::InternalSwap(ObjectPath* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   path_.InternalSwap(&other->path_);
-  swap(object_type_, other->object_type_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ObjectPath, object_type_)
+      + sizeof(ObjectPath::object_type_)
+      - PROTOBUF_FIELD_OFFSET(ObjectPath, abspath_)>(
+          reinterpret_cast<char*>(&abspath_),
+          reinterpret_cast<char*>(&other->abspath_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ObjectPath::GetMetadata() const {

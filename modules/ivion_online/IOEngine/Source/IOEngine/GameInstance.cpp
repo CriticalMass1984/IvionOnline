@@ -65,6 +65,7 @@ void GameInstance::Init(const IvionOnline::GameInfo &info) {
 			tile->mutable_terrain()->set_value(IvionOnline::Terrain_Terrain_Type_TERRAIN_TYPE_NONE);
 			tile->mutable_position()->set_x(x);
 			tile->mutable_position()->set_y(y);
+			assert(ObjectIsValid(tile));
 		}
 	}
 }

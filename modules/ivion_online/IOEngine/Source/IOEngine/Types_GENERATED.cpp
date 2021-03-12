@@ -1,6 +1,14 @@
 #include <IOEngine/Types_GENERATED.hpp>
 
 namespace IO {
+IvionOnline::ObjectPath* Initialize(IvionOnline::ObjectPath* obj, const IvionOnline::ObjectPath& root, const std::string& name){
+	obj->set_name(name);
+	obj->mutable_abspath()->CopyFrom(root);
+	obj->mutable_abspath()->add_path(name);
+	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_OBJECTPATH);
+	assert(ObjectIsValid(obj));
+	return obj;
+}
 IvionOnline::List_ObjectPath* Initialize(IvionOnline::List_ObjectPath* obj, const IvionOnline::ObjectPath& root, const std::string& name){
 	obj->set_name(name);
 	obj->mutable_abspath()->CopyFrom(root);
@@ -103,6 +111,7 @@ IvionOnline::GetList* Initialize(IvionOnline::GetList* obj, const IvionOnline::O
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GETLIST);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
+	Initialize(obj->mutable_source(), obj->abspath(), "Source");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -111,6 +120,9 @@ IvionOnline::FilterDistance* Initialize(IvionOnline::FilterDistance* obj, const 
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_FILTERDISTANCE);
+	Initialize(obj->mutable_targets(), obj->abspath(), "Targets");
+	Initialize(obj->mutable_rangesources(), obj->abspath(), "RangeSources");
+	Initialize(obj->mutable_maxdistance(), obj->abspath(), "MaxDistance");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -120,6 +132,9 @@ IvionOnline::SelectMultiple* Initialize(IvionOnline::SelectMultiple* obj, const 
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_SELECTMULTIPLE);
 	Initialize(obj->mutable_result(), obj->abspath(), "Result");
+	Initialize(obj->mutable_source(), obj->abspath(), "Source");
+	Initialize(obj->mutable_number(), obj->abspath(), "Number");
+	Initialize(obj->mutable_upto(), obj->abspath(), "UpTo");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -128,6 +143,8 @@ IvionOnline::SelectExactlyOne* Initialize(IvionOnline::SelectExactlyOne* obj, co
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_SELECTEXACTLYONE);
+	Initialize(obj->mutable_result(), obj->abspath(), "Result");
+	Initialize(obj->mutable_source(), obj->abspath(), "Source");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -160,6 +177,11 @@ IvionOnline::ReduceCost* Initialize(IvionOnline::ReduceCost* obj, const IvionOnl
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_REDUCECOST);
+	Initialize(obj->mutable_card(), obj->abspath(), "Card");
+	Initialize(obj->mutable_actioncostreduction(), obj->abspath(), "ActionCostReduction");
+	Initialize(obj->mutable_powercostreduction(), obj->abspath(), "PowerCostReduction");
+	Initialize(obj->mutable_costreduction(), obj->abspath(), "CostReduction");
+	Initialize(obj->mutable_free(), obj->abspath(), "Free");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -168,6 +190,8 @@ IvionOnline::PayCost* Initialize(IvionOnline::PayCost* obj, const IvionOnline::O
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_PAYCOST);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_card(), obj->abspath(), "Card");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -176,6 +200,8 @@ IvionOnline::PlayGainResources* Initialize(IvionOnline::PlayGainResources* obj, 
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_PLAYGAINRESOURCES);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_card(), obj->abspath(), "Card");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -184,6 +210,8 @@ IvionOnline::RefundCost* Initialize(IvionOnline::RefundCost* obj, const IvionOnl
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_REFUNDCOST);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_card(), obj->abspath(), "Card");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -192,6 +220,8 @@ IvionOnline::GainActions* Initialize(IvionOnline::GainActions* obj, const IvionO
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GAINACTIONS);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_value(), obj->abspath(), "Value");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -200,6 +230,8 @@ IvionOnline::GainPower* Initialize(IvionOnline::GainPower* obj, const IvionOnlin
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_GAINPOWER);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_value(), obj->abspath(), "Value");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -208,6 +240,8 @@ IvionOnline::Move* Initialize(IvionOnline::Move* obj, const IvionOnline::ObjectP
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_MOVE);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_destination(), obj->abspath(), "Destination");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -216,6 +250,8 @@ IvionOnline::Travel* Initialize(IvionOnline::Travel* obj, const IvionOnline::Obj
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_TRAVEL);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_destination(), obj->abspath(), "Destination");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -224,6 +260,8 @@ IvionOnline::Damage* Initialize(IvionOnline::Damage* obj, const IvionOnline::Obj
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_DAMAGE);
+	Initialize(obj->mutable_player(), obj->abspath(), "Player");
+	Initialize(obj->mutable_amount(), obj->abspath(), "Amount");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -277,6 +315,7 @@ IvionOnline::ObjectPath_Constant* Initialize(IvionOnline::ObjectPath_Constant* o
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::TYPE_OBJECTPATH_CONSTANT);
+	Initialize(obj->mutable_result(), obj->abspath(), "Result");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -340,6 +379,7 @@ IvionOnline::Card* Initialize(IvionOnline::Card* obj, const IvionOnline::ObjectP
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_CARD);
+	Initialize(obj->mutable_cardstats(), obj->abspath(), "CardStats");
 	assert(ObjectIsValid(obj));
 	return obj;
 }
@@ -356,12 +396,15 @@ IvionOnline::CardData* Initialize(IvionOnline::CardData* obj, const IvionOnline:
 	obj->mutable_abspath()->CopyFrom(root);
 	obj->mutable_abspath()->add_path(name);
 	obj->mutable_abspath()->set_object_type(IvionOnline::ObjectType::TYPE_CARDDATA);
+	Initialize(obj->mutable_owner(), obj->abspath(), "Owner");
+	Initialize(obj->mutable_controller(), obj->abspath(), "Controller");
 	Initialize(obj->mutable_actioncost(), obj->abspath(), "ActionCost");
 	Initialize(obj->mutable_powercost(), obj->abspath(), "PowerCost");
 	Initialize(obj->mutable_range(), obj->abspath(), "Range");
 	Initialize(obj->mutable_affectedbyslow(), obj->abspath(), "AffectedBySlow");
 	Initialize(obj->mutable_affectedbysilence(), obj->abspath(), "AffectedBySilence");
 	Initialize(obj->mutable_affectedbydisarm(), obj->abspath(), "AffectedByDisarm");
+	Initialize(obj->mutable_attached(), obj->abspath(), "Attached");
 	Initialize(obj->mutable_omnipresenteffect(), obj->abspath(), "OmniPresentEffect");
 	Initialize(obj->mutable_passiveeffect(), obj->abspath(), "PassiveEffect");
 	Initialize(obj->mutable_feateffect(), obj->abspath(), "FeatEffect");

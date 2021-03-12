@@ -69,6 +69,66 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Obje
 			assert(trueElement);
 			return ResolvePath(instance, trueElement, fieldName, end);
 		} break;
+		case IvionOnline::ObjectType::TYPE_BOOLEAN:{
+			auto* trueElement = dynamic_cast<IvionOnline::Boolean*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_BOOLEAN:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Boolean*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_INTEGER:{
+			auto* trueElement = dynamic_cast<IvionOnline::Integer*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_INTEGER:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Integer*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_VEC2I:{
+			auto* trueElement = dynamic_cast<IvionOnline::Vec2i*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_VEC2I:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Vec2i*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_TERRAIN:{
+			auto* trueElement = dynamic_cast<IvionOnline::Terrain*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_TERRAIN:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Terrain*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_COLOR:{
+			auto* trueElement = dynamic_cast<IvionOnline::Color*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_COLOR:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Color*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_OBJECTPATH:{
+			auto* trueElement = dynamic_cast<IvionOnline::ObjectPath*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_OBJECTPATH:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_ObjectPath*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
 		default:
 			return nullptr;
 	}
@@ -955,5 +1015,6 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List
 	assert(false);
 	return nullptr;
 }
+
 
 } // namespace IO

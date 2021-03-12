@@ -3,6 +3,8 @@
 #include <IOEngine/Util.hpp>
 
 namespace IO {
+// USE THIS TO INITALIZE ObjectPath members, NOT ABSPATH
+IvionOnline::ObjectPath* Initialize(IvionOnline::ObjectPath* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::List_ObjectPath* Initialize(IvionOnline::List_ObjectPath* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::List_Method* Initialize(IvionOnline::List_Method* obj, const IvionOnline::ObjectPath& root, const std::string& name);
 IvionOnline::Boolean* Initialize(IvionOnline::Boolean* obj, const IvionOnline::ObjectPath& root, const std::string& name);

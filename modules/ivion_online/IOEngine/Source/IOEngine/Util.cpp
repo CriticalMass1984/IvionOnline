@@ -49,6 +49,11 @@ bool ObjectPathIsValid(const IvionOnline::ObjectPath &objectPath)
 {
 	return objectPath.path_size() > 0;
 }
+void CopyObjectPathNoMutation(IvionOnline::ObjectPath* path, const IvionOnline::ObjectPath& src)
+{
+	path->mutable_path()->CopyFrom(src.path());
+	path->set_object_type(src.object_type());
+}
 bool AreEqual(const IvionOnline::ObjectPath *A, const IvionOnline::ObjectPath *B) {
 	const size_t ALen = A->path_size();
 	if (ALen != B->path_size()) {

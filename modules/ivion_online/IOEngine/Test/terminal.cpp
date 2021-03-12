@@ -63,7 +63,7 @@ int main(int argc, char **argv) {
 	while(true)
 	{
 		instance.Step();
-		while(instance.currentHistory_->branches_size())
+		while(instance.currentHistory_->branches_size() > 0)
 		{
 			instance.currentHistory_->PrintDebugString();
 			const int optionsCount = instance.currentHistory_->branches_size();

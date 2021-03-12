@@ -42,11 +42,11 @@ class ValueType:
             self.Type = "POD"
             self.Members = {"Value": cType}
             self.ProtoMembers = ["\t{} Value = 1;".format(cType)]
-        if self.Name != "ObjectPath":
-            self.ProtoMembers.append(
-                "\tObjectPath AbsPath = {};".format(len(self.ProtoMembers) + 1))
-            self.ProtoMembers.append(
-                "\tstring Name = {};".format(len(self.ProtoMembers) + 1))
+        # if self.Name != "ObjectPath":
+        self.ProtoMembers.append(
+            "\tObjectPath AbsPath = {};".format(len(self.ProtoMembers) + 1))
+        self.ProtoMembers.append(
+            "\tstring Name = {};".format(len(self.ProtoMembers) + 1))
 
         self.Proto = ValueType.protoBase.format(**{
             "NAME": self.Name,
@@ -296,7 +296,16 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
             sourceFile.write("\t\t\treturn ResolvePath(instance, trueElement, fieldName, end);\n")
             sourceFile.write("\t\t} break;\n")
         for name, classObject in ValueTypes.items():
-            pass
+            sourceFile.write("\t\tcase {}::ObjectType::TYPE_{}:{{\n".format(PackageName, name.upper()))
+            sourceFile.write("\t\t\tauto* trueElement = dynamic_cast<{}::{}*>(innerObject);\n".format(PackageName, name))
+            sourceFile.write("\t\t\tassert(trueElement);\n")
+            sourceFile.write("\t\t\treturn ResolvePath(instance, trueElement, fieldName, end);\n")
+            sourceFile.write("\t\t} break;\n")
+            sourceFile.write("\t\tcase {}::ObjectType::TYPE_LIST_{}:{{\n".format(PackageName, name.upper()))
+            sourceFile.write("\t\t\tauto* trueElement = dynamic_cast<{}::List_{}*>(innerObject);\n".format(PackageName, name))
+            sourceFile.write("\t\t\tassert(trueElement);\n")
+            sourceFile.write("\t\t\treturn ResolvePath(instance, trueElement, fieldName, end);\n")
+            sourceFile.write("\t\t} break;\n")
         sourceFile.write("\t\tdefault:\n\t\t\treturn nullptr;\n")
         sourceFile.write("\t}\n")
         sourceFile.write("\treturn nullptr;\n")
@@ -440,7 +449,7 @@ with open("Include/IOEngine/Effect_GENERATED.hpp", 'w') as headerFile:
         sourceFile.write("\treturn nullptr;\n")
         sourceFile.write("}\n")
 
-
+        sourceFile.write("\n")
 
         # 
         def ResolveType(argType: str, argName: str):
@@ -575,6 +584,21 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
         sourceFile.write("\n")
         sourceFile.write("namespace IO {\n")
 
+        headerFile.write("// USE THIS TO INITALIZE ObjectPath members, NOT ABSPATH\n")
+        ConstructorHeader = "{PACKAGE_NAME}::ObjectPath* Initialize({PACKAGE_NAME}::ObjectPath* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
+            "PACKAGE_NAME": PackageName,
+        })
+        headerFile.write("{};\n".format(ConstructorHeader))
+        sourceFile.write(ConstructorHeader)
+        sourceFile.write("{\n")
+        sourceFile.write("\tobj->set_name(name);\n")
+        sourceFile.write("\tobj->mutable_abspath()->CopyFrom(root);\n")
+        sourceFile.write("\tobj->mutable_abspath()->add_path(name);\n")
+        sourceFile.write("\tobj->mutable_abspath()->set_object_type({}::TYPE_OBJECTPATH);\n".format(PackageName))
+        sourceFile.write("\tassert(ObjectIsValid(obj));\n")
+        sourceFile.write("\treturn obj;\n")
+        sourceFile.write("}\n")
+
         def BuildListInitializer(name: str):
             # list
             ConstructorHeader = "{PACKAGE_NAME}::List_{NAME}* Initialize({PACKAGE_NAME}::List_{NAME}* obj, const {PACKAGE_NAME}::ObjectPath& root, const std::string& name)".format(**{
@@ -623,8 +647,6 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
                     protoType = ProtoType(memType)
                     if memName == "AbsPath" or memName == "Name":
                         continue
-                    if protoType == "ObjectPath":
-                        continue
                     if protoType not in ["int32", "string", "bool"]:
                         sourceFile.write("\tInitialize(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
                             memName.lower(), memName))
@@ -651,8 +673,6 @@ with open("Include/IOEngine/Types_GENERATED.hpp", 'w') as headerFile:
                 protoType = ProtoType(memType)
                 # print(memName, protoType)
                 if memName == "AbsPath" or memName == "Name":
-                    continue
-                if protoType == "ObjectPath":
                     continue
                 if protoType not in ["int32", "string", "bool"]:
                     sourceFile.write("\tInitialize(obj->mutable_{}(), obj->abspath(), \"{}\");\n".format(
@@ -688,6 +708,7 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
         baseTypes = [x for x in ValueTypes.keys() if x != "ObjectPath"]
 
         # set
+        headerFile.write("// Sets the object to point at the same thing values points at\n")
         setMutationDecl = "void Set(GameInstance* instance, {PACKAGE_NAME}::ObjectPath* object, const {PACKAGE_NAME}::ObjectPath* value)".format(**{
             "PACKAGE_NAME": PackageName,
         })
@@ -695,9 +716,12 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
         setMutationSource  = "\tassert(ObjectIsValid(object));\n"
         setMutationSource += "\tassert(ObjectIsValid(value));\n"
         setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_objectpath_set_mutation();\n"
-        setMutationSource += "\tmutation->mutable_path()->CopyFrom(*object);\n"
-        setMutationSource += "\tmutation->mutable_newvalue()->CopyFrom(*value);\n"
-        setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(*object);\n"
+        setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
+        setMutationSource += "\tauto* newValue = Initialize(mutation->mutable_newvalue(), object->abspath(), value->name());\n"
+        setMutationSource += "\tnewValue->mutable_path()->CopyFrom(value->path());\n"
+        setMutationSource += "\tnewValue->set_object_type(value->object_type());\n"
+        setMutationSource += "\tmutation->mutable_oldvalue()->mutable_path()->CopyFrom(object->path());\n"
+        setMutationSource += "\tmutation->mutable_oldvalue()->set_object_type(object->object_type());\n"
         setMutationSource += "\tApply_ObjectPath_Set_Mutation(instance, mutation);\n"
         sourceFile.write("{} {{\n{}}}\n".format(setMutationDecl, setMutationSource))
 
@@ -710,22 +734,25 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
         setMutationSource += "\tassert(ObjectIsValid(value));\n"
         setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();\n"
         setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
-        setMutationSource += "\tmutation->mutable_newvalue()->CopyFrom(*value);\n"
+        setMutationSource += "\tauto* newValue = Initialize(mutation->mutable_newvalue(), object->abspath(), value->name());\n"
+        setMutationSource += "\tnewValue->set_object_type(value->object_type());\n"
+        setMutationSource += "\tnewValue->mutable_path()->CopyFrom(value->path());\n"
         setMutationSource += "\tmutation->set_index(object->element_size());\n"
         setMutationSource += "\tApply_List_ObjectPath_Insert_Mutation(instance, mutation);\n"
         sourceFile.write("{} {{\n{}}}\n".format(setMutationDecl, setMutationSource))
 
         # remove
-        setMutationDecl = "void Remove(GameInstance* instance, {PACKAGE_NAME}::List_ObjectPath* object, const {PACKAGE_NAME}::ObjectPath* value)".format(**{
+        setMutationDecl = "void Remove(GameInstance* instance, {PACKAGE_NAME}::List_ObjectPath* object, int index)".format(**{
             "PACKAGE_NAME": PackageName,
         })
         headerFile.write("{};\n".format(setMutationDecl))
         setMutationSource  = "\tassert(ObjectIsValid(object));\n"
-        setMutationSource += "\tassert(ObjectIsValid(value));\n"
         setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();\n"
         setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
-        setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(*value);\n"
-        setMutationSource += "\tmutation->set_index(GetElementIndex(object->mutable_element(), value));\n"
+        setMutationSource += "\tassert(index >= 0);\n"
+        setMutationSource += "\tassert(index < object->element_size());\n"
+        setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(object->element().Get(index));\n"
+        setMutationSource += "\tmutation->set_index(index);\n"
         setMutationSource += "\tApply_List_ObjectPath_Remove_Mutation(instance, mutation);\n"
         sourceFile.write("{} {{\n{}}}\n".format(setMutationDecl, setMutationSource))
 
@@ -755,27 +782,14 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
             setMutationSource += "\tassert(ObjectIsValid(value));\n"
             setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_insert_mutation();\n"
             setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
-            setMutationSource += "\tmutation->mutable_newvalue()->CopyFrom(value->abspath());\n"
+            setMutationSource += "\tauto* newValue = Initialize(mutation->mutable_newvalue(), object->abspath(), value->name());\n"
+            setMutationSource += "\tnewValue->set_object_type({}::ObjectType::TYPE_{});\n".format(PackageName, T.upper())
+            setMutationSource += "\tnewValue->mutable_path()->CopyFrom(value->abspath().path());\n"
             setMutationSource += "\tmutation->set_index(object->element_size());\n"
             setMutationSource += "\tApply_List_ObjectPath_Insert_Mutation(instance, mutation);\n"
             sourceFile.write("{} {{\n{}}}\n".format(
                 setMutationDecl, setMutationSource))
 
-            # remove
-            setMutationDecl = "void Remove(GameInstance* instance, {PACKAGE_NAME}::List_ObjectPath* object, const {PACKAGE_NAME}::{CLASS_NAME}* value)".format(**{
-                "PACKAGE_NAME": PackageName,
-                "CLASS_NAME": T
-            })
-            headerFile.write("{};\n".format(setMutationDecl))
-            setMutationSource  = "\tassert(ObjectIsValid(object));\n"
-            setMutationSource += "\tassert(ObjectIsValid(value));\n"
-            setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_objectpath_remove_mutation();\n"
-            setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
-            setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(value->abspath());\n"
-            setMutationSource += "\tmutation->set_index(GetElementIndex(object->mutable_element(), value));\n"
-            setMutationSource += "\tApply_List_ObjectPath_Remove_Mutation(instance, mutation);\n"
-            sourceFile.write("{} {{\n{}}}\n".format(
-                setMutationDecl, setMutationSource))
 
         if "Integer" in baseTypes:
             setMutationDecl = "void Set(GameInstance* instance, {PACKAGE_NAME}::Integer* object, int value)".format(**{
@@ -871,11 +885,10 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
             setMutationSource += "\tassert(ObjectIsValid(value));\n"
             setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_{}_insert_mutation();\n".format(T.lower())
             setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
+            setMutationSource += "\tauto* newValue = Initialize(mutation->mutable_newvalue(), object->abspath(), value->name());\n"
             for member in ValueTypes[T].Members:
-                setMutationSource += "\tmutation->mutable_newvalue()->set_{MEM}(value->{MEM}());\n".format(**{
+                setMutationSource += "\tnewValue->set_{MEM}(value->{MEM}());\n".format(**{
                     "MEM": member.lower()})
-            setMutationSource += "\tmutation->mutable_newvalue()->mutable_abspath()->CopyFrom(object->abspath());\n"
-            setMutationSource += "\tmutation->mutable_newvalue()->mutable_abspath()->add_path(value->name());\n"
             setMutationSource += "\tmutation->set_index(object->element_size());\n"
             setMutationSource += "\tApply_List_{}_Insert_Mutation(instance, mutation);\n".format(
                 T)
@@ -883,19 +896,17 @@ with open("Source/IOEngine/Mutation_GENERATED.cpp", 'w') as sourceFile:
                 setMutationDecl, setMutationSource))
 
             # remove
-            setMutationDecl = "void Remove(GameInstance* instance, {PACKAGE_NAME}::List_{CLASS_NAME}* object, const {PACKAGE_NAME}::{CLASS_NAME}* value)".format(**{
+            setMutationDecl = "void Remove(GameInstance* instance, {PACKAGE_NAME}::List_{CLASS_NAME}* object, int index)".format(**{
                 "PACKAGE_NAME": PackageName,
                 "CLASS_NAME": T
             })
             headerFile.write("{};\n".format(setMutationDecl))
             setMutationSource  = "\tassert(ObjectIsValid(object));\n"
-            setMutationSource += "\tassert(ObjectIsValid(value));\n"
             setMutationSource += "\tauto* mutation = instance->currentHistory_->add_mutations()->mutable_list_{}_remove_mutation();\n".format(T.lower())
             setMutationSource += "\tmutation->mutable_path()->CopyFrom(object->abspath());\n"
-            setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(*value);\n"
-            setMutationSource += "\tconst int index = GetElementIndex(object->mutable_element(), value);\n"
             setMutationSource += "\tassert(index >= 0);\n"
             setMutationSource += "\tassert(index < object->element_size());\n"
+            setMutationSource += "\tmutation->mutable_oldvalue()->CopyFrom(object->element().Get(index));\n"
             setMutationSource += "\tmutation->set_index(index);\n"
             setMutationSource += "\tApply_List_{}_Remove_Mutation(instance, mutation);\n".format(T)
             sourceFile.write("{} {{\n{}}}\n".format(

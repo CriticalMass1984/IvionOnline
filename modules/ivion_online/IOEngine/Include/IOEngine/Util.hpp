@@ -64,14 +64,7 @@ int GetElementIndex(google::protobuf::RepeatedPtrField<T> *haystack, const T *ne
 }
 bool ObjectPathIsValid(const IvionOnline::ObjectPath &objectPath);
 
-inline bool ObjectIsValid(const IvionOnline::ObjectPath *objectPath)
-{
-	if(objectPath == nullptr)
-	{
-		return false;
-	}
-	return ObjectPathIsValid(*objectPath);
-}
+void CopyObjectPathNoMutation(IvionOnline::ObjectPath* path, const IvionOnline::ObjectPath& src);
 template<typename T>
 bool ObjectIsValid(const T *object){
 	if(object == nullptr)

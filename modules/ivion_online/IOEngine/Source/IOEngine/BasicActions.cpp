@@ -34,7 +34,7 @@ void AddMoveAction(GameInstance *instance, IvionOnline::Player *player) {
 	assert(ObjectIsValid(play));
 
 	auto *getList = Initialize(play->add_element()->mutable_getlist(), play->abspath(), "Tiles");
-	getList->mutable_source()->CopyFrom(instance->gamestate_.tiles().abspath());
+	CopyObjectPathNoMutation(getList->mutable_source(), instance->gamestate_.tiles().abspath());
 	assert(ObjectIsValid(getList));
 	assert(ObjectIsValid(&getList->result()));
 
@@ -44,18 +44,19 @@ void AddMoveAction(GameInstance *instance, IvionOnline::Player *player) {
 	assert(ObjectIsValid(&maxDistance->result()));
 
 	auto *distanceFilter = Initialize(play->add_element()->mutable_filterdistance(), play->abspath(), "DistanceFilter");
-	distanceFilter->mutable_maxdistance()->CopyFrom(maxDistance->result().abspath());
+	CopyObjectPathNoMutation(distanceFilter->mutable_maxdistance(), maxDistance->result().abspath());
 	FillObjectPath(distanceFilter->mutable_rangesources(), "./Controller/RangeSources", IvionOnline::ObjectType::TYPE_OBJECTPATH);
-	distanceFilter->mutable_targets()->CopyFrom(getList->result().abspath());
+	CopyObjectPathNoMutation(distanceFilter->mutable_targets(), getList->result().abspath());
 	assert(ObjectIsValid(distanceFilter));
 
 	auto *selectOne = Initialize(play->add_element()->mutable_selectexactlyone(), play->abspath(), "SelectOne");
-	selectOne->mutable_source()->CopyFrom(getList->result().abspath());
+	CopyObjectPathNoMutation(selectOne->mutable_source(), getList->result().abspath());
 	assert(ObjectIsValid(selectOne));
+	selectOne->PrintDebugString();
 
 	auto *move = Initialize(play->add_element()->mutable_move(), play->abspath(), "Move");
-	move->mutable_destination()->CopyFrom(selectOne->result());
-	move->mutable_player()->CopyFrom(player->abspath());
+	CopyObjectPathNoMutation(move->mutable_destination(), selectOne->result());
+	CopyObjectPathNoMutation(move->mutable_player(), player->abspath());
 	assert(ObjectIsValid(move));
 
 	assert(ObjectIsValid(card));
