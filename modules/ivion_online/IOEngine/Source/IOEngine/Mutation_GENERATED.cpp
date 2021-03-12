@@ -5,13 +5,13 @@ namespace IO {
 
 void Apply_Boolean_Set_Mutation(GameInstance* instance,  IvionOnline::Boolean_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Boolean* object = instance->ResolvePath<IvionOnline::Boolean>(mutation->mutable_path());
+    IvionOnline::Boolean* object = ResolvePath<IvionOnline::Boolean>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->newvalue().value());
 }
 void Apply_List_Boolean_Insert_Mutation(GameInstance* instance, IvionOnline::List_Boolean_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Boolean *list = instance->ResolvePath<IvionOnline::List_Boolean>(mutation->mutable_path());
+    IvionOnline::List_Boolean *list = ResolvePath<IvionOnline::List_Boolean>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -25,7 +25,7 @@ void Apply_List_Boolean_Insert_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Apply_List_Boolean_Remove_Mutation(GameInstance* instance, IvionOnline::List_Boolean_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Boolean *list = instance->ResolvePath<IvionOnline::List_Boolean>(mutation->mutable_path());
+    IvionOnline::List_Boolean *list = ResolvePath<IvionOnline::List_Boolean>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -39,13 +39,13 @@ void Apply_List_Boolean_Remove_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Revert_Boolean_Set_Mutation(GameInstance* instance, IvionOnline::Boolean_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Boolean* object = instance->ResolvePath<IvionOnline::Boolean>(mutation->mutable_path());
+    IvionOnline::Boolean* object = ResolvePath<IvionOnline::Boolean>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->oldvalue().value());
 }
 void Revert_List_Boolean_Insert_Mutation(GameInstance* instance, IvionOnline::List_Boolean_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Boolean *list = instance->ResolvePath<IvionOnline::List_Boolean>(mutation->mutable_path());
+    IvionOnline::List_Boolean *list = ResolvePath<IvionOnline::List_Boolean>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -59,7 +59,7 @@ void Revert_List_Boolean_Insert_Mutation(GameInstance* instance, IvionOnline::Li
 }
 void Revert_List_Boolean_Remove_Mutation(GameInstance* instance, IvionOnline::List_Boolean_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Boolean *list = instance->ResolvePath<IvionOnline::List_Boolean>(mutation->mutable_path());
+    IvionOnline::List_Boolean *list = ResolvePath<IvionOnline::List_Boolean>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -74,13 +74,13 @@ void Revert_List_Boolean_Remove_Mutation(GameInstance* instance, IvionOnline::Li
 
 void Apply_Integer_Set_Mutation(GameInstance* instance,  IvionOnline::Integer_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Integer* object = instance->ResolvePath<IvionOnline::Integer>(mutation->mutable_path());
+    IvionOnline::Integer* object = ResolvePath<IvionOnline::Integer>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->newvalue().value());
 }
 void Apply_List_Integer_Insert_Mutation(GameInstance* instance, IvionOnline::List_Integer_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Integer *list = instance->ResolvePath<IvionOnline::List_Integer>(mutation->mutable_path());
+    IvionOnline::List_Integer *list = ResolvePath<IvionOnline::List_Integer>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -94,7 +94,7 @@ void Apply_List_Integer_Insert_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Apply_List_Integer_Remove_Mutation(GameInstance* instance, IvionOnline::List_Integer_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Integer *list = instance->ResolvePath<IvionOnline::List_Integer>(mutation->mutable_path());
+    IvionOnline::List_Integer *list = ResolvePath<IvionOnline::List_Integer>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -108,13 +108,13 @@ void Apply_List_Integer_Remove_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Revert_Integer_Set_Mutation(GameInstance* instance, IvionOnline::Integer_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Integer* object = instance->ResolvePath<IvionOnline::Integer>(mutation->mutable_path());
+    IvionOnline::Integer* object = ResolvePath<IvionOnline::Integer>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->oldvalue().value());
 }
 void Revert_List_Integer_Insert_Mutation(GameInstance* instance, IvionOnline::List_Integer_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Integer *list = instance->ResolvePath<IvionOnline::List_Integer>(mutation->mutable_path());
+    IvionOnline::List_Integer *list = ResolvePath<IvionOnline::List_Integer>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -128,7 +128,7 @@ void Revert_List_Integer_Insert_Mutation(GameInstance* instance, IvionOnline::Li
 }
 void Revert_List_Integer_Remove_Mutation(GameInstance* instance, IvionOnline::List_Integer_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Integer *list = instance->ResolvePath<IvionOnline::List_Integer>(mutation->mutable_path());
+    IvionOnline::List_Integer *list = ResolvePath<IvionOnline::List_Integer>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -143,14 +143,14 @@ void Revert_List_Integer_Remove_Mutation(GameInstance* instance, IvionOnline::Li
 
 void Apply_Vec2i_Set_Mutation(GameInstance* instance,  IvionOnline::Vec2i_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Vec2i* object = instance->ResolvePath<IvionOnline::Vec2i>(mutation->mutable_path());
+    IvionOnline::Vec2i* object = ResolvePath<IvionOnline::Vec2i>(instance, mutation->mutable_path());
     assert(object);
 	object->set_x(mutation->newvalue().x());
 	object->set_y(mutation->newvalue().y());
 }
 void Apply_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Vec2i *list = instance->ResolvePath<IvionOnline::List_Vec2i>(mutation->mutable_path());
+    IvionOnline::List_Vec2i *list = ResolvePath<IvionOnline::List_Vec2i>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -164,7 +164,7 @@ void Apply_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List_
 }
 void Apply_List_Vec2i_Remove_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Vec2i *list = instance->ResolvePath<IvionOnline::List_Vec2i>(mutation->mutable_path());
+    IvionOnline::List_Vec2i *list = ResolvePath<IvionOnline::List_Vec2i>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -178,14 +178,14 @@ void Apply_List_Vec2i_Remove_Mutation(GameInstance* instance, IvionOnline::List_
 }
 void Revert_Vec2i_Set_Mutation(GameInstance* instance, IvionOnline::Vec2i_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Vec2i* object = instance->ResolvePath<IvionOnline::Vec2i>(mutation->mutable_path());
+    IvionOnline::Vec2i* object = ResolvePath<IvionOnline::Vec2i>(instance, mutation->mutable_path());
     assert(object);
 	object->set_x(mutation->oldvalue().x());
 	object->set_y(mutation->oldvalue().y());
 }
 void Revert_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Vec2i *list = instance->ResolvePath<IvionOnline::List_Vec2i>(mutation->mutable_path());
+    IvionOnline::List_Vec2i *list = ResolvePath<IvionOnline::List_Vec2i>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -199,7 +199,7 @@ void Revert_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List
 }
 void Revert_List_Vec2i_Remove_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Vec2i *list = instance->ResolvePath<IvionOnline::List_Vec2i>(mutation->mutable_path());
+    IvionOnline::List_Vec2i *list = ResolvePath<IvionOnline::List_Vec2i>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -214,13 +214,13 @@ void Revert_List_Vec2i_Remove_Mutation(GameInstance* instance, IvionOnline::List
 
 void Apply_Terrain_Set_Mutation(GameInstance* instance,  IvionOnline::Terrain_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Terrain* object = instance->ResolvePath<IvionOnline::Terrain>(mutation->mutable_path());
+    IvionOnline::Terrain* object = ResolvePath<IvionOnline::Terrain>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->newvalue().value());
 }
 void Apply_List_Terrain_Insert_Mutation(GameInstance* instance, IvionOnline::List_Terrain_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Terrain *list = instance->ResolvePath<IvionOnline::List_Terrain>(mutation->mutable_path());
+    IvionOnline::List_Terrain *list = ResolvePath<IvionOnline::List_Terrain>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -234,7 +234,7 @@ void Apply_List_Terrain_Insert_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Apply_List_Terrain_Remove_Mutation(GameInstance* instance, IvionOnline::List_Terrain_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Terrain *list = instance->ResolvePath<IvionOnline::List_Terrain>(mutation->mutable_path());
+    IvionOnline::List_Terrain *list = ResolvePath<IvionOnline::List_Terrain>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -248,13 +248,13 @@ void Apply_List_Terrain_Remove_Mutation(GameInstance* instance, IvionOnline::Lis
 }
 void Revert_Terrain_Set_Mutation(GameInstance* instance, IvionOnline::Terrain_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Terrain* object = instance->ResolvePath<IvionOnline::Terrain>(mutation->mutable_path());
+    IvionOnline::Terrain* object = ResolvePath<IvionOnline::Terrain>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->oldvalue().value());
 }
 void Revert_List_Terrain_Insert_Mutation(GameInstance* instance, IvionOnline::List_Terrain_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Terrain *list = instance->ResolvePath<IvionOnline::List_Terrain>(mutation->mutable_path());
+    IvionOnline::List_Terrain *list = ResolvePath<IvionOnline::List_Terrain>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -268,7 +268,7 @@ void Revert_List_Terrain_Insert_Mutation(GameInstance* instance, IvionOnline::Li
 }
 void Revert_List_Terrain_Remove_Mutation(GameInstance* instance, IvionOnline::List_Terrain_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Terrain *list = instance->ResolvePath<IvionOnline::List_Terrain>(mutation->mutable_path());
+    IvionOnline::List_Terrain *list = ResolvePath<IvionOnline::List_Terrain>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -283,13 +283,13 @@ void Revert_List_Terrain_Remove_Mutation(GameInstance* instance, IvionOnline::Li
 
 void Apply_Color_Set_Mutation(GameInstance* instance,  IvionOnline::Color_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Color* object = instance->ResolvePath<IvionOnline::Color>(mutation->mutable_path());
+    IvionOnline::Color* object = ResolvePath<IvionOnline::Color>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->newvalue().value());
 }
 void Apply_List_Color_Insert_Mutation(GameInstance* instance, IvionOnline::List_Color_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Color *list = instance->ResolvePath<IvionOnline::List_Color>(mutation->mutable_path());
+    IvionOnline::List_Color *list = ResolvePath<IvionOnline::List_Color>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -303,7 +303,7 @@ void Apply_List_Color_Insert_Mutation(GameInstance* instance, IvionOnline::List_
 }
 void Apply_List_Color_Remove_Mutation(GameInstance* instance, IvionOnline::List_Color_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Color *list = instance->ResolvePath<IvionOnline::List_Color>(mutation->mutable_path());
+    IvionOnline::List_Color *list = ResolvePath<IvionOnline::List_Color>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -317,13 +317,13 @@ void Apply_List_Color_Remove_Mutation(GameInstance* instance, IvionOnline::List_
 }
 void Revert_Color_Set_Mutation(GameInstance* instance, IvionOnline::Color_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::Color* object = instance->ResolvePath<IvionOnline::Color>(mutation->mutable_path());
+    IvionOnline::Color* object = ResolvePath<IvionOnline::Color>(instance, mutation->mutable_path());
     assert(object);
 	object->set_value(mutation->oldvalue().value());
 }
 void Revert_List_Color_Insert_Mutation(GameInstance* instance, IvionOnline::List_Color_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Color *list = instance->ResolvePath<IvionOnline::List_Color>(mutation->mutable_path());
+    IvionOnline::List_Color *list = ResolvePath<IvionOnline::List_Color>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -337,7 +337,7 @@ void Revert_List_Color_Insert_Mutation(GameInstance* instance, IvionOnline::List
 }
 void Revert_List_Color_Remove_Mutation(GameInstance* instance, IvionOnline::List_Color_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_Color *list = instance->ResolvePath<IvionOnline::List_Color>(mutation->mutable_path());
+    IvionOnline::List_Color *list = ResolvePath<IvionOnline::List_Color>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -352,13 +352,13 @@ void Revert_List_Color_Remove_Mutation(GameInstance* instance, IvionOnline::List
 
 void Apply_ObjectPath_Set_Mutation(GameInstance* instance,  IvionOnline::ObjectPath_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::ObjectPath* object = instance->ResolvePath<IvionOnline::ObjectPath>(mutation->mutable_path());
+    IvionOnline::ObjectPath* object = ResolvePath<IvionOnline::ObjectPath>(instance, mutation->mutable_path());
     assert(object);
 	object->CopyFrom(mutation->newvalue());
 }
 void Apply_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_ObjectPath *list = instance->ResolvePath<IvionOnline::List_ObjectPath>(mutation->mutable_path());
+    IvionOnline::List_ObjectPath *list = ResolvePath<IvionOnline::List_ObjectPath>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());
@@ -372,7 +372,7 @@ void Apply_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::
 }
 void Apply_List_ObjectPath_Remove_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_ObjectPath *list = instance->ResolvePath<IvionOnline::List_ObjectPath>(mutation->mutable_path());
+    IvionOnline::List_ObjectPath *list = ResolvePath<IvionOnline::List_ObjectPath>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -386,13 +386,13 @@ void Apply_List_ObjectPath_Remove_Mutation(GameInstance* instance, IvionOnline::
 }
 void Revert_ObjectPath_Set_Mutation(GameInstance* instance, IvionOnline::ObjectPath_Set_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::ObjectPath* object = instance->ResolvePath<IvionOnline::ObjectPath>(mutation->mutable_path());
+    IvionOnline::ObjectPath* object = ResolvePath<IvionOnline::ObjectPath>(instance, mutation->mutable_path());
     assert(object);
 	object->CopyFrom(mutation->oldvalue());
 }
 void Revert_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Insert_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_ObjectPath *list = instance->ResolvePath<IvionOnline::List_ObjectPath>(mutation->mutable_path());
+    IvionOnline::List_ObjectPath *list = ResolvePath<IvionOnline::List_ObjectPath>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
 	assert(0 < mutation->index());
@@ -406,7 +406,7 @@ void Revert_List_ObjectPath_Insert_Mutation(GameInstance* instance, IvionOnline:
 }
 void Revert_List_ObjectPath_Remove_Mutation(GameInstance* instance, IvionOnline::List_ObjectPath_Remove_Mutation* mutation){
 	assert(mutation);
-    IvionOnline::List_ObjectPath *list = instance->ResolvePath<IvionOnline::List_ObjectPath>(mutation->mutable_path());
+    IvionOnline::List_ObjectPath *list = ResolvePath<IvionOnline::List_ObjectPath>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
 	assert(0 < mutation->index());

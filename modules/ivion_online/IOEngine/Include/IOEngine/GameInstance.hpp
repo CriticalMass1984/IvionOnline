@@ -8,7 +8,9 @@
 
 #include <GRPC/GameState.pb.h>
 #include <GRPC/GameInfo.pb.h>
+
 #include <IOEngine/Vec2i.hpp>
+#include <IOEngine/Effect_GENERATED.hpp>
 
 namespace IO {
 
@@ -24,8 +26,6 @@ public:
 
 	void Init(const IvionOnline::GameInfo& info);
 
-	template<typename T>
-	inline T* ResolvePath(IvionOnline::ObjectPath *path) { return dynamic_cast<T*>(::IO::ResolvePath(this, path)); }
 
 	// the generate code contains the source for this
 	void ApplyMutation(IvionOnline::Mutation *mutation);

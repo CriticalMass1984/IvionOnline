@@ -1,7 +1,6 @@
 #include <IOEngine/GameInstance.hpp>
 
 #include <IOEngine/BasicActions.hpp>
-#include <IOEngine/Effect_GENERATED.hpp>
 #include <IOEngine/Mutation_GENERATED.hpp>
 #include <IOEngine/Types_GENERATED.hpp>
 #include <IOEngine/Util.hpp>
@@ -88,11 +87,11 @@ void GameInstance::Step() {
 	int teamIdx = this->gamestate_.turnnumber().value() % this->gamestate_.teams().element_size();
 	for (IvionOnline::ObjectPath &playerPath : *gamestate_.mutable_teams()->mutable_element()->Mutable(teamIdx)->mutable_players()->mutable_element()) {
 		fprintf(stderr, "ObjectPath: %s\n", PrintObjectPath(playerPath).c_str());
-		auto *player = ResolvePath<IvionOnline::Player>(&playerPath);
+		auto *player = ResolvePath<IvionOnline::Player>(this, &playerPath);
 		// basic actions
 		for (auto &actionPath : *player->mutable_basicactions()->mutable_element()) {
-			auto *card = ResolvePath<IvionOnline::Card>(&actionPath);
-			auto *cardData = ResolvePath<IvionOnline::CardData>(card->mutable_cardstats());
+			auto *card = ResolvePath<IvionOnline::Card>(this, &actionPath);
+			auto *cardData = ResolvePath<IvionOnline::CardData>(this, card->mutable_cardstats());
 			// cardData->playeffect().PrintDebugString();
 			assert(ObjectIsValid(card));
 			assert(ObjectIsValid(cardData));

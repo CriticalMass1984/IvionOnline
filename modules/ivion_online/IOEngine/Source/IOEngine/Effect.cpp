@@ -10,36 +10,36 @@ bool __GetList(GameInstance *instance, MethodIter begin, const MethodIter &end, 
 	Result->clear_element();
 	switch (Source->object_type()) {
 		case IvionOnline::ObjectType::TYPE_PLAYER: {
-			auto *obj = instance->ResolvePath<IvionOnline::Player>(Source);
+			auto *obj = ResolvePath<IvionOnline::Player>(instance, Source);
 			assert(obj);
 			Append(instance, Result, obj);
 		} break;
 		case IvionOnline::ObjectType::TYPE_LIST_PLAYER: {
-			auto *list = instance->ResolvePath<IvionOnline::List_Player>(Source);
+			auto *list = ResolvePath<IvionOnline::List_Player>(instance, Source);
 			assert(list);
 			for (auto &element : *list->mutable_element()) {
 				Append(instance, Result, &element);
 			}
 		} break;
 		case IvionOnline::ObjectType::TYPE_CARD: {
-			auto *obj = instance->ResolvePath<IvionOnline::Card>(Source);
+			auto *obj = ResolvePath<IvionOnline::Card>(instance, Source);
 			assert(obj);
 			Append(instance, Result, obj);
 		} break;
 		case IvionOnline::ObjectType::TYPE_LIST_CARD: {
-			auto *list = instance->ResolvePath<IvionOnline::List_Card>(Source);
+			auto *list = ResolvePath<IvionOnline::List_Card>(instance, Source);
 			assert(list);
 			for (auto &element : *list->mutable_element()) {
 				Append(instance, Result, &element);
 			}
 		} break;
 		case IvionOnline::ObjectType::TYPE_TILE: {
-			auto *obj = instance->ResolvePath<IvionOnline::Tile>(Source);
+			auto *obj = ResolvePath<IvionOnline::Tile>(instance, Source);
 			assert(obj);
 			Append(instance, Result, obj);
 		} break;
 		case IvionOnline::ObjectType::TYPE_LIST_TILE: {
-			auto *list = instance->ResolvePath<IvionOnline::List_Tile>(Source);
+			auto *list = ResolvePath<IvionOnline::List_Tile>(instance, Source);
 			assert(list);
 			for (auto &element : *list->mutable_element()) {
 				Append(instance, Result, &element);
@@ -148,7 +148,7 @@ bool __AssertStackEmptyOrInstant(GameInstance *instance, MethodIter begin, const
 	return ExecuteMethods(instance, begin, end);
 }
 bool __ReduceCost(GameInstance *instance, MethodIter begin, const MethodIter &end, IvionOnline::Card *Card, IvionOnline::Integer *ActionCostReduction, IvionOnline::Integer *PowerCostReduction, IvionOnline::Integer *CostReduction, IvionOnline::Boolean *Free) {
-	auto *cardStats = instance->ResolvePath<IvionOnline::CardData>(Card->mutable_cardstats());
+	auto *cardStats = ResolvePath<IvionOnline::CardData>(instance, Card->mutable_cardstats());
 
 	if (Free->value()) {
 		Set(instance, cardStats->mutable_actioncost(), 0);
@@ -221,7 +221,7 @@ bool __ReduceCost(GameInstance *instance, MethodIter begin, const MethodIter &en
 }
 bool __PayCost(GameInstance *instance, MethodIter begin, const MethodIter &end, IvionOnline::Player *Player, IvionOnline::Card *Card) {
 	// costs are negative values
-	const auto *cardStats = instance->ResolvePath<IvionOnline::CardData>(Card->mutable_cardstats());
+	const auto *cardStats = ResolvePath<IvionOnline::CardData>(instance, Card->mutable_cardstats());
 	const int actionCost = cardStats->actioncost().value() < 0 ? -cardStats->actioncost().value() : 0;
 	const int powerCost = cardStats->powercost().value() < 0 ? -cardStats->powercost().value() : 0;
 
@@ -236,7 +236,7 @@ bool __PayCost(GameInstance *instance, MethodIter begin, const MethodIter &end, 
 }
 bool __PlayGainResources(GameInstance *instance, MethodIter begin, const MethodIter &end, IvionOnline::Player *Player, IvionOnline::Card *Card) {
 	// costs are negative values
-	const auto *cardStats = instance->ResolvePath<IvionOnline::CardData>(Card->mutable_cardstats());
+	const auto *cardStats = ResolvePath<IvionOnline::CardData>(instance, Card->mutable_cardstats());
 	const int actionGain = cardStats->actioncost().value() > 0 ? cardStats->actioncost().value() : 0;
 	const int powerGain = cardStats->powercost().value() > 0 ? cardStats->powercost().value() : 0;
 
@@ -246,7 +246,7 @@ bool __PlayGainResources(GameInstance *instance, MethodIter begin, const MethodI
 	return ExecuteMethods(instance, begin, end);
 }
 bool __RefundCost(GameInstance *instance, MethodIter begin, const MethodIter &end, IvionOnline::Player *Player, IvionOnline::Card *Card) {
-	const auto *cardStats = instance->ResolvePath<IvionOnline::CardData>(Card->mutable_cardstats());
+	const auto *cardStats = ResolvePath<IvionOnline::CardData>(instance, Card->mutable_cardstats());
 	const int actionCost = cardStats->actioncost().value() < 0 ? -cardStats->actioncost().value() : 0;
 	const int powerCost = cardStats->powercost().value() < 0 ? -cardStats->powercost().value() : 0;
 

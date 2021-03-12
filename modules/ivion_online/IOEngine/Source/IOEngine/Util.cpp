@@ -2,6 +2,8 @@
 
 #include <cassert>
 #include <IOEngine/GameInstance.hpp>
+#include <IOEngine/Effect_GENERATED.hpp>
+#include <IOEngine/Types_GENERATED.hpp>
 
 namespace IO {
 
@@ -72,14 +74,14 @@ Vec2i GetPosition(GameInstance* instance, IvionOnline::ObjectPath* objectPath)
 {
 	switch (objectPath->object_type()) {
 		case IvionOnline::ObjectType::TYPE_PLAYER: {
-			auto *obj = instance->ResolvePath<IvionOnline::Player>(objectPath);
+			auto *obj = ResolvePath<IvionOnline::Player>(instance, objectPath);
 			assert(obj);
 			return Vec2i(obj->position());
 		} break;
 		case IvionOnline::ObjectType::TYPE_CARD: {
-			auto *obj = instance->ResolvePath<IvionOnline::Card>(objectPath);
+			auto *obj = ResolvePath<IvionOnline::Card>(instance, objectPath);
 			assert(obj);
-			auto *stats = instance->ResolvePath<IvionOnline::CardData>(obj->mutable_cardstats());
+			auto *stats = ResolvePath<IvionOnline::CardData>(instance, obj->mutable_cardstats());
 			if(ObjectPathIsValid(stats->attached()))
 			{
 				return GetPosition(instance, stats->mutable_attached());
@@ -88,7 +90,7 @@ Vec2i GetPosition(GameInstance* instance, IvionOnline::ObjectPath* objectPath)
 			}
 		} break;
 		case IvionOnline::ObjectType::TYPE_TILE: {
-			auto *obj = instance->ResolvePath<IvionOnline::Tile>(objectPath);
+			auto *obj = ResolvePath<IvionOnline::Tile>(instance, objectPath);
 			assert(obj);
 			return Vec2i(obj->position());
 		} break;

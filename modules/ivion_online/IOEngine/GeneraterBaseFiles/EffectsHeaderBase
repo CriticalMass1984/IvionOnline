@@ -1,15 +1,14 @@
 #pragma once
 
 #include <GRPC/GameState.pb.h>
-#include <IOEngine/GameInstance.hpp>
 #include <IOEngine/Util.hpp>
 
 namespace IO {{
 
 using MethodIter = google::protobuf::internal::RepeatedPtrIterator<{PACKAGE_NAME}::Method>;
 using StringIter = google::protobuf::internal::RepeatedPtrIterator<std::__cxx11::string>;
+class GameInstance;
 
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj);
-
-
-
+template<typename T>
+inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) {{ return dynamic_cast<T*>(ResolvePath(instance, path)); }}

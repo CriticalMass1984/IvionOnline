@@ -1,4 +1,5 @@
 #include <IOEngine/Effect_GENERATED.hpp>
+#include <IOEngine/GameInstance.hpp>
 
 namespace IO {{
  
