@@ -36,7 +36,7 @@ public:
 
 	IvionOnline::History RootHistory;
 	IvionOnline::History *currentHistory_{ &RootHistory };
-	IvionOnline::Card *currentCard_{ nullptr };
+	IvionOnline::CardData *currentCard_{ nullptr };
 
 	// generates the paths
 	void Step();

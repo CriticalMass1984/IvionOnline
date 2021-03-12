@@ -9,7 +9,7 @@ void Apply_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
     {PACKAGE_NAME}::List_{NAME} *list = ResolvePath<{PACKAGE_NAME}::List_{NAME}>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
-	assert(0 < mutation->index());
+	assert(0 <= mutation->index());
 	assert(mutation->index() <= size);
 	if (size == mutation->index()) {{
 		list->add_element()->CopyFrom(mutation->newvalue());
@@ -23,7 +23,7 @@ void Apply_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::L
     {PACKAGE_NAME}::List_{NAME} *list = ResolvePath<{PACKAGE_NAME}::List_{NAME}>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
-	assert(0 < mutation->index());
+	assert(0 <= mutation->index());
 	assert(mutation->index() <= size);
 	if (size == mutation->index()) {{
 		list->mutable_element()->RemoveLast();
@@ -43,7 +43,7 @@ void Revert_List_{NAME}_Insert_Mutation(GameInstance* instance, {PACKAGE_NAME}::
     {PACKAGE_NAME}::List_{NAME} *list = ResolvePath<{PACKAGE_NAME}::List_{NAME}>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size() - 1;
-	assert(0 < mutation->index());
+	assert(0 <= mutation->index());
 	assert(mutation->index() <= size);
 	if (size == mutation->index()) {{
 		list->mutable_element()->RemoveLast();
@@ -57,7 +57,7 @@ void Revert_List_{NAME}_Remove_Mutation(GameInstance* instance, {PACKAGE_NAME}::
     {PACKAGE_NAME}::List_{NAME} *list = ResolvePath<{PACKAGE_NAME}::List_{NAME}>(instance, mutation->mutable_path());
 	assert(list);
 	const int size = list->element_size();
-	assert(0 < mutation->index());
+	assert(0 <= mutation->index());
 	assert(mutation->index() <= size);
 	if (size == mutation->index()) {{
 		list->add_element()->CopyFrom(mutation->oldvalue());

@@ -16,6 +16,8 @@ void GameInstance::Init(const IvionOnline::GameInfo &info) {
 		player->mutable_position()->set_x(playerInfo.startingposition().x());
 		player->mutable_position()->set_y(playerInfo.startingposition().y());
 
+		player->mutable_rangesources()->add_element()->CopyFrom(player->abspath());
+
 		// add to team
 		assert(playerInfo.teamindex() < 4);
 		while (playerInfo.teamindex() >= gamestate_.teams().element_size()) {
@@ -95,17 +97,14 @@ void GameInstance::Step() {
 			// cardData->playeffect().PrintDebugString();
 			assert(ObjectIsValid(card));
 			assert(ObjectIsValid(cardData));
-			assert(ObjectIsValid(cardData->mutable_playeffect()));
-			assert(ObjectIsValid(cardData->mutable_playeffect()->mutable_element()->Mutable(0)->mutable_getlist()));
-			assert(ObjectIsValid(&cardData->mutable_playeffect()->mutable_element()->Mutable(0)->mutable_getlist()->result()));
-			assert(ObjectIsValid(&cardData->mutable_playeffect()->mutable_element()->Mutable(0)->mutable_getlist()->source()));
 
 			HistoryBranch branch(this);
-
+			this->currentCard_ = cardData;
 			ExecuteMethods(
 					this,
 					cardData->mutable_playeffect()->mutable_element()->begin(),
 					cardData->mutable_playeffect()->mutable_element()->end());
+			this->currentCard_ = nullptr;
 		}
 	}
 }

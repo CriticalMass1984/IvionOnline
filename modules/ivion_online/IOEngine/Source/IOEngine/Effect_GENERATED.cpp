@@ -8,94 +8,92 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Obje
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *obj, const StringIter& fieldName, const StringIter& end) {
 	google::protobuf::Message* innerObject = ResolvePath(instance, obj);
-	const auto *innerDesc = innerObject->GetDescriptor();
-	const auto *nameFieldDesc = innerDesc->FindFieldByName("Name");
-	if (nameFieldDesc && nameFieldDesc->type() == google::protobuf::FieldDescriptor::Type::TYPE_STRING) {
-		const auto& nextField = fieldName + 1;
-		const std::string &innerFieldName = innerObject->GetReflection()->GetString(*innerObject, nameFieldDesc);
-		if (*fieldName == innerFieldName) {
-			switch(obj->object_type()){
-				case IvionOnline::ObjectType::TYPE_PLAYER:{
-					auto* trueElement = dynamic_cast<IvionOnline::Player*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_PLAYER:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_Player*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_TEAM:{
-					auto* trueElement = dynamic_cast<IvionOnline::Team*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_TEAM:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_Team*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_CARD:{
-					auto* trueElement = dynamic_cast<IvionOnline::Card*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_CARD:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_Card*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_CARDDATA:{
-					auto* trueElement = dynamic_cast<IvionOnline::CardData*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_CARDDATA:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_CardData*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_TILE:{
-					auto* trueElement = dynamic_cast<IvionOnline::Tile*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_TILE:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_Tile*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_GAMESTATE:{
-					auto* trueElement = dynamic_cast<IvionOnline::GameState*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				case IvionOnline::ObjectType::TYPE_LIST_GAMESTATE:{
-					auto* trueElement = dynamic_cast<IvionOnline::List_GameState*>(innerObject);
-					assert(trueElement);
-					return ResolvePath(instance, trueElement, nextField, end);
-				} break;
-				default:
-					return nullptr;
-			}
-		}
+	switch(obj->object_type()){
+		case IvionOnline::ObjectType::TYPE_PLAYER:{
+			auto* trueElement = dynamic_cast<IvionOnline::Player*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_PLAYER:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Player*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_TEAM:{
+			auto* trueElement = dynamic_cast<IvionOnline::Team*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_TEAM:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Team*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_CARD:{
+			auto* trueElement = dynamic_cast<IvionOnline::Card*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_CARD:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Card*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_CARDDATA:{
+			auto* trueElement = dynamic_cast<IvionOnline::CardData*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_CARDDATA:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_CardData*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_TILE:{
+			auto* trueElement = dynamic_cast<IvionOnline::Tile*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_TILE:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_Tile*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_GAMESTATE:{
+			auto* trueElement = dynamic_cast<IvionOnline::GameState*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		case IvionOnline::ObjectType::TYPE_LIST_GAMESTATE:{
+			auto* trueElement = dynamic_cast<IvionOnline::List_GameState*>(innerObject);
+			assert(trueElement);
+			return ResolvePath(instance, trueElement, fieldName, end);
+		} break;
+		default:
+			return nullptr;
 	}
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::List_ObjectPath *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if (auto optIndex = TryParse(*fieldName); optIndex.has_value()) {
 		const int idx = optIndex.value();
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_element(idx);}
 		return ResolvePath(instance, obj->mutable_element(idx), nextField, end);
 	} else {
 		for(auto& element : *obj->mutable_element()){
 			auto* innerObject = ResolvePath(instance, &element, fieldName, end);
-			if(innerObject){
-				return innerObject;
+			assert(innerObject);
+			const auto *innerDesc = innerObject->GetDescriptor();
+			const auto *nameFieldDesc = innerDesc->FindFieldByName("Name");
+			if (nameFieldDesc && nameFieldDesc->type() == google::protobuf::FieldDescriptor::Type::TYPE_STRING) {
+				const std::string &innerFieldName = innerObject->GetReflection()->GetString(*innerObject, nameFieldDesc);
+				if (*fieldName == innerFieldName) {
+					return innerObject;
+				}
 			}
-			return nullptr;
 		}
+		return nullptr;
 	}
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Boolean *obj, const StringIter& fieldName, const StringIter& end) {
@@ -119,113 +117,92 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Colo
 	return obj;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Player *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Health") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_health();}
 		return ResolvePath(instance, obj->mutable_health(), nextField, end);
 	}
 	if(*fieldName == "Actions") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_actions();}
 		return ResolvePath(instance, obj->mutable_actions(), nextField, end);
 	}
 	if(*fieldName == "Power") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_power();}
 		return ResolvePath(instance, obj->mutable_power(), nextField, end);
 	}
 	if(*fieldName == "Initiative") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_initiative();}
 		return ResolvePath(instance, obj->mutable_initiative(), nextField, end);
 	}
 	if(*fieldName == "Mitigate") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_mitigate();}
 		return ResolvePath(instance, obj->mutable_mitigate(), nextField, end);
 	}
 	if(*fieldName == "Slow") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_slow();}
 		return ResolvePath(instance, obj->mutable_slow(), nextField, end);
 	}
 	if(*fieldName == "Silence") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_silence();}
 		return ResolvePath(instance, obj->mutable_silence(), nextField, end);
 	}
 	if(*fieldName == "Disarm") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_disarm();}
 		return ResolvePath(instance, obj->mutable_disarm(), nextField, end);
 	}
 	if(*fieldName == "Position") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_position();}
 		return ResolvePath(instance, obj->mutable_position(), nextField, end);
 	}
 	if(*fieldName == "BasicActions") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_basicactions();}
 		return ResolvePath(instance, obj->mutable_basicactions(), nextField, end);
 	}
 	if(*fieldName == "Hand") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_hand();}
 		return ResolvePath(instance, obj->mutable_hand(), nextField, end);
 	}
 	if(*fieldName == "Deck") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_deck();}
 		return ResolvePath(instance, obj->mutable_deck(), nextField, end);
 	}
 	if(*fieldName == "Discard") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_discard();}
 		return ResolvePath(instance, obj->mutable_discard(), nextField, end);
 	}
 	if(*fieldName == "Feats") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_feats();}
 		return ResolvePath(instance, obj->mutable_feats(), nextField, end);
 	}
 	if(*fieldName == "RangeSources") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_rangesources();}
 		return ResolvePath(instance, obj->mutable_rangesources(), nextField, end);
 	}
 	if(*fieldName == "MaxHealth") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxhealth();}
 		return ResolvePath(instance, obj->mutable_maxhealth(), nextField, end);
 	}
 	if(*fieldName == "MaxActions") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxactions();}
 		return ResolvePath(instance, obj->mutable_maxactions(), nextField, end);
 	}
 	if(*fieldName == "MaxPower") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxpower();}
 		return ResolvePath(instance, obj->mutable_maxpower(), nextField, end);
 	}
 	if(*fieldName == "MaxSlow") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxslow();}
 		return ResolvePath(instance, obj->mutable_maxslow(), nextField, end);
 	}
 	if(*fieldName == "MaxSilence") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxsilence();}
 		return ResolvePath(instance, obj->mutable_maxsilence(), nextField, end);
 	}
 	if(*fieldName == "MaxDisarm") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxdisarm();}
 		return ResolvePath(instance, obj->mutable_maxdisarm(), nextField, end);
 	}
 	if(*fieldName == "MaxMitigate") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_maxmitigate();}
 		return ResolvePath(instance, obj->mutable_maxmitigate(), nextField, end);
 	}
@@ -233,8 +210,8 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Play
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Team *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Players") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_players();}
 		return ResolvePath(instance, obj->mutable_players(), nextField, end);
 	}
@@ -242,8 +219,8 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Team
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if(*fieldName == "CardStats") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_cardstats();}
 		return ResolvePath(instance, obj->mutable_cardstats(), nextField, end);
 	}
@@ -251,73 +228,60 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::CardData *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Owner") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_owner();}
 		return ResolvePath(instance, obj->mutable_owner(), nextField, end);
 	}
 	if(*fieldName == "Controller") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_controller();}
 		return ResolvePath(instance, obj->mutable_controller(), nextField, end);
 	}
 	if(*fieldName == "ActionCost") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_actioncost();}
 		return ResolvePath(instance, obj->mutable_actioncost(), nextField, end);
 	}
 	if(*fieldName == "PowerCost") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_powercost();}
 		return ResolvePath(instance, obj->mutable_powercost(), nextField, end);
 	}
 	if(*fieldName == "Range") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_range();}
 		return ResolvePath(instance, obj->mutable_range(), nextField, end);
 	}
 	if(*fieldName == "AffectedBySlow") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_affectedbyslow();}
 		return ResolvePath(instance, obj->mutable_affectedbyslow(), nextField, end);
 	}
 	if(*fieldName == "AffectedBySilence") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_affectedbysilence();}
 		return ResolvePath(instance, obj->mutable_affectedbysilence(), nextField, end);
 	}
 	if(*fieldName == "AffectedByDisarm") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_affectedbydisarm();}
 		return ResolvePath(instance, obj->mutable_affectedbydisarm(), nextField, end);
 	}
 	if(*fieldName == "Attached") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_attached();}
 		return ResolvePath(instance, obj->mutable_attached(), nextField, end);
 	}
 	if(*fieldName == "OmniPresentEffect") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_omnipresenteffect();}
 		return ResolvePath(instance, obj->mutable_omnipresenteffect(), nextField, end);
 	}
 	if(*fieldName == "PassiveEffect") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_passiveeffect();}
 		return ResolvePath(instance, obj->mutable_passiveeffect(), nextField, end);
 	}
 	if(*fieldName == "FeatEffect") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_feateffect();}
 		return ResolvePath(instance, obj->mutable_feateffect(), nextField, end);
 	}
 	if(*fieldName == "PlayEffect") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_playeffect();}
 		return ResolvePath(instance, obj->mutable_playeffect(), nextField, end);
 	}
 	if(*fieldName == "ResolveEffect") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_resolveeffect();}
 		return ResolvePath(instance, obj->mutable_resolveeffect(), nextField, end);
 	}
@@ -325,13 +289,12 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Card
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Tile *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
 	if(*fieldName == "Position") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_position();}
 		return ResolvePath(instance, obj->mutable_position(), nextField, end);
 	}
 	if(*fieldName == "Terrain") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_terrain();}
 		return ResolvePath(instance, obj->mutable_terrain(), nextField, end);
 	}
@@ -339,38 +302,36 @@ google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::Tile
 	return nullptr;
 }
 google::protobuf::Message *ResolvePath(GameInstance* instance, IvionOnline::GameState *obj, const StringIter& fieldName, const StringIter& end) {
+	const auto& nextField = fieldName + 1;
+	if(*fieldName == ".") {
+		assert(instance->currentCard_ != nullptr);
+		return ResolvePath(instance, instance->currentCard_, nextField, end);
+	}
 	if(*fieldName == "Players") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_players();}
 		return ResolvePath(instance, obj->mutable_players(), nextField, end);
 	}
 	if(*fieldName == "Cards") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_cards();}
 		return ResolvePath(instance, obj->mutable_cards(), nextField, end);
 	}
 	if(*fieldName == "CardData") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_carddata();}
 		return ResolvePath(instance, obj->mutable_carddata(), nextField, end);
 	}
 	if(*fieldName == "Teams") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_teams();}
 		return ResolvePath(instance, obj->mutable_teams(), nextField, end);
 	}
 	if(*fieldName == "Tiles") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_tiles();}
 		return ResolvePath(instance, obj->mutable_tiles(), nextField, end);
 	}
 	if(*fieldName == "Field") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_field();}
 		return ResolvePath(instance, obj->mutable_field(), nextField, end);
 	}
 	if(*fieldName == "TurnNumber") {
-		const auto& nextField = fieldName + 1;
 		if(nextField == end){return obj->mutable_turnnumber();}
 		return ResolvePath(instance, obj->mutable_turnnumber(), nextField, end);
 	}

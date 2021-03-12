@@ -54,6 +54,9 @@ bool __GetList(GameInstance *instance, MethodIter begin, const MethodIter &end, 
 }
 bool __FilterDistance(GameInstance* instance, MethodIter begin, const MethodIter& end, IvionOnline::List_ObjectPath* Targets, IvionOnline::List_ObjectPath* RangeSources, IvionOnline::Integer* MaxDistance)
 {
+	assert(Targets);
+	assert(RangeSources);
+	assert(MaxDistance);
 	const int maxDistance = MaxDistance->value();
 	auto isInRange = [&](IvionOnline::ObjectPath* object){
 		const Vec2i tgtPos = GetPosition(instance, object);
