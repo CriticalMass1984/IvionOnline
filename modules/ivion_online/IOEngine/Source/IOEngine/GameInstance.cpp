@@ -91,7 +91,9 @@ void GameInstance::Step() {
 	for (IvionOnline::ObjectPath &playerPath : *gamestate_.mutable_teams()->mutable_element()->Mutable(teamIdx)->mutable_players()->mutable_element()) {
 		fprintf(stderr, "ObjectPath: %s\n", PrintObjectPath(playerPath).c_str());
 		auto *player = ResolvePath<IvionOnline::Player>(this, &playerPath);
+
 		// basic actions
+		bool anyGoodBranches = false;
 		for (auto &actionPath : *player->mutable_basicactions()->mutable_element()) {
 			auto *card = ResolvePath<IvionOnline::Card>(this, &actionPath);
 			auto *cardData = ResolvePath<IvionOnline::CardData>(this, card->mutable_cardstats());
@@ -101,12 +103,21 @@ void GameInstance::Step() {
 
 			HistoryBranch branch(this);
 			this->currentCard_ = cardData;
-			ExecuteMethods(
+			if(ExecuteMethods(
 					this,
 					cardData->mutable_playeffect()->mutable_element()->begin(),
-					cardData->mutable_playeffect()->mutable_element()->end());
+					cardData->mutable_playeffect()->mutable_element()->end()))
+			{
+				this->currentHistory_->set_is_good(true);
+				anyGoodBranches = true;
+			}
 			this->currentCard_ = nullptr;
 		}
+		if(anyGoodBranches)
+		{
+			currentHistory_->set_is_good(true);
+		}
+		// assert(anyGoodBranches); // passing the turn/priority should always be valid
 	}
 }
 

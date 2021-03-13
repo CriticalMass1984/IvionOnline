@@ -3,6 +3,7 @@
 #include <IOEngine/Vec2i.hpp>
 
 #include <cassert>
+#include <chrono>
 #include <cstdio>
 #include <fstream>
 #include <optional>
@@ -45,6 +46,7 @@ void GenerateRandomGame(IvionOnline::GameInfo *info, int numPlayers) {
 		newPlayer->mutable_deck();
 		newPlayer->set_uid("UID_RandomAgent_" + std::to_string(i));
 		newPlayer->set_displayname("RandomAgent_" + std::to_string(i));
+		newPlayer->set_teamindex(i);
 	}
 }
 
@@ -60,16 +62,27 @@ int main(int argc, char **argv) {
 	// printf("GameState Size: %ld\n", instance.gamestate_.ByteSizeLong());
 
 	std::default_random_engine generator;
-	while(true)
-	{
-		instance.Step();
-		while(instance.currentHistory_->branches_size() > 0)
+	while (true) {
 		{
-			instance.currentHistory_->PrintDebugString();
-			const int optionsCount = instance.currentHistory_->branches_size();
-			std::uniform_int_distribution<int> distribution(0, optionsCount);
-			int choice = distribution(generator);
-			instance.MakeChoice(choice);
+			printf("\nStep:\n");
+			const auto start = std::chrono::high_resolution_clock::now();
+			instance.Step();
+			const auto end = std::chrono::high_resolution_clock::now();
+			printf("\nStep Took: %12ld ms\n", std::chrono::duration_cast<std::chrono::microseconds>(end - start).count());
+		}
+		{
+			printf("\nChoices:\n");
+			const auto start = std::chrono::high_resolution_clock::now();
+
+			while (instance.currentHistory_->branches_size() > 0) {
+				// instance.currentHistory_->PrintDebugString();
+				const int optionsCount = instance.currentHistory_->branches_size();
+				std::uniform_int_distribution<int> distribution(0, optionsCount);
+				int choice = distribution(generator);
+				instance.MakeChoice(choice);
+			}
+			const auto end = std::chrono::high_resolution_clock::now();
+			printf("\nChoices Took: %12ld ms\n", std::chrono::duration_cast<std::chrono::microseconds>(end - start).count());
 		}
 	}
 

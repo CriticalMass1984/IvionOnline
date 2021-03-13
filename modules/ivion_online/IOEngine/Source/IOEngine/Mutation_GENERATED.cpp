@@ -148,6 +148,7 @@ void Apply_Vec2i_Set_Mutation(GameInstance* instance,  IvionOnline::Vec2i_Set_Mu
     assert(object);
 	object->set_x(mutation->newvalue().x());
 	object->set_y(mutation->newvalue().y());
+	printf("Apply: %s[%d, %d]\n", object->name().c_str(), object->x(), object->y());
 }
 void Apply_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Insert_Mutation* mutation){
 	assert(mutation);
@@ -183,6 +184,7 @@ void Revert_Vec2i_Set_Mutation(GameInstance* instance, IvionOnline::Vec2i_Set_Mu
     assert(object);
 	object->set_x(mutation->oldvalue().x());
 	object->set_y(mutation->oldvalue().y());
+	printf("Revert: %s[%d, %d]\n", object->name().c_str(), object->x(), object->y());
 }
 void Revert_List_Vec2i_Insert_Mutation(GameInstance* instance, IvionOnline::List_Vec2i_Insert_Mutation* mutation){
 	assert(mutation);

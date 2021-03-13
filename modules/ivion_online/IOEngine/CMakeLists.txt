@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_BUILD_TYPE DEBUG)
+#set(CMAKE_BUILD_TYPE RELEASE)
 
 find_package( Threads )
 find_package(Protobuf REQUIRED PATHS "Extern/Install/GRPC/lib/cmake")
@@ -23,15 +24,19 @@ endif()
 
 
 file(GLOB_RECURSE SOURCES "Source/*.cpp" "Source/*.cc")
-add_library(IOEngine ${SOURCES})
+add_library(IOEngine SHARED ${SOURCES})
+target_link_directories(IOEngine PUBLIC
+  Extern/Install/GRPC/lib
+)
 target_include_directories(IOEngine PUBLIC
-    Include
-    ${GRPCPP_INCLUDE_DIRS}
+    Include  
+    #${GRPCPP_INCLUDE_DIRS}
     ${Protobuf_INCLUDE_DIRS}
 )
 target_link_libraries(IOEngine
-    ${GRPCPP_LIBRARIES}
-    ${Protobuf_LIBRARIES}
+  libgrpc++.a
+  ${GRPCPP_LIBRARIES}
+  ${Protobuf_LIBRARIES}
 )
 
 ##

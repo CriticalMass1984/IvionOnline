@@ -17,7 +17,6 @@ inline T* ResolvePath(GameInstance* instance, IvionOnline::ObjectPath *path) {
     auto* typedPtr = dynamic_cast<T*>(objPtr);
 	while(typedPtr == nullptr)
 	{
-		objPtr->PrintDebugString();
 		path = dynamic_cast<IvionOnline::ObjectPath*>(objPtr);
 		assert(path);
 		objPtr = ResolvePath(instance, path);
