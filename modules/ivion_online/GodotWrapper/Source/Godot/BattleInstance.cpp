@@ -5,7 +5,6 @@
 #include <Godot/Pawn.hpp>
 #include <Godot/Tile.hpp>
 
-#include <core/class_db.h>
 #include <scene/resources/packed_scene.h>
 #include <cassert>
 
@@ -24,7 +23,7 @@ void GenerateRandomGame(IvionOnline::GameInfo *info, int numPlayers) {
 	info->mutable_mapsize()->set_x(4);
 	info->mutable_mapsize()->set_y(4);
 
-	assert(numPlayers <= 4);
+	ERR_FAIL_COND(numPlayers <= 4);
 
 	const int start_x[] = { 0, 3, 2, 0 };
 	const int start_y[] = { 0, 3, 0, 2 };

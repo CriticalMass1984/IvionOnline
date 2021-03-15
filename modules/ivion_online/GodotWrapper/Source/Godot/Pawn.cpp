@@ -25,10 +25,6 @@ bool Pawn::SelectAsChoice() {
 	return this->IvionEntity::SelectAsChoice();
 }
 //godot callbacks
-void Pawn::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
-void Pawn::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
-void Pawn::MouseEnter() {}
-void Pawn::MouseLeave() {}
 void Pawn::Init() {}
 void Pawn::Update(float deltaTime) {}
 void Pawn::Delete() {}

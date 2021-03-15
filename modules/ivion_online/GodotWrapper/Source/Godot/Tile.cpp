@@ -24,24 +24,18 @@ bool Tile::SelectAsChoice() {
 }
 
 //godot callbacks
-void Tile::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
-}
-void Tile::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {
-}
 void Tile::Init() {
 	fprintf(stderr, "Tile::Init()\n");
 
-	Node *child = get_node_or_null(NodePath("Plane"));
-	ERR_FAIL_NULL(child);
+	// Node *child = get_node_or_null(NodePath("Plane"));
+	// ERR_FAIL_NULL(child);
 
-	MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
-	assert(mesh);
+	// MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
+	// assert(mesh);
 
-	Ref<Material> material = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
-	mesh->set_material_override(material);
+	// Ref<Material> material = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
+	// mesh->set_material_override(material);
 }
-void Tile::MouseEnter() {}
-void Tile::MouseLeave() {}
 void Tile::Update(float deltaTime) {
 }
 void Tile::Delete() {

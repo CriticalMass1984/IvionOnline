@@ -1,6 +1,6 @@
 #include "register_types.h"
 
-#include "core/class_db.h"
+#include "core/object/class_db.h"
 #include <Godot/Card.hpp>
 #include <Godot/Pawn.hpp>
 #include <Godot/Tile.hpp>

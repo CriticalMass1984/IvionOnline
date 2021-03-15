@@ -15,15 +15,16 @@ bool Card::UnmarkAsOption() {
 	return this->IvionEntity::UnmarkAsOption();
 }
 bool Card::SelectAsChoice() {
+	material_->set_albedo(Color(1.2, 1.2, 1.2, 1));
 	return this->IvionEntity::SelectAsChoice();
 }
 
 //godot callbacks
-void Card::LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
-void Card::RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
-void Card::MouseEnter() {}
-void Card::MouseLeave() {}
-void Card::Init() {}
+void Card::Init() {
+	if(Engine::get_singleton()->is_editor_hint()){
+		LoadImage("DEFAULT.png");
+	}
+}
 void Card::Update(float deltaTime) {}
 void Card::Delete() {}
 
@@ -39,7 +40,7 @@ Card* Card::New() {
 }
 void Card::LoadImage(const std::string& image)
 {
-	Node *child = get_node_or_null(NodePath("Plane"));
+	Node *child = get_node_or_null(NodePath("Front"));
 	assert(child);
 
 	MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
@@ -49,17 +50,17 @@ void Card::LoadImage(const std::string& image)
 	int count = snprintf(imageBuffer, 128, "CardImages/%s", image.c_str());
 	assert(count < 128);
 
-	Ref<Material> material = GetCardMaterial(imageBuffer);
-	mesh->set_material_override(material);
+	material_ = GetCardMaterial(imageBuffer);
+	mesh->set_material_override(material_);
 }
 
-Map<String, Ref<Material>> Card::cardMaterialCache_;
+Map<String, Ref<StandardMaterial3D>> Card::cardMaterialCache_;
 
-Ref<Material> Card::GetCardMaterial(const String &imageName) {
+Ref<StandardMaterial3D> Card::GetCardMaterial(const String &imageName) {
 	// /home/zack/Documents/IvionOnline/Godot/editor/import/editor_import_collada.cpp
 
 	//look for a cached image
-	Map<String, Ref<Material>>::Element *element = Card::cardMaterialCache_.find(imageName);
+	Map<String, Ref<StandardMaterial3D>>::Element *element = Card::cardMaterialCache_.find(imageName);
 	if (element != nullptr) {
 		return element->value();
 	}

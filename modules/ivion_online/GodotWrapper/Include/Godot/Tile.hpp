@@ -12,15 +12,11 @@ public:
 	static Tile* New();
 
 	//engine api
-	bool MarkAsOption(int index) override;
-	bool UnmarkAsOption() override;
-	bool SelectAsChoice() override;
+	void MarkAsOption(int index) override;
+	void UnmarkAsOption() override;
+	void SelectAsChoice() override;
 
 	//godot callbacks
-	void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) override;
-	void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) override;
-	void MouseEnter() override;
-	void MouseLeave() override;
 	void Init() override;
 	void Update(float deltaTime) override;
 	void Delete() override;

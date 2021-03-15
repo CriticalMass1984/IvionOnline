@@ -22,19 +22,19 @@ public:
 
 	// engine api
 	//returns true if the marking was successful (it wasn't marked before)
-	virtual bool MarkAsOption(int index);
+	virtual void MarkAsOption(int index);
 
 	//returns true if the marking was successful (it was marked before)
-	virtual bool UnmarkAsOption();
+	virtual void UnmarkAsOption();
 
 	//returns true if successful (branch index was valid, is marked as a choice). Also unmarks
-	virtual bool SelectAsChoice();
+	virtual void SelectAsChoice();
 
 	// godot callbacks
-	virtual void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
-	virtual void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
-	virtual void MouseEnter() {}
-	virtual void MouseLeave() {}
+	void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
+	void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
+	void MouseEnter() {}
+	void MouseLeave() {}
 	virtual void Init() {}
 	virtual void Update(float deltaTime) {}
 	virtual void Delete() {}
@@ -44,5 +44,14 @@ public:
 
 private:
 	static void _bind_methods();
+	//returns true if the marking was successful (it wasn't marked before)
+	bool __MarkAsOption(int index);
+
+	//returns true if the marking was successful (it was marked before)
+	bool __UnmarkAsOption();
+
+	//returns true if successful (branch index was valid, is marked as a choice). Also unmarks
+	bool __SelectAsChoice();
+
 };
 } // namespace godot

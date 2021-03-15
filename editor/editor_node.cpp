@@ -5622,7 +5622,7 @@ void EditorNode::notify_settings_changed() {
 }
 
 EditorNode::EditorNode() {
-	Input::get_singleton()->set_use_accumulated_input(true);
+	Input::get_singleton()->set_use_accumulated_input(false);
 	Resource::_get_local_scene_func = _resource_get_edited_scene;
 
 	RenderingServer::get_singleton()->set_debug_generate_wireframes(true);
