@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -29,14 +29,15 @@
 /*************************************************************************/
 
 #include "export.h"
-#include "core/bind/core_bind.h"
+
+#include "core/config/project_settings.h"
+#include "core/core_bind.h"
 #include "core/crypto/crypto_core.h"
 #include "core/io/marshalls.h"
 #include "core/io/zip_io.h"
-#include "core/object.h"
+#include "core/object/class_db.h"
 #include "core/os/dir_access.h"
 #include "core/os/file_access.h"
-#include "core/project_settings.h"
 #include "core/version.h"
 #include "editor/editor_export.h"
 #include "editor/editor_node.h"
@@ -107,7 +108,7 @@ class AppxPackager {
 
 	struct BlockHash {
 		String base64_hash;
-		size_t compressed_size;
+		size_t compressed_size = 0;
 	};
 
 	struct FileMeta {
@@ -119,12 +120,10 @@ class AppxPackager {
 		Vector<BlockHash> hashes;
 		uLong file_crc32 = 0;
 		ZPOS64_T zip_offset = 0;
-
-		FileMeta() {}
 	};
 
 	String progress_task;
-	FileAccess *package;
+	FileAccess *package = nullptr;
 
 	Set<String> mime_types;
 
@@ -249,7 +248,7 @@ void AppxPackager::make_content_types(const String &p_path) {
 	Map<String, String> types;
 
 	for (int i = 0; i < file_metadata.size(); i++) {
-		String ext = file_metadata[i].name.get_extension();
+		String ext = file_metadata[i].name.get_extension().to_lower();
 
 		if (types.has(ext)) {
 			continue;
@@ -642,7 +641,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 	};
 
 	bool _valid_resource_name(const String &p_name) const {
-		if (p_name.empty()) {
+		if (p_name.is_empty()) {
 			return false;
 		}
 		if (p_name.ends_with(".")) {
@@ -688,7 +687,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 	}
 
 	bool _valid_bgcolor(const String &p_color) const {
-		if (p_color.empty()) {
+		if (p_color.is_empty()) {
 			return true;
 		}
 		if (p_color.begins_with("#") && p_color.is_valid_html_color()) {
@@ -761,10 +760,10 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 		result = result.replace("$version_string$", version);
 
 		Platform arch = (Platform)(int)p_preset->get("architecture/target");
-		String architecture = arch == ARM ? "arm" : arch == X86 ? "x86" : "x64";
+		String architecture = arch == ARM ? "arm" : (arch == X86 ? "x86" : "x64");
 		result = result.replace("$architecture$", architecture);
 
-		result = result.replace("$display_name$", String(p_preset->get("package/display_name")).empty() ? (String)ProjectSettings::get_singleton()->get("application/config/name") : String(p_preset->get("package/display_name")));
+		result = result.replace("$display_name$", String(p_preset->get("package/display_name")).is_empty() ? (String)ProjectSettings::get_singleton()->get("application/config/name") : String(p_preset->get("package/display_name")));
 
 		result = result.replace("$publisher_display_name$", p_preset->get("package/publisher_display_name"));
 		result = result.replace("$app_description$", p_preset->get("package/description"));
@@ -783,7 +782,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 		}
 
 		String show_name_on_tiles = "";
-		if (!name_on_tiles.empty()) {
+		if (!name_on_tiles.is_empty()) {
 			show_name_on_tiles = "<uap:ShowNameOnTiles>\n" + name_on_tiles + "        </uap:ShowNameOnTiles>";
 		}
 
@@ -804,7 +803,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 		}
 
 		String rotation_preference = "";
-		if (!rotations.empty()) {
+		if (!rotations.is_empty()) {
 			rotation_preference = "<uap:InitialRotationPreference>\n" + rotations + "        </uap:InitialRotationPreference>";
 		}
 
@@ -838,7 +837,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 		}
 
 		String capabilities_string = "<Capabilities />";
-		if (!capabilities_elements.empty()) {
+		if (!capabilities_elements.is_empty()) {
 			capabilities_string = "<Capabilities>\n" + capabilities_elements + "  </Capabilities>";
 		}
 
@@ -961,7 +960,7 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 		return true;
 	}
 
-	static Error save_appx_file(void *p_userdata, const String &p_path, const Vector<uint8_t> &p_data, int p_file, int p_total) {
+	static Error save_appx_file(void *p_userdata, const String &p_path, const Vector<uint8_t> &p_data, int p_file, int p_total, const Vector<String> &p_enc_in_filters, const Vector<String> &p_enc_ex_filters, const Vector<uint8_t> &p_key) {
 		AppxPackager *packager = (AppxPackager *)p_userdata;
 		String dst_path = p_path.replace_first("res://", "game/");
 
@@ -969,24 +968,24 @@ class EditorExportPlatformUWP : public EditorExportPlatform {
 	}
 
 public:
-	virtual String get_name() const {
+	virtual String get_name() const override {
 		return "UWP";
 	}
-	virtual String get_os_name() const {
+	virtual String get_os_name() const override {
 		return "UWP";
 	}
 
-	virtual List<String> get_binary_extensions(const Ref<EditorExportPreset> &p_preset) const {
+	virtual List<String> get_binary_extensions(const Ref<EditorExportPreset> &p_preset) const override {
 		List<String> list;
 		list.push_back("appx");
 		return list;
 	}
 
-	virtual Ref<Texture2D> get_logo() const {
+	virtual Ref<Texture2D> get_logo() const override {
 		return logo;
 	}
 
-	virtual void get_preset_features(const Ref<EditorExportPreset> &p_preset, List<String> *r_features) {
+	virtual void get_preset_features(const Ref<EditorExportPreset> &p_preset, List<String> *r_features) override {
 		r_features->push_back("s3tc");
 		r_features->push_back("etc");
 		switch ((int)p_preset->get("architecture/target")) {
@@ -1002,7 +1001,10 @@ public:
 		}
 	}
 
-	virtual void get_export_options(List<ExportOption> *r_options) {
+	virtual void get_export_options(List<ExportOption> *r_options) override {
+		r_options->push_back(ExportOption(PropertyInfo(Variant::STRING, "custom_template/debug", PROPERTY_HINT_GLOBAL_FILE, "*.zip"), ""));
+		r_options->push_back(ExportOption(PropertyInfo(Variant::STRING, "custom_template/release", PROPERTY_HINT_GLOBAL_FILE, "*.zip"), ""));
+
 		r_options->push_back(ExportOption(PropertyInfo(Variant::INT, "architecture/target", PROPERTY_HINT_ENUM, "arm,x86,x64"), 1));
 
 		r_options->push_back(ExportOption(PropertyInfo(Variant::STRING, "command_line/extra_args"), ""));
@@ -1044,9 +1046,6 @@ public:
 		r_options->push_back(ExportOption(PropertyInfo(Variant::BOOL, "tiles/show_name_on_wide310x150"), false));
 		r_options->push_back(ExportOption(PropertyInfo(Variant::BOOL, "tiles/show_name_on_square310x310"), false));
 
-		r_options->push_back(ExportOption(PropertyInfo(Variant::STRING, "custom_template/debug", PROPERTY_HINT_GLOBAL_FILE, "*.zip"), ""));
-		r_options->push_back(ExportOption(PropertyInfo(Variant::STRING, "custom_template/release", PROPERTY_HINT_GLOBAL_FILE, "*.zip"), ""));
-
 		// Capabilities
 		const char **basic = uwp_capabilities;
 		while (*basic) {
@@ -1067,7 +1066,7 @@ public:
 		}
 	}
 
-	virtual bool can_export(const Ref<EditorExportPreset> &p_preset, String &r_error, bool &r_missing_templates) const {
+	virtual bool can_export(const Ref<EditorExportPreset> &p_preset, String &r_error, bool &r_missing_templates) const override {
 		String err;
 		bool valid = false;
 
@@ -1177,7 +1176,7 @@ public:
 		return valid;
 	}
 
-	virtual Error export_project(const Ref<EditorExportPreset> &p_preset, bool p_debug, const String &p_path, int p_flags = 0) {
+	virtual Error export_project(const Ref<EditorExportPreset> &p_preset, bool p_debug, const String &p_path, int p_flags = 0) override {
 		String src_appx;
 
 		EditorProgress ep("export", "Exporting for UWP", 7, true);
@@ -1412,18 +1411,18 @@ public:
 		args.push_back(cert_pass);
 		args.push_back(p_path);
 
-		OS::get_singleton()->execute(signtool_path, args, true);
+		OS::get_singleton()->execute(signtool_path, args);
 #endif // WINDOWS_ENABLED
 
 		return OK;
 	}
 
-	virtual void get_platform_features(List<String> *r_features) {
+	virtual void get_platform_features(List<String> *r_features) override {
 		r_features->push_back("pc");
 		r_features->push_back("UWP");
 	}
 
-	virtual void resolve_platform_feature_priorities(const Ref<EditorExportPreset> &p_preset, Set<String> &p_features) {
+	virtual void resolve_platform_feature_priorities(const Ref<EditorExportPreset> &p_preset, Set<String> &p_features) override {
 	}
 
 	EditorExportPlatformUWP() {

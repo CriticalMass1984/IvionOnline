@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -30,7 +30,7 @@
 
 #include "path_3d.h"
 
-#include "core/engine.h"
+#include "core/config/engine.h"
 #include "scene/scene_string_names.h"
 
 void Path3D::_notification(int p_what) {
@@ -84,17 +84,13 @@ void Path3D::_bind_methods() {
 
 //////////////
 
-void PathFollow3D::_update_transform() {
+void PathFollow3D::_update_transform(bool p_update_xyz_rot) {
 	if (!path) {
 		return;
 	}
 
 	Ref<Curve3D> c = path->get_curve();
 	if (!c.is_valid()) {
-		return;
-	}
-
-	if (delta_offset == 0) {
 		return;
 	}
 
@@ -156,45 +152,47 @@ void PathFollow3D::_update_transform() {
 
 		t.origin = pos;
 
-		Vector3 t_prev = (pos - c->interpolate_baked(offset - delta_offset, cubic)).normalized();
-		Vector3 t_cur = (c->interpolate_baked(offset + delta_offset, cubic) - pos).normalized();
+		if (p_update_xyz_rot && delta_offset != 0) { // Only update rotation if some parameter has changed - i.e. not on addition to scene tree.
+			Vector3 t_prev = (pos - c->interpolate_baked(offset - delta_offset, cubic)).normalized();
+			Vector3 t_cur = (c->interpolate_baked(offset + delta_offset, cubic) - pos).normalized();
 
-		Vector3 axis = t_prev.cross(t_cur);
-		float dot = t_prev.dot(t_cur);
-		float angle = Math::acos(CLAMP(dot, -1, 1));
+			Vector3 axis = t_prev.cross(t_cur);
+			float dot = t_prev.dot(t_cur);
+			float angle = Math::acos(CLAMP(dot, -1, 1));
 
-		if (likely(!Math::is_zero_approx(angle))) {
-			if (rotation_mode == ROTATION_Y) {
-				// assuming we're referring to global Y-axis. is this correct?
-				axis.x = 0;
-				axis.z = 0;
-			} else if (rotation_mode == ROTATION_XY) {
-				axis.z = 0;
-			} else if (rotation_mode == ROTATION_XYZ) {
-				// all components are allowed
+			if (likely(!Math::is_zero_approx(angle))) {
+				if (rotation_mode == ROTATION_Y) {
+					// assuming we're referring to global Y-axis. is this correct?
+					axis.x = 0;
+					axis.z = 0;
+				} else if (rotation_mode == ROTATION_XY) {
+					axis.z = 0;
+				} else if (rotation_mode == ROTATION_XYZ) {
+					// all components are allowed
+				}
+
+				if (likely(!Math::is_zero_approx(axis.length()))) {
+					t.rotate_basis(axis.normalized(), angle);
+				}
 			}
 
-			if (likely(!Math::is_zero_approx(axis.length()))) {
-				t.rotate_basis(axis.normalized(), angle);
-			}
-		}
+			// do the additional tilting
+			float tilt_angle = c->interpolate_baked_tilt(offset);
+			Vector3 tilt_axis = t_cur; // not sure what tilt is supposed to do, is this correct??
 
-		// do the additional tilting
-		float tilt_angle = c->interpolate_baked_tilt(offset);
-		Vector3 tilt_axis = t_cur; // not sure what tilt is supposed to do, is this correct??
+			if (likely(!Math::is_zero_approx(Math::abs(tilt_angle)))) {
+				if (rotation_mode == ROTATION_Y) {
+					tilt_axis.x = 0;
+					tilt_axis.z = 0;
+				} else if (rotation_mode == ROTATION_XY) {
+					tilt_axis.z = 0;
+				} else if (rotation_mode == ROTATION_XYZ) {
+					// all components are allowed
+				}
 
-		if (likely(!Math::is_zero_approx(Math::abs(tilt_angle)))) {
-			if (rotation_mode == ROTATION_Y) {
-				tilt_axis.x = 0;
-				tilt_axis.z = 0;
-			} else if (rotation_mode == ROTATION_XY) {
-				tilt_axis.z = 0;
-			} else if (rotation_mode == ROTATION_XYZ) {
-				// all components are allowed
-			}
-
-			if (likely(!Math::is_zero_approx(tilt_axis.length()))) {
-				t.rotate_basis(tilt_axis.normalized(), tilt_angle);
+				if (likely(!Math::is_zero_approx(tilt_axis.length()))) {
+					t.rotate_basis(tilt_axis.normalized(), tilt_angle);
+				}
 			}
 		}
 
@@ -213,7 +211,7 @@ void PathFollow3D::_notification(int p_what) {
 			if (parent) {
 				path = Object::cast_to<Path3D>(parent);
 				if (path) {
-					_update_transform();
+					_update_transform(false);
 				}
 			}
 
@@ -248,16 +246,24 @@ String PathFollow3D::get_configuration_warning() const {
 		return String();
 	}
 
+	String warning = Node3D::get_configuration_warning();
+
 	if (!Object::cast_to<Path3D>(get_parent())) {
-		return TTR("PathFollow3D only works when set as a child of a Path3D node.");
+		if (!warning.is_empty()) {
+			warning += "\n\n";
+		}
+		warning += TTR("PathFollow3D only works when set as a child of a Path3D node.");
 	} else {
 		Path3D *path = Object::cast_to<Path3D>(get_parent());
 		if (path->get_curve().is_valid() && !path->get_curve()->is_up_vector_enabled() && rotation_mode == ROTATION_ORIENTED) {
-			return TTR("PathFollow3D's ROTATION_ORIENTED requires \"Up Vector\" to be enabled in its parent Path3D's Curve resource.");
+			if (!warning.is_empty()) {
+				warning += "\n\n";
+			}
+			warning += TTR("PathFollow3D's ROTATION_ORIENTED requires \"Up Vector\" to be enabled in its parent Path3D's Curve resource.");
 		}
 	}
 
-	return String();
+	return warning;
 }
 
 void PathFollow3D::_bind_methods() {
@@ -317,8 +323,6 @@ void PathFollow3D::set_offset(float p_offset) {
 
 		_update_transform();
 	}
-	_change_notify("offset");
-	_change_notify("unit_offset");
 }
 
 void PathFollow3D::set_h_offset(float p_h_offset) {
@@ -378,15 +382,4 @@ void PathFollow3D::set_loop(bool p_loop) {
 
 bool PathFollow3D::has_loop() const {
 	return loop;
-}
-
-PathFollow3D::PathFollow3D() {
-	offset = 0;
-	delta_offset = 0;
-	h_offset = 0;
-	v_offset = 0;
-	path = nullptr;
-	rotation_mode = ROTATION_XYZ;
-	cubic = true;
-	loop = true;
 }

@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -55,32 +55,32 @@ public:
 	};
 
 private:
-	bool color_dirty;
+	bool color_dirty = true;
 	Color color_accum;
 
-	SpriteBase3D *parent_sprite;
+	SpriteBase3D *parent_sprite = nullptr;
 	List<SpriteBase3D *> children;
-	List<SpriteBase3D *>::Element *pI;
+	List<SpriteBase3D *>::Element *pI = nullptr;
 
-	bool centered;
+	bool centered = true;
 	Point2 offset;
 
-	bool hflip;
-	bool vflip;
+	bool hflip = false;
+	bool vflip = false;
 
-	Color modulate;
-	float opacity;
+	Color modulate = Color(1, 1, 1, 1);
+	float opacity = 1.0;
 
-	Vector3::Axis axis;
-	float pixel_size;
+	Vector3::Axis axis = Vector3::AXIS_Z;
+	float pixel_size = 0.01;
 	AABB aabb;
 
 	RID immediate;
 
 	bool flags[FLAG_MAX];
-	AlphaCutMode alpha_cut;
-	StandardMaterial3D::BillboardMode billboard_mode;
-	bool pending_update;
+	AlphaCutMode alpha_cut = ALPHA_CUT_DISABLED;
+	StandardMaterial3D::BillboardMode billboard_mode = StandardMaterial3D::BILLBOARD_DISABLED;
+	bool pending_update = false;
 	void _im_update();
 
 	void _propagate_color_changed();
@@ -135,8 +135,8 @@ public:
 
 	virtual Rect2 get_item_rect() const = 0;
 
-	virtual AABB get_aabb() const;
-	virtual Vector<Face3> get_faces(uint32_t p_usage_flags) const;
+	virtual AABB get_aabb() const override;
+	virtual Vector<Face3> get_faces(uint32_t p_usage_flags) const override;
 	Ref<TriangleMesh> generate_triangle_mesh() const;
 
 	SpriteBase3D();
@@ -158,10 +158,10 @@ class Sprite3D : public SpriteBase3D {
 	void _texture_changed();
 
 protected:
-	virtual void _draw();
+	virtual void _draw() override;
 	static void _bind_methods();
 
-	virtual void _validate_property(PropertyInfo &property) const;
+	virtual void _validate_property(PropertyInfo &property) const override;
 
 public:
 	void set_texture(const Ref<Texture2D> &p_texture);
@@ -185,7 +185,7 @@ public:
 	void set_hframes(int p_amount);
 	int get_hframes() const;
 
-	virtual Rect2 get_item_rect() const;
+	virtual Rect2 get_item_rect() const override;
 
 	Sprite3D();
 	//~Sprite3D();
@@ -195,16 +195,16 @@ class AnimatedSprite3D : public SpriteBase3D {
 	GDCLASS(AnimatedSprite3D, SpriteBase3D);
 
 	Ref<SpriteFrames> frames;
-	bool playing;
-	StringName animation;
-	int frame;
+	bool playing = false;
+	StringName animation = "default";
+	int frame = 0;
 
-	bool centered;
+	bool centered = true;
 
-	float timeout;
+	float timeout = 0.0;
 
-	bool hflip;
-	bool vflip;
+	bool hflip = 1;
+	bool vflip = 1;
 
 	Color modulate;
 
@@ -215,10 +215,10 @@ class AnimatedSprite3D : public SpriteBase3D {
 	bool _is_playing() const;
 
 protected:
-	virtual void _draw();
+	virtual void _draw() override;
 	static void _bind_methods();
 	void _notification(int p_what);
-	virtual void _validate_property(PropertyInfo &property) const;
+	virtual void _validate_property(PropertyInfo &property) const override;
 
 public:
 	void set_sprite_frames(const Ref<SpriteFrames> &p_frames);
@@ -234,9 +234,9 @@ public:
 	void set_frame(int p_frame);
 	int get_frame() const;
 
-	virtual Rect2 get_item_rect() const;
+	virtual Rect2 get_item_rect() const override;
 
-	virtual String get_configuration_warning() const;
+	virtual String get_configuration_warning() const override;
 	AnimatedSprite3D();
 };
 

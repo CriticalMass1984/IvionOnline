@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -86,8 +86,8 @@ class ScriptCreateDialog : public ConfirmationDialog {
 		SCRIPT_ORIGIN_EDITOR,
 	};
 	struct ScriptTemplateInfo {
-		int id;
-		ScriptOrigin origin;
+		int id = 0;
+		ScriptOrigin origin = ScriptOrigin::SCRIPT_ORIGIN_EDITOR;
 		String dir;
 		String name;
 		String extension;
@@ -117,7 +117,7 @@ class ScriptCreateDialog : public ConfirmationDialog {
 	void _file_selected(const String &p_file);
 	void _create();
 	void _browse_class_in_tree();
-	virtual void ok_pressed();
+	virtual void ok_pressed() override;
 	void _create_new();
 	void _load_exist();
 	void _msg_script_valid(bool valid, const String &p_msg = String());

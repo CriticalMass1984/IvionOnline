@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -46,6 +46,8 @@
 #include "scene/gui/texture_rect.h"
 #include "scene/resources/animation.h"
 #include "scene_tree_editor.h"
+
+class AnimationPlayer;
 
 class AnimationTimelineEdit : public Range {
 	GDCLASS(AnimationTimelineEdit, Range);
@@ -97,7 +99,7 @@ public:
 
 	float get_zoom_scale() const;
 
-	virtual Size2 get_minimum_size() const;
+	virtual Size2 get_minimum_size() const override;
 	void set_animation(const Ref<Animation> &p_animation);
 	void set_zoom(Range *p_zoom);
 	Range *get_zoom() const { return zoom; }
@@ -192,11 +194,11 @@ protected:
 	virtual void _gui_input(const Ref<InputEvent> &p_event);
 
 public:
-	virtual Variant get_drag_data(const Point2 &p_point);
-	virtual bool can_drop_data(const Point2 &p_point, const Variant &p_data) const;
-	virtual void drop_data(const Point2 &p_point, const Variant &p_data);
+	virtual Variant get_drag_data(const Point2 &p_point) override;
+	virtual bool can_drop_data(const Point2 &p_point, const Variant &p_data) const override;
+	virtual void drop_data(const Point2 &p_point, const Variant &p_data) override;
 
-	virtual String get_tooltip(const Point2 &p_pos) const;
+	virtual String get_tooltip(const Point2 &p_pos) const override;
 
 	virtual int get_key_height() const;
 	virtual Rect2 get_key_rect(int p_index, float p_pixels_sec);
@@ -207,7 +209,6 @@ public:
 	virtual void draw_fg(int p_clip_left, int p_clip_right);
 
 	//helper
-	void draw_texture_clipped(const Ref<Texture2D> &p_texture, const Vector2 &p_pos);
 	void draw_texture_region_clipped(const Ref<Texture2D> &p_texture, const Rect2 &p_rect, const Rect2 &p_region);
 	void draw_rect_clipped(const Rect2 &p_rect, const Color &p_color, bool p_filled = true);
 
@@ -218,7 +219,7 @@ public:
 	UndoRedo *get_undo_redo() const { return undo_redo; }
 	NodePath get_path() const;
 	void set_animation_and_track(const Ref<Animation> &p_animation, int p_track);
-	virtual Size2 get_minimum_size() const;
+	virtual Size2 get_minimum_size() const override;
 
 	void set_undo_redo(UndoRedo *p_undo_redo);
 	void set_timeline(AnimationTimelineEdit *p_timeline);
@@ -253,8 +254,8 @@ class AnimationTrackEditGroup : public Control {
 	Ref<Texture2D> icon;
 	String node_name;
 	NodePath node;
-	Node *root;
-	AnimationTimelineEdit *timeline;
+	Node *root = nullptr;
+	AnimationTimelineEdit *timeline = nullptr;
 
 	void _zoom_changed();
 
@@ -264,7 +265,7 @@ protected:
 
 public:
 	void set_type_and_name(const Ref<Texture2D> &p_type, const String &p_name, const NodePath &p_node);
-	virtual Size2 get_minimum_size() const;
+	virtual Size2 get_minimum_size() const override;
 	void set_timeline(AnimationTimelineEdit *p_timeline);
 	void set_root(Node *p_root);
 
@@ -286,6 +287,7 @@ class AnimationTrackEditor : public VBoxContainer {
 		EDIT_DELETE_SELECTION,
 		EDIT_GOTO_NEXT_STEP,
 		EDIT_GOTO_PREV_STEP,
+		EDIT_APPLY_RESET,
 		EDIT_OPTIMIZE_ANIMATION,
 		EDIT_OPTIMIZE_ANIMATION_CONFIRM,
 		EDIT_CLEAN_UP_ANIMATION,
@@ -354,14 +356,15 @@ class AnimationTrackEditor : public VBoxContainer {
 	struct InsertData {
 		Animation::TrackType type;
 		NodePath path;
-		int track_idx;
+		int track_idx = 0;
 		Variant value;
 		String query;
-		bool advance;
+		bool advance = false;
 	}; /* insert_data;*/
 
 	Label *insert_confirm_text;
 	CheckBox *insert_confirm_bezier;
+	CheckBox *insert_confirm_reset;
 	ConfirmationDialog *insert_confirm;
 	bool insert_queue;
 	bool inserting;
@@ -370,9 +373,19 @@ class AnimationTrackEditor : public VBoxContainer {
 	uint64_t insert_frame;
 
 	void _query_insert(const InsertData &p_id);
+	Ref<Animation> _create_and_get_reset_animation();
 	void _confirm_insert_list();
-	int _confirm_insert(InsertData p_id, int p_last_track, bool p_create_beziers = false);
-	void _insert_delay();
+	struct TrackIndices {
+		int normal;
+		int reset;
+
+		TrackIndices(const Animation *p_anim = nullptr, const Animation *p_reset_anim = nullptr) {
+			normal = p_anim ? p_anim->get_track_count() : 0;
+			reset = p_reset_anim ? p_reset_anim->get_track_count() : 0;
+		}
+	};
+	TrackIndices _confirm_insert(InsertData p_id, TrackIndices p_next_tracks, bool p_create_reset, Ref<Animation> p_reset_anim, bool p_create_beziers);
+	void _insert_delay(bool p_create_reset, bool p_create_beziers);
 
 	void _root_removed(Node *p_root);
 
@@ -392,13 +405,13 @@ class AnimationTrackEditor : public VBoxContainer {
 	//selection
 
 	struct SelectedKey {
-		int track;
-		int key;
+		int track = 0;
+		int key = 0;
 		bool operator<(const SelectedKey &p_key) const { return track == p_key.track ? key < p_key.key : track < p_key.track; };
 	};
 
 	struct KeyInfo {
-		float pos;
+		float pos = 0;
 	};
 
 	Map<SelectedKey, KeyInfo> selection;
@@ -448,6 +461,7 @@ class AnimationTrackEditor : public VBoxContainer {
 
 	void _select_all_tracks_for_copy();
 
+	void _edit_menu_about_to_popup();
 	void _edit_menu_pressed(int p_option);
 	int last_menu_track_opt;
 
@@ -467,15 +481,15 @@ class AnimationTrackEditor : public VBoxContainer {
 	struct TrackClipboard {
 		NodePath full_path;
 		NodePath base_path;
-		Animation::TrackType track_type;
-		Animation::InterpolationType interp_type;
-		Animation::UpdateMode update_mode;
-		bool loop_wrap;
-		bool enabled;
+		Animation::TrackType track_type = Animation::TrackType::TYPE_ANIMATION;
+		Animation::InterpolationType interp_type = Animation::InterpolationType::INTERPOLATION_CUBIC;
+		Animation::UpdateMode update_mode = Animation::UpdateMode::UPDATE_CAPTURE;
+		bool loop_wrap = false;
+		bool enabled = false;
 
 		struct Key {
-			float time;
-			float transition;
+			float time = 0;
+			float transition = 0;
 			Variant value;
 		};
 		Vector<Key> keys;

@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -32,9 +32,9 @@
 
 #include "bullet_utilities.h"
 #include "cone_twist_joint_bullet.h"
-#include "core/class_db.h"
-#include "core/error_macros.h"
-#include "core/ustring.h"
+#include "core/error/error_macros.h"
+#include "core/object/class_db.h"
+#include "core/string/ustring.h"
 #include "generic_6dof_joint_bullet.h"
 #include "hinge_joint_bullet.h"
 #include "pin_joint_bullet.h"
@@ -461,7 +461,7 @@ void BulletPhysicsServer3D::body_set_space(RID p_body, RID p_space) {
 	}
 
 	if (body->get_space() == space) {
-		return; //pointles
+		return; //pointless
 	}
 
 	body->set_space(space);
@@ -561,14 +561,14 @@ void BulletPhysicsServer3D::body_clear_shapes(RID p_body) {
 }
 
 void BulletPhysicsServer3D::body_attach_object_instance_id(RID p_body, ObjectID p_id) {
-	CollisionObjectBullet *body = get_collisin_object(p_body);
+	CollisionObjectBullet *body = get_collision_object(p_body);
 	ERR_FAIL_COND(!body);
 
 	body->set_instance_id(p_id);
 }
 
 ObjectID BulletPhysicsServer3D::body_get_object_instance_id(RID p_body) const {
-	CollisionObjectBullet *body = get_collisin_object(p_body);
+	CollisionObjectBullet *body = get_collision_object(p_body);
 	ERR_FAIL_COND_V(!body, ObjectID());
 
 	return body->get_instance_id();
@@ -617,22 +617,22 @@ uint32_t BulletPhysicsServer3D::body_get_collision_mask(RID p_body) const {
 }
 
 void BulletPhysicsServer3D::body_set_user_flags(RID p_body, uint32_t p_flags) {
-	// This function si not currently supported
+	// This function is not currently supported
 }
 
 uint32_t BulletPhysicsServer3D::body_get_user_flags(RID p_body) const {
-	// This function si not currently supported
+	// This function is not currently supported
 	return 0;
 }
 
-void BulletPhysicsServer3D::body_set_param(RID p_body, BodyParameter p_param, float p_value) {
+void BulletPhysicsServer3D::body_set_param(RID p_body, BodyParameter p_param, real_t p_value) {
 	RigidBodyBullet *body = rigid_body_owner.getornull(p_body);
 	ERR_FAIL_COND(!body);
 
 	body->set_param(p_param, p_value);
 }
 
-float BulletPhysicsServer3D::body_get_param(RID p_body, BodyParameter p_param) const {
+real_t BulletPhysicsServer3D::body_get_param(RID p_body, BodyParameter p_param) const {
 	RigidBodyBullet *body = rigid_body_owner.getornull(p_body);
 	ERR_FAIL_COND_V(!body, 0);
 
@@ -807,11 +807,11 @@ int BulletPhysicsServer3D::body_get_max_contacts_reported(RID p_body) const {
 	return body->get_max_collisions_detection();
 }
 
-void BulletPhysicsServer3D::body_set_contacts_reported_depth_threshold(RID p_body, float p_threshold) {
+void BulletPhysicsServer3D::body_set_contacts_reported_depth_threshold(RID p_body, real_t p_threshold) {
 	// Not supported by bullet and even Godot
 }
 
-float BulletPhysicsServer3D::body_get_contacts_reported_depth_threshold(RID p_body) const {
+real_t BulletPhysicsServer3D::body_get_contacts_reported_depth_threshold(RID p_body) const {
 	// Not supported by bullet and even Godot
 	return 0.;
 }
@@ -862,7 +862,7 @@ bool BulletPhysicsServer3D::body_test_motion(RID p_body, const Transform &p_from
 	return body->get_space()->test_body_motion(body, p_from, p_motion, p_infinite_inertia, r_result, p_exclude_raycast_shapes);
 }
 
-int BulletPhysicsServer3D::body_test_ray_separation(RID p_body, const Transform &p_transform, bool p_infinite_inertia, Vector3 &r_recover_motion, SeparationResult *r_results, int p_result_max, float p_margin) {
+int BulletPhysicsServer3D::body_test_ray_separation(RID p_body, const Transform &p_transform, bool p_infinite_inertia, Vector3 &r_recover_motion, SeparationResult *r_results, int p_result_max, real_t p_margin) {
 	RigidBodyBullet *body = rigid_body_owner.getornull(p_body);
 	ERR_FAIL_COND_V(!body, 0);
 	ERR_FAIL_COND_V(!body->get_space(), 0);
@@ -898,7 +898,7 @@ void BulletPhysicsServer3D::soft_body_set_space(RID p_body, RID p_space) {
 	}
 
 	if (body->get_space() == space) {
-		return; //pointles
+		return; //pointless
 	}
 
 	body->set_space(space);
@@ -1059,16 +1059,16 @@ real_t BulletPhysicsServer3D::soft_body_get_linear_stiffness(RID p_body) {
 	return body->get_linear_stiffness();
 }
 
-void BulletPhysicsServer3D::soft_body_set_areaAngular_stiffness(RID p_body, real_t p_stiffness) {
+void BulletPhysicsServer3D::soft_body_set_angular_stiffness(RID p_body, real_t p_stiffness) {
 	SoftBodyBullet *body = soft_body_owner.getornull(p_body);
 	ERR_FAIL_COND(!body);
-	body->set_areaAngular_stiffness(p_stiffness);
+	body->set_angular_stiffness(p_stiffness);
 }
 
-real_t BulletPhysicsServer3D::soft_body_get_areaAngular_stiffness(RID p_body) {
+real_t BulletPhysicsServer3D::soft_body_get_angular_stiffness(RID p_body) {
 	SoftBodyBullet *body = soft_body_owner.getornull(p_body);
 	ERR_FAIL_COND_V(!body, 0.f);
-	return body->get_areaAngular_stiffness();
+	return body->get_angular_stiffness();
 }
 
 void BulletPhysicsServer3D::soft_body_set_volume_stiffness(RID p_body, real_t p_stiffness) {
@@ -1221,7 +1221,7 @@ RID BulletPhysicsServer3D::joint_create_pin(RID p_body_A, const Vector3 &p_local
 	CreateThenReturnRID(joint_owner, joint);
 }
 
-void BulletPhysicsServer3D::pin_joint_set_param(RID p_joint, PinJointParam p_param, float p_value) {
+void BulletPhysicsServer3D::pin_joint_set_param(RID p_joint, PinJointParam p_param, real_t p_value) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND(!joint);
 	ERR_FAIL_COND(joint->get_type() != JOINT_PIN);
@@ -1229,7 +1229,7 @@ void BulletPhysicsServer3D::pin_joint_set_param(RID p_joint, PinJointParam p_par
 	pin_joint->set_param(p_param, p_value);
 }
 
-float BulletPhysicsServer3D::pin_joint_get_param(RID p_joint, PinJointParam p_param) const {
+real_t BulletPhysicsServer3D::pin_joint_get_param(RID p_joint, PinJointParam p_param) const {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND_V(!joint, 0);
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_PIN, 0);
@@ -1309,7 +1309,7 @@ RID BulletPhysicsServer3D::joint_create_hinge_simple(RID p_body_A, const Vector3
 	CreateThenReturnRID(joint_owner, joint);
 }
 
-void BulletPhysicsServer3D::hinge_joint_set_param(RID p_joint, HingeJointParam p_param, float p_value) {
+void BulletPhysicsServer3D::hinge_joint_set_param(RID p_joint, HingeJointParam p_param, real_t p_value) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND(!joint);
 	ERR_FAIL_COND(joint->get_type() != JOINT_HINGE);
@@ -1317,7 +1317,7 @@ void BulletPhysicsServer3D::hinge_joint_set_param(RID p_joint, HingeJointParam p
 	hinge_joint->set_param(p_param, p_value);
 }
 
-float BulletPhysicsServer3D::hinge_joint_get_param(RID p_joint, HingeJointParam p_param) const {
+real_t BulletPhysicsServer3D::hinge_joint_get_param(RID p_joint, HingeJointParam p_param) const {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND_V(!joint, 0);
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_HINGE, 0);
@@ -1361,7 +1361,7 @@ RID BulletPhysicsServer3D::joint_create_slider(RID p_body_A, const Transform &p_
 	CreateThenReturnRID(joint_owner, joint);
 }
 
-void BulletPhysicsServer3D::slider_joint_set_param(RID p_joint, SliderJointParam p_param, float p_value) {
+void BulletPhysicsServer3D::slider_joint_set_param(RID p_joint, SliderJointParam p_param, real_t p_value) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND(!joint);
 	ERR_FAIL_COND(joint->get_type() != JOINT_SLIDER);
@@ -1369,7 +1369,7 @@ void BulletPhysicsServer3D::slider_joint_set_param(RID p_joint, SliderJointParam
 	slider_joint->set_param(p_param, p_value);
 }
 
-float BulletPhysicsServer3D::slider_joint_get_param(RID p_joint, SliderJointParam p_param) const {
+real_t BulletPhysicsServer3D::slider_joint_get_param(RID p_joint, SliderJointParam p_param) const {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND_V(!joint, 0);
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_SLIDER, 0);
@@ -1395,7 +1395,7 @@ RID BulletPhysicsServer3D::joint_create_cone_twist(RID p_body_A, const Transform
 	CreateThenReturnRID(joint_owner, joint);
 }
 
-void BulletPhysicsServer3D::cone_twist_joint_set_param(RID p_joint, ConeTwistJointParam p_param, float p_value) {
+void BulletPhysicsServer3D::cone_twist_joint_set_param(RID p_joint, ConeTwistJointParam p_param, real_t p_value) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND(!joint);
 	ERR_FAIL_COND(joint->get_type() != JOINT_CONE_TWIST);
@@ -1403,7 +1403,7 @@ void BulletPhysicsServer3D::cone_twist_joint_set_param(RID p_joint, ConeTwistJoi
 	coneTwist_joint->set_param(p_param, p_value);
 }
 
-float BulletPhysicsServer3D::cone_twist_joint_get_param(RID p_joint, ConeTwistJointParam p_param) const {
+real_t BulletPhysicsServer3D::cone_twist_joint_get_param(RID p_joint, ConeTwistJointParam p_param) const {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND_V(!joint, 0.);
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_CONE_TWIST, 0.);
@@ -1431,7 +1431,7 @@ RID BulletPhysicsServer3D::joint_create_generic_6dof(RID p_body_A, const Transfo
 	CreateThenReturnRID(joint_owner, joint);
 }
 
-void BulletPhysicsServer3D::generic_6dof_joint_set_param(RID p_joint, Vector3::Axis p_axis, G6DOFJointAxisParam p_param, float p_value) {
+void BulletPhysicsServer3D::generic_6dof_joint_set_param(RID p_joint, Vector3::Axis p_axis, G6DOFJointAxisParam p_param, real_t p_value) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND(!joint);
 	ERR_FAIL_COND(joint->get_type() != JOINT_6DOF);
@@ -1439,7 +1439,7 @@ void BulletPhysicsServer3D::generic_6dof_joint_set_param(RID p_joint, Vector3::A
 	generic_6dof_joint->set_param(p_axis, p_param, p_value);
 }
 
-float BulletPhysicsServer3D::generic_6dof_joint_get_param(RID p_joint, Vector3::Axis p_axis, G6DOFJointAxisParam p_param) {
+real_t BulletPhysicsServer3D::generic_6dof_joint_get_param(RID p_joint, Vector3::Axis p_axis, G6DOFJointAxisParam p_param) {
 	JointBullet *joint = joint_owner.getornull(p_joint);
 	ERR_FAIL_COND_V(!joint, 0);
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_6DOF, 0);
@@ -1461,22 +1461,6 @@ bool BulletPhysicsServer3D::generic_6dof_joint_get_flag(RID p_joint, Vector3::Ax
 	ERR_FAIL_COND_V(joint->get_type() != JOINT_6DOF, false);
 	Generic6DOFJointBullet *generic_6dof_joint = static_cast<Generic6DOFJointBullet *>(joint);
 	return generic_6dof_joint->get_flag(p_axis, p_flag);
-}
-
-void BulletPhysicsServer3D::generic_6dof_joint_set_precision(RID p_joint, int p_precision) {
-	JointBullet *joint = joint_owner.getornull(p_joint);
-	ERR_FAIL_COND(!joint);
-	ERR_FAIL_COND(joint->get_type() != JOINT_6DOF);
-	Generic6DOFJointBullet *generic_6dof_joint = static_cast<Generic6DOFJointBullet *>(joint);
-	generic_6dof_joint->set_precision(p_precision);
-}
-
-int BulletPhysicsServer3D::generic_6dof_joint_get_precision(RID p_joint) {
-	JointBullet *joint = joint_owner.getornull(p_joint);
-	ERR_FAIL_COND_V(!joint, 0);
-	ERR_FAIL_COND_V(joint->get_type() != JOINT_6DOF, 0);
-	Generic6DOFJointBullet *generic_6dof_joint = static_cast<Generic6DOFJointBullet *>(joint);
-	return generic_6dof_joint->get_precision();
 }
 
 void BulletPhysicsServer3D::free(RID p_rid) {
@@ -1541,7 +1525,7 @@ void BulletPhysicsServer3D::init() {
 	BulletPhysicsDirectBodyState3D::initSingleton();
 }
 
-void BulletPhysicsServer3D::step(float p_deltaTime) {
+void BulletPhysicsServer3D::step(real_t p_deltaTime) {
 	if (!active) {
 		return;
 	}
@@ -1553,10 +1537,14 @@ void BulletPhysicsServer3D::step(float p_deltaTime) {
 	}
 }
 
-void BulletPhysicsServer3D::sync() {
-}
-
 void BulletPhysicsServer3D::flush_queries() {
+	if (!active) {
+		return;
+	}
+
+	for (int i = 0; i < active_spaces_count; ++i) {
+		active_spaces[i]->flush_queries();
+	}
 }
 
 void BulletPhysicsServer3D::finish() {
@@ -1567,7 +1555,17 @@ int BulletPhysicsServer3D::get_process_info(ProcessInfo p_info) {
 	return 0;
 }
 
-CollisionObjectBullet *BulletPhysicsServer3D::get_collisin_object(RID p_object) const {
+SpaceBullet *BulletPhysicsServer3D::get_space(RID p_rid) const {
+	ERR_FAIL_COND_V_MSG(space_owner.owns(p_rid) == false, nullptr, "The RID is not valid.");
+	return space_owner.getornull(p_rid);
+}
+
+ShapeBullet *BulletPhysicsServer3D::get_shape(RID p_rid) const {
+	ERR_FAIL_COND_V_MSG(shape_owner.owns(p_rid) == false, nullptr, "The RID is not valid.");
+	return shape_owner.getornull(p_rid);
+}
+
+CollisionObjectBullet *BulletPhysicsServer3D::get_collision_object(RID p_object) const {
 	if (rigid_body_owner.owns(p_object)) {
 		return rigid_body_owner.getornull(p_object);
 	}
@@ -1577,15 +1575,20 @@ CollisionObjectBullet *BulletPhysicsServer3D::get_collisin_object(RID p_object) 
 	if (soft_body_owner.owns(p_object)) {
 		return soft_body_owner.getornull(p_object);
 	}
-	return nullptr;
+	ERR_FAIL_V_MSG(nullptr, "The RID is no valid.");
 }
 
-RigidCollisionObjectBullet *BulletPhysicsServer3D::get_rigid_collisin_object(RID p_object) const {
+RigidCollisionObjectBullet *BulletPhysicsServer3D::get_rigid_collision_object(RID p_object) const {
 	if (rigid_body_owner.owns(p_object)) {
 		return rigid_body_owner.getornull(p_object);
 	}
 	if (area_owner.owns(p_object)) {
 		return area_owner.getornull(p_object);
 	}
-	return nullptr;
+	ERR_FAIL_V_MSG(nullptr, "The RID is no valid.");
+}
+
+JointBullet *BulletPhysicsServer3D::get_joint(RID p_rid) const {
+	ERR_FAIL_COND_V_MSG(joint_owner.owns(p_rid) == false, nullptr, "The RID is not valid.");
+	return joint_owner.getornull(p_rid);
 }

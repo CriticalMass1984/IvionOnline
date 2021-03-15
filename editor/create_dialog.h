@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -78,7 +78,7 @@ class CreateDialog : public ConfirmationDialog {
 	void _hide_requested();
 
 	void _confirmed();
-	virtual void cancel_pressed();
+	virtual void cancel_pressed() override;
 
 	void _favorite_toggled();
 
@@ -102,7 +102,7 @@ protected:
 	void _save_and_update_favorite_list();
 
 public:
-	Object *instance_selected();
+	Variant instance_selected();
 	String get_selected_type();
 
 	void set_base_type(const String &p_base) { base_type = p_base; }
