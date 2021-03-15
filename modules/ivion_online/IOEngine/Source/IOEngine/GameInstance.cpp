@@ -81,12 +81,15 @@ void GameInstance::RevertHistory(IvionOnline::History *history) {
 		RevertMutation(&*it);
 	}
 }
-void GameInstance::Step() {
+bool GameInstance::Step() {
 	currentHistory_->Clear();
 	this->RootHistory.Clear();
 	currentHistory_ = &RootHistory;
 
-	assert(this->gamestate_.teams().element_size() > 0);
+	if(this->gamestate_.teams().element_size() <= 0)
+	{
+		return false;
+	}
 	int teamIdx = this->gamestate_.turnnumber().value() % this->gamestate_.teams().element_size();
 	for (IvionOnline::ObjectPath &playerPath : *gamestate_.mutable_teams()->mutable_element()->Mutable(teamIdx)->mutable_players()->mutable_element()) {
 		fprintf(stderr, "ObjectPath: %s\n", PrintObjectPath(playerPath).c_str());
@@ -119,6 +122,7 @@ void GameInstance::Step() {
 		}
 		// assert(anyGoodBranches); // passing the turn/priority should always be valid
 	}
+	return true;
 }
 
 bool GameInstance::MakeChoice(int choice) {
@@ -127,6 +131,10 @@ bool GameInstance::MakeChoice(int choice) {
 		return false;
 	}
 	if (choice >= currentHistory_->branches_size()) {
+		return false;
+	}
+	if(!currentHistory_->branches().Get(choice).is_good())
+	{
 		return false;
 	}
 	currentHistory_ = currentHistory_->mutable_branches()->Mutable(choice);

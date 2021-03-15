@@ -1,8 +1,10 @@
 #include <Godot/Card.hpp>
 
 #include <scene/3d/mesh_instance_3d.h>
+#include <scene/resources/packed_scene.h>
 
 #include <IOEngine/GameInstance.hpp>
+#include <cassert>
 
 namespace godot {
 //engine api
@@ -30,11 +32,13 @@ void Card::_bind_methods() {
 }
 
 //engine
-void Card::LoadCard(IO::Engine::GameInstance *instance, const std::string &archetype, const std::string &name) {
-	const IO::Engine::CardLibrary &library = instance->Library();
-	const IO::Engine::CardDef *cardDef = library.GetCard(archetype, name);
-	assert(cardDef);
-
+Card* Card::New() {
+	Ref<PackedScene> scene = ResourceLoader::load("res://Card.tscn", "PackedScene");
+	assert(scene->instance());
+	return Object::cast_to<Card>(scene->instance());
+}
+void Card::LoadImage(const std::string& image)
+{
 	Node *child = get_node_or_null(NodePath("Plane"));
 	assert(child);
 
@@ -42,7 +46,7 @@ void Card::LoadCard(IO::Engine::GameInstance *instance, const std::string &arche
 	assert(mesh);
 
 	char imageBuffer[128];
-	int count = snprintf(imageBuffer, 128, "CardImages/%s", cardDef->image_.c_str());
+	int count = snprintf(imageBuffer, 128, "CardImages/%s", image.c_str());
 	assert(count < 128);
 
 	Ref<Material> material = GetCardMaterial(imageBuffer);

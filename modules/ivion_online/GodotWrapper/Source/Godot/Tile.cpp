@@ -1,10 +1,17 @@
 #include <Godot/Tile.hpp>
 
 #include <scene/3d/mesh_instance_3d.h>
+#include <scene/resources/packed_scene.h>
 
 #include <IOEngine/GameInstance.hpp>
 
 namespace godot {
+Tile* Tile::New() {
+	Ref<PackedScene> scene = ResourceLoader::load("res://Tile.tscn", "PackedScene");
+	assert(scene->instance());
+	return Object::cast_to<Tile>(scene->instance());
+}
+
 //engine api
 bool Tile::MarkAsOption(int index) {
 	return this->IvionEntity::MarkAsOption(index);
@@ -42,11 +49,6 @@ void Tile::Delete() {
 
 void Tile::_bind_methods() {
 	// ClassDB::bind_method(D_METHOD("static_get_Tile_material", "path"), &Tile::StaticGetTileMaterial);
-}
-
-//engine
-void Tile::InitEngine(IO::Engine::GameInstance *instance, Vector2i pos) {
-	engineTile_ = &instance->Map[pos.y][pos.x];
 }
 
 Map<String, Ref<Material>> Tile::TileMaterialCache_;

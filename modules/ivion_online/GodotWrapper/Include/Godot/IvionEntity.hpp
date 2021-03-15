@@ -1,14 +1,19 @@
 #pragma once
 
+#include <GRPC/GameState.pb.h>
 #include <scene/3d/physics_body_3d.h>
 
 namespace godot {
+class BattleInstance;
+
 class IvionEntity : public CollisionObject3D {
 	GDCLASS(IvionEntity, CollisionObject3D);
 	int choiceIndex_{ -1 };
 
 public:
 	void _notification(int p_what);
+
+	void Move(BattleInstance *instance, const IvionOnline::Vec2i &);
 
 	//godot api
 	void _input_event(Node *p_camera, const Ref<InputEvent> &p_input_event, const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) override;
@@ -26,8 +31,8 @@ public:
 	virtual bool SelectAsChoice();
 
 	// godot callbacks
-	virtual void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
-	virtual void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape) {}
+	virtual void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
+	virtual void RightClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);
 	virtual void MouseEnter() {}
 	virtual void MouseLeave() {}
 	virtual void Init() {}
@@ -37,7 +42,7 @@ public:
 	IvionEntity() = default;
 	virtual ~IvionEntity() = default;
 
-protected:
+private:
 	static void _bind_methods();
 };
 } // namespace godot

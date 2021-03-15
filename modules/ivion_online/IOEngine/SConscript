@@ -50,14 +50,14 @@ def GetStaticLibs(directory):
 #env.StaticLibrary("Antlr4Runtime", GetSources("Extern/Antlr4Runtime/Source"), CPPPATH=["Extern/Antlr4Runtime/Include"], CXXFLAGS="-std=c++17")
 
 IncludeDirs = ["{}/{}".format(FILE_PATH, x)
-               for x in ["Include", "Extern/Install/GRPC/include"]] #
-Libraries = GetStaticLibs("Extern/Install/GRPC/lib") + GetSharedLibs("Extern/Install/GRPC/lib")
+               for x in ["Include", "IOEngine/Include", "IOEngine/Extern/Install/GRPC/include"]] #
+Libraries = GetSharedLibs("IOEngine/build")
 LibraryDir = ["{}/{}".format(FILE_PATH, x)
-              for x in ["build", "Extern/Install/GRPC/lib"]]
+              for x in ["build", "IOEngine/build"]]
 LinkerFlags = list()
 # build main library
 env.StaticLibrary(
-    "IOEngine",
+    "IvionEngine",
     GetSources("Source"),
     CPPPATH=IncludeDirs,
     CXXFLAGS="-std=c++17",

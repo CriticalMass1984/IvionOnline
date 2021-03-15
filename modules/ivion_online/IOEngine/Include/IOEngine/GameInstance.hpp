@@ -39,7 +39,7 @@ public:
 	IvionOnline::CardData *currentCard_{ nullptr };
 
 	// generates the paths
-	void Step();
+	bool Step();
 	
 	bool MakeChoice(int choice);
 };

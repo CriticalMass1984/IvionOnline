@@ -1,31 +1,34 @@
 #pragma once
 
 #include <scene/main/node.h>
-#include <Godot/IvionEntity.hpp>
 #include <IOEngine/GameInstance.hpp>
 
 namespace godot {
-class Player;
-class Tile;
+class IvionEntity;
 
 class BattleInstance : public Node {
 	GDCLASS(BattleInstance, Node);
-	std::unique_ptr<IO::Engine::GameInstance> gameInstance_;
 public:
-	std::vector<Player*> players_;
-	Tile* tiles_[4][4];
+	IvionOnline::GameInfo gameInfo_;
+	std::unique_ptr<IO::GameInstance> gameInstance_;
+	Vector<Transform> TileLocations;
+
+	//ivion entities
+	Map<void*, godot::IvionEntity*> entityMap_;
+	Vector<godot::IvionEntity*> options_;
 
 	BattleInstance();
 	~BattleInstance() = default;
-	
+
 	void _notification(int p_what);
+	
+	void Initialize(const IvionOnline::GameInfo& gameInfo);
 
 	//engine api
-	void SelectChoice(IvionEntity* choice);
-	void PresentChoices(const Vector<IvionEntity*>& choices);
+	void SelectChoice(int choice);
 
 protected:
-	Map<Node*, int> BranchIndexByNode;
+	Map<Node *, int> BranchIndexByNode;
 	static void _bind_methods();
 };
 } // namespace godot

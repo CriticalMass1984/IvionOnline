@@ -24,7 +24,9 @@ endif()
 
 
 file(GLOB_RECURSE SOURCES "Source/*.cpp" "Source/*.cc")
-add_library(IOEngine SHARED ${SOURCES})
+add_library(IOEngine SHARED
+  ${SOURCES}
+  )
 target_link_directories(IOEngine PUBLIC
   Extern/Install/GRPC/lib
 )

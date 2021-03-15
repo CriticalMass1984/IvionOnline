@@ -72,7 +72,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "*.inc": "cpp"
     },
     "files.watcherExclude": {
         "**/.git/objects/**": true,
@@ -82,7 +83,7 @@
         "**/Python-3.9.1/**": true,
         "**/build/**": true,
     },
-    "python.pythonPath": "PythonDev/bin/python3.9"
+    "python.pythonPath": "/usr/bin/python3.8"
     
     
 }

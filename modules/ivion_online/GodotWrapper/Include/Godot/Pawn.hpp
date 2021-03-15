@@ -14,6 +14,7 @@ class Pawn : public IvionEntity {
 	GDCLASS(Pawn, IvionEntity);
 
 public:
+
 	enum class Model {
 		NONE,
 		ARCHMAGE,
@@ -43,6 +44,8 @@ public:
 				return "Errant 4";
 		}
 	}
+	static Pawn* New(Pawn::Model m);
+
 	void SetModel(Model);
 
 	//engine api
@@ -59,7 +62,7 @@ public:
 	void Update(float deltaTime) override;
 	void Delete() override;
 
-protected:
+private:
 	static void _bind_methods();
 };
 } // namespace godot

@@ -3,18 +3,15 @@
 #include <scene/main/node.h>
 #include <Godot/IvionEntity.hpp>
 
-namespace IO {
-namespace Engine {
-class GameInstance;
-}
-} // namespace IO
-
 namespace godot {
+class BattleInstance;
+
 class Card : public IvionEntity {
 	GDCLASS(Card, IvionEntity);
 
 public:
-	void LoadCard(IO::Engine::GameInstance *instance, const std::string &archetype, const std::string &name);
+	static Card* New();
+	void LoadImage(const std::string& image);
 
 	//engine api
 	bool MarkAsOption(int index) override;
@@ -30,7 +27,7 @@ public:
 	void Update(float deltaTime) override;
 	void Delete() override;
 
-protected:
+private:
 	static void _bind_methods();
 
 	static Map<String, Ref<Material>> cardMaterialCache_;

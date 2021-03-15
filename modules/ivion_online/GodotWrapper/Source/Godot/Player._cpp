@@ -1,0 +1,28 @@
+#include <Godot/Player.hpp>
+
+#include <Godot/BattleInstance.hpp>
+
+#include <scene/main/window.h>
+#include <scene/resources/packed_scene.h>
+
+#include <fstream>
+
+namespace godot {
+
+void Player::_bind_methods() {
+}
+void Player::_notification(int p_what) {
+	switch (p_what) {
+		case NOTIFICATION_PREDELETE: {
+		} break;
+		case NOTIFICATION_READY: {
+		} break;
+		case NOTIFICATION_PROCESS: {
+			// float delta = get_process_delta_time();
+		} break;
+		default:
+			break;
+	}
+}
+
+} // namespace godot
