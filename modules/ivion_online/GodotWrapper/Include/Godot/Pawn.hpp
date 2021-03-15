@@ -59,6 +59,12 @@ public:
 	void Delete() override;
 
 private:
+	Ref<StandardMaterial3D> material_;
 	static void _bind_methods();
+
+	static Map<String, Ref<StandardMaterial3D>> PawnMaterialCache_;
+
+	//LoadedTestPawnImage.png
+	static Ref<StandardMaterial3D> GetPawnMaterial(const String &image);
 };
 } // namespace godot

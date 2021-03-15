@@ -14,8 +14,12 @@ Tile* Tile::New() {
 
 //engine api
 void Tile::MarkAsOption(int index) {
+	material_->set_albedo(Color(1.2, 1.2, 1.2, 1));
+	return this->IvionEntity::MarkAsOption(index);
 }
 void Tile::UnmarkAsOption() {
+	material_->set_albedo(Color(1, 1, 1, 1));
+	return this->IvionEntity::UnmarkAsOption();
 }
 void Tile::SelectAsChoice() {
 }
@@ -24,15 +28,15 @@ void Tile::SelectAsChoice() {
 void Tile::Init() {
 	fprintf(stderr, "Tile::Init()\n");
 
-	// Node *child = get_node_or_null(NodePath("Plane"));
-	// ERR_FAIL_NULL(child);
+	Node *child = get_node_or_null(NodePath("Plane"));
+	ERR_FAIL_NULL(child);
 
-	// MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
-	// ERR_FAIL_NULL(mesh);
+	MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
+	ERR_FAIL_NULL(mesh);
 
-	// Ref<Material> material = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
-	// ERR_FAIL_NULL(material);
-	// mesh->set_material_override(material);
+	material_ = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
+	ERR_FAIL_NULL(material_);
+	mesh->set_material_override(material_);
 }
 void Tile::Update(float deltaTime) {
 }
@@ -43,14 +47,14 @@ void Tile::_bind_methods() {
 	// ClassDB::bind_method(D_METHOD("static_get_Tile_material", "path"), &Tile::StaticGetTileMaterial);
 }
 
-Map<String, Ref<Material>> Tile::TileMaterialCache_;
+Map<String, Ref<StandardMaterial3D>> Tile::TileMaterialCache_;
 
-Ref<Material> Tile::GetTileMaterial(const String &imageName) {
+Ref<StandardMaterial3D> Tile::GetTileMaterial(const String &imageName) {
 	fprintf(stderr, "Tile::GetTileMaterial()\n");
 	// /home/zack/Documents/IvionOnline/Godot/editor/import/editor_import_collada.cpp
 
 	//look for a cached image
-	Map<String, Ref<Material>>::Element *element = Tile::TileMaterialCache_.find(imageName);
+	Map<String, Ref<StandardMaterial3D>>::Element *element = Tile::TileMaterialCache_.find(imageName);
 	if (element != nullptr) {
 		fprintf(stderr, "Existing material\n");
 		return element->value();

@@ -37,7 +37,7 @@ Pawn* Pawn::New(Pawn::Model m) {
 	ERR_FAIL_NULL_V(pawn, nullptr);
 	pawn->SetModel(m);
 
-	// pawn_->set_transform(root->GetTile(start)->get_transform());
+	// pawn_->set_transform(root->GetPawn(start)->get_transform());
 	return pawn;
 }
 void Pawn::SetModel(Model m) {
@@ -54,6 +54,62 @@ void Pawn::SetModel(Model m) {
 	Ref<Mesh> newMesh = ResourceLoader::load(meshName, "Mesh");
 
 	meshInstance->set_mesh(newMesh);
+
+	// set material
+	material_ = GetPawnMaterial("CardImages/ModelDefault.png");
+	ERR_FAIL_NULL(material_);
+	meshInstance->set_material_override(material_);
+}
+
+
+Map<String, Ref<StandardMaterial3D>> Pawn::PawnMaterialCache_;
+
+Ref<StandardMaterial3D> Pawn::GetPawnMaterial(const String &imageName) {
+	fprintf(stderr, "Pawn::GetPawnMaterial()\n");
+	// /home/zack/Documents/IvionOnline/Godot/editor/import/editor_import_collada.cpp
+
+	//look for a cached image
+	Map<String, Ref<StandardMaterial3D>>::Element *element = Pawn::PawnMaterialCache_.find(imageName);
+	if (element != nullptr) {
+		fprintf(stderr, "Existing material\n");
+		return element->value();
+	}
+
+	//load a new image
+	fprintf(stderr, "Loading %s\n", imageName.utf8().get_data());
+	Ref<Image> image = memnew(Image);
+	Error error = image->load(imageName);
+	if (error) {
+		fprintf(stderr, "Could not load image\n");
+		return nullptr;
+	}
+
+	fprintf(stderr, "Creating texture From Image\n");
+	Ref<ImageTexture> imageTexture = memnew(ImageTexture);
+	imageTexture->create_from_image(image);
+
+	fprintf(stderr, "Creating material From texture\n");
+	Ref<StandardMaterial3D> material = memnew(StandardMaterial3D);
+	material->set_texture(StandardMaterial3D::TEXTURE_ALBEDO, imageTexture);
+	material->set_albedo(Color(1, 1, 1, 1));
+
+	float shininess = 0.75;
+	float roughness = (shininess - 1.0) / 510;
+	material->set_roughness(roughness);
+
+	bool double_sided = false;
+	if (double_sided) {
+		material->set_cull_mode(StandardMaterial3D::CULL_DISABLED);
+	}
+	bool unshaded = true;
+	if (unshaded) {
+		material->set_shading_mode(StandardMaterial3D::SHADING_MODE_UNSHADED);
+	}
+
+	fprintf(stderr, "Caching material\n");
+	Pawn::PawnMaterialCache_[imageName] = material;
+	fprintf(stderr, "Done\n");
+	return material;
 }
 
 } // namespace godot

@@ -23,10 +23,11 @@ public:
 
 private:
 	static void _bind_methods();
+	Ref<StandardMaterial3D> material_;
 
-	static Map<String, Ref<Material>> TileMaterialCache_;
+	static Map<String, Ref<StandardMaterial3D>> TileMaterialCache_;
 
 	//LoadedTestTileImage.png
-	static Ref<Material> GetTileMaterial(const String &image);
+	static Ref<StandardMaterial3D> GetTileMaterial(const String &image);
 };
 } // namespace godot
