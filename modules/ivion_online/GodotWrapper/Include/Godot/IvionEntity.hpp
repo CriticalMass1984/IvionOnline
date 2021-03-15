@@ -22,13 +22,13 @@ public:
 
 	// engine api
 	//returns true if the marking was successful (it wasn't marked before)
-	virtual void MarkAsOption(int index);
+	virtual void MarkAsOption(int index){};
 
 	//returns true if the marking was successful (it was marked before)
-	virtual void UnmarkAsOption();
+	virtual void UnmarkAsOption(){};
 
 	//returns true if successful (branch index was valid, is marked as a choice). Also unmarks
-	virtual void SelectAsChoice();
+	virtual void SelectAsChoice(){};
 
 	// godot callbacks
 	void LeftClick(const Vector3 &p_pos, const Vector3 &p_normal, int p_shape);

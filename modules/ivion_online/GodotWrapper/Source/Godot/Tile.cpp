@@ -8,19 +8,16 @@
 namespace godot {
 Tile* Tile::New() {
 	Ref<PackedScene> scene = ResourceLoader::load("res://Tile.tscn", "PackedScene");
-	assert(scene->instance());
+	ERR_FAIL_NULL_V(scene->instance(), nullptr);
 	return Object::cast_to<Tile>(scene->instance());
 }
 
 //engine api
-bool Tile::MarkAsOption(int index) {
-	return this->IvionEntity::MarkAsOption(index);
+void Tile::MarkAsOption(int index) {
 }
-bool Tile::UnmarkAsOption() {
-	return this->IvionEntity::UnmarkAsOption();
+void Tile::UnmarkAsOption() {
 }
-bool Tile::SelectAsChoice() {
-	return this->IvionEntity::SelectAsChoice();
+void Tile::SelectAsChoice() {
 }
 
 //godot callbacks
@@ -31,9 +28,10 @@ void Tile::Init() {
 	// ERR_FAIL_NULL(child);
 
 	// MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
-	// assert(mesh);
+	// ERR_FAIL_NULL(mesh);
 
 	// Ref<Material> material = GetTileMaterial("CardImages/Calbria/Boards/HnH Back.png");
+	// ERR_FAIL_NULL(material);
 	// mesh->set_material_override(material);
 }
 void Tile::Update(float deltaTime) {

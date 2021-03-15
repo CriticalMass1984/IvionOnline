@@ -15,14 +15,11 @@ void Pawn::_bind_methods() {
 }
 
 //engine api
-bool Pawn::MarkAsOption(int index) {
-	return this->IvionEntity::MarkAsOption(index);
+void Pawn::MarkAsOption(int index) {
 }
-bool Pawn::UnmarkAsOption() {
-	return this->IvionEntity::UnmarkAsOption();
+void Pawn::UnmarkAsOption() {
 }
-bool Pawn::SelectAsChoice() {
-	return this->IvionEntity::SelectAsChoice();
+void Pawn::SelectAsChoice() {
 }
 //godot callbacks
 void Pawn::Init() {}
@@ -34,10 +31,10 @@ Pawn* Pawn::New(Pawn::Model m) {
 
 	fprintf(stderr, "Loading pawn scene\n");
 	Ref<PackedScene> scene = ResourceLoader::load("res://Pawn.tscn", "PackedScene");
-	assert(scene->instance());
+	ERR_FAIL_NULL_V(scene->instance(), nullptr);
 	auto* pawn = Object::cast_to<Pawn>(scene->instance());
 	fprintf(stderr, "class: %s\n", String(scene->instance()->get_class_name()).utf8().get_data());
-	assert(pawn);
+	ERR_FAIL_NULL_V(pawn, nullptr);
 	pawn->SetModel(m);
 
 	// pawn_->set_transform(root->GetTile(start)->get_transform());
@@ -49,7 +46,7 @@ void Pawn::SetModel(Model m) {
 	ERR_FAIL_NULL(child);
 
 	MeshInstance3D *meshInstance = Object::cast_to<MeshInstance3D>(child);
-	assert(meshInstance);
+	ERR_FAIL_NULL(meshInstance);
 
 	char meshName[64];
 	snprintf(meshName, 64, "res://CardImages/Calbria/Miniatures/%s.obj", GetModelName(m));

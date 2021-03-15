@@ -4,8 +4,8 @@
 namespace godot {
 void IvionEntity::Move(BattleInstance *instance, const IvionOnline::Vec2i &pos) {
 	const int tileIdx = pos.x() + pos.y() * instance->gameInfo_.mapsize().x();
-	assert(tileIdx >= 0);
-	assert(tileIdx < instance->TileLocations.size());
+	ERR_FAIL_COND(tileIdx >= 0);
+	ERR_FAIL_COND(tileIdx < instance->TileLocations.size());
 	this->set_transform(instance->TileLocations[tileIdx]);
 }
 
@@ -56,6 +56,7 @@ bool IvionEntity::__SelectAsChoice() {
 		return false;
 	}
 	SelectAsChoice();
+	UnmarkAsOption();
 	choiceIndex_ = -1;
 	return true;
 }

@@ -49,9 +49,9 @@ public:
 	void SetModel(Model);
 
 	//engine api
-	bool MarkAsOption(int index) override;
-	bool UnmarkAsOption() override;
-	bool SelectAsChoice() override;
+	void MarkAsOption(int index) override;
+	void UnmarkAsOption() override;
+	void SelectAsChoice() override;
 
 	// godot callbacks
 	void Init() override;

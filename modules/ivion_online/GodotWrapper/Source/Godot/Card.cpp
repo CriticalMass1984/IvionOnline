@@ -8,15 +8,15 @@
 
 namespace godot {
 //engine api
-bool Card::MarkAsOption(int index) {
+void Card::MarkAsOption(int index) {
+	material_->set_albedo(Color(1.2, 1.2, 1.2, 1));
 	return this->IvionEntity::MarkAsOption(index);
 }
-bool Card::UnmarkAsOption() {
+void Card::UnmarkAsOption() {
+	material_->set_albedo(Color(1, 1, 1, 1));
 	return this->IvionEntity::UnmarkAsOption();
 }
-bool Card::SelectAsChoice() {
-	material_->set_albedo(Color(1.2, 1.2, 1.2, 1));
-	return this->IvionEntity::SelectAsChoice();
+void Card::SelectAsChoice() {
 }
 
 //godot callbacks
@@ -35,20 +35,20 @@ void Card::_bind_methods() {
 //engine
 Card* Card::New() {
 	Ref<PackedScene> scene = ResourceLoader::load("res://Card.tscn", "PackedScene");
-	assert(scene->instance());
+	ERR_FAIL_NULL_V(scene->instance(), nullptr);
 	return Object::cast_to<Card>(scene->instance());
 }
 void Card::LoadImage(const std::string& image)
 {
 	Node *child = get_node_or_null(NodePath("Front"));
-	assert(child);
+	ERR_FAIL_NULL(child);
 
 	MeshInstance3D *mesh = Object::cast_to<MeshInstance3D>(child);
-	assert(mesh);
+	ERR_FAIL_NULL(mesh);
 
 	char imageBuffer[128];
 	int count = snprintf(imageBuffer, 128, "CardImages/%s", image.c_str());
-	assert(count < 128);
+	ERR_FAIL_COND(count < 128);
 
 	material_ = GetCardMaterial(imageBuffer);
 	mesh->set_material_override(material_);

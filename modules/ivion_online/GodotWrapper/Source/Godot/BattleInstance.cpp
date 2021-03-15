@@ -66,9 +66,9 @@ void BattleInstance::Initialize(const IvionOnline::GameInfo &gameInfo) {
 
 	fprintf(stderr, "Loading Tiles\n");
 	Node3D *const UL = Object::cast_to<Node3D>(this->get_node_or_null(NodePath("Tiles/UpperLeft")));
-	assert(UL);
+	ERR_FAIL_NULL(UL);
 	Node3D *const LR = Object::cast_to<Node3D>(this->get_node_or_null(NodePath("Tiles/LowerRight")));
-	assert(LR);
+	ERR_FAIL_NULL(LR);
 	Node *const tiles = this->get_node_or_null(NodePath("Tiles"));
 
 	const real_t width = (LR->get_transform().origin.x - UL->get_transform().origin.x) / 3;
@@ -91,7 +91,7 @@ void BattleInstance::Initialize(const IvionOnline::GameInfo &gameInfo) {
 	}
 
 	// Node *const pawnNode = this->get_node_or_null(NodePath("Pawns"));
-	// assert(pawnNode);
+	// ERR_FAIL_NULL(pawnNode);
 
 	for (int playerIdx = 0; playerIdx < gameInstance_->gamestate_.players().element_size(); ++playerIdx) {
 		auto *player = gameInstance_->gamestate_.mutable_players()->mutable_element()->Mutable(playerIdx);
@@ -104,10 +104,10 @@ void BattleInstance::Initialize(const IvionOnline::GameInfo &gameInfo) {
 		pawn->Move(this,  player->position());
 
 		// Node *const pawnNode = this->get_node_or_null(NodePath("Decks"));
-		// assert(pawnNode);
+		// ERR_FAIL_NULL(pawnNode);
 
 		// Node *const deckNode = this->get_node_or_null(NodePath("Decks"));
-		// assert(pawnNode);
+		// ERR_FAIL_NULL(pawnNode);
 
 		for (int cardIdx = 0; cardIdx < player->deck().element_size(); ++cardIdx) {
 			IvionOnline::Card *card = IO::ResolvePath<IvionOnline::Card>(gameInstance_.get(), player->mutable_deck()->mutable_element()->Mutable(cardIdx));
@@ -150,7 +150,7 @@ void BattleInstance::SelectChoice(int choice) {
 		}
 	}
 
-	assert(gameInstance_->currentHistory_);
+	ERR_FAIL_NULL(gameInstance_->currentHistory_);
 	if (gameInstance_->currentHistory_->branches_size() == 0) {
 		gameInstance_->Step();
 	}
