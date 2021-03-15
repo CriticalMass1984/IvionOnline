@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -37,15 +37,15 @@ class Node2D : public CanvasItem {
 	GDCLASS(Node2D, CanvasItem);
 
 	Point2 pos;
-	float angle;
-	Size2 _scale;
-	float skew;
-	int z_index;
-	bool z_relative;
+	float angle = 0.0;
+	Size2 _scale = Vector2(1, 1);
+	float skew = 0.0;
+	int z_index = 0;
+	bool z_relative = true;
 
 	Transform2D _mat;
 
-	bool _xform_dirty;
+	bool _xform_dirty = false;
 
 	void _update_transform();
 
@@ -56,20 +56,20 @@ protected:
 
 public:
 #ifdef TOOLS_ENABLED
-	virtual Dictionary _edit_get_state() const;
-	virtual void _edit_set_state(const Dictionary &p_state);
+	virtual Dictionary _edit_get_state() const override;
+	virtual void _edit_set_state(const Dictionary &p_state) override;
 
-	virtual void _edit_set_position(const Point2 &p_position);
-	virtual Point2 _edit_get_position() const;
+	virtual void _edit_set_position(const Point2 &p_position) override;
+	virtual Point2 _edit_get_position() const override;
 
-	virtual void _edit_set_scale(const Size2 &p_scale);
-	virtual Size2 _edit_get_scale() const;
+	virtual void _edit_set_scale(const Size2 &p_scale) override;
+	virtual Size2 _edit_get_scale() const override;
 
-	virtual void _edit_set_rotation(float p_rotation);
-	virtual float _edit_get_rotation() const;
-	virtual bool _edit_use_rotation() const;
+	virtual void _edit_set_rotation(float p_rotation) override;
+	virtual float _edit_get_rotation() const override;
+	virtual bool _edit_use_rotation() const override;
 
-	virtual void _edit_set_rect(const Rect2 &p_edit_rect);
+	virtual void _edit_set_rect(const Rect2 &p_edit_rect) override;
 #endif
 
 	void set_position(const Point2 &p_pos);
@@ -119,9 +119,9 @@ public:
 
 	Transform2D get_relative_transform_to_parent(const Node *p_parent) const;
 
-	Transform2D get_transform() const;
+	Transform2D get_transform() const override;
 
-	Node2D();
+	Node2D() {}
 };
 
 #endif // NODE2D_H
