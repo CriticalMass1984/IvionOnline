@@ -48,7 +48,7 @@ void Card::LoadImage(const std::string& image)
 
 	char imageBuffer[128];
 	int count = snprintf(imageBuffer, 128, "CardImages/%s", image.c_str());
-	ERR_FAIL_COND(count < 128);
+	ERR_FAIL_COND(count >= 128);
 
 	material_ = GetCardMaterial(imageBuffer);
 	mesh->set_material_override(material_);
